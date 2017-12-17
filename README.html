@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="计算机科学与人工智能" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="This is a practical direction to learn CS and AI for anyone who is interested in. Index Learn an introduction to CS course     Learn to code in (at least) one object-oriented programming language (C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="计算机科学与人工智能">
+<meta property="og:url" content="http://yoursite.com/README.html">
+<meta property="og:site_name" content="计算机科学与人工智能">
+<meta property="og:description" content="This is a practical direction to learn CS and AI for anyone who is interested in. Index Learn an introduction to CS course     Learn to code in (at least) one object-oriented programming language (C++">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-17T11:33:53.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机科学与人工智能">
+<meta name="twitter:description" content="This is a practical direction to learn CS and AI for anyone who is interested in. Index Learn an introduction to CS course     Learn to code in (at least) one object-oriented programming language (C++">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/README.html"/>
+
+
+
+
+
+  <title> | 计算机科学与人工智能</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">计算机科学与人工智能</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">入门/转行/持续学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>This is a practical direction to learn CS and AI for anyone who is interested in.</p>
+<h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><ol>
+<li><a href="#introduction-to-cs">Learn an introduction to CS course</a>    </li>
+<li><a href="#object-oriented-programming-language">Learn to code in (at least) one object-oriented programming language (C++, Java®, Python®)</a>  </li>
+<li><a href="other-programming-language">Learn other programming language</a>  </li>
+<li><a href="#test-your-code">Test your code</a>  </li>
+<li><a href="#logical-reasoning-and-knowledge-of-discrete-math">Develop logical reasoning and knowledge of discrete math</a>  </li>
+<li><a href="#algorithms-and-data-structures">Develop a strong understanding of algorithms and data structures</a>  </li>
+<li><a href="#machine-learning">Machine Learning</a>  </li>
+<li><a href="#computer-vision">Computer Vision</a>   </li>
+<li><a href="#natural-language-processing">Natural Language Processing</a>  </li>
+<li><a href="#reference">Reference</a></li>
+</ol>
+<h3 id="Introduction-to-CS"><a href="#Introduction-to-CS" class="headerlink" title="Introduction to CS"></a>Introduction to CS</h3><p>Focus on basic coding instructions. Online resources:</p>
+<ul>
+<li><a href="https://www.udacity.com/course/cs101" target="_blank" rel="noopener">Introduction to Computer Science, Udacity</a></li>
+<li><a href="https://cs50.harvard.edu/" target="_blank" rel="noopener">CS50x Harvard, Languages include C, Python, SQL, and JavaScript plus CSS and HTML</a></li>
+</ul>
+<h3 id="Object-oriented-programming-language"><a href="#Object-oriented-programming-language" class="headerlink" title="Object-oriented programming language"></a>Object-oriented programming language</h3><ul>
+<li><p>For beginning programmers:</p>
+<ul>
+<li><a href="https://see.stanford.edu/Course/CS106A" target="_blank" rel="noopener">Programming Methodology, Stanford CS106A, Java</a></li>
+<li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp14/" target="_blank" rel="noopener">Structure and Interpretation of Computer Programs, Berkeley University CS 61A, Python</a></li>
+<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-introduction-to-programming-in-java-january-iap-2010/index.htm" target="_blank" rel="noopener">Introduction to Programming in Java, MIT</a></li>
+<li><a href="https://developers.google.com/edu/python/" target="_blank" rel="noopener">Google’s Python Class</a></li>
+<li><a href="https://developers.google.com/edu/c++/" target="_blank" rel="noopener">Google’s C++ Class</a></li>
+</ul>
+</li>
+<li><p>For more experienced programmers:</p>
+<ul>
+<li><a href="http://datastructur.es/sp16/" target="_blank" rel="noopener">Data Structures, Berkeley University CS 61B, Java</a></li>
+<li><a href="https://www.udacity.com/course/design-of-computer-programs--cs212" target="_blank" rel="noopener">Design of Computer Programs, Udacity, Python</a></li>
+<li><a href="https://see.stanford.edu/Course/CS106B" target="_blank" rel="noopener">Programming Abstractions, Stanford CS106B, C++</a><br>Latest assignments: <a href="http://web.stanford.edu/class/cs106b/" target="_blank" rel="noopener">http://web.stanford.edu/class/cs106b/</a></li>
+<li><a href="https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html" target="_blank" rel="noopener">Book: Data Structures &amp; Algorithm Analysis in C++, 4th ed, by Mark A. Weiss</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Other-programming-language"><a href="#Other-programming-language" class="headerlink" title="Other programming language"></a>Other programming language</h3><ul>
+<li><p>Add to your repertoire:</p>
+<ul>
+<li><a href="#javascript">JavaScript®</a></li>
+<li><a href="#CSS-HTML">CSS &amp; HTML</a></li>
+<li><a href="#ruby">Ruby®</a></li>
+<li><a href="#lua">Lua</a></li>
+<li><a href="#php">PHP®</a></li>
+<li><a href="#haskell">Haskell</a></li>
+<li>Perl®</li>
+<li><a href="#go">Go</a></li>
+<li>Shell® script</li>
+<li>Lisp®</li>
+<li>Scheme®</li>
+</ul>
+</li>
+<li><p>General online resources:</p>
+<ul>
+<li><a href="https://cs50.harvard.edu/" target="_blank" rel="noopener">CS50x Harvard, Languages include C, Python, SQL, and JavaScript plus CSS and HTML</a></li>
+<li><a href="https://www.codecademy.com/learn" target="_blank" rel="noopener">Codecademy</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><ul>
+<li><a href="https://bento.io/topic/javascript" target="_blank" rel="noopener">Bento JavaScript Learning Track</a> (Bento)</li>
+<li><a href="https://egghead.io" target="_blank" rel="noopener">Egghead.io</a></li>
+<li><a href="https://www.learnhowtoprogram.com/javascript" target="_blank" rel="noopener">Learn how to program: JavaScript</a> - Epicodus Inc.</li>
+<li><a href="https://learnquery.infinum.co" target="_blank" rel="noopener">learn:query</a></li>
+</ul>
+<h4 id="CSS-amp-HTML"><a href="#CSS-amp-HTML" class="headerlink" title="CSS &amp; HTML"></a>CSS &amp; HTML</h4><ul>
+<li><a href="https://bento.io/topic/css" target="_blank" rel="noopener">Bento CSS Learning Track</a> (Bento)</li>
+<li><a href="https://bento.io/topic/html" target="_blank" rel="noopener">Bento HTML Learning Track</a> (Bento)</li>
+<li><a href="https://dash.generalassemb.ly" target="_blank" rel="noopener">Build a Personal Website with Dash</a></li>
+<li><a href="https://www.bloc.io/tutorials/webflow-tutorial-design-responsive-sites-with-webflow" target="_blank" rel="noopener">Build a responsive website with Webflow</a></li>
+<li><a href="https://www.bloc.io/tutorials/jottly-a-beginner-s-guide-to-html-css-skeleton-and-animate-css" target="_blank" rel="noopener">Build a SaaS landing page using Skeleton</a></li>
+<li><a href="http://cs75.tv/2010/fall/" target="_blank" rel="noopener">Build Dynamic Websites</a></li>
+<li><a href="http://www.thefirehoseproject.com/lessons/splash-page" target="_blank" rel="noopener">Code a personal splash page in 1 hour: A Hands-on Intro to HTML &amp; CSS</a></li>
+<li><a href="https://www.learnhowtoprogram.com/css" target="_blank" rel="noopener">Learn how to program: CSS</a> - Epicodus Inc.</li>
+<li><a href="https://www.udemy.com/learn-html5-programming-from-scratch/" target="_blank" rel="noopener">Learn HTML5 Programming From Scratch</a></li>
+</ul>
+<h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><ul>
+<li><a href="https://www.learnhowtoprogram.com/ruby" target="_blank" rel="noopener">Learn how to program: Ruby</a> - Epicodus Inc.</li>
+<li><a href="https://rubymonk.com" target="_blank" rel="noopener">RubyMonk - Interactive Ruby tutorials</a></li>
+</ul>
+<h4 id="Haskell"><a href="#Haskell" class="headerlink" title="Haskell"></a>Haskell</h4><ul>
+<li><a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals" target="_blank" rel="noopener">C9 : Functional Programming Fundamentals</a> - Erik Meijer</li>
+<li><a href="http://www.seas.upenn.edu/~cis194/" target="_blank" rel="noopener">CIS 194: Introduction to Haskell</a> - Brent Yorgey</li>
+<li><a href="http://www.scs.stanford.edu/11au-cs240h/notes/" target="_blank" rel="noopener">CS240h: Functional Systems in Haskell</a> - Bryan O’Sullivan</li>
+<li><a href="https://www.edx.org/course/introduction-functional-programming-delftx-fp101x-0" target="_blank" rel="noopener">edX: Introduction to Functional Programming</a> - Erik Meijer</li>
+<li><a href="https://videoag.fsmpi.rwth-aachen.de/?course=12ss-funkprog" target="_blank" rel="noopener">RWTH Aachen University: Functional Programming</a> - Jürgen Giesl</li>
+</ul>
+<h4 id="Lua"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</h4><ul>
+<li><a href="http://luatut.com/crash_course.html" target="_blank" rel="noopener">Lua Interactive Crash Course</a></li>
+<li><a href="http://www.tutorialspoint.com/lua/" target="_blank" rel="noopener">Lua Tutorial</a></li>
+</ul>
+<h4 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h4><ul>
+<li><a href="https://www.learnhowtoprogram.com/php" target="_blank" rel="noopener">Learn how to program: PHP</a> - Epicodus Inc.</li>
+</ul>
+<h4 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h4><ul>
+<li><a href="http://www.tutorialspoint.com/go/index.htm" target="_blank" rel="noopener">Go Tutorial</a></li>
+</ul>
+<h3 id="Test-your-code"><a href="#Test-your-code" class="headerlink" title="Test your code"></a>Test your code</h3><p>Learn how to catch bugs, create tests, and break your software.</p>
+<ul>
+<li><a href="https://www.udacity.com/course/software-testing--cs258" target="_blank" rel="noopener">Software Testing, Udacity</a></li>
+<li><a href="https://www.udacity.com/course/software-debugging--cs259" target="_blank" rel="noopener">Software Debugging, Udacity</a></li>
+</ul>
+<h3 id="Logical-reasoning-and-knowledge-of-discrete-math"><a href="#Logical-reasoning-and-knowledge-of-discrete-math" class="headerlink" title="Logical reasoning and knowledge of discrete math"></a>Logical reasoning and knowledge of discrete math</h3><ul>
+<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm" target="_blank" rel="noopener">Mathematics for Computer Science, MIT</a></li>
+<li><a href="https://www.coursera.org/learn/mathematical-thinking" target="_blank" rel="noopener">Introduction to Mathematical Thinking, Stanford, Coursera</a></li>
+<li><a href="https://www.coursera.org/course/pgm" target="_blank" rel="noopener">Probabilistic Graphical Models, Stanford, Coursera</a></li>
+<li><a href="https://www.coursera.org/course/gametheory" target="_blank" rel="noopener">Game Theory, Stanford and University of British Columbia, Coursera</a></li>
+</ul>
+<h3 id="Algorithms-and-data-structures"><a href="#Algorithms-and-data-structures" class="headerlink" title="Algorithms and data structures"></a>Algorithms and data structures</h3><p>Learn about fundamental data types (stack, queues, and bags), sorting algorithms (quicksort, mergesort, heapsort), data structures (binary search trees, red-black trees, hash tables), and Big O.</p>
+<ul>
+<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/" target="_blank" rel="noopener">Introduction to algorithms, MIT, fall 2011</a></li>
+<li><a href="https://www.coursera.org/course/algs4partI" target="_blank" rel="noopener">Algorithms, Princeton, Part 1</a> &amp; <a href="http://online.stanford.edu/course/algorithms-design-and-analysis-part-2" target="_blank" rel="noopener">Part2</a></li>
+<li><a href="https://www.coursera.org/specializations/algorithms" target="_blank" rel="noopener">Algorithms: Design and Analysis, Stanford</a>, <a href="http://online.stanford.edu/course/algorithms-design-and-analysis-part-1" target="_blank" rel="noopener">Part 1</a> &amp; <a href="http://online.stanford.edu/course/algorithms-design-and-analysis-part-2" target="_blank" rel="noopener">Part 2</a></li>
+<li><a href="http://algs4.cs.princeton.edu/home/" target="_blank" rel="noopener">Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne</a></li>
+<li><a href="https://github.com/parkjs814/AlgorithmVisualizer" target="_blank" rel="noopener">Tool: AlgorithmVisualizer</a></li>
+</ul>
+<h3 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h3><ul>
+<li><a href="https://see.stanford.edu/Course/CS229" target="_blank" rel="noopener">Machine Learning, Stanford University</a></li>
+</ul>
+<h3 id="Computer-Vision"><a href="#Computer-Vision" class="headerlink" title="Computer Vision"></a>Computer Vision</h3><ul>
+<li><a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">CS231n: Convolutional Neural Networks for Visual Recognition</a>, <a href="https://www.youtube.com/watch?v=6niqTuYFZLQ&amp;list=PLe7764SJVnV10-Nr7e0sBlC9J0LRf4sQo" target="_blank" rel="noopener">Video</a></li>
+</ul>
+<h3 id="Natural-Language-Processing"><a href="#Natural-Language-Processing" class="headerlink" title="Natural Language Processing"></a>Natural Language Processing</h3><ul>
+<li><a href="https://github.com/ShootingSpace/Self-to-Computer-Science-and-Artificial-Intelligence/blob/master/Note%20-%20AI125%20Accelerated%20Natural%20Language%20Processing%20UoE.md" target="_blank" rel="noopener">Accelerated Natural Language Processing, University of Edinburgh</a>, University of Edinburgh may be one of the top three in NLP.</li>
+<li><a href="https://www.youtube.com/playlist?list=PL6397E4B26D00A269" target="_blank" rel="noopener">Natural Language Processing, Stanford University</a></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.google.com/about/careers/students/guide-to-technical-development.html" target="_blank" rel="noopener">Guide to technical development from Google education</a><br><a href="https://github.com/EbookFoundation/free-programming-books" target="_blank" rel="noopener">OS Free Programming Books</a></p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="http://yoursite.com/README.html"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cong Chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ShootingSpace/" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/Ginntonic" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Index"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Index" class="headerlink" title="Index"></a>Index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-to-CS"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Introduction-to-CS" class="headerlink" title="Introduction to CS"></a>Introduction to CS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-oriented-programming-language"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Object-oriented-programming-language" class="headerlink" title="Object-oriented programming language"></a>Object-oriented programming language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-programming-language"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Other-programming-language" class="headerlink" title="Other programming language"></a>Other programming language</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS-amp-HTML"><span class="nav-number">4.2.</span> <span class="nav-text"><a href="#CSS-amp-HTML" class="headerlink" title="CSS &amp; HTML"></a>CSS &amp; HTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ruby"><span class="nav-number">4.3.</span> <span class="nav-text"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Haskell"><span class="nav-number">4.4.</span> <span class="nav-text"><a href="#Haskell" class="headerlink" title="Haskell"></a>Haskell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lua"><span class="nav-number">4.5.</span> <span class="nav-text"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP"><span class="nav-number">4.6.</span> <span class="nav-text"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Go"><span class="nav-number">4.7.</span> <span class="nav-text"><a href="#Go" class="headerlink" title="Go"></a>Go</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-your-code"><span class="nav-number">5.</span> <span class="nav-text"><a href="#Test-your-code" class="headerlink" title="Test your code"></a>Test your code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logical-reasoning-and-knowledge-of-discrete-math"><span class="nav-number">6.</span> <span class="nav-text"><a href="#Logical-reasoning-and-knowledge-of-discrete-math" class="headerlink" title="Logical reasoning and knowledge of discrete math"></a>Logical reasoning and knowledge of discrete math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Algorithms-and-data-structures"><span class="nav-number">7.</span> <span class="nav-text"><a href="#Algorithms-and-data-structures" class="headerlink" title="Algorithms and data structures"></a>Algorithms and data structures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-Learning"><span class="nav-number">8.</span> <span class="nav-text"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computer-Vision"><span class="nav-number">9.</span> <span class="nav-text"><a href="#Computer-Vision" class="headerlink" title="Computer Vision"></a>Computer Vision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Natural-Language-Processing"><span class="nav-number">10.</span> <span class="nav-text"><a href="#Natural-Language-Processing" class="headerlink" title="Natural Language Processing"></a>Natural Language Processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">11.</span> <span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/README.html';
+          this.page.identifier = 'README.html';
+          this.page.title = '';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shootingspace.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

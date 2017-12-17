@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="编程,Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="计算机科学与人工智能" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Python digestIntroductionLearn advanced python programming.Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice to an expert programmer">
+<meta name="keywords" content="编程,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python奇技淫巧">
+<meta property="og:url" content="http://yoursite.com/2017/12/16/Note - Python digest/index.html">
+<meta property="og:site_name" content="计算机科学与人工智能">
+<meta property="og:description" content="Python digestIntroductionLearn advanced python programming.Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice to an expert programmer">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-17T21:51:43.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python奇技淫巧">
+<meta name="twitter:description" content="Python digestIntroductionLearn advanced python programming.Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice to an expert programmer">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/16/Note - Python digest/"/>
+
+
+
+
+
+  <title>Python奇技淫巧 | 计算机科学与人工智能</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">计算机科学与人工智能</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">入门/转行/持续学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/Note - Python digest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算机科学与人工智能">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python奇技淫巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-16T22:31:52+00:00">
+                2017-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/16/Note - Python digest/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/12/16/Note - Python digest/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/16/Note - Python digest/" class="leancloud_visitors" data-flag-title="Python奇技淫巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Python-digest"><a href="#Python-digest" class="headerlink" title="Python digest"></a>Python digest</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Learn advanced python programming.<br>Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice to an expert programmer.<br>Practice going from a problem description to a solution, using a series of assignments.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://www.udacity.com/course/design-of-computer-programs--cs212" target="_blank" rel="noopener">CS212 Design of Computer Program @Udacity</a></li>
+<li><a href="https://classroom.udacity.com/courses/cs258/" target="_blank" rel="noopener">cs258 Testing @Udacity</a></li>
+<li><a href="https://www.udacity.com/course/software-debugging--cs259" target="_blank" rel="noopener">cs259 Debugging @Udacity</a></li>
+<li><a href="https://www.udacity.com/wiki/cs212" target="_blank" rel="noopener">CS212 Course Wiki @Udacity</a>  </li>
+<li><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener">The Python Tutorial</a>  </li>
+<li><a href="http://www.openbookproject.net/thinkcs/" target="_blank" rel="noopener">Open Book Project: How to Think Like a Computer Scientist: Learning with Python</a><h3 id="CS212-Syllabus-课程列表"><a href="#CS212-Syllabus-课程列表" class="headerlink" title="CS212 Syllabus 课程列表"></a>CS212 Syllabus 课程列表</h3></li>
+</ul>
+<ol>
+<li>Lesson 1: How to think to solve problem</li>
+<li>Lesson 2: Python features; Instrumentation</li>
+<li>Lesson 3: Build function as tools; Define language; Grammar</li>
+<li>Lesson 4: Dealing with Complexity Through Search</li>
+<li>Lesson 5: Dealing with Uncertainty Through Probability<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3></li>
+<li><a href="#solving-problem">Solving Problem</a></li>
+<li><a href="#program-design-and-development">Program Design and Development</a></li>
+<li><a href="#test">Test</a></li>
+<li><a href="#aspect-oriented-programming">Aspect-oriented programming</a></li>
+<li><a href="#function">Function</a></li>
+<li><a href="#regular-expression">Regular Expression</a></li>
+<li><a href="#string-formatting">String Formatting</a></li>
+<li><a href="#python-data-structure">Python data structure</a></li>
+<li><a href="#object-oriented-programming">Object oriented Programming</a></li>
+<li><a href="#descriptor">Descriptor</a></li>
+<li><a href="#operator">Operator</a><a id="more"></a>
+</li>
+</ol>
+<hr>
+<h3 id="Operator"><a href="#Operator" class="headerlink" title="Operator"></a><a href="https://docs.python.org/2/library/operator.html" target="_blank" rel="noopener">Operator</a></h3><h4 id="Emulating-numeric-types"><a href="#Emulating-numeric-types" class="headerlink" title="Emulating numeric types"></a><a href="">Emulating numeric types</a></h4><h5 id="in-place-operation-One-modifies-the-data-structure-itself"><a href="#in-place-operation-One-modifies-the-data-structure-itself" class="headerlink" title="in-place operation: One modifies the data-structure itself"></a>in-place operation: One modifies the data-structure itself</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">object.__iadd__(self, other)</span><br><span class="line">object.__isub__(self, other)</span><br><span class="line">object.__imul__(self, other)</span><br><span class="line">object.__imatmul__(self, other)</span><br><span class="line">object.__itruediv__(self, other)</span><br><span class="line">object.__ifloordiv__(self, other)</span><br><span class="line">object.__imod__(self, other)</span><br><span class="line">object.__ipow__(self, other[, modulo])</span><br><span class="line">object.__ilshift__(self, other)</span><br><span class="line">object.__irshift__(self, other)</span><br><span class="line">object.__iand__(self, other)</span><br><span class="line">object.__ixor__(self, other)¶</span><br><span class="line">object.__ior__(self, other)</span><br></pre></td></tr></table></figure>
+<p> These methods are called to implement the augmented arithmetic assignments. These methods should attempt to do the operation in-place (modifying self) and return the result (which could be, but does not have to be, self).<br> If x is an instance of a class with an <code>__iadd__()</code> method, <code>x += y</code> is equivalent to <code>x = operator.iadd(x, y)</code><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">B = np.arange(12).reshape(4,3)</span><br><span class="line">for b in B:</span><br><span class="line">    b += 1</span><br><span class="line">print(B) # B will be changed</span><br></pre></td></tr></table></figure></p>
+<h3 id="Object-oriented-Programming"><a href="#Object-oriented-Programming" class="headerlink" title="Object oriented Programming"></a>Object oriented Programming</h3><h4 id="Class-Name-Guidline"><a href="#Class-Name-Guidline" class="headerlink" title="Class Name Guidline"></a><a href="https://www.python.org/dev/peps/pep-0008/#id41" target="_blank" rel="noopener">Class Name Guidline</a></h4><ul>
+<li><a href="https://hackernoon.com/understanding-the-underscore-of-python-309d1a029edc" target="_blank" rel="noopener">underscore (_)</a>:<ul>
+<li>For storing the value of last expression in interpreter.  </li>
+<li>For ignoring the specific values. (so-called “I don’t care”)  </li>
+<li>To give special meanings and functions to name of vartiables or functions  <ul>
+<li>_single_leading_underscore: weak “internal use” indicator, declaring private variables, functions, methods and classes in a module. Anything with this convention are ignored in from module import *.</li>
+<li>single_trailing<em>underscore</em>: used by convention to avoid conflicts with Python keyword</li>
+<li><strong>double_leading_underscore: when naming a class attribute, invokes name mangling (inside class FooBar, </strong>boo becomes _FooBar__boo; see <a href="#designing-for-inheritance">Designing for inheritance</a>)</li>
+<li><strong>double_leading_and_trailing_underscore</strong>: “magic” objects or attributes that live in user-controlled namespaces. E.g. <strong>init</strong>, <strong>import</strong> or <strong>file</strong>. Never invent such names; only use them as documented. See <a href="#magic-attributes">Magic Attributes</a></li>
+</ul>
+</li>
+<li>To use as ‘Internationalization(i18n)’ or ‘Localization(l10n)’ functions.</li>
+<li>To separate the digits of number literal value.<h4 id="Designing-for-inheritance"><a href="#Designing-for-inheritance" class="headerlink" title="Designing for inheritance"></a><a href="https://www.python.org/dev/peps/pep-0008/#id49" target="_blank" rel="noopener">Designing for inheritance</a></h4></li>
+</ul>
+</li>
+<li>If your class is intended to be subclassed, and you have attributes that you do not want subclasses to use, consider naming them with double leading underscores and no trailing underscores. This invokes Python’s name mangling algorithm, where the name of the class is mangled into the attribute name. This helps avoid attribute name collisions should subclasses inadvertently contain attributes with the same name.<ul>
+<li>Note 1: Note that only the simple class name is used in the mangled name, so if a subclass chooses both the same class name and attribute name, you can still get name collisions.</li>
+<li>Note 2: Name mangling can make certain uses, such as debugging and <strong>getattr</strong>(), less convenient. However the name mangling algorithm is well documented and easy to perform manually.</li>
+<li>Note 3: Not everyone likes name mangling. Try to balance the need to avoid accidental name clashes with potential use by advanced callers.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Magic-Attributes"><a href="#Magic-Attributes" class="headerlink" title="Magic Attributes"></a><a href="https://docs.python.org/2/library/stdtypes.html#special-attributes" target="_blank" rel="noopener">Magic Attributes</a></h4><ul>
+<li><a href="">__init__</a></li>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#object.__dict__" target="_blank" rel="noopener">object.<strong>dict</strong></a>: A dictionary or other mapping object used to store an object’s (writable) attributes. Basically it contains all the attributes which describe the object under question. It can be used to alter or read the attributes.  </li>
+<li><a href=""><strong>call</strong></a></li>
+</ul>
+<h3 id="Solving-Problem"><a href="#Solving-Problem" class="headerlink" title="Solving Problem"></a>Solving Problem</h3><p>A general process to solve problem with three steps: understand, specify and design.</p>
+<ul>
+<li>Start with a vague understanding that you refine into a formal specification of a problem. In this step you want to take inventory of the concepts you are dealing with.</li>
+<li>Specify how this problem can be made amenable to being coded. What is the input and output? What output is desirable?</li>
+<li>Design working code  </li>
+</ul>
+<p>?? —-(1 Vague Understanding)–&gt;Formal specification of a problem —(2 Specify)—&gt;Amendable specification—(3 Design)—&gt;Working Code</p>
+<h3 id="Program-Design-and-Development"><a href="#Program-Design-and-Development" class="headerlink" title="Program Design and Development"></a>Program Design and Development</h3><h4 id="Dimensions-of-programming"><a href="#Dimensions-of-programming" class="headerlink" title="Dimensions of programming"></a>Dimensions of programming</h4><ul>
+<li>Correctness, Efficiency, Features, Elegance</li>
+<li>Each part takes time, learn to make Tradeoff:<ul>
+<li>During the process, generally Correctness comes first.<ul>
+<li>Test</li>
+</ul>
+</li>
+<li>But pursuing the 100% Correctness is not the best choice.</li>
+<li>There is a balance of tradeoff, and sometimes saving some time and efforts to improving the Efficiency or adding more Features may be a better option.</li>
+<li>Elegance is good for maintaining and improving the program, which means saving for the future. <strong>Refactoring</strong> - moving along the Elegance direction without changing the other dimensions.<ul>
+<li>DRY: don’t repeat yourself</li>
+<li>Reuse: save time and code lines, also reduce the possibility of mistake<h4 id="Coding-Style"><a href="#Coding-Style" class="headerlink" title="Coding Style"></a><a href="https://docs.python.org/3.5/tutorial/controlflow.html#intermezzo-coding-style" target="_blank" rel="noopener">Coding Style</a></h4>For Python, <a href="https://www.python.org/dev/peps/pep-0008" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008</a> has emerged as the style guide that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Here are the most important points extracted:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Use 4-space indentation, and no tabs.  </p>
+<p> 4 spaces are a good compromise between small indentation (allows greater nesting depth) and large indentation (easier to read). Tabs introduce confusion, and are best left out.</p>
+</li>
+<li><p>Wrap lines so that they don’t exceed 79 characters.</p>
+<p> This helps users with small displays and makes it possible to have several code files side-by-side on larger displays.</p>
+</li>
+<li><p>Use blank lines to separate functions and classes, and larger blocks of code inside functions.</p>
+</li>
+<li><p>When possible, put comments on a line of their own.</p>
+</li>
+<li><p>Use <a href="#docstring">docstrings</a>.</p>
+</li>
+<li><p>Use spaces around operators and after commas, but not directly inside bracketing constructs: <code>a = f(1, 2) + g(3, 4)</code>.</p>
+</li>
+<li><p>Name your classes and functions consistently; the convention is to use CamelCase for classes and lower_case_with_underscores for functions and methods. Always use self as the name for the first method argument (see <a href="https://docs.python.org/3.5/tutorial/classes.html#tut-firstclasses" target="_blank" rel="noopener">A First Look at Classes</a> for more on classes and methods).</p>
+</li>
+<li><p>Don’t use fancy encodings if your code is meant to be used in international environments. Python’s default, UTF-8, or even plain ASCII work best in any case.</p>
+</li>
+<li><p>Likewise, don’t use non-ASCII characters in identifiers if there is only the slightest chance people speaking a different language will read or maintain the code.</p>
+</li>
+</ul>
+<h4 id="Docstring"><a href="#Docstring" class="headerlink" title="Docstring"></a>Docstring</h4><p>An easy way to associate documentation with a function.</p>
+<ul>
+<li>Documentation Strings conventions<ul>
+<li>The first line should always be a short, concise summary of the object’s purpose.</li>
+<li>The second line should be blank</li>
+<li>The following lines should be one or more paragraphs describing the object’s calling conventions, its side effects, etc.</li>
+</ul>
+</li>
+<li><p>The following Python file shows the declaration of docstrings within a Python source file:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   &quot;&quot;&quot;Assuming this is file mymodule.py, then this string, being thefirst statement in the file, will become the &quot;mymodule&quot; module&apos;sdocstring when the file is imported.&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">   class MyClass(object):</span><br><span class="line">       &quot;&quot;&quot;The class&apos;s docstring&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">       def my_method(self):</span><br><span class="line">           &quot;&quot;&quot;The method&apos;s docstring&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">   def my_function():</span><br><span class="line">       &quot;&quot;&quot;The function&apos;s docstring&quot;&quot;&quot;</span><br><span class="line">   ```  </span><br><span class="line">* The following is an interactive session showing how the docstrings may be accessed:</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import mymodule&gt;&gt;&gt; help(mymodule)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p> Assuming this is file mymodule.py then this string, being thefirst statement in the file will become the mymodule modulesdocstring when the file is imported</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>help(mymodule.MyClass)The class’s docstring&gt;&gt;&gt; help(mymodule.MyClass.my_method)The method’s docstring&gt;&gt;&gt; help(mymodule.my_function)The function’s docstring&gt;&gt;&gt;</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Test</span><br><span class="line">It is important that each part of the specification gets turned into a piece of code that implements it and a test that tests it.</span><br><span class="line">* Extreme values</span><br><span class="line">#### [assert](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement)</span><br><span class="line">Insert debugging assertions into a program. Assertions are not a substitute for unit tests or system tests, but rather a complement.</span><br><span class="line">* [Using Assertions Effectively](http://wiki.python.org/moin/UsingAssertionsEffectively)</span><br><span class="line">   * Places to consider putting assertions:</span><br><span class="line">      * checking parameter types, classes, or values</span><br><span class="line">      * checking data structure invariants</span><br><span class="line">      * checking &quot;can&apos;t happen&quot; situations (duplicates in a list, contradictory state variables.)</span><br><span class="line">      * after calling a function, to make sure that its return is reasonable</span><br><span class="line">#### Time</span><br><span class="line">* Tracking time  </span><br><span class="line">   Track which part of the code is the bottle neck of efficiency</span><br><span class="line">   * \&gt;&gt; python -m cProfile file.py</span><br><span class="line">   * `import cProfile`, `cProfile.run(&apos;test()&apos;)`</span><br><span class="line"></span><br><span class="line">### Aspect-oriented programming</span><br><span class="line">* correct  </span><br><span class="line">* efficiency</span><br><span class="line">   * [Tracking time](#time): to find out the bottle neck function or algorithm</span><br><span class="line">   * Rethinking the implementation of the bottle neck</span><br><span class="line">      * Fewer</span><br><span class="line">      * Easier/smaller: [Divide and Conquer](https://github.com/ShootingSpace/Guide-to-Computer-Science/blob/master/Note%20-%20CS106B%20Stanford%20Programming%20Abstractions.md#divide-and-conquer)</span><br><span class="line">* debugging  </span><br><span class="line">Each part is done with some line of codes. Instead of mix different part of the code together, it would be better to define them as different function/class. Try to seperate them as much as possible.</span><br><span class="line"></span><br><span class="line">### Function</span><br><span class="line">There are many special and useful function implementation and control flow in python: lambda, map, filter, reduce, generator, etc..</span><br><span class="line"></span><br><span class="line">#### Lambda  </span><br><span class="line">λ, istead of defining function with `def` and a specific function name, Lambda provide a convinent way to define a function using its own native logic and methematical expression.   </span><br><span class="line">* The benifits are</span><br><span class="line">   * A small function could be defined wihtin the same code structure without seperating out a specific `def` function</span><br><span class="line">   * Without bothering creating any proper funciton name for a small anonymous function.  </span><br><span class="line">* Lambda implementation</span><br><span class="line">   * Like nested function definitions, lambda functions can reference variables from the containing scope, returning a function from another function. This is often used to create **function wrappers**, such as Python&apos;s decorators.</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code># uses a lambda expression to return a function
+&gt;&gt;&gt; def make_incrementor(n):
+...     return lambda x: x + n
+...
+&gt;&gt;&gt; f = make_incrementor(42)  # f is declared as a lambda function &quot;lambda x: x+42&quot; with parameter n = 42
+&gt;&gt;&gt; f(0) # call f with x=0 to return the
+42
+&gt;&gt;&gt; f(1)
+43
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   This is like creating a compiler to save process cost: some parameters like default values or initial values are compiled into the compiler, program process these parameter only once, then this compiler as a function could be called many times with other input parameters which varies every time the compiler is being called(like user input values).  </span><br><span class="line">* Pass a small function as an argument, sorting or max by an alternate key</span><br></pre></td></tr></table></figure>
+
+&gt;&gt;&gt; pairs = [(1, &apos;one&apos;), (2, &apos;two&apos;), (3, &apos;three&apos;), (4, &apos;four&apos;)]
+&gt;&gt;&gt; pairs.sort(key=lambda pair: pair[1])
+&gt;&gt;&gt; pairs
+[(4, &apos;four&apos;), (1, &apos;one&apos;), (3, &apos;three&apos;), (2, &apos;two&apos;)]
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<pre><code>&gt;&gt;&gt; l =[(&apos;x&apos;,2),(&apos;y&apos;,4),(&apos;z&apos;,0)]
+&gt;&gt;&gt; max(l, key = lambda x: x[0])
+&gt;&gt;&gt; (&apos;z&apos;, 0)   
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Lambda with logic control flow</span><br></pre></td></tr></table></figure>
+<pre><code>Lambda x,y: False if x&lt;y else x+y
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### [Filter](https://docs.python.org/2/library/functions.html#filter)</span><br><span class="line">Construct a list from the elements of an iterable for which function returns **true**. If iterable is a string or a tuple, the result also has that type; otherwise it is always a list.  </span><br><span class="line">* `filter(function, iterable)` equals to</span><br><span class="line">   * if function is `None`:  `[item for item in iterable if item] `</span><br><span class="line">   * if not: `[item for item in iterable if function(item)]`</span><br><span class="line">* `mult3 = filter(lambda x: x % 3 == 0, [1, 2, 3, 4, 5, 6, 7, 8, 9])` &gt;&gt;&gt; `[3, 6, 9]`</span><br><span class="line">* See [itertools.ifilter()](https://docs.python.org/2/library/itertools.html#itertools.ifilter) and [itertools.ifilterfalse()](https://docs.python.org/2/library/itertools.html#itertools.ifilterfalse) for iterator versions of this function, including a variation that filters for elements where the function returns false.</span><br><span class="line"></span><br><span class="line">#### [Map](https://docs.python.org/2/library/functions.html#map)  </span><br><span class="line">Apply function to every item of iterable and **return a list** of the results. If additional iterable arguments are passed, function must take that many arguments and is applied to the items from all iterables in parallel</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>map(lambda x: x % 2, [1, 2, 3, 4, 5, 6, 7, 8, 9])<br>[1, 0, 1, 0, 1, 0, 1, 0, 1]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### [Reduce](https://docs.python.org/2/library/functions.html#reduce)  </span><br><span class="line">Apply function of two arguments cumulatively to the items of iterable, from left to right, so as to reduce the iterable to a single value.</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>   In [1]: reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])<br>   Out[1]: 15 # ((((1+2)+3)+4)+5)<br>   In [1]: reduce(lambda a, b: ‘{}, {}’.format(a, b), [1, 2, 3, 4, 5, 6, 7, 8, 9])<br>   Out[1]: ‘1, 2, 3, 4, 5, 6, 7, 8, 9’<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### List/Dict/Set Comprehensions</span><br><span class="line">* List comprehensions: `[ s for r, s in cards if r in &apos;JQK&apos; ]`</span><br><span class="line">* Dictionary comprehensions: `&#123;x: x ** 2 for x in range(5) if x % 2 == 0&#125;`</span><br><span class="line">* Set comprehensions: `&#123;int(sqrt(x)) for x in range(30)&#125;`  </span><br><span class="line">* And in general, we can have any number of for statements, if statements, more for statements, more if statements. The whole is read from left to right</span><br><span class="line"></span><br><span class="line">#### [Generator Expressions](https://docs.python.org/2/reference/expressions.html#generator-expressions)  </span><br><span class="line">Unlike the for loop in the list comprehensions which walk through the whole loop, generator will walk one step in the for loop if a `next()` is called.</span><br><span class="line">* The advantage is</span><br><span class="line">   * less indentation</span><br><span class="line">   * stop the loop early</span><br><span class="line">   * easier to edit</span><br><span class="line">* Implementation of generator: `g = (sq(x) for x in range(10) if x%2 == 0).`  </span><br><span class="line">   * The generator function is a promise, but no computation has been done yet.</span><br><span class="line">   * `next(g)` to call a one-time calculation.</span><br><span class="line">   * When reaching the end of for-loop in the generator, the `next(g)` comment will return a false called &quot;StopIteration&quot;.</span><br><span class="line">   * To avoid the &quot;StopIteration&quot; false</span><br><span class="line">      * Use a outer for statement: `for xx in g: ...`</span><br><span class="line">      * convert the generator to list: `list(g)`</span><br><span class="line"></span><br><span class="line">#### Generator functions  </span><br><span class="line">Using a yield expression in a function definition is sufficient to cause that definition to create a generator function instead of a normal function.</span><br><span class="line">* [Yield expressions](https://docs.python.org/2/reference/expressions.html#yield-expressions)</span><br><span class="line">   The yield expression is only used when defining a generator function, and can only be used in the body of a function definition.  </span><br><span class="line">* [Yield implementation](https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/index.html)</span><br></pre></td></tr></table></figure></p>
+<p>   def ints(start, end=None):<br>       i = start<br>       while i &lt;= end or end is None:<br>           yield i<br>           i = i + 1<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>   def fab(max):<br>        n, a, b = 0, 0, 1<br>        while n &lt; max:<br>             yield b</p>
+<pre><code># print b
+a, b = b, a + b
+n = n + 1
+</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#### Iterator  </span><br><span class="line">* The true beneath `For Statemet` is **iterable**</span><br></pre></td></tr></table></figure>
+<pre><code>for x in itmes:
+     print x
+</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">What the whole truth is:</span><br></pre></td></tr></table></figure>
+<p>   it = iter(items)<br>   try:<br>        while True:<br>             x = next(it)<br>             print x<br>   except StopIteration:<br>        pass<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* Overall, Python calls the thing that can be iterated over in a for loop an iterable. Strings and lists are examples of iterables, and so are generators.</span><br><span class="line">* [itertools library](https://docs.python.org/2/library/itertools.html#module-itertools): Functions creating iterators for efficient looping</span><br><span class="line">* any(iterable): Return True if any element of the iterable is true. If the iterable is empty, return False.</span><br><span class="line"></span><br><span class="line">#### [Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#tut-unpacking-arguments)  </span><br><span class="line">The `*` operator simply unpacks the tuple or list and passes them as the positional arguments to the function.</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(range(3, 6))            # normal call with separate arguments<br>[3, 4, 5]<br>args = [3, 6]<br>list(range(*args))            # call with arguments unpacked from a list<br>[3, 4, 5]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#### Handling different types of argument (*polymorphism)  </span><br><span class="line">An argument could be different type:  </span><br><span class="line">   timedcalls(n,fn), if n is int `isinstance(n,int)`, it means controling the how many times fn was called, while n is float, it means controling the total runtime of fn called</span><br><span class="line"></span><br><span class="line">#### eval()</span><br><span class="line"></span><br><span class="line">### [Descriptor](https://docs.python.org/2/howto/descriptor.html)</span><br><span class="line">#### [Decorator](https://www.python.org/dev/peps/pep-0318/)</span><br><span class="line">* Motivation: when applying a transformation to a function `def f(self): ...definition...; f = dec(f)`, it becomes less readable with longer methods. It also seems less than pythonic to name the function three times for what is conceptually a single declaration.</span><br><span class="line">* The solution is to place the decoration in the function&apos;s declaration:</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>   @dec<br>   def foo(cls):<br>      pass</p>
+<ul>
+<li><p><a href="https://www.programiz.com/python-programming/property" target="_blank" rel="noopener">@property</a></p>
+<ul>
+<li><code>property(fget=None, fset=None, fdel=None, doc=None)</code></li>
+<li>A property object has three methods, getter(), setter(), and delete() to specify fget, fset and fdel at a later point.</li>
+<li><code>some_object = property(get_some_object,set_some_object)</code> equals to <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">      some_object = property()  # make empty property  </span><br><span class="line">      some_object = some_object.getter(get_some_object) # assign fget  </span><br><span class="line">      some_object = some_object.setter(set_some_object) # assign fset  </span><br><span class="line"></span><br><span class="line">* Decorator as tools</span><br><span class="line">   * Debug tool: help developping, count calls times, count excecute time  </span><br><span class="line">   * Performance: make the programme faster, such as dynamic programming algorithm  </span><br><span class="line">   * Expressiveness: doc string, explaining funciton  </span><br><span class="line">   * Trace: help to monitor the execution of the program, such as each level result printed with different indentation  </span><br><span class="line">* Disable decorator: `dec = disabled`, make the decorator disabled.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### [Regular Expression](https://docs.python.org/2/library/re.html)</span><br><span class="line">import re  </span><br><span class="line">[Reference: A Regular Expression Matcher](http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html)</span><br><span class="line"></span><br><span class="line">* In C language, any number start with &apos;0&apos; is interpreted as an octal number( base-8 number system )   </span><br><span class="line">      &apos;012&apos; -&gt; int 10,   </span><br><span class="line">      &apos;09&apos; -&gt; invalid</span><br><span class="line">* Special characters</span><br><span class="line">   * `*` match 0 or more repetitions of the preceding character. ab* will match ‘a’, ‘ab’, or ‘a’ followed by any number of ‘b’s.</span><br><span class="line">   * `?` Causes the resulting RE to match 0 or 1 repetitions of the preceding RE. ab? will match either ‘a’ or ‘ab’.</span><br><span class="line">   * `.` (Dot) matches any single character</span><br><span class="line">   * `^` (Caret) Matches the start of the string</span><br><span class="line">   * `$` Matches the end of the string or just before the newline at the end of the string, foo matches both ‘foo’ and ‘foobar’, while the regular expression foo$ matches only ‘foo’  </span><br><span class="line">   * `+` match 1 or more repetitions of the preceding RE. `ab+` will match ‘a’ followed by any non-zero number of ‘b’s; it will not match just ‘a’.</span><br><span class="line">* Commonly used expression</span><br><span class="line">   * Upper case letter `&apos;[A-Z]&apos;`</span><br><span class="line">   * Any alphanumeric character `[a-zA-Z0-9_]`</span><br><span class="line">   * Decimal digit `[0-9]`</span><br><span class="line">   * Non-digit character `[^0-9]`</span><br><span class="line">   * Whitespace character `[ \t\n\r\f\v]`</span><br><span class="line">* `search(string[, pos[, endpos]])`  </span><br><span class="line">   Scan through string looking for a location where this regular expression produces a match, and return a corresponding MatchObject instance. Return None if no position in the string matches the pattern.</span><br><span class="line">* `re.findall(pattern, string, flags=0)`  </span><br><span class="line">   Return all non-overlapping matches of pattern in string, as a list of strings.</span><br><span class="line"></span><br><span class="line">### [String Formatting](https://docs.python.org/2.4/lib/typesseq-strings.html)</span><br><span class="line">Modulo(%): String and Unicode objects have one unique built-in operation: the % operator (modulo). This is also known as the string formatting or interpolation operator. Given format % values (where format is a string or Unicode object), % conversion specifications in format are replaced with zero or more elements of values.</span><br><span class="line">   * `%d`:	Signed integer decimal.</span><br><span class="line">   * `%s`:	String (converts any python object using str()).</span><br><span class="line">   * `print &apos;%d: %s&apos; % (1, &apos;animal&apos;)` &gt;&gt; `1: animal`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Python data structure</span><br><span class="line">#### [Numpy indexing](https://docs.scipy.org/doc/numpy-dev/reference/arrays.indexing.html#indexing)</span><br><span class="line">* Ellipsis: The same as `...`. Special value used mostly in conjunction with extended slicing syntax for user-defined container data types. `a = [1,2,3], a[...] is actually the same as a`</span><br><span class="line">* None: extends one more demention by further slicing the corresponding c into smallest units.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>t = np.arange(27).reshape(3,3,3), #t shape is (3,3,3)<br>t[None,].shape # (1, 3, 3, 3)<br>t[…,None].shape # (3, 3, 3, 1)<br>t[:, None,:].shape # (3, 1, 3, 3)<br>t[:,:, None].shape # (3, 3, 1, 3)<br>```</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/16/cs/" rel="prev" title="CS学习路径和资料">
+                CS学习路径和资料 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2151950" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2151950" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="http://yoursite.com/2017/12/16/Note - Python digest/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cong Chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ShootingSpace/" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/Ginntonic" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-digest"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Python-digest" class="headerlink" title="Python digest"></a>Python digest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CS212-Syllabus-课程列表"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#CS212-Syllabus-&#x8BFE;&#x7A0B;&#x5217;&#x8868;" class="headerlink" title="CS212 Syllabus &#x8BFE;&#x7A0B;&#x5217;&#x8868;"></a>CS212 Syllabus &#x8BFE;&#x7A0B;&#x5217;&#x8868;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Note"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#Note" class="headerlink" title="Note"></a>Note</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator"><span class="nav-number">1.5.</span> <span class="nav-text"><a href="#Operator" class="headerlink" title="Operator"></a><a href="https://docs.python.org/2/library/operator.html" target="_blank" rel="noopener">Operator</a></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Emulating-numeric-types"><span class="nav-number">1.5.1.</span> <span class="nav-text"><a href="#Emulating-numeric-types" class="headerlink" title="Emulating numeric types"></a><a href="">Emulating numeric types</a></span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#in-place-operation-One-modifies-the-data-structure-itself"><span class="nav-number">1.5.1.1.</span> <span class="nav-text"><a href="#in-place-operation-One-modifies-the-data-structure-itself" class="headerlink" title="in-place operation: One modifies the data-structure itself"></a>in-place operation: One modifies the data-structure itself</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-oriented-Programming"><span class="nav-number">1.6.</span> <span class="nav-text"><a href="#Object-oriented-Programming" class="headerlink" title="Object oriented Programming"></a>Object oriented Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-Name-Guidline"><span class="nav-number">1.6.1.</span> <span class="nav-text"><a href="#Class-Name-Guidline" class="headerlink" title="Class Name Guidline"></a><a href="https://www.python.org/dev/peps/pep-0008/#id41" target="_blank" rel="noopener">Class Name Guidline</a></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Designing-for-inheritance"><span class="nav-number">1.6.2.</span> <span class="nav-text"><a href="#Designing-for-inheritance" class="headerlink" title="Designing for inheritance"></a><a href="https://www.python.org/dev/peps/pep-0008/#id49" target="_blank" rel="noopener">Designing for inheritance</a></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Magic-Attributes"><span class="nav-number">1.6.3.</span> <span class="nav-text"><a href="#Magic-Attributes" class="headerlink" title="Magic Attributes"></a><a href="https://docs.python.org/2/library/stdtypes.html#special-attributes" target="_blank" rel="noopener">Magic Attributes</a></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solving-Problem"><span class="nav-number">1.7.</span> <span class="nav-text"><a href="#Solving-Problem" class="headerlink" title="Solving Problem"></a>Solving Problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Program-Design-and-Development"><span class="nav-number">1.8.</span> <span class="nav-text"><a href="#Program-Design-and-Development" class="headerlink" title="Program Design and Development"></a>Program Design and Development</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dimensions-of-programming"><span class="nav-number">1.8.1.</span> <span class="nav-text"><a href="#Dimensions-of-programming" class="headerlink" title="Dimensions of programming"></a>Dimensions of programming</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding-Style"><span class="nav-number">1.8.2.</span> <span class="nav-text"><a href="#Coding-Style" class="headerlink" title="Coding Style"></a><a href="https://docs.python.org/3.5/tutorial/controlflow.html#intermezzo-coding-style" target="_blank" rel="noopener">Coding Style</a></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docstring"><span class="nav-number">1.8.3.</span> <span class="nav-text"><a href="#Docstring" class="headerlink" title="Docstring"></a>Docstring</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/12/16/Note - Python digest/';
+          this.page.identifier = '2017/12/16/Note - Python digest/';
+          this.page.title = 'Python奇技淫巧';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shootingspace.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
