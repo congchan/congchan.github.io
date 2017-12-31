@@ -1,8 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[算法与数据结构 06 - Java | 用数组构建数据列表 list - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-06-java-array-based-list%2F</url>
+    <content type="text"><![CDATA[列表 List前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（list）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考oracle官网）。 这里我们尝试以java的array为基础，实现一个列表，可以自动更改长度，以及其他可能的丰富与优化。在探索的过程中, 可以顺带学习很多相关的内容.使用自上而下的设计思想搭建一个框架:先写出最基础的部分, 也就是一个构造器，前面学过了整数数组，我们直接拿来用123456789101112131415161718/** Array based list. */// index 0 1 2 3 4 5 6 7// items: [6 9 -1 2 0 0 0 0 ...]// size: 5public class AList &#123; private int[] items; private int size; /** 构造一个初始容量100的数组，初始有效数据成员为0. */ public AList() &#123; items = new int[100]; size = 0; &#125; /** 下面添加其他方法 */&#125; 然后思考我们需要什么功能，把功能需求转化为实例方法instance method的形式，先把方法的外壳描绘出来，注释上该方法的功能（目的），输入值，返回值是什么之类的。具体的功能实现可以先空着，之后一步步丰富。 公共 vs 私有 Public vs. Private在上面的代码块中，可以看到 items 和 size 都被声明为 private 私有变量, 这样就只能被所在的java文件内调用. 私有变量和方法的设计初衷是服务于程序的内部功能实现, 而不是用来和外部程序(用户)进行交互的. 设置成私有, 可以避免这些变量和方法被外部程序直接调用, 避免用户通过不恰当/容易出错的方式修改某些变量. 在程序说明文档中, 一般也会明确说明程序提供什么公共变量和方法给用户调用. 通用数据类型 Generic我们不仅希望我们的列表可以存整数，也可以存其他类型的数据.在2004年，Java的设计者在语言中加入了泛型，使​​我们能够创建包含任何引用类型的数据结构（（引用类型和基本类型的解释参考另一篇文章, ）。方法就是在类声明的类名后面，使用一个任意的占位符，并用尖括号括住&lt;随便什么字符&gt;。然后，在任何你想使用泛型的地方，改用占位符。比如1234567public class Dog &#123; public class Dog &#123; public int item; ... &#125; ...&#125; 改为1234567public class Dog&lt;xxx&gt; &#123; public class Dog &#123; public xxx item; ... &#125; ...&#125; 12345678910public class AList&lt;Item&gt; &#123; private Item[] items; private int size; /** 构造一个初始容量100的数组，初始有效数据成员为0. */ public AList() &#123; items = (Item[]) new Object[100]; //会有编译警告, 暂时不管, 后面会解释 size = 0; &#125;&#125; &lt;Item&gt;里面的名称并不重要, 改为小猫小狗都一样, 只是一个标识符, 用来接受参数, 当用户实例化一个数组时, 可以int x = new AList 12345678910111213141516171819202122232425262728293031323334353637383940/** Array based list. */// index 0 1 2 3 4 5 6 7// items: [6 9 -1 2 0 0 0 0 ...]// size: 5public class AList &#123; private int[] items; private int size; /** 构造一个初始容量100的数组，实际有效数据成员为0. */ public AList() &#123; items = new int[100]; size = 0; &#125; /** 改变列表容量的值为 capacity 目标值. */ private void resize(int capacity) &#123; &#125; /** 把 X 插入到列表末尾. */ public void addLast(int x) &#123; &#125; /** 返回列表末尾的值. */ public int getLast() &#123; &#125; /** 返回第 i 个值 (0 是第一个). */ public int get(int i) &#123; &#125; /** 返回列表成员数. */ public int size() &#123; &#125; /** 删去列表最后一个值，并返回该值 */ public int removeLast() &#123; &#125;&#125; ### 具体实现过程我们设计列表的首要目标就是要能够更改列表的长度。我们设计时，预计程序内可能会调用一个方法来改变列表的长度，我们命名为resize(目标长度)123456/** 改变列表容量的值为 capacity 目标值. */private void resize(int capacity) &#123; int[] temp = new int[capacity]; System.arraycopy(items, 0, temp, 0, size); items = temp;&#125; /** 把 X 插入到列表末尾. */ public void addLast(int x) { } /** 返回列表末尾的值. */ public int getLast() { } /** 返回第 i 个值 (0 是第一个). */ public int get(int i) { } /** 返回列表成员数. */ public int size() { } /** 删去列表最后一个值，并返回该值 */ public int removeLast() { } }``` Lists implementationNon-static nested classinner class, Java内部类可以访问外部类的所有方法和变量（即使它们是私有的），就好像这些方法和变量已经在内部类中声明一样。但反过来则不成立，外部类不能直接访问内部类的成员。Java内部类只能通过外部类的实例来访问。 Nested static class如果嵌套类不需要使用SLList的任何实例方法或变量，则可以声明嵌套类为static，如下所示。将嵌套类声明为静态，意味着这个静态嵌套类里的方法不能访问外部类的任何成员，同时外部类不能直接访问静态嵌套类的成员变量，可以通过静态嵌套类来访问。make the nested class static]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法与数据结构 06 - Java |array 数组 - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-06-java-array%2F</url>
+    <content type="text"><![CDATA[数组 Array数组是一种特殊的对象，有一个固定的数组长度参数N，由一连串（N个）连续的带编号的内存块组成，每个都是相同的类型(不像Python可以包含不同类型)，索引从0到N-1编号。A[i]获得数组A的第i个元素。这与普通的类实例不同，类实例有具体变量名命名的内存块。 数组实例化，包含对象的数组 Array Instantiation, Arrays of Objects要创建最简单的整数数组, 有三种方式:123x = new int [3]; //创建一个指定长度的数组，并用默认值（0）填充每个内存块。y = new int [] &#123;1，2，3，4，5&#125;; //创建一个合适大小的数组，以容纳指定的初始值int [] z = &#123;9，10，11，12，13&#125;; //省略了new，只能结合变量声明使用。 创建一组实例化对象:12345678910public class DogArrayDemo &#123; public static void main(String[] args) &#123; /* Create an array of two dogs. */ Dog[] dogs = new Dog[2]; dogs[0] = new Dog(8); dogs[1] = new Dog(20); /* Yipping will result, since dogs[0] has weight 8. */ dogs[0].makeNoise(); &#125;&#125; 注意到new有两种不同的使用方式：一种是创建一个可以容纳两个Dog对象的数组，另外两个创建各个实际的Dog实例。 数组复制123x = new int[]&#123;-1, 2, 5, 4, 99&#125;;int[] b = &#123;9, 10, 11&#125;;System.arraycopy(b, 0, x, 3, 2); //效果类似于Python的`x[3:5] = b[0:2]` System.arraycopy的五个参数分别代表： 待复制的数组(源) 源数组复制起点 目标数组 目标数组粘贴起点 有多少项要复制 2D数组Java的二维数组实质上是一数组的数组, 即每一个数组元素里面也是一个数组。1234567891011121314151617int[][] matrix; //声明一个引用数组的数组matrix = new int[4][]; //创建四个内存块, 用默认null值填充, 之后用于储存对整数数组的引用, 即地址,int[] rowZero = matrix[0];/** 实例化整数数组, 把其地址/引用分别赋值给/储存到 matrix 的第N个内存块*/matrix[0] = new int[]&#123;1&#125;;matrix[1] = new int[]&#123;1, 1&#125;;matrix[2] = new int[]&#123;1, 2, 1&#125;;matrix[3] = new int[]&#123;1, 3, 3, 1&#125;;int[] rowTwo = matrix[2];rowTwo[1] = -5;/** 创建四个内存块, 其中每个被引用的整数数组长度为4,每个元素都是0.*/matrix = new int[4][4];int[][] matrixAgain = new int[][]&#123;&#123;1&#125;, &#123;1, 1&#125;,&#123;1, 2, 1&#125;, &#123;1, 3, 3, 1&#125;&#125;;]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法与数据结构 05 - Java | 数据类型 - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-05-java-variable-types%2F</url>
+    <content type="text"><![CDATA[数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因… 上面的定义有点抽象，要理解数据类型，需要先理解一个问题: 神秘的海象问题12345678/** 尝试预测下面的代码运行时会发生什么。b的变化是否会影响a？提示：类似Python。 */Walrus a = new Walrus(1000, 8.3);Walrus b;b = a;b.weight = 5;System.out.println(a);System.out.println(b); 12345678/** 同样尝试预测下面的代码运行时会发生什么。x的改变是否影响y？ */int x = 5;int y;y = x;x = 2;System.out.println("x is: " + x);System.out.println("y is: " + y); 首先给出答案, b的变化会影响a, 但x的改变不影响y，具体见可视化过程.这里的差别虽然微妙, 但其背后的原理对于数据结构的效率来说是非常重要的，对这个问题的深入理解也将引导我们写出更安全，更可靠的代码。 基本类型 Primative Types计算机中的所有信息都以一系列1和0的形式存储在内存中，这些二进制的0和1就是比特位（bits）。比如72和“H”在内存一般以01001000的形式存储，对他们的形式是一样的。一个引申问题就是：Java代码如何解释01001000，怎么知道应该解释为72还是“H”？ 通过类型types，预先定义好类型即可, 以下代码1234char x = 'H';int y = x;System.out.println(x);System.out.println(y); 会分别得到“H”和72. 在这种情况下，x和y变量都包含几乎相同的bits，但是Java解释器在输出时对它们进行了不同的处理。 Java有8种基本类型：byte，short，int，long，float，double，boolean和char。 变量声明 Declaring Variables计算机的内存可以视为包含大量用于存储信息的内存比特位，每个位都有一个唯一的地址。现代计算机可以使用许多这样的位。 当你声明一个特定类型的变量时，Java会用一串连续的内存位存储它。例如，如果你声明一个int，你会得到一个长度32的内存list，里面有32bits。Java中的每个数据类型都有不同的比特数。 除了留出内存空间外，Java解释器还会在一个内部表中创建一个条目，将每个变量名称映射到内存块中第一个位置（表头list head）。 例如，如果声明了int x和double y，那么Java可能会决定使用计算机内存的352到384位来存储x，而20800到20864位则用来存储y。然后解释器将记录int x从352开始，y从20800开始。 在Java语言里无法知道变量的具体内存位置，例如你不能以某种方式发现x在位置352。不像C++这样的语言，可以获取一段数据的确切地址。Java的这个特性是一个折衷！隐藏内存位置自然意味着程序猿的控制权更少，就无法做某些类型的优化。但是，它也避免了一大类非常棘手的编程错误。在现在计算成本如此低廉的时代，不成熟的优化还不如少点bug。 当声明一个变量时，Java不会在预留的内存位置中写入任何内容, 也即没有默认值。因此，如果没有赋值, Java编译器会阻止你使用变量。 以上只是内存分配的简要说明, 堆和栈的介绍可以参考我的CS106B C++笔记。 引用类型 Reference Types所有基本数据类型之外的类型都是引用类型。引用类型顾名思义，就是对对象的引用。在java中内存位置是不开放给程序员的, 但我们可以通过引用类型访问内存中某处对象。所有引用类型都是 java.lang.Object 类型的子类。 对象实例化 Object Instantiation对象实例化：当我们使用new（例 new Dog）实例化对象时，Java首先为类的每个实例变量分配一串长度合适的bits位，并用缺省值填充它们。然后，构造函数通常（但不总是）用其他值填充每个位置.123456789public static class Walrus &#123; public int weight; public double tuskSize; public Walrus(int w, double ts) &#123; weight = w; tuskSize = ts; &#125;&#125; 用new Walrus(1000, 8.3)创建一个Walrus实例后, 我们得到分别由一个32位(int weight = 1000)和一个64位(double tuskSize = 8.3)的内存块组成的实例：通过程序可视化过程)来更好地理解. 当然在Java编程语言的实际实现中，实例化对象时都有一些额外的内存开销, 这里不展开. 通过 new 实例化对象，new 会返回该对象的内存地址给我们，但假如我们没有用一个变量去接收这个地址，那么我们就无法访问这个对象。之后该对象会被作为垃圾回收。 引用变量声明 Reference Variable Declaration前面有提到，我们需要声明变量来接受实例化的对象在内存中的地址。当声明任何引用类型的变量（比如array, 前面的Dog类等）时，Java都会分配一串64位的内存位置. 这个64位的内存块仅用于记录变量的内存地址, 所谓内存地址, 可以理解为内存(房子)的编号(地址), 一般是内存块的表头位置的64位表达式1234Walrus someWalrus; // 创建一个64位的内存位置someWalrus = new Walrus(1000, 8.3); //创建一个新的实例/** 内存地址由 new 返回, 并被复制/赋值给 someWalrus 对应的内存位置*/ 比如, 假设weight是从内存位5051956592385990207开始存储的，后面连续跟着其他实例变量，那么就可以把5051956592385990207存储在Dog变量中。5051956592385990207由64位的二进制0100011000011100001001111100000100011101110111000001111000111111表达，这样smallDog的内存就可以抽象的理解为一个表smallDog: 0100011000011100001001111100000100011101110111000001111000111111 -&gt; 具体存放实例的内存(Walrus: weight=1000, tuskSize=8.3)‘-&gt;’可以理解为指针. 实例化数组在前面有介绍过，数组array是引用类型，是对象，故数组变量只是存储内存位置。 前面有提到，如果丢失了引用变量存储的内存地址，那么该地址对应的对象就找不回来了。例如，如果一个特定的 Walrus 地址的唯一副本存储在x中，那么x = null这行代码将删去地址，我们则丢失了这个 Walrus 对象。这也不一定是坏事，很多时候在完成了一个对象后就不在需要了，只需简单地丢弃这个参考地址就可以了。 Java 等值规则 Rule of Equals对于y = x，Java解释器会将x的位拷贝到y中,这个规则适用于java中任何使用=赋值的语法, 是理解开头的”神秘的海象”问题的关键. 基本类型变量的位, 存储赋值的值（基本类型）在内存中值(具体位数取决于具体的类型) 1234int x = 5; // 此时是把内存中的某一个地址 p 复制给 xint y;y = x; // y 也指向 px = 2; // 把一个新的内存地址 new p 复制给x, 但y还是指向原来的p x的位存储的是基本类型int 5(32 bits), x = 2是把新的基本类型int 2复制给x, 但y还是指向原来的int 5， 所以y没变化。 引用类型 reference type 变量的位, 存储赋值的值（引用类型）在内存中的地址(固定的64 bits) 1234Dog a = new Dog(5); // 创建一个64位的内存位, 并赋值一个新的实例 pDog b; // 仅创建一个64位的内存位, 没有引用内存地址(null)b = a; // 把a的位（是实例 p 的内存地址）复制给b, 这样 b 也是指向实例 pb.weight = 21; // 此时修改b, 会改写b指向的内存实例 p a和b只存储地址, 而它们的地址都指向相同的实例； 如果对 b 的修改本质是对 p的修改, 那么输出a.weight的时候, 就会变成21. 参数传递 Parameter Passing给函数传递参数，本质上也是赋值操作，参考上面的等值规则，也即复制这些参数的bits给函数，也称之为pass by value。Java的参数传递都是pass by value。至于传递过去的参数会不会因为函数内部的操作而更改，其判断原理在上面的等值规则已经阐明。]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法与数据结构 04 - Java | 类 class 02 类与实例 - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-04-java-class-02-class-instance%2F</url>
+    <content type="text"><![CDATA[Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法 vs 实例方法 Class Methods vs. Instance Methods参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();. 同理可推, 类方法无法调用实例变量. 可以看到实例方法更具体, 更贴近实体世界, 那我们仍需要类方法, 因为: 有些类不需要实例化, 毕竟我们也经常需要处理抽象的概念, 这些抽象概念在人类认知范畴内是统一的, 比如数学计算, 我们需要计算某个数值的平方根, x = Math.sqrt(100);, 拿来就用, 不需要先实例化. 这点在Python中体现得很好. 有些类有静态方法, 是有实际作用的。例如，若想比较一个类里面的不同实例, 比如两只狗的重量。比较简单的方法就是使用一个比较狗的重量的类方法: 123456789public static Dog maxDog(Dog d1, Dog d2) &#123; if (d1.weight &gt; d2.weight) &#123; return d1; &#125; return d2;&#125;Dog d = new Dog(15);Dog d2 = new Dog(100);Dog.maxDog(d, d2); 这个时候, 若使用实例方法也可以, 但没那么直观：12345678910/** 我们使用关键字this来引用当前对象d。*/public Dog maxDog(Dog d2) &#123; if (this.weight &gt; d2.weight) &#123; return this; &#125; return d2;&#125;Dog d = new Dog(15);Dog d2 = new Dog(100);d.maxDog(d, d2); 类变量 vs 实例变量 Class Variables vs. Instance Variables静态变量的也是有用处的。这些变量一般是类本身固有的属性。例如，我们可能需要用狗类的另一种生物学的统称“犬科”来作为类的说明， 这个时候可以用public static String binomen = &quot;犬科&quot;;，这个变量理论上是由类来访问的。虽然Java在技术上允许使用实例名称来访问静态变量，但是这有时候可能会令人困惑， 所以还是少用为好。 构造器 Constructors in Java与上面的DogLauncher实例化对象的方式相比, 我们更希望实例化可以带参数的，那样可以为我们节省手动给实例变量赋值的麻烦。为了启用这样的语法，我们只需把如下的构造函数直接添加进Dog类中：12345/**注意：构造函数与class类同名 */public Dog(int w) &#123; weight = w; &#125; 然后在DogLauncher里实例化一只狗时, 直接Dog d = new Dog(20);即可. 在以上代码的基础上, 后续当我们想使用new和参数创建一只狗时，可以随时调用public Dog(int w)构造函数。对于熟悉Python的人来说，你可以理解java的构造函数为Python的__init__。 一些术语: 声明(declaration): Dog smalldog;声明一个类作为一个变量在内存中占位 实例化: new Dog(20), 如果没有把它作为值赋给一个类声明变量,那么这个实例化的值会被垃圾回收. 声明, 实例化并赋值: Dog smalldog = new Dog(5)]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-04-java-class-01-intro%2F</url>
+    <content type="text"><![CDATA[ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。实例instance的概念后面会解释。 类（静态）变量和方法 Class(Static) Variables and Methods静态变量和方法的特征就是有static字符在前面.以下代码定义了一个类来模拟狗，包含一个类变量作为这个类的说明，一个类方法用于发出叫声：12345678public class Dog &#123; public static String instruction = "狗类实例"; //类变量, 说明 public static void makeNoise() &#123; System.out.println("汪!"); &#125;&#125; 这里没有定义main(), 在这种情况下如何直接运行这个类(java Dog), 程序是会报错的123错误: 在类 Dog 中找不到 main 方法, 请将 main 方法定义为: public static void main(String[] args)否则 JavaFX 应用程序类必须扩展javafx.application.Application`. 你可以选择在里面添加一个main()方法. 但这次我们选择不定义具体的main(). 具体要如何运行, 我们可以另写一个类定义一个main()方法来调用这个类.12345public class DogLauncher &#123; public static void main(String[] args) &#123; Dog.makeNoise(); &#125;&#125; 这两种方式(在类A内部定义好main() vs. 在其他类B定义main()来调用A)没有优劣之分, 二者有不同的适用情况. 随着不断深入学习，二者的区分将变得更清晰。 注意到, 类变量和方法是有局限性的。现实世界中, 并不是所有的狗都是一样的特征，仅仅靠类这个概念是无法区分不同个体的狗, 除非你为不同的狗定义不同的类（以及里面的变量和方法）, 那么就会很繁琐痛苦. 也就是说，用类来模拟个体是低效的，我们要使用实例. 实例变量和对象实例化 Instance Variables and Object Instantiation Java的类定义就像定义一张蓝图, 我们可以在这个蓝图的基础上, 生成不同的实例instance. 实例是概念性的说法，本质上在Java里就是对象object。这样的特性提供了一个很自然而然地在java中模拟生成实体世界的方法：定义一个狗的类，在这个类的基础上，通过不同的特征参数实例化不同特征的狗（instances），并使类方法的输出取决于特定实例的狗的属性。1234567891011121314/** 一只狗的类:*/public class Dog &#123; public int weight; public void makeNoise() &#123; if (weight &lt; 10) &#123; System.out.println("嘤嘤嘤!"); &#125; else if (weight &lt; 30) &#123; System.out.println("汪汪汪"); &#125; else &#123; System.out.println("嗷呜!"); &#125; &#125; &#125; 这里的方法和变量没有static, 所以是实例（非静态）方法和变量. 如果直接用 Dog 类来调用这些方法, 会报错:123456public class DogLauncher &#123; public static void main(String[] args) &#123; Dog.weight = 21; Dog.makeNoise(); &#125;&#125; 123456DogLauncher.java:3: 错误: 无法从静态上下文中引用非静态 变量 weight Dog.weight = 21; ^DogLauncher.java:4: 错误: 无法从静态上下文中引用非静态 方法 makeNoise() Dog.makeNoise(); ^ 这个时候, 你需要实例化一只狗, 让这个实例来调用非静态变量和方法:1234567public class DogLauncher &#123; public static void main(String[] args) &#123; Dog biglDog = new Dog(); biglDog.weight = 5; biglDog.makeNoise(); &#125;&#125; 运行时，这个程序将会创建一个重量为5的狗，这个狗就会“嗷呜”叫。 总的来说，之所以需要实例方法和变量，是因为我们需要模拟个体，一只具体的狗，并让它发出声音。这个weight和makeNoise()只能由具体的狗调用。狗类不能调用，也没有调用的意义, 毕竟每只狗的重量和声音都不同的. 在设计程序时, 如果其中一个方法我们只打算让特定的实例来调用它(而不让类去调用它), 那么这个方法应该设计成实例方法。]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法与数据结构 03 - Java |代码风格 注释 Javadoc - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-03-java-code-style-comments%2F</url>
+    <content type="text"><![CDATA[代码风格与注释 Code style and comments在学习和实践过程中，我们应该努力保持代码可读性。良好的编码风格的一些最重要的特点是： 一致的风格（间距，变量命名，缩进风格等） 大小（线不太宽，源文件不要太长） 描述性命名（变量，函数，类），例如变量或函数名称为年份或getUserName而不是x或f。让代码本身提供可解读性。 避免重复的代码：几乎不会有两个重要的代码块几乎相同，除了一些改变。 适当的评论, 使其他读者也能轻松理解你的代码 行注释: //分隔符开头行被当做注释。 Block（又名多行注释）注释: /*, */, 但我们更推荐javadoc形式的注释。 JavadocJavadoc: / **，*/, 可以（但不总是）包含描述性标签。 借助javadoc工具可以生成HTML格式的API文档。第一段是方法的描述。描述下面是不同的描述性标签, 比如参数 @param， 返回值 @return， 可能抛出的任何异常 @throws123456789/** * @author 名字，邮箱&lt;address @ example.com&gt; * @version 1.6 版本 * @param * @return */public class Test &#123; // class body&#125;]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法与数据结构 02 - Java |语法基础 - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-02-java-basic-syntax%2F</url>
+    <content type="text"><![CDATA[Java基本语法12345public class HelloWorld &#123; public static void main(String[] args) &#123; System.out.println("Hello world!"); &#125;&#125; 上面的程序由一个类声明组成，该声明使用关键字public class声明。 Java所有的代码都应该包含在class里面。 真正负责运行的代码，是一个名为main的method，它声明为public static void main(String[] args)。 public：公共的，大部分方法都是以这个关键字开始的，后面会进一步解释。 static：这是一个静态方法，不与任何特定的实例关联，后面会解释。 void：它没有返回类型。 main：这是方法的名称。 String [] args：这是传递给main方法的参数。 使用大括号{ }来表示一段代码的开始和结束。 声明必须以分号结尾 静态分类 Static Typing程序语言静态与动态的分类，可以参考oracle的说明文件，它解释了动态和静态类型之间的区别, 帮助你理解由程序的错误提示信息。两个主要区别:1. 动态类型语言在运行时执行类型检查，而静态类型语言在编译时执行类型检查。这意味如果以静态类型语言（如Java）编写的脚本包含错误，则在编译错误之前将无法编译. 而用动态类型语言编写的脚本可以编译，即使它们包含会阻止脚本正常运行（如果有的话）的错误。2. 静态类型语言要求你在使用它们之前声明变量的数据类型，而动态类型语言则不需要。考虑以下两个代码示例：123// Javaint num;num = 5; 12# Pythonnum = 5 这两段代码都创建一个名为num的变量并赋值为5. 不同之处在于Java需要将num的数据类型明确定义为int。因为Java是静态类型的，因此它期望变量在被赋值之前被声明。 Python是动态类型的，不需要定义类型, Python根据变量的值确定其数据类型。动态类型语言更加灵活，在编写脚本时可以节省时间和空间。但是，这可能会导致运行时出现问题。例如：123# pythonnumber = 5numbr = (number + 15) / 2 #注意错字 上面的代码本应创建一个值为5的可变数字，然后将其加上15并除以2以得到10. 但是，number在第二行的开头拼写错误。由于Python不需要声明变量，因此会不由分说直接创建一个名为numbr的新变量，并把本应分配给number的值分配给它。这段代码会很顺利编译，但是如果程序试图用number来做某事，程序员假设它的值是10，那么后续就无法产生期望的结果,而且还很难注意到问题。 Java的compiler其中一个关键作用是进行静态类型检查（static type check）。若前面定义了 int x = 0;, 那么后面若给x赋值其他的类型值x = &#39;horse&#39;;, compiler就会报错. 这样就保证了程序不会出现类型错误. 除了错误检查外, static types 也可以让程序媛/猿知道自己处的是什么对象. 总而言之，静态类型具有以下优点： 编译器确保所有类型都是兼容的，这使得程序员更容易调试他们的代码。 由于代码保证没有类型错误，所以编译后程序的用户将永远不会遇到类型错误。例如，Android应用程序是用Java编写的，通常仅以.class文件的形式分发，即以编译的格式。因此，这样的应用程序不应该由于类型错误而崩溃。 每个变量，参数和函数都有一个声明的类型，使程序员更容易理解和推理代码。 Code Style, Comments, Javadoc在学习和实践过程中，我们应该努力保持代码可读性。良好的编码风格的一些最重要的特点是： 一致的风格（间距，变量命名，缩进风格等） 大小（线不太宽，源文件不要太长） 描述性命名（变量，函数，类），例如变量或函数名称为年份或getUserName而不是x或f。让代码本身提供可解读性。 避免重复的代码：几乎不会有两个重要的代码块几乎相同，除了一些改变。 适当的评论, 使其他读者也能轻松理解你的代码 行注释: //分隔符开头行被当做注释。 Block（又名多行注释）注释: /*, */, 但我们更推荐javadoc形式的注释。 Javadoc: / **，*/, 可以（但不总是）包含描述性标签。 借助javadoc工具可以生成HTML格式的API文档。第一段是方法的描述。描述下面是不同的描述性标签, 比如参数 @param， 返回值 @return， 可能抛出的任何异常 @throws123456789/** * @author 名字，邮箱&lt;address @ example.com&gt; * @version 1.6 版本 * @param * @return */public class Test &#123; // class body&#125;]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法与数据结构 01 - Java |安装 - CS61B Berkeley]]></title>
+    <url>%2FNOTE-CS61B-data-structures-01-java-install%2F</url>
+    <content type="text"><![CDATA[Hellow WorldJava安装与配置安装Java，前往Oracle下载java sdk，我用的是Java SE 8u151/ 8u152 版本。安装sdk时会同时安装sdr。 Windows系统配置: 推荐安装git bash, 一切按照默认安装就好. 更新系统环境变量: 直接在运行中搜索Environment Variables, 选择编辑系统环境变量, 在弹出的框中选择高级-&gt;环境变量, 在弹出的框中系统变量里面 新建变量: 变量名 = JAVA_HOME, 变量值 = 你的jdk路径,如C:\Program Files\Java\jdk1.8.0_151 编辑Path: 在前面加入%JAVA_HOME%\bin;%PYTHON_HOME%;(请注意，不能有空格.) OS X系统配置: 安装Homebrew，一个非常好用的包管理工具。要安装，请在terminal终端输入ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;(注意：在此过程中，可能会提示输入密码。当输入密码时，终端上不会显示任何内容，但计算机还是会记录你的密码的。这是一个安全措施, 让其他人在屏幕上看不到你的密码。只需输入您的密码，然后按回车。) 然后，通过输入以下命令来检查brew系统是否正常工作brew doctor. 如果遇到警告，要求下载命令行工具，则需要执行此操作。请参考这个StackOverflow。 安装git：输入brew install git 安装并配置好java后，测试是否成功:随便在你喜欢的文件夹里新建一个java文件HelloWorld.java12345public class HelloWorld &#123; public static void main(String[] args) &#123; System.out.println("Hello world!"); &#125;&#125; 你可以选择用sublime来快速新建文件, 直接在你选择的文件里右键 git bash, 在git bash 里面键入subl HelloWorld.java, 还自动启动sublime并新建一个空白的HelloWorld.java文件, 把上面的代码复制进去并保存即可. (若出现类似提示: 找不到subl command, 解决办法请参考博文两步实现在Git Bash中用Sublime打开文件 )开始真正的测试。直接在之前打开的git bash中输入: ls, 会看到HelloWorld.java这个文件, ls会列出这个目录中的文件/文件夹 javac HelloWorld.java, 理论上这一步不会有任何输出，有的话可能是设置有问题。现在，如果你继续ls，会看到多了一个HelloWorld.class文件， 这是javac创建的。 java HelloWorld (注意没有.java), 会看到输出Hello World, 表明你的Java设置没有问题]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>Java</tag>
+        <tag>软件工程</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>cs61b</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[AI入门到进阶]]></title>
-    <url>%2F2017%2F12%2F17%2Fai%2F</url>
+    <url>%2Fai%2F</url>
     <content type="text"><![CDATA[简介记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。 Language:English 目录 人工智能 机器学习 深度学习 自然语言处理 计算机视觉 机器人 大数据 MapReduce 人工智能机器学习 Coursera Machine Learning， 吴恩达的简化版机器学习 Machine Learning, 吴恩达的机器学习课程 这个比较深入 Machine Learning Engineer nanodegree, Udacity Deep Learning, 吴恩达的深度学习课程 Neural Networks for Machine Learning, Hinton的神经网络课程 深度学习 Deep learning, Coursera Machine Learning Practical 每个lab的答案在下一个lab branch里，即lab1的答案可以在lab2 branch里面看到。这个代码全部用Python class，比coursera的难度高点。 自然语言处理 自然语言处理, 斯坦福 加速自然语言处理, 爱丁堡大学 深度学习处理自然语言，斯坦福 计算机视觉 图像识别：卷积神经网络，李飞飞，斯坦福 机器人 机器人入门，斯坦福 大数据MapReduce Hadoop和MapReduce入门，优达学城 MapReduce极限计算，爱丁堡大学 并行计算入门：MPI, openMP, and CUDA, 斯坦福 参考:Guide to technical development from Google educationOS Free Programming Books]]></content>
       <categories>
         <category>学习笔记</category>
@@ -10,8 +146,8 @@
       </categories>
       <tags>
         <tag>人工智能</tag>
-        <tag>自然语言处理</tag>
         <tag>机器学习</tag>
+        <tag>自然语言处理</tag>
         <tag>深度学习</tag>
         <tag>计算机视觉</tag>
         <tag>大数据</tag>
@@ -19,7 +155,7 @@
   </entry>
   <entry>
     <title><![CDATA[CS入门到进阶]]></title>
-    <url>%2F2017%2F12%2F16%2Fcs%2F</url>
+    <url>%2Fcs%2F</url>
     <content type="text"><![CDATA[简介记录学习CS的学习笔记，内容包含基础知识的总结以及编程实现的整理。 Language:English 目录 CS入门 学习编写(至少)一种面向对象编程语言(C ++，Java®，Python®) 学习其他编程语言 测试你的代码 逻辑推理和离散数学 深入了解算法和数据结构 了解计算机操作系统 CS入门现在的入门课基本都是用Python语言。 计算机科学导论，优达学城 CS50x 哈佛，语言包括C，Python，SQL和JavaScript加CSS和HTML 面向对象编程语言一般而言，建议先学Java，Python，再学C++。 这三种语言都基本掌握后，再根据自身的职业需求，选择其中一个语言（或者其他语言）进一步深入练习。因为学校课程主要以Python为主，所以目前我还是主要深入学习Python，这是我的Python学习笔记。 面向初学者程序员的在线资源： 编程方法学，斯坦福CS106A，Java 伯克利大学CS 61A计算机程序的结构与解读，Python Java编程简介，MIT Google的Python Class Google的C ++类 面向有经验的程序员的在线资源： 数据结构，伯克利大学 CS 61B，Java 计算机程序设计，Udacity，Python 抽象编程，斯坦福 CS106B，C ++最新作业：http://web.stanford.edu/class/cs106b/ 《数据结构与算法分析:C++描述》, Mark A. Weiss 其他编程语言根据实际需要自行选择一种或多种学习： JavaScript® CSS＆HTML Ruby® Lua PHP® Haskell Perl® Go Shell®脚本 Lisp® Scheme® 一些在线资源： CS50x 哈佛，语言包括C，Python，SQL和JavaScript加CSS和HTML Codecademy JavaScript Bento JavaScript Learning Track(Bento) Egghead.io 学习如何编程：JavaScript - Epicodus Inc. 学习：查询 CSS ＆ HTML Bento CSS Learning Track(Bento) Bento HTML Learning Track(Bento) 用破折号建立个人网站 使用Webflow构建响应式网站 使用骨架构建SaaS着陆页 建立动态网站 在1小时内编写个人启动页面：实用HTML和CSS简介 学习如何编程：CSS - Epicodus Inc. 从头开始学习HTML5编程 Ruby 学习如何编程：Ruby - Epicodus Inc. RubyMonk - 交互式Ruby教程 Haskell C9：功能编程基础知识 - Erik Meijer CIS 194：Haskell简介 - Brent Yorgey CS240h：Haskell的功能系统 - Bryan O’Sullivan edX：功能编程简介 - Erik Meijer 亚琛大学：功能编程 - JürgenGiesl Lua Lua Interactive Crash Course Lua Tutorial PHP 学习如何编程：PHP - Epicodus Inc. GO Go Tutorial 测试你的代码了解如何捕获错误，创建测试和破解软件. 软件测试，Udacity 软件调试，Udacity 逻辑推理和离散数学 数学计算机科学，麻省理工学院 数学思考导论，斯坦福大学，Coursera 概率图形模型，斯坦福大学，Coursera 博弈论，斯坦福大学和不列颠哥伦比亚大学，Coursera 算法和数据结构了解基本数据类型(堆栈，队列和袋子)，排序算法(快速排序，合并，堆栈)，数据结构(二叉搜索树，红黑树，哈希表)和Big O. 算法简介，麻省理工学院，2011秋季 算法，普林斯顿大学，Part 1 ＆ Part2 算法：设计和分析，斯坦福大学 算法，第4版，by Robert Sedgewick and Kevin Wayne 参考:Guide to technical development from Google educationOS Free Programming Books]]></content>
       <categories>
         <category>学习笔记</category>
