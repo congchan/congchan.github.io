@@ -25,12 +25,16 @@
 
 
 
+  <meta name="google-site-verification" content="<meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />" />
 
 
 
 
 
 
+
+
+  <meta name="baidu-site-verification" content="<meta name="baidu-site-verification" content="YzpEMverud" />" />
 
 
 
@@ -415,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,442 字
+                  2,010 字
                 </span>
               
 
@@ -431,7 +435,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  8 分钟
                 </span>
               
             </div>
@@ -453,43 +457,15 @@
 
       
         
-          
-            <h2 id="列表-List"><a href="#列表-List" class="headerlink" title="列表 List"></a>列表 List</h2><p>前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（list）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="noopener">oracle官网</a>）。</p>
+          <h2 id="列表-List"><a href="#列表-List" class="headerlink" title="列表 List"></a>列表 List</h2><p>前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（list）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="noopener">oracle官网</a>）。</p>
 <p>这里我们尝试以java的array为基础，实现一个列表，可以自动更改长度，以及其他可能的丰富与优化。在探索的过程中, 可以顺带学习很多相关的内容.<br>使用自上而下的设计思想搭建一个框架:<br>先写出最基础的部分, 也就是一个构造器，前面学过了整数数组，我们直接拿来用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Array based list.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// index   0 1  2 3 4 5 6 7</span></span><br><span class="line"><span class="comment">// items: [6 9 -1 2 0 0 0 0 ...]</span></span><br><span class="line"><span class="comment">// size: 5</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] items;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 构造一个初始容量100的数组，初始有效数据成员为0. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 下面添加其他方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后思考我们需要什么功能，把功能需求转化为实例方法instance method的形式，先把方法的外壳描绘出来，注释上该方法的功能（目的），输入值，返回值是什么之类的。具体的功能实现可以先空着，之后一步步丰富。</p>
-<h3 id="公共-vs-私有-Public-vs-Private"><a href="#公共-vs-私有-Public-vs-Private" class="headerlink" title="公共 vs 私有 Public vs. Private"></a>公共 vs 私有 Public vs. Private</h3><p>在上面的代码块中，可以看到 items 和 size 都被声明为 private 私有变量, 这样就只能被所在的java文件内调用.</p>
-<p>私有变量和方法的设计初衷是服务于程序的内部功能实现, 而不是用来和外部程序(用户)进行交互的. 设置成私有, 可以避免这些变量和方法被外部程序直接调用, 避免用户通过不恰当/容易出错的方式修改某些变量. 在程序说明文档中, 一般也会明确说明程序提供什么公共变量和方法给用户调用.</p>
-<h3 id="通用数据类型-Generic"><a href="#通用数据类型-Generic" class="headerlink" title="通用数据类型 Generic"></a>通用数据类型 Generic</h3><p>我们不仅希望我们的列表可以存整数，也可以存其他类型的数据.<br>在2004年，Java的设计者在语言中加入了泛型，使​​我们能够创建包含任何引用类型的数据结构（（引用类型和基本类型的解释参考<a href="/NOTE-CS61B-data-structures-05-java-variable-types.html#引用类型-reference-types">另一篇文章</a>, ）。方法就是在类声明的类名后面，使用一个任意的占位符，并用尖括号括住<code>&lt;随便什么字符&gt;</code>。然后，在任何你想使用泛型的地方，改用占位符。<br>比如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>改为<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span>&lt;<span class="title">xxx</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> xxx item;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Item[] items;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 构造一个初始容量100的数组，初始有效数据成员为0.  */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = (Item[]) <span class="keyword">new</span> Object[<span class="number">100</span>]; <span class="comment">//会有编译警告, 暂时不管, 后面会解释</span></span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>&lt;Item&gt;</code>里面的名称并不重要, 改为小猫小狗都一样, 只是一个标识符, 用来接受参数, 当用户实例化一个数组时, 可以<code>int x = new AList</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Array based list.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// index   0 1  2 3 4 5 6 7</span></span><br><span class="line"><span class="comment">// items: [6 9 -1 2 0 0 0 0 ...]</span></span><br><span class="line"><span class="comment">// size: 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] items;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 构造一个初始容量100的数组，实际有效数据成员为0. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 改变列表容量的值为 capacity 目标值. */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 把 X 插入到列表末尾. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 返回列表末尾的值. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 返回第 i 个值 (0 是第一个). */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 返回列表成员数. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 删去列表最后一个值，并返回该值 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###</p>
-<h3 id="具体实现过程"><a href="#具体实现过程" class="headerlink" title="具体实现过程"></a>具体实现过程</h3><p>我们设计列表的首要目标就是要能够更改列表的长度。我们设计时，预计程序内可能会调用一个方法来改变列表的长度，我们命名为resize(目标长度)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 改变列表容量的值为 capacity 目标值. */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[capacity];</span><br><span class="line">    System.arraycopy(items, <span class="number">0</span>, temp, <span class="number">0</span>, size);</span><br><span class="line">    items = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<pre><code>/** 把 X 插入到列表末尾. */
-public void addLast(int x) {
-}
-
-/** 返回列表末尾的值. */
-public int getLast() {
-}
-
-/** 返回第 i 个值 (0 是第一个). */
-public int get(int i) {
-}
-
-/** 返回列表成员数. */
-public int size() {
-}
-
-/** 删去列表最后一个值，并返回该值 */
-public int removeLast() {
-}
-</code></pre><p>}<br>```</p>
-<h3 id="Lists-implementation"><a href="#Lists-implementation" class="headerlink" title="Lists implementation"></a>Lists implementation</h3><h4 id="Non-static-nested-class"><a href="#Non-static-nested-class" class="headerlink" title="Non-static nested class"></a>Non-static nested class</h4><p>inner class, Java内部类可以访问外部类的所有方法和变量（即使它们是私有的），就好像这些方法和变量已经在内部类中声明一样。但反过来则不成立，外部类不能直接访问内部类的成员。Java内部类只能通过外部类的实例来访问。</p>
-<h4 id="Nested-static-class"><a href="#Nested-static-class" class="headerlink" title="Nested static class"></a>Nested static class</h4><p>如果嵌套类不需要使用SLList的任何实例方法或变量，则可以声明嵌套类为static，如下所示。将嵌套类声明为静态，意味着这个静态嵌套类里的方法不能访问外部类的任何成员，同时外部类不能直接访问静态嵌套类的成员变量，可以通过静态嵌套类来访问。make the nested class static</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NOTE-CS61B-data-structures-06-java-array-based-list/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -877,7 +853,7 @@ public int removeLast() {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,333 字
+                  2,805 字
                 </span>
               
 
@@ -893,7 +869,7 @@ public int removeLast() {
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9 分钟
+                  10 分钟
                 </span>
               
             </div>
@@ -915,7 +891,7 @@ public int removeLast() {
 
       
         
-          <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><a href="https://zh.wikibooks.org/zh-hans/Java/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">数据类型</a>是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…</p>
+          <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><a href="https://zh.wikibooks.org/zh-hans/Java/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">数据类型</a>是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…</p>
 <p>上面的定义有点抽象，要理解数据类型，需要先理解一个问题: 神秘的海象问题<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 尝试预测下面的代码运行时会发生什么。</span></span><br><span class="line"><span class="comment">b的变化是否会影响a？提示：类似Python。 */</span></span><br><span class="line">Walrus a = <span class="keyword">new</span> Walrus(<span class="number">1000</span>, <span class="number">8.3</span>);</span><br><span class="line">Walrus b;</span><br><span class="line">b = a;</span><br><span class="line">b.weight = <span class="number">5</span>;</span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 同样尝试预测下面的代码运行时会发生什么。</span></span><br><span class="line"><span class="comment">x的改变是否影响y？ */</span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">y = x;</span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">System.out.println(<span class="string">"x is: "</span> + x);</span><br><span class="line">System.out.println(<span class="string">"y is: "</span> + y);</span><br></pre></td></tr></table></figure>
 <p>首先给出答案, b的变化会影响a, 但x的改变不影响y，具体见<a href="http://cscircles.cemc.uwaterloo.ca/java_visualize/#code=public+class+PollQuestions+%7B%0A+++public+static+void+main%28String%5B%5D+args%29+%7B%0A++++++Walrus+a+%3D+new+Walrus%281000,+8.3%29%3B%0A++++++Walrus+b%3B%0A++++++b+%3D+a%3B%0A++++++b.weight+%3D+5%3B%0A++++++System.out.println%28a%29%3B%0A++++++System.out.println%28b%29%3B++++++%0A%0A++++++int+x+%3D+5%3B%0A++++++int+y%3B%0A++++++y+%3D+x%3B%0A++++++x+%3D+2%3B%0A++++++System.out.println%28%22x+is%3A+%22+%2B+x%29%3B%0A++++++System.out.println%28%22y+is%3A+%22+%2B+y%29%3B++++++%0A+++%7D%0A+++%0A+++public+static+class+Walrus+%7B%0A++++++public+int+weight%3B%0A++++++public+double+tuskSize%3B%0A++++++%0A++++++public+Walrus%28int+w,+double+ts%29+%7B%0A+++++++++weight+%3D+w%3B%0A+++++++++tuskSize+%3D+ts%3B%0A++++++%7D%0A%0A++++++public+String+toString%28%29+%7B%0A+++++++++return+String.format%28%22weight%3A+%25d,+tusk+size%3A+%25.2f%22,+weight,+tuskSize%29%3B%0A++++++%7D%0A+++%7D%0A%7D&amp;mode=edit" target="_blank" rel="noopener">可视化过程</a>.<br>这里的差别虽然微妙, 但其背后的原理对于数据结构的效率来说是非常重要的，对这个问题的深入理解也将引导我们写出更安全，更可靠的代码。<br>
@@ -2603,7 +2579,7 @@ public int removeLast() {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2663,7 +2639,7 @@ public int removeLast() {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
