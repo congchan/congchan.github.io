@@ -3,6 +3,39 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/ai/</loc>
+    <lastmod>2018-01-02T11:50:31.587Z</lastmod>
+    <data>
+        <display>
+        <title>人工智能 AI 入门到进阶</title>
+        <pubTime>2017-12-17T18:25:12.138Z</pubTime>
+        
+        <tag>人工智能</tag>
+         
+        <tag>自然语言处理</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>深度学习</tag>
+         
+        <tag>计算机视觉</tag>
+         
+        <tag>大数据</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -290,39 +323,6 @@
           
              
               <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    <lastmod>2017-12-19T11:59:45.213Z</lastmod>
-    <data>
-        <display>
-        <title>AI入门到进阶</title>
-        <pubTime>2017-12-17T18:25:12.138Z</pubTime>
-        
-        <tag>人工智能</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>自然语言处理</tag>
-         
-        <tag>深度学习</tag>
-         
-        <tag>计算机视觉</tag>
-         
-        <tag>大数据</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>

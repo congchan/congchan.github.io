@@ -1,1 +1,0 @@
-http://yoursite.com/NOTE-CS61B-data-structures-06-java-array-based-list/
