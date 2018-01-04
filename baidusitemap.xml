@@ -4,6 +4,135 @@
 
     
   <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
+    <lastmod>2018-01-04T17:09:34.247Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 05 - Java | 数据类型 - CS61B Berkeley</title>
+        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array-based-list/</loc>
+    <lastmod>2018-01-04T17:08:31.992Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 06 - Java | 用数组构建数据列表 list - CS61B Berkeley</title>
+        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
+    <lastmod>2018-01-04T16:57:49.199Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 01 - Java |安装 - CS61B Berkeley</title>
+        <pubTime>2017-12-18T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
+    <lastmod>2018-01-04T16:54:28.537Z</lastmod>
+    <data>
+        <display>
+        <title>在Gitbash中直接启动sublime或atom等编辑器以打开或新建文件</title>
+        <pubTime>2018-01-01T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>Gitbash</tag>
+         
+        <tag>Sublime</tag>
+         
+        <tag>Atom</tag>
+         
+        <tag>编辑器</tag>
+         
+         
+           
+             
+              <breadCrumb title="提高效率" url="http://yoursite.com/categories/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/ai/</loc>
     <lastmod>2018-01-02T13:41:26.565Z</lastmod>
     <data>
@@ -37,72 +166,6 @@
 
     
     
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array-based-list/</loc>
-    <lastmod>2018-01-01T16:41:39.438Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 06 - Java | 用数组构建数据列表 list - CS61B Berkeley</title>
-        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
-    <lastmod>2018-01-01T16:40:48.937Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 05 - Java | 数据类型 - CS61B Berkeley</title>
-        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
@@ -243,39 +306,6 @@
         <display>
         <title>算法与数据结构 02 - Java |语法基础 - CS61B Berkeley</title>
         <pubTime>2017-12-20T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
-    <lastmod>2017-12-28T19:13:08.940Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 01 - Java |安装 - CS61B Berkeley</title>
-        <pubTime>2017-12-18T00:00:00.000Z</pubTime>
         
         <tag>编程</tag>
          
