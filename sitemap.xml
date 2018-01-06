@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
+    
+    <lastmod>2018-01-06T22:45:03.611Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
     
     <lastmod>2018-01-04T20:46:28.994Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
     
     <lastmod>2018-01-04T20:45:42.704Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
-    
-    <lastmod>2018-01-04T20:42:51.661Z</lastmod>
     
   </url>
   
