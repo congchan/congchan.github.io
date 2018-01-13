@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+    
+    <lastmod>2018-01-13T13:58:42.256Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+    
+    <lastmod>2018-01-13T13:49:46.100Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/ai/</loc>
+    
+    <lastmod>2018-01-13T13:14:35.483Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
+    
+    <lastmod>2018-01-12T11:11:36.848Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
     
     <lastmod>2018-01-06T22:45:03.611Z</lastmod>
@@ -37,23 +65,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
-    
-    <lastmod>2018-01-04T20:45:42.704Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
     
     <lastmod>2018-01-04T17:09:34.247Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    
-    <lastmod>2018-01-02T13:41:26.565Z</lastmod>
     
   </url>
   
@@ -107,14 +121,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/README.html</loc>
-    
-    <lastmod>2017-12-17T11:33:53.291Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/image/README.html</loc>
+    <loc>http://yoursite.com/images/README.html</loc>
     
     <lastmod>2017-12-16T22:31:52.846Z</lastmod>
     

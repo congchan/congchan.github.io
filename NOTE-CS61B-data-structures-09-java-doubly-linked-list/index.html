@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="编程,Java,软件工程,数据结构,算法,cs61b," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="This is a practical direction to learn CS and AI for anyone who is interested in. Index Learn an introduction to CS course     Learn to code in (at least) one object-oriented programming language (C++">
-<meta property="og:type" content="website">
-<meta property="og:title" content="计算机科学与人工智能">
-<meta property="og:url" content="http://yoursite.com/README.html">
+<meta name="description" content="双向链表 Doubly Linked List">
+<meta name="keywords" content="编程,Java,软件工程,数据结构,算法,cs61b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley">
+<meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/index.html">
 <meta property="og:site_name" content="计算机科学与人工智能">
-<meta property="og:description" content="This is a practical direction to learn CS and AI for anyone who is interested in. Index Learn an introduction to CS course     Learn to code in (at least) one object-oriented programming language (C++">
+<meta property="og:description" content="双向链表 Doubly Linked List">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-17T11:33:53.291Z">
+<meta property="og:updated_time" content="2018-01-13T13:58:42.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机科学与人工智能">
-<meta name="twitter:description" content="This is a practical direction to learn CS and AI for anyone who is interested in. Index Learn an introduction to CS course     Learn to code in (at least) one object-oriented programming language (C++">
+<meta name="twitter:title" content="算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley">
+<meta name="twitter:description" content="双向链表 Doubly Linked List">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/README.html"/>
+  <link rel="canonical" href="http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/"/>
 
 
 
 
 
-  <title> | 计算机科学与人工智能</title>
+  <title>算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley | 计算机科学与人工智能</title>
   
 
 
@@ -286,161 +287,229 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈聪 Cong Chan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算机科学与人工智能">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>This is a practical direction to learn CS and AI for anyone who is interested in.</p>
-<h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><ol>
-<li><a href="#introduction-to-cs">Learn an introduction to CS course</a>    </li>
-<li><a href="#object-oriented-programming-language">Learn to code in (at least) one object-oriented programming language (C++, Java®, Python®)</a>  </li>
-<li><a href="other-programming-language">Learn other programming language</a>  </li>
-<li><a href="#test-your-code">Test your code</a>  </li>
-<li><a href="#logical-reasoning-and-knowledge-of-discrete-math">Develop logical reasoning and knowledge of discrete math</a>  </li>
-<li><a href="#algorithms-and-data-structures">Develop a strong understanding of algorithms and data structures</a>  </li>
-<li><a href="#machine-learning">Machine Learning</a>  </li>
-<li><a href="#computer-vision">Computer Vision</a>   </li>
-<li><a href="#natural-language-processing">Natural Language Processing</a>  </li>
-<li><a href="#reference">Reference</a></li>
-</ol>
-<h3 id="Introduction-to-CS"><a href="#Introduction-to-CS" class="headerlink" title="Introduction to CS"></a>Introduction to CS</h3><p>Focus on basic coding instructions. Online resources:</p>
-<ul>
-<li><a href="https://www.udacity.com/course/cs101" target="_blank" rel="noopener">Introduction to Computer Science, Udacity</a></li>
-<li><a href="https://cs50.harvard.edu/" target="_blank" rel="noopener">CS50x Harvard, Languages include C, Python, SQL, and JavaScript plus CSS and HTML</a></li>
-</ul>
-<h3 id="Object-oriented-programming-language"><a href="#Object-oriented-programming-language" class="headerlink" title="Object-oriented programming language"></a>Object-oriented programming language</h3><ul>
-<li><p>For beginning programmers:</p>
-<ul>
-<li><a href="https://see.stanford.edu/Course/CS106A" target="_blank" rel="noopener">Programming Methodology, Stanford CS106A, Java</a></li>
-<li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp14/" target="_blank" rel="noopener">Structure and Interpretation of Computer Programs, Berkeley University CS 61A, Python</a></li>
-<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-introduction-to-programming-in-java-january-iap-2010/index.htm" target="_blank" rel="noopener">Introduction to Programming in Java, MIT</a></li>
-<li><a href="https://developers.google.com/edu/python/" target="_blank" rel="noopener">Google’s Python Class</a></li>
-<li><a href="https://developers.google.com/edu/c++/" target="_blank" rel="noopener">Google’s C++ Class</a></li>
-</ul>
-</li>
-<li><p>For more experienced programmers:</p>
-<ul>
-<li><a href="http://datastructur.es/sp16/" target="_blank" rel="noopener">Data Structures, Berkeley University CS 61B, Java</a></li>
-<li><a href="https://www.udacity.com/course/design-of-computer-programs--cs212" target="_blank" rel="noopener">Design of Computer Programs, Udacity, Python</a></li>
-<li><a href="https://see.stanford.edu/Course/CS106B" target="_blank" rel="noopener">Programming Abstractions, Stanford CS106B, C++</a><br>Latest assignments: <a href="http://web.stanford.edu/class/cs106b/" target="_blank" rel="noopener">http://web.stanford.edu/class/cs106b/</a></li>
-<li><a href="https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html" target="_blank" rel="noopener">Book: Data Structures &amp; Algorithm Analysis in C++, 4th ed, by Mark A. Weiss</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="Other-programming-language"><a href="#Other-programming-language" class="headerlink" title="Other programming language"></a>Other programming language</h3><ul>
-<li><p>Add to your repertoire:</p>
-<ul>
-<li><a href="#javascript">JavaScript®</a></li>
-<li><a href="#CSS-HTML">CSS &amp; HTML</a></li>
-<li><a href="#ruby">Ruby®</a></li>
-<li><a href="#lua">Lua</a></li>
-<li><a href="#php">PHP®</a></li>
-<li><a href="#haskell">Haskell</a></li>
-<li>Perl®</li>
-<li><a href="#go">Go</a></li>
-<li>Shell® script</li>
-<li>Lisp®</li>
-<li>Scheme®</li>
-</ul>
-</li>
-<li><p>General online resources:</p>
-<ul>
-<li><a href="https://cs50.harvard.edu/" target="_blank" rel="noopener">CS50x Harvard, Languages include C, Python, SQL, and JavaScript plus CSS and HTML</a></li>
-<li><a href="https://www.codecademy.com/learn" target="_blank" rel="noopener">Codecademy</a></li>
-</ul>
-</li>
-</ul>
-<h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><ul>
-<li><a href="https://bento.io/topic/javascript" target="_blank" rel="noopener">Bento JavaScript Learning Track</a> (Bento)</li>
-<li><a href="https://egghead.io" target="_blank" rel="noopener">Egghead.io</a></li>
-<li><a href="https://www.learnhowtoprogram.com/javascript" target="_blank" rel="noopener">Learn how to program: JavaScript</a> - Epicodus Inc.</li>
-<li><a href="https://learnquery.infinum.co" target="_blank" rel="noopener">learn:query</a></li>
-</ul>
-<h4 id="CSS-amp-HTML"><a href="#CSS-amp-HTML" class="headerlink" title="CSS &amp; HTML"></a>CSS &amp; HTML</h4><ul>
-<li><a href="https://bento.io/topic/css" target="_blank" rel="noopener">Bento CSS Learning Track</a> (Bento)</li>
-<li><a href="https://bento.io/topic/html" target="_blank" rel="noopener">Bento HTML Learning Track</a> (Bento)</li>
-<li><a href="https://dash.generalassemb.ly" target="_blank" rel="noopener">Build a Personal Website with Dash</a></li>
-<li><a href="https://www.bloc.io/tutorials/webflow-tutorial-design-responsive-sites-with-webflow" target="_blank" rel="noopener">Build a responsive website with Webflow</a></li>
-<li><a href="https://www.bloc.io/tutorials/jottly-a-beginner-s-guide-to-html-css-skeleton-and-animate-css" target="_blank" rel="noopener">Build a SaaS landing page using Skeleton</a></li>
-<li><a href="http://cs75.tv/2010/fall/" target="_blank" rel="noopener">Build Dynamic Websites</a></li>
-<li><a href="http://www.thefirehoseproject.com/lessons/splash-page" target="_blank" rel="noopener">Code a personal splash page in 1 hour: A Hands-on Intro to HTML &amp; CSS</a></li>
-<li><a href="https://www.learnhowtoprogram.com/css" target="_blank" rel="noopener">Learn how to program: CSS</a> - Epicodus Inc.</li>
-<li><a href="https://www.udemy.com/learn-html5-programming-from-scratch/" target="_blank" rel="noopener">Learn HTML5 Programming From Scratch</a></li>
-</ul>
-<h4 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h4><ul>
-<li><a href="https://www.learnhowtoprogram.com/ruby" target="_blank" rel="noopener">Learn how to program: Ruby</a> - Epicodus Inc.</li>
-<li><a href="https://rubymonk.com" target="_blank" rel="noopener">RubyMonk - Interactive Ruby tutorials</a></li>
-</ul>
-<h4 id="Haskell"><a href="#Haskell" class="headerlink" title="Haskell"></a>Haskell</h4><ul>
-<li><a href="http://channel9.msdn.com/Series/C9-Lectures-Erik-Meijer-Functional-Programming-Fundamentals" target="_blank" rel="noopener">C9 : Functional Programming Fundamentals</a> - Erik Meijer</li>
-<li><a href="http://www.seas.upenn.edu/~cis194/" target="_blank" rel="noopener">CIS 194: Introduction to Haskell</a> - Brent Yorgey</li>
-<li><a href="http://www.scs.stanford.edu/11au-cs240h/notes/" target="_blank" rel="noopener">CS240h: Functional Systems in Haskell</a> - Bryan O’Sullivan</li>
-<li><a href="https://www.edx.org/course/introduction-functional-programming-delftx-fp101x-0" target="_blank" rel="noopener">edX: Introduction to Functional Programming</a> - Erik Meijer</li>
-<li><a href="https://videoag.fsmpi.rwth-aachen.de/?course=12ss-funkprog" target="_blank" rel="noopener">RWTH Aachen University: Functional Programming</a> - Jürgen Giesl</li>
-</ul>
-<h4 id="Lua"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</h4><ul>
-<li><a href="http://luatut.com/crash_course.html" target="_blank" rel="noopener">Lua Interactive Crash Course</a></li>
-<li><a href="http://www.tutorialspoint.com/lua/" target="_blank" rel="noopener">Lua Tutorial</a></li>
-</ul>
-<h4 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h4><ul>
-<li><a href="https://www.learnhowtoprogram.com/php" target="_blank" rel="noopener">Learn how to program: PHP</a> - Epicodus Inc.</li>
-</ul>
-<h4 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h4><ul>
-<li><a href="http://www.tutorialspoint.com/go/index.htm" target="_blank" rel="noopener">Go Tutorial</a></li>
-</ul>
-<h3 id="Test-your-code"><a href="#Test-your-code" class="headerlink" title="Test your code"></a>Test your code</h3><p>Learn how to catch bugs, create tests, and break your software.</p>
-<ul>
-<li><a href="https://www.udacity.com/course/software-testing--cs258" target="_blank" rel="noopener">Software Testing, Udacity</a></li>
-<li><a href="https://www.udacity.com/course/software-debugging--cs259" target="_blank" rel="noopener">Software Debugging, Udacity</a></li>
-</ul>
-<h3 id="Logical-reasoning-and-knowledge-of-discrete-math"><a href="#Logical-reasoning-and-knowledge-of-discrete-math" class="headerlink" title="Logical reasoning and knowledge of discrete math"></a>Logical reasoning and knowledge of discrete math</h3><ul>
-<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm" target="_blank" rel="noopener">Mathematics for Computer Science, MIT</a></li>
-<li><a href="https://www.coursera.org/learn/mathematical-thinking" target="_blank" rel="noopener">Introduction to Mathematical Thinking, Stanford, Coursera</a></li>
-<li><a href="https://www.coursera.org/course/pgm" target="_blank" rel="noopener">Probabilistic Graphical Models, Stanford, Coursera</a></li>
-<li><a href="https://www.coursera.org/course/gametheory" target="_blank" rel="noopener">Game Theory, Stanford and University of British Columbia, Coursera</a></li>
-</ul>
-<h3 id="Algorithms-and-data-structures"><a href="#Algorithms-and-data-structures" class="headerlink" title="Algorithms and data structures"></a>Algorithms and data structures</h3><p>Learn about fundamental data types (stack, queues, and bags), sorting algorithms (quicksort, mergesort, heapsort), data structures (binary search trees, red-black trees, hash tables), and Big O.</p>
-<ul>
-<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/" target="_blank" rel="noopener">Introduction to algorithms, MIT, fall 2011</a></li>
-<li><a href="https://www.coursera.org/course/algs4partI" target="_blank" rel="noopener">Algorithms, Princeton, Part 1</a> &amp; <a href="http://online.stanford.edu/course/algorithms-design-and-analysis-part-2" target="_blank" rel="noopener">Part2</a></li>
-<li><a href="https://www.coursera.org/specializations/algorithms" target="_blank" rel="noopener">Algorithms: Design and Analysis, Stanford</a>, <a href="http://online.stanford.edu/course/algorithms-design-and-analysis-part-1" target="_blank" rel="noopener">Part 1</a> &amp; <a href="http://online.stanford.edu/course/algorithms-design-and-analysis-part-2" target="_blank" rel="noopener">Part 2</a></li>
-<li><a href="http://algs4.cs.princeton.edu/home/" target="_blank" rel="noopener">Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne</a></li>
-<li><a href="https://github.com/parkjs814/AlgorithmVisualizer" target="_blank" rel="noopener">Tool: AlgorithmVisualizer</a></li>
-</ul>
-<h3 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h3><ul>
-<li><a href="https://see.stanford.edu/Course/CS229" target="_blank" rel="noopener">Machine Learning, Stanford University</a></li>
-</ul>
-<h3 id="Computer-Vision"><a href="#Computer-Vision" class="headerlink" title="Computer Vision"></a>Computer Vision</h3><ul>
-<li><a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">CS231n: Convolutional Neural Networks for Visual Recognition</a>, <a href="https://www.youtube.com/watch?v=6niqTuYFZLQ&amp;list=PLe7764SJVnV10-Nr7e0sBlC9J0LRf4sQo" target="_blank" rel="noopener">Video</a></li>
-</ul>
-<h3 id="Natural-Language-Processing"><a href="#Natural-Language-Processing" class="headerlink" title="Natural Language Processing"></a>Natural Language Processing</h3><ul>
-<li><a href="https://github.com/ShootingSpace/Self-to-Computer-Science-and-Artificial-Intelligence/blob/master/Note%20-%20AI125%20Accelerated%20Natural%20Language%20Processing%20UoE.md" target="_blank" rel="noopener">Accelerated Natural Language Processing, University of Edinburgh</a>, University of Edinburgh may be one of the top three in NLP.</li>
-<li><a href="https://www.youtube.com/playlist?list=PL6397E4B26D00A269" target="_blank" rel="noopener">Natural Language Processing, Stanford University</a></li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.google.com/about/careers/students/guide-to-technical-development.html" target="_blank" rel="noopener">Guide to technical development from Google education</a><br><a href="https://github.com/EbookFoundation/free-programming-books" target="_blank" rel="noopener">OS Free Programming Books</a></p>
-
+          <h1 class="post-title" itemprop="name headline">算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T00:00:00+00:00">
+                2018-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机科学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/NOTE-CS61B-data-structures-09-java-doubly-linked-list/" class="leancloud_visitors" data-flag-title="算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  7 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h2>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/软件工程/" rel="tag"># 软件工程</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/cs61b/" rel="tag"># cs61b</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/NOTE-CS61B-data-structures-08-java-singly-linked-list/" rel="next" title="算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley">
+                <i class="fa fa-chevron-left"></i> 算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -504,7 +573,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -582,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Index"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Index" class="headerlink" title="Index"></a>Index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-to-CS"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Introduction-to-CS" class="headerlink" title="Introduction to CS"></a>Introduction to CS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-oriented-programming-language"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Object-oriented-programming-language" class="headerlink" title="Object-oriented programming language"></a>Object-oriented programming language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-programming-language"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Other-programming-language" class="headerlink" title="Other programming language"></a>Other programming language</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS-amp-HTML"><span class="nav-number">4.2.</span> <span class="nav-text"><a href="#CSS-amp-HTML" class="headerlink" title="CSS &amp; HTML"></a>CSS &amp; HTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ruby"><span class="nav-number">4.3.</span> <span class="nav-text"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Haskell"><span class="nav-number">4.4.</span> <span class="nav-text"><a href="#Haskell" class="headerlink" title="Haskell"></a>Haskell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lua"><span class="nav-number">4.5.</span> <span class="nav-text"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP"><span class="nav-number">4.6.</span> <span class="nav-text"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Go"><span class="nav-number">4.7.</span> <span class="nav-text"><a href="#Go" class="headerlink" title="Go"></a>Go</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-your-code"><span class="nav-number">5.</span> <span class="nav-text"><a href="#Test-your-code" class="headerlink" title="Test your code"></a>Test your code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logical-reasoning-and-knowledge-of-discrete-math"><span class="nav-number">6.</span> <span class="nav-text"><a href="#Logical-reasoning-and-knowledge-of-discrete-math" class="headerlink" title="Logical reasoning and knowledge of discrete math"></a>Logical reasoning and knowledge of discrete math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Algorithms-and-data-structures"><span class="nav-number">7.</span> <span class="nav-text"><a href="#Algorithms-and-data-structures" class="headerlink" title="Algorithms and data structures"></a>Algorithms and data structures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-Learning"><span class="nav-number">8.</span> <span class="nav-text"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computer-Vision"><span class="nav-number">9.</span> <span class="nav-text"><a href="#Computer-Vision" class="headerlink" title="Computer Vision"></a>Computer Vision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Natural-Language-Processing"><span class="nav-number">10.</span> <span class="nav-text"><a href="#Natural-Language-Processing" class="headerlink" title="Natural Language Processing"></a>Natural Language Processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">11.</span> <span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表-Doubly-Linked-List"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x53CC;&#x5411;&#x94FE;&#x8868;-Doubly-Linked-List" class="headerlink" title="&#x53CC;&#x5411;&#x94FE;&#x8868; Doubly Linked List"></a>&#x53CC;&#x5411;&#x94FE;&#x8868; Doubly Linked List</span></a></li></ol></div>
             
 
           </div>

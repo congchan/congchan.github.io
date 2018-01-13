@@ -81,18 +81,21 @@
 
 
 
-<meta name="description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为">
+<meta name="description" content="链表 Linked List前面有介绍以array为基础搭建的列表，支持自动扩容, 各种插入，删除速度都很快.这里再介绍另一种方案, 链表, 也可以实现列表自动扩容. 带链接的节点链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢. 以int节点为例:123456789public class IntNode &amp;#123;    public int item;    p">
 <meta name="keywords" content="编程,Java,软件工程,数据结构,算法,cs61b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley">
-<meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/index.html">
+<meta property="og:title" content="算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley">
+<meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/index.html">
 <meta property="og:site_name" content="计算机科学与人工智能">
-<meta property="og:description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为">
+<meta property="og:description" content="链表 Linked List前面有介绍以array为基础搭建的列表，支持自动扩容, 各种插入，删除速度都很快.这里再介绍另一种方案, 链表, 也可以实现列表自动扩容. 带链接的节点链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢. 以int节点为例:123456789public class IntNode &amp;#123;    public int item;    p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-31T15:40:03.127Z">
+<meta property="og:image" content="http://yoursite.com/images/408px-Singly-linked-list.png">
+<meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/chap2/fig22/three_item_sentenlized_SLList.png">
+<meta property="og:updated_time" content="2018-01-13T13:49:46.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley">
-<meta name="twitter:description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为">
+<meta name="twitter:title" content="算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley">
+<meta name="twitter:description" content="链表 Linked List前面有介绍以array为基础搭建的列表，支持自动扩容, 各种插入，删除速度都很快.这里再介绍另一种方案, 链表, 也可以实现列表自动扩容. 带链接的节点链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢. 以int节点为例:123456789public class IntNode &amp;#123;    public int item;    p">
+<meta name="twitter:image" content="http://yoursite.com/images/408px-Singly-linked-list.png">
 
 
 
@@ -122,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/"/>
+  <link rel="canonical" href="http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/"/>
 
 
 
 
 
-  <title>算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley | 计算机科学与人工智能</title>
+  <title>算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley | 计算机科学与人工智能</title>
   
 
 
@@ -299,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈聪 Cong Chan">
@@ -316,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley</h1>
+          <h1 class="post-title" itemprop="name headline">算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley</h1>
         
 
         <div class="post-meta">
@@ -328,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T00:00:00+00:00">
-                2017-12-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-12T00:00:00+00:00">
+                2018-01-12
               </time>
             
 
@@ -379,7 +382,7 @@
 
           
           
-             <span id="/NOTE-CS61B-data-structures-04-java-class-01-intro/" class="leancloud_visitors" data-flag-title="算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley">
+             <span id="/NOTE-CS61B-data-structures-08-java-singly-linked-list/" class="leancloud_visitors" data-flag-title="算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -405,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,157 字
+                  1,713 字
                 </span>
               
 
@@ -421,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -442,21 +445,32 @@
       
 
       
-        <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>Java的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它.</p>
-<p>类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为静态的和非静态的.</p>
-<p>静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；<br>非静态只能由实例调用，所以也称之为实例方法/变量。实例instance的概念后面会解释。</p>
-<h3 id="类（静态）变量和方法-Class-Static-Variables-and-Methods"><a href="#类（静态）变量和方法-Class-Static-Variables-and-Methods" class="headerlink" title="类（静态）变量和方法 Class(Static) Variables and Methods"></a>类（静态）变量和方法 Class(Static) Variables and Methods</h3><p>静态变量和方法的特征就是有<code>static</code>字符在前面.<br>以下代码定义了一个类来模拟狗，包含一个类变量作为这个类的说明，一个类方法用于发出叫声：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String instruction = <span class="string">"狗类实例"</span>; <span class="comment">//类变量, 说明</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"汪!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里没有定义main(), 在这种情况下如何直接运行这个类(<code>java Dog</code>), 程序是会报错的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误: 在类 Dog 中找不到 main 方法, 请将 main 方法定义为:</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">否则 JavaFX 应用程序类必须扩展javafx.application.Application`.</span></span><br></pre></td></tr></table></figure></p>
-<p>你可以选择在里面添加一个<code>main()</code>方法. 但这次我们选择不定义具体的<code>main()</code>. 具体要如何运行, 我们可以另写一个类定义一个main()方法来调用这个类.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这两种方式(在类A内部定义好main() vs. 在其他类B定义main()来调用A)没有优劣之分, 二者有不同的适用情况. 随着不断深入学习，二者的区分将变得更清晰。</p>
-<p>注意到, 类变量和方法是有局限性的。现实世界中, 并不是所有的狗都是一样的特征，仅仅靠类这个概念是无法区分不同个体的狗, 除非你为不同的狗定义不同的类（以及里面的变量和方法）, 那么就会很繁琐痛苦. 也就是说，用类来模拟个体是低效的，我们要使用实例.</p>
-<h3 id="实例变量和对象实例化-Instance-Variables-and-Object-Instantiation"><a href="#实例变量和对象实例化-Instance-Variables-and-Object-Instantiation" class="headerlink" title="实例变量和对象实例化 Instance Variables and Object Instantiation"></a>实例变量和对象实例化 Instance Variables and Object Instantiation</h3><a id="more"></a>
-<p>Java的类定义就像定义一张蓝图, 我们可以在这个蓝图的基础上, 生成不同的实例instance. 实例是概念性的说法，本质上在Java里就是对象object。这样的特性提供了一个很自然而然地在java中模拟生成实体世界的方法：定义一个狗的类，在这个类的基础上，通过不同的特征参数实例化不同特征的狗（instances），并使类方法的输出取决于特定实例的狗的属性。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 一只狗的类:*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (weight &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"嘤嘤嘤!"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (weight &lt; <span class="number">30</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"汪汪汪"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"嗷呜!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里的方法和变量没有<code>static</code>, 所以是实例（非静态）方法和变量. 如果直接用 Dog 类来调用这些方法, 会报错:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.weight = <span class="number">21</span>;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DogLauncher.java:<span class="number">3</span>: 错误: 无法从静态上下文中引用非静态 变量 weight</span><br><span class="line">        Dog.weight = <span class="number">21</span>;</span><br><span class="line">           ^</span><br><span class="line">DogLauncher.java:<span class="number">4</span>: 错误: 无法从静态上下文中引用非静态 方法 makeNoise()</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">           ^</span><br></pre></td></tr></table></figure>
-<p>这个时候, 你需要实例化一只狗, 让这个实例来调用非静态变量和方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog biglDog = <span class="keyword">new</span> Dog();</span><br><span class="line">        biglDog.weight = <span class="number">5</span>;</span><br><span class="line">        biglDog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行时，这个程序将会创建一个重量为5的狗，这个狗就会“嗷呜”叫。</p>
-<p>总的来说，之所以需要实例方法和变量，是因为我们需要模拟个体，一只具体的狗，并让它发出声音。这个weight和makeNoise()只能由具体的狗调用。狗类不能调用，也没有调用的意义, 毕竟每只狗的重量和声音都不同的. 在设计程序时, 如果其中一个方法我们只打算让特定的实例来调用它(而不让类去调用它), 那么这个方法应该设计成实例方法。</p>
+        <h2 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表 Linked List"></a>链表 Linked List</h2><p>前面有介绍以array为基础搭建的列表，支持自动扩容, 各种插入，删除速度都很快.<br>这里再介绍另一种方案, 链表, 也可以实现列表自动扩容.</p>
+<h3 id="带链接的节点"><a href="#带链接的节点" class="headerlink" title="带链接的节点"></a>带链接的节点</h3><p>链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢.</p>
+<p><img src="/images/408px-Singly-linked-list.png" alt=""><br>以int节点为例:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">    <span class="keyword">public</span> IntNode next;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IntNode</span><span class="params">(<span class="keyword">int</span> i, IntNode n)</span> </span>&#123;</span><br><span class="line">        item = i;</span><br><span class="line">        next = n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>next</code>就是这个链接, 每一个节点就是其上一个节点的<code>next</code>.<br><a id="more"></a></p>
+<h3 id="嵌套类-Nested-static-class"><a href="#嵌套类-Nested-static-class" class="headerlink" title="嵌套类 Nested static class"></a>嵌套类 Nested static class</h3><p>这个节点作为一个相对独立的数据结构, 我们更希望让他单独作为一个类来维护. 再另外创建一个名为 LinkedList 的class与用户进行交互. 这样还有另一个好处就是提供一个命名为 LinkedList 的类给用户交互，用户更直观地知道自己是在调用链表。如果直接与node类交互，用户可能会困扰. 但同时考虑到这个node类只有 LinkedList 会调用，所以我们可以把node类嵌套进 LikedList 中，也就是嵌套类，在类中定义类。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">XXX</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">OneNode</span> </span>&#123;</span><br><span class="line">		<span class="keyword">public</span> XXX item;</span><br><span class="line">		<span class="keyword">public</span> OneNode next;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">OneNode</span><span class="params">(XXX i, OneNode n)</span> </span>&#123;</span><br><span class="line">			item = i;</span><br><span class="line">			next = n;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> OneNode first;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LinkedList</span><span class="params">(XXX x)</span> </span>&#123;</span><br><span class="line">		first = <span class="keyword">new</span> OneNode(x, <span class="keyword">null</span>);</span><br><span class="line">		size = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//下面是各种方法...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上定义使用了<a href="/NOTE-CS61B-data-structures-05-java-variable-types#通用数据类型-Generic">泛型</a>。声明OneNode实例first为私有变量, 是为了防止用户错误地摆弄链接指向，private和public的使用<a href="/NOTE-CS61B-data-structures-07-java-array-based-list#公共-vs-私有-Public-vs.-Private">参考</a>.</p>
+<h4 id="静态与非静态嵌套类"><a href="#静态与非静态嵌套类" class="headerlink" title="静态与非静态嵌套类"></a>静态与非静态嵌套类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticNestedClass</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果嵌套类不需要使用 LinkedList 的任何实例方法或变量，那可以声明嵌套类为static。像静态类方法一样，静态嵌套类不能直接引用其外部类中定义的实例变量或方法, 只能通过实例对象引用来使用它们。同时外部类不能直接访问静态嵌套类的成员变量，但可以通过静态嵌套类来访问。</p>
+<p>非静态嵌套类一般叫做内部类inner class。与实例方法和变量一样，内部类与其外部类的实例关联，并且可以直接访问该对象的方法和变量。另外，因为内部类与一个实例相关联，所以它不能自己定义任何静态成员。一个内部类的实例作为成员存在于其外部类的实例中, <code>InnerClass</code>的一个实例只能存在于<code>OuterClass</code>的一个实例中，并且可以直接访问它的外部实例的方法和变量。</p>
+<p>作为OuterClass的成员，嵌套类可以声明为private，public，protected或package private。外部类只能声明为public或package private。更多详情<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html" target="_blank" rel="noopener">参考官网</a>.</p>
+<h3 id="补充必要的实例方法"><a href="#补充必要的实例方法" class="headerlink" title="补充必要的实例方法"></a>补充必要的实例方法</h3><p>插入的操作核心是改变链接指向， 比如原来是<code>A-&gt;B-&gt;D</code>, 要插入C, 则把<code>C.next</code>指向D,然后把<code>B.next</code>改为指向C, 变为<code>A-&gt;B-&gt;C-&gt;D</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 在列表开头插入 x. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(XXX x)</span> </span>&#123;</span><br><span class="line">	first = <span class="keyword">new</span> OneNode(x, first);</span><br><span class="line">	size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 返回列表第一个元素. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> XXX <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> first.item; 		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 在列表末尾插入 x. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(XXX x)</span> </span>&#123;</span><br><span class="line">	size += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	OneNode p = first;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 把 p 当做指针顺藤摸瓜一直挪到列表末尾. */</span></span><br><span class="line">	<span class="keyword">while</span> (p.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">		p = p.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	p.next = <span class="keyword">new</span> OneNode(x, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，如果用户不小心把某节点x指回自己<code>x.next=x</code>,那就会进入死循环，所以我们需要把OnoNode实例first声明为私有变量已提供必要的保护。</p>
+<h3 id="超载-overloading"><a href="#超载-overloading" class="headerlink" title="超载 overloading"></a>超载 overloading</h3><p>如果想初始化一个空列表, 可以:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 构造一个空列表. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	fist = <span class="keyword">null</span>;</span><br><span class="line">	size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>即使原来已经有一个带参数x的构造器了, 这里再加一个同名构造器也没问题. 因为Java允许有不同参数的方法重名, 叫超载 overloading.</p>
+<h3 id="程序不变条件-invariants"><a href="#程序不变条件-invariants" class="headerlink" title="程序不变条件 invariants"></a>程序不变条件 invariants</h3><p>上面超载了一个初始化空列表的构造器,加入初始化一个空列表，然后直接调用<code>addLast</code>，程序会报错, 因为<code>null</code>没有<code>next</code>.</p>
+<p>有几种修改方法, 比如用<code>if else</code>这种加特例的方法. 这个方案虽然可以能解决问题，但是必要时应该避免加入特例代码, 毕竟有特例就意味着增加了复杂性和额外的代码特例记忆需求, 而人记忆是有限的.</p>
+<p>一个更简洁（尽管不太显而易见）的解决方案是修改数据结构本身，让所有LinkedList，维护起来都没有差别，即使是空的。<br>如果把列表比做拉货的火车，那么货物就是列表承载的数据。一列火车如果只有车厢而没有车头（或者车尾）的话是没有意义的，因为没有动力。所以不管火车有没有拉货，有车厢还是没车厢，要称之为火车我们至少需要一个火车头。<br>我们可以通过创建一个特殊节点, 称为前哨节点 sentinel。前哨节点将保存一个值，具体数值我们不关心，它只是作为火车头，不装货。<br><img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig22/three_item_sentenlized_SLList.png" alt="图片链接https://joshhug.gitbooks.io/"><br>所以我们要修改 LinkedList 为：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第一个元素 （假如有的话）就是 sentinel.next. */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">XXX</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">OneNode</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> OneNode sentinel;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** 构造一个空列表. */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LinkedList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		sentinel = <span class="keyword">new</span> OneNode(<span class="number">100</span>, <span class="keyword">null</span>);</span><br><span class="line">		size = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 构造一个初始元素为x的列表. */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LinkedList</span><span class="params">(XXX x)</span> </span>&#123;</span><br><span class="line">		sentinel = <span class="keyword">new</span> OneNode(<span class="number">100</span>, <span class="keyword">null</span>);</span><br><span class="line">		sentinel.next = <span class="keyword">new</span> OneNode(x, <span class="keyword">null</span>);</span><br><span class="line">		size = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体让sentinel取100还是其他都无所谓。</p>
+<p>对于像 LinkedList 这样简单的数据结构来说，特例不多我们也许可以hold住, 一旦后续遇到像树tree等更复杂的数据结构，控制特例数量就显得极为重要了。所以现在就要培养自己的这方面的习惯，保持程序不变条件成立 Invariants。所谓 invariants 就是指数据结构任何情况下都是不会出错（除非程序有bug）.</p>
+<p>具有前哨节点的 LinkedList 至少具有以下 invariants：</p>
+<ul>
+<li>列表默认存在前哨节点。</li>
+<li>列表第一个元素（如果非空的话）总是在<code>sentinel.next.item</code>。</li>
+<li>size变量始终是已添加的元素总数。</li>
+</ul>
+<p>不变条件使得代码的推敲变得更加容易，同时给程序员提供了能够确保代码正常工作的具体目标。</p>
 
       
     </div>
@@ -497,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NOTE-CS61B-data-structures-03-java-code-style-comments/" rel="next" title="算法与数据结构 03 - Java | 代码风格 注释 Javadoc - CS61B Berkeley">
-                <i class="fa fa-chevron-left"></i> 算法与数据结构 03 - Java | 代码风格 注释 Javadoc - CS61B Berkeley
+              <a href="/Launch-editor-in-Gitbash/" rel="next" title="Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件">
+                <i class="fa fa-chevron-left"></i> Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件
               </a>
             
           </div>
@@ -507,8 +521,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/NOTE-CS61B-data-structures-04-java-class-02-class-instance/" rel="prev" title="算法与数据结构 04 - Java | 类 class 02 类与实例 - CS61B Berkeley">
-                算法与数据结构 04 - Java | 类 class 02 类与实例 - CS61B Berkeley <i class="fa fa-chevron-right"></i>
+              <a href="/NOTE-CS61B-data-structures-09-java-doubly-linked-list/" rel="prev" title="算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley">
+                算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -670,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Class" class="headerlink" title="Class"></a>Class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类（静态）变量和方法-Class-Static-Variables-and-Methods"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x7C7B;&#xFF08;&#x9759;&#x6001;&#xFF09;&#x53D8;&#x91CF;&#x548C;&#x65B9;&#x6CD5;-Class-Static-Variables-and-Methods" class="headerlink" title="&#x7C7B;&#xFF08;&#x9759;&#x6001;&#xFF09;&#x53D8;&#x91CF;&#x548C;&#x65B9;&#x6CD5; Class(Static) Variables and Methods"></a>&#x7C7B;&#xFF08;&#x9759;&#x6001;&#xFF09;&#x53D8;&#x91CF;&#x548C;&#x65B9;&#x6CD5; Class(Static) Variables and Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例变量和对象实例化-Instance-Variables-and-Object-Instantiation"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#x548C;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316;-Instance-Variables-and-Object-Instantiation" class="headerlink" title="&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#x548C;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316; Instance Variables and Object Instantiation"></a>&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#x548C;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316; Instance Variables and Object Instantiation</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表-Linked-List"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x94FE;&#x8868;-Linked-List" class="headerlink" title="&#x94FE;&#x8868; Linked List"></a>&#x94FE;&#x8868; Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#带链接的节点"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x5E26;&#x94FE;&#x63A5;&#x7684;&#x8282;&#x70B9;" class="headerlink" title="&#x5E26;&#x94FE;&#x63A5;&#x7684;&#x8282;&#x70B9;"></a>&#x5E26;&#x94FE;&#x63A5;&#x7684;&#x8282;&#x70B9;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套类-Nested-static-class"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x5D4C;&#x5957;&#x7C7B;-Nested-static-class" class="headerlink" title="&#x5D4C;&#x5957;&#x7C7B; Nested static class"></a>&#x5D4C;&#x5957;&#x7C7B; Nested static class</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态与非静态嵌套类"><span class="nav-number">1.2.1.</span> <span class="nav-text"><a href="#&#x9759;&#x6001;&#x4E0E;&#x975E;&#x9759;&#x6001;&#x5D4C;&#x5957;&#x7C7B;" class="headerlink" title="&#x9759;&#x6001;&#x4E0E;&#x975E;&#x9759;&#x6001;&#x5D4C;&#x5957;&#x7C7B;"></a>&#x9759;&#x6001;&#x4E0E;&#x975E;&#x9759;&#x6001;&#x5D4C;&#x5957;&#x7C7B;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充必要的实例方法"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#&#x8865;&#x5145;&#x5FC5;&#x8981;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;" class="headerlink" title="&#x8865;&#x5145;&#x5FC5;&#x8981;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;"></a>&#x8865;&#x5145;&#x5FC5;&#x8981;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超载-overloading"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#&#x8D85;&#x8F7D;-overloading" class="headerlink" title="&#x8D85;&#x8F7D; overloading"></a>&#x8D85;&#x8F7D; overloading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序不变条件-invariants"><span class="nav-number">1.5.</span> <span class="nav-text"><a href="#&#x7A0B;&#x5E8F;&#x4E0D;&#x53D8;&#x6761;&#x4EF6;-invariants" class="headerlink" title="&#x7A0B;&#x5E8F;&#x4E0D;&#x53D8;&#x6761;&#x4EF6; invariants"></a>&#x7A0B;&#x5E8F;&#x4E0D;&#x53D8;&#x6761;&#x4EF6; invariants</span></a></li></ol></li></ol></div>
             
 
           </div>

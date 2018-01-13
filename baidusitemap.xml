@@ -4,6 +4,138 @@
 
     
   <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+    <lastmod>2018-01-13T13:58:42.256Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley</title>
+        <pubTime>2018-01-13T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+    <lastmod>2018-01-13T13:49:46.100Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley</title>
+        <pubTime>2018-01-12T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/ai/</loc>
+    <lastmod>2018-01-13T13:14:35.483Z</lastmod>
+    <data>
+        <display>
+        <title>人工智能AI入门到进阶</title>
+        <pubTime>2017-12-17T18:25:12.138Z</pubTime>
+        
+        <tag>人工智能</tag>
+         
+        <tag>自然语言处理</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>深度学习</tag>
+         
+        <tag>计算机视觉</tag>
+         
+        <tag>大数据</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
+    <lastmod>2018-01-12T11:11:36.848Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 07 - Java | 用数组构建数据列表 list - CS61B Berkeley</title>
+        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
     <lastmod>2018-01-06T22:45:03.611Z</lastmod>
     <data>
@@ -166,39 +298,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
-    <lastmod>2018-01-04T20:45:42.704Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 07 - Java | 用数组构建数据列表 list - CS61B Berkeley</title>
-        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
     <lastmod>2018-01-04T17:09:34.247Z</lastmod>
     <data>
@@ -225,39 +324,6 @@
           
              
               <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    <lastmod>2018-01-02T13:41:26.565Z</lastmod>
-    <data>
-        <display>
-        <title>人工智能AI入门到进阶</title>
-        <pubTime>2017-12-17T18:25:12.138Z</pubTime>
-        
-        <tag>人工智能</tag>
-         
-        <tag>自然语言处理</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>深度学习</tag>
-         
-        <tag>计算机视觉</tag>
-         
-        <tag>大数据</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>
@@ -358,7 +424,6 @@
     </data>
     </url>
 
-    
     
     
     
