@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-13T17:47:35.309Z</updated>
+  <updated>2018-01-13T17:05:47.987Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,43 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</id>
-    <published>2018-01-13T00:00:00.000Z</published>
-    <updated>2018-01-13T17:47:35.309Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h2><p>前面介绍过单向链表，不过单向链表有几个缺点. 第一个就是它的<code>addLast</code>操作非常慢。回忆单向链表只有开头一定节点的地址, 以及每个节点对后面节点的单向引用(链接). 对于很长的列表，<code>addLast</code>方法必须遍历整个列表, 一直到找到列表末尾才能执行插入操作. 那么如何解决呢?</p><p>很直观的解决方案就是加个’车尾’, 如图<img src="/images/sllist_last_pointer.png" alt="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/sllist_last_pointer.png">. 这样我们就可以直接通过<code>last.next</code>引用末尾位置.<br>不过另一个问题并没有解决, 就是删除列表最后一项<code>removeLast</code>这个操作还是很慢。因为在目前的结构设计下, 我们需要先找到倒数第二项，然后将其下一个指针设置为<code>null</code>。而要找到倒数第二节点, 我们就得先找到倒数第三个节点…以此类推。也就是说，对于删除末尾的操作，还是要几乎遍历整个列表。</p><h3 id="反方向的链接"><a href="#反方向的链接" class="headerlink" title="反方向的链接"></a>反方向的链接</h3><p>一个比较有效的方法是为每个节点添加一个指向前面节点的链接/指针.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OneNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> OneNode prev; <span class="comment">//指向前</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">    <span class="keyword">public</span> OneNode next; <span class="comment">//指向后</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>增加这些额外的指针会导致额外的代码复杂度, 以及额外的内存开销, 这就是追求时间效率的代价.</p><p>在构建具体的双向链表前，回忆前面单向链表中我们使用过的技巧，以及使用的目的。比如前哨节点是为了保持程序的不变条件。那么在双向链表的情况下，可否直接套用呢？</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;双向链表-Doubly-Linked-List&quot;&gt;&lt;a href=&quot;#双向链表-Doubly-Linked-List&quot; class=&quot;headerlink&quot; title=&quot;双向链表 Doubly Linked List&quot;&gt;&lt;/a&gt;双向链表 Doubly Linke
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="计算机科学" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="编程" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="软件工程" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
-      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
-    
-  </entry>
   
   <entry>
     <title>算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley</title>
@@ -405,15 +368,15 @@
     <link href="http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/"/>
     <id>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</id>
     <published>2017-12-18T00:00:00.000Z</published>
-    <updated>2018-01-04T20:46:28.994Z</updated>
+    <updated>2018-01-19T18:58:57.947Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Hellow-World"><a href="#Hellow-World" class="headerlink" title="Hellow World"></a>Hellow World</h1><h2 id="Java安装与配置"><a href="#Java安装与配置" class="headerlink" title="Java安装与配置"></a>Java安装与配置</h2><p>安装Java，前往<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a>下载java sdk，我用的是Java SE 8u151/ 8u152 版本。安装sdk时会同时安装sdr。</p><p>Windows系统配置:</p><ul><li>推荐安装<a href="http://git-scm.com/download/" target="_blank" rel="noopener">git bash</a>, 一切按照默认安装就好.</li><li>更新系统环境变量: 直接在<code>运行</code>中搜索<code>Environment Variables</code>, 选择<code>编辑系统环境变量</code>, 在弹出的框中选择<code>高级-&gt;环境变量</code>, 在弹出的框中<code>系统变量</code>里面<ul><li>新建变量: 变量名 = <code>JAVA_HOME</code>, 变量值 = 你的jdk路径,如<code>C:\Program Files\Java\jdk1.8.0_151</code></li><li>编辑Path: 在前面加入<code>%JAVA_HOME%\bin;%PYTHON_HOME%;</code>(请注意，不能有空格.)</li></ul></li></ul><p>OS X系统配置:</p><ul><li>安装Homebrew，一个非常好用的包管理工具。要安装，请在terminal终端输入<code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code>(注意：在此过程中，可能会提示输入密码。当输入密码时，终端上不会显示任何内容，但计算机还是会记录你的密码的。这是一个安全措施, 让其他人在屏幕上看不到你的密码。只需输入您的密码，然后按回车。)</li><li>然后，通过输入以下命令来检查brew系统是否正常工作<code>brew doctor</code>. 如果遇到警告，要求下载命令行工具，则需要执行此操作。请参考这个<a href="http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-%20%20command-line-tools" target="_blank" rel="noopener">StackOverflow</a>。</li><li>安装git：输入<code>brew install git</code></li></ul><p>安装并配置好java后，测试是否成功:<br>随便在你喜欢的文件夹里新建一个java文件<code>HelloWorld.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>你可以选择用sublime来快速新建文件, 直接在你选择的文件里右键 git bash, 在git bash 里面键入<code>subl HelloWorld.java</code>, 还自动启动sublime并新建一个空白的<code>HelloWorld.java</code>文件, 把上面的代码复制进去并保存即可. (若出现类似提示: 找不到subl command, 解决办法请参考博文<a href="/Launch-editor-in-Gitbash">在Gitbash中直接启动sublime或atom等编辑器以打开或新建文件</a> )<br>开始真正的测试。直接在之前打开的git bash中输入:</p><ol><li><code>ls</code>, 会看到<code>HelloWorld.java</code>这个文件, <code>ls</code>会列出这个目录中的文件/文件夹</li><li><code>javac HelloWorld.java</code>, 理论上这一步不会有任何输出，有的话可能是设置有问题。现在，如果你继续<code>ls</code>，会看到多了一个<code>HelloWorld.class</code>文件， 这是javac创建的。</li><li><code>java HelloWorld</code> (注意没有<code>.java</code>), 会看到输出<code>Hello World</code>, 表明你的Java设置没有问题</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hellow-World"><a href="#Hellow-World" class="headerlink" title="Hellow World"></a>Hellow World</h1><p>本系列资料来源于伯克利 Josh Hug 的 <a href="datastructur.es/sp17/">cs61b</a>.</p><h2 id="Java安装与配置"><a href="#Java安装与配置" class="headerlink" title="Java安装与配置"></a>Java安装与配置</h2><p>安装Java，前往<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a>下载java sdk，我用的是Java SE 8u151/ 8u152 版本。安装sdk时会同时安装sdr。</p><p>Windows系统配置:</p><ul><li>推荐安装<a href="http://git-scm.com/download/" target="_blank" rel="noopener">git bash</a>, 一切按照默认安装就好.</li><li>更新系统环境变量: 直接在<code>运行</code>中搜索<code>Environment Variables</code>, 选择<code>编辑系统环境变量</code>, 在弹出的框中选择<code>高级-&gt;环境变量</code>, 在弹出的框中<code>系统变量</code>里面<ul><li>新建变量: 变量名 = <code>JAVA_HOME</code>, 变量值 = 你的jdk路径,如<code>C:\Program Files\Java\jdk1.8.0_151</code></li><li>编辑Path: 在前面加入<code>%JAVA_HOME%\bin;%PYTHON_HOME%;</code>(请注意，不能有空格.)</li></ul></li></ul><p>OS X系统配置:</p><ul><li>安装Homebrew，一个非常好用的包管理工具。要安装，请在terminal终端输入<code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code>(注意：在此过程中，可能会提示输入密码。当输入密码时，终端上不会显示任何内容，但计算机还是会记录你的密码的。这是一个安全措施, 让其他人在屏幕上看不到你的密码。只需输入您的密码，然后按回车。)</li><li>然后，通过输入以下命令来检查brew系统是否正常工作<code>brew doctor</code>. 如果遇到警告，要求下载命令行工具，则需要执行此操作。请参考这个<a href="http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-%20%20command-line-tools" target="_blank" rel="noopener">StackOverflow</a>。</li><li>安装git：输入<code>brew install git</code></li></ul><p>安装并配置好java后，测试是否成功:<br>随便在你喜欢的文件夹里新建一个java文件<code>HelloWorld.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>你可以选择用sublime来快速新建文件, 直接在你选择的文件里右键 git bash, 在git bash 里面键入<code>subl HelloWorld.java</code>, 还自动启动sublime并新建一个空白的<code>HelloWorld.java</code>文件, 把上面的代码复制进去并保存即可. (若出现类似提示: 找不到subl command, 解决办法请参考博文<a href="/Launch-editor-in-Gitbash">在Gitbash中直接启动sublime或atom等编辑器以打开或新建文件</a> )<br>开始真正的测试。直接在之前打开的git bash中输入:</p><ol><li><code>ls</code>, 会看到<code>HelloWorld.java</code>这个文件, <code>ls</code>会列出这个目录中的文件/文件夹</li><li><code>javac HelloWorld.java</code>, 理论上这一步不会有任何输出，有的话可能是设置有问题。现在，如果你继续<code>ls</code>，会看到多了一个<code>HelloWorld.class</code>文件， 这是javac创建的。</li><li><code>java HelloWorld</code> (注意没有<code>.java</code>), 会看到输出<code>Hello World</code>, 表明你的Java设置没有问题</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Hellow-World&quot;&gt;&lt;a href=&quot;#Hellow-World&quot; class=&quot;headerlink&quot; title=&quot;Hellow World&quot;&gt;&lt;/a&gt;Hellow World&lt;/h1&gt;&lt;h2 id=&quot;Java安装与配置&quot;&gt;&lt;a href=&quot;#Java
+        &lt;h1 id=&quot;Hellow-World&quot;&gt;&lt;a href=&quot;#Hellow-World&quot; class=&quot;headerlink&quot; title=&quot;Hellow World&quot;&gt;&lt;/a&gt;Hellow World&lt;/h1&gt;&lt;p&gt;本系列资料来源于伯克利 Josh Hug 的 &lt;a href
       
     
     </summary>
