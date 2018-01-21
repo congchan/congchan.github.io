@@ -285,6 +285,210 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算机科学与人工智能">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NOTE-CS61B-data-structures-09-java-doubly-linked-list/" itemprop="url">算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T00:00:00+00:00">
+                2018-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机科学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/NOTE-CS61B-data-structures-09-java-doubly-linked-list/" class="leancloud_visitors" data-flag-title="算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,025 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h2><p>前面介绍过单向链表，不过单向链表有几个缺点. 第一个就是它的<code>addLast</code>操作非常慢。单向链表只有一个变量保存列表头的地址, 以及每个节点对后面节点的单向引用(链接). 对于很长的列表，<code>addLast</code>方法必须遍历整个列表, 一直到找到列表末尾才能执行插入操作. 那么如何解决呢?</p>
+<p>最直观的解决方案就是加个’车尾’, 如图<img src="/images/sllist_last_pointer.png" alt="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/sllist_last_pointer.png"> 这样我们就可以直接通过<code>last.next</code>引用末尾位置.<br>不过另一个问题并没有解决, 就是删除列表最后一项<code>removeLast</code>这个操作还是很慢。因为在目前的结构设计下, 我们需要先找到倒数第二项，然后将其下一个指针设置为<code>null</code>。而要找到倒数第二节点, 我们就得先找到倒数第三个节点…… 以此类推。也就是说，对于删除末尾的操作，还是要几乎遍历整个列表。</p>
+<h3 id="反方向的链接"><a href="#反方向的链接" class="headerlink" title="反方向的链接"></a>反方向的链接</h3><p>基于前面单向链表构建双向链表, 一个比较有效的方法是额外为每个节点添加一个指向前面节点的链接/指针.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OneNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> OneNode prev; <span class="comment">//指向前</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">    <span class="keyword">public</span> OneNode next; <span class="comment">//指向后</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>增加这些额外的指针会导致额外的代码复杂度, 以及额外的内存开销, 这就是追求时间效率的代价.</p>
+<h3 id="Sentinel-与尾节点"><a href="#Sentinel-与尾节点" class="headerlink" title="Sentinel 与尾节点"></a>Sentinel 与尾节点</h3><p>双向链表的一个设计初衷，就是为了解决单向链表针对列表末尾位置的操作效率不高的问题，除了sentinel和反方向的链接还不够，我们还需要一个节点（指针）能够直接帮我们定位到列表末端。可以考虑添加一个的尾节点<code>last</code>，<img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_basic_size_0.png" alt="fig source https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_basic_size_0.png"> <img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_basic_size_2.png" alt="fig source https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_basic_size_2.png"> 这样的列表就可以支持<code>O(1)</code>复杂度的<code>addLast</code>,<code>getLast</code> 和 <code>removeLast</code>操作了。</p>
+<h2 id="循环双端链表"><a href="#循环双端链表" class="headerlink" title="循环双端链表"></a>循环双端链表</h2><p>上面的尾节点设计虽然没什么错误，但有点瑕疵：最后一个尾节点指针有时指向前哨节点，有时指向一个真正的节点。更好的方法是使双向链表首尾相连, 构成一个循环，即前后节点共享唯一的一个前哨节点。<img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_circular_sentinel_size_0.png" alt="fig source https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_circular_sentinel_size_0.png"> <img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_circular_sentinel_size_2.png" alt="fig source https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_circular_sentinel_size_2.png"><br>这样的设计相对更整洁，更美观(主观上的), sentinel的<code>prev</code>就指向列表最后一个节点, sentinel的<code>next</code>指向列表第一个节点.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListDeque</span>&lt;<span class="title">GType</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">OneNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> OneNode prev; <span class="comment">//sentinel's forward link always points to the last element</span></span><br><span class="line">        <span class="keyword">public</span> GType item;</span><br><span class="line">        <span class="keyword">public</span> OneNode next; <span class="comment">//sentinel's backward link always points to the first element</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">OneNode</span><span class="params">(OneNode p, GType i, OneNode n)</span> </span>&#123;</span><br><span class="line">            prev = p;</span><br><span class="line">            item = i;</span><br><span class="line">            next = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后修改构造函数:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Creates an empty deque. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedListDeque</span><span class="params">()</span></span>&#123;</span><br><span class="line">    sentinel = <span class="keyword">new</span> OneNode(<span class="keyword">null</span>,<span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    sentinel.prev = sentinel;</span><br><span class="line">    sentinel.next = sentinel;</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Creates a deque with x  */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedListDeque</span><span class="params">(GType x)</span></span>&#123;</span><br><span class="line">    sentinel = <span class="keyword">new</span> OneNode(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    sentinel.next = <span class="keyword">new</span> OneNode(sentinel, x,sentinel);</span><br><span class="line">    sentinel.prev = sentinel.next;</span><br><span class="line">    size = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果是初始化空列表, 那么其实就是一个自己指向自己的<code>sentinel</code>节点. 如果是非空列表, 那么<code>sentinel</code>节点和真实的节点就构成了一个最简单的二元循环体.</p>
+<h3 id="针对列表末尾位置的操作"><a href="#针对列表末尾位置的操作" class="headerlink" title="针对列表末尾位置的操作"></a>针对列表末尾位置的操作</h3><p>双端链表结构优雅，虽然某些操作如<code>addFirst</code>等编码复杂度会提高, 但不影响速度. 更重要的是, 相比单向链表, 它反而使得<code>addLast, moveLast</code>等方法的代码实现变得简单了, 而且还进一步提升了运行速度(<code>O(n)到O(c)</code>).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Adds an item to the back of the Deque.</span></span><br><span class="line"><span class="comment"> * O(c) */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(GType x)</span></span>&#123;</span><br><span class="line">    OneNode oldBackNode = sentinel.prev;</span><br><span class="line">    OneNode newNode = <span class="keyword">new</span> OneNode(oldBackNode, x, sentinel);</span><br><span class="line">    sentinel.prev = newNode;</span><br><span class="line">    oldBackNode.next = newNode;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Removes and returns the item at the front of the Deque.</span></span><br><span class="line"><span class="comment"> * If no such item exists, returns null.O(c). */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> GType <span class="title">removeFirst</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    OneNode oldFrontNode = sentinel.next;</span><br><span class="line">    sentinel.next = oldFrontNode.next;</span><br><span class="line">    oldFrontNode.next.prev = sentinel;</span><br><span class="line">    size -= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> oldFrontNode.item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -393,7 +597,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,731 字
+                  1,718 字
                 </span>
               
 
@@ -2144,225 +2348,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算机科学与人工智能">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/NOTE-CS61B-data-structures-01-java-install/" itemprop="url">算法与数据结构 01 - Java | 安装 - CS61B Berkeley</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T00:00:00+00:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机科学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/NOTE-CS61B-data-structures-01-java-install/" class="leancloud_visitors" data-flag-title="算法与数据结构 01 - Java | 安装 - CS61B Berkeley">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  644 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>本系列资料来源于伯克利 Josh Hug 的 <a href="datastructur.es/sp17/">cs61b spring 2017</a>.</p>
-<h2 id="Java安装与配置"><a href="#Java安装与配置" class="headerlink" title="Java安装与配置"></a>Java安装与配置</h2><p>安装Java，前往<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a>下载java sdk，我用的是Java SE 8u151/ 8u152 版本。安装sdk时会同时安装sdr。</p>
-<p>Windows系统配置:</p>
-<ul>
-<li>推荐安装<a href="http://git-scm.com/download/" target="_blank" rel="noopener">git bash</a>, 一切按照默认安装就好.</li>
-<li>更新系统环境变量: 直接在<code>运行</code>中搜索<code>Environment Variables</code>, 选择<code>编辑系统环境变量</code>, 在弹出的框中选择<code>高级-&gt;环境变量</code>, 在弹出的框中<code>系统变量</code>里面<ul>
-<li>新建变量: 变量名 = <code>JAVA_HOME</code>, 变量值 = 你的jdk路径,如<code>C:\Program Files\Java\jdk1.8.0_151</code></li>
-<li>编辑Path: 在前面加入<code>%JAVA_HOME%\bin;%PYTHON_HOME%;</code>(请注意，不能有空格.)</li>
-</ul>
-</li>
-</ul>
-<p>OS X系统配置:</p>
-<ul>
-<li>安装Homebrew，一个非常好用的包管理工具。要安装，请在terminal终端输入<code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code>(注意：在此过程中，可能会提示输入密码。当输入密码时，终端上不会显示任何内容，但计算机还是会记录你的密码的。这是一个安全措施, 让其他人在屏幕上看不到你的密码。只需输入您的密码，然后按回车。)</li>
-<li>然后，通过输入以下命令来检查brew系统是否正常工作<code>brew doctor</code>. 如果遇到警告，要求下载命令行工具，则需要执行此操作。请参考这个<a href="http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-%20%20command-line-tools" target="_blank" rel="noopener">StackOverflow</a>。</li>
-<li>安装git：输入<code>brew install git</code></li>
-</ul>
-<p>安装并配置好java后，测试是否成功:<br>随便在你喜欢的文件夹里新建一个java文件<code>HelloWorld.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>你可以选择用sublime来快速新建文件, 直接在你选择的文件里右键 git bash, 在git bash 里面键入<code>subl HelloWorld.java</code>, 还自动启动sublime并新建一个空白的<code>HelloWorld.java</code>文件, 把上面的代码复制进去并保存即可. (若出现类似提示: 找不到subl command, 解决办法请参考博文<a href="/Launch-editor-in-Gitbash">在Gitbash中直接启动sublime或atom等编辑器以打开或新建文件</a> )<br>开始真正的测试。直接在之前打开的git bash中输入:</p>
-<ol>
-<li><code>ls</code>, 会看到<code>HelloWorld.java</code>这个文件, <code>ls</code>会列出这个目录中的文件/文件夹</li>
-<li><code>javac HelloWorld.java</code>, 理论上这一步不会有任何输出，有的话可能是设置有问题。现在，如果你继续<code>ls</code>，会看到多了一个<code>HelloWorld.class</code>文件， 这是javac创建的。</li>
-<li><code>java HelloWorld</code> (注意没有<code>.java</code>), 会看到输出<code>Hello World</code>, 表明你的Java设置没有问题</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2417,7 +2402,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

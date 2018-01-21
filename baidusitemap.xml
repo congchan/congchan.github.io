@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
-    <lastmod>2018-01-19T19:01:41.811Z</lastmod>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+    <lastmod>2018-01-21T00:42:47.533Z</lastmod>
     <data>
         <display>
-        <title>算法与数据结构 01 - Java | 安装 - CS61B Berkeley</title>
-        <pubTime>2017-12-18T00:00:00.000Z</pubTime>
+        <title>算法与数据结构 09 - Java | 双向链表 Doubly Linked List - CS61B Berkeley</title>
+        <pubTime>2018-01-13T00:00:00.000Z</pubTime>
         
         <tag>编程</tag>
          
@@ -38,11 +38,44 @@
     
   <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
-    <lastmod>2018-01-13T17:05:47.987Z</lastmod>
+    <lastmod>2018-01-20T23:34:46.313Z</lastmod>
     <data>
         <display>
         <title>算法与数据结构 08 - Java | 单向链表 Singly Linked List - CS61B Berkeley</title>
         <pubTime>2018-01-12T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
+    <lastmod>2018-01-19T19:01:41.811Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 01 - Java | 安装 - CS61B Berkeley</title>
+        <pubTime>2017-12-18T00:00:00.000Z</pubTime>
         
         <tag>编程</tag>
          
