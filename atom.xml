@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-29T15:24:34.624Z</updated>
+  <updated>2018-01-29T15:28:10.619Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/"/>
     <id>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</id>
     <published>2018-01-28T00:00:00.000Z</published>
-    <updated>2018-01-29T15:24:34.624Z</updated>
+    <updated>2018-01-29T15:28:10.619Z</updated>
     
-    <content type="html"><![CDATA[<p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.<br>队列, 通俗的含义, 就是不能插队, 只能在末尾插入.<br>也有双端队列 Double Ended Queue (Deque)。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩 <a href="http://www.cplusplus.com/reference/deque/deque/" target="_blank" rel="noopener">定义来源 cplusplus.com</a>.</p><p>CS61b的<a href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a" target="_blank" rel="noopener">project 1a</a>就是实现两种双端队列(array based 和 linkedklist based).</p><p>不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异:</p><ul><li>搜索/定位：与<code>LinkedList</code>搜索操作相比，<code>ArrayList</code>搜索操作更快。 <code>ArrayList</code>的<code>get(int index)</code>性能是<code>O(1)</code>的，而LinkedList的性能是<code>O(n)</code>。因为<code>ArrayList</code>基于<code>array</code>数据结构，可以直接用靠 array index 索引元素。</li><li>删除/插入：<code>LinkedList</code> 操作性能是<code>O(1)</code>，而<code>ArrayList</code>的性能从<code>O(n)</code>（删除/插入第一个元素）到<code>O(n)</code>（最后一个元素）都有可能。因为<code>LinkedList</code>的每个元素都包含两个指向其相邻前后元素的指针（地址），因此仅需要改变，被删节点的<code>prev</code>和<code>next</code>指针位置。而在<code>ArrayList</code>中，需要移动剩余元素，来重新填充<code>array</code>空间。</li><li>内存开销：<code>LinkedList</code>的每个元素都有更多的内存开销(额外的指针), 而<code>ArrayLists</code>没有这个开销。但是，<code>ArrayLists</code>需要占用初始容量。一般<code>ArrayList</code>的默认初始容量非常小（Java 1.4 - 1.8使用10）。但是，往<code>ArrayLists</code>添加元素时， 它可能会适当地增大容量，所以如果添加了很多元素，则必须不断调整数组的大小，那样也可能会导致元素频繁挪动位置。</li></ul><p>综上所述：</p><ol><li>如果在应用中需要频繁插入和删除，那么选择<code>LinkedList</code>。</li><li>假如一开始，就知道后面要添加大量元素，那就使用较高的初始容量来构造<code>ArrayList</code>。</li><li>大部分用例中, 相比LinkedList, 人们更偏爱ArrayList以及ArrayDeque。如果你不确定应该选哪个, 那么就直接考虑ArrayList吧(<a href="https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist" target="_blank" rel="noopener">参考</a>).</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.<br>队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.<br>Deque 就是双端队列 Double Ended Queue。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩<a href="http://www.cplusplus.com/reference/deque/deque/" target="_blank" rel="noopener">（定义来源 cplusplus.com）</a>.</p><p>CS61b的<a href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a" target="_blank" rel="noopener">project 1a</a>就是实现两种双端队列（array based 和 linkedklist based）.</p><p>不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异:</p><ul><li>搜索/定位：与<code>LinkedList</code>搜索操作相比，<code>ArrayList</code>搜索操作更快。 <code>ArrayList</code>的<code>get(int index)</code>性能是<code>O(1)</code>的，而LinkedList的性能是<code>O(n)</code>。因为<code>ArrayList</code>基于<code>array</code>数据结构，可以直接用靠 array index 索引元素。</li><li>删除/插入：<code>LinkedList</code> 操作性能是<code>O(1)</code>，而<code>ArrayList</code>的性能从<code>O(n)</code>（删除/插入第一个元素）到<code>O(n)</code>（最后一个元素）都有可能。因为<code>LinkedList</code>的每个元素都包含两个指向其相邻前后元素的指针（地址），因此仅需要改变，被删节点的<code>prev</code>和<code>next</code>指针位置。而在<code>ArrayList</code>中，需要移动剩余元素，来重新填充<code>array</code>空间。</li><li>内存开销：<code>LinkedList</code>的每个元素都有更多的内存开销(额外的指针), 而<code>ArrayLists</code>没有这个开销。但是，<code>ArrayLists</code>需要占用初始容量。一般<code>ArrayList</code>的默认初始容量非常小（Java 1.4 - 1.8使用10）。但是，往<code>ArrayLists</code>添加元素时， 它可能会适当地增大容量，所以如果添加了很多元素，则必须不断调整数组的大小，那样也可能会导致元素频繁挪动位置。</li></ul><p>综上所述：</p><ol><li>如果在应用中需要频繁插入和删除，那么选择<code>LinkedList</code>。</li><li>假如一开始，就知道后面要添加大量元素，那就使用较高的初始容量来构造<code>ArrayList</code>。</li><li>大部分用例中, 相比LinkedList, 人们更偏爱ArrayList以及ArrayDeque。如果你不确定应该选哪个, 那么就直接考虑ArrayList吧(<a href="https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist" target="_blank" rel="noopener">参考</a>).</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Java 提供了 &lt;code&gt;ArrayList&lt;/code&gt;, &lt;code&gt;ArrayDeque&lt;/code&gt; 和 &lt;code&gt;LinkedList&lt;/code&gt; 几个API.&lt;br&gt;队列, 通俗的含义, 就是不能插队, 只能在末尾插入.&lt;br&gt;也有双端队列 Double
+        &lt;p&gt;Java 提供了 &lt;code&gt;ArrayList&lt;/code&gt;, &lt;code&gt;ArrayDeque&lt;/code&gt; 和 &lt;code&gt;LinkedList&lt;/code&gt; 几个API.&lt;br&gt;队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.&lt;br&gt;Deque 就
       
     
     </summary>

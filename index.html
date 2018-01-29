@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  509 字
+                  510 字
                 </span>
               
 
@@ -432,8 +432,8 @@
       
         
           
-            <p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.<br>队列, 通俗的含义, 就是不能插队, 只能在末尾插入.<br>也有双端队列 Double Ended Queue (Deque)。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩 <a href="http://www.cplusplus.com/reference/deque/deque/" target="_blank" rel="noopener">定义来源 cplusplus.com</a>.</p>
-<p>CS61b的<a href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a" target="_blank" rel="noopener">project 1a</a>就是实现两种双端队列(array based 和 linkedklist based).</p>
+            <p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.<br>队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.<br>Deque 就是双端队列 Double Ended Queue。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩<a href="http://www.cplusplus.com/reference/deque/deque/" target="_blank" rel="noopener">（定义来源 cplusplus.com）</a>.</p>
+<p>CS61b的<a href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a" target="_blank" rel="noopener">project 1a</a>就是实现两种双端队列（array based 和 linkedklist based）.</p>
 <p>不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异:</p>
 <ul>
 <li>搜索/定位：与<code>LinkedList</code>搜索操作相比，<code>ArrayList</code>搜索操作更快。 <code>ArrayList</code>的<code>get(int index)</code>性能是<code>O(1)</code>的，而LinkedList的性能是<code>O(n)</code>。因为<code>ArrayList</code>基于<code>array</code>数据结构，可以直接用靠 array index 索引元素。</li>

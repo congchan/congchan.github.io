@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API.队列, 通俗的含义, 就是不能插队, 只能在末尾插入.也有双端队列 Double Ended Queue (Deque)。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩 定义来源 cplusplus.com. CS61b的project 1a就是实现两种双端队列(array b">
+<meta name="description" content="Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API.队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.Deque 就是双端队列 Double Ended Queue。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩（定义来源 cplusplus.com）. CS61b的project 1a就是实现两种双端队列（ar">
 <meta name="keywords" content="编程,Java,软件工程,数据结构,算法,cs61b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法与数据结构 10 - Java | LinkedList 还是 ArrayList - CS61B Berkeley">
 <meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/index.html">
 <meta property="og:site_name" content="计算机科学与人工智能">
-<meta property="og:description" content="Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API.队列, 通俗的含义, 就是不能插队, 只能在末尾插入.也有双端队列 Double Ended Queue (Deque)。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩 定义来源 cplusplus.com. CS61b的project 1a就是实现两种双端队列(array b">
+<meta property="og:description" content="Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API.队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.Deque 就是双端队列 Double Ended Queue。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩（定义来源 cplusplus.com）. CS61b的project 1a就是实现两种双端队列（ar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-29T15:24:34.624Z">
+<meta property="og:updated_time" content="2018-01-29T15:28:10.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 10 - Java | LinkedList 还是 ArrayList - CS61B Berkeley">
-<meta name="twitter:description" content="Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API.队列, 通俗的含义, 就是不能插队, 只能在末尾插入.也有双端队列 Double Ended Queue (Deque)。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩 定义来源 cplusplus.com. CS61b的project 1a就是实现两种双端队列(array b">
+<meta name="twitter:description" content="Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API.队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.Deque 就是双端队列 Double Ended Queue。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩（定义来源 cplusplus.com）. CS61b的project 1a就是实现两种双端队列（ar">
 
 
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  509 字
+                  510 字
                 </span>
               
 
@@ -432,8 +432,8 @@
       
 
       
-        <p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.<br>队列, 通俗的含义, 就是不能插队, 只能在末尾插入.<br>也有双端队列 Double Ended Queue (Deque)。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩 <a href="http://www.cplusplus.com/reference/deque/deque/" target="_blank" rel="noopener">定义来源 cplusplus.com</a>.</p>
-<p>CS61b的<a href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a" target="_blank" rel="noopener">project 1a</a>就是实现两种双端队列(array based 和 linkedklist based).</p>
+        <p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.<br>队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.<br>Deque 就是双端队列 Double Ended Queue。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩<a href="http://www.cplusplus.com/reference/deque/deque/" target="_blank" rel="noopener">（定义来源 cplusplus.com）</a>.</p>
+<p>CS61b的<a href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a" target="_blank" rel="noopener">project 1a</a>就是实现两种双端队列（array based 和 linkedklist based）.</p>
 <p>不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异:</p>
 <ul>
 <li>搜索/定位：与<code>LinkedList</code>搜索操作相比，<code>ArrayList</code>搜索操作更快。 <code>ArrayList</code>的<code>get(int index)</code>性能是<code>O(1)</code>的，而LinkedList的性能是<code>O(n)</code>。因为<code>ArrayList</code>基于<code>array</code>数据结构，可以直接用靠 array index 索引元素。</li>
