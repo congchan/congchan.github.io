@@ -285,6 +285,236 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-11-testing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算机科学与人工智能">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NOTE-CS61B-data-structures-11-testing/" itemprop="url">算法与数据结构 11 - Java | 测试 Testing - CS61B Berkeley</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T00:00:00+00:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机科学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/NOTE-CS61B-data-structures-11-testing/" class="leancloud_visitors" data-flag-title="算法与数据结构 11 - Java | 测试 Testing - CS61B Berkeley">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  737 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>如何知道自己的程序是否真的在工作？在现实世界中，程序员相信他们的代码，因为代码通过了他们自己编写的测试。常用的测试有 Ad Hoc Testing， Unit test 和 Integration Testing。</p>
+<p>Ad Hoc Testing，是指没有计划和记录的软件测试，除非发现缺陷，不然一般只运行一次。</p>
+<h3 id="Unit-test"><a href="#Unit-test" class="headerlink" title="Unit test"></a>Unit test</h3><p>程序可分解为单元（或程序中可测试的最小部分），它严格测试代码的每个单元，最终确保项目正确运行。<br>好处是：</p>
+<ol>
+<li>Unit test 保证良好的代码结构（每个 method “只打一份工”），帮助我们较好地解析任务，</li>
+<li>允许我们考虑每个方法的所有边界情况，并单独测试它们。</li>
+<li>让我们每次只专注于一个单元，进行测试，debug，对准确度有信心后，再进行下一个单元的开发。相比于一次性写完所有代码，再测试debug，Unit test 减少了 debugging 时间。</li>
+</ol>
+<p>坏处是：</p>
+<ol>
+<li>测试也要花时间</li>
+<li>测试本身也是有可能出错的，测试可能不全面，不规范，或者有bug</li>
+<li>有些单元是依赖于其他单元的</li>
+<li>Unit testing 无法保证各个模块的交互，无法保证整个系统作为一个整体是否正常工作。</li>
+</ol>
+<h4 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h4><p>JUnit是一个给Java做测试的框架，由Erich Gamma（Design Patterns）和Kent Beck（eXtreme Programming）编写。<br>JUnit使用Java的 reflection 功能（Java程序可以检查自己的代码）和注释。<br>JUnit允许我们：</p>
+<ul>
+<li>定义并执行测试和测试套件</li>
+<li>使用测试作为规范的有效手段</li>
+<li>使用测试来支持重构</li>
+<li>将修改的代码集成到构建中<br>JUnit可用于多个IDE，例如BlueJ，JBuilder和Eclipse在一定程度上具有JUnit集成。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertEquals(&lt;expected&gt;, &lt;actual&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>assertEquals</code>测试一个变量的实际值是否等于它的期望值。<br>JUnit test 各个测试方法，必须是非静态的（JUnit的设计人员设计规定的）。</p>
+<h3 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h3><p>鉴于 Unit testing 无法保证各个模块的交互，无法保证整个系统作为一个整体是否正常工作。<br>我们可能需要 integration testing，把各个模块合并，作为一个组合，进行测试（也可以把 Unit test 组合起来变成 integration testing）。</p>
+<p>Integration testing 一般都比较麻烦，也不容易自动化，而且一般是在比较高的抽象层进行测试，可能会漏掉微小的错误。</p>
+<h3 id="Test-driven-development"><a href="#Test-driven-development" class="headerlink" title="Test driven development"></a>Test driven development</h3><p>TDD开发步骤：</p>
+<ol>
+<li>明确一项新功能需求。</li>
+<li>为该功能编写 Unit test。</li>
+<li>运行测试，<font color="red">按理应该无法通过测试</font>（因为还没写功能程序）。</li>
+<li>编写通过实现该功能的代码，<font color="green">通过测试</font>。</li>
+<li>可选：<font color="yellow">重构代码</font>，使其更快，更整洁等等。</li>
+</ol>
+<p><img src="http://www.pathfindersolns.com/wp-content/uploads/2012/05/red-green-refactorFINAL2.png" alt="source from http://ryantablada.com/post/red-green-refactor---a-tdd-fairytale "></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2135,214 +2365,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="计算机科学与人工智能">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/NOTE-CS61B-data-structures-04-java-class-01-intro/" itemprop="url">算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T00:00:00+00:00">
-                2017-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机科学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/NOTE-CS61B-data-structures-04-java-class-01-intro/" class="leancloud_visitors" data-flag-title="算法与数据结构 04 - Java | 类 class 01 变量和方法 - CS61B Berkeley">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,157 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>Java的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它.</p>
-<p>类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为静态的和非静态的.</p>
-<p>静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；<br>非静态只能由实例调用，所以也称之为实例方法/变量。实例instance的概念后面会解释。</p>
-<h3 id="类（静态）变量和方法-Class-Static-Variables-and-Methods"><a href="#类（静态）变量和方法-Class-Static-Variables-and-Methods" class="headerlink" title="类（静态）变量和方法 Class(Static) Variables and Methods"></a>类（静态）变量和方法 Class(Static) Variables and Methods</h3><p>静态变量和方法的特征就是有<code>static</code>字符在前面.<br>以下代码定义了一个类来模拟狗，包含一个类变量作为这个类的说明，一个类方法用于发出叫声：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String instruction = <span class="string">"狗类实例"</span>; <span class="comment">//类变量, 说明</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"汪!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里没有定义main(), 在这种情况下如何直接运行这个类(<code>java Dog</code>), 程序是会报错的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误: 在类 Dog 中找不到 main 方法, 请将 main 方法定义为:</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">否则 JavaFX 应用程序类必须扩展javafx.application.Application`.</span></span><br></pre></td></tr></table></figure></p>
-<p>你可以选择在里面添加一个<code>main()</code>方法. 但这次我们选择不定义具体的<code>main()</code>. 具体要如何运行, 我们可以另写一个类定义一个main()方法来调用这个类.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这两种方式(在类A内部定义好main() vs. 在其他类B定义main()来调用A)没有优劣之分, 二者有不同的适用情况. 随着不断深入学习，二者的区分将变得更清晰。</p>
-<p>注意到, 类变量和方法是有局限性的。现实世界中, 并不是所有的狗都是一样的特征，仅仅靠类这个概念是无法区分不同个体的狗, 除非你为不同的狗定义不同的类（以及里面的变量和方法）, 那么就会很繁琐痛苦. 也就是说，用类来模拟个体是低效的，我们要使用实例.</p>
-<h3 id="实例变量和对象实例化-Instance-Variables-and-Object-Instantiation"><a href="#实例变量和对象实例化-Instance-Variables-and-Object-Instantiation" class="headerlink" title="实例变量和对象实例化 Instance Variables and Object Instantiation"></a>实例变量和对象实例化 Instance Variables and Object Instantiation</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/NOTE-CS61B-data-structures-04-java-class-01-intro/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2397,7 +2419,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
