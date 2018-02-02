@@ -285,6 +285,224 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="计算机科学与人工智能">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NOTE-CS61B-data-structures-04-java-class-02-class-instance/" itemprop="url">算法与数据结构 04 - Java | 类 class 02 类与实例 - CS61B Berkeley</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-25T00:00:00+00:00">
+                2017-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机科学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/NOTE-CS61B-data-structures-04-java-class-02-class-instance/" class="leancloud_visitors" data-flag-title="算法与数据结构 04 - Java | 类 class 02 类与实例 - CS61B Berkeley">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  832 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；<br>非静态只能由实例调用，所以也称之为实例方法/变量。</p>
+<h3 id="类方法-vs-实例方法-Class-Methods-vs-Instance-Methods"><a href="#类方法-vs-实例方法-Class-Methods-vs-Instance-Methods" class="headerlink" title="类方法 vs 实例方法 Class Methods vs. Instance Methods"></a>类方法 vs 实例方法 Class Methods vs. Instance Methods</h3><p>参考<a href="/NOTE-CS61B-data-structures-04-java-class-01-intro.html#实例变量和对象实例化-instance-variables-and-object-instantiation">上一篇文章的例子</a>，类方法由类调用<code>Dog.makeNoise();</code>. 实例方法只能由实例调用<code>bigDog.makeNoise();</code>. 同理可推, 类方法无法调用实例变量.</p>
+<p>可以看到实例方法更具体, 更贴近实体世界, 那我们仍需要类方法, 因为:</p>
+<ul>
+<li>有些类不需要实例化, 毕竟我们也经常需要处理抽象的概念, 这些抽象概念在人类认知范畴内是统一的, 比如数学计算, 我们需要计算某个数值的平方根, <code>x = Math.sqrt(100);</code>, 拿来就用, 不需要先实例化. 这点在Python中体现得很好.</li>
+<li><p>有些类有静态方法, 是有实际作用的。例如，若想比较一个类里面的不同实例, 比如两只狗的重量。比较简单的方法就是使用一个比较狗的重量的类方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title">maxDog</span><span class="params">(Dog d1, Dog d2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (d1.weight &gt; d2.weight) &#123;</span><br><span class="line">        <span class="keyword">return</span> d1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line">&#125;</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="number">15</span>);</span><br><span class="line">Dog d2 = <span class="keyword">new</span> Dog(<span class="number">100</span>);</span><br><span class="line">Dog.maxDog(d, d2);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个时候, 若使用实例方法也可以, 但没那么直观：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 我们使用关键字this来引用当前对象d。*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Dog <span class="title">maxDog</span><span class="params">(Dog d2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; d2.weight) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line">&#125;</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="number">15</span>);</span><br><span class="line">Dog d2 = <span class="keyword">new</span> Dog(<span class="number">100</span>);</span><br><span class="line">d.maxDog(d, d2);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="类变量-vs-实例变量-Class-Variables-vs-Instance-Variables"><a href="#类变量-vs-实例变量-Class-Variables-vs-Instance-Variables" class="headerlink" title="类变量 vs 实例变量 Class Variables vs. Instance Variables"></a>类变量 vs 实例变量 Class Variables vs. Instance Variables</h3><p>静态变量的也是有用处的。这些变量一般是类本身固有的属性。例如，我们可能需要用狗类的另一种生物学的统称“犬科”来作为类的说明， 这个时候可以用<code>public static String binomen = &quot;犬科&quot;;</code>，这个变量理论上是由类来访问的。<br>虽然Java在技术上允许使用实例名称来访问静态变量，但是这有时候可能会令人困惑， 所以还是少用为好。</p>
+<h3 id="构造器-Constructors-in-Java"><a href="#构造器-Constructors-in-Java" class="headerlink" title="构造器 Constructors in Java"></a>构造器 Constructors in Java</h3><p>与上面的<code>DogLauncher</code>实例化对象的方式相比, 我们更希望实例化可以带参数的，那样可以为我们节省手动给实例变量赋值的麻烦。为了启用这样的语法，我们只需把如下的构造函数直接添加进Dog类中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**注意：构造函数与class类同名</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">        weight = w;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在<code>DogLauncher</code>里实例化一只狗时, 直接<code>Dog d = new Dog(20);</code>即可.  </p>
+<p>在以上代码的基础上, 后续当我们想使用new和参数创建一只狗时，可以随时调用<code>public Dog(int w)</code>构造函数。对于熟悉Python的人来说，你可以理解java的构造函数为Python的<code>__init__</code>。</p>
+<p>一些术语:</p>
+<ul>
+<li>声明(declaration): <code>Dog smalldog;</code>声明一个类作为一个变量在内存中占位</li>
+<li>实例化: <code>new Dog(20)</code>, 如果没有把它作为值赋给一个类声明变量,那么这个实例化的值会被垃圾回收.</li>
+<li>声明, 实例化并赋值: <code>Dog smalldog = new Dog(5)</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1601,7 +1819,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1623,7 +1841,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

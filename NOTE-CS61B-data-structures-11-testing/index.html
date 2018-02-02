@@ -90,7 +90,7 @@
 <meta property="og:description" content="测试如何知道自己的程序是否真的在工作？在现实世界中，程序员相信他们的代码，因为代码通过了他们自己编写的测试。常用的测试有 Ad Hoc Testing， Unit test 和 Integration Testing。 Ad Hoc Testing，是指没有计划和记录的软件测试，除非发现缺陷，不然一般只运行一次。 Unit test程序可分解为单元（或程序中可测试的最小部分），它严格测试代码的每个">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.pathfindersolns.com/wp-content/uploads/2012/05/red-green-refactorFINAL2.png">
-<meta property="og:updated_time" content="2018-01-30T14:47:59.989Z">
+<meta property="og:updated_time" content="2018-01-30T21:39:24.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 11 - Java | 测试 Testing - CS61B Berkeley">
 <meta name="twitter:description" content="测试如何知道自己的程序是否真的在工作？在现实世界中，程序员相信他们的代码，因为代码通过了他们自己编写的测试。常用的测试有 Ad Hoc Testing， Unit test 和 Integration Testing。 Ad Hoc Testing，是指没有计划和记录的软件测试，除非发现缺陷，不然一般只运行一次。 Unit test程序可分解为单元（或程序中可测试的最小部分），它严格测试代码的每个">
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  737 字
+                  761 字
                 </span>
               
 
@@ -458,8 +458,9 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertEquals(&lt;expected&gt;, &lt;actual&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>assertEquals</code>测试一个变量的实际值是否等于它的期望值。<br>JUnit test 各个测试方法，必须是非静态的（JUnit的设计人员设计规定的）。</p>
-<h3 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h3><p>鉴于 Unit testing 无法保证各个模块的交互，无法保证整个系统作为一个整体是否正常工作。<br>我们可能需要 integration testing，把各个模块合并，作为一个组合，进行测试（也可以把 Unit test 组合起来变成 integration testing）。</p>
+<h3 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h3><p>鉴于 Unit testing 无法保证，有交互的多个模块，作为一个整体是否正常工作。<br>我们可能需要 integration testing，把各个模块合并，作为一个组合，进行测试（也可以把 Unit test 组合起来变成 integration testing）。</p>
 <p>Integration testing 一般都比较麻烦，也不容易自动化，而且一般是在比较高的抽象层进行测试，可能会漏掉微小的错误。</p>
+<p>当把所有模块都作为一个整体，也就是整个系统作为测试对象时，就是 system testing。</p>
 <h3 id="Test-driven-development"><a href="#Test-driven-development" class="headerlink" title="Test driven development"></a>Test driven development</h3><p>TDD开发步骤：</p>
 <ol>
 <li>明确一项新功能需求。</li>
@@ -468,7 +469,7 @@
 <li>编写通过实现该功能的代码，<font color="green">通过测试</font>。</li>
 <li>可选：重构代码，使其更快，更整洁等等。</li>
 </ol>
-<p><img src="http://www.pathfindersolns.com/wp-content/uploads/2012/05/red-green-refactorFINAL2.png" alt="source from http://ryantablada.com/post/red-green-refactor---a-tdd-fairytale "></p>
+<p><img src="http://www.pathfindersolns.com/wp-content/uploads/2012/05/red-green-refactorFINAL2.png" alt="source from http://ryantablada.com/post/red-green-refactor---a-tdd-fairytale " title="image from: http://ryantablada.com/post/red-green-refactor---a-tdd-fairytale"></p>
 
       
     </div>
@@ -518,6 +519,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Accelerated-Natural-Language-Processing-UoE/" rel="prev" title="自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh">
+                自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -603,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -625,7 +630,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

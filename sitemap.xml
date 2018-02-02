@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
+    
+    <lastmod>2018-01-31T12:11:20.723Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
     
-    <lastmod>2018-01-30T14:47:59.989Z</lastmod>
+    <lastmod>2018-01-30T21:39:24.909Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+    
+    <lastmod>2018-01-30T21:28:28.348Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+    
+    <lastmod>2018-01-30T21:24:13.524Z</lastmod>
     
   </url>
   
@@ -40,20 +61,6 @@
     <loc>http://yoursite.com/ai/</loc>
     
     <lastmod>2018-01-21T12:12:05.894Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
-    
-    <lastmod>2018-01-21T00:42:47.533Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
-    
-    <lastmod>2018-01-20T23:34:46.313Z</lastmod>
     
   </url>
   
