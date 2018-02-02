@@ -9,8 +9,8 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>NLP</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -23,10 +23,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -40,10 +40,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -74,10 +74,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -91,10 +91,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -124,10 +124,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -141,10 +141,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -158,10 +158,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -175,10 +175,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -192,10 +192,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -209,10 +209,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -226,10 +226,10 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
       </tags>
   </entry>
@@ -243,28 +243,11 @@
       </categories>
       <tags>
         <tag>编程</tag>
-        <tag>Java</tag>
         <tag>软件工程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>cs61b</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[人工智能AI入门到进阶]]></title>
-    <url>%2Fai%2F</url>
-    <content type="text"><![CDATA[简介记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。 Language:English 目录 人工智能 机器学习 深度学习 自然语言处理 计算机视觉 机器人 大数据 MapReduce 人工智能机器学习 Coursera Machine Learning， 吴恩达的简化版机器学习 Machine Learning, 吴恩达的机器学习课程 这个比较深入 Deep Learning, 吴恩达的深度学习课程 Neural Networks for Machine Learning, Hinton的神经网络课程 深度学习 Deep learning, Coursera Machine Learning Practical: DNN, CNN, RNN 每个lab的答案在下一个lab branch里，即lab1的答案可以在lab2 branch里面看到。这个代码全部用Python class，比coursera的难度高点。 自然语言处理 自然语言处理, 斯坦福 加速自然语言处理, 爱丁堡大学 深度学习处理自然语言，斯坦福 计算机视觉 图像识别：卷积神经网络，李飞飞，斯坦福 机器人 机器人入门，斯坦福 大数据 Hadoop和MapReduce入门，优达学城 MapReduce极限计算，爱丁堡大学 并行计算入门：MPI, openMP, and CUDA, 斯坦福 参考:Guide to technical development from Google educationOS Free Programming Books]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>人工智能</category>
-      </categories>
-      <tags>
-        <tag>人工智能</tag>
-        <tag>自然语言处理</tag>
-        <tag>机器学习</tag>
-        <tag>深度学习</tag>
-        <tag>计算机视觉</tag>
-        <tag>大数据</tag>
       </tags>
   </entry>
   <entry>
@@ -279,6 +262,23 @@
         <tag>编程</tag>
         <tag>软件工程</tag>
         <tag>计算机科学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[人工智能AI入门到进阶]]></title>
+    <url>%2Fai%2F</url>
+    <content type="text"><![CDATA[简介记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。 Language:English 目录 人工智能 机器学习 深度学习 自然语言处理 计算机视觉 机器人 大数据 MapReduce 人工智能机器学习 Coursera Machine Learning， 吴恩达的简化版机器学习 Machine Learning, 吴恩达的机器学习课程 这个比较深入 Deep Learning, 吴恩达的深度学习课程 Neural Networks for Machine Learning, Hinton的神经网络课程 深度学习 Deep learning, Coursera Machine Learning Practical: DNN, CNN, RNN 每个lab的答案在下一个lab branch里，即lab1的答案可以在lab2 branch里面看到。这个代码全部用Python class，比coursera的难度高点。 自然语言处理 自然语言处理, 斯坦福 加速自然语言处理, 爱丁堡大学 深度学习处理自然语言，斯坦福 计算机视觉 图像识别：卷积神经网络，李飞飞，斯坦福 机器人 机器人入门，斯坦福 大数据 Hadoop和MapReduce入门，优达学城 MapReduce极限计算，爱丁堡大学 并行计算入门：MPI, openMP, and CUDA, 斯坦福 参考:Guide to technical development from Google educationOS Free Programming Books]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+        <tag>机器学习</tag>
+        <tag>深度学习</tag>
+        <tag>自然语言处理</tag>
+        <tag>计算机视觉</tag>
+        <tag>大数据</tag>
       </tags>
   </entry>
 </search>
