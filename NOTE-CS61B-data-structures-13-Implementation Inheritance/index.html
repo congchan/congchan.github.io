@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Implementation Inheritance实现继承是subclass从superclass继承实现的关系。 default method 缺省方法（从 Java 8开始）除了signature之外，Java也允许subclass继承implementation。我们可以在List中列出已实现的method。这些方法是 default method，定义了List hypernyms的一些">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-24T17:17:33.164Z">
+<meta property="og:updated_time" content="2018-02-24T17:41:03.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 13 - Java | 实现继承 Implementation Inheritance - CS61B Berkeley">
 <meta name="twitter:description" content="Implementation Inheritance实现继承是subclass从superclass继承实现的关系。 default method 缺省方法（从 Java 8开始）除了signature之外，Java也允许subclass继承implementation。我们可以在List中列出已实现的method。这些方法是 default method，定义了List hypernyms的一些">
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  835 字
+                  825 字
                 </span>
               
 
@@ -438,7 +438,7 @@
       
         <h2 id="Implementation-Inheritance"><a href="#Implementation-Inheritance" class="headerlink" title="Implementation Inheritance"></a>Implementation Inheritance</h2><p>实现继承是subclass从superclass继承实现的关系。</p>
 <h3 id="default-method-缺省方法（从-Java-8开始）"><a href="#default-method-缺省方法（从-Java-8开始）" class="headerlink" title="default method 缺省方法（从 Java 8开始）"></a>default method 缺省方法（从 Java 8开始）</h3><p>除了signature之外，Java也允许subclass继承implementation。<br>我们可以在List中列出已实现的method。这些方法是 default method，定义了List hypernyms的一些默认行为：<code>default public void method() { ... }</code>.</p>
-<p>我们可以自由调用interface中定义的方法，而不用操心具体的实现。default method 应该适用于实现接口的任何类型的对象！子类不必在任何地方重新实现 default method， 可以直接调用。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List</span></span><br><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们可以自由调用interface中定义的方法，而不用操心具体的实现。default method 应该适用于实现接口的任何类型的对象！子类不必在任何地方重新实现 default method，可以直接调用。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List</span></span><br><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>不过，我们仍然可以重写 default method，在子类中重新定义该方法。这样，只要我们在LinkedLList上调用<code>print()</code>，它就会调用这个方法，而不是List的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// LinkedList</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Java是通过一个叫“dynamic method selection”的特性，来确定要调用 default method 还是已经被子类重写的method。<br>这个实例声明<code>List&lt;String&gt; l = new LinkedList&lt;String&gt;();</code>,指明<code>l</code>的类型是 List, 是 static type。由 new 生成的 object 本身是LinkedList类型，也从属于 List 类型。但是，因为这个对象本身是使用 LinkedList 构造函数实例化的，所以我们称之为 dynamic type。</p>
 <pre><code>Dynamic type 的名称起源于: 当`l`被重新分配指向另一种类型的对象时，比如说一个 ArrayList 对象，`l`的动态类型现在就变为 ArrayList. 因为它根据当前引用的对象的类型而改变, 所以是动态的。
@@ -458,7 +458,7 @@ Static vs. Dynamic Type:
 <li>无形中鼓励代码复杂化。</li>
 </ul>
 <p>最后，注意从属和拥有的区别：subclass 和 superclass 是上下级从属分类，而不是拥有与被拥有的关系，不要跟 nested class 混淆。</p>
-<p>[Oracle](<a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html：" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/java/IandI/index.html：</a><br>Interface Methods<br>Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict. These rules are driven by the following two principles:</p>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="noopener">Oracle</a>：<br>Interface Methods<br>Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict. These rules are driven by the following two principles:</p>
 
       
     </div>
@@ -508,6 +508,10 @@ Static vs. Dynamic Type:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NOTE-Java-miscellaneous-hashcode-equals/" rel="prev" title="算法与数据结构 - Java | 对象 哈希 重写 override equals() hashcode()">
+                算法与数据结构 - Java | 对象 哈希 重写 override equals() hashcode() <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -593,7 +597,7 @@ Static vs. Dynamic Type:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

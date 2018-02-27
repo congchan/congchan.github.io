@@ -4,8 +4,37 @@
 
     
   <url>
+    <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
+    <lastmod>2018-02-27T17:22:30.555Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 对象 哈希 重写 override equals() hashcode()</title>
+        <pubTime>2018-02-27T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation%20Inheritance/</loc>
-    <lastmod>2018-02-24T17:17:33.164Z</lastmod>
+    <lastmod>2018-02-24T17:41:03.967Z</lastmod>
     <data>
         <display>
         <title>算法与数据结构 13 - Java | 实现继承 Implementation Inheritance - CS61B Berkeley</title>
