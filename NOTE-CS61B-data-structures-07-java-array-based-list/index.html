@@ -88,14 +88,14 @@
 <meta name="description" content="列表 List前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（list）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考oracle官网）。 这里我们尝试以java的array为基础实现一个列表，目标是实现自">
 <meta name="keywords" content="编程,软件工程,数据结构,算法,Java,cs61b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法与数据结构 07 - Java | 用数组构建数据列表 list - CS61B Berkeley">
+<meta property="og:title" content="算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley">
 <meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="列表 List前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（list）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考oracle官网）。 这里我们尝试以java的array为基础实现一个列表，目标是实现自">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T11:11:36.848Z">
+<meta property="og:updated_time" content="2018-02-27T18:01:30.670Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法与数据结构 07 - Java | 用数组构建数据列表 list - CS61B Berkeley">
+<meta name="twitter:title" content="算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley">
 <meta name="twitter:description" content="列表 List前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（list）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考oracle官网）。 这里我们尝试以java的array为基础实现一个列表，目标是实现自">
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <title>算法与数据结构 07 - Java | 用数组构建数据列表 list - CS61B Berkeley | Computer Science & AI</title>
+  <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley | Computer Science & AI</title>
   
 
 
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法与数据结构 07 - Java | 用数组构建数据列表 list - CS61B Berkeley</h1>
+          <h1 class="post-title" itemprop="name headline">算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley</h1>
         
 
         <div class="post-meta">
@@ -373,7 +373,7 @@
 
           
           
-             <span id="/NOTE-CS61B-data-structures-07-java-array-based-list/" class="leancloud_visitors" data-flag-title="算法与数据结构 07 - Java | 用数组构建数据列表 list - CS61B Berkeley">
+             <span id="/NOTE-CS61B-data-structures-07-java-array-based-list/" class="leancloud_visitors" data-flag-title="算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,043 字
+                  2,038 字
                 </span>
               
 
@@ -449,7 +449,8 @@
 <h3 id="数组扩容-Resize"><a href="#数组扩容-Resize" class="headerlink" title="数组扩容 Resize"></a>数组扩容 Resize</h3><p>一个列表应该支持基本的插入和删除数据的操作，但是因为数组本身无法更改长度，所以我们就需要一个方法，在给数组在插入新数据时，先检查长度容量是否足够，如果不够，那么就要增加长度。<br>我们考虑简单的情况, 即需要在数组末尾插入或者删除数据怎么办</p>
 <p>插入元素：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 把 X 插入到列表末尾. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** 检查长度容量是否足够，如果不够，那么就要增加长度 */</span></span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">            Item[] temp = (Item[]) <span class="keyword">new</span> Object[size + <span class="number">1</span>];</span><br><span class="line">            System.arraycopy(items, <span class="number">0</span>, temp, <span class="number">0</span>, size);</span><br><span class="line">            items = temp;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        items[size] = x;</span><br><span class="line">        size = size + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>创建新array并把旧数据复制过去的过程通常称为“resizing”。其实用词不当，因为数组实际上并没有改变大小，只是把小数组上的数据复制到大数组上而已。</p>
-<p>为了让代码更易于维护，可以把上面的代码中负责大小调整的部分包装在一个独立的method中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 改变列表容量, capacity为改变后的容量. */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    Item[] temp = (Item[]) <span class="keyword">new</span> Object[capacity];</span><br><span class="line">    System.arraycopy(items, <span class="number">0</span>, temp, <span class="number">0</span>, size);</span><br><span class="line">    items = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 把 X 插入到列表末尾. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">        resize(size + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    items[size] = x;</span><br><span class="line">    size = size + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">删除元素：</span><br><span class="line">```java</span><br><span class="line"><span class="comment">/** 删去列表最后一个值，并返回该值  */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Item x = getLast();</span><br><span class="line">    items[size - <span class="number">1</span>] = <span class="keyword">null</span>; <span class="comment">// 曾经引用“删除”的元素的内存地址被清空</span></span><br><span class="line">    size = size - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为了让代码更易于维护，可以把上面的代码中负责大小调整的部分包装在一个独立的method中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 改变列表容量, capacity为改变后的容量. */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    Item[] temp = (Item[]) <span class="keyword">new</span> Object[capacity];</span><br><span class="line">    System.arraycopy(items, <span class="number">0</span>, temp, <span class="number">0</span>, size);</span><br><span class="line">    items = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 把 X 插入到列表末尾. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">        resize(size + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    items[size] = x;</span><br><span class="line">    size = size + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>删除元素：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 删去列表最后一个值，并返回该值  */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Item x = getLast();</span><br><span class="line">    items[size - <span class="number">1</span>] = <span class="keyword">null</span>; <span class="comment">// 曾经引用“删除”的元素的内存地址被清空</span></span><br><span class="line">    size = size - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>事实上即使没有<code>items[size - 1] = null;</code>,也可以达到删除元素的目的.<br>删除对改存储的对象的引用, 是为了避免“loitering”。所谓 loitering，可以理解为占着茅坑不拉屎的对象，它们已经没啥用了，却还是占用着内存。如果这个对象是些几十兆的高清图片，那么就会很消耗内存。这也是为什么安卓手机越用越慢的一个原因。</p>
 <p>当引用/内存地址丢失时，Java会销毁对象。如果我们不清空引用，那么Java将不会垃圾回收这些本来预计要删除的对象, 因为它们实际还被列表引用着。</p>
 <h4 id="扩容效率分析"><a href="#扩容效率分析" class="headerlink" title="扩容效率分析"></a>扩容效率分析</h4><p>我们直觉也会感觉到，如果按照现在的设计，即每插入一个新元素，就重新复制一遍数组，这样随着数组越来越大，效率肯定会越来越差。事实上也是这样，如果数组目前长度是100个内存块，那么插入1000次，需要创建并填充大约50万个内存块（等差数列求和N(N+1)/2，101+102+…+1000 ≈ 500000）。但假如我们第一次就扩容到1000，那么就省却了很多运算消耗。可惜我们不知道用户需要插入多少数据，所以要采取其他方法-几何调整。也就是与其按照<code>size + FACTOR</code>这样的速率增加容量, 不如按照<code>size * RFACTOR</code>成倍扩容, 前者的增加速率为1, 后者为 RFACTOR, 只要设置 RFACTOR 大于1, 就能减少扩容的次数.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 把 X 插入到列表末尾. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">        resize(size * RFACTOR); <span class="comment">//用 RFACTOR 作为因子扩容数组,</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    items[size] = x;</span><br><span class="line">    size = size + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -496,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NOTE-CS61B-data-structures-06-java-array/" rel="next" title="算法与数据结构 06 - Java | array 数组 - CS61B Berkeley">
-                <i class="fa fa-chevron-left"></i> 算法与数据结构 06 - Java | array 数组 - CS61B Berkeley
+              <a href="/NOTE-CS61B-data-structures-06-java-array/" rel="next" title="算法与数据结构 - Java | 06 array 数组 - CS61B Berkeley">
+                <i class="fa fa-chevron-left"></i> 算法与数据结构 - Java | 06 array 数组 - CS61B Berkeley
               </a>
             
           </div>
