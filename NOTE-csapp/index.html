@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机科学,计算机入门,csapp,C 语言," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Computer Science & AI" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本笔记是csapp的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.  Computer Systems: A Programmer’s Perspective (csapp), 豆瓣-深入理解计算机系统 卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS) 华盛顿">
+<meta name="keywords" content="计算机科学,计算机入门,csapp,C 语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从程序员的视角理解计算机系统 - csapp - CMU 15213">
+<meta property="og:url" content="http://yoursite.com/NOTE-csapp/index.html">
+<meta property="og:site_name" content="Computer Science &amp; AI">
+<meta property="og:description" content="本笔记是csapp的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.  Computer Systems: A Programmer’s Perspective (csapp), 豆瓣-深入理解计算机系统 卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS) 华盛顿">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/memory_hierarchy.png">
+<meta property="og:image" content="http://yoursite.com/images/operating_system_abs.png">
+<meta property="og:updated_time" content="2018-03-20T22:42:16.027Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从程序员的视角理解计算机系统 - csapp - CMU 15213">
+<meta name="twitter:description" content="本笔记是csapp的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.  Computer Systems: A Programmer’s Perspective (csapp), 豆瓣-深入理解计算机系统 卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS) 华盛顿">
+<meta name="twitter:image" content="http://yoursite.com/images/memory_hierarchy.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/NOTE-csapp/"/>
+
+
+
+
+
+  <title>从程序员的视角理解计算机系统 - csapp - CMU 15213 | Computer Science & AI</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Computer Science & AI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-csapp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从程序员的视角理解计算机系统 - csapp - CMU 15213</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T00:00:00+00:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机科学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/NOTE-csapp/" class="leancloud_visitors" data-flag-title="从程序员的视角理解计算机系统 - csapp - CMU 15213">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,827 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本笔记是csapp的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.</p>
+<ol>
+<li><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective (csapp)</a>, 豆瓣-<a href="https://book.douban.com/subject/26912767/" target="_blank" rel="noopener">深入理解计算机系统</a></li>
+<li><a href="https://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS)</a></li>
+<li><a href="https://courses.cs.washington.edu/courses/cse351/" target="_blank" rel="noopener">华盛顿大学 UW CSE351: The Hardware/Software Interface</a><a id="more"></a>
+<h2 id="Computer-system"><a href="#Computer-system" class="headerlink" title="Computer system"></a>Computer system</h2><h3 id="Information-is-Bits-Context"><a href="#Information-is-Bits-Context" class="headerlink" title="Information is Bits + Context"></a>Information is Bits + Context</h3>Study systems by tracing the lifetime of the hello program, from the time it is created by a programmer, until it runs on a system, prints its simple message, and terminates.<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"hello, world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>The source program is a sequence of bits, each with a value of 0 or 1, organized in 8-bit chunks(bytes). Each byte represents some text character in the program.</p>
+<p>All information in a system — including disk files, programs stored in memory, user data stored in memory, and data transferred across a network—is represented as a bunch of bits.</p>
+<h3 id="Programs-are-traslated-by-other-programs-into-different-forms"><a href="#Programs-are-traslated-by-other-programs-into-different-forms" class="headerlink" title="Programs are traslated by other programs into different forms"></a>Programs are traslated by other programs into different forms</h3><p>The hello program begins as a high-level C program because it can be read and understood by human beings in that form. However, in order to run hello.c on the system, the individual C statements must be translated by other programs into a sequence of low-level machine-language instructions.</p>
+<p>These instructions are then packaged in a form called an executable object program and stored as a binary <strong>disk</strong> file. Object programs are also referred to as executable object files.</p>
+<p>The programs that perform the four phases (preprocessor, compiler, assembler, and linker) are known collectively as the compilation system.</p>
+<ul>
+<li>Preprocessing phase.The preprocessor (cpp) modifies the original C program according to directives that begin with the # character.</li>
+<li>Compilation phase. The compiler (cc1) translates the text file hello.i into the text file hello.s, which contains an assembly-language program. Assembly language is useful because it provides a common output language for different compilers for different high-level languages.</li>
+<li>Assembly phase. Next, the assembler (as) translates hello.s into machinelanguage instructions, packages them in a form known as a relocatable object program, and stores the result in the object file hello.o.<ul>
+<li>The hello.o file is a binary file whose bytes encode machine language instructions rather than characters.</li>
+</ul>
+</li>
+<li>Linking phase. The printf function resides in a separate precompiled object file called printf.o, which must somehow be merged with our hello.o program. The linker (ld) handles this merging.</li>
+</ul>
+<h3 id="Processors-read-and-interpret-instructions-stored-in-memory"><a href="#Processors-read-and-interpret-instructions-stored-in-memory" class="headerlink" title="Processors read and interpret instructions stored in memory"></a>Processors read and interpret instructions stored in memory</h3><p>The hello.c source program has been translated by the compilation system into an executable object file called hello that is stored on disk, to run the executable file on Unix:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unix&gt; ./hello</span><br><span class="line">hello, world</span><br><span class="line">unix&gt;</span><br></pre></td></tr></table></figure></p>
+<p>The shell is a command-line interpreter that prints a prompt, waits for you to type a command line, and then performs the command.</p>
+<h3 id="Hardware-organization-of-a-systems"><a href="#Hardware-organization-of-a-systems" class="headerlink" title="Hardware organization of a systems"></a>Hardware organization of a systems</h3><p>Hardware organization of a typical system.</p>
+<h4 id="Buses"><a href="#Buses" class="headerlink" title="Buses"></a>Buses</h4><p>Electrical conduits that carry bytes of information back and forth between the components. Buses are typically designed to transfer fixed-sized chunks of bytes known as words. USB: Universal Serial bus.</p>
+<h4 id="Input-output-I-O-devices"><a href="#Input-output-I-O-devices" class="headerlink" title="Input/output (I/O) devices"></a>Input/output (I/O) devices</h4><p>The system’s connection to the external world. Each I/O deviceisconnected to the I/O bus by either a controller or an adapter：</p>
+<ul>
+<li>Controllers are chip sets in the device itself or on the system’s main printed circuit board (often called the motherboard).</li>
+<li>An adapter is a card that plugs into a slot on the motherboard.</li>
+</ul>
+<h4 id="Main-Memory"><a href="#Main-Memory" class="headerlink" title="Main Memory"></a>Main Memory</h4><p>A temporary storage device that holds both a program and the data it manipulates while the processor is executing the program.</p>
+<ul>
+<li>Physically, main memory consists of a collection of dynamic random access memory (DRAM) chips.</li>
+<li>Logically, memory is organized as a linear array of bytes, each with its own unique address (array index) starting at zero<br>*<h4 id="Processor-Central-Processing-Unit-CPU"><a href="#Processor-Central-Processing-Unit-CPU" class="headerlink" title="Processor: Central Processing Unit (CPU)"></a>Processor: Central Processing Unit (CPU)</h4></li>
+<li>PC: Program counter, a word-sized storage device (or register) at CPU core. At any point in time, the PC points at (contains the address of) some machine-language instruction in main memory.</li>
+<li>Register: a quickly accessible location available to CPU,</li>
+<li>Register file: an array of registers, each with its own unique name.</li>
+<li>Arithmetic/logic unit: ALU computes new data and address values.</li>
+</ul>
+<p>A processor repeatedly executes the instruction pointed at by the program counter and updates the program counter to point to the next instruction. The processor reads the instruction from memory pointed at by the PC, interprets the bits in the instruction, performs some simple operation dictated by the instruction, and then updates the PC to point to the next instruction.</p>
+<h4 id="CPU-operations-examples"><a href="#CPU-operations-examples" class="headerlink" title="CPU operations examples"></a>CPU operations examples</h4><p>Load: Copy a byte or a word from main memory into a register, overwriting the previous contents of the register.</p>
+<p>Store(write): Copy a byte or a word from a register to a location in main memory, overwriting the previous contents of that location.</p>
+<p>Operate: Copy the contents of two registers to the ALU, perform an arithmetic operation on the two words, and store the result in a register, overwriting the previous contents of that register.</p>
+<p>Jump: Extract a word from the instruction itself and copy that word into the program counter (PC), overwriting the previous value of the PC.</p>
+<p>Branch greater than (BGT): compares two registers and decides whether to branch (target would be the address to branch to), i.e. it is implementing the “if” decision.</p>
+<h3 id="Running-a-programs"><a href="#Running-a-programs" class="headerlink" title="Running a programs"></a>Running a programs</h3><ol>
+<li>Initially, the shell program is waiting for user types a command. As we type the characters “./hello” at the keyboard, the shell program reads each one into a register, and then stores it in memory.</li>
+<li>When we hit the <em>enter</em> key on the keyboard, the shell knows that we have finished typing the command. The shell then loads the executable hello file by executing a sequence of instructions that copies the code and data in the hello object file <strong>from disk to main memory</strong>. The data include the string of characters “hello, world\n” that will eventually be printed out. Using a technique known as direct memory access (DMA), the data travels directly from disk to main memory, without passing through the processor.</li>
+<li>Once the code and data in the hello object file are loaded into memory, the processor begins executing the machine-language instructions in the hello program’s main routine. These instructions copy the bytes in the <code>hello, world\n</code> string from memory to the register file, and from there to the display device, where they are displayed on the screen.</li>
+</ol>
+<h3 id="Caches"><a href="#Caches" class="headerlink" title="Caches"></a>Caches</h3><p>An important lesson from this simple example is that a system spends a lot of time moving information from one place to another. From a programmer’s perspective, much<br>of this copying is overhead that slows down the “real work” of the program. Because of physical laws, larger storage devices are slower than smaller storage devices. Speed that processor read from: register &gt; memory &gt; disk.</p>
+<p>It is easier and cheaper to make processors run faster than it is to make main memory run faster. To deal with the processor-memory gap, system designers include smaller<br>faster storage devices called cache memories (or simply caches) that serve as temporary staging areas for information that the processor is likely to need in the near future.</p>
+<p>The L1 and L2 caches are implemented with a hardware technology known as static random access memory (SRAM). Newer and more powerful systems even have three levels of cache: L1, L2, and L3.</p>
+<p>By setting up caches to hold data that is likely to be accessed often, we can perform most memory operations using the fast caches.</p>
+<h3 id="Storage-Devices-Form-a-Hierarchy"><a href="#Storage-Devices-Form-a-Hierarchy" class="headerlink" title="Storage Devices Form a Hierarchy"></a>Storage Devices Form a Hierarchy</h3><p><img src="/images/memory_hierarchy.png" alt="" title="source from:http://csapp.cs.cmu.edu/"></p>
+<h3 id="Operating-system"><a href="#Operating-system" class="headerlink" title="Operating system"></a>Operating system</h3><p>The operating system has two primary purposes: (1) to protect the hardware from misuse by runaway applications, and (2) to provide applications with simple and uniform mechanisms for manipulating complicated and often wildly different low-level hardware devices.</p>
+<p>Think of the operating system as a layer of software interposed between the application program and the hardware, with fundamental abstractions: processes, virtual memory, and files.<br><img src="/images/operating_system_abs.png" alt="" title="Abstractions provided by an operating system. Source from:http://csapp.cs.cmu.edu/"></p>
+<h4 id="Process-进程"><a href="#Process-进程" class="headerlink" title="Process 进程"></a>Process 进程</h4><p>A process is the operating system’s abstraction for a running program.<br>A single CPU can appear to execute multiple processes concurrently by having the processor switch among them. The operating system performs this interleaving with a mechanism known as <strong>context switching</strong>.</p>
+<h4 id="Thread-线程"><a href="#Thread-线程" class="headerlink" title="Thread 线程"></a>Thread 线程</h4><p>In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system.</p>
+<p>In most cases a thread is a component of a process. Multiple threads can exist within one process, executing concurrently and sharing resources such as memory, while different processes do not share these resources.</p>
+<p>Threads are an increasingly important programming model because of the requirement for concurrency in network servers, because it is easier to share data between multiple threads than between multiple processes, and because threads are typically more efficient than processes.</p>
+<h2 id="Concurrency-and-Parallelism"><a href="#Concurrency-and-Parallelism" class="headerlink" title="Concurrency and Parallelism"></a>Concurrency and Parallelism</h2><p>Concurrency: general concept of a system with multiple, simultaneous activities.<br>Parallelism: the use of concurrency to make a system run faster.</p>
+<p>Parallelism could be achieved in different levels of abstraction in computer system. There are three common levels (from the highest to the lowest level in the system hierarchy):</p>
+<h3 id="Thread-Level-Concurrency"><a href="#Thread-Level-Concurrency" class="headerlink" title="Thread-Level Concurrency"></a>Thread-Level Concurrency</h3><p>With threads, we can even have multiple control flows executing within a single process.</p>
+<p>When we construct a system consisting of multiple processors all under the control of a single operating system kernel, we have a multiprocessor system</p>
+<h4 id="Multi-core-processors"><a href="#Multi-core-processors" class="headerlink" title="Multi-core processors"></a>Multi-core processors</h4><p>Several CPUs (referred to as “cores”) integrated onto a single integrated-circuit chip</p>
+<h4 id="Hyperthreading"><a href="#Hyperthreading" class="headerlink" title="Hyperthreading"></a>Hyperthreading</h4><p>Sometimes called simultaneous multi-threading, is a technique that allows a single CPU to execute multiple flows of control.</p>
+<h3 id="instruction-level-parallelism"><a href="#instruction-level-parallelism" class="headerlink" title="instruction-level parallelism"></a>instruction-level parallelism</h3><p>At a much lower level of abstraction, modern processors can execute multiple instructions at one time.</p>
+<h3 id="Single-Instruction-Multiple-Data-SIMD-Parallelism"><a href="#Single-Instruction-Multiple-Data-SIMD-Parallelism" class="headerlink" title="Single-Instruction, Multiple-Data (SIMD) Parallelism"></a>Single-Instruction, Multiple-Data (SIMD) Parallelism</h3><p>At the lowest level, special hardware that allows a single instruction to cause multiple operations to be performed in parallel.</p>
+<h2 id="Memory-Data-amp-Addressing"><a href="#Memory-Data-amp-Addressing" class="headerlink" title="Memory, Data, &amp; Addressing"></a>Memory, Data, &amp; Addressing</h2><p>十进制，2进制，16进制。<br>内存位置。</p>
+<h3 id="Address-and-Pointers"><a href="#Address-and-Pointers" class="headerlink" title="Address and Pointers"></a>Address and Pointers</h3><p>地址是内存的位置，指针是一种包含地址的数据对象。</p>
+<p>Byte ordering: Endianness - big endian vs. little endian</p>
+<p>Addresses and pointer in C</p>
+<ul>
+<li>Variable declarations： <code>int x</code>, find location in memory in which to store integer.</li>
+<li>Pointer declarations use <code>*</code>: <code>int *pointer</code>, declares a variable <code>pointer</code> that is a pointer to a integer data item.</li>
+<li>Assignment to a pointer: <code>pointer = &amp;x</code>, assigns <code>pointer</code> to point to the address where <code>x</code> is stored.</li>
+<li>To use the value pointed to by a pointer, use <code>*</code>:<ul>
+<li>if <code>pointer = &amp;x</code>, then <code>x = *pointer +1</code> is the same as <code>x = x + 1</code></li>
+<li><code>*(&amp;x)</code> = <code>x</code></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机科学/" rel="tag"># 计算机科学</a>
+          
+            <a href="/tags/计算机入门/" rel="tag"># 计算机入门</a>
+          
+            <a href="/tags/csapp/" rel="tag"># csapp</a>
+          
+            <a href="/tags/C-语言/" rel="tag"># C 语言</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/NOTE-CS61B-data-structures-11-testing/" rel="next" title="算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley">
+                <i class="fa fa-chevron-left"></i> 算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Accelerated-Natural-Language-Processing-UoE/" rel="prev" title="自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh">
+                自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjkxNy85NDc4"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ShootingSpace/" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Computer-system"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Computer-system" class="headerlink" title="Computer system"></a>Computer system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Information-is-Bits-Context"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Information-is-Bits-Context" class="headerlink" title="Information is Bits + Context"></a>Information is Bits + Context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programs-are-traslated-by-other-programs-into-different-forms"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#Programs-are-traslated-by-other-programs-into-different-forms" class="headerlink" title="Programs are traslated by other programs into different forms"></a>Programs are traslated by other programs into different forms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Processors-read-and-interpret-instructions-stored-in-memory"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#Processors-read-and-interpret-instructions-stored-in-memory" class="headerlink" title="Processors read and interpret instructions stored in memory"></a>Processors read and interpret instructions stored in memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hardware-organization-of-a-systems"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#Hardware-organization-of-a-systems" class="headerlink" title="Hardware organization of a systems"></a>Hardware organization of a systems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Buses"><span class="nav-number">1.4.1.</span> <span class="nav-text"><a href="#Buses" class="headerlink" title="Buses"></a>Buses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-output-I-O-devices"><span class="nav-number">1.4.2.</span> <span class="nav-text"><a href="#Input-output-I-O-devices" class="headerlink" title="Input/output (I/O) devices"></a>Input/output (I/O) devices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-Memory"><span class="nav-number">1.4.3.</span> <span class="nav-text"><a href="#Main-Memory" class="headerlink" title="Main Memory"></a>Main Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Processor-Central-Processing-Unit-CPU"><span class="nav-number">1.4.4.</span> <span class="nav-text"><a href="#Processor-Central-Processing-Unit-CPU" class="headerlink" title="Processor: Central Processing Unit (CPU)"></a>Processor: Central Processing Unit (CPU)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-operations-examples"><span class="nav-number">1.4.5.</span> <span class="nav-text"><a href="#CPU-operations-examples" class="headerlink" title="CPU operations examples"></a>CPU operations examples</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Running-a-programs"><span class="nav-number">1.5.</span> <span class="nav-text"><a href="#Running-a-programs" class="headerlink" title="Running a programs"></a>Running a programs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caches"><span class="nav-number">1.6.</span> <span class="nav-text"><a href="#Caches" class="headerlink" title="Caches"></a>Caches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Storage-Devices-Form-a-Hierarchy"><span class="nav-number">1.7.</span> <span class="nav-text"><a href="#Storage-Devices-Form-a-Hierarchy" class="headerlink" title="Storage Devices Form a Hierarchy"></a>Storage Devices Form a Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operating-system"><span class="nav-number">1.8.</span> <span class="nav-text"><a href="#Operating-system" class="headerlink" title="Operating system"></a>Operating system</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Process-进程"><span class="nav-number">1.8.1.</span> <span class="nav-text"><a href="#Process-&#x8FDB;&#x7A0B;" class="headerlink" title="Process &#x8FDB;&#x7A0B;"></a>Process &#x8FDB;&#x7A0B;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-线程"><span class="nav-number">1.8.2.</span> <span class="nav-text"><a href="#Thread-&#x7EBF;&#x7A0B;" class="headerlink" title="Thread &#x7EBF;&#x7A0B;"></a>Thread &#x7EBF;&#x7A0B;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrency-and-Parallelism"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Concurrency-and-Parallelism" class="headerlink" title="Concurrency and Parallelism"></a>Concurrency and Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Level-Concurrency"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#Thread-Level-Concurrency" class="headerlink" title="Thread-Level Concurrency"></a>Thread-Level Concurrency</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multi-core-processors"><span class="nav-number">2.1.1.</span> <span class="nav-text"><a href="#Multi-core-processors" class="headerlink" title="Multi-core processors"></a>Multi-core processors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hyperthreading"><span class="nav-number">2.1.2.</span> <span class="nav-text"><a href="#Hyperthreading" class="headerlink" title="Hyperthreading"></a>Hyperthreading</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instruction-level-parallelism"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#instruction-level-parallelism" class="headerlink" title="instruction-level parallelism"></a>instruction-level parallelism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-Instruction-Multiple-Data-SIMD-Parallelism"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#Single-Instruction-Multiple-Data-SIMD-Parallelism" class="headerlink" title="Single-Instruction, Multiple-Data (SIMD) Parallelism"></a>Single-Instruction, Multiple-Data (SIMD) Parallelism</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Data-amp-Addressing"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Memory-Data-amp-Addressing" class="headerlink" title="Memory, Data, &amp; Addressing"></a>Memory, Data, &amp; Addressing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Address-and-Pointers"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#Address-and-Pointers" class="headerlink" title="Address and Pointers"></a>Address and Pointers</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

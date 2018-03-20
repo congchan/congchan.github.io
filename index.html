@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -99,7 +99,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '5.1.3',
     sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -292,9 +292,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -435,61 +435,20 @@
 
       
         
-          
-            <p>主要介绍：</p>
+          <p>主要介绍：</p>
 <ol>
 <li>Hashcode（哈希码）与 equals（判断相等）的关系</li>
 <li>Hashcode 方法的底层实现原理</li>
 <li>开发中需要掌握的原则和方法</li>
 </ol>
-<h3 id="HashSet-HashMap-HashTable"><a href="#HashSet-HashMap-HashTable" class="headerlink" title="HashSet, HashMap, HashTable"></a>HashSet, HashMap, HashTable</h3><p>HashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。</p>
-<p>拿HashSet和add()举例(其余的数据结构,和 remove, contains等方法类似):假设HashSet里面已经有了obj1, 那么当调用HashSet.add(obj2)时:</p>
-<ol>
-<li>if (obj1 == obj2), 那么没有必要调用 hashCode(), 已经有了这个对象, 没必要添加了</li>
-<li>else, if hashCode 不同，那么可以直接添加了, 没必要进一步调用 obj1.equals(obj2) 来判断对象是否相等</li>
-<li>else hashCode 相同，那么需要进一步调用obj1.equals(obj2)</li>
-</ol>
-<p>下面这段代码虽然 HashSet 只存了 a 对象，但当检查是否包含 b 对象时，返回true。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">String a = <span class="string">"hello"</span>;</span><br><span class="line">String b = <span class="string">"hello"</span>;</span><br><span class="line">wordSet.add(a);</span><br><span class="line"><span class="keyword">return</span> wordSet.contains(b); <span class="comment">// return true</span></span><br></pre></td></tr></table></figure></p>
-<p>根据<a href="https://docs.oracle.com/javase/6/docs/api/java/util/Set.html#add%28E%29" target="_blank" rel="noopener">Javadoc for Set</a>.</p>
-<pre><code>adds the specified element e to this set if the set contains no element e2 such that (e==null ? e2==null : e.equals(e2)).
-</code></pre><p>根据<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#equals-java.lang.Object-" target="_blank" rel="noopener">Javadoc for String.equals</a></p>
-<pre><code>Compares this string to the specified object. The result is true if and only if the argument is not null and is a String object that represents the same sequence of characters as this object.
-</code></pre><p>Java的set是使用它包含的元素（对象）的 <code>equals()</code>来比较 b 和 a 的。这里 String 类的<code>equals()</code>method 是比较字符串值是否相等(准确的说，是先检查是不是引用同一个对象，再看是不是同一个类，再比较值)，而不是引用的对象是否一样，故<code>b.equals(a)</code>是 true。</p>
-<p>同样的，remove 和 add 也会先进行类似检查。</p>
-<p>问题是，为何 hashCode 不同，就没有进一步调用 equals()的必要呢？因为有一个前提是代码遵守The hashCode contract。</p>
-<h3 id="Hashcode-and-equals"><a href="#Hashcode-and-equals" class="headerlink" title="Hashcode and equals"></a>Hashcode and equals</h3><p>在Java中，每个对象都有一个hashCode，它有时容易被人遗忘或误用。有以下三点需要注意，避免掉入常见的陷阱。</p>
-<h4 id="The-hashCode-contract"><a href="#The-hashCode-contract" class="headerlink" title="The hashCode contract"></a>The hashCode contract</h4><p>根据 The hashCode contract:</p>
-<pre><code>Objects that are equal must have the same hash code within a running process.
-</code></pre><p>除了字面意思，也有其他隐含的意思: 不相等的对象的hashcode也可能一样; 具有相同 hash code 的对象不一定相等.</p>
-<pre><code>You must override hashCode() in every class that overrides equals(). Failure to do so will result in a violation of the general contract for Object.hashCode(), which will prevent your class from functioning properly in conjunction with all hash-based collections, including HashMap, HashSet, and Hashtable. --- Effective Java, by Joshua Bloch
-</code></pre><p>根据这个contract，可以延伸出以下实践原则：</p>
-<p><strong>一、 每当你 override equals 时，也要 override hashCode</strong><br>假如你需要使用不一样的equals判断标准，那么就需要重写equals。但假如仅仅重写equals，而不重写hashcode()，就可能会违背 The hashCode contract。</p>
-<p>为什么？因为 hashCode method 需要同时适配真正使用到的 equals method 的判断标准。通过重写equals，我们重新声明了一种判断对象是否相等的标准，但原始的 hashCode method还是会将所有对象视为不同的对象。所以如果没有不重写hashcode，那么根据@Override equals 判断为相同的对象将拥有不同的hashcode（可能）。这样，即使已经有了这个object，在HashMap上调用 contains() 也会返回false。</p>
-<p>例子：在Java的创建街道street这个类，在判断两条街道是否相同时，我们有自定义的规则 - 只要是在同一个城市，有同样的街道名，那么两个street就相等，即使他们是存放在不同内存位置的两个对象（Java 的 Object 原生的equals是根据引用的对象内存地址来比较判断的）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Street</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String city;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!(obj <span class="keyword">instanceof</span> Street))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="keyword">this</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        Street rhs = (Street) obj;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EqualsBuilder().</span><br><span class="line">            <span class="comment">// if deriving: appendSuper(super.equals(obj)).</span></span><br><span class="line">            append(name, rhs.name).</span><br><span class="line">            append(age, rhs.city).</span><br><span class="line">            isEquals();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HashCodeBuilder(<span class="number">17</span>, <span class="number">31</span>). <span class="comment">// two randomly chosen prime numbers</span></span><br><span class="line">            <span class="comment">// if deriving: appendSuper(super.hashCode()).</span></span><br><span class="line">            append(name).</span><br><span class="line">            append(city).</span><br><span class="line">            toHashCode();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果没有重写hashCode()， 那么两个名字和所在城市一样的，但引用不同地址的street就会按照默认的 hashcode() 返回不一样的code，但是根据重写的equals(), 他们是一样的, 这样就违背了 hashCode contract。</p>
-<p>为了安全起见，让Eclipse IDE 生成 equals 和 hashCode 函数：<code>Source &gt; Generate hashCode() and equals()...</code><br><img src="https://eclipsesource.com/wp-content/uploads/2012/09/generate-hashcode-equals.png" alt=""></p>
-<p>为了提醒自己, 还可以配置Eclipse以检测是否有违反此规则的情况，并为仅重写了equals但没重写hashCode的情况显示错误：<code>Preferences &gt; Java &gt; Compiler &gt; Errors/Warnings, then use the quick filter to search for “hashcode”</code><br><img src="https://eclipsesource.com/wp-content/uploads/2012/09/hashcode-error-config.png" alt=""></p>
-<h3 id="HashCode-collisions"><a href="#HashCode-collisions" class="headerlink" title="HashCode collisions"></a>HashCode collisions</h3><p>HashCode collisions 指两个不同的对象具有相同的hashcode这种情况, 这不是什么严重的问题. 只是会导致更多的搜索步骤，太多collisions就可能会降低系统性能</p>
-<p>但是，如果将HashCode错误地用作对象的唯一句柄，例如将其用作Map中的key，那么有时会得到错误的对象。虽然collisions一般很少见，但却是不可避免的。例如，字符串“Aa”和“BB”产生相同的hashCode：2112. 因此衍生出第二个原则</p>
-<p><strong>二、永远不要把hashcode当做key来使用</strong></p>
-<p>Java中有4,294,967,296个（2<sup>32</sup>)可能的int值）。既然拥有40亿个插槽，collisions似乎几乎不可能对吧？</p>
-<p>但事实上，也不是那么不可能。试想，一个房间里有23名随机人员。你如何估计里面有两个人生日一样的概率？很低？因为一年有365天？事实上，概率约为50％！这种现象被称为<a href="http://en.wikipedia.org/wiki/Birthday_paradox" target="_blank" rel="noopener">生日问题(悖论)</a>。</p>
-<pre><code>如果一个房间里有23个或23个以上的人，那么至少有两个人的生日相同的概率要大于50%。
-</code></pre><p>问题的本质是”23人之中两两之间存在生日相同的概率””,而不是”其他22人与其中一个人的生日相同的概率”.</p>
-<p>类比到hashcode里，这意味着有77,163个不同的对象，collisions概率是50%（假设有一个理想的hashCode函数，将对象均匀分布在所有可用的buckets中）。</p>
-<h3 id="HashCodes-会变"><a href="#HashCodes-会变" class="headerlink" title="HashCodes 会变"></a>HashCodes 会变</h3><p>HashCode 不保证在不同的执行过程中总能返回相同的code。根据JavaDoc：Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer, provided no information used in equals comparisons on the object is modified. <strong>This integer need not remain consistent from one execution of an application to another execution</strong> of the same application.</p>
-<p>这种情况并不常见，实际上，库中的某些类甚至指定了用于计算hashcode的精确公式（例如String）。对于这些类，hashcode总是相同的。但是，尽管大多数的hashCode方法提供了稳定的值，但我们不能依赖它。正如<a href="http://martin.kleppmann.com/2012/06/18/java-hashcode-unsafe-for-distributed-systems.html" target="_blank" rel="noopener">这篇文章</a>所指出的那样，Java库实际上在不同的进程中返回不同的hashCode值，这往往会让人们感到困惑。 Google的<a href="http://code.google.com/p/protobuf/" target="_blank" rel="noopener">Protocol Buffers</a>就是一个例子。 因此，您不应该在分布式应用程序中使用hash code。即使两者相等，远程对象的 hash code 也可能与本地的不同。</p>
-<p><strong>三、不要在分布式应用程序中使用 hashCode</strong><br>此外，要意识到，hashCode函数的实现可能会随着版本的更改而改变。因此我们的代码最好不依赖任何特定的hash code 值。例如，你不应该使用hash code来保持某种状态，不然下次运行时，“相同”对象的hash code可能会不同。</p>
-<p>所以最好的建议可能是：除非自己创建了基于 hashcode 算法，否则根本就不要使用 hashCode 呵呵……</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在依赖于 HashSet, HashMap, HashTable … 等数据结构的程序中：</p>
-<ol>
-<li>仅重写 equals()，会导致业务出错</li>
-<li>仅重写 hashcode(), 在比较两个对象时不会强制Java忽略内存地址</li>
-<li>如果不涉及对象比较(比如仅仅是iteration), 那么不需要hashCode and/or equals</li>
-</ol>
-<p>参考：<br><a href="https://eclipsesource.com/blogs/2012/09/04/the-3-things-you-should-know-about-hashcode/" target="_blank" rel="noopener">https://eclipsesource.com/blogs/2012/09/04/the-3-things-you-should-know-about-hashcode/</a><br><a href="https://stackoverflow.com/questions/27581/what-issues-should-be-considered-when-overriding-equals-and-hashcode-in-java" target="_blank" rel="noopener">https://stackoverflow.com/questions/27581/what-issues-should-be-considered-when-overriding-equals-and-hashcode-in-java</a></p>
-
-          
+<h3 id="HashSet-HashMap-HashTable"><a href="#HashSet-HashMap-HashTable" class="headerlink" title="HashSet, HashMap, HashTable"></a>HashSet, HashMap, HashTable</h3><p>HashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NOTE-Java-miscellaneous-hashcode-equals/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -536,12 +495,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation Inheritance/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -555,7 +514,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/NOTE-CS61B-data-structures-13-Implementation Inheritance/" itemprop="url">算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley</a></h1>
+                <a class="post-title-link" href="/NOTE-CS61B-data-structures-13-Implementation-Inheritance/" itemprop="url">算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley</a></h1>
         
 
         <div class="post-meta">
@@ -618,7 +577,7 @@
 
           
           
-             <span id="/NOTE-CS61B-data-structures-13-Implementation Inheritance/" class="leancloud_visitors" data-flag-title="算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley">
+             <span id="/NOTE-CS61B-data-structures-13-Implementation-Inheritance/" class="leancloud_visitors" data-flag-title="算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -682,32 +641,15 @@
 
       
         
-          
-            <h2 id="Implementation-Inheritance"><a href="#Implementation-Inheritance" class="headerlink" title="Implementation Inheritance"></a>Implementation Inheritance</h2><p>实现继承是subclass从superclass继承实现的关系。</p>
-<h3 id="default-method-缺省方法（从-Java-8开始）"><a href="#default-method-缺省方法（从-Java-8开始）" class="headerlink" title="default method 缺省方法（从 Java 8开始）"></a>default method 缺省方法（从 Java 8开始）</h3><p>除了signature之外，Java也允许subclass继承implementation。<br>我们可以在List中列出已实现的method。这些方法是 default method，定义了List hypernyms的一些默认行为：<code>default public void method() { ... }</code>.</p>
-<p>我们可以自由调用interface中定义的方法，而不用操心具体的实现。default method 应该适用于实现接口的任何类型的对象！子类不必在任何地方重新实现 default method，可以直接调用。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List</span></span><br><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不过，我们仍然可以重写 default method，在子类中重新定义该方法。这样，只要我们在LinkedLList上调用<code>print()</code>，它就会调用这个方法，而不是List的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// LinkedList</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Java是通过一个叫“dynamic method selection”的特性，来确定要调用 default method 还是已经被子类重写的method。<br>这个实例声明<code>List&lt;String&gt; l = new LinkedList&lt;String&gt;();</code>,指明<code>l</code>的类型是 List, 是 static type。由 new 生成的 object 本身是LinkedList类型，也从属于 List 类型。但是，因为这个对象本身是使用 LinkedList 构造函数实例化的，所以我们称之为 dynamic type。</p>
-<pre><code>Dynamic type 的名称起源于: 当`l`被重新分配指向另一种类型的对象时，比如说一个 ArrayList 对象，`l`的动态类型现在就变为 ArrayList. 因为它根据当前引用的对象的类型而改变, 所以是动态的。
-
-Static vs. Dynamic Type:
-    Java 每个变量都有一个static type （compile-time type），这是变量声明时指定的类型，在编译时会检查。
-    每个变量也有一个 Dynamic Type（run-time type），此类型在变量实例化（new）时指定，并在运行时检查。等同于地址指向的对象的类型。
-</code></pre><p>当Java运行一个被overriden的方法时，它会在它的dynamic type 中搜索合适的 method signature 并运行。</p>
-<p>注意，如果是overload:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(LinkedList&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对于上面的实例化的<code>l</code>, 当Java检查要调用哪个方法时，它会检查 static type (此时是List)并使用相同类型的参数调用该方法(也就是使用List作为签名的那个方法)。</p>
-<h3 id="总结：区别-Interface-Inheritance-vs-Implementation-Inheritance"><a href="#总结：区别-Interface-Inheritance-vs-Implementation-Inheritance" class="headerlink" title="总结：区别 Interface Inheritance vs Implementation Inheritance"></a>总结：区别 Interface Inheritance vs Implementation Inheritance</h3><p>Interface Inheritance 接口继承（what）：指定 subclass 应该实现的功能，即只提供 method signature。</p>
-<p>Implementation Inheritance 实现继承（how）：提供功能的实现方案，即提供 method implementation。允许代码再利用，也给subclass设计者提供了更多的自由度，由他们自行决定是否重写 default method。</p>
-<p>Implementation inheritance 也有一些缺点：</p>
-<ul>
-<li>人会犯错。我们有可能忘了自己曾经重写过一个方法。</li>
-<li>如果两个接口给出冲突的 default method，则可能很难解决冲突。</li>
-<li>无形中鼓励代码复杂化。</li>
-</ul>
-<p>最后，注意从属和拥有的区别：subclass 和 superclass 是上下级从属分类，而不是拥有与被拥有的关系，不要跟 nested class 混淆。</p>
-<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="noopener">Oracle</a>：<br>Interface Methods<br>Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict. These rules are driven by the following two principles:</p>
-
-          
+          <h2 id="Implementation-Inheritance"><a href="#Implementation-Inheritance" class="headerlink" title="Implementation Inheritance"></a>Implementation Inheritance</h2><p>实现继承是subclass从superclass继承实现的关系。</p>
+<h3 id="default-method-缺省方法（从-Java-8开始）"><a href="#default-method-缺省方法（从-Java-8开始）" class="headerlink" title="default method 缺省方法（从 Java 8开始）"></a>default method 缺省方法（从 Java 8开始）</h3><p>除了signature之外，Java也允许subclass继承implementation。<br>我们可以在List中列出已实现的method。这些方法是 default method，定义了List hypernyms的一些默认行为：<code>default public void method() { ... }</code>.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NOTE-CS61B-data-structures-13-Implementation-Inheritance/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -754,12 +696,12 @@ Static vs. Dynamic Type:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-12-Interface Inheritance/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -773,7 +715,7 @@ Static vs. Dynamic Type:
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/NOTE-CS61B-data-structures-12-Interface Inheritance/" itemprop="url">算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley</a></h1>
+                <a class="post-title-link" href="/NOTE-CS61B-data-structures-12-Interface-Inheritance/" itemprop="url">算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley</a></h1>
         
 
         <div class="post-meta">
@@ -836,7 +778,7 @@ Static vs. Dynamic Type:
 
           
           
-             <span id="/NOTE-CS61B-data-structures-12-Interface Inheritance/" class="leancloud_visitors" data-flag-title="算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley">
+             <span id="/NOTE-CS61B-data-structures-12-Interface-Inheritance/" class="leancloud_visitors" data-flag-title="算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -901,18 +843,10 @@ Static vs. Dynamic Type:
       
         
           <h2 id="Interfaces-Inheritance"><a href="#Interfaces-Inheritance" class="headerlink" title="Interfaces Inheritance"></a>Interfaces Inheritance</h2><h3 id="Motivation-扩展代码适用性"><a href="#Motivation-扩展代码适用性" class="headerlink" title="Motivation:扩展代码适用性"></a>Motivation:扩展代码适用性</h3><p>我们前面创建的 <code>LinkedList</code> and <code>ArrayList</code> 其实很相似 - 所有的method都一样.</p>
-<p>如果我们需要写一个需要用到 list 的类比如<code>WordUtils</code> class, 我们如何让它既可以使用<code>LinkedList</code>又可以用<code>ArrayList</code>？</p>
-<p>简单的方法及时写两个同名不同参数的methods。即所谓<code>method overloading</code>。<br><code>public static String longest(LinkedList&lt;String&gt; list)</code><br><code>public static String longest(ArrayList&lt;String&gt; list)</code></p>
-<p>但 overload 有几个缺点:</p>
-<ul>
-<li>超级重复，写两个几乎相同的代码块。</li>
-<li>产生更多需要维护的代码，那意味着如果你想对的方法做一个小优化或debug，你需要在对应每种list的方法中改变它。</li>
-<li>如果我们想要适配更多的列表类型，不得不复制每个新列表类的方法。</li>
-</ul>
-<p>另一种方法是使用 interface 接口。<br>
+<p>如果我们需要写一个需要用到 list 的类比如<code>WordUtils</code> class, 我们如何让它既可以使用<code>LinkedList</code>又可以用<code>ArrayList</code>？<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/NOTE-CS61B-data-structures-12-Interface Inheritance/#more" rel="contents">
+            <a class="btn" href="/NOTE-CS61B-data-structures-12-Interface-Inheritance/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -966,9 +900,9 @@ Static vs. Dynamic Type:
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1164,12 +1098,216 @@ Static vs. Dynamic Type:
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-csapp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NOTE-csapp/" itemprop="url">从程序员的视角理解计算机系统 - csapp - CMU 15213</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T00:00:00+00:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机科学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/NOTE-csapp/" class="leancloud_visitors" data-flag-title="从程序员的视角理解计算机系统 - csapp - CMU 15213">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,827 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本笔记是csapp的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.</p>
+<ol>
+<li><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective (csapp)</a>, 豆瓣-<a href="https://book.douban.com/subject/26912767/" target="_blank" rel="noopener">深入理解计算机系统</a></li>
+<li><a href="https://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS)</a></li>
+<li><a href="https://courses.cs.washington.edu/courses/cse351/" target="_blank" rel="noopener">华盛顿大学 UW CSE351: The Hardware/Software Interface</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NOTE-csapp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-11-testing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1310,45 +1448,20 @@ Static vs. Dynamic Type:
 
       
         
-          
-            <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>如何知道自己的程序是否真的在工作？在现实世界中，程序员相信他们的代码，因为代码通过了他们自己编写的测试。常用的测试有 Ad Hoc Testing， Unit test 和 Integration Testing。</p>
+          <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>如何知道自己的程序是否真的在工作？在现实世界中，程序员相信他们的代码，因为代码通过了他们自己编写的测试。常用的测试有 Ad Hoc Testing， Unit test 和 Integration Testing。</p>
 <p>Ad Hoc Testing，是指没有计划和记录的软件测试，除非发现缺陷，不然一般只运行一次。</p>
 <h3 id="Unit-test"><a href="#Unit-test" class="headerlink" title="Unit test"></a>Unit test</h3><p>程序可分解为单元（或程序中可测试的最小部分），它严格测试代码的每个单元，最终确保项目正确运行。<br>好处是：</p>
 <ol>
 <li>Unit test 保证良好的代码结构（每个 method “只打一份工”），帮助我们较好地解析任务，</li>
 <li>允许我们考虑每个方法的所有边界情况，并单独测试它们。</li>
-<li>让我们每次只专注于一个单元，进行测试，debug，对准确度有信心后，再进行下一个单元的开发。相比于一次性写完所有代码，再测试debug，Unit test 减少了 debugging 时间。</li>
-</ol>
-<p>坏处是：</p>
-<ol>
-<li>测试也要花时间</li>
-<li>测试本身也是有可能出错的，测试可能不全面，不规范，或者有bug</li>
-<li>有些单元是依赖于其他单元的</li>
-<li>Unit testing 无法保证各个模块的交互，无法保证整个系统作为一个整体是否正常工作。</li>
-</ol>
-<h4 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h4><p>JUnit是一个给Java做测试的框架，由Erich Gamma（Design Patterns）和Kent Beck（eXtreme Programming）编写。<br>JUnit使用Java的 reflection 功能（Java程序可以检查自己的代码）和注释。<br>JUnit允许我们：</p>
-<ul>
-<li>定义并执行测试和测试套件</li>
-<li>使用测试作为规范的有效手段</li>
-<li>使用测试来支持重构</li>
-<li>将修改的代码集成到构建中<br>JUnit可用于多个IDE，例如BlueJ，JBuilder和Eclipse在一定程度上具有JUnit集成。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertEquals(&lt;expected&gt;, &lt;actual&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>assertEquals</code>测试一个变量的实际值是否等于它的期望值。<br>JUnit test 各个测试方法，必须是非静态的（JUnit的设计人员设计规定的）。</p>
-<h3 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h3><p>鉴于 Unit testing 无法保证，有交互的多个模块，作为一个整体是否正常工作。<br>我们可能需要 integration testing，把各个模块合并，作为一个组合，进行测试（也可以把 Unit test 组合起来变成 integration testing）。</p>
-<p>Integration testing 一般都比较麻烦，也不容易自动化，而且一般是在比较高的抽象层进行测试，可能会漏掉微小的错误。</p>
-<p>当把所有模块都作为一个整体，也就是整个系统作为测试对象时，就是 system testing。</p>
-<h3 id="Test-driven-development"><a href="#Test-driven-development" class="headerlink" title="Test driven development"></a>Test driven development</h3><p>TDD开发步骤：</p>
-<ol>
-<li>明确一项新功能需求。</li>
-<li>为该功能编写 Unit test。</li>
-<li>运行测试，<font color="red">按理应该无法通过测试</font>（因为还没写功能程序）。</li>
-<li>编写通过实现该功能的代码，<font color="green">通过测试</font>。</li>
-<li>可选：重构代码，使其更快，更整洁等等。</li>
-</ol>
-<p><img src="http://www.pathfindersolns.com/wp-content/uploads/2012/05/red-green-refactorFINAL2.png" alt="source from http://ryantablada.com/post/red-green-refactor---a-tdd-fairytale " title="image from: http://ryantablada.com/post/red-green-refactor---a-tdd-fairytale"></p>
-
-          
+<li>让我们每次只专注于一个单元，进行测试，debug，对准确度有信心后，再进行下一个单元的开发。相比于一次性写完所有代码，再测试debug，Unit test 减少了 debugging 时间。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NOTE-CS61B-data-structures-11-testing/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1398,9 +1511,9 @@ Static vs. Dynamic Type:
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1607,9 +1720,9 @@ Static vs. Dynamic Type:
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1712,7 +1825,7 @@ Static vs. Dynamic Type:
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8,051 字
+                  8,078 字
                 </span>
               
 
@@ -1750,16 +1863,8 @@ Static vs. Dynamic Type:
 
       
         
-          <h2 id="Note-CS106B-Stanford-Programming-Abstractions"><a href="#Note-CS106B-Stanford-Programming-Abstractions" class="headerlink" title="Note CS106B Stanford Programming Abstractions"></a>Note <a href="https://see.stanford.edu/Course/CS106B" target="_blank" rel="noopener">CS106B Stanford Programming Abstractions</a></h2><h3 id="Topics"><a href="#Topics" class="headerlink" title="Topics:"></a>Topics:</h3><p>Recursion, algorithms analysis (sort/search/hash), dynamic data structures (lists, trees, heaps), data abstraction (stacks, queues, maps), implementation strategies/tradeoffs</p>
-<h3 id="Purposes"><a href="#Purposes" class="headerlink" title="Purposes:"></a>Purposes:</h3><ol>
-<li>become acquainted with the C++ programming language</li>
-<li>learn more advanced programming techniques</li>
-<li>explore classic data structures and algorithms</li>
-<li>and apply these tools to solving complex problems<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3></li>
-<li>Text Book: <a href="https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html" target="_blank" rel="noopener">Data Structures &amp; Algorithm Analysis in C++, 4th ed, by Mark A. Weiss</a></li>
-<li>Text Book: <a href="https://www.pearson.com/us/higher-education/program/Roberts-Programming-Abstractions-in-C/PGM80147.html" target="_blank" rel="noopener">Programming Abstractions in C++ 1st Edition by Eric Roberts</a></li>
-<li>Text Book: <a href="http://algs4.cs.princeton.edu/home/" target="_blank" rel="noopener">Algorithms, 4th Edition</a></li>
-<li>Blog: <a href="http://www.redblobgames.com/pathfinding/a-star/introduction.html" target="_blank" rel="noopener">Red Blob Games</a>, <a href="http://theory.stanford.edu/~amitp/GameProgramming/" target="_blank" rel="noopener">Amit’s A* Pages</a>
+          <p><a href="https://see.stanford.edu/Course/CS106B" target="_blank" rel="noopener">Stanford CS106B Programming Abstractions</a> 和 <a href="https://see.stanford.edu/Course/CS106A" target="_blank" rel="noopener">CS106A</a> 的学习笔记. 我的课程作业(cs106b spring 2017)实现代码见 <a href="https://github.com/ShootingSpace/cs106b-programming-abstraction" target="_blank" rel="noopener">https://github.com/ShootingSpace/cs106b-programming-abstraction</a></p>
+<h3 id="Topics"><a href="#Topics" class="headerlink" title="Topics:"></a>Topics:</h3><p>Recursion, algorithms analysis (sort/search/hash), dynamic data structures (lists, trees, heaps), data abstraction (stacks, queues, maps), implementation strategies/tradeoffs<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NOTE-CS106B-Programming-Abstractions-Stanford/#more" rel="contents">
@@ -1816,9 +1921,9 @@ Static vs. Dynamic Type:
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1959,18 +2064,14 @@ Static vs. Dynamic Type:
 
       
         
-          
-            <h2 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h2><p>前面介绍过单向链表，不过单向链表有几个缺点. 第一个就是它的<code>addLast</code>操作非常慢。单向链表只有一个变量保存列表头的地址, 以及每个节点对后面节点的单向引用(链接). 对于很长的列表，<code>addLast</code>方法必须遍历整个列表, 一直到找到列表末尾才能执行插入操作. 那么如何解决呢?</p>
-<p>最直观的解决方案就是加个’车尾’, 如图<img src="/images/sllist_last_pointer.png" alt="" title="image from: https://joshhug.gitbooks.io/"> 这样我们就可以直接通过<code>last.next</code>引用末尾位置.<br>不过另一个问题并没有解决, 就是删除列表最后一项<code>removeLast</code>这个操作还是很慢。因为在目前的结构设计下, 我们需要先找到倒数第二项，然后将其下一个指针设置为<code>null</code>。而要找到倒数第二节点, 我们就得先找到倒数第三个节点…… 以此类推。也就是说，对于删除末尾的操作，还是要几乎遍历整个列表。</p>
-<h3 id="反方向的链接"><a href="#反方向的链接" class="headerlink" title="反方向的链接"></a>反方向的链接</h3><p>基于前面单向链表构建双向链表, 一个比较有效的方法是额外为每个节点添加一个指向前面节点的链接/指针.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OneNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> OneNode prev; <span class="comment">//指向前</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">    <span class="keyword">public</span> OneNode next; <span class="comment">//指向后</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>增加这些额外的指针会导致额外的代码复杂度, 以及额外的内存开销, 这就是追求时间效率的代价.</p>
-<h3 id="Sentinel-与尾节点"><a href="#Sentinel-与尾节点" class="headerlink" title="Sentinel 与尾节点"></a>Sentinel 与尾节点</h3><p>双向链表的一个设计初衷，就是为了解决单向链表针对列表末尾位置的操作效率不高的问题，除了sentinel和反方向的链接还不够，我们还需要一个节点（指针）能够直接帮我们定位到列表末端。可以考虑添加一个的尾节点<code>last</code>，<img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_basic_size_0.png" alt="" title="image from: https://joshhug.gitbooks.io/"> <img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_basic_size_2.png" alt="" title="image from: https://joshhug.gitbooks.io/"> 这样的列表就可以支持<code>O(1)</code>复杂度的<code>addLast</code>,<code>getLast</code> 和 <code>removeLast</code>操作了。</p>
-<h2 id="循环双端链表"><a href="#循环双端链表" class="headerlink" title="循环双端链表"></a>循环双端链表</h2><p>上面的尾节点设计虽然没什么错误，但有点瑕疵：最后一个尾节点指针有时指向前哨节点，有时指向一个真正的节点。更好的方法是使双向链表首尾相连, 构成一个循环，即前后节点共享唯一的一个前哨节点。<img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_circular_sentinel_size_0.png" alt="" title="image from: https://joshhug.gitbooks.io/"> <img src="https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_circular_sentinel_size_2.png" alt="fig source https://joshhug.gitbooks.io/hug61b/content/chap2/fig23/dllist_circular_sentinel_size_2.png" title="image from: https://joshhug.gitbooks.io/"><br>这样的设计相对更整洁，更美观(主观上的), sentinel的<code>prev</code>就指向列表最后一个节点, sentinel的<code>next</code>指向列表第一个节点.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListDeque</span>&lt;<span class="title">GType</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">OneNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> OneNode prev; <span class="comment">//sentinel's forward link always points to the last element</span></span><br><span class="line">        <span class="keyword">public</span> GType item;</span><br><span class="line">        <span class="keyword">public</span> OneNode next; <span class="comment">//sentinel's backward link always points to the first element</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">OneNode</span><span class="params">(OneNode p, GType i, OneNode n)</span> </span>&#123;</span><br><span class="line">            prev = p;</span><br><span class="line">            item = i;</span><br><span class="line">            next = n;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后修改构造函数:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Creates an empty deque. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedListDeque</span><span class="params">()</span></span>&#123;</span><br><span class="line">    sentinel = <span class="keyword">new</span> OneNode(<span class="keyword">null</span>,<span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    sentinel.prev = sentinel;</span><br><span class="line">    sentinel.next = sentinel;</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Creates a deque with x  */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedListDeque</span><span class="params">(GType x)</span></span>&#123;</span><br><span class="line">    sentinel = <span class="keyword">new</span> OneNode(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    sentinel.next = <span class="keyword">new</span> OneNode(sentinel, x,sentinel);</span><br><span class="line">    sentinel.prev = sentinel.next;</span><br><span class="line">    size = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果是初始化空列表, 那么其实就是一个自己指向自己的<code>sentinel</code>节点. 如果是非空列表, 那么<code>sentinel</code>节点和真实的节点就构成了一个最简单的二元循环体.</p>
-<h3 id="针对列表末尾位置的操作"><a href="#针对列表末尾位置的操作" class="headerlink" title="针对列表末尾位置的操作"></a>针对列表末尾位置的操作</h3><p>双端链表结构优雅，虽然某些操作如<code>addFirst</code>等编码复杂度会提高, 但不影响速度. 更重要的是, 相比单向链表, 它反而使得<code>addLast, moveLast</code>等方法的代码实现变得简单了, 而且还进一步提升了运行速度(<code>O(n)到O(c)</code>).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Adds an item to the back of the Deque.</span></span><br><span class="line"><span class="comment"> * O(c) */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(GType x)</span></span>&#123;</span><br><span class="line">    OneNode oldBackNode = sentinel.prev;</span><br><span class="line">    OneNode newNode = <span class="keyword">new</span> OneNode(oldBackNode, x, sentinel);</span><br><span class="line">    sentinel.prev = newNode;</span><br><span class="line">    oldBackNode.next = newNode;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Removes and returns the item at the front of the Deque.</span></span><br><span class="line"><span class="comment"> * If no such item exists, returns null.O(c). */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> GType <span class="title">removeFirst</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    OneNode oldFrontNode = sentinel.next;</span><br><span class="line">    sentinel.next = oldFrontNode.next;</span><br><span class="line">    oldFrontNode.next.prev = sentinel;</span><br><span class="line">    size -= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> oldFrontNode.item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          <h2 id="双向链表-Doubly-Linked-List"><a href="#双向链表-Doubly-Linked-List" class="headerlink" title="双向链表 Doubly Linked List"></a>双向链表 Doubly Linked List</h2><p>前面介绍过单向链表，不过单向链表有几个缺点. 第一个就是它的<code>addLast</code>操作非常慢。单向链表只有一个变量保存列表头的地址, 以及每个节点对后面节点的单向引用(链接). 对于很长的列表，<code>addLast</code>方法必须遍历整个列表, 一直到找到列表末尾才能执行插入操作. 那么如何解决呢?<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NOTE-CS61B-data-structures-09-java-doubly-linked-list/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2020,9 +2121,9 @@ Static vs. Dynamic Type:
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2164,9 +2265,7 @@ Static vs. Dynamic Type:
       
         
           <h2 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表 Linked List"></a>链表 Linked List</h2><p>前面有介绍以array为基础搭建的列表，支持自动扩容, 各种插入，删除速度都很快.<br>这里再介绍另一种方案, 链表, 也可以实现列表自动扩容.</p>
-<h3 id="带链接的节点"><a href="#带链接的节点" class="headerlink" title="带链接的节点"></a>带链接的节点</h3><p>链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢.</p>
-<p><img src="/images/408px-Singly-linked-list.png" alt=""><br>以int节点为例:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">    <span class="keyword">public</span> IntNode next;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IntNode</span><span class="params">(<span class="keyword">int</span> i, IntNode n)</span> </span>&#123;</span><br><span class="line">        item = i;</span><br><span class="line">        next = n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>next</code>就是这个链接, 每一个节点就是其上一个节点的<code>next</code>.<br>
+<h3 id="带链接的节点"><a href="#带链接的节点" class="headerlink" title="带链接的节点"></a>带链接的节点</h3><p>链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NOTE-CS61B-data-structures-08-java-singly-linked-list/#more" rel="contents">
@@ -2207,218 +2306,11 @@ Static vs. Dynamic Type:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Launch-editor-in-Gitbash/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Launch-editor-in-Gitbash/" itemprop="url">Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T00:00:00+00:00">
-                2018-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/提高效率/" itemprop="url" rel="index">
-                    <span itemprop="name">提高效率</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/Launch-editor-in-Gitbash/" class="leancloud_visitors" data-flag-title="Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,107 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>程序员或者其他需要码字多的人，经常要使用编辑器如sublime、atom 和 Typora等。如果每次都要用鼠标点击才能用sublime打开文件，或者在编辑器中新建文件，那么就会有点麻烦！但你可以用一句命令解决！</p>
-<p>配置在Git Bash中用各种文本编辑器打开文件或者直接新建文件。这里以atom为例。</p>
-<h2 id="常规步骤"><a href="#常规步骤" class="headerlink" title="常规步骤"></a>常规步骤</h2><ol>
-<li>打开Git Bash并<code>cd</code>到你的目标文件夹, 或者直接在目标文件中右键打开Git Bash.</li>
-<li><code>atom xxx.md</code> 就会在弹出的atom窗口中打开名为<code>xxx.md</code>的markdown文件, 如果没有这个文件, 会自动创建一个.</li>
-<li>适用于其他类型文件, 如<code>.java</code>等.</li>
-<li>如果想用sublime, 可以用<code>subl xxx.java</code>, 同理notepad++ 可以用 <code>notepad++ xxx.java</code>等。 (若出现错误,看下面)</li>
-</ol>
-<h2 id="若系统无法识别命令"><a href="#若系统无法识别命令" class="headerlink" title="若系统无法识别命令"></a>若系统无法识别命令</h2><p>一般使用sublime或者notepad++的用户, 可能会出现<code>error: 系统无法识别命令...</code>之类的, 可以这么解决:</p>
-<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>新建一个文件命名为<code>subl</code>（注意不能有后缀名），内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">&quot;D:\Sublime Text 3\sublime_text.exe&quot; $1 &amp;</span><br></pre></td></tr></table></figure></p>
-<p>第一行指明这是个 shell 脚本.<br>第二行的字符串是sublime的安装目录, 示例只是我电脑的目录, 注意这里要改为你自己的目录,<br>第二行的$1 是取的命令之后输入的参数<br>第二行的&amp;是此命令在后台打开，这样sublime打开之后，就不会阻塞你的git bash</p>
-<p>文件保存到 <code>C:\Program Files (x86)\Git\mingW32\bin</code> 目录下(你的git目录可能与我的不一样，注意改成你自己的)</p>
-<p>同理适用于其他编辑器，比如用<code>chrome</code>打开<code>.html</code>文件等。如果不想每次都新建一个文件，可以用下面的方法2。</p>
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><ol>
-<li>找到 <code>C:\Users\你的计算机名</code>目录，如果你的计算机名是Administrator，那么你就要去<code>C:\Users\Administrator</code>目录下, 这里一般存放着windows系统的<code>我的文档, 桌面</code>等文件夹.</li>
-<li>在该目录下用Git Bash输入<code>notepad .bashrc</code>, 这会用windows记事本新建并打开一个文件<code>.bashrc</code>，这个文件没有名称只有后缀名。<code>.bashrc</code>里面可以给Git Bash设置命令的别名, 设置路径等。</li>
-<li>在.bashrc文件加入下面一行文本<code>alias notepad++=&quot;/D/Notepad++/notepad++.exe&quot;</code>, 这里你需要修改为你电脑的安装路径。<code>alias</code>就是别名的意思，当我们执行<code>notepad++</code>的时候，实际执行的是<code>=</code>后面的语句.</li>
-<li>重新打开Git Bash, 设置才能生效，如果不想关掉在打开的话，可以直接在bash下输入<code>source ~/.bashrc</code>就可以立刻加载修改后的设置，设置立即生效。<br>现在在bash下输入<code>notepad++ test.py</code>, 就直接打开了notepad++并创建了这个叫test的Python文件。这里的别名不一定非要取<code>notepad++</code>，随你想叫什么都行。</li>
-</ol>
-<p>同理也可以扩展到别的文本编辑器，<code>alias atom=&quot;atom的路径&quot;</code>, <code>alias sublime=&quot;sublime的路径&quot;</code>等. 最后还要注意一点，上面所说的路径最好不要有空格，括号等，否则会造成命令无效.</p>
-<p><code>.bashrc</code>还有很多有用的配置,可以根据需要进行扩展. 比如很多程序猿会选择修改删除命令<code>rm</code>(此命令不加任何参数的话，会直接删除文件, 可能会造成误删的后果)。这个时候可以给rm加个参数-i，意为在删除的时候给出提示。在文件<code>.bashrc</code>里添加这行代码<code>alias rm=&quot;rm -i&quot;</code>。但这里不建议这么做，因为<code>rm=&quot;rm -i&quot;</code>是一个定时炸弹，在使用它之后，习惯了之后, 你会本能地期望<code>rm</code>在删除文件之前会提示你。但是，总有一天你可能会用一个没有rm alias 别名的系统, 这时若你也直接随手一甩<code>rm</code>, 本以为会有提示, 结果发现数据真的被删除了。</p>
-<p>在任何情况下，预防文件丢失或损坏的好方法就是进行备份。</p>
-<p>所以如果你想个性化删除命令, 最好不要动<code>rm</code>，而是创建属于你的命令，比如<code>trash, myrm, delete</code>等, 用<code>alias trash=&#39;/bin/rm -irv&#39;</code>会创建一条把文件放入垃圾回收站的命令.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2453,11 +2345,7 @@ Static vs. Dynamic Type:
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="舒克贝塔" />
-            
-              <p class="site-author-name" itemprop="name">舒克贝塔</p>
+              <p class="site-author-name" itemprop="name">Cong</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -2468,7 +2356,7 @@ Static vs. Dynamic Type:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2490,7 +2378,7 @@ Static vs. Dynamic Type:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2554,7 +2442,7 @@ Static vs. Dynamic Type:
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">舒克贝塔</span>
+  <span class="author" itemprop="copyrightHolder">Cong</span>
 
   
 </div>
@@ -2568,7 +2456,7 @@ Static vs. Dynamic Type:
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 
 
 
@@ -2667,6 +2555,13 @@ Static vs. Dynamic Type:
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
 
   
 

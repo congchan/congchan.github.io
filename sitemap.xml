@@ -2,23 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation%20Inheritance/</loc>
+    <loc>http://yoursite.com/NOTE-csapp/</loc>
     
-    <lastmod>2018-02-27T18:02:18.109Z</lastmod>
+    <lastmod>2018-03-20T22:42:16.027Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface%20Inheritance/</loc>
+    <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     
-    <lastmod>2018-02-27T18:02:10.106Z</lastmod>
+    <lastmod>2018-03-20T22:42:10.703Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/</loc>
+    
+    <lastmod>2018-03-20T22:41:54.883Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
+    
+    <lastmod>2018-03-20T22:41:39.442Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
+    
+    <lastmod>2018-03-20T22:41:16.607Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
+    
+    <lastmod>2018-03-20T22:40:59.731Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
+    
+    <lastmod>2018-03-20T22:40:47.687Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
+    
+    <lastmod>2018-03-20T22:40:26.645Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
+    
+    <lastmod>2018-03-20T22:40:13.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+    
+    <lastmod>2018-03-20T22:40:02.862Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+    
+    <lastmod>2018-03-20T22:39:28.654Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
     
-    <lastmod>2018-02-27T18:02:03.860Z</lastmod>
+    <lastmod>2018-03-20T22:39:07.701Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/</loc>
+    
+    <lastmod>2018-03-20T22:38:53.768Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
+    
+    <lastmod>2018-03-20T22:38:46.754Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
+    
+    <lastmod>2018-03-20T22:11:31.780Z</lastmod>
     
   </url>
   
@@ -30,79 +114,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
-    
-    <lastmod>2018-02-27T18:01:46.874Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
-    
-    <lastmod>2018-02-27T18:01:38.903Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
-    
-    <lastmod>2018-02-27T18:01:30.670Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
-    
-    <lastmod>2018-02-27T18:01:24.107Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
-    
-    <lastmod>2018-02-27T18:01:17.550Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
-    
-    <lastmod>2018-02-27T18:01:05.967Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
-    
-    <lastmod>2018-02-27T18:00:56.899Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
     
     <lastmod>2018-02-27T18:00:48.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
-    
-    <lastmod>2018-02-27T18:00:38.024Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
-    
-    <lastmod>2018-02-27T18:00:28.084Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
-    
-    <lastmod>2018-02-27T17:57:31.908Z</lastmod>
     
   </url>
   
@@ -117,13 +131,6 @@
     <loc>http://yoursite.com/cs/</loc>
     
     <lastmod>2018-01-28T17:32:57.440Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/</loc>
-    
-    <lastmod>2018-01-23T22:18:26.882Z</lastmod>
     
   </url>
   

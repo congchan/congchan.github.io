@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因… 上面的定义有点抽象，要理解数据类">
+<meta name="description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…">
 <meta name="keywords" content="编程,软件工程,数据结构,算法,Java,cs61b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley">
 <meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因… 上面的定义有点抽象，要理解数据类">
+<meta property="og:description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T18:01:17.550Z">
+<meta property="og:updated_time" content="2018-03-20T22:40:47.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley">
-<meta name="twitter:description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因… 上面的定义有点抽象，要理解数据类">
+<meta name="twitter:description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…">
 
 
 
@@ -104,7 +104,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '5.1.3',
     sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -296,9 +296,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="舒克贝塔">
+      <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -436,10 +436,9 @@
       
 
       
-        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><a href="https://zh.wikibooks.org/zh-hans/Java/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">数据类型</a>是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…</p>
-<p>上面的定义有点抽象，要理解数据类型，需要先理解一个问题: 神秘的海象问题<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 尝试预测下面的代码运行时会发生什么。</span></span><br><span class="line"><span class="comment">b的变化是否会影响a？提示：类似Python。 */</span></span><br><span class="line">Walrus a = <span class="keyword">new</span> Walrus(<span class="number">1000</span>, <span class="number">8.3</span>);</span><br><span class="line">Walrus b;</span><br><span class="line">b = a;</span><br><span class="line">b.weight = <span class="number">5</span>;</span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure></p>
+        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><a href="https://zh.wikibooks.org/zh-hans/Java/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">数据类型</a>是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…<br><a id="more"></a><br>上面的定义有点抽象，要理解数据类型，需要先理解一个问题: 神秘的海象问题<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 尝试预测下面的代码运行时会发生什么。</span></span><br><span class="line"><span class="comment">b的变化是否会影响a？提示：类似Python。 */</span></span><br><span class="line">Walrus a = <span class="keyword">new</span> Walrus(<span class="number">1000</span>, <span class="number">8.3</span>);</span><br><span class="line">Walrus b;</span><br><span class="line">b = a;</span><br><span class="line">b.weight = <span class="number">5</span>;</span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 同样尝试预测下面的代码运行时会发生什么。</span></span><br><span class="line"><span class="comment">x的改变是否影响y？ */</span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">y = x;</span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">System.out.println(<span class="string">"x is: "</span> + x);</span><br><span class="line">System.out.println(<span class="string">"y is: "</span> + y);</span><br></pre></td></tr></table></figure>
-<p>首先给出答案, b的变化会影响a, 但x的改变不影响y，具体见<a href="http://cscircles.cemc.uwaterloo.ca/java_visualize/#code=public+class+PollQuestions+%7B%0A+++public+static+void+main%28String%5B%5D+args%29+%7B%0A++++++Walrus+a+%3D+new+Walrus%281000,+8.3%29%3B%0A++++++Walrus+b%3B%0A++++++b+%3D+a%3B%0A++++++b.weight+%3D+5%3B%0A++++++System.out.println%28a%29%3B%0A++++++System.out.println%28b%29%3B++++++%0A%0A++++++int+x+%3D+5%3B%0A++++++int+y%3B%0A++++++y+%3D+x%3B%0A++++++x+%3D+2%3B%0A++++++System.out.println%28%22x+is%3A+%22+%2B+x%29%3B%0A++++++System.out.println%28%22y+is%3A+%22+%2B+y%29%3B++++++%0A+++%7D%0A+++%0A+++public+static+class+Walrus+%7B%0A++++++public+int+weight%3B%0A++++++public+double+tuskSize%3B%0A++++++%0A++++++public+Walrus%28int+w,+double+ts%29+%7B%0A+++++++++weight+%3D+w%3B%0A+++++++++tuskSize+%3D+ts%3B%0A++++++%7D%0A%0A++++++public+String+toString%28%29+%7B%0A+++++++++return+String.format%28%22weight%3A+%25d,+tusk+size%3A+%25.2f%22,+weight,+tuskSize%29%3B%0A++++++%7D%0A+++%7D%0A%7D&amp;mode=edit" target="_blank" rel="noopener">可视化过程</a>.<br>这里的差别虽然微妙, 但其背后的原理对于数据结构的效率来说是非常重要的，对这个问题的深入理解也将引导我们写出更安全，更可靠的代码。<br><a id="more"></a></p>
+<p>首先给出答案, b的变化会影响a, 但x的改变不影响y，具体见<a href="http://cscircles.cemc.uwaterloo.ca/java_visualize/#code=public+class+PollQuestions+%7B%0A+++public+static+void+main%28String%5B%5D+args%29+%7B%0A++++++Walrus+a+%3D+new+Walrus%281000,+8.3%29%3B%0A++++++Walrus+b%3B%0A++++++b+%3D+a%3B%0A++++++b.weight+%3D+5%3B%0A++++++System.out.println%28a%29%3B%0A++++++System.out.println%28b%29%3B++++++%0A%0A++++++int+x+%3D+5%3B%0A++++++int+y%3B%0A++++++y+%3D+x%3B%0A++++++x+%3D+2%3B%0A++++++System.out.println%28%22x+is%3A+%22+%2B+x%29%3B%0A++++++System.out.println%28%22y+is%3A+%22+%2B+y%29%3B++++++%0A+++%7D%0A+++%0A+++public+static+class+Walrus+%7B%0A++++++public+int+weight%3B%0A++++++public+double+tuskSize%3B%0A++++++%0A++++++public+Walrus%28int+w,+double+ts%29+%7B%0A+++++++++weight+%3D+w%3B%0A+++++++++tuskSize+%3D+ts%3B%0A++++++%7D%0A%0A++++++public+String+toString%28%29+%7B%0A+++++++++return+String.format%28%22weight%3A+%25d,+tusk+size%3A+%25.2f%22,+weight,+tuskSize%29%3B%0A++++++%7D%0A+++%7D%0A%7D&amp;mode=edit" target="_blank" rel="noopener">可视化过程</a>.<br>这里的差别虽然微妙, 但其背后的原理对于数据结构的效率来说是非常重要的，对这个问题的深入理解也将引导我们写出更安全，更可靠的代码。</p>
 <h3 id="基本类型-Primative-Types"><a href="#基本类型-Primative-Types" class="headerlink" title="基本类型 Primative Types"></a>基本类型 Primative Types</h3><p>计算机中的所有信息都以一系列1和0的形式存储在内存中，这些二进制的0和1就是比特位（bits）。比如72和“H”在内存一般以01001000的形式存储，对他们的形式是一样的。一个引申问题就是：Java代码如何解释01001000，怎么知道应该解释为72还是“H”？ 通过类型types，预先定义好类型即可, 以下代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> x = <span class="string">'H'</span>;</span><br><span class="line"><span class="keyword">int</span> y = x;</span><br><span class="line">System.out.println(x);</span><br><span class="line">System.out.println(y);</span><br></pre></td></tr></table></figure></p>
 <p>会分别得到“H”和72. 在这种情况下，x和y变量都包含几乎相同的bits，但是Java解释器在输出时对它们进行了不同的处理。</p>
 <p>Java有8种基本类型：byte，short，int，long，float，double，boolean和char。</p>
@@ -602,11 +601,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="舒克贝塔" />
-            
-              <p class="site-author-name" itemprop="name">舒克贝塔</p>
+              <p class="site-author-name" itemprop="name">Cong</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -617,7 +612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -719,7 +714,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">舒克贝塔</span>
+  <span class="author" itemprop="copyrightHolder">Cong</span>
 
   
 </div>
@@ -733,7 +728,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 
 
 
@@ -832,6 +827,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
