@@ -11,9 +11,9 @@
         <title>从程序员的视角理解计算机系统 - csapp - CMU 15213</title>
         <pubTime>2018-01-29T00:00:00.000Z</pubTime>
         
-        <tag>计算机科学</tag>
-         
         <tag>计算机入门</tag>
+         
+        <tag>计算机科学</tag>
          
         <tag>csapp</tag>
          
@@ -42,11 +42,11 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
-         
-        <tag>Java</tag>
          
          
            
@@ -104,13 +104,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -137,13 +137,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -170,13 +170,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -203,13 +203,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -236,13 +236,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -269,13 +269,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -302,13 +302,46 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
          
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
+    <lastmod>2018-03-20T22:39:47.241Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley</title>
+        <pubTime>2018-01-28T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
         <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
          
         <tag>cs61b</tag>
          
@@ -335,13 +368,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -368,13 +401,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -401,13 +434,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -434,13 +467,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -467,46 +500,13 @@
         
         <tag>编程</tag>
          
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
         <tag>Java</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
-    <lastmod>2018-02-27T18:01:56.090Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley</title>
-        <pubTime>2018-01-28T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
          
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -533,13 +533,13 @@
         
         <tag>编程</tag>
          
+        <tag>Java</tag>
+         
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
          
         <tag>算法</tag>
-         
-        <tag>Java</tag>
          
         <tag>cs61b</tag>
          
@@ -564,9 +564,9 @@
         <title>自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh</title>
         <pubTime>2018-01-31T00:00:00.000Z</pubTime>
         
-        <tag>NLP</tag>
-         
         <tag>Python</tag>
+         
+        <tag>NLP</tag>
          
          
            
@@ -618,11 +618,11 @@
         
         <tag>人工智能</tag>
          
+        <tag>自然语言处理</tag>
+         
         <tag>机器学习</tag>
          
         <tag>深度学习</tag>
-         
-        <tag>自然语言处理</tag>
          
         <tag>计算机视觉</tag>
          
