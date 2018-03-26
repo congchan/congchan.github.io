@@ -95,7 +95,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://eclipsesource.com/wp-content/uploads/2012/09/generate-hashcode-equals.png">
 <meta property="og:image" content="https://eclipsesource.com/wp-content/uploads/2012/09/hashcode-error-config.png">
-<meta property="og:updated_time" content="2018-03-20T22:42:10.703Z">
+<meta property="og:updated_time" content="2018-03-26T19:10:31.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java | 对象 哈希 重写 @Override equals() hashcode()">
 <meta name="twitter:description" content="主要介绍：  Hashcode（哈希码）与 equals（判断相等）的关系 Hashcode 方法的底层实现原理 开发中需要掌握的原则和方法  HashSet, HashMap, HashTableHashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。">
@@ -453,18 +453,26 @@
 </ol>
 <p>下面这段代码虽然 HashSet 只存了 a 对象，但当检查是否包含 b 对象时，返回true。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">String a = <span class="string">"hello"</span>;</span><br><span class="line">String b = <span class="string">"hello"</span>;</span><br><span class="line">wordSet.add(a);</span><br><span class="line"><span class="keyword">return</span> wordSet.contains(b); <span class="comment">// return true</span></span><br></pre></td></tr></table></figure></p>
 <p>根据<a href="https://docs.oracle.com/javase/6/docs/api/java/util/Set.html#add%28E%29" target="_blank" rel="noopener">Javadoc for Set</a>.</p>
-<pre><code>adds the specified element e to this set if the set contains no element e2 such that (e==null ? e2==null : e.equals(e2)).
-</code></pre><p>根据<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#equals-java.lang.Object-" target="_blank" rel="noopener">Javadoc for String.equals</a></p>
-<pre><code>Compares this string to the specified object. The result is true if and only if the argument is not null and is a String object that represents the same sequence of characters as this object.
-</code></pre><p>Java的set是使用它包含的元素（对象）的 <code>equals()</code>来比较 b 和 a 的。这里 String 类的<code>equals()</code>method 是比较字符串值是否相等(准确的说，是先检查是不是引用同一个对象，再看是不是同一个类，再比较值)，而不是引用的对象是否一样，故<code>b.equals(a)</code>是 true。</p>
+<blockquote>
+<p>adds the specified element e to this set if the set contains no element e2 such that (e==null ? e2==null : e.equals(e2)).</p>
+</blockquote>
+<p>根据<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#equals-java.lang.Object-" target="_blank" rel="noopener">Javadoc for String.equals</a></p>
+<blockquote>
+<p>Compares this string to the specified object. The result is true if and only if the argument is not null and is a String object that represents the same sequence of characters as this object.</p>
+</blockquote>
+<p>Java的set是使用它包含的元素（对象）的 <code>equals()</code>来比较 b 和 a 的。这里 String 类的<code>equals()</code>method 是比较字符串值是否相等(准确的说，是先检查是不是引用同一个对象，再看是不是同一个类，再比较值)，而不是引用的对象是否一样，故<code>b.equals(a)</code>是 true。</p>
 <p>同样的，remove 和 add 也会先进行类似检查。</p>
 <p>问题是，为何 hashCode 不同，就没有进一步调用 equals()的必要呢？因为有一个前提是代码遵守The hashCode contract。</p>
 <h3 id="Hashcode-and-equals"><a href="#Hashcode-and-equals" class="headerlink" title="Hashcode and equals"></a>Hashcode and equals</h3><p>在Java中，每个对象都有一个hashCode，它有时容易被人遗忘或误用。有以下三点需要注意，避免掉入常见的陷阱。</p>
 <h4 id="The-hashCode-contract"><a href="#The-hashCode-contract" class="headerlink" title="The hashCode contract"></a>The hashCode contract</h4><p>根据 The hashCode contract:</p>
-<pre><code>Objects that are equal must have the same hash code within a running process.
-</code></pre><p>除了字面意思，也有其他隐含的意思: 不相等的对象的hashcode也可能一样; 具有相同 hash code 的对象不一定相等.</p>
-<pre><code>You must override hashCode() in every class that overrides equals(). Failure to do so will result in a violation of the general contract for Object.hashCode(), which will prevent your class from functioning properly in conjunction with all hash-based collections, including HashMap, HashSet, and Hashtable. --- Effective Java, by Joshua Bloch
-</code></pre><p>根据这个contract，可以延伸出以下实践原则：</p>
+<blockquote>
+<p>Objects that are equal must have the same hash code within a running process.</p>
+</blockquote>
+<p>除了字面意思，也有其他隐含的意思: 不相等的对象的hashcode也可能一样; 具有相同 hash code 的对象不一定相等.</p>
+<blockquote>
+<p>You must override hashCode() in every class that overrides equals(). Failure to do so will result in a violation of the general contract for Object.hashCode(), which will prevent your class from functioning properly in conjunction with all hash-based collections, including HashMap, HashSet, and Hashtable. — Effective Java, by Joshua Bloch</p>
+</blockquote>
+<p>根据这个contract，可以延伸出以下实践原则：</p>
 <p><strong>一、 每当你 override equals 时，也要 override hashCode</strong><br>假如你需要使用不一样的equals判断标准，那么就需要重写equals。但假如仅仅重写equals，而不重写hashcode()，就可能会违背 The hashCode contract。</p>
 <p>为什么？因为 hashCode method 需要同时适配真正使用到的 equals method 的判断标准。通过重写equals，我们重新声明了一种判断对象是否相等的标准，但原始的 hashCode method还是会将所有对象视为不同的对象。所以如果没有不重写hashcode，那么根据@Override equals 判断为相同的对象将拥有不同的hashcode（可能）。这样，即使已经有了这个object，在HashMap上调用 contains() 也会返回false。</p>
 <p>例子：在Java的创建街道street这个类，在判断两条街道是否相同时，我们有自定义的规则 - 只要是在同一个城市，有同样的街道名，那么两个street就相等，即使他们是存放在不同内存位置的两个对象（Java 的 Object 原生的equals是根据引用的对象内存地址来比较判断的）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Street</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String city;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!(obj <span class="keyword">instanceof</span> Street))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="keyword">this</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        Street rhs = (Street) obj;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EqualsBuilder().</span><br><span class="line">            <span class="comment">// if deriving: appendSuper(super.equals(obj)).</span></span><br><span class="line">            append(name, rhs.name).</span><br><span class="line">            append(age, rhs.city).</span><br><span class="line">            isEquals();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HashCodeBuilder(<span class="number">17</span>, <span class="number">31</span>). <span class="comment">// two randomly chosen prime numbers</span></span><br><span class="line">            <span class="comment">// if deriving: appendSuper(super.hashCode()).</span></span><br><span class="line">            append(name).</span><br><span class="line">            append(city).</span><br><span class="line">            toHashCode();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -476,8 +484,10 @@
 <p><strong>二、永远不要把hashcode当做key来使用</strong></p>
 <p>Java中有4,294,967,296个（2<sup>32</sup>)可能的int值）。既然拥有40亿个插槽，collisions似乎几乎不可能对吧？</p>
 <p>但事实上，也不是那么不可能。试想，一个房间里有23名随机人员。你如何估计里面有两个人生日一样的概率？很低？因为一年有365天？事实上，概率约为50％！这种现象被称为<a href="http://en.wikipedia.org/wiki/Birthday_paradox" target="_blank" rel="noopener">生日问题(悖论)</a>。</p>
-<pre><code>如果一个房间里有23个或23个以上的人，那么至少有两个人的生日相同的概率要大于50%。
-</code></pre><p>问题的本质是”23人之中两两之间存在生日相同的概率””,而不是”其他22人与其中一个人的生日相同的概率”.</p>
+<blockquote>
+<p>如果一个房间里有23个或23个以上的人，那么至少有两个人的生日相同的概率要大于50%。</p>
+</blockquote>
+<p>问题的本质是”23人之中两两之间存在生日相同的概率””,而不是”其他22人与其中一个人的生日相同的概率”.</p>
 <p>类比到hashcode里，这意味着有77,163个不同的对象，collisions概率是50%（假设有一个理想的hashCode函数，将对象均匀分布在所有可用的buckets中）。</p>
 <h3 id="HashCodes-会变"><a href="#HashCodes-会变" class="headerlink" title="HashCodes 会变"></a>HashCodes 会变</h3><p>HashCode 不保证在不同的执行过程中总能返回相同的code。根据JavaDoc：Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer, provided no information used in equals comparisons on the object is modified. <strong>This integer need not remain consistent from one execution of an application to another execution</strong> of the same application.</p>
 <p>这种情况并不常见，实际上，库中的某些类甚至指定了用于计算hashcode的精确公式（例如String）。对于这些类，hashcode总是相同的。但是，尽管大多数的hashCode方法提供了稳定的值，但我们不能依赖它。正如<a href="http://martin.kleppmann.com/2012/06/18/java-hashcode-unsafe-for-distributed-systems.html" target="_blank" rel="noopener">这篇文章</a>所指出的那样，Java库实际上在不同的进程中返回不同的hashCode值，这往往会让人们感到困惑。 Google的<a href="http://code.google.com/p/protobuf/" target="_blank" rel="noopener">Protocol Buffers</a>就是一个例子。 因此，您不应该在分布式应用程序中使用hash code。即使两者相等，远程对象的 hash code 也可能与本地的不同。</p>
