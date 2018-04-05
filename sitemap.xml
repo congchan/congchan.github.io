@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+    
+    <lastmod>2018-04-05T21:37:49.412Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
+    
+    <lastmod>2018-03-29T22:09:04.447Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     
     <lastmod>2018-03-26T19:10:31.801Z</lastmod>
@@ -100,13 +114,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
-    
-    <lastmod>2018-03-20T22:38:46.754Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
     
     <lastmod>2018-03-20T22:11:31.780Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
     
     <lastmod>2018-02-27T18:00:48.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
-    
-    <lastmod>2018-02-24T16:32:11.503Z</lastmod>
     
   </url>
   

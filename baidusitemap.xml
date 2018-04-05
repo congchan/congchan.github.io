@@ -4,6 +4,64 @@
 
     
   <url>
+    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+    <lastmod>2018-04-05T21:37:49.412Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh</title>
+        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
+    <lastmod>2018-03-29T22:09:04.447Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley</title>
+        <pubTime>2018-02-24T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     <lastmod>2018-03-26T19:10:31.801Z</lastmod>
     <data>
@@ -458,39 +516,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
-    <lastmod>2018-03-20T22:38:46.754Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley</title>
-        <pubTime>2018-02-24T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
     <lastmod>2018-03-20T22:11:31.780Z</lastmod>
     <data>
@@ -550,31 +575,6 @@
           
              
               <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
-    <lastmod>2018-02-24T16:32:11.503Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh</title>
-        <pubTime>2018-01-31T00:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>
