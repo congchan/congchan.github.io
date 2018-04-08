@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-05T21:37:49.412Z</updated>
+  <updated>2018-04-08T09:25:44.508Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>自然语言处理（快速入门） - Accelerated Natural Language Processing - University of Edinburgh</title>
+    <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE</title>
     <link href="http://yoursite.com/NOTE-ANLP-01-probability-model/"/>
     <id>http://yoursite.com/NOTE-ANLP-01-probability-model/</id>
     <published>2018-03-31T23:00:00.000Z</published>
-    <updated>2018-04-05T21:37:49.412Z</updated>
+    <updated>2018-04-08T09:25:44.508Z</updated>
     
     <content type="html"><![CDATA[<p>爱丁堡大学的自然语言处理入门课程笔记。</p><p>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/anlp/" target="_blank" rel="noopener">Accelerated natural language processing 爱丁堡大学</a><br><a href="https://www.inf.ed.ac.uk/teaching/courses/anlp/review/review_ay17.html" target="_blank" rel="noopener">ANLP revision guide</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">JM NLP, Stanford</a><br><a id="more"></a></p><h1 id="概率模型-Probability-model"><a href="#概率模型-Probability-model" class="headerlink" title="概率模型 Probability model"></a>概率模型 Probability model</h1><p>概率模型是随机现象的数学表示，由样本空间，样本空间内的事件以及与每个事件相关的概率定义。目标是模拟给一个事件发生的概率</p><h2 id="估算概率-Probability-estimation"><a href="#估算概率-Probability-estimation" class="headerlink" title="估算概率 Probability estimation"></a>估算概率 Probability estimation</h2><p>相关频率/最大似然估计<br>Relative frequency / maximum likelihood estimation p(X) = Count(x)/N</p><h2 id="平滑处理-Smoothing"><a href="#平滑处理-Smoothing" class="headerlink" title="平滑处理 Smoothing"></a>平滑处理 Smoothing</h2><p>一般用于处理0概率的问题，比如在训练集中看不到, 但出现在测试集中的词。</p><h3 id="加一（Laplace）平滑"><a href="#加一（Laplace）平滑" class="headerlink" title="加一（Laplace）平滑"></a>加一（Laplace）平滑</h3><p>最简单的平滑法，为所有事件（不管有没出现过）的频次加一，这样保证了没有0概率事件出现。<br>这种平滑效果很差，因为齐夫定律<code>Zipf&#39;s law</code>的关系:</p><blockquote><p>在自然语言的语料库里，一个单词出现的频率与它在频率表里的排名成反比。<br>会有很多长尾单词很少甚至几乎没有出现过, 所以在总数为1的概率池子了, 为了给这些长尾单词分配至少频次1的概率, 需要从真正出现的单词(所谓真实发生的事件)中分走很多概率.</p></blockquote><p>更多高级的平滑方案参考N-gram部分。</p><h3 id="语言模型-Language-modeling"><a href="#语言模型-Language-modeling" class="headerlink" title="语言模型 Language modeling"></a>语言模型 Language modeling</h3><p>语言模型: 一种用于计算连续的单词（就是句子）或者任何其他序列数据（比如语音）出现的概率的模型，最基本的应用是基于某种语言模型，预测下一个单词出现的概率 <code>P(w|w1, w2, w3...)</code>。</p><p>语言模型本身即是一种概率模型(或者说人们选择用概率模型来描述为语言建模). 因为近现代的自然语言处理主要集中在信息沟通传输方面(比如密码,语音识别, 机器翻译, 校正等), 而香农的信息传输模型使用条件概率来描述鉴定噪音中的真实信息.</p><p>如何表达: 一个句子发生的概率就是里面各个单词的概率的乘积。依赖于概率的链式法则, 一个位置的单词的概率，条件于该位置之前的句子部分的概率。所以通过链式法则得出的语言模型概率是冗长的条件概率乘积。</p><p>通过马尔可夫性质 Markov property 我们可以把语言模型简化，一个位置单词出现的条件概率可以通过某种近似来逼近，即通过仅考虑离它最近的（若干）单词，得到<code>P(the| water is so transparent that) ≈ P(the| that)</code>.</p><p><a href="/NOTE-ANLP-01-evaluation#evaluation-concepts-and-methods">Evaluation</a>：一般通过困惑度（Perplexity）来衡量语言模型的好坏。</p>]]></content>
     
