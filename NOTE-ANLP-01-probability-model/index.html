@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Python,NLP," />
+  <meta name="keywords" content="自然语言处理,Python,NLP," />
 
 
 
@@ -86,14 +86,14 @@
 
 
 <meta name="description" content="爱丁堡大学的自然语言处理入门课程笔记。 References:Accelerated natural language processing 爱丁堡大学ANLP revision guideJM NLP, Stanford">
-<meta name="keywords" content="Python,NLP">
+<meta name="keywords" content="自然语言处理,Python,NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE">
 <meta property="og:url" content="http://yoursite.com/NOTE-ANLP-01-probability-model/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="爱丁堡大学的自然语言处理入门课程笔记。 References:Accelerated natural language processing 爱丁堡大学ANLP revision guideJM NLP, Stanford">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-08T09:25:44.508Z">
+<meta property="og:updated_time" content="2018-04-22T22:51:22.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE">
 <meta name="twitter:description" content="爱丁堡大学的自然语言处理入门课程笔记。 References:Accelerated natural language processing 爱丁堡大学ANLP revision guideJM NLP, Stanford">
@@ -443,8 +443,9 @@
 <h2 id="平滑处理-Smoothing"><a href="#平滑处理-Smoothing" class="headerlink" title="平滑处理 Smoothing"></a>平滑处理 Smoothing</h2><p>一般用于处理0概率的问题，比如在训练集中看不到, 但出现在测试集中的词。</p>
 <h3 id="加一（Laplace）平滑"><a href="#加一（Laplace）平滑" class="headerlink" title="加一（Laplace）平滑"></a>加一（Laplace）平滑</h3><p>最简单的平滑法，为所有事件（不管有没出现过）的频次加一，这样保证了没有0概率事件出现。<br>这种平滑效果很差，因为齐夫定律<code>Zipf&#39;s law</code>的关系:</p>
 <blockquote>
-<p>在自然语言的语料库里，一个单词出现的频率与它在频率表里的排名成反比。<br>会有很多长尾单词很少甚至几乎没有出现过, 所以在总数为1的概率池子了, 为了给这些长尾单词分配至少频次1的概率, 需要从真正出现的单词(所谓真实发生的事件)中分走很多概率.</p>
+<p>在自然语言的语料库里，一个单词出现的频率与它在频率表里的排名成反比。</p>
 </blockquote>
+<p>会有很多长尾单词很少甚至几乎没有出现过, 所以在总数为1的概率池子了, 为了给这些长尾单词分配至少频次1的概率, 需要从真正出现的单词(所谓真实发生的事件)中分走很多概率.</p>
 <p>更多高级的平滑方案参考N-gram部分。</p>
 <h3 id="语言模型-Language-modeling"><a href="#语言模型-Language-modeling" class="headerlink" title="语言模型 Language modeling"></a>语言模型 Language modeling</h3><p>语言模型: 一种用于计算连续的单词（就是句子）或者任何其他序列数据（比如语音）出现的概率的模型，最基本的应用是基于某种语言模型，预测下一个单词出现的概率 <code>P(w|w1, w2, w3...)</code>。</p>
 <p>语言模型本身即是一种概率模型(或者说人们选择用概率模型来描述为语言建模). 因为近现代的自然语言处理主要集中在信息沟通传输方面(比如密码,语音识别, 机器翻译, 校正等), 而香农的信息传输模型使用条件概率来描述鉴定噪音中的真实信息.</p>
@@ -467,6 +468,8 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/自然语言处理/" rel="tag"># 自然语言处理</a>
           
             <a href="/tags/Python/" rel="tag"># Python</a>
           
@@ -584,7 +587,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -595,7 +598,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

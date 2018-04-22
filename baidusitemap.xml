@@ -5,12 +5,14 @@
     
   <url>
     <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
-    <lastmod>2018-04-08T09:25:44.508Z</lastmod>
+    <lastmod>2018-04-22T22:51:22.550Z</lastmod>
     <data>
         <display>
         <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE</title>
         <pubTime>2018-03-31T23:00:00.000Z</pubTime>
         
+        <tag>自然语言处理</tag>
+         
         <tag>Python</tag>
          
         <tag>NLP</tag>
