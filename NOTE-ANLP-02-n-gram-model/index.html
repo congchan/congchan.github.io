@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="自然语言处理,Python,NLP," />
 
 
 
@@ -85,13 +85,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Computer Science &amp; AI">
-<meta property="og:url" content="http://yoursite.com/archives/2017/01/index.html">
+<meta name="description" content="生成模型在语言模型中的应用包括 N-Gram语言模型，朴素贝叶斯分类器，隐马尔可夫模型。  在概率统计理论中, 生成模型是指能够生成观测数据的模型，尤其是在给定某些隐含参数的条件下。它给观测值和标注数据序列指定一个联合概率分布。 生成模型的定义与判别模型相对应：生成模型是所有变量的全概率模型，而判别模型是在给定观测变量值前提下目标变量条件概率模型。因此生成模型能够用于模拟（即生成）模型中任意变量的">
+<meta name="keywords" content="自然语言处理,Python,NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE">
+<meta property="og:url" content="http://yoursite.com/NOTE-ANLP-02-n-gram-model/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
+<meta property="og:description" content="生成模型在语言模型中的应用包括 N-Gram语言模型，朴素贝叶斯分类器，隐马尔可夫模型。  在概率统计理论中, 生成模型是指能够生成观测数据的模型，尤其是在给定某些隐含参数的条件下。它给观测值和标注数据序列指定一个联合概率分布。 生成模型的定义与判别模型相对应：生成模型是所有变量的全概率模型，而判别模型是在给定观测变量值前提下目标变量条件概率模型。因此生成模型能够用于模拟（即生成）模型中任意变量的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/kneser-ney.png">
+<meta property="og:updated_time" content="2018-04-24T21:30:43.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Computer Science &amp; AI">
+<meta name="twitter:title" content="自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE">
+<meta name="twitter:description" content="生成模型在语言模型中的应用包括 N-Gram语言模型，朴素贝叶斯分类器，隐马尔可夫模型。  在概率统计理论中, 生成模型是指能够生成观测数据的模型，尤其是在给定某些隐含参数的条件下。它给观测值和标注数据序列指定一个联合概率分布。 生成模型的定义与判别模型相对应：生成模型是所有变量的全概率模型，而判别模型是在给定观测变量值前提下目标变量条件概率模型。因此生成模型能够用于模拟（即生成）模型中任意变量的">
+<meta name="twitter:image" content="http://yoursite.com/images/kneser-ney.png">
 
 
 
@@ -121,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/01/"/>
+  <link rel="canonical" href="http://yoursite.com/NOTE-ANLP-02-n-gram-model/"/>
 
 
 
 
 
-  <title>归档 | Computer Science & AI</title>
+  <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE | Computer Science & AI</title>
   
 
 
@@ -146,7 +153,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,111 +281,280 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 22 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-ANLP-02-n-gram-model/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/ai/" itemprop="url">
-              
-                <span itemprop="name">人工智能AI入门到进阶</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-01T00:00:00+00:00"
-              content="2017-01-01" >
-          01-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-01T00:00:00+01:00">
+                2018-04-01
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/NOTE-ANLP-02-n-gram-model/" class="leancloud_visitors" data-flag-title="自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,079 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/cs/" itemprop="url">
-              
-                <span itemprop="name">CS入门到进阶</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-01T00:00:00+00:00"
-              content="2017-01-01" >
-          01-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>生成模型在语言模型中的应用包括 N-Gram语言模型，朴素贝叶斯分类器，隐马尔可夫模型。</p>
+<blockquote>
+<p>在概率统计理论中, 生成模型是指能够生成观测数据的模型，尤其是在给定某些隐含参数的条件下。它给观测值和标注数据序列指定一个联合概率分布。</p>
+<p>生成模型的定义与判别模型相对应：生成模型是所有变量的全概率模型，而判别模型是在给定观测变量值前提下目标变量条件概率模型。因此生成模型能够用于模拟（即生成）模型中任意变量的分布情况，而判别模型只能根据观测变量得到目标变量的采样。判别模型不对观测变量的分布建模，因此它不能够表达观测变量与目标变量之间更复杂的关系。因此，生成模型更适用于无监督的任务，如分类和聚类。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="N-Gram-语言模型"><a href="#N-Gram-语言模型" class="headerlink" title="N-Gram 语言模型"></a>N-Gram 语言模型</h2><p>如何训练一个语言模型? 在神经网络大热之前, 人们普遍使用<code>N-Gram</code>语言模型。就是收集不同n-gram频率的统计数据，并用它们预测下一个单词，概率模型基于前面提到的马尔可夫简化假设：若使用<code>N</code>-Gram 来预测下一个单词，出现概率仅取决于前面的<code>(N-1)</code>个单词.</p>
+<p>一个<code>N-Gram</code>就是n个连续的单词</p>
+<ul>
+<li><code>Uni</code>gram: “the”, “students”, “opened”, ”their”</li>
+<li><code>Bi</code>gram: “the students”, “students opened”, “opened their”</li>
+<li><code>tri</code>grams: “the students opened”, “students opened their”</li>
+<li><code>4-</code>grams: “the students opened their”</li>
+</ul>
+<p>通过计数来估计统计概率：<code>P(wi| prefixes) = count(prefixes, wi)/count(prefixes) = count(“the students”)/count(“the students opened”)</code></p>
+<p>在实际中，使用 log 转换来避免数值下溢，并且log 转换可以把乘法转换为加法, 计算更快.</p>
+<p>N-Gram模型的缺点很明显：</p>
+<ul>
+<li>无法很好地解决NLP中的长距离依赖现象</li>
+<li>N-gram只是在测试语料库与训练语料库比较相似时表现才比较好。</li>
+<li>稀疏问题1：大多数高阶N-Gram几乎不会出现，我们不能简单地把这些定义为0概率的，因为语言是千变万化的，有些词组虽然少见但不代表不存在</li>
+<li>稀疏问题2：少部分低阶n-gram在测试集中出现了但是在训练集中没有。比如需要预测 “students opened their _”, 但是训练集中没出现过“students opened their”。</li>
+<li>一般而言，N越高，模型表现越好，但是更大的N使稀疏问题变得更糟。通常人们不会取大于5的N。</li>
+<li>需要存储所有可能的N-Gram，所以模型的大小是 <code>O(exp(n))</code>,需要大量的内存.</li>
+</ul>
+<p>针对数据稀疏问题, 可以使用各种平滑处理.</p>
+<h3 id="Add-alpha-smoothing"><a href="#Add-alpha-smoothing" class="headerlink" title="Add alpha smoothing"></a>Add alpha smoothing</h3><ul>
+<li>Assign equal probability to all unseen events.</li>
+<li>Applied in text classification, or domains where zeros probability is not common.</li>
+</ul>
+<h3 id="Backoff-smoothing"><a href="#Backoff-smoothing" class="headerlink" title="Backoff smoothing"></a>Backoff smoothing</h3><ul>
+<li>Use information from lower order N-grams (shorter histories)</li>
+<li>Back off to a lower-order N-gram if we have zero evidence for a higher-order interpolation N-gram.</li>
+<li>Discount: In order for a backoff model to give a correct probability distribution, we have to discount the higher-order N-grams to save some probability mass for the lower order N-grams.</li>
+</ul>
+<p>对于像网络数据这种非常大的N-gram，使用stupid backoff.</p>
+<h3 id="Interpolation-smoothing"><a href="#Interpolation-smoothing" class="headerlink" title="Interpolation smoothing"></a>Interpolation smoothing</h3><ul>
+<li>Interpolation: mix the probability estimates from all the N-gram estimators, weighing and combining the trigram, bigram, and unigram counts</li>
+<li>Simple interpolation: <code>P(w3|w1,w2)=1P(w3|w1,w2)+λ2P(w3|w2)+λ3P(w3)</code>, Σλ=1.</li>
+<li>λ could be trianed/conditioned on training set/contest, choose λ that maximie the probability of held-out data</li>
+</ul>
+<h3 id="Kneser-Ney-smoothing"><a href="#Kneser-Ney-smoothing" class="headerlink" title="Kneser-Ney smoothing"></a>Kneser-Ney smoothing</h3><p>这是目前表现最好的平滑方案.</p>
+<ul>
+<li>Combine absolute discounting and interpolation: Extending interpolatation with an absolute discounting 0.75 for high order grams.</li>
+<li>Use a better estimate for probabilities of lower-order unigrams, the continuation probability, P_continuatin(w) is how likely is w to appear as a novel continutaion.<ul>
+<li>For each word w, count the number of bigram types it completes. Or count the number of word types seen to precede w.</li>
+<li>Every bigram type was a novel continuation the first time it was seen.</li>
+<li>normalized by the total number of word bigram types.</li>
+</ul>
+</li>
+<li>To lower the probability of some fix bigram like “San Franscio”</li>
+<li>For bigram, <code>Pkn(wi|wi-1)=max(count(wi-1,wi)-d, 0)/c(wi-1) +λ(wi-1)P_continuatin(wi), λ(wi-1) = d{w:count(wi-1,w)&gt;0}/c(wi-1)</code>, where {w:count(wi-1,w)&gt;0} is the number of word types that can follow wi-1, also is the # of word types we discounted, also is the # of times we applied normalized discount.</li>
+<li>For general N-gram, <img src="/images/kneser-ney.png" alt=""></li>
+</ul>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自然语言处理/" rel="tag"># 自然语言处理</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/NOTE-ANLP-01-probability-model/" rel="next" title="自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE">
+                <i class="fa fa-chevron-left"></i> 自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -386,6 +562,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjkxNy85NDc4"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -406,8 +591,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -494,6 +688,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#N-Gram-语言模型"><span class="nav-number">1.</span> <span class="nav-text"><a href="#N-Gram-&#x8BED;&#x8A00;&#x6A21;&#x578B;" class="headerlink" title="N-Gram &#x8BED;&#x8A00;&#x6A21;&#x578B;"></a>N-Gram &#x8BED;&#x8A00;&#x6A21;&#x578B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-alpha-smoothing"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Add-alpha-smoothing" class="headerlink" title="Add alpha smoothing"></a>Add alpha smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backoff-smoothing"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#Backoff-smoothing" class="headerlink" title="Backoff smoothing"></a>Backoff smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interpolation-smoothing"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#Interpolation-smoothing" class="headerlink" title="Interpolation smoothing"></a>Interpolation smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kneser-Ney-smoothing"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#Kneser-Ney-smoothing" class="headerlink" title="Kneser-Ney smoothing"></a>Kneser-Ney smoothing</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -634,6 +844,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -662,6 +876,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

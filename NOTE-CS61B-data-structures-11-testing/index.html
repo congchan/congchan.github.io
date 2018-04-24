@@ -94,7 +94,7 @@
 <meta property="og:description" content="测试如何知道自己的程序是否真的在工作？在现实世界中，程序员相信他们的代码，因为代码通过了他们自己编写的测试。常用的测试有 Ad Hoc Testing， Unit test 和 Integration Testing。 Ad Hoc Testing，是指没有计划和记录的软件测试，除非发现缺陷，不然一般只运行一次。 Unit test程序可分解为单元（或程序中可测试的最小部分），它严格测试代码的每个">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.pathfindersolns.com/wp-content/uploads/2012/05/red-green-refactorFINAL2.png">
-<meta property="og:updated_time" content="2018-03-20T22:39:07.701Z">
+<meta property="og:updated_time" content="2018-04-23T13:44:33.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley">
 <meta name="twitter:description" content="测试如何知道自己的程序是否真的在工作？在现实世界中，程序员相信他们的代码，因为代码通过了他们自己编写的测试。常用的测试有 Ad Hoc Testing， Unit test 和 Integration Testing。 Ad Hoc Testing，是指没有计划和记录的软件测试，除非发现缺陷，不然一般只运行一次。 Unit test程序可分解为单元（或程序中可测试的最小部分），它严格测试代码的每个">
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  761 字
+                  947 字
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -451,7 +451,7 @@
 <li>有些单元是依赖于其他单元的</li>
 <li>Unit testing 无法保证各个模块的交互，无法保证整个系统作为一个整体是否正常工作。</li>
 </ol>
-<h4 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h4><p>JUnit是一个给Java做测试的框架，由Erich Gamma（Design Patterns）和Kent Beck（eXtreme Programming）编写。<br>JUnit使用Java的 reflection 功能（Java程序可以检查自己的代码）和注释。<br>JUnit允许我们：</p>
+<h3 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h3><p>JUnit是一个给Java做测试的框架，由Erich Gamma（Design Patterns）和Kent Beck（eXtreme Programming）编写。<br>JUnit使用Java的 reflection 功能（Java程序可以检查自己的代码）和注释。<br>JUnit允许我们：</p>
 <ul>
 <li>定义并执行测试和测试套件</li>
 <li>使用测试作为规范的有效手段</li>
@@ -460,6 +460,17 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertEquals(&lt;expected&gt;, &lt;actual&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>assertEquals</code>测试一个变量的实际值是否等于它的期望值。<br>JUnit test 各个测试方法，必须是非静态的（JUnit的设计人员设计规定的）。</p>
+<p>JUnit的术语</p>
+<ul>
+<li>Test runner：测试运行器， 运行测试和报告结果的软件。实现方式：集成到IDE中，独立GUI，命令行等</li>
+<li>Test suite：测试套件是一组测试用例。</li>
+<li>Test case：测试用例用于测试单个方法对特定输入集的响应。</li>
+<li>Unit test：单元测试的单元，是代码中我们能够相对合理地测试的最小的元素，通常是单个类。</li>
+</ul>
+<p>常用的JUnit接口和方法<br><code>@Before</code>: Creates a test fixture by creating and initialising objects and values.</p>
+<p><code>@After</code>: Releases any system resources used by the test fixture. Java usually does this for free, but files, network connections etc. might not get tidied up automatically.</p>
+<p><code>@Test</code>：tests cases.</p>
+<p><code>static void assertTrue(boolean test)</code>, <code>static void assertTrue(String message, boolean test)</code>, <code>static void assertFalse(boolean test)</code>, <code>static void assertFalse(String message, boolean test)</code></p>
 <h3 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h3><p>鉴于 Unit testing 无法保证，有交互的多个模块，作为一个整体是否正常工作。<br>我们可能需要 integration testing，把各个模块合并，作为一个组合，进行测试（也可以把 Unit test 组合起来变成 integration testing）。</p>
 <p>Integration testing 一般都比较麻烦，也不容易自动化，而且一般是在比较高的抽象层进行测试，可能会漏掉微小的错误。</p>
 <p>当把所有模块都作为一个整体，也就是整个系统作为测试对象时，就是 system testing。</p>
@@ -610,7 +621,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -621,7 +632,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -688,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x6D4B;&#x8BD5;" class="headerlink" title="&#x6D4B;&#x8BD5;"></a>&#x6D4B;&#x8BD5;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unit-test"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Unit-test" class="headerlink" title="Unit test"></a>Unit test</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit"><span class="nav-number">1.1.1.</span> <span class="nav-text"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integration-Testing"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-driven-development"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#Test-driven-development" class="headerlink" title="Test driven development"></a>Test driven development</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x6D4B;&#x8BD5;" class="headerlink" title="&#x6D4B;&#x8BD5;"></a>&#x6D4B;&#x8BD5;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unit-test"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Unit-test" class="headerlink" title="Unit test"></a>Unit test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JUnit"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integration-Testing"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-driven-development"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#Test-driven-development" class="headerlink" title="Test driven development"></a>Test driven development</span></a></li></ol></li></ol></div>
             
 
           </div>

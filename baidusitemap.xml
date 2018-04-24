@@ -4,8 +4,35 @@
 
     
   <url>
+    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
+    <lastmod>2018-04-24T21:30:43.099Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE</title>
+        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
+        
+        <tag>自然语言处理</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
-    <lastmod>2018-04-22T22:51:22.550Z</lastmod>
+    <lastmod>2018-04-24T12:57:25.397Z</lastmod>
     <data>
         <display>
         <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE</title>
@@ -24,6 +51,39 @@
           
              
               <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
+    <lastmod>2018-04-23T13:44:33.590Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley</title>
+        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
           
         </display>
     </data>
@@ -425,39 +485,6 @@
         <display>
         <title>算法与数据结构 - Java | 09 双向链表 Doubly Linked List - CS61B Berkeley</title>
         <pubTime>2018-01-13T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
-    <lastmod>2018-03-20T22:39:07.701Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley</title>
-        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
         
         <tag>编程</tag>
          
