@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/natural-language-understanding/</loc>
+    
+    <lastmod>2018-05-01T14:20:10.646Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
     
     <lastmod>2018-05-01T14:17:40.218Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
     
     <lastmod>2018-05-01T14:17:31.090Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/natural-language-understanding/</loc>
-    
-    <lastmod>2018-05-01T14:17:17.547Z</lastmod>
     
   </url>
   

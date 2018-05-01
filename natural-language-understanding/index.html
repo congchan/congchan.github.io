@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-01T14:17:17.547Z">
+<meta property="og:updated_time" content="2018-05-01T14:20:10.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
 <meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
@@ -485,12 +485,12 @@
       
 
       
-        <p>自然语言理解（爱丁堡大学）知识点汇总<br>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/nlu/" target="_blank" rel="noopener">Natural language understanding</a><br><a href="http://web.stanford.edu/class/cs224n/syllabus.html" target="_blank" rel="noopener">CS224n: Natural Language Processing with Deep Learning</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a></p>
+        <p>自然语言理解（爱丁堡大学）知识点汇总<br>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/nlu/" target="_blank" rel="noopener">Natural language understanding</a><br><a href="http://web.stanford.edu/class/cs224n/syllabus.html" target="_blank" rel="noopener">CS224n: Natural Language Processing with Deep Learning</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a><br><a id="more"></a></p>
 <h2 id="Meaning-representations"><a href="#Meaning-representations" class="headerlink" title="Meaning representations"></a>Meaning representations</h2><p>Tradition solution of usable meaning in a computer: Use e.g. WordNet, a resource containing lists of synonym sets and hypernyms.</p>
 <p>To convert natural language into values that computer understands, represent words as discrete symbols: Words can be represented by one-hot vectors, Vector dimension is the vocabulary. But there is no natural notion of similarity for one-hot vectors!</p>
 <p>So learn to encode similarity in the vectors themselves.</p>
 <p>The core idea is representing words by their context, building a <strong>dense</strong> vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
-<p>Distributional models of meaning = vector-­space models of meaning = vector semantics.<br>word vectors = word embeddings = word representations.<br><a id="more"></a></p>
+<p>Distributional models of meaning = vector-­space models of meaning = vector semantics.<br>word vectors = word embeddings = word representations.</p>
 <h3 id="Four-kinds-of-vector-models"><a href="#Four-kinds-of-vector-models" class="headerlink" title="Four kinds of vector models"></a>Four kinds of vector models</h3><p>Sparse vector representations:<br>1, Mutual-­information weighted word co-­occurrence matrices</p>
 <p>Dense vector representations:<br>2, Singular value decomposition (SVD): A special case of this is called LSA - Latent Semantic Analysis<br>3, Neural­‐network­‐inspired models (skip­‐grams, CBOW)<br>4, Brown clusters</p>
 <p>Prediction-­based models learn embeddings as part of the process of word prediction. Train a neural network to predict neighboring words. The advantages:<br>· Fast, easy to train (much faster than SVD)<br>· Available online in the word2vec package<br>· Including sets of pretrained embeddings</p>
