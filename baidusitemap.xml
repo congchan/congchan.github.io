@@ -4,11 +4,36 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
-    <lastmod>2018-04-24T21:30:43.099Z</lastmod>
+    <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
+    <lastmod>2018-05-01T14:17:40.218Z</lastmod>
     <data>
         <display>
-        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE</title>
+        <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
+        <pubTime>2018-01-31T00:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+    <lastmod>2018-05-01T14:17:31.090Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE</title>
         <pubTime>2018-03-31T23:00:00.000Z</pubTime>
         
         <tag>自然语言处理</tag>
@@ -31,12 +56,99 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
-    <lastmod>2018-04-24T12:57:25.397Z</lastmod>
+    <loc>http://yoursite.com/natural-language-understanding/</loc>
+    <lastmod>2018-05-01T14:17:17.547Z</lastmod>
     <data>
         <display>
-        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE</title>
-        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
+        <title>Natural Language Understanding - Informatics - University of Edinburgh</title>
+        <pubTime>2018-04-30T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
+    <lastmod>2018-04-25T15:44:47.940Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley</title>
+        <pubTime>2017-12-25T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
+    <lastmod>2018-04-25T15:42:19.296Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley</title>
+        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
+    <lastmod>2018-04-24T21:32:23.509Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE</title>
+        <pubTime>2018-04-01T23:00:00.000Z</pubTime>
         
         <tag>自然语言处理</tag>
          
@@ -254,72 +366,6 @@
         <display>
         <title>算法与数据结构 - Java | 04 类 class 01 变量和方法 - CS61B Berkeley</title>
         <pubTime>2017-12-24T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
-    <lastmod>2018-03-20T22:40:59.731Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley</title>
-        <pubTime>2017-12-25T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
-    <lastmod>2018-03-20T22:40:47.687Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley</title>
-        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
         
         <tag>编程</tag>
          

@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法 vs 实例方法 Class Methods vs. Instance Methods参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-20T22:40:59.731Z">
+<meta property="og:updated_time" content="2018-04-25T15:44:47.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley">
 <meta name="twitter:description" content="Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法 vs 实例方法 Class Methods vs. Instance Methods参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();.">
@@ -132,7 +132,7 @@
 
 
 
-  <title>算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley | Computer Science & AI</title>
+  <title>算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -151,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -437,7 +437,7 @@
 
       
         <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；<br>非静态只能由实例调用，所以也称之为实例方法/变量。</p>
-<h3 id="类方法-vs-实例方法-Class-Methods-vs-Instance-Methods"><a href="#类方法-vs-实例方法-Class-Methods-vs-Instance-Methods" class="headerlink" title="类方法 vs 实例方法 Class Methods vs. Instance Methods"></a>类方法 vs 实例方法 Class Methods vs. Instance Methods</h3><p>参考<a href="/NOTE-CS61B-data-structures-04-java-class-01-intro.html#实例变量和对象实例化-instance-variables-and-object-instantiation">上一篇文章的例子</a>，类方法由类调用<code>Dog.makeNoise();</code>. 实例方法只能由实例调用<code>bigDog.makeNoise();</code>. 同理可推, 类方法无法调用实例变量.<br><a id="more"></a><br>可以看到实例方法更具体, 更贴近实体世界, 那我们仍需要类方法, 因为:</p>
+<h3 id="类方法-vs-实例方法-Class-Methods-vs-Instance-Methods"><a href="#类方法-vs-实例方法-Class-Methods-vs-Instance-Methods" class="headerlink" title="类方法 vs 实例方法 Class Methods vs. Instance Methods"></a>类方法 vs 实例方法 Class Methods vs. Instance Methods</h3><p>参考<a href="/NOTE-CS61B-data-structures-04-java-class-01-intro#实例变量和对象实例化-instance-variables-and-object-instantiation">上一篇文章的例子</a>，类方法由类调用<code>Dog.makeNoise();</code>. 实例方法只能由实例调用<code>bigDog.makeNoise();</code>. 同理可推, 类方法无法调用实例变量.<br><a id="more"></a><br>可以看到实例方法更具体, 更贴近实体世界, 那我们仍需要类方法, 因为:</p>
 <ul>
 <li>有些类不需要实例化, 毕竟我们也经常需要处理抽象的概念, 这些抽象概念在人类认知范畴内是统一的, 比如数学计算, 我们需要计算某个数值的平方根, <code>x = Math.sqrt(100);</code>, 拿来就用, 不需要先实例化. 这点在Python中体现得很好.</li>
 <li><p>有些类有静态方法, 是有实际作用的。例如，若想比较一个类里面的不同实例, 比如两只狗的重量。比较简单的方法就是使用一个比较狗的重量的类方法:</p>
@@ -596,7 +596,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1335,7 +1335,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
