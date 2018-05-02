@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-02T09:15:03.999Z">
+<meta property="og:updated_time" content="2018-05-02T15:47:19.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
 <meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  10,464 字
+                  11,103 字
                 </span>
               
 
@@ -464,7 +464,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  51 分钟
+                  53 分钟
                 </span>
               
             </div>
@@ -486,18 +486,23 @@
 
       
         <p>自然语言理解（爱丁堡大学）知识点汇总<br>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/nlu/" target="_blank" rel="noopener">Natural language understanding</a><br><a href="http://web.stanford.edu/class/cs224n/syllabus.html" target="_blank" rel="noopener">CS224n: Natural Language Processing with Deep Learning</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a><br><a id="more"></a></p>
-<h2 id="Meaning-representations"><a href="#Meaning-representations" class="headerlink" title="Meaning representations"></a>Meaning representations</h2><p>Tradition solution of usable meaning in a computer: Use e.g. WordNet, a resource containing lists of synonym sets and hypernyms.</p>
+<h2 id="Meaning-representations"><a href="#Meaning-representations" class="headerlink" title="Meaning representations"></a>Meaning representations</h2><p>意思的表达是有很多方法。一种有效的表示单词的含义的方法是 distributional semantic</p>
+<blockquote>
+<p>Semantics (from Ancient Greek: σημαντικός sēmantikos, “significant”) is the linguistic and philosophical study of meaning, in language, programming languages, formal logics, and semiotics.</p>
+<p>语义学 Semantics 在语言学中的研究目的在于找出语义表达的规律性、内在解释、不同语言在语义表达方面的个性以及共性；与计算机科学相关的语义学研究在于机器对自然语言的理解。</p>
+</blockquote>
+<p>Tradition solution of usable meaning in a computer: Use e.g. WordNet, a resource containing lists of synonym sets and hypernyms.</p>
 <p>To convert natural language into values that computer understands, represent words as discrete symbols: Words can be represented by one-hot vectors, Vector dimension is the vocabulary. But there is no natural notion of similarity for one-hot vectors!</p>
 <p>So learn to encode similarity in the vectors themselves.</p>
 <p>The core idea is representing words by their context, building a <strong>dense</strong> vector for each word, chosen so that it is similar to vectors of words that appear in similar contexts.</p>
-<p>Distributional models of meaning = vector-­space models of meaning = vector semantics.<br>word vectors = word embeddings = word representations.</p>
+<p><code>Distributional models of meaning = vector-­space models of meaning = vector semantics</code>.<br><code>word vectors = word embeddings = word representations</code>.</p>
 <h3 id="Four-kinds-of-vector-models"><a href="#Four-kinds-of-vector-models" class="headerlink" title="Four kinds of vector models"></a>Four kinds of vector models</h3><p>Sparse vector representations:<br>1, Mutual-­information weighted word co-­occurrence matrices</p>
 <p>Dense vector representations:<br>2, Singular value decomposition (SVD): A special case of this is called LSA - Latent Semantic Analysis<br>3, Neural­‐network­‐inspired models (skip­‐grams, CBOW)<br>4, Brown clusters</p>
 <p>Prediction-­based models learn embeddings as part of the process of word prediction. Train a neural network to predict neighboring words. The advantages:<br>· Fast, easy to train (much faster than SVD)<br>· Available online in the word2vec package<br>· Including sets of pretrained embeddings</p>
 <h3 id="Word-representation-and-Word2vec"><a href="#Word-representation-and-Word2vec" class="headerlink" title="Word representation and Word2vec"></a>Word representation and Word2vec</h3><p>Word2vec is a framework for learning word vectors representation.<br>Idea:<br>1, We have a large corpus of text<br>2, Every word in a fixed vocabulary is represented by a vector<br>3, Go through each position t in the text, which has a center word c and context (“outside”) words o<br>4, Use the similarity of the word vectors for c and o to calculate the probability of o given c (or vice versa)<br>5, Keep adjusting the word vectors to maximize this probability</p>
 <p>在上面第四点, 如果是给定中心词，计算上下文词, 那么就是 <strong>Skip-grams model</strong>, 比如 Given word w<sub>t</sub>, in a context window of 2C words, predict 4 context words [w<sub>t-2</sub>, w<sub>t-1</sub>, w<sub>t+1</sub>, w<sub>t+2</sub>]<br><img src="/images/word2vec_window.png" alt="" title="Example windows and process for computing P(w&lt;sub&gt;t+j&lt;/sub&gt; | w&lt;sub&gt;t&lt;/sub&gt;), image from: http://web.stanford.edu/class/cs224n"><br>Skip-grams 给予模型跳词能力，比如 “I hit the tennis ball” 有三个trigrams: “I hit the”, “hit the tennis”, “the tennis ball”. 但是，这个句子也同样包含一个同样重要但是N-Gram无法提取的trigram:“hit the ball”. 而使用 skip-grams 允许我们跳过 “tennis” 生成这个trigram.</p>
 <p>反之，给定 bag-of-words context, predict target word, 那就是 <strong>Continuous Bag of Words, CBOW model</strong>.</p>
-<p>缺点：因为output size 等于 vocabulary，softmax计算会非常昂贵。解决办法是使用负采样 <a href="#negative-sampling">negative sampling</a>。</p>
+<p>缺点：因为output size 等于 vocabulary，而 softmax 分母中需要求和每一个词的 output size × hidden units 的内积， 计算会非常昂贵。解决办法是使用负采样 <a href="#negative-sampling">negative sampling</a>。</p>
 <p>Word2vec的本质是遍历语料库的每一个词wi，捕捉wi与其上下文位置目标词的同时出现的概率。</p>
 <h4 id="目标函数-Obejective-funtion-cost-or-loss-function-J-θ"><a href="#目标函数-Obejective-funtion-cost-or-loss-function-J-θ" class="headerlink" title="目标函数 Obejective funtion (cost or loss function) J(θ):"></a>目标函数 Obejective funtion (cost or loss function) J(θ):</h4><p>For each position t = 1, … , T, predict context words within a window of fixed size m, given center word, use chain rule to multiply all the probability to get the likelihood L(θ):<br><img src="/images/word2vec_likelihood.png" alt="" title="Function for L(θ), image from: http://web.stanford.edu/class/cs224n"><br>The θ is the vectors representations, which is the only parameters we needs to optimize(其实还有其他hyperparameters，这里暂时忽略).</p>
 <p>The loss function is the (average) negative log likelihood:<br><img src="/images/word2vec_costfunction.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"></p>
@@ -510,7 +515,7 @@
 <blockquote>
 <p>负采样5-20个单词适用于较小的数据集，对于大型数据集只需要2-5个单词。</p>
 </blockquote>
-<p>修改目标函数，选择k个负样本（即除了概率最高的那个目标词之外的其他词）：<img src="/images/negative-sample.png" alt="" title="image from: http://web.stanford.edu/class/cs224n">_{j=0}</p>
+<p>修改目标函数，选择k个负样本（即除了概率最高的那个目标词之外的其他词）：<img src="/images/negative-sample.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"></p>
 <p>这样可以最大化真正的外部词出现的概率，最小化随机负采样的词概率。</p>
 <p>负面样本的选择是基于<code>unigram分布 f(wi)</code>: 一个词作为负面样本被选择的概率与其出现的频率有关，更频繁的词更可能被选作负面样本。<br><img src="/images/choose_negative_sample.png" alt="" title="image from: http://mccormickml.com"></p>
 <p>负采样的优点是：<br>· Training speed is independent of the vocabulary size<br>· Allowing parallelism.<br>· 模型的表现更好。因为负采样契合NLP的稀疏性质，大部分情况下，虽然语料库很大，但是每一个词只跟很小部分词由关联，大部分词之间是毫无关联的，从无关联的两个词之间也别指望能学到什么有用的信息，不如直接忽略。</p>
@@ -725,8 +730,18 @@
 <p>理想情况下，模型应该给任何不完整的输出分配零概率。使用 RNNGs 是因为它本身能够履行这些限制， 保证生成完整正确的语法树。</p>
 <p>从中可以看出，seq2seq模型可以用于快速原型和 baseline 搭建，但如果遇到要求输出遵守某些约束条件的问题，则需要直接执行这些约束条件。</p>
 <h2 id="Parsing"><a href="#Parsing" class="headerlink" title="Parsing"></a>Parsing</h2><p>Parsing is a fundamental task in NLP. But what is parsing actually good for?</p>
-<p>Parsing breaks up sentences into meaningful parts or finds meaningful relationships, which can then feed into downstream semantic tasks:<br>• <strong>semantic role labeling</strong> (figure out who did what do whom);<br>• semantic parsing (turn a sentence into a logical form);<br>• word sense disambiguation (figure out what the words in a sentence mean);<br>• compositional semantics (compute the meaning of a sentence based on the meaning of its parts).</p>
-<h2 id="Semantic-role-labeling-SRL"><a href="#Semantic-role-labeling-SRL" class="headerlink" title="Semantic role labeling (SRL)"></a>Semantic role labeling (SRL)</h2><p>Semantic role labeling means identifying the arguments (<strong>frame elements</strong>) that participate in a prototypical situation (frame) and labeling them with their roles;</p>
+<p>Parsing breaks up sentences into meaningful parts or finds meaningful relationships, which can then feed into downstream semantic tasks:<br>• semantic role labeling (figure out who did what do whom);<br>• semantic parsing (turn a sentence into a logical form);<br>• word sense disambiguation (figure out what the words in a sentence mean);<br>• compositional semantics (compute the meaning of a sentence based on the meaning of its parts).</p>
+<h2 id="Semantic-role-labeling-SRL"><a href="#Semantic-role-labeling-SRL" class="headerlink" title="Semantic role labeling (SRL)"></a>Semantic role labeling (SRL)</h2><p>虽然可以使用 Distributional semantics 表达含义，只是 Distributional semantics 比较擅长处理相似度，且无法很明确地处理复合性 Compositionality。</p>
+<blockquote>
+<p>在数学、语义学和语言哲学中，复合性原理是指，一个复杂表达式的意义是由其各组成部分的意义以及用以结合它们的规则来决定的。</p>
+</blockquote>
+<p>为了能够处理复合性和推理，我们需要象征性和结构化的意义表示。</p>
+<p>虽然语言是无穷无尽的，句子是无限的集合，而人脑的能力却是有限的，但人们总能够理解一个句子的含义（假如人们熟知表达句子的语言）. 因此, 对于 semantics, 语义肯定是有限的集合, 这样才能确定句子的确切意义.</p>
+<blockquote>
+<p>In generative grammar, a central principle of formal semantics is that the relation between syntax and semantics is <strong>compositional</strong>.</p>
+<p>The principle of compositionality (Fregean Principle): The meaning of a complex expression is determined by the meanings of its parts and the way they are syntactically combined.</p>
+</blockquote>
+<p>Semantic role labeling means identifying the arguments (<strong>frame elements</strong>) that participate in a prototypical situation (frame) and labeling them with their roles;</p>
 <p>SRL task is typically broken down into a sequence of sub-tasks:</p>
 <ol>
 <li>parse the training corpus;</li>
@@ -736,19 +751,23 @@
 </ol>
 <p>所谓 frame elements 是针对 Frame Semantics 而言的。</p>
 <p>SRL provides a shallow semantic analysis that can benefit various NLP applications; no parsing needed, no handcrafted features.</p>
-<h3 id="Frame-Semantics"><a href="#Frame-Semantics" class="headerlink" title="Frame Semantics"></a>Frame Semantics</h3><p>表达词义，除了 Firth, J.R. (1957) 的 “a word is characterized by the company it keeps”（也即是 word embedding 的理论基础）之外, 还有 Charles J. Fillmore 的 Frame Semantics.</p>
+<h3 id="Frame-Semantics"><a href="#Frame-Semantics" class="headerlink" title="Frame Semantics"></a>Frame Semantics</h3><p>表达词义，除了 Firth, J.R. (1957) 的 “a word is characterized by the company it keeps”（也即是 Distributional semantics）之外, 还有 Charles J. Fillmore 的 Frame Semantics.</p>
 <blockquote>
 <p>The basic idea is that one cannot understand the meaning of a single word without access to all the essential knowledge that relates to that word.</p>
 <p>A semantic frame is a collection of facts that specify “characteristic features, attributes, and functions of a denotatum, and its characteristic interactions with things necessarily or typically associated with it.”</p>
 <p>A semantic frame can also be defined as a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt.</p>
 </blockquote>
-<h3 id="Proposition-Bank"><a href="#Proposition-Bank" class="headerlink" title="Proposition Bank"></a>Proposition Bank</h3><p>PropBank is a version of the Penn Treebank annotated with semantic roles. More coarse-grained than Frame Semantics:<br><img src="/images/PropBank.png" alt="" title="Proposition Bank, Arg2–Arg4 are often verb specific. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l09.pdf"></p>
+<h3 id="Proposition-Bank"><a href="#Proposition-Bank" class="headerlink" title="Proposition Bank"></a>Proposition Bank</h3><p>完整的句子表达了命题 propositions, 也即一个主张. 比如”John smokes”这个句子的命题如果是真的,那么”John”在这里一定是某个”smokes”的人, 也就是必须是<code>NP</code>.</p>
+<blockquote>
+<p>在现代哲学、逻辑学、语言学中，命题是指一个判断（陈述）的语义（实际表达的概念），这个概念是可以被定义并观察的现象。命题不是指判断（陈述）本身。当相异判断（陈述）具有相同语义的时候，他们表达相同的命题。例如，雪是白的（汉语）和Snow is white（英语）是相异的判断（陈述），但它们表达的命题是相同的。在同一种语言中，两个相异判断（陈述）也可能表达相同命题。例如，刚才的命题也可以说成冰的小结晶是白的，不过，之所以是相同命题，取决于冰的小结晶可视为雪的有效定义。</p>
+</blockquote>
+<p>PropBank is a version of the Penn Treebank annotated with semantic roles. More coarse-grained than Frame Semantics:<br><img src="/images/PropBank.png" alt="" title="Proposition Bank, Arg2–Arg4 are often verb specific. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l09.pdf"></p>
 <h3 id="End-to-end-SRL-system"><a href="#End-to-end-SRL-system" class="headerlink" title="End-to-end SRL system"></a>End-to-end SRL system</h3><p>基本的结构单元是Bi-LSTM，用法是：<br>· a standard LSTM layer processes the input in forward direction;<br>· the output of this LSTM layer is the input to another LSTM layer, but in reverse direction;<br>这些Bi-LSTM单元可以叠加起来构造更深层的神经网络.</p>
 <p>The input (processed word by word) features are:<br>• argument and predicate: the argument is the word being processed, the predicate is the word it depends on;<br>• predicate context (ctx-p): the words around the predicate; also used to distinguish multiple instances of the same predicate;<br>• region mark (m<sub>r</sub>): indicates if the argument is in the predicate context region or not;<br>• if a sequence has n<sub>p</sub> predicates it is processed n<sub>p</sub> times.</p>
 <p>Output: semantic role label for the predicate/argument pair using IOB tags (inside, outside, beginning).<br><img src="/images/end_to_end_SRL.png" alt="" title="End to end SRL model. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l09.pdf"></p>
 <p>Training:<br>• Word embeddings are used as input, not raw words;<br>• the embeddings for arguments, predicate, and ctx-p, as well as m<sub>r</sub> are <strong>concatenated</strong> and used as input for the Bi-LSTM;<br>• the output is passed through a conditional random field (CRF); allows to model dependencies between output labels;<br>• Viterbi decoding is used to compute the best output sequence</p>
 <p>Model learns “syntax”(Maybe): it associates argument and predicate words using the forget gate:</p>
-<h2 id="Semantic-Parsing"><a href="#Semantic-Parsing" class="headerlink" title="Semantic Parsing"></a>Semantic Parsing</h2><p>Semantic Parsing 指语义分析，把文本解析为任意的逻辑形式，比如 first-order logic(FOL).<br><code>Sam likes Casey</code> - <code>likes(Sam, Casey)</code>;<br><code>Anna’s dog Mr. PeanutButter misses her</code> - <code>misses(MrPB, Anna) ∧ dog(MrPB)</code>;<br><code>Kim likes everyone</code> - <code>∀x.likes(x, Kim)</code>.<br>Predicate-argument structure is a good match for FOL, as well as structures with argument-like elements (e.g. NPs).<br>Determiners, quantifiers (e.g. “everyone”, “anyone”), and negation can be expressed in FOL.</p>
+<h2 id="Semantic-Parsing"><a href="#Semantic-Parsing" class="headerlink" title="Semantic Parsing"></a>Semantic Parsing</h2><p>Semantic Parsing 指语义分析，把文本解析为任意的逻辑形式(一种 meaning representation)，比如 first-order logic(FOL).<br><code>Sam likes Casey</code> - <code>likes(Sam, Casey)</code>;<br><code>Anna’s dog Mr. PeanutButter misses her</code> - <code>misses(MrPB, Anna) ∧ dog(MrPB)</code>;<br><code>Kim likes everyone</code> - <code>∀x.likes(x, Kim)</code>.<br>Predicate-argument structure is a good match for FOL, as well as structures with argument-like elements (e.g. NPs).<br>Determiners, quantifiers (e.g. “everyone”, “anyone”), and negation can be expressed in FOL.</p>
 <p>However, much of natural language is unverifiable, ambiguous, non-canonical. That makes it hard to represent the wide-coverage meaning of arbitrary NL. Closed domains are easier, and can sometimes be harvested automatically, e.g. GEOQUERY dataset.</p>
 <p>This leads to a proliferation of domain-specific MRs.<br>· Pairs of NL sentences with structured MR can be collected, e.g. IFTTT dataset (Quirk et al. 2015).<br>· WikiTableQuestions<br>· Google’s knowledge graph</p>
 <p>Viewing MR as a string, semantic parsing is just conditional language modeling. Trainable alternative to compositional approaches: encoder-decoder neural models. The encoder and decoder can be mixed and matched: RNN, top-down tree RNN.<br><img src="/images/meaning_representation_model.png" alt="" title="Meaning representation model using standard sequence models. Since logical forms are treelike, can use treeLSTM decoder. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l10.pdf"></p>
