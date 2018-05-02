@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-02T08:59:43.574Z">
+<meta property="og:updated_time" content="2018-05-02T09:15:03.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
 <meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  10,420 字
+                  10,464 字
                 </span>
               
 
@@ -638,7 +638,8 @@
 <li>Dependency syntax: 主要是从语义的角度来看，显示哪些单词依赖于（一般指修改或作为参数其参数）哪些单词。特别用于区分动词的主格（subject position or with nominative inflection）宾格（object position or with accusative inflection）. Dependencies can be identified even in non-configurational languages.</li>
 </ul>
 <p>A sentence dependency structure explains the <strong>dependency relation</strong> between its words: represented as a graph with the words as its nodes, linked by directed, labeled edges, with the following properties:<br>• connected: every node is related to <strong>at least one other node</strong>, and (through transitivity) to ROOT;<br>• single headed: every node (except ROOT) has exactly <strong>one incoming edge</strong> (from its head);<br>• acyclic: the graph cannot contain cycles of directed edges.<br><img src="/images/dependency_relation.png" alt="" title="A dependency relation consists of: a head (H); a dependent (D); a label identifying the relation between H and D. image from: Joakim Nivre, Dependency Grammar and Dependency Parsing."></p>
-<p>Dependency trees 有两种，如果dependency graph中有edges交叉则是<strong>non-projective</strong>, 反之则是 <strong>projective</strong>。A non-projective dependency grammar is not context-free.<br><img src="/images/non_projective.jpg" alt="" title="上图是 non-projective，下图是 projective. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l07.pdf"></p>
+<p>Dependency trees 有两种，如果dependency graph中有edges交叉则是<strong>non-projective</strong>, 反之则是 <strong>projective</strong>。更确切的定义是：A dependency tree is <strong>projective</strong> wrt. a particular linear order of its nodes if, for all edges <code>h → d</code> and nodes w, w occurs between h and d in linear order only if w is dominated by h.</p>
+<p>A non-projective dependency grammar is not context-free.<br><img src="/images/non_projective.jpg" alt="" title="上图是 non-projective，下图是 projective. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l07.pdf"></p>
 <p>Motivation for Dependency parsing:<br>• context-free parsing algorithms base their decisions on adjacency;<br>• in a dependency structure, a dependent need not be adjacent to its head (even if the structure is projective);<br>• we need new parsing algorithms to deal with non-adjacency (and with non-projectivity if present).</p>
 <p>Evaluation: accuracy (# correct dependencies with or ignore label)).</p>
 <h3 id="Graph-based-dependency-parsing"><a href="#Graph-based-dependency-parsing" class="headerlink" title="Graph-based dependency parsing"></a>Graph-based dependency parsing</h3><p>Based on <strong>maximum spanning trees (MST parser)</strong>, views syntactic structure as a set of constraints</p>
@@ -649,7 +650,7 @@
 <ul>
 <li>start with a <strong>totally connected graph</strong> G, i.e., assume a directed edge between every pair of words;</li>
 <li>find the maximum spanning tree (MST) of G, i.e., the directed tree with the highest overall score that includes all nodes of G;</li>
-<li>this is possible in O(n<sup>2</sup>) time using the <strong>Chu-Liu-Edmonds algorithm</strong>; it finds a MST which is not guaranteed to be projective;<br>  1, Each node j in the graph greedily selects the incoming edge with word, the highest score s(i,j)<br>  2, If result were a tree, it would have to be the maximum spanning tree; If not, there must be a cycle.<br>  3, Break the cycle by replacing a single incoming edge to one of the nodes in the cycle. To choose the node, decide recursively by identifying the cycle and contract it into a single node and recalculate scores of incoming and outgoing edges. Now call CLE recursively on the contracted graph. MST on the contracted graph is equivalent to MST on the original graph. 这里是指先识别出循环体<code>saw ⇄ john</code>②，然后在这个循环体范围内，使用CLE找出 root 进出这个循环体的最大概率路线<code>(root → saw → john = 40) &gt; (root → john → saw = 29)</code>③；<br>  4, Greedily collect incoming edges to all nodes, find out to be a tree and thus the MST of the graph. 把循环体以及其包含的nodes合并为一个node wjs，并且已经有了进出wjs的最大概率路径，这样就可以在整个图上继续运行CLE算法找出最大概率路线<code>(root → wjs → mary = 70) &gt; (root → mary → wjs = 40)</code>④.<br><img src="/images/break_the_cycle.jpg" alt="" title="Graph-based dependency parsing procedure. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l07.pdf"></li>
+<li>this is possible in O(n<sup>2</sup>) time using the <strong>Chu-Liu-Edmonds algorithm</strong>; it finds a MST which is not guaranteed to be projective;<br>  1, Each node j in the graph greedily selects the incoming edge with the highest score s(i,j)<br>  2, If result were a tree, it would have to be the maximum spanning tree; If not, there must be a cycle.<br>  3, Break the cycle by replacing a single incoming edge to one of the nodes in the cycle. To choose the node, decide recursively by identifying the cycle and contract it into a single node and recalculate scores of incoming and outgoing edges. Now call CLE recursively on the contracted graph. MST on the contracted graph is equivalent to MST on the original graph. 这里是指先识别出循环体<code>saw ⇄ john</code>②，然后在这个循环体范围内，使用CLE找出 root 进出这个循环体的最大概率路线<code>(root → saw → john = 40) &gt; (root → john → saw = 29)</code>③；<br>  4, Greedily collect incoming edges to all nodes, find out to be a tree and thus the MST of the graph. 把循环体以及其包含的nodes合并为一个node wjs，并且已经有了进出wjs的最大概率路径，这样就可以在整个图上继续运行CLE算法找出最大概率路线<code>(root → wjs → mary = 70) &gt; (root → mary → wjs = 40)</code>④.<br><img src="/images/break_the_cycle.jpg" alt="" title="Graph-based dependency parsing procedure. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l07.pdf"></li>
 </ul>
 <p>Chu-Liu-Edmonds (CLE) Algorithm:</p>
 <blockquote>
