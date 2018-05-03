@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-03T09:26:27.781Z">
+<meta property="og:updated_time" content="2018-05-03T09:29:31.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
 <meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
@@ -561,7 +561,7 @@
 <p>The problem is how to calculate $P(w_{t+j} \mid w_t; θ)$:</p>
 <p>每个词由两个向量表示（Easier optimization. Average both at the end）：<br>$v_w$ when w is a center word, $u_w$ when w is a context word.</p>
 <p>Then for a center word c and a “outside” word o:<br><img src="/images/word2vec_conprobability.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"><br>The numerator contains dot product, compares similarity of o and c, larger dot product = larger probability. The denominator works as a normalization over entire vocabulary.</p>
-<h4 id="高频词二次采样-subsampling"><a href="#高频词二次采样-subsampling" class="headerlink" title="高频词二次采样 subsampling"></a>高频词二次采样 subsampling</h4><p>二次采样是指当决定是否选取一个词作为样本时，它被选择的概率反比于它出现的概率，这样不仅可以降低无意义但高频的词(“the”, “a”等)的重要性，也可以加快采样速度。$$P(w_i) = (\sqrt{\frac{z(w_i)}{0.001}} + 1) \cdot \frac{0.001}{z(w_i)}$$ z(wi) 是词wi在语料库中的占比，如果“peanut”在10亿语料库中出现了1,000次, 那么z(‘peanut’) = 1E-6.<br><img src="/images/sub-sample.png" alt="" title="sub sample of P(wi)"></p>
+<h4 id="高频词二次采样-subsampling"><a href="#高频词二次采样-subsampling" class="headerlink" title="高频词二次采样 subsampling"></a>高频词二次采样 subsampling</h4><p>二次采样是指当决定是否选取一个词作为样本时，它被选择的概率反比于它出现的概率，这样不仅可以降低无意义但高频的词(“the”, “a”等)的重要性，也可以加快采样速度。$$P(w_i) = (\sqrt{\frac{z(w_i)}{0.001}} + 1) \cdot \frac{0.001}{z(w_i)}$$ $z(w_i)$ 是词$w_i$在语料库中的占比，如果“peanut”在10亿语料库中出现了1,000次, 那么z(‘peanut’) = $1e-6$.<br><img src="/images/sub-sample.png" alt="" title="sub sample of P(wi)"></p>
 <h4 id="Negative-sampling"><a href="#Negative-sampling" class="headerlink" title="Negative sampling"></a>Negative sampling</h4><p>负采样是指每个训练样本仅更新模型权重的一小部分：only the output that represents the positive class(1) + other few randomly selected classes(0) are evaluated.<br><a href="https://arxiv.org/pdf/1310.4546.pdf" target="_blank" rel="noopener">该论文指出</a></p>
 <blockquote>
 <p>负采样5-20个单词适用于较小的数据集，对于大型数据集只需要2-5个单词。</p>
