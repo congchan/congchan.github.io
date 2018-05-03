@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-03T09:36:54.697Z">
+<meta property="og:updated_time" content="2018-05-03T09:57:57.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
 <meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  11,473 字
+                  11,479 字
                 </span>
               
 
@@ -488,16 +488,16 @@
         <p>自然语言理解（爱丁堡大学）知识点汇总<br>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/nlu/" target="_blank" rel="noopener">Natural language understanding</a><br><a href="http://web.stanford.edu/class/cs224n/syllabus.html" target="_blank" rel="noopener">CS224n: Natural Language Processing with Deep Learning</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a><br><a id="more"></a></p>
 <h2 id="循环神经网络-RNNs"><a href="#循环神经网络-RNNs" class="headerlink" title="循环神经网络 RNNs"></a>循环神经网络 RNNs</h2><p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. Source: http://colah.github.io"></p>
 <p><img src="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" alt="" title="Source: Nature"></p>
-<p>For a sequence of input data (sequence of words, or speech) and sequence of output problem (many to many):<br>· feed input x(t) into the RNN: feeding one word (represented as vector) at a time, e.g one word in a sentence from left to right, x(1) corresponds to the second word of a sentence.<br>· s(t) is the hidden state at time step t. It is calculated based on the previous hidden state and the input at the current step: s(t) = f(Ux(t) + Ws(t-1)). Function f is the activation.<br>· o(t) is the output at step t. For example, if we wanted to predict the next word in a sentence it would be a vector of probabilities across our vocabulary. o(t) = softmax(Vs(t)).</p>
-<p>RNN shares the same parameters (U, V, W above) across all steps.</p>
+<p>For a sequence of input data (sequence of words, or speech) and sequence of output problem (many to many):<br>· feed input $x_{t}$ into the RNN: feeding one word (represented as vector) at a time, e.g one word in a sentence from left to right, $x_1$ corresponds to the second word of a sentence.<br>· s(t) is the hidden state at time step t. It is calculated based on the previous hidden state and the input at the current step:<code>s(t) = f(U*x(t) + W*s(t-1))</code>. Function f is the activation.<br>· o(t) is the output at step t. For example, if we wanted to predict the next word in a sentence it would be a vector of probabilities across our vocabulary. <code>o(t) = softmax(V*s(t))</code>.</p>
+<p>RNN shares the same parameters ($U, V, W$ above) across all steps.</p>
 <p>In addition to the above normal many to many structure RNNs, there are other non-sequence input or output: Many to one, e.g. when predicting the sentiment of a sentence we may only care about the final output, not the sentiment after each word. One to many: Music generation.<br><img src="http://karpathy.github.io/assets/rnn/diags.jpeg" alt="" title="source from http://karpathy.github.io/2015/05/21/rnn-effectiveness/"></p>
 <p>除了应用于语言模型, RNNs 还可以应用于<br>· tagging, e.g. part-of-speech tagging, named entity recognition (many to many RNNs)<br>· sentence classification, e.g. sentiment classification (many to one RNNs)<br>· generate text, e.g. speech recognition, machine translation, summarization</p>
 <h3 id="RNNs-Backpropagation"><a href="#RNNs-Backpropagation" class="headerlink" title="RNNs Backpropagation"></a>RNNs Backpropagation</h3><p>Backpropagation Through Time (BPTT): Because the parameters are shared by all time steps in the network, the gradient at each output depends not only on the calculations of the current time step, but also the previous time steps.</p>
 <p>RNNs trained with BPTT have difficulties learning long-term dependencies (e.g. dependencies between steps that are far apart) due to what is called the vanishing/exploding gradient problem.</p>
 <h3 id="梯度消失与爆炸"><a href="#梯度消失与爆炸" class="headerlink" title="梯度消失与爆炸"></a>梯度消失与爆炸</h3><p>The Vanishing/Exploding Gradient problem。</p>
-<p>RNNs shares the same matrix (w, u, etc.) at each time step during forward prop and backprop. 求导数时, 根据链式法则, loss对各参数的导数会转换为loss对输出y的导数,乘以y对隐含层的导数, 乘以隐含层相对隐含层之间的导数, 再乘以隐含层对参数的导数.<img src="/images/vanish_gradient.png" alt=""></p>
-<p>不同隐含层（举例如ht和hk）之间如果相隔太远, ht对hk的导数就变成多个jacobian矩阵的相乘， 对各个jacobian范数（norms）进行分析后，发现ht对hk的导数值在训练过程中会很快变得很极端（非常小或者非常大）。</p>
-<p>Gradient作为传导误差以帮助系统纠正参数的关键角色，如果本身变得接近于<code>0</code>或者<code>nan</code>，那么我们就无法判断t和t+n的数据的依赖性（是没有依赖？还是因为vanish of gradient？还是因为参数设置错误？）。梯度衰减会直接降低模型学习长距离以来关系的能力，给定一个时间序列，例如文本序列，循环神经网络较难捕捉两个时刻距离较大的文本元素（字或词）之间的依赖关系。</p>
+<p>RNNs shares the same matrix (w, u, etc.) at each time step during forward prop and backprop. 求导数时, 根据链式法则, loss对各参数的导数会转换为loss对输出y的导数, 乘以y对隐含层的导数, 乘以隐含层相对隐含层之间的导数, 再乘以隐含层对参数的导数.<img src="/images/vanish_gradient.png" alt=""></p>
+<p>不同隐含层（举例如$h_t$和$h_k$）之间如果相隔太远, $h_t$对$h_k$的导数就变成多个jacobian矩阵的相乘， 对各个jacobian范数（norms）进行分析后，发现$h_t$对$h_k$的导数值在训练过程中会很快变得很极端（非常小或者非常大）。</p>
+<p>Gradient作为传导误差以帮助系统纠正参数的关键角色，如果本身变得接近于<code>0</code>或者<code>nan</code>，那么我们就无法判断t和t+n的数据的依赖性（是没有依赖？还是因为vanish of gradient？还是因为参数设置错误？）。梯度衰减会直接降低模型学习长距离依赖关系的能力，给定一个时间序列，例如文本序列，循环神经网络较难捕捉两个时刻距离较大的文本元素（字或词）之间的依赖关系。</p>
 <p>在使用RNN学习language model的时候，非常容易出现梯度爆炸，解决办法是使用 gradient clipping 梯度裁剪，就是通过把梯度映射到另一个大小的空间，以限制梯度范数的最大值<a href="https://arxiv.org/abs/1211.5063" target="_blank" rel="noopener">On the difficulty of training Recurrent Neural Networks</a>。</p>
 <p>虽然梯度裁剪可以应对梯度爆炸，但无法解决梯度衰减的问题。一个缓解梯度衰减的方案是使用更好的参数初始化方案和激活函数（ReLUs）<a href="https://arxiv.org/abs/1504.00941" target="_blank" rel="noopener">A Simple Way to Initialize Recurrent Networks of Rectified Linear Units</a>.</p>
 <p>不过更主流的解决梯度衰减的方案是使用更复杂的rnn隐含单元: Gated Recurrent Units (GRU) introduced by <a href="https://arxiv.org/abs/1406.1078" target="_blank" rel="noopener">Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation</a> and LSTMs.</p>
