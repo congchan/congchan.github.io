@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-03T10:29:00.219Z">
+<meta property="og:updated_time" content="2018-05-03T12:16:52.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
 <meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  11,516 字
+                  12,300 字
                 </span>
               
 
@@ -464,7 +464,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  55 分钟
+                  60 分钟
                 </span>
               
             </div>
@@ -726,9 +726,11 @@
 <p>完整的RNNGs模型，用 softmax 计算下一个 action 的概率分布：<br><img src="/images/RNNGs_model.png" alt="" title="Complete RNNGs model. x is sentence, y is tree; $A_G$ is allowable actions at this step;  $a(x,y)$ is sequence of actions, ; $r_α$ is action embedding, $u_t$ is history embedding; $o_t$ is output (buffer), $s_t$ is stack, $h_t$ is action history, the three are concatenated together. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l08.pdf"></p>
 <h3 id="Parameter-Estimation"><a href="#Parameter-Estimation" class="headerlink" title="Parameter Estimation"></a>Parameter Estimation</h3><p>RNNGs jointly model sequences of words together with a “tree structure”.</p>
 <p>Any parse tree can be converted to a sequence of actions (depth first traversal) and vice versa (subject to wellformedness constraints).</p>
-<h3 id="Inference-problems-of-RNNGs"><a href="#Inference-problems-of-RNNGs" class="headerlink" title="Inference problems of RNNGs"></a>Inference problems of RNNGs</h3><p>An RNNG is a joint distribution p(x,y) over strings (x) and parse trees (y).</p>
-<p>Two inference questions:<br>• What is $p(x)$ for a given x? - language modeling<br>• What is $max_yp(y | x)$ for a given x? - parsing</p>
-<p>Use <strong>importance sampling</strong> to do both by sampling from a discriminatively trained model.</p>
+<h3 id="Inference-problems-of-RNNGs"><a href="#Inference-problems-of-RNNGs" class="headerlink" title="Inference problems of RNNGs"></a>Inference problems of RNNGs</h3><p>An RNNG is a joint distribution p(x,y) over strings (x) and parse trees (y), i.e. it jointly predicts the word, and the parse context together. So the model will still generate the syntactic information and the next word but we can discard the additional outputs if all we want is the language model.</p>
+<p>Two inference questions:<br>• What is $p(x)$ for a given x? - language modeling<br>• What is $argmax_yp(y | x)$ for a given x? - parsing</p>
+<p>The model predicts the next action (NT() GEN() or REDUCE in generative mode, NT() SHIFT or REDUCE in discriminative mode). The set of actions completely determines the string and tree structure, so we can get their joint probability by multiplying over the probabilities of all actions.</p>
+<p>In discriminative mode, the input is a string of words, and the model cannot generate words, but instead “consumes” the words in the input buffer. The model can be used as a parser (find the maximum prob. tree, i.e., $argmax_yP(y \mid x)$).</p>
+<p>In generative mode, there is a respective GEN() action for every word, so the word is predicted with the action. To be a language model (find the maximum prob. sentence/assign probabilities to a sentence, i.e., $p(x)$), we must marginalize over trees to get the probability of the sentence. This is intractable so is approximated with importance sampling by sampling from a discriminatively trained model.</p>
 <h3 id="importance-sampling"><a href="#importance-sampling" class="headerlink" title="importance sampling"></a>importance sampling</h3><p>Assume we’ve got a conditional distribution $q(y | x)$<br>s.t. (i) $p(x, y) &gt; 0 \Rightarrow q(y | x) &gt; 0$<br>(ii) $y \sim q(y | x)$ is tractable and<br>(iii) $q(y | x)$ is tractable</p>
 <p>The importance weights $w(x,y) = \frac{p(x, y)}{q(y | x)}$</p>
 <p><img src="/images/Importance_Sampling.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l08.pdf"></p>
@@ -789,21 +791,31 @@
 <p>Tagging is a task that take a sentence, assign each word a label indicating its syntactic category (part of speech).</p>
 <p>One common standard label is Penn Treebank PoS tagset.</p>
 <blockquote>
-<p>DT - Determiner<br>IN - Preposition or subord. conjunction<br>NN - Noun, singular or mass<br>NNS - Noun, plural<br>NNP - Proper noun, singular<br>RB - Adverb<br>TO - to<br>VB - Verb, base form<br>VBZ - Verb, 3rd person singular present</p>
+<p>DT - Determiner 定语<br>IN - Preposition or subord. conjunction<br>NN - Noun, singular or mass<br>NNS - Noun, plural<br>NNP - Proper noun, singular<br>RB - Adverb<br>TO - to<br>VB - Verb, base form<br>VBZ - Verb, 3rd person singular present</p>
 </blockquote>
-<p>Current PoS taggers are highly accurate (97% accuracy on Penn Treebank). But they require manually labelled training data, which for many major language is not available. Hence motivated for unsupervised PoS tagging.</p>
+<p>In supervised POS tagging, the input is the text and a set of allowed POS labels. The training data contains input and output examples. The output is a guess, for each word in the test data, which POS label it should have.</p>
+<p>A common approach is to use an HMM. To train it, choose parameters θ that maximize $P(x,y \mid θ)$, the probability of the training data given the parameters. This is <strong>maximum likelihood estimation</strong> and it was covered in <a href="">ANLP</a>. You can use the model to predict y for each x in the test data by solving $P(y \mid x,θ)$ using the <strong>Viterbi algorithm</strong>.</p>
+<p>A consequence of supervised training with MLE is that the model will only learn <strong>non-zero probability</strong> for tag-word pairs that actually appear in the data. Hence, if “the” is only ever tagged with DT in the training data, then the model will learn that the probability of producing “the” from any other tag is zero. This means that many word tokens will be (empirically) unambiguous, which is one of the things that makes supervised POS tagging easy.</p>
 <p>RNNs 虽然也可以处理序列模型, 但是神经网络需要目标函数, 没有目标无法计算损失, 就无法调整参数, 也就是”监督学习”.</p>
+<p>Current PoS taggers are highly accurate (97% accuracy on Penn Treebank). But they require manually labelled training data, which for many major language is not available. Hence motivated for unsupervised PoS tagging.</p>
+<p>In unsupervised POS tagging, the input is the text and <strong>the number of clusters</strong>. The training data contains only input examples. The output is a guess, for each word in the text, which cluster the word belongs to. For example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Number of clusters: 50</span><br><span class="line">Input x: The hungry cat meows</span><br><span class="line">Output y: 23 45 7 18</span><br></pre></td></tr></table></figure></p>
+<p>What we hope is that the cluster labels will correlate with true POS labels; that is, that tokens labeled 23 will tend to be determiners, that clusters label 45 will tend to be adjectives, and so on.</p>
 <p>这个时候可以使用隐马尔科夫模型, 这个”隐”就是针对没有目标可以参考这种情况.</p>
-<h3 id="Hidden-Markov-Models"><a href="#Hidden-Markov-Models" class="headerlink" title="Hidden Markov Models"></a>Hidden Markov Models</h3><p>The unsupervised tagging models here are based on Hidden Markov Models (HMMs).<br><img src="/images/HMM.png" alt="" title="Hidden Markov Models (HMMs). image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l11.pdf"><br>The parameters of the HMM are θ = (τ, ω). They define:<br>• τ : the probability distribution over tag-tag transitions;<br>• ω: the probability distribution over word-tag outputs.<br>The parameters are sets of multinomial distributions:<br>• $ω = ω^{(1)} . . . ω^{(T)}$: the output distributions for each tag;<br>• $τ = τ^{(1)} . . . τ^{(T)}$: the transition distributions for each tag;<br>• $ω^{(t)} = ω_1^{(t)}. . . ω_W^{(t)}$: the output distribution from tag $t$;<br>• $τ^{(t)} = τ_1^{(t)}. . . τ_T^{(t)}$: the transition distribution from tag $t$.</p>
+<h3 id="Hidden-Markov-Models"><a href="#Hidden-Markov-Models" class="headerlink" title="Hidden Markov Models"></a>Hidden Markov Models</h3><p>The unsupervised tagging models here are based on Hidden Markov Models (HMMs).<br><img src="/images/HMM.png" alt="" title="Hidden Markov Models (HMMs). image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l11.pdf"><br>To train it, choose parameters θ that maximize $P(x \mid θ)$, the probability of the training data given the parameters.</p>
+<p>The parameters θ = (τ, ω) define:<br>• τ : the probability distribution over tag-tag transitions;<br>• ω: the probability distribution over word-tag outputs.<br>The parameters are sets of multinomial distributions:<br>• $ω = ω^{(1)} . . . ω^{(T)}$: the output distributions for each tag;<br>• $τ = τ^{(1)} . . . τ^{(T)}$: the transition distributions for each tag;<br>• $ω^{(t)} = ω_1^{(t)}. . . ω_W^{(t)}$: the output distribution from tag $t$;<br>• $τ^{(t)} = τ_1^{(t)}. . . τ_T^{(t)}$: the transition distribution from tag $t$.</p>
 <p>Another way to write the model, often used in statistics and machine learning:</p>
 <p>$w_i | t_i = t ∼ Multinomial(ω^{(t)})$</p>
 <p>So as tag, given that $t_{i−1} = t$, the value of $t_i$ is drawn from a multinomial distribution with parameters $τ^{(t)}$.</p>
-<p>How to estimate ω and τ without supervision.</p>
-<p>For <strong>inference</strong> (i.e., decoding, applying the model at test time), we need to know θ and then we can compute $P(t, w)$:<br><img src="/images/Inference_for_HMMs.png" alt="" title="Inference for HMMs. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l11.pdf"><br>For <strong>estimation</strong> (i.e., training the model, determining its parameters), we need a procedure to set θ based on data. Rely on Bayes Rule:<br>\begin{equation}\begin{split}<br>    P(θ|w)&amp;=\frac{P(w|θ)P(θ)}{P(w)}\\<br>    &amp;∝P(w|θ)P(θ)\\<br>\end{split}\end{equation}<br>Choose the θ that maximize the likelihood $P(w|θ)$. Basically, we ignore the prior. In most cases, this is equivalent to assuming a uniform prior.<br>In unsupervised systems, can often use the <strong>expectation maximization</strong> (EM) algorithm to estimate θ. For examples, forward-backward algorithm for HMMs, inside-outside algorithm for PCFGs, k-means clustering.</p>
+<p>How to estimate ω and τ without supervision. This is still maximum likelihood estimation, but notice that it’s more difficult because the tags y are unobserved, so you must marginalize them out.</p>
+<p>For <strong>estimation</strong> (i.e., training the model, determining its parameters), we need a procedure to set θ based on data. Rely on Bayes Rule:<br>\begin{equation}\begin{split}<br>    P(θ|w)&amp;=\frac{P(w|θ)P(θ)}{P(w)}\\<br>    &amp;∝P(w|θ)P(θ)\\<br>\end{split}\end{equation}<br>Choose the θ that maximize the likelihood $P(w|θ)$. Basically, we ignore the prior. In most cases, this is equivalent to assuming a uniform prior.</p>
+<p>To do this, you can use <strong>expectation maximization</strong> (EM), a variant of MLE that can cope with unobserved data, which was also covered in <a href="">ANLP</a>. For examples, forward-backward algorithm for HMMs, inside-outside algorithm for PCFGs, k-means clustering.</p>
+<p>For <strong>inference</strong> (i.e., decoding, applying the model at test time), we need to know θ and then we can compute $P(t, w)$:<br><img src="/images/Inference_for_HMMs.png" alt="" title="Inference for HMMs. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l11.pdf"></p>
 <p>E-step: use current estimate of θ to compute expected counts of hidden events ($n(t,t^{\prime})$, $n(t,w)$).<br>M-step: recompute θ using expected counts.</p>
-<p>But EM often fails, even very small amounts of training data have been show to work better than EM.</p>
+<p>You can then use the trained model to predict y for each x in the test data by solving $P(y \mid x,θ)$ using the Viterbi algorithm.</p>
+<p>But EM often fails, even very small amounts of training data have been show to work better than EM. One consequence of unsupervised training with EM is that every word can be assigned to any cluster label. This makes things really difficult, because it means every word is ambiguous. The basic assumptions of EM (that any tag-word or tag-tag distribution is equally likely) make this even more difficult.</p>
 <p>Instead, use Bayesian HMM with Gibbs sampling.</p>
 <h3 id="Bayesian-HMM"><a href="#Bayesian-HMM" class="headerlink" title="Bayesian HMM"></a>Bayesian HMM</h3><p>When training HMM model, we are not actually interested in the value of θ, we could simply integrate it out. This approach is called <strong>Bayesian integration</strong>. Integrating over θ gives us an average over all possible parameters values.</p>
+<p>The Bayesian HMM is simply an alternative way to solve the unsupervised POS tagging problem. The input and output is the same. But instead of learning θ, we directly solve $P(y \mid x)$. Note that we don’t need to learn θ (though we could) - in this setting, we integrate it out, after first supplying some information about the tag-tag and word-tag distributions encoded in θ. Specifically, we tell the model that a sparse distribution is much more likely than a uniform distribution. We do this by defining a distribution $P(θ)$, and this gives us a new model,  $P(y,x \mid θ)×P(θ)$. By integrating out θ we can solve the unsupervised tagging problem directly.</p>
 <p>Example: we want to predict a spinner result will be “a” or not?<br>• Parameter θ indicates spinner result: $P(θ = a) = .45$, $P(θ = b) = .35$, $P(θ = c) = .2$;<br>• define t = 1: result is “a”, t = 0: result is not “a”;<br>• make a prediction about one random variable (t) based on the value of another random variable (θ).</p>
 <p><strong>Maximum likelihood approach</strong>: choose most probable θ, $\hat{θ} = a$, and $P(t = 1|\hat{θ}) = 1$, so we predict $t = 1$.</p>
 <p><strong>Bayesian approach</strong>:<br>average over θ,<br>$P(t = 1) = \sum_θ P(t = 1|θ)P(θ) = 1(.45) + 0(.35) + 0(0.2) = .45$, predict t = 0.</p>
@@ -816,7 +828,7 @@
 <p>To simplify things, use a bigram version of the Bayesian HMM; If we integrate out the parameters θ = (τ, ω), we get:<br><img src="/images/BHMM_Dirichlet_Distribution_.png" alt="" title="With T possible tags and Wt possible words with tag t. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l11.pdf"></p>
 <p>Use these distributions to find $P(t|w)$ using an estimation method called <strong>Gibbs sampling</strong>.</p>
 <p>Results: Integrating over parameters is useful in itself, even with uninformative priors $(α = β = 1)$;</p>
-<p>总结：<br>· Bayesian HMM improves performance by averaging out uncertainty;<br>· allows us to use priors that favor sparse solutions as they occur in language data.</p>
+<p>总结：<br>· Bayesian HMM improves performance by averaging out uncertainty;<br>· allows us to use priors that favor sparse solutions as they occur in language data.<br>· Using a tag dictionary is also really helpful. We still have no labeled training data, but if we only allow each word to be tagged with one of the labels that appears in the dictionary, then most word-tag pairs will have probability zero. So this is a very different way of supplying information to the unsupervised model that is very effective.</p>
 <h2 id="Bias-in-NLP"><a href="#Bias-in-NLP" class="headerlink" title="Bias in NLP"></a>Bias in NLP</h2><h3 id="The-social-impact-of-NLP"><a href="#The-social-impact-of-NLP" class="headerlink" title="The social impact of NLP"></a>The social impact of NLP</h3><p>Outcome of an NLP experiment can have a direct effect on people’s lives, e.g.</p>
 <ol>
 <li><a href="https://www.youtube.com/watch?v=p8phGxzUC_Y" target="_blank" rel="noopener">频繁出现亚马逊 Alexa 突然发出诡异笑声，给多名用户造成困惑和恐慌</a>, 因为人们谈话中偶然包含 trigger 词：“Alexa, laugh” 而发出 - 亚马逊的<a href="https://www.nytimes.com/2018/03/08/business/alexa-laugh-amazon-echo.html" target="_blank" rel="noopener">解决方案是把 trigger 改为更难触发的 “Alexa, can you laugh”</a></li>
