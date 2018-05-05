@@ -598,7 +598,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7,674 字
+                  7,830 字
                 </span>
               
 
@@ -681,6 +681,24 @@
 <blockquote>
 <p><strong>Functional test case design</strong> is an indispensable base of a good test suite, complemented but never replaced by <strong>structural and fault-based testing</strong>, because there are classes of faults that only functional testing effectively detects. Omission of a feature, for example, is unlikely to be revealed by techniques that refer only to the code structure.</p>
 </blockquote>
+<h3 id="Test-Case-Selection-and-Adequacy-Criteria"><a href="#Test-Case-Selection-and-Adequacy-Criteria" class="headerlink" title="Test Case Selection and Adequacy Criteria"></a>Test Case Selection and Adequacy Criteria</h3><p>How do we know when the test suite is enough?<br>It is impossibal to provide adequate test suite for a system to pass. Instead, use design rules to highlight inadequacy of test suites: if outcome break the rule, then there is bugs, if not, then not sure…</p>
+<p>Test case specification: a requirement to be satisfied by one or more test cases.</p>
+<p>Test obligation: a partial test case specification, requiring some property deemed important to thorough testing. From:</p>
+<ul>
+<li>Functional (black box specification Functional (black box, specification<br>-based): from software specifications</li>
+<li>Structural (white or glass box): from code</li>
+<li>Model-based: from model of system, models used in specification or design, or derived from code</li>
+<li>Fault-based: from hypothesized faults (common bugs)</li>
+</ul>
+<p>Adequacy criterion: set of test obligations, a predicate that is true (satisfied) or false (not satisfied) of a (program, test suite) pair.</p>
+<p>A test suite satisfies an adequacy criterion if:</p>
+<ul>
+<li>all the tests succeed (pass)</li>
+<li>every test obligation in the criterion is satisfied by at least one of the test cases in the test suite.</li>
+</ul>
+<h3 id="Satisfiability"><a href="#Satisfiability" class="headerlink" title="Satisfiability"></a>Satisfiability</h3><p>Sometimes no test suite can satisfy a criterion for a given program, e.g. defensive programming style includes “can’t happen” sanity checks:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** No test suite can satisfy statement coverage for this program</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">if</span> (z &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> LogicError(</span><br><span class="line">    “z must be positive here!”)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Coping with Unsatisfiability:<br>Approach A: exclude any unsatisfiable obligation from the criterion.<br>Approach B: measure the extent to which a test suite approaches an adequacy criterion</p>
+<h3 id="Subsumption-relation"><a href="#Subsumption-relation" class="headerlink" title="Subsumption relation"></a>Subsumption relation</h3><p>Test adequacy criterion A 归入 subsumes test adequacy criterion B iff, for every program P, every test suite satisfying A with respect to P also satisfies B with respect to P.</p>
 <h2 id="Functional-Testing"><a href="#Functional-Testing" class="headerlink" title="Functional Testing"></a>Functional Testing</h2><p>Design functional test case: Generate test cases from specifications.</p>
 <p>Specification: A functional specification is a description of intended program behavior.</p>
 <p>Not based on the internals of the code but program specifications, functional testing is also called <strong>specification-based or black-box testing 黑箱測試</strong>.</p>
@@ -902,45 +920,27 @@
 </ul>
 </li>
 </ul>
-<h5 id="Linear-Code-Sequences-and-Jumps"><a href="#Linear-Code-Sequences-and-Jumps" class="headerlink" title="Linear Code Sequences and Jumps"></a>Linear Code Sequences and Jumps</h5><p>LCSAJ: A subpath from one branch of control to another<br>We can require coverage of all sequences of LCSAJs of length N. Higher values of N achieve stronger levels of path coverage：</p>
+<h4 id="Linear-Code-Sequences-and-Jumps"><a href="#Linear-Code-Sequences-and-Jumps" class="headerlink" title="Linear Code Sequences and Jumps"></a>Linear Code Sequences and Jumps</h4><p>There are additional path-oriented coverage criteria that do not explicitly consider loops. Among these are criteria that consider paths up to a fixed length. The most common<br>such criteria are based on Linear Code Sequence and Jump (LCSAJ) - sequential subpath in the CFG starting and ending in a branch.</p>
+<p>We can require coverage of all sequences of LCSAJs of length N.<br>Stronger criteria can be defined by requiring N consecutive LCSAJs to be covered - $TER_{N+2}$:<br>1, $TER_1$ is equivalent to statement coverage.<br>2, $TER_2$ is equivalent to branch coverage</p>
+<h4 id="Cyclomatic-adequacy-Complexity-coverage"><a href="#Cyclomatic-adequacy-Complexity-coverage" class="headerlink" title="Cyclomatic adequacy (Complexity coverage)"></a>Cyclomatic adequacy (Complexity coverage)</h4><p>There are many options for the set of basis subpaths. When testing, count the number of independent paths that have already been covered, and add any new subpaths covered by the new test.</p>
+<p>You can identify allpaths with a set of independent subpaths of size = the <strong>cyclomatic complexity</strong>. Cyclomatic coverage counts the number of independent paths that have been exercised, relative to cyclomatic complexity.</p>
+<p>· A path is representable as a bit vector, where each component of the vector represents an edge<br>· “Dependence” is ordinary linear dependence between (bit) vectors</p>
+<p>If e = #(edges), n = #(nodes), c = #(connected components) of a graph, it is $e - n + c$ for an arbitrary graph, $e - n + 2$ for a CFG.</p>
+<p>Cyclomatic Complexity could be used to guess “how much testing is enough”.<br>○ Upper bound on number of tests for branch coverage.<br>○ Lower bound on number of tests for path coverage.</p>
+<p>And Used to refactor code.<br>○ Components with a complexity &gt; some threshold should be split into smaller modules.<br>○ Based on the belief that more complex code is more fault-prone.</p>
+<h3 id="Procedure-call-coverage"><a href="#Procedure-call-coverage" class="headerlink" title="Procedure call coverage"></a>Procedure call coverage</h3><p>The criteria considered to this point measure coverage of control flow within individual procedures – not well suited to integration or system testing, where connections between procedures(calls and returns) should be covered.</p>
+<p>Choose a coverage granularity commensurate with the granularity of testing – if unit testing has been effective, then faults that<br>remain to be found in integration testing will be primarily interface faults, and testing effort should focus on interfaces between units rather than their internal details.</p>
+<p><strong>Procedure Entry and Exit Testing</strong> - A single procedure may have several entry and exit points.<br>· In languages with goto statements, labels allow multiple entry points.<br>· Multiple returns mean multiple exit points.</p>
+<p><strong>Call coverage</strong>: The same entry point may be called from many points. Call coverage requires that a test suite executes all possible method calls.</p>
+<h3 id="Satisfying-structural-criteria"><a href="#Satisfying-structural-criteria" class="headerlink" title="Satisfying structural criteria"></a>Satisfying structural criteria</h3><p><img src="/images/subsumption_relation.png" alt="" title="Subsumption relation. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch12.pdf"><br>The criterion requires execution of</p>
 <ul>
-<li>We can string subpaths into paths that connect N subpaths.</li>
-<li>LCSAJ Coverage (N=1) is equivalent to statement coverage.</li>
-<li>LCSAJ Coverage (N=2) is equivalent to branch coverage</li>
-</ul>
-<h5 id="Complexity-coverage"><a href="#Complexity-coverage" class="headerlink" title="Complexity coverage"></a>Complexity coverage</h5><p>Cyclomatic number: number of independent paths in the CFG</p>
-<ul>
-<li>A path is representable as a bit vector, where each component of the vector represents an edge</li>
-<li>“Dependence” is ordinary linear dependence between (bit) vectors</li>
-</ul>
-<p>If e = # edges, n = # nodes, c = # connected components of a graph, it is:</p>
-<ul>
-<li>e - n + c for an arbitrary graph</li>
-<li>e - n + 2 for a CFG</li>
-</ul>
-<p>Cyclomatic coverage counts the number of independent paths that have been exercised, relative to cyclomatic complexity.</p>
-<h3 id="Procedure-call-coverage"><a href="#Procedure-call-coverage" class="headerlink" title="Procedure call coverage"></a>Procedure call coverage</h3><p>The expression and path coverage measure coverage of control flow within individual procedures. For integration testing, we should also cover connections between procedures: calls and returns.</p>
-<h4 id="Entry-and-Exit-Testing"><a href="#Entry-and-Exit-Testing" class="headerlink" title="Entry and Exit Testing"></a>Entry and Exit Testing</h4><p>A single procedure may have several entry and exit points.</p>
-<ul>
-<li>In languages with goto statements, labels allow multiple entry points.</li>
-<li>Multiple returns mean multiple exit points.</li>
-</ul>
-<p>Write tests to ensure these entry/exit points are entered and exited in the context they are intended to be used.</p>
-<p>Finds interface errors that statement coverage would not find.</p>
-<h4 id="Call-Coverage"><a href="#Call-Coverage" class="headerlink" title="Call Coverage"></a>Call Coverage</h4><p>A procedure might be called from multiple locations.</p>
-<p>Call coverage requires that a test suite executes all possible method calls.</p>
-<p>Also finds interface errors that statement/branch coverage would not find.</p>
-<p>Challenging for OO systems, where a method call might be bound to different objects at runtime.</p>
-<h3 id="subsumption-relation"><a href="#subsumption-relation" class="headerlink" title="subsumption relation"></a>subsumption relation</h3><p><img src="/images/subsumption_relation.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch06.pdf"></p>
-<h3 id="Satisfying-structural-criteria"><a href="#Satisfying-structural-criteria" class="headerlink" title="Satisfying structural criteria"></a>Satisfying structural criteria</h3><p>The criterion requires execution of</p>
-<ul>
-<li>statements that cannot be executed as a result of:<ul>
+<li><strong>statements</strong> that cannot be executed as a result of:<ul>
 <li>defensive programming</li>
 <li>code reuse (reusing code that is more general than strictly required for the application)</li>
 </ul>
 </li>
-<li>conditions that cannot be satisfied as a result of interdependent conditions</li>
-<li>paths that cannot be executed as a result of interdependent decisions</li>
+<li><strong>conditions</strong> that cannot be satisfied as a result of interdependent conditions</li>
+<li><strong>paths</strong> that cannot be executed as a result of interdependent decisions</li>
 </ul>
 <p>Rather than requiring full adequacy, the “degree of adequacy” of a test suite is estimated by coverage measures.</p>
 <h2 id="Dependence-and-Data-Flow-Models"><a href="#Dependence-and-Data-Flow-Models" class="headerlink" title="Dependence and Data Flow Models"></a>Dependence and Data Flow Models</h2><p>前面介绍的 Control flow graph, call graph, finite state machines 只是捕捉程序各部分之间依赖关系的其中一个方面。它们明确地表现控制流程，但不重视程序变量间的信息传递.</p>
@@ -1059,24 +1059,7 @@
 <li>specifications: Petri-nets, state machines, (aimed at system testing)</li>
 </ul>
 <p>Tools: MuClipse</p>
-<h1 id="Evaluation-Test-Case-Selection-Adequacy-Criteria"><a href="#Evaluation-Test-Case-Selection-Adequacy-Criteria" class="headerlink" title="Evaluation: Test Case Selection, Adequacy Criteria"></a>Evaluation: Test Case Selection, Adequacy Criteria</h1><p>How do we know when the test suite is enough?<br>It is impossibal to provide adequate test suite for a system to pass.<br>Instead, use design rules to highlight inadequacy of test suites: if outcome break the rule, then there is bugs, if not, then not sure…</p>
-<p>Test case specification: a requirement to be satisfied by one or more test cases.</p>
-<p>Test obligation: a partial test case specification, requiring some property deemed important to thorough testing. From:</p>
-<ul>
-<li>Functional (black box specification Functional (black box, specification<br>-based): from software specifications</li>
-<li>Structural (white or glass box): from code</li>
-<li>Model-based: from model of system, models used in specification or design, or derived from code</li>
-<li>Fault-based: from hypothesized faults (common bugs)</li>
-</ul>
-<p>Adequacy criterion: set of test obligations, a predicate that is true (satisfied) or false (not satisfied) of a (program, test suite) pair.</p>
-<p>A test suite satisfies an adequacy criterion if:</p>
-<ul>
-<li>all the tests succeed (pass)</li>
-<li>every test obligation in the criterion is satisfied by at least one of the test cases in the test suite.</li>
-</ul>
-<h3 id="Satisfiability"><a href="#Satisfiability" class="headerlink" title="Satisfiability"></a>Satisfiability</h3><p>Sometimes no test suite can satisfy a criterion for a given program, e.g. defensive programming style includes “can’t happen” sanity checks:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** No test suite can satisfy statement coverage for this program</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">if</span> (z &lt; <span class="number">0</span>) &#123; <span class="keyword">if</span> (z &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> LogicError(</span><br><span class="line">    “z must be positive here!”)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Coping with Unsatisfiability:<br>Approach A: exclude any unsatisfiable obligation from the criterion.<br>Approach B: measure the extent to which a test suite approaches an adequacy criterion</p>
-<h1 id="Testing-Process"><a href="#Testing-Process" class="headerlink" title="Testing Process"></a>Testing Process</h1>
+
           
         
       
