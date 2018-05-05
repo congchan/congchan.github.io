@@ -4,8 +4,29 @@
 
     
   <url>
+    <loc>http://yoursite.com/software-testing/</loc>
+    <lastmod>2018-05-05T13:45:08.258Z</lastmod>
+    <data>
+        <display>
+        <title>Software Testing - University of Edinburgh</title>
+        <pubTime>2018-04-25T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/natural-language-understanding/</loc>
-    <lastmod>2018-05-03T12:16:52.919Z</lastmod>
+    <lastmod>2018-05-04T16:21:18.678Z</lastmod>
     <data>
         <display>
         <title>Natural Language Understanding - Informatics - University of Edinburgh</title>

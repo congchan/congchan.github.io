@@ -85,12 +85,12 @@
 
 
 
-<meta name="description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
+<meta name="description" content="自然语言理解（爱丁堡大学）知识点汇总 References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan J">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
 <meta property="og:url" content="http://yoursite.com/natural-language-understanding/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
+<meta property="og:description" content="自然语言理解（爱丁堡大学）知识点汇总 References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan J">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
 <meta property="og:image" content="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg">
@@ -109,7 +109,6 @@
 <meta property="og:image" content="http://yoursite.com/images/word2vec_conprobability.png">
 <meta property="og:image" content="http://yoursite.com/images/sub-sample.png">
 <meta property="og:image" content="http://yoursite.com/images/negative-sample.png">
-<meta property="og:image" content="http://yoursite.com/images/choose_negative_sample.png">
 <meta property="og:image" content="http://yoursite.com/images/count_based_vs_direct_prediction.png">
 <meta property="og:image" content="http://yoursite.com/images/Morphological_Recursive_Neural_Network.png">
 <meta property="og:image" content="http://yoursite.com/images/cimRNN_cost.png">
@@ -141,10 +140,10 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-03T12:16:52.919Z">
+<meta property="og:updated_time" content="2018-05-04T16:21:18.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh">
-<meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Ju">
+<meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总 References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan J">
 <meta name="twitter:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
 
 
@@ -448,7 +447,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12,300 字
+                  12,317 字
                 </span>
               
 
@@ -485,7 +484,9 @@
       
 
       
-        <p>自然语言理解（爱丁堡大学）知识点汇总<br>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/nlu/" target="_blank" rel="noopener">Natural language understanding</a><br><a href="http://web.stanford.edu/class/cs224n/syllabus.html" target="_blank" rel="noopener">CS224n: Natural Language Processing with Deep Learning</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a><br><a id="more"></a></p>
+        <p>自然语言理解（爱丁堡大学）知识点汇总</p>
+<p>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/nlu/" target="_blank" rel="noopener">Natural language understanding</a><br><a href="http://web.stanford.edu/class/cs224n/syllabus.html" target="_blank" rel="noopener">CS224n: Natural Language Processing with Deep Learning</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a></p>
+<a id="more"></a>
 <h2 id="循环神经网络-RNNs"><a href="#循环神经网络-RNNs" class="headerlink" title="循环神经网络 RNNs"></a>循环神经网络 RNNs</h2><p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. Source: http://colah.github.io"></p>
 <p><img src="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" alt="" title="Source: Nature"></p>
 <p>For a sequence of input data (sequence of words, or speech) and sequence of output problem (many to many):<br>· feed input $x_{t}$ into the RNN: feeding one word (represented as vector) at a time, e.g one word in a sentence from left to right, $x_1$ corresponds to the second word of a sentence.<br>· s(t) is the hidden state at time step t. It is calculated based on the previous hidden state and the input at the current step:<code>s(t) = f(U*x(t) + W*s(t-1))</code>. Function f is the activation.<br>· o(t) is the output at step t. For example, if we wanted to predict the next word in a sentence it would be a vector of probabilities across our vocabulary. <code>o(t) = softmax(V*s(t))</code>.</p>
@@ -568,8 +569,7 @@
 </blockquote>
 <p>修改目标函数，选择k个负样本（即除了概率最高的那个目标词之外的其他词）：<img src="/images/negative-sample.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"></p>
 <p>这样可以最大化真正的外部词出现的概率，最小化随机负采样的词概率。</p>
-<p>负面样本的选择是基于 unigram 分布 $f(w_i)$: 一个词作为负面样本被选择的概率与其出现的频率有关，更频繁的词更可能被选作负面样本。<br><img src="/images/choose_negative_sample.png" alt="" title="image from: http://mccormickml.com"></p>
-<p>负采样的优点是：<br>· Training speed is independent of the vocabulary size<br>· Allowing parallelism.<br>· 模型的表现更好。因为负采样契合NLP的稀疏性质，大部分情况下，虽然语料库很大，但是每一个词只跟很小部分词由关联，大部分词之间是毫无关联的，从无关联的两个词之间也别指望能学到什么有用的信息，不如直接忽略。</p>
+<p>负面样本的选择是基于 unigram 分布 $f(w_i)$: 一个词作为负面样本被选择的概率与其出现的频率有关，更频繁的词更可能被选作负面样本。<br>$$P(w_i) = \frac{  {f(w_i)}^{3/4}  }{\sum_{j=0}^{n}\left(  {f(w_j)}^{3/4} \right) }$$<br>负采样的优点是：<br>· Training speed is independent of the vocabulary size<br>· Allowing parallelism.<br>· 模型的表现更好。因为负采样契合NLP的稀疏性质，大部分情况下，虽然语料库很大，但是每一个词只跟很小部分词由关联，大部分词之间是毫无关联的，从无关联的两个词之间也别指望能学到什么有用的信息，不如直接忽略。</p>
 <h4 id="与传统的NLP方法比较"><a href="#与传统的NLP方法比较" class="headerlink" title="与传统的NLP方法比较"></a>与传统的NLP方法比较</h4><p>在word2vec出现之前，NLP使用经典且直观的共生矩阵（co-occurrence matrix）来统计词语两两同时出现的频率，参考<a href="/NOTE-ANLP-01-distributional-semantic-models">ANLP - Distributional semantic models</a>。缺点也明显，词汇量的增加导致矩阵增大，需要大量内存，随之而来的分类模型出现稀疏性问题，模型不稳定。虽然可以使用SVD来降维，但是一个<code>n×m</code>矩阵的计算成本是O(mn<sup>2</sup>)浮点数（当<code>n&lt;m</code>），还是非常大的。而且很难并入新词或新文档。<br><img src="/images/count_based_vs_direct_prediction.png" alt="" title="Count based vs direct prediction, image from: http://web.stanford.edu/class/cs224n"></p>
 <p>目前融合了两种方法的优点的Glove是最常用的。</p>
 <h4 id="TODO-Glove"><a href="#TODO-Glove" class="headerlink" title="TODO(Glove)"></a>TODO(Glove)</h4><h3 id="Morphological-Recursive-Neural-Network-morphoRNN"><a href="#Morphological-Recursive-Neural-Network-morphoRNN" class="headerlink" title="Morphological Recursive Neural Network (morphoRNN)"></a>Morphological Recursive Neural Network (morphoRNN)</h3><p>Limitation of word2vec:<br>• Closed vocabulary assumption<br>• Cannot exploit functional relationships in learning:</p>
@@ -807,7 +807,7 @@
 <p>$w_i | t_i = t ∼ Multinomial(ω^{(t)})$</p>
 <p>So as tag, given that $t_{i−1} = t$, the value of $t_i$ is drawn from a multinomial distribution with parameters $τ^{(t)}$.</p>
 <p>How to estimate ω and τ without supervision. This is still maximum likelihood estimation, but notice that it’s more difficult because the tags y are unobserved, so you must marginalize them out.</p>
-<p>For <strong>estimation</strong> (i.e., training the model, determining its parameters), we need a procedure to set θ based on data. Rely on Bayes Rule:<br>\begin{equation}\begin{split}<br>    P(θ|w)&amp;=\frac{P(w|θ)P(θ)}{P(w)}\\<br>    &amp;∝P(w|θ)P(θ)\\<br>\end{split}\end{equation}<br>Choose the θ that maximize the likelihood $P(w|θ)$. Basically, we ignore the prior. In most cases, this is equivalent to assuming a uniform prior.</p>
+<p>For <strong>estimation</strong> (i.e., training the model, determining its parameters), we need a procedure to set θ based on data. Rely on Bayes Rule:<br>\begin{equation}\begin{split}<br>    P(θ|w)&amp;=\frac{P(w|θ)P(θ)}{P(w)}\\\\<br>    &amp;∝P(w|θ)P(θ)\\\\<br>\end{split}\end{equation}<br>Choose the θ that maximize the likelihood $P(w|θ)$. Basically, we ignore the prior. In most cases, this is equivalent to assuming a uniform prior.</p>
 <p>To do this, you can use <strong>expectation maximization</strong> (EM), a variant of MLE that can cope with unobserved data, which was also covered in <a href="">ANLP</a>. For examples, forward-backward algorithm for HMMs, inside-outside algorithm for PCFGs, k-means clustering.</p>
 <p>For <strong>inference</strong> (i.e., decoding, applying the model at test time), we need to know θ and then we can compute $P(t, w)$:<br><img src="/images/Inference_for_HMMs.png" alt="" title="Inference for HMMs. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l11.pdf"></p>
 <p>E-step: use current estimate of θ to compute expected counts of hidden events ($n(t,t^{\prime})$, $n(t,w)$).<br>M-step: recompute θ using expected counts.</p>
@@ -889,8 +889,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NOTE-ANLP-02-n-gram-model/" rel="next" title="自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE">
-                <i class="fa fa-chevron-left"></i> 自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE
+              <a href="/software-testing/" rel="next" title="Software Testing - University of Edinburgh">
+                <i class="fa fa-chevron-left"></i> Software Testing - University of Edinburgh
               </a>
             
           </div>
@@ -983,7 +983,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
