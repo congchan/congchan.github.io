@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Computer Science & AI" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s Perspective">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
+<meta property="og:url" content="http://yoursite.com/ppls/index.html">
+<meta property="og:site_name" content="Computer Science &amp; AI">
+<meta property="og:description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s Perspective">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/symmetric_barrier.jpg">
+<meta property="og:image" content="http://yoursite.com/images/dissemination_barrier.jpg">
+<meta property="og:updated_time" content="2018-05-08T08:59:44.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
+<meta name="twitter:description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s Perspective">
+<meta name="twitter:image" content="http://yoursite.com/images/symmetric_barrier.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/ppls/"/>
+
+
+
+
+
+  <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Computer Science & AI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ppls/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T00:00:00+01:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/计算机科学/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机科学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/ppls/" class="leancloud_visitors" data-flag-title="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,670 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  33 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>并行编程语言和系统 - 知识点汇总<br>参考<br><a href="http://www.inf.ed.ac.uk/teaching/courses/ppls/" target="_blank" rel="noopener">http://www.inf.ed.ac.uk/teaching/courses/ppls/</a><br><a href="http://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">CMU 15213: Introduction to Computer Systems (ICS)</a><br><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective</a><br><a id="more"></a></p>
+<h2 id="Introduction-to-parallel-computer-architecture"><a href="#Introduction-to-parallel-computer-architecture" class="headerlink" title="Introduction to parallel computer architecture"></a>Introduction to parallel computer architecture</h2><p>Covering some of the nasty issues presented by the shared memory model, including weak consistency models and false sharing in the cache, and some architectural issues for the multicomputer model.</p>
+<p>Bridging the gap between the parallel applications and algorithms which we can design and describe in abstract terms and the parallel computer architectures (and their lowest level programming interfaces) which it is practical to construct.</p>
+<p>The ability to express parallelism (a.k.a concurrency) concisely, correctly and<br>efficiently is important in several contexts</p>
+<ul>
+<li>Performance Computing: parallelism is the means by which the execution time of computationally demanding applications can be reduced. In the era of static (or even falling) clock speeds and increasing core count, this class is entering the computing mainstream.</li>
+<li>Distributed Computing: when concurrency is inherent in the nature of the system and we have no choice but to express and control it.</li>
+<li>Systems Programming: when it is conceptually simpler to think of a system as being composed of concurrent components, even though these will actually be executed by time-sharing a single processor.</li>
+</ul>
+<h2 id="parallel-architecture"><a href="#parallel-architecture" class="headerlink" title="parallel architecture"></a>parallel architecture</h2><p>Two types (mainstream):</p>
+<ul>
+<li>Shared Memory architectures: in which all processors can physically address the whole memory, usually with support for cache coherency (for example, a quad or oct core chip, or more expensive machines with tens or hundreds of cores)</li>
+<li>Multicomputer architectures: in which processors can only physically address their “own” memory (for example, a networked cluster of PCs), which interact with messages across the network.</li>
+</ul>
+<p>Increasingly, systems will span both classes (eg cluster of manycore, or network-onchip manycores like the Intel SCC), and incorporate other specialized, constrained parallel hardware such as GPUs.</p>
+<p>Real parallel machines are complex, with unforseen semantic and performance traps. We need to provide programming tools which simplify things, but without sacrificing too much performance.</p>
+<h3 id="Shared-Memory-Architectures"><a href="#Shared-Memory-Architectures" class="headerlink" title="Shared Memory Architectures"></a>Shared Memory Architectures</h3><p>Uniform Memory Access (UMA) architectures have all memory “equidistant” from all CPUs.<br>For NUMA performance varies with data location. NUMA is also confusingly called Distributed Shared Memory as memory is physically distributed but logically shared.</p>
+<h4 id="consistency-model"><a href="#consistency-model" class="headerlink" title="consistency model"></a>consistency model</h4><p>Memory consistency challenge: when, and in what order should one processor public updates to the shared memory?</p>
+<p>Different consistency models trade off conceptual simplicity against cost (time/hardware complexity). There have been many schemes, for example:</p>
+<ul>
+<li>Sequential consistency, every processor “sees” the same sequential interleaving of<br>the basic reads and writes. This is very intuitive, but expensive to implement.</li>
+<li>Release consistency: writes are only guaranteed to be visible after program specified synchronization points (triggered by special machine instructions). This is less intuitive, but allows faster implementations.</li>
+</ul>
+<h4 id="Shared-memory-architectures-also-raise-tricky-performance-issues"><a href="#Shared-memory-architectures-also-raise-tricky-performance-issues" class="headerlink" title="Shared memory architectures also raise tricky performance issues"></a>Shared memory architectures also raise tricky performance issues</h4><p>The unit of transfer between memory and cache is a cache-line or block, containing several words. <strong>False sharing</strong> occurs when two logically unconnected variables share the same cache-line. Updates to one cause remote copies of the line, including<br>the other variable, to be invalidated.</p>
+<h3 id="Multicomputer-architectures"><a href="#Multicomputer-architectures" class="headerlink" title="Multicomputer architectures"></a>Multicomputer architectures</h3><p>No consistency issues. Information is shared by explicit, co-operative message passing. Performance/correctness issues include the semantics of synchronization and constraints on message ordering.</p>
+<h2 id="Parallel-Applications-and-Algorithms"><a href="#Parallel-Applications-and-Algorithms" class="headerlink" title="Parallel Applications and Algorithms"></a>Parallel Applications and Algorithms</h2><p>local and global synchronization, conditional synchronization, synchronous and asynchronous message exchange.</p>
+<p>Three well-known parallel patterns: Bag of Tasks, Pipeline and Interacting Peers.</p>
+<h3 id="Some-notation"><a href="#Some-notation" class="headerlink" title="Some notation"></a>Some notation</h3><p>Here using the “co”, &lt; &gt;, “await” notation, and sequential memory consistency (SC).</p>
+<h4 id="“co”"><a href="#“co”" class="headerlink" title="“co”"></a>“co”</h4><p>在<code>co oc</code>内的代码, 顺序是任意的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">co</span><br><span class="line">    a=1; // a=2; // a=3; ## all happen at the same time, What is a in the end?</span><br><span class="line">oc</span><br></pre></td></tr></table></figure></p>
+<p>To answer the above question, we need to define <strong>atomic actions</strong></p>
+<h4 id="Atomic-action"><a href="#Atomic-action" class="headerlink" title="Atomic action"></a>Atomic action</h4><p>Reads and writes of single variables as being atomic. For more than one statements, if they appear to execute as a single indivisible step with no visible intermediate states, they are atomic, must be enclosed in <code>&lt; &gt;</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=0;</span><br><span class="line">co</span><br><span class="line">    a=1; // a=2; // b=a+a; ## what is b?</span><br><span class="line">oc</span><br></pre></td></tr></table></figure></p>
+<p>The above code has no <code>&lt; &gt;</code>, each value accessed in an expression is a read. Each assignment is a write. Thus, b could 0, 1, 2, 3, or 4.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=0;</span><br><span class="line">co</span><br><span class="line">    a=1; // a=2; // &lt;b=a+a;&gt;</span><br><span class="line">oc</span><br></pre></td></tr></table></figure></p>
+<p>Now the only outcomes for b are 0, 2 or 4.</p>
+<h4 id="Sequential-memory-consistency-SC"><a href="#Sequential-memory-consistency-SC" class="headerlink" title="Sequential memory consistency (SC)"></a>Sequential memory consistency (SC)</h4><p>To make agreement on such inconsistency, we define the sequential memory consistency (SC), to be consistent with the following rules:</p>
+<ol>
+<li>ordering of atomic actions (particularly reads and writes to memory) from any one thread have to occur in normal program order</li>
+<li>atomic actions from different threads are interleaved arbitrarily (ie in an unpredictable sequential order, subject only to rule 1)</li>
+</ol>
+<h4 id="Await-notation"><a href="#Await-notation" class="headerlink" title="Await notation"></a>Await notation</h4><p>The await notation <code>&lt; await (B) S &gt;</code> allows us to indicate that S must appear to be delayed until B is true, and must be executed within the same atomic action as a successful check of B.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=0; flag=0;</span><br><span class="line">co</span><br><span class="line">&#123;a=25; flag=1;&#125;</span><br><span class="line">//</span><br><span class="line">&lt;await (flag==1) x=a;&gt; ## x = 25</span><br><span class="line">oc</span><br></pre></td></tr></table></figure></p>
+<p>However, it is not guaranteed that, an await statement is executed right after its condition becomes true. If other atomic actions make the condition false again, before the await executes, it will have to wait for another chance.</p>
+<h3 id="The-Bag-of-Tasks"><a href="#The-Bag-of-Tasks" class="headerlink" title="The Bag-of-Tasks"></a>The Bag-of-Tasks</h3><p>Example: Adaptive Quadrature - Compute an approximation to the shaded integral by partitioning until the trapezoidal approximation is “good enough”, compared with the sum of its two sub-divided trapezoidals’s area.<br><code>area = quad (a, b, f(a), f(b), (f(a)+f(b))*(b-a)/2);</code><br>The recursive calls to <code>quad</code> do not interfere with each other, we can parallelize the program by changing the calls to<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">co</span><br><span class="line">    larea = quad(left, mid, f(left), f(mid), larea);</span><br><span class="line">    //</span><br><span class="line">    rarea = quad(mid, right, f(mid), f(right), rarea);</span><br><span class="line">oc</span><br></pre></td></tr></table></figure></p>
+<p>In practice, there is very little work directly involved in each call to <code>quad</code>.<br>The work involved in creating and scheduling a process or thread is substantial (much worse than a simple function call), program may be swamped by this overhead.</p>
+<p>Solution: The Bag of Tasks pattern</p>
+<p>In bag of tasks, a fixed number of worker processes/threads maintain and process a dynamic collection of homogeneous “tasks”. Execution of a particular task may lead to the creation of more task instances.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">co [w = 1 to P] &#123;</span><br><span class="line">    while (all tasks not done) &#123;</span><br><span class="line">        get a task;</span><br><span class="line">        execute the task;</span><br><span class="line">        possibly add new tasks to the bag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>shared bag:  contains task(a, b, f(a), f(b), area)</li>
+<li>get a task:  remove a record from the bag, either:<ul>
+<li>adds its local area approximation to the total</li>
+<li>or creates two more tasks for a better approximation (by adding them to the bag).</li>
+</ul>
+</li>
+</ul>
+<p>Advantage:</p>
+<ul>
+<li>It constraints the number of processes/threads to avoid overhead.</li>
+<li>Useful for independent tasks and to implement recursive parallelism</li>
+<li>naturally load-balanced: each worker will probably complete a different number of tasks, but will do roughly the same amount of work overall.</li>
+</ul>
+<h4 id="Implementing-the-Bag"><a href="#Implementing-the-Bag" class="headerlink" title="Implementing the Bag"></a>Implementing the Bag</h4><p>The challenge is to make accessing the bag much cheaper than creating a new<br>thread. With a shared address space, a simple implementation would make the<br>bag an atomically accessed shared data structure.</p>
+<p>Similarly, with message passing, a simple scheme might allocate an explicit “farmer” node to maintain the bag.</p>
+<p>The challenge is <a href="https://www2.cs.arizona.edu/~greg/mpdbook/lectures/lec09.html" target="_blank" rel="noopener">termination</a>: when bag is empty AND all tasks are done, all tasks are done when all workers are waiting to get a new task.</p>
+<h3 id="Pipeline-patterns"><a href="#Pipeline-patterns" class="headerlink" title="Pipeline patterns."></a>Pipeline patterns.</h3><p>Example: <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" target="_blank" rel="noopener">The Sieve of Eratosthenes</a> algorithms for finding all prime numbers.</p>
+<p>To find all prime numbers in the range 2 to N. The algorithm write down all integers in the range, then repeatedly remove all multiples of the smallest remaining number. Before each removal phase, the new smallest remaining number is guaranteed to be prime.</p>
+<p>Notice that, it is not necessarily to wait one Sieve completed then start another. As long as one Sieve stage finds out one candidate number could not be divided exactly by the sieve number, it could generate a new stage with this candidate number as Sieve. And different sieve just remove the multiples of its own Sieve number.<br>Thus it could be parallelism with pipeline patterns.</p>
+<p><a href="http://www.informit.com/articles/article.aspx?p=366887&amp;seqNum=8" target="_blank" rel="noopener">Reference</a><br>For pipeline patterns, the potential concurrency can be exploited by assigning each operation (stage of the pipeline) to a different worker and having them work simultaneously, with the data elements passing from one worker to the next as operations are completed. Despite the dependencies (order constraints) of the processing steps, the pipeline threads can work in parallel by applying their processing step to different data (products).</p>
+<p>Think of pipeline patterns as the factory assembly line.<br>We need to pick out prime number from a range of numbers N, each number is passed into a sequence of stages, each stages checks a pass in number based on the stages’s Sieve. The numbers that finally pass all stages without being removed is a prime number.</p>
+<p>Pipelines are composed of a sequence of threads, in which each thread’s input is the previous thread’s output, (producer-consumer relationships).</p>
+<p>The advantages of pipeline patterns is that construction of pipeline stages is dynamic and data-dependent.</p>
+<h4 id="implement-pipeline-patterns"><a href="#implement-pipeline-patterns" class="headerlink" title="implement pipeline patterns"></a>implement pipeline patterns</h4><p>To allow production and consumption to be loosely synchronized, we will need some buffering in the system.</p>
+<p>The programming challenges are to ensure that no producer overwrites a buffer entry before a consumer has used it, and that no consumer tries to consume an entry which doesn’t really exist (or re-use an already consumed entry)</p>
+<h3 id="The-Interacting-Peers-Pattern"><a href="#The-Interacting-Peers-Pattern" class="headerlink" title="The Interacting Peers Pattern"></a>The Interacting Peers Pattern</h3><p>Models of physical phenomena are often expressed as a system of partial differential equations. These can be approximately solved by “finite difference methods” which involve iteration on a matrix of points, in an interacting peers pattern. The “compute” step usually involves only a small number of neighbouring points. The termination test looks for convergence.</p>
+<p>We could use a duplicate grid and <strong>barriers</strong> to enforce correct synchronization between iterations:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">co [i = 1 to n, j = 1 to n] &#123;</span><br><span class="line">    newgrid[i,j] = update(grid[i-1,j], grid[i+1,j], grid[i,j-1], grid[i,j+1]);</span><br><span class="line"></span><br><span class="line">    barrier();                              ## before converged update</span><br><span class="line">    if (diff &gt; EPSILON) converged = false;  ## any one will do</span><br><span class="line">    grid[i,j] = newgrid[i,j];               ## copy back to real grid</span><br><span class="line">    barrier();                              ## before global check</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>A <code>barrier()</code> in ppls makes any thread that arrive here has to wait all the other threads arriving here.</p>
+<p>以方腔热对流的模拟计算模型为例，每个网格节点<code>(i,j)</code><sub>t+1</sub> 的更新依赖于上一个迭代时间点的<code>(i,j)</code><sub>t</sub> 以及其临近几个点的值，创建最多跟网格点数量一样的threads，然后并行地计算网格点的新值，更新的值用一个buffer层来缓存，用<code>barrier()</code>来保证所有网格点的更新值都计算完毕，再检查收敛情况，再用一个<code>barrier()</code>保证所有buffer层的值都更新到原网格上，再决定是否进行下一次计算。</p>
+<p>Single Program Multiple Data (SPMD): A programming style, all processes execute more or less the same code, but on distinct partitions of the data.</p>
+<h3 id="Other-Patterns"><a href="#Other-Patterns" class="headerlink" title="Other Patterns"></a>Other Patterns</h3><p>Other candidate patterns include MapReduce (championed by Google), Scan, Divide &amp; Conquer, Farm as well as application domain specific operations.</p>
+<h2 id="Implementation-of-parallel-programming-concepts-and-constructs"><a href="#Implementation-of-parallel-programming-concepts-and-constructs" class="headerlink" title="Implementation of parallel programming concepts and constructs"></a>Implementation of parallel programming concepts and constructs</h2><p>How to implement the atomic action, barrier, etc..</p>
+<h3 id="Shared-Variable-Programming"><a href="#Shared-Variable-Programming" class="headerlink" title="Shared Variable Programming"></a>Shared Variable Programming</h3><p>In the shared-memory programming model, tasks share a common address space, which they read and write asynchronously. There are two fundamental different synchronization in shared variable programming. Mutual Exclusion and Condition Synchronization.</p>
+<p>An advantage of this model from the programmer’s point of view is that the notion of data “ownership” is lacking, so there is no need to specify explicitly the communication of data between tasks. Program development can often be simplified.</p>
+<h4 id="Mutual-Exclusion"><a href="#Mutual-Exclusion" class="headerlink" title="Mutual Exclusion"></a>Mutual Exclusion</h4><p>Atomic actions, at most one thread is executing the critical section at a time. Prevent two or more threads from being active concurrently for some period, because their actions may interfere incorrectly. For example, we might require updates to a shared counter (e.g., count++) to execute with mutual exclusion.</p>
+<h5 id="Critical-Sections"><a href="#Critical-Sections" class="headerlink" title="Critical Sections"></a>Critical Sections</h5><p>A simple pattern of mutual exclusion occurs in the critical section problem. This occurs when n threads execute code of the following form, in which it is essential that at most one thread is executing statements in the critical section at a time (because of potentially unsafe access to shared variables)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">co [i = 1 to n] &#123;</span><br><span class="line">    while (something) &#123;</span><br><span class="line">        lock(l);</span><br><span class="line">        critical section;</span><br><span class="line">        unlock(l);</span><br><span class="line">        non-critical section;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Design code to execute before (<strong>entry protocol</strong>) and after (<strong>exit protocol</strong>) the critical section to make the critical section atomic.<br>If one thread lock the critical section, no one(thread) else could lock it or unlock it anymore, until the thread unlock it.</p>
+<p>Important properties:</p>
+<ul>
+<li>Mutual exclusion.</li>
+<li>Absence of Deadlock (or Livelock): If two or more threads are trying to enter the critical section, at least one succeeds. A deadlock is a state in which each member of a group is waiting for some other member to take action, such as sending a message or more commonly releasing a lock, so that neither of them take action.</li>
+<li>Absence of Unnecessary Delay: If a thread is trying to enter its critical section and the other threads are executing their non-critical sections, or have terminated, the first thread is not prevented from entering its critical section.</li>
+<li>Eventual Entry (No Starvation): A thread that is attempting to enter its critical section will eventually succeed. May not matter in some “performance parallel” programs - as long as we are making progress elsewhere.</li>
+</ul>
+<h6 id="Implement-Critical-Sections"><a href="#Implement-Critical-Sections" class="headerlink" title="Implement Critical Sections"></a>Implement Critical Sections</h6><p>To implement locks, we use a shared boolean variable: if false, then one locking thread can set it and be allowed to proceed. Other attempted locks must be forced to wait.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># model assumes that the l = false;</span><br><span class="line"># write is already atomic</span><br><span class="line"># This might fail if the model is more relaxed than SC.</span><br><span class="line">lock_t l = false;</span><br><span class="line">co [i = 1 to n] &#123;</span><br><span class="line">    while (something) &#123;</span><br><span class="line">        &lt; await (!l) l = true; &gt; # guarantee the others waiting</span><br><span class="line">        critical section;</span><br><span class="line">        l = false; # unlock the lock, open the critical section</span><br><span class="line">        non-critical section;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>To implement the <code>&lt; await (!l) l = true; &gt;</code>, we rely on some simpler atomic primitive, implemented with hardware support. There are many possibilities, including “Fetch-and-Add”, “Test-and-Set” and the “Load-Linked, Store-Conditional” pairing.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">lock_t l = false;</span><br><span class="line">co [i = 1 to n] &#123;</span><br><span class="line">    while (something) &#123;</span><br><span class="line">        while (TS(l)) ; ## spin lock</span><br><span class="line">        critical section;</span><br><span class="line">        l = false;</span><br><span class="line">        non-critical section;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># A Test-and-Set (TS) instruction</span><br><span class="line"># in reality it is a single machine instruction</span><br><span class="line"># happens atomically</span><br><span class="line">bool TS (bool v) &#123;</span><br><span class="line">    &lt; bool initial = v;</span><br><span class="line">    v = true;</span><br><span class="line">    return initial; &gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>This guarantees mutual exclusion, absence of deadlock and absence of delay, but does not guarantee eventual entry.</p>
+<p>Simple spin locks don’t make good use of the cache (those spinning Test-And-Sets play havoc with contention and coherence performance). A pragmatically better solution is known as Test-and-Test-and-Set. Simply “Test” (i.e. read) until there is a chance that a Test-and-Set might<br>succeed: replace <code>while (TS(l))</code> with <code>while (l || TS(l))</code>, thus only <code>TS(l)</code> if l was false.</p>
+<p><a href="https://en.wikipedia.org/wiki/Lamport%27s_bakery_algorithm" target="_blank" rel="noopener">Lamport’s Bakery Algorithm</a> showed how to implement critical sections using only simple atomic read and simple atomic write instructions (i.e. no need for atomic read-modifywrite).</p>
+<p>就是商店结账排队机制，顾客就是一个个threads，根据排队码，越小的优先级越高（0 除外，0 代表没有结账需求），最小的可以进入critical section。</p>
+<p>The challenge is entry protocal, if a thread intends to access the critical section:</p>
+<ol>
+<li>排队取号：It sets its turn <code>turn[i] = max(turn[:])+1</code> (Threads not at or intend to access the critical section have a turn of 0)</li>
+<li>等待叫号：This thread waits until its turn comes up (until it has the smallest turn).</li>
+</ol>
+<p>Implementation:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int turn[n] = [0, 0, ... 0];</span><br><span class="line">co [i=1 to n] &#123;</span><br><span class="line">    while (true) &#123;</span><br><span class="line">        turn[i] = max (turn[1..n]) + 1;</span><br><span class="line">        for (j = 1 to n except i) &#123;</span><br><span class="line">            while ((turn[j]!=0 and (turn[i] &gt; (turn[j])) skip;</span><br><span class="line">        &#125;</span><br><span class="line">        critical section;</span><br><span class="line">        turn[i] = 0;</span><br><span class="line">        noncritical section;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为<code>max (turn[1..n]) + 1</code>不是atomic的, 所以会出现问题.</p>
+<p>问题一, if turn setting is not atomic then two (or more) threads may claim the same turn.</p>
+<pre><code>两个threads在取号阶段`turn[i] = max(turn[:])+1`出现并发，两个都先`max`, 之后再`+1`.
+</code></pre><p>问题二, there is possibility that a thread can claim a lower turn than another thread which enters the critical section before it!</p>
+<pre><code>两个threads在取号阶段`turn[i] = max(turn[:])+1`出现并发, 并且在两个threads分别进行`max`的间隙, 刚好在CS中的thread完成并退出CS，导致两个thread看到的`max`值不一样了. 前者比后者看到的大, 但前者却因为更早进行`+1`操作而提前进入了CS.
+</code></pre><p>举例：假如同时有三个thread A B C, A 已经在CS中(turn(A)&gt;0)：</p>
+<ol>
+<li>B 先运行max比较(<code>max = turn(A)</code>),</li>
+<li>C 在 A 退出后(<code>turn(A) = 0</code>)才进行比较(<code>max = 0</code>),</li>
+<li>B 先进行<code>+1</code>操作(<code>turn(B) = turn(A)+1 &gt; 1</code>),</li>
+<li>B 进行比较后允许进入CS (<strong>此时turn(C)还是0</strong>, 0是被忽略的);</li>
+<li>之后C才 <code>+1</code>(<code>turn(C) = 0 + 1 = 1</code>);</li>
+<li>这样导致B的值虽然比C大, 但B还是比C先进入CS; 之后因为 C 的 turn 比较小， 所以 C 也跟着进入 CS。</li>
+</ol>
+<p>问题一解决方案 - 使用线程ID（绝不相同）做二次区分, 在相同 turn 的情况下，具有较低ID的 thread 有限。</p>
+<p>问题二解决方案 - 在<code>max (turn[1..n]) + 1</code>之前先<code>turn[i] = 1;</code>.</p>
+<ul>
+<li>这样，任何 threads 想取号都要先标记为 1</li>
+<li>标记后，才有资格跟其他 thread 比较</li>
+<li>以<code>max+1</code>作为号码进入队列，这样任何的可能的 turn 值都必定大于 1</li>
+<li>B 无法提前进入CS (<strong>此时turn(C)不再是被忽略的0, 而是最小正整数1</strong>).</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#  (x, a) &gt; (y,b) means (x&gt;y) || (x==y &amp;&amp; a&gt;b).</span><br><span class="line">while (true) &#123;</span><br><span class="line">    turn[i] = 1; turn[i] = max (turn[1..n]) + 1;</span><br><span class="line">    for (j = 1 to n except i) &#123;</span><br><span class="line">        while ((turn[j]!=0 and (turn[i], i) &gt; (turn[j], j)) skip;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Condition-Synchronization"><a href="#Condition-Synchronization" class="headerlink" title="Condition Synchronization"></a>Condition Synchronization</h4><p>Delay an action until some condition (on the shared variables such as in producer-consumer, or with respect to the progress of other threads such as in a <code>barrier</code>) becomes true.</p>
+<h5 id="Barrier-synchronization"><a href="#Barrier-synchronization" class="headerlink" title="Barrier synchronization"></a>Barrier synchronization</h5><h6 id="Counter-Barriers"><a href="#Counter-Barriers" class="headerlink" title="Counter Barriers:"></a>Counter Barriers:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;count = count + 1;&gt;</span><br><span class="line">&lt;await (count == n);&gt;</span><br></pre></td></tr></table></figure>
+<p>But it could not be reusable.<br>改良为<code>&lt;await (count == n); count = 0;&gt;</code>也不行: 假如<code>count == n</code>, 那么n个threads都完成了前面的statements并准备执行await, 但其中任何一个 thread 先执行完整个代码都使<code>count = 0</code>,这样剩余的threads就无法通过await条件了.</p>
+<h6 id="Sense-Reversing-Barrier"><a href="#Sense-Reversing-Barrier" class="headerlink" title="Sense Reversing Barrier:"></a>Sense Reversing Barrier:</h6><p>A shared variable sense is flipped after each use of the barrier to indicate that all threads may proceed.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">shared int count = 0; shared boolean sense = false;</span><br><span class="line">co [i = 1 to n] &#123;</span><br><span class="line">    private boolean mySense = !sense; ## one per thread</span><br><span class="line">    while (something) &#123;</span><br><span class="line">        do some work;</span><br><span class="line">        &lt; count = count + 1;</span><br><span class="line">            if (count == n) &#123; count = 0; sense = mySense; &#125;</span><br><span class="line">        &gt;</span><br><span class="line">        while (sense != mySense); ## wait</span><br><span class="line">        mySense = !mySense;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所有thread的local variable mySense开始都被赋值true，前面n-1个thread都得在while statement那里等着；直到最后一个thread也<code>do some work;</code>之后, if statement才被执行, count 变为 0, sense 被赋值为mySense也即是true, 所有threads就可以pass while.</p>
+<p>缺点：O(n)效率，count次数（同步次数）正比于thread数量。</p>
+<h6 id="Symmetric-Barriers"><a href="#Symmetric-Barriers" class="headerlink" title="Symmetric Barriers:"></a>Symmetric Barriers:</h6><p>通过 pair-threads barriers多轮同步来构建一个完整的 n-threads barriers，总共是log<sub>2</sub>n 轮同步。<br>每个thread在运行完必要的statement后, 开始进入下面的pairwise同步环节，自己(myid)的初始arrive状态为0:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># arrive[i] == 1 means arrive barrier</span><br><span class="line"># there will be log_2 #threads stages,</span><br><span class="line"># 每个stage代表一次pairwise同步</span><br><span class="line">for [s = 0 to stages-1] &#123;</span><br><span class="line">    &lt;await (arrive[myid] == 0);&gt;   # 1</span><br><span class="line">    arrive[myid] = 1;              # 2</span><br><span class="line">    work out who my friend is at stage s;</span><br><span class="line">    &lt;await (arrive[friend] == 1);&gt; # 3</span><br><span class="line">    arrive[friend] = 0;            # 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样保证了，每个thread需要先把自己的arrive状态标记为1（#1，#2），才可以去看同伴的状态（#3），假如同伴也是1，那么表明自己这一组是都到达了barrier状态（大家都是1），那么就会把对方的状态初始化为0 （#4），进入下一阶段，更换同伴，继续同步比较。</p>
+<p>问题在于，假如有四个thread，那么就会有两个stages：第一次是1和2同步，3和4同步。2一直没到barrier，1一直卡在#3。而3和4 同步完后开始检查1的状况，发现<code>arrive[1] = 1</code>，就运行Lines (3) and (4), 结果1就被初始化了，而2还没是没到barrier。</p>
+<p>解决办法是给每个stage分配新的arrive变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for [s = 0 to stages-1] &#123;</span><br><span class="line">    &lt;await (arrive[myid][s] == 0);&gt;</span><br><span class="line">    arrive[myid][s] = 1;</span><br><span class="line">    work out who my friend is at this stage;</span><br><span class="line">    &lt;await (arrive[friend][s] == 1);&gt;</span><br><span class="line">    arrive[friend][s] = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样假如出现2一直没到barrier的情况, 那么1会卡在当前stage, 1的stage+1的arrive状态就无法更新为1.<br><img src="/images/symmetric_barrier.jpg" alt=""></p>
+<h6 id="Dissemination-Barriers"><a href="#Dissemination-Barriers" class="headerlink" title="Dissemination Barriers"></a>Dissemination Barriers</h6><p>If n isn’t a power of 2, instead of pairwise synchs, we have two partners at each stage for each thread, one incoming and one outgoing.<br><img src="/images/dissemination_barrier.jpg" alt=""></p>
+<h3 id="Message-passing-parallelism"><a href="#Message-passing-parallelism" class="headerlink" title="Message passing parallelism"></a>Message passing parallelism</h3><p>Tasks exchange data through communications by sending and receiving messages.</p>
+<h3 id="Structured-Primitives"><a href="#Structured-Primitives" class="headerlink" title="Structured Primitives"></a>Structured Primitives</h3><p>Instead of implementing directly in the user-address space, a number of more structured primitives have been devised for implementation with the assistance of the operating system, so that threads can be directly suspended and resumed.</p>
+<h4 id="semaphores-信号灯"><a href="#semaphores-信号灯" class="headerlink" title="semaphores 信号灯"></a>semaphores 信号灯</h4><p>A semaphore is a special shared variable, accessible only through two atomic operations, P(try to decrease) and V(increase), defined by:<br>P(s): <code>&lt;await (s&gt;0) s=s-1;&gt;</code><br>V(s): <code>&lt;s=s+1;&gt;</code></p>
+<p>Property: A thread executing P on a 0 valued semaphore will be suspended on a queue until after some other thread has executed a V.</p>
+<p>Application: A semaphore appears to be a simple integer. A thread waits for permission to proceed a critical section, and then signals that it has proceeded by performing a P operation on the semaphore.</p>
+<p><strong>Binary semaphore</strong>: A semaphore whose usage is organised to only ever take the value 0 or 1. A mutex 互斥.<br><strong>Counting(split) semaphore</strong>: can take on arbitrary nonnegative values.</p>
+<p>Semaphores for critical section(mutual exclusion):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sem mutex = 1;</span><br><span class="line">co [i = 1 to n] &#123;</span><br><span class="line">    while (whatever) &#123;</span><br><span class="line">        P(mutex);</span><br><span class="line">        critical section;</span><br><span class="line">        V(mutex);</span><br><span class="line">        noncritical section;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可以用于 barrier synchronisation， 实现 symmetric barrier: an array of arrive semaphores for each stage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for [s = 1 to stages] &#123;</span><br><span class="line">    V(arrive[myid][s]);</span><br><span class="line">    work out who my friend is at stage s;</span><br><span class="line">    P(arrive[friend][s]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Semaphores-for-producer-consumer-buffering"><a href="#Semaphores-for-producer-consumer-buffering" class="headerlink" title="Semaphores for producer-consumer buffering"></a>Semaphores for producer-consumer buffering</h5><p>Semaphores 为 producer-consumer buffering 问题提供了简洁的解决方案:</p>
+<ol>
+<li><p>针对单个producer和consumer，控制其接触单个容量的buffer权限：一个semaphores标识buffer已满<code>full = 0</code>，一个标识空<code>empty = 1</code>。这种情况下，只能有一个semaphore是1，故称之为<strong>split binary semaphore</strong>。 <code>P(full)</code> 执行 <code>wait full&gt;0 : full -= 1</code>, <code>V(empty)</code>执行<code>empty += 1</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># producer</span><br><span class="line">    &#123;P(empty);</span><br><span class="line">    buf = data;</span><br><span class="line">    V(full);&#125;</span><br><span class="line"># consumer</span><br><span class="line">    &#123;P(full);</span><br><span class="line">    result = buf;</span><br><span class="line">    V(empty);&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bounded Buffer: Control access to a multi-space buffer(the producer can run ahead of the consumer (up to some limit))</p>
+<ul>
+<li>Implement the buffer itself with an array(circular),</li>
+<li>and two integer indices, indicating the current front and rear of the buffer and use arithmetic modulo n (the buffer size), so that the buffer conceptually becomes circular</li>
+<li>For a single producer and consumer, we protect the buffer with a split “counting” semaphore, initialised according to the buffer size.</li>
+<li>Think of full as counting how many space in the buffer are full, and empty as counting how many are empty<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">T buf[n]; int front = 0, rear = 0;</span><br><span class="line">sem empty = n, full = 0;</span><br><span class="line">co ## Producer</span><br><span class="line">    while (whatever) &#123;</span><br><span class="line">        ...produce new data locally</span><br><span class="line">        P(empty);</span><br><span class="line">        buf[rear] = data; rear = (rear + 1) % n;</span><br><span class="line">        V(full);</span><br><span class="line">    &#125;</span><br><span class="line">// ## Consumer</span><br><span class="line">    while (whatever) &#123;</span><br><span class="line">        P(full);</span><br><span class="line">        result = buf[front]; front = (front + 1) % n;</span><br><span class="line">        V(empty);</span><br><span class="line">        ... handle result locally</span><br><span class="line">    &#125;</span><br><span class="line">oc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Multiple Producers/Consumers： Because each producer may access the same pointer to overide each other, so as consumer. Thus we need two levels of protection.</p>
+<ul>
+<li>use a split counting semaphore to avoid buffer overflow (or underflow), as previously.</li>
+<li>Use a mutual exclusion semaphores to prevent interference between producers (and another to prevent interference between consumers). This allows up to one consumer and one producer to be actively simultaneously within a non-empty, non-full buffer.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">T buf[n]; int front = 0, rear = 0; 86</span><br><span class="line">sem empty = n, full = 0, mutexP = 1, mutexC = 1;</span><br><span class="line">co</span><br><span class="line">    co [i = 1 to M] &#123;</span><br><span class="line">        while (whatever) &#123;</span><br><span class="line">            ...produce new data locally</span><br><span class="line">            P(empty);</span><br><span class="line">                P(mutexP); # stop the other producers from accessing the buffer</span><br><span class="line">                buf[rear] = data; rear = (rear + 1) % n;</span><br><span class="line">                V(mutexP);</span><br><span class="line">            V(full);</span><br><span class="line">    &#125; &#125;</span><br><span class="line">//</span><br><span class="line">    co [j = 1 to N] &#123;</span><br><span class="line">        while (whatever) &#123;</span><br><span class="line">            P(full);</span><br><span class="line">                P(mutexC); result = buf[front]; front = (front + 1) % n; V(mutexC);</span><br><span class="line">            V(empty);</span><br><span class="line">            ... handle result locally</span><br><span class="line">    &#125; &#125;</span><br><span class="line">oc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Extending Multiple Producers/Consumers: If the buffered items are large and take a long time to read/write, we would like to relax this solution to allow several producers and/or consumers to be active within the buffer simultaneously. We need to ensure that these workers accesse distinct buffer locations, which require the index arithmetic to be kept atomic. The solution is to have extra semaphores for each buffer location.</p>
+</li>
+</ol>
+<h5 id="The-drawbacks-of-Semaphores"><a href="#The-drawbacks-of-Semaphores" class="headerlink" title="The drawbacks of Semaphores"></a>The drawbacks of Semaphores</h5><p>They still require careful programming: there is no explicit connection in the program source between “matching” semaphore operations. It is easy to get things wrong.</p>
+<p>Similarly, there is no obvious indication of how semaphores are being used - some may be for mutual exclusion, others for condition synchronization. Again confusion is possible.</p>
+<h4 id="monitors"><a href="#monitors" class="headerlink" title="monitors"></a>monitors</h4><p>The monitor is a more structured mechanism which allows threads to have both mutual exclusion and the ability to wait (block) for a certain condition to become true. It has a mechanism for signaling other threads that their condition has been met.</p>
+<p>For Mutual Exclusion: a mutex (lock) object, the implementation ensures that <strong>at most one thread is active within the monitor at any one time</strong> (though many threads may be suspended within monitor methods). It is as if the body of each monitor method is implicitly <strong>surrounded with</strong> P() and V() operations on a single hidden binary semaphore, shared by all methods.</p>
+<p>For Condition Synchronization: using a condition variable(cv) with a monitor to control a queue of delayed threads.</p>
+<ul>
+<li><strong>Inside a monitor method</strong>, if a thread could not proceed(due to any reason), it may call the <code>wait(cv)</code> operation, <strong>to give up the (implicit) lock</strong> it holds on the monitor, and being suspended(to be blocked, and put into the queue of cv).</li>
+<li>Some other thread, while active inside the monitor, calls the operation <code>signal(cv)</code>, it release the lock. This allow one previously blocked thread (normally chosen by a FIFO discipline) to <strong>become ready for scheduling</strong> again(only one will be allowed to enter the monitor at a time).</li>
+<li>This kind of scheme is called <strong>signal and continue (SC)</strong></li>
+<li>Finally, an operation signal-all(cv) is usually available. This awakens all (rather than just one) of the waiting threads.</li>
+</ul>
+<p>Single-producer, single consumer bounder buffer:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">monitor Bounded_Buffer &#123;</span><br><span class="line">    typeT buf[n]; # an array of some type T</span><br><span class="line">    int front = 0, # index of first full slot</span><br><span class="line">        rear = 0; # index of first empty slot</span><br><span class="line">        count = 0; # number of full slots</span><br><span class="line">    ## rear == (front + count) % n</span><br><span class="line">    cond not_full, # signaled when count &lt; n</span><br><span class="line">         not_empty; # signaled when count &gt; 0</span><br><span class="line">    procedure deposit(typeT data) &#123;</span><br><span class="line">        while (count == n) wait(not_full);</span><br><span class="line">        buf[rear] = data; rear = (rear+1) % n; count++;</span><br><span class="line">        signal(not_empty);</span><br><span class="line">    &#125;</span><br><span class="line">    procedure fetch(typeT &amp;result) &#123;</span><br><span class="line">        while (count == 0) wait(not_empty);</span><br><span class="line">        result = buf[front]; front = (front+1) % n; count--;</span><br><span class="line">        signal(not_full);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Why the “while” loop is necessary</strong> as a safety check on the “wait” calls(why not use if)?<br>因为while(count == n), 可以保证当buffer被进程快的producers填满后(<code>count=n</code>), 进程慢的threads不会跳出<strong>循环</strong>, 进入buffer, 而是继续wait().</p>
+<p>The key difference between SC and semaphores: signal() on a condition variable is not “remembered” in the way that V() on a semaphore is. If no threads are waiting, then a signal() is “lost” or “forgotten”, whereas a V() will allow a subsequent P() to proceed.</p>
+<h2 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h2><p>Create a new thread: Threads (of type <code>pthread_t</code>) begin by executing a given function, and terminate when that function exits (or when killed off by another thread).<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int pthread_create (pthread_t *tid, p_thread_attr_t *att, void * (*f) (void *), void *arg);</span><br></pre></td></tr></table></figure></p>
+<p>Wait for thread termination: <code>int pthread_join (pthread_t t, void ** result);</code></p>
+<h3 id="POSIX-mechanisms-to-coordinate-accesses"><a href="#POSIX-mechanisms-to-coordinate-accesses" class="headerlink" title="POSIX mechanisms to coordinate accesses"></a>POSIX mechanisms to coordinate accesses</h3><h4 id="Posix-semaphores"><a href="#Posix-semaphores" class="headerlink" title="Posix semaphores"></a>Posix semaphores</h4><ol>
+<li><code>sem_init(&amp;sem, share, init)</code>, where init is the initial value and share is a “boolean” (in the C sense) indicating whether the semaphore will be shared between processes (true) or just threads within a process (false).</li>
+<li><code>sem_wait(s)</code>, which is the Posix name for P(s)</li>
+<li><code>sem_post(s)</code>, which is the Posix name for V(s)</li>
+</ol>
+<h4 id="Posix-Monitors"><a href="#Posix-Monitors" class="headerlink" title="Posix Monitors"></a>Posix Monitors</h4><p>Pthreads provides locks, <code>pthread_mutex_t</code>. These can be</p>
+<ul>
+<li>initialized with <code>pthread_mutex_init(&amp;m, attr)</code>, where attr are attributes concerning scope (as with semaphore creation).</li>
+<li>locked with <code>pthread_mutex_lock(&amp;m)</code>, which blocks the locking thread if m is already locked. There is also a non-blocking version <code>pthread_mutex_trylock(&amp;m)</code>.</li>
+<li>unlocked with <code>pthread_mutex_unlock(&amp;m)</code>. Only a thread which holds a given lock, should unlock it!</li>
+</ul>
+<p>Pthreads provides condition variables <code>pthread_cond_t</code>. As well as the usual initialization, these can be:</p>
+<ul>
+<li>waited on with <code>pthread_cond_wait(&amp;cv, &amp;mut)</code> where cv is a condition variable, and mut must be a lock already held by this thread, and which is implictly released.</li>
+<li>signalled with <code>pthread_cond_signal(&amp;cv)</code> by a thread which should (but doesn’t strictly have to) hold the associated mutex. The semantics are “Signal-and-Continue” as previously discussed.</li>
+<li>signalled with <code>pthread_cond_broadcast(&amp;cv)</code>. This is “signal-all”</li>
+</ul>
+<p>A Re-usable Counter Barrier<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pthread_mutex_t</span> barrier; <span class="comment">// mutex semaphore for the barrier</span></span><br><span class="line"><span class="keyword">pthread_cond_t</span> go; <span class="comment">// condition variable for leaving</span></span><br><span class="line"><span class="keyword">int</span> numArrived = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Barrier</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    pthread_mutex_lock(&amp;barrier);</span><br><span class="line">    numArrived++;</span><br><span class="line">    <span class="keyword">if</span> (numArrived == numWorkers) &#123;</span><br><span class="line">        numArrived = <span class="number">0</span>;</span><br><span class="line">        pthread_cond_broadcast(&amp;go);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        pthread_cond_wait(&amp;go, &amp;barrier);</span><br><span class="line">    &#125;</span><br><span class="line">    pthread_mutex_unlock(&amp;barrier);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python-digest/" rel="next" title="Python Digest 之奇技淫巧">
+                <i class="fa fa-chevron-left"></i> Python Digest 之奇技淫巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjkxNy85NDc4"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Cong" />
+            
+              <p class="site-author-name" itemprop="name">Cong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ShootingSpace/" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-parallel-computer-architecture"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Introduction-to-parallel-computer-architecture" class="headerlink" title="Introduction to parallel computer architecture"></a>Introduction to parallel computer architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parallel-architecture"><span class="nav-number">2.</span> <span class="nav-text"><a href="#parallel-architecture" class="headerlink" title="parallel architecture"></a>parallel architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shared-Memory-Architectures"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#Shared-Memory-Architectures" class="headerlink" title="Shared Memory Architectures"></a>Shared Memory Architectures</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#consistency-model"><span class="nav-number">2.1.1.</span> <span class="nav-text"><a href="#consistency-model" class="headerlink" title="consistency model"></a>consistency model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shared-memory-architectures-also-raise-tricky-performance-issues"><span class="nav-number">2.1.2.</span> <span class="nav-text"><a href="#Shared-memory-architectures-also-raise-tricky-performance-issues" class="headerlink" title="Shared memory architectures also raise tricky performance issues"></a>Shared memory architectures also raise tricky performance issues</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multicomputer-architectures"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#Multicomputer-architectures" class="headerlink" title="Multicomputer architectures"></a>Multicomputer architectures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parallel-Applications-and-Algorithms"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Parallel-Applications-and-Algorithms" class="headerlink" title="Parallel Applications and Algorithms"></a>Parallel Applications and Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Some-notation"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#Some-notation" class="headerlink" title="Some notation"></a>Some notation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#“co”"><span class="nav-number">3.1.1.</span> <span class="nav-text"><a href="#&#x201C;co&#x201D;" class="headerlink" title="&#x201C;co&#x201D;"></a>&#x201C;co&#x201D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atomic-action"><span class="nav-number">3.1.2.</span> <span class="nav-text"><a href="#Atomic-action" class="headerlink" title="Atomic action"></a>Atomic action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequential-memory-consistency-SC"><span class="nav-number">3.1.3.</span> <span class="nav-text"><a href="#Sequential-memory-consistency-SC" class="headerlink" title="Sequential memory consistency (SC)"></a>Sequential memory consistency (SC)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Await-notation"><span class="nav-number">3.1.4.</span> <span class="nav-text"><a href="#Await-notation" class="headerlink" title="Await notation"></a>Await notation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Bag-of-Tasks"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#The-Bag-of-Tasks" class="headerlink" title="The Bag-of-Tasks"></a>The Bag-of-Tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementing-the-Bag"><span class="nav-number">3.2.1.</span> <span class="nav-text"><a href="#Implementing-the-Bag" class="headerlink" title="Implementing the Bag"></a>Implementing the Bag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pipeline-patterns"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#Pipeline-patterns" class="headerlink" title="Pipeline patterns."></a>Pipeline patterns.</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-pipeline-patterns"><span class="nav-number">3.3.1.</span> <span class="nav-text"><a href="#implement-pipeline-patterns" class="headerlink" title="implement pipeline patterns"></a>implement pipeline patterns</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Interacting-Peers-Pattern"><span class="nav-number">3.4.</span> <span class="nav-text"><a href="#The-Interacting-Peers-Pattern" class="headerlink" title="The Interacting Peers Pattern"></a>The Interacting Peers Pattern</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Patterns"><span class="nav-number">3.5.</span> <span class="nav-text"><a href="#Other-Patterns" class="headerlink" title="Other Patterns"></a>Other Patterns</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation-of-parallel-programming-concepts-and-constructs"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Implementation-of-parallel-programming-concepts-and-constructs" class="headerlink" title="Implementation of parallel programming concepts and constructs"></a>Implementation of parallel programming concepts and constructs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shared-Variable-Programming"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#Shared-Variable-Programming" class="headerlink" title="Shared Variable Programming"></a>Shared Variable Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mutual-Exclusion"><span class="nav-number">4.1.1.</span> <span class="nav-text"><a href="#Mutual-Exclusion" class="headerlink" title="Mutual Exclusion"></a>Mutual Exclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Critical-Sections"><span class="nav-number">4.1.1.1.</span> <span class="nav-text"><a href="#Critical-Sections" class="headerlink" title="Critical Sections"></a>Critical Sections</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Implement-Critical-Sections"><span class="nav-number">4.1.1.1.1.</span> <span class="nav-text"><a href="#Implement-Critical-Sections" class="headerlink" title="Implement Critical Sections"></a>Implement Critical Sections</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-Synchronization"><span class="nav-number">4.1.2.</span> <span class="nav-text"><a href="#Condition-Synchronization" class="headerlink" title="Condition Synchronization"></a>Condition Synchronization</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Barrier-synchronization"><span class="nav-number">4.1.2.1.</span> <span class="nav-text"><a href="#Barrier-synchronization" class="headerlink" title="Barrier synchronization"></a>Barrier synchronization</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Counter-Barriers"><span class="nav-number">4.1.2.1.1.</span> <span class="nav-text"><a href="#Counter-Barriers" class="headerlink" title="Counter Barriers:"></a>Counter Barriers:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Sense-Reversing-Barrier"><span class="nav-number">4.1.2.1.2.</span> <span class="nav-text"><a href="#Sense-Reversing-Barrier" class="headerlink" title="Sense Reversing Barrier:"></a>Sense Reversing Barrier:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Symmetric-Barriers"><span class="nav-number">4.1.2.1.3.</span> <span class="nav-text"><a href="#Symmetric-Barriers" class="headerlink" title="Symmetric Barriers:"></a>Symmetric Barriers:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dissemination-Barriers"><span class="nav-number">4.1.2.1.4.</span> <span class="nav-text"><a href="#Dissemination-Barriers" class="headerlink" title="Dissemination Barriers"></a>Dissemination Barriers</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Message-passing-parallelism"><span class="nav-number">4.2.</span> <span class="nav-text"><a href="#Message-passing-parallelism" class="headerlink" title="Message passing parallelism"></a>Message passing parallelism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structured-Primitives"><span class="nav-number">4.3.</span> <span class="nav-text"><a href="#Structured-Primitives" class="headerlink" title="Structured Primitives"></a>Structured Primitives</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#semaphores-信号灯"><span class="nav-number">4.3.1.</span> <span class="nav-text"><a href="#semaphores-&#x4FE1;&#x53F7;&#x706F;" class="headerlink" title="semaphores &#x4FE1;&#x53F7;&#x706F;"></a>semaphores &#x4FE1;&#x53F7;&#x706F;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Semaphores-for-producer-consumer-buffering"><span class="nav-number">4.3.1.1.</span> <span class="nav-text"><a href="#Semaphores-for-producer-consumer-buffering" class="headerlink" title="Semaphores for producer-consumer buffering"></a>Semaphores for producer-consumer buffering</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#The-drawbacks-of-Semaphores"><span class="nav-number">4.3.1.2.</span> <span class="nav-text"><a href="#The-drawbacks-of-Semaphores" class="headerlink" title="The drawbacks of Semaphores"></a>The drawbacks of Semaphores</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#monitors"><span class="nav-number">4.3.2.</span> <span class="nav-text"><a href="#monitors" class="headerlink" title="monitors"></a>monitors</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pthread"><span class="nav-number">5.</span> <span class="nav-text"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#POSIX-mechanisms-to-coordinate-accesses"><span class="nav-number">5.1.</span> <span class="nav-text"><a href="#POSIX-mechanisms-to-coordinate-accesses" class="headerlink" title="POSIX mechanisms to coordinate accesses"></a>POSIX mechanisms to coordinate accesses</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Posix-semaphores"><span class="nav-number">5.1.1.</span> <span class="nav-text"><a href="#Posix-semaphores" class="headerlink" title="Posix semaphores"></a>Posix semaphores</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Posix-Monitors"><span class="nav-number">5.1.2.</span> <span class="nav-text"><a href="#Posix-Monitors" class="headerlink" title="Posix Monitors"></a>Posix Monitors</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

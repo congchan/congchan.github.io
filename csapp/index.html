@@ -89,13 +89,13 @@
 <meta name="keywords" content="计算机入门,计算机科学,csapp,C 语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从程序员的视角理解计算机系统 - csapp - CMU 15213">
-<meta property="og:url" content="http://yoursite.com/NOTE-csapp/index.html">
+<meta property="og:url" content="http://yoursite.com/csapp/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="本笔记是csapp的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.  Computer Systems: A Programmer’s Perspective (csapp), 豆瓣-深入理解计算机系统 卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS) 华盛顿">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/memory_hierarchy.png">
 <meta property="og:image" content="http://yoursite.com/images/operating_system_abs.png">
-<meta property="og:updated_time" content="2018-05-08T09:12:52.780Z">
+<meta property="og:updated_time" content="2018-05-08T09:21:33.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从程序员的视角理解计算机系统 - csapp - CMU 15213">
 <meta name="twitter:description" content="本笔记是csapp的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.  Computer Systems: A Programmer’s Perspective (csapp), 豆瓣-深入理解计算机系统 卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS) 华盛顿">
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/NOTE-csapp/"/>
+  <link rel="canonical" href="http://yoursite.com/csapp/"/>
 
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-csapp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/csapp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -376,7 +376,7 @@
 
           
           
-             <span id="/NOTE-csapp/" class="leancloud_visitors" data-flag-title="从程序员的视角理解计算机系统 - csapp - CMU 15213">
+             <span id="/csapp/" class="leancloud_visitors" data-flag-title="从程序员的视角理解计算机系统 - csapp - CMU 15213">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,685 字
+                  2,686 字
                 </span>
               
 
@@ -444,9 +444,9 @@
 <li><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective (csapp)</a>, 豆瓣-<a href="https://book.douban.com/subject/26912767/" target="_blank" rel="noopener">深入理解计算机系统</a></li>
 <li><a href="https://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS)</a></li>
 <li><a href="https://courses.cs.washington.edu/courses/cse351/" target="_blank" rel="noopener">华盛顿大学 UW CSE351: The Hardware/Software Interface</a><a id="more"></a>
-<h2 id="Computer-system"><a href="#Computer-system" class="headerlink" title="Computer system"></a>Computer system</h2><h3 id="Information-is-Bits-Context"><a href="#Information-is-Bits-Context" class="headerlink" title="Information is Bits + Context"></a>Information is Bits + Context</h3>Study systems by tracing the lifetime of the hello program, from the time it is created by a programmer, until it runs on a system, prints its simple message, and terminates.<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"hello, world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="Computer-system"><a href="#Computer-system" class="headerlink" title="Computer system"></a>Computer system</h2><h3 id="Information-is-Bits-Context"><a href="#Information-is-Bits-Context" class="headerlink" title="Information is Bits + Context"></a>Information is Bits + Context</h3><p>Study systems by tracing the lifetime of the hello program, from the time it is created by a programmer, until it runs on a system, prints its simple message, and terminates.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"hello, world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>The source program is a sequence of bits, each with a value of 0 or 1, organized in 8-bit chunks(bytes). Each byte represents some text character in the program.</p>
 <p>All information in a system — including disk files, programs stored in memory, user data stored in memory, and data transferred across a network—is represented as a bunch of bits.</p>
 <h3 id="Programs-are-traslated-by-other-programs-into-different-forms"><a href="#Programs-are-traslated-by-other-programs-into-different-forms" class="headerlink" title="Programs are traslated by other programs into different forms"></a>Programs are traslated by other programs into different forms</h3><p>The hello program begins as a high-level C program because it can be read and understood by human beings in that form. However, in order to run hello.c on the system, the individual C statements must be translated by other programs into a sequence of low-level machine-language instructions.</p>
@@ -700,7 +700,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

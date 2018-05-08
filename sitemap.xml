@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/NOTE-csapp/</loc>
+    <loc>http://yoursite.com/python-digest/</loc>
     
-    <lastmod>2018-05-08T09:12:52.780Z</lastmod>
+    <lastmod>2018-05-08T10:22:24.687Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/</loc>
+    
+    <lastmod>2018-05-08T09:46:10.243Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/csapp/</loc>
+    
+    <lastmod>2018-05-08T09:21:33.754Z</lastmod>
     
   </url>
   
@@ -26,6 +40,13 @@
     <loc>http://yoursite.com/software-testing/</loc>
     
     <lastmod>2018-05-08T09:01:35.281Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/ppls/</loc>
+    
+    <lastmod>2018-05-08T08:59:44.643Z</lastmod>
     
   </url>
   
@@ -75,13 +96,6 @@
     <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     
     <lastmod>2018-03-26T19:10:31.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/</loc>
-    
-    <lastmod>2018-03-20T22:41:54.883Z</lastmod>
     
   </url>
   
