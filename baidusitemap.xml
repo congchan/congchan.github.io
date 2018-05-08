@@ -4,12 +4,95 @@
 
     
   <url>
-    <loc>http://yoursite.com/software-testing/</loc>
-    <lastmod>2018-05-05T14:35:58.942Z</lastmod>
+    <loc>http://yoursite.com/NOTE-csapp/</loc>
+    <lastmod>2018-05-08T09:12:52.780Z</lastmod>
     <data>
         <display>
-        <title>Software Testing - University of Edinburgh</title>
-        <pubTime>2018-04-25T23:00:00.000Z</pubTime>
+        <title>从程序员的视角理解计算机系统 - csapp - CMU 15213</title>
+        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
+        
+        <tag>计算机入门</tag>
+         
+        <tag>计算机科学</tag>
+         
+        <tag>csapp</tag>
+         
+        <tag>C 语言</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
+    <lastmod>2018-05-08T09:03:09.223Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
+        <pubTime>2018-04-01T23:00:00.000Z</pubTime>
+        
+        <tag>自然语言处理</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+    <lastmod>2018-05-08T09:03:03.117Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
+        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
+        
+        <tag>自然语言处理</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/software-testing/</loc>
+    <lastmod>2018-05-08T09:01:35.281Z</lastmod>
+    <data>
+        <display>
+        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
+        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
         
          
            
@@ -26,10 +109,10 @@
     
   <url>
     <loc>http://yoursite.com/natural-language-understanding/</loc>
-    <lastmod>2018-05-04T16:21:18.678Z</lastmod>
+    <lastmod>2018-05-08T08:52:51.403Z</lastmod>
     <data>
         <display>
-        <title>Natural Language Understanding - Informatics - University of Edinburgh</title>
+        <title>Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡</title>
         <pubTime>2018-04-30T23:00:00.000Z</pubTime>
         
          
@@ -53,33 +136,6 @@
         <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
         <pubTime>2018-01-31T00:00:00.000Z</pubTime>
         
-        <tag>Python</tag>
-         
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
-    <lastmod>2018-05-01T14:17:31.090Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE</title>
-        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
-        
-        <tag>自然语言处理</tag>
-         
         <tag>Python</tag>
          
         <tag>NLP</tag>
@@ -157,33 +213,6 @@
           
              
               <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
-    <lastmod>2018-04-24T21:32:23.509Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE</title>
-        <pubTime>2018-04-01T23:00:00.000Z</pubTime>
-        
-        <tag>自然语言处理</tag>
-         
-        <tag>Python</tag>
-         
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>
@@ -271,35 +300,6 @@
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-csapp/</loc>
-    <lastmod>2018-03-20T22:42:16.027Z</lastmod>
-    <data>
-        <display>
-        <title>从程序员的视角理解计算机系统 - csapp - CMU 15213</title>
-        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
-        
-        <tag>计算机入门</tag>
-         
-        <tag>计算机科学</tag>
-         
-        <tag>csapp</tag>
-         
-        <tag>C 语言</tag>
          
          
            

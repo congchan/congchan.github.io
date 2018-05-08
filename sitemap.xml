@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/NOTE-csapp/</loc>
+    
+    <lastmod>2018-05-08T09:12:52.780Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
+    
+    <lastmod>2018-05-08T09:03:09.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+    
+    <lastmod>2018-05-08T09:03:03.117Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/software-testing/</loc>
     
-    <lastmod>2018-05-05T14:35:58.942Z</lastmod>
+    <lastmod>2018-05-08T09:01:35.281Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/natural-language-understanding/</loc>
     
-    <lastmod>2018-05-04T16:21:18.678Z</lastmod>
+    <lastmod>2018-05-08T08:52:51.403Z</lastmod>
     
   </url>
   
@@ -19,13 +40,6 @@
     <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
     
     <lastmod>2018-05-02T15:51:54.504Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
-    
-    <lastmod>2018-05-01T14:17:31.090Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
     
     <lastmod>2018-04-25T15:42:19.296Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
-    
-    <lastmod>2018-04-24T21:32:23.509Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     
     <lastmod>2018-03-26T19:10:31.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-csapp/</loc>
-    
-    <lastmod>2018-03-20T22:42:16.027Z</lastmod>
     
   </url>
   
