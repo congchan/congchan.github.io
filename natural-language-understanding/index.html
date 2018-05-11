@@ -140,7 +140,7 @@
 <meta property="og:image" content="http://yoursite.com/images/Bayesianizing_the_HMM.png">
 <meta property="og:image" content="http://yoursite.com/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="http://yoursite.com/images/Gender_subspace.png">
-<meta property="og:updated_time" content="2018-05-08T08:52:51.403Z">
+<meta property="og:updated_time" content="2018-05-10T17:04:29.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡">
 <meta name="twitter:description" content="自然语言理解（爱丁堡大学）知识点汇总 References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from the Stanford Coursera course Natural Language Processing, by Dan J">
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12,317 字
+                  12,308 字
                 </span>
               
 
@@ -489,7 +489,9 @@
 <a id="more"></a>
 <h2 id="循环神经网络-RNNs"><a href="#循环神经网络-RNNs" class="headerlink" title="循环神经网络 RNNs"></a>循环神经网络 RNNs</h2><p><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. Source: http://colah.github.io"></p>
 <p><img src="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" alt="" title="Source: Nature"></p>
-<p>For a sequence of input data (sequence of words, or speech) and sequence of output problem (many to many):<br>· feed input $x_{t}$ into the RNN: feeding one word (represented as vector) at a time, e.g one word in a sentence from left to right, $x_1$ corresponds to the second word of a sentence.<br>· s(t) is the hidden state at time step t. It is calculated based on the previous hidden state and the input at the current step:<code>s(t) = f(U*x(t) + W*s(t-1))</code>. Function f is the activation.<br>· o(t) is the output at step t. For example, if we wanted to predict the next word in a sentence it would be a vector of probabilities across our vocabulary. <code>o(t) = softmax(V*s(t))</code>.</p>
+<p>For a sequence of input data (sequence of words, or speech) and sequence of output problem (many to many):<br>· feed input $x_{t}$ into the RNN: feeding one word (represented as vector) at a time, e.g one word in a sentence from left to right, $x_1$ corresponds to the second word of a sentence.</p>
+<p>· $s_t$ is the hidden state at time step t. It is calculated based on the previous hidden state and the input at the current step:$s_t = f(Ux_t + Ws_{t-1})$. Function f is the activation.</p>
+<p>· o(t) is the output at step t. For example, if we wanted to predict the next word in a sentence it would be a vector of probabilities across our vocabulary. $o_t = softmax(Vs_t)$.</p>
 <p>RNN shares the same parameters ($U, V, W$ above) across all steps.</p>
 <p>In addition to the above normal many to many structure RNNs, there are other non-sequence input or output: Many to one, e.g. when predicting the sentiment of a sentence we may only care about the final output, not the sentiment after each word. One to many: Music generation.<br><img src="http://karpathy.github.io/assets/rnn/diags.jpeg" alt="" title="source from http://karpathy.github.io/2015/05/21/rnn-effectiveness/"></p>
 <p>除了应用于语言模型, RNNs 还可以应用于<br>· tagging, e.g. part-of-speech tagging, named entity recognition (many to many RNNs)<br>· sentence classification, e.g. sentiment classification (many to one RNNs)<br>· generate text, e.g. speech recognition, machine translation, summarization</p>
@@ -502,7 +504,7 @@
 <p>在使用RNN学习language model的时候，非常容易出现梯度爆炸，解决办法是使用 gradient clipping 梯度裁剪，就是通过把梯度映射到另一个大小的空间，以限制梯度范数的最大值<a href="https://arxiv.org/abs/1211.5063" target="_blank" rel="noopener">On the difficulty of training Recurrent Neural Networks</a>。</p>
 <p>虽然梯度裁剪可以应对梯度爆炸，但无法解决梯度衰减的问题。一个缓解梯度衰减的方案是使用更好的参数初始化方案和激活函数（ReLUs）<a href="https://arxiv.org/abs/1504.00941" target="_blank" rel="noopener">A Simple Way to Initialize Recurrent Networks of Rectified Linear Units</a>.</p>
 <p>不过更主流的解决梯度衰减的方案是使用更复杂的rnn隐含单元: Gated Recurrent Units (GRU) introduced by <a href="https://arxiv.org/abs/1406.1078" target="_blank" rel="noopener">Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation</a> and LSTMs.</p>
-<h3 id="Long-Short-Term-Memory"><a href="#Long-Short-Term-Memory" class="headerlink" title="Long Short-Term Memory"></a>Long Short-Term Memory</h3><p>Outside of the vanilla RNNs work flow, LSTMs use gated <strong>cells</strong> as memory to chose what error to be remembered. The cells take as input the previous state s(t-1) and current input x(t). Thus help to solve the long-term dependencies.</p>
+<h3 id="Long-Short-Term-Memory"><a href="#Long-Short-Term-Memory" class="headerlink" title="Long Short-Term Memory"></a>Long Short-Term Memory</h3><p>Outside of the vanilla RNNs work flow, LSTMs use gated <strong>cells</strong> as memory to chose what error to be remembered. The cells take as input the previous state $s_{t-1}$ and current input $x_t$. Thus help to solve the long-term dependencies.</p>
 <p>Whether the gated cell let information flow through (open) or not (closed) depends on its inner sigmoid activation layer with a pointwise multiplication operation. A sigmoid function values between 0 and 1, it could be used to describe how much information is allowed to through the cell.</p>
 <p>Take a most basic sequence problem as example - predict next word: the cell state might include the gender of the present subject, so that the correct pronouns can be used. When we see a new subject, we want to forget the gender of the old subject.</p>
 <p>LSTM的细胞的直观理解，就是细胞可以完整地保存信息，而新的输入可以诱发细胞对旧信息的遗忘，细胞自行决定记忆哪些新信息。</p>
@@ -541,6 +543,8 @@
 <h2 id="Meaning-representations"><a href="#Meaning-representations" class="headerlink" title="Meaning representations"></a>Meaning representations</h2><p>意思的表达有很多方法。一种有效的表示单词的含义的方法是 distributional semantic.</p>
 <blockquote>
 <p>Semantics (from Ancient Greek: σημαντικός sēmantikos, “significant”) is the linguistic and philosophical study of meaning, in language, programming languages, formal logics, and semiotics.</p>
+</blockquote>
+<blockquote>
 <p>语义学 Semantics 在语言学中的研究目的在于找出语义表达的规律性、内在解释、不同语言在语义表达方面的个性以及共性；与计算机科学相关的语义学研究在于机器对自然语言的理解。</p>
 </blockquote>
 <p>Tradition solution of usable meaning in a computer: Use e.g. WordNet, a resource containing lists of synonym sets and hypernyms.</p>
@@ -552,7 +556,7 @@
 <p>Dense vector representations:<br>2, Singular value decomposition (SVD): A special case of this is called LSA - Latent Semantic Analysis<br>3, Neural­‐network­‐inspired models (skip­‐grams, CBOW)<br>4, Brown clusters</p>
 <p>Prediction-­based models learn embeddings as part of the process of word prediction. Train a neural network to predict neighboring words. The advantages:<br>· Fast, easy to train (much faster than SVD)<br>· Available online in the word2vec package<br>· Including sets of pretrained embeddings</p>
 <h3 id="Word-representation-and-Word2vec"><a href="#Word-representation-and-Word2vec" class="headerlink" title="Word representation and Word2vec"></a>Word representation and Word2vec</h3><p>Word2vec is a framework for learning word vectors representation.<br>Idea:<br>1, We have a large corpus of text<br>2, Every word in a fixed vocabulary is represented by a vector<br>3, Go through each position t in the text, which has a center word c and context (“outside”) words o<br>4, Use the similarity of the word vectors for c and o to calculate the probability of o given c (or vice versa)<br>5, Keep adjusting the word vectors to maximize this probability</p>
-<p>在上面第四点, 如果是给定中心词，计算上下文词, 那么就是 <strong>Skip-grams model</strong>, 比如 Given word w<sub>t</sub>, in a context window of 2C words, predict 4 context words [w<sub>t-2</sub>, w<sub>t-1</sub>, w<sub>t+1</sub>, w<sub>t+2</sub>]<br><img src="/images/word2vec_window.png" alt="" title="Example windows and process for computing P(w&lt;sub&gt;t+j&lt;/sub&gt; | w&lt;sub&gt;t&lt;/sub&gt;), image from: http://web.stanford.edu/class/cs224n"><br>Skip-grams 给予模型跳词能力，比如 “I hit the tennis ball” 有三个trigrams: “I hit the”, “hit the tennis”, “the tennis ball”. 但是，这个句子也同样包含一个同样重要但是N-Gram无法提取的trigram:“hit the ball”. 而使用 skip-grams 允许我们跳过 “tennis” 生成这个trigram.</p>
+<p>在上面第四点, 如果是给定中心词，计算上下文词, 那么就是 <strong>Skip-grams model</strong>, 比如 Given word w<sub>t</sub>, in a context window of 2C words, predict 4 context words [w<sub>t-2</sub>, w<sub>t-1</sub>, w<sub>t+1</sub>, w<sub>t+2</sub>]<br><img src="/images/word2vec_window.png" alt="" title="Example windows and process for computing P(w&lt;sub&gt;t+j&lt;/sub&gt; | w&lt;sub&gt;t&lt;/sub&gt;), image from: http://web.stanford.edu/class/cs224n"><br>Skip-grams 给予模型跳词能力，比如 “I hit the tennis ball” 有三个trigrams: “I hit the”, “hit the tennis”, “the tennis ball”. 但是，这个句子也同样包含一个同样重要但是N-Gram无法提取的trigram:”hit the ball”. 而使用 skip-grams 允许我们跳过 “tennis” 生成这个trigram.</p>
 <p>反之，给定 bag-of-words context, predict target word, 那就是 <strong>Continuous Bag of Words, CBOW model</strong>.</p>
 <p>缺点：因为output size 等于 vocabulary，而 softmax 分母中需要求和每一个词的 output size × hidden units 的内积， 计算会非常昂贵。解决办法是使用负采样 <a href="#negative-sampling">negative sampling</a>。</p>
 <p>Word2vec的本质是遍历语料库的每一个词$w_i$，捕捉$w_i$与其上下文位置目标词的同时出现的概率。</p>
@@ -562,7 +566,7 @@
 <p>The problem is how to calculate $P(w_{t+j} \mid w_t; θ)$:</p>
 <p>每个词由两个向量表示（Easier optimization. Average both at the end）：<br>$v_w$ when w is a center word, $u_w$ when w is a context word.</p>
 <p>Then for a center word c and a “outside” word o:<br><img src="/images/word2vec_conprobability.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"><br>The numerator contains dot product, compares similarity of o and c, larger dot product = larger probability. The denominator works as a normalization over entire vocabulary.</p>
-<h4 id="高频词二次采样-subsampling"><a href="#高频词二次采样-subsampling" class="headerlink" title="高频词二次采样 subsampling"></a>高频词二次采样 subsampling</h4><p>二次采样是指当决定是否选取一个词作为样本时，它被选择的概率反比于它出现的概率，这样不仅可以降低无意义但高频的词(“the”, “a”等)的重要性，也可以加快采样速度。$$P(w_i) = (\sqrt{\frac{z(w_i)}{0.001}} + 1) \cdot \frac{0.001}{z(w_i)}$$ $z(w_i)$ 是词$w_i$在语料库中的占比，如果“peanut”在10亿语料库中出现了1,000次, 那么z(‘peanut’) = 1e-6.<br><img src="/images/sub-sample.png" alt="" title="sub sample of P(wi)"></p>
+<h4 id="高频词二次采样-subsampling"><a href="#高频词二次采样-subsampling" class="headerlink" title="高频词二次采样 subsampling"></a>高频词二次采样 subsampling</h4><p>二次采样是指当决定是否选取一个词作为样本时，它被选择的概率反比于它出现的概率，这样不仅可以降低无意义但高频的词(“the”, “a”等)的重要性，也可以加快采样速度。$$P(w_i) = (\sqrt{\frac{z(w_i)}{0.001}} + 1) \cdot \frac{0.001}{z(w_i)}$$ $z(w_i)$ 是词$w_i$在语料库中的占比，如果”peanut”在10亿语料库中出现了1,000次, 那么z(“peanut”) = 1e-6.<br><img src="/images/sub-sample.png" alt="" title="sub sample of P(wi)"></p>
 <h4 id="Negative-sampling"><a href="#Negative-sampling" class="headerlink" title="Negative sampling"></a>Negative sampling</h4><p>负采样是指每个训练样本仅更新模型权重的一小部分：only the output that represents the positive class(1) + other few randomly selected classes(0) are evaluated.<br><a href="https://arxiv.org/pdf/1310.4546.pdf" target="_blank" rel="noopener">该论文指出</a></p>
 <blockquote>
 <p>负采样5-20个单词适用于较小的数据集，对于大型数据集只需要2-5个单词。</p>
@@ -576,7 +580,7 @@
 <blockquote>
 <p>如英语的dog、dogs和dog-catcher有相当的关系，英语使用者能够利用他们的背景知识来判断此关系，对他们来说，dog和dogs的关系就如同cat和cats，dog和dog-catcher就如同dish和dishwasher</p>
 </blockquote>
-<p>To walk closer to open vocabulary, use compositional representations based on morphemes. Instead of word embedding, embed morphemes - the smallest meaningful unit of language.  Compute representation recursively from morphemes, word embedding 由 morphemes embedding 拼接而来.<img src="/images/Morphological_Recursive_Neural_Network.png" alt="" title="Morphological Recursive Neural Network. A vector representation for the word “unfortunately” is constructed from morphemic vectors: un&lt;sub&gt;pre&lt;/sub&gt;, fortunate&lt;sub&gt;stm&lt;/sub&gt;, ly&lt;sub&gt;suf&lt;/sub&gt;. Dotted nodes are computed on-the-fly and not in the lexicon. image from: http://www.aclweb.org/anthology/W13-3512"></p>
+<p>To walk closer to open vocabulary, use compositional representations based on morphemes. Instead of word embedding, embed morphemes - the smallest meaningful unit of language.  Compute representation recursively from morphemes, word embedding 由 morphemes embedding 拼接而来.<img src="/images/Morphological_Recursive_Neural_Network.png" alt="" title="Morphological Recursive Neural Network. A vector representation for the word &quot;unfortunately&quot; is constructed from morphemic vectors: un&lt;sub&gt;pre&lt;/sub&gt;, fortunate&lt;sub&gt;stm&lt;/sub&gt;, ly&lt;sub&gt;suf&lt;/sub&gt;. Dotted nodes are computed on-the-fly and not in the lexicon. image from: http://www.aclweb.org/anthology/W13-3512"></p>
 <p>与基础版的morphoRNN结构相同，Context-insensitive Morphological RNN model (cimRNN) 考察 morphoRNN 在不参考任何上下文信息情况下， 仅仅用 morphemic representation 构造词向量的能力。训练时，给每个词xi定义损失函数s(xi)为新构造的词向量p<sub>c</sub>(xi)和参考词向量p<sub>r</sub>(xi)之间的欧几里得距离平方<br><img src="/images/cimRNN_cost.png" alt=""></p>
 <p>该cimRNN模型没有机会改进可能被估计不足的罕见词的表达.</p>
 <p>Context-sensitive Morphological RNN (csmRNN) 在学习语素组成时同时参考语境信息，在训练过程中，神经网络顶层的更新将一直反向传播直至底层的语素层。<br><img src="/images/Context_sensitive_morphological_RNN.png" alt="" title="Context-sensitive morphological RNN has two layers: (a) the morphological RNN, which constructs representations for words from their morphemes and (b) the word-based neural language which optimizes scores for relevant ngrams. image from: http://www.aclweb.org/anthology/W13-3512"></p>
@@ -599,25 +603,25 @@
 <tbody>
 <tr>
 <td>Fusional (English)</td>
-<td>‘reads’</td>
+<td>“reads”</td>
 <td>read-s</td>
 <td>read-3SG.SG</td>
 </tr>
 <tr>
 <td>Agglutinative (Turkish)</td>
-<td>‘If I read …’</td>
+<td>“If I read …”</td>
 <td>oku-r-sa-m</td>
 <td>read-AOR.COND.1SG</td>
 </tr>
 <tr>
 <td>Root&amp;Pattern (Arabic)</td>
-<td>‘he wrote’</td>
+<td>“he wrote”</td>
 <td>k(a)t(a)b(a)</td>
 <td>write-PST.3SG.M</td>
 </tr>
 <tr>
 <td>Reduplication (Indonesian)</td>
-<td>‘children’</td>
+<td>“children”</td>
 <td>anak~anak</td>
 <td>child-PL</td>
 </tr>
@@ -676,11 +680,13 @@
 <h2 id="Recurrent-neural-network-grammars-RNNGs"><a href="#Recurrent-neural-network-grammars-RNNGs" class="headerlink" title="Recurrent neural network grammars (RNNGs)"></a>Recurrent neural network grammars (RNNGs)</h2><p>Widespread phenomenon: <strong>Polarity items</strong> can only appear in certain contexts, e.g. “anybody”.</p>
 <blockquote>
 <p>In linguistics, a <strong>polarity item</strong> is a lexical item that can appear only in environments associated with a particular grammatical polarity – affirmative or negative. A polarity item that appears in affirmative (positive) contexts is called a positive polarity item (PPI), and one that appears in negative contexts is a negative polarity item (NPI).</p>
+</blockquote>
+<blockquote>
 <p>The environment in which a polarity item is permitted to appear is called a “<strong>licensing context</strong>“.</p>
 </blockquote>
 <p>The lecture that I gave did not appeal to anybody;<br><del>The lecture that I gave appealed to anybody.</del></p>
-<p>也许“anybody”出现的条件是前面出现过“not”，那么应该可以使用 RNNs 模型来解码这点信息。然而:<br><del>The lecture that I did not give appealed to anybody.</del></p>
-<p>这说明 Language is hierarchical: The <strong>licensing context</strong> depends on recursive structure (syntax)。不能简单根据“not”是否出现来判断，而是需要看“not”修饰的成分，也就是说要考虑语法的合理。这就给文本生成任务（或者说构建语言模型）带来挑战。</p>
+<p>也许”anybody”出现的条件是前面出现过”not”，那么应该可以使用 RNNs 模型来解码这点信息。然而:<br><del>The lecture that I did not give appealed to anybody.</del></p>
+<p>这说明 Language is hierarchical: The <strong>licensing context</strong> depends on recursive structure (syntax)。不能简单根据”not”是否出现来判断，而是需要看”not”修饰的成分，也就是说要考虑语法的合理。这就给文本生成任务（或者说构建语言模型）带来挑战。</p>
 <p><a href="https://arxiv.org/pdf/1602.07776.pdf" target="_blank" rel="noopener">Recurrent neural network grammars (Dyer et al. 2016)</a>提出了一种具有明确短语结构的语言模型 RNNGs。</p>
 <blockquote>
 <p> RNNGs operate via a recursive syntactic process reminiscent of probabilistic context-free grammar generation, but decisions are parameterized using RNNs that condition on the entire syntactic derivation history, greatly relaxing context-free independence assumptions.</p>
@@ -731,7 +737,7 @@
 <p>The model predicts the next action (NT() GEN() or REDUCE in generative mode, NT() SHIFT or REDUCE in discriminative mode). The set of actions completely determines the string and tree structure, so we can get their joint probability by multiplying over the probabilities of all actions.</p>
 <p>In discriminative mode, the input is a string of words, and the model cannot generate words, but instead “consumes” the words in the input buffer. The model can be used as a parser (find the maximum prob. tree, i.e., $argmax_yP(y \mid x)$).</p>
 <p>In generative mode, there is a respective GEN() action for every word, so the word is predicted with the action. To be a language model (find the maximum prob. sentence/assign probabilities to a sentence, i.e., $p(x)$), we must marginalize over trees to get the probability of the sentence. This is intractable so is approximated with importance sampling by sampling from a discriminatively trained model.</p>
-<h3 id="importance-sampling"><a href="#importance-sampling" class="headerlink" title="importance sampling"></a>importance sampling</h3><p>Assume we’ve got a conditional distribution $q(y | x)$<br>s.t. (i) $p(x, y) &gt; 0 \Rightarrow q(y | x) &gt; 0$<br>(ii) $y \sim q(y | x)$ is tractable and<br>(iii) $q(y | x)$ is tractable</p>
+<h3 id="importance-sampling"><a href="#importance-sampling" class="headerlink" title="importance sampling"></a>importance sampling</h3><p>Assume we”ve got a conditional distribution $q(y | x)$<br>s.t. (i) $p(x, y) &gt; 0 \Rightarrow q(y | x) &gt; 0$<br>(ii) $y \sim q(y | x)$ is tractable and<br>(iii) $q(y | x)$ is tractable</p>
 <p>The importance weights $w(x,y) = \frac{p(x, y)}{q(y | x)}$</p>
 <p><img src="/images/Importance_Sampling.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l08.pdf"></p>
 <h3 id="从句子到语法树的seq2seq模型"><a href="#从句子到语法树的seq2seq模型" class="headerlink" title="从句子到语法树的seq2seq模型"></a>从句子到语法树的seq2seq模型</h3><p>其实从句子到语法的映射类似于一个seq2seq模型。而直接的把语法树以字符序列的形式表达，使用简单的 RNNs 直接构建句子到语法序列的 seq2seq 模型效果也不错，比如：<br>input:     The hungry cat meows .<br>output:    S( NP( _ _ _ ) VP( _ ) _ )<br>Vanilla RNNs 在模式匹配和计数方面非常出色，经验证明，训练有素的 seq2seq 模型通常会输出格式良好的字符串，见<a href="https://arxiv.org/abs/1412.7449" target="_blank" rel="noopener">这篇文章 section 3.2</a></p>
@@ -748,6 +754,8 @@
 <p>虽然语言是无穷无尽的，句子是无限的集合，而人脑的能力却是有限的，但人们总能够理解一个句子的含义（假如人们熟知表达句子的语言）. 因此, 对于 semantics, 语义肯定是有限的集合, 这样才能确定句子的确切意义.</p>
 <blockquote>
 <p>In generative grammar, a central principle of formal semantics is that the relation between syntax and semantics is <strong>compositional</strong>.</p>
+</blockquote>
+<blockquote>
 <p>The principle of compositionality (Fregean Principle): The meaning of a complex expression is determined by the meanings of its parts and the way they are syntactically combined.</p>
 </blockquote>
 <p>Semantic role labeling means identifying the arguments (<strong>frame elements</strong>) that participate in a prototypical situation (frame) and labeling them with their roles;</p>
@@ -763,7 +771,11 @@
 <h3 id="Frame-Semantics"><a href="#Frame-Semantics" class="headerlink" title="Frame Semantics"></a>Frame Semantics</h3><p>表达词义，除了 Firth, J.R. (1957) 的 “a word is characterized by the company it keeps”（也即是 Distributional semantics）之外, 还有 Charles J. Fillmore 的 Frame Semantics.</p>
 <blockquote>
 <p>The basic idea is that one cannot understand the meaning of a single word without access to all the essential knowledge that relates to that word.</p>
+</blockquote>
+<blockquote>
 <p>A semantic frame is a collection of facts that specify “characteristic features, attributes, and functions of a denotatum, and its characteristic interactions with things necessarily or typically associated with it.”</p>
+</blockquote>
+<blockquote>
 <p>A semantic frame can also be defined as a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt.</p>
 </blockquote>
 <h3 id="Proposition-Bank"><a href="#Proposition-Bank" class="headerlink" title="Proposition Bank"></a>Proposition Bank</h3><p>完整的句子表达了命题 propositions, 也即一个主张. 比如”John smokes”这个句子的命题如果是真的,那么”John”在这里一定是某个”smokes”的人, 也就是必须是<code>NP</code>.</p>
@@ -776,12 +788,12 @@
 <p>Output: semantic role label for the predicate/argument pair using IOB tags (inside, outside, beginning).<br><img src="/images/end_to_end_SRL.png" alt="" title="End to end SRL model. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l09.pdf"></p>
 <p>Training:<br>• Word embeddings are used as input, not raw words;<br>• the embeddings for arguments, predicate, and ctx-p, as well as m<sub>r</sub> are <strong>concatenated</strong> and used as input for the Bi-LSTM;<br>• the output is passed through a conditional random field (CRF); allows to model dependencies between output labels;<br>• Viterbi decoding is used to compute the best output sequence</p>
 <p>Model learns “syntax”(Maybe): it associates argument and predicate words using the forget gate:</p>
-<h2 id="Semantic-Parsing"><a href="#Semantic-Parsing" class="headerlink" title="Semantic Parsing"></a>Semantic Parsing</h2><p>Semantic Parsing 指语义分析，把文本解析为任意的逻辑形式(一种 meaning representation)，比如 first-order logic(FOL).<br><code>Sam likes Casey</code> - <code>likes(Sam, Casey)</code>;<br><code>Anna’s dog Mr. PeanutButter misses her</code> - <code>misses(MrPB, Anna) ∧ dog(MrPB)</code>;<br><code>Kim likes everyone</code> - <code>∀x.likes(x, Kim)</code>.<br>Predicate-argument structure is a good match for FOL, as well as structures with argument-like elements (e.g. NPs).<br>Determiners, quantifiers (e.g. “everyone”, “anyone”), and negation can be expressed in FOL.</p>
+<h2 id="Semantic-Parsing"><a href="#Semantic-Parsing" class="headerlink" title="Semantic Parsing"></a>Semantic Parsing</h2><p>Semantic Parsing 指语义分析，把文本解析为任意的逻辑形式(一种 meaning representation)，比如 first-order logic(FOL).<br><code>Sam likes Casey</code> - <code>likes(Sam, Casey)</code>;<br><code>Anna&#39;s dog Mr. PeanutButter misses her</code> - <code>misses(MrPB, Anna) ∧ dog(MrPB)</code>;<br><code>Kim likes everyone</code> - <code>∀x.likes(x, Kim)</code>.<br>Predicate-argument structure is a good match for FOL, as well as structures with argument-like elements (e.g. NPs).<br>Determiners, quantifiers (e.g. “everyone”, “anyone”), and negation can be expressed in FOL.</p>
 <p>However, much of natural language is unverifiable, ambiguous, non-canonical. That makes it hard to represent the wide-coverage meaning of arbitrary NL. Closed domains are easier, and can sometimes be harvested automatically, e.g. GEOQUERY dataset.</p>
 <p>This leads to a proliferation of domain-specific MRs.<br>· Pairs of NL sentences with structured MR can be collected, e.g. IFTTT dataset (Quirk et al. 2015).<br>· WikiTableQuestions<br>· Google’s knowledge graph</p>
 <p>Viewing MR as a string, semantic parsing is just conditional language modeling. Trainable alternative to compositional approaches: encoder-decoder neural models. The encoder and decoder can be mixed and matched: RNN, top-down tree RNN.<br><img src="/images/meaning_representation_model.png" alt="" title="Meaning representation model using standard sequence models. Since logical forms are treelike, can use treeLSTM decoder. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l10.pdf"></p>
 <p>Works well on small, closed domains if we have training data, but there are many unsolved phenomena/ problems in semantics.</p>
-<h3 id="Abstract-meaning-representation-AMR"><a href="#Abstract-meaning-representation-AMR" class="headerlink" title="Abstract meaning representation (AMR)"></a>Abstract meaning representation (AMR)</h3><p>• The edges (ARG0 and ARG1) are <label style="color:#C62828">relations</label><br>• Each node in the graph has a <label style="color:#BA68C8">variable</label><br>• They are labeled with <label style="color:#1565C0">concepts</label><br>• <label style="color:#BA68C8">d</label> / <label style="color:#1565C0">dog</label> means “<label style="color:#BA68C8">d</label> is an instance of <label style="color:#1565C0">dog</label>”<br><code>The dog is eating a bone</code><br>(<label style="color:#BA68C8">e</label> / <label style="color:#1565C0">eat-01</label><br>&nbsp;&nbsp;&nbsp;&nbsp;:<label style="color:#C62828">ARG0</label> (<label style="color:#BA68C8">d</label> / <label style="color:#1565C0">dog</label>)<br>&nbsp;&nbsp;&nbsp;&nbsp;:<label style="color:#C62828">ARG1</label> (<label style="color:#BA68C8">b</label> / <label style="color:#1565C0">bone</label>))</p>
+<h3 id="Abstract-meaning-representation-AMR"><a href="#Abstract-meaning-representation-AMR" class="headerlink" title="Abstract meaning representation (AMR)"></a>Abstract meaning representation (AMR)</h3><p>• The edges (ARG0 and ARG1) are <label style="color:#C62828">relations</label><br>• Each node in the graph has a <label style="color:#BA68C8">variable</label><br>• They are labeled with <label style="color:#1565C0">concepts</label><br>• <label style="color:#BA68C8">d</label> / <label style="color:#1565C0">dog</label> means “<label style="color:#BA68C8">d</label> is an instance of <label style="color:#1565C0">dog</label>“<br><code>The dog is eating a bone</code><br>(<label style="color:#BA68C8">e</label> / <label style="color:#1565C0">eat-01</label><br>&nbsp;&nbsp;&nbsp;&nbsp;:<label style="color:#C62828">ARG0</label> (<label style="color:#BA68C8">d</label> / <label style="color:#1565C0">dog</label>)<br>&nbsp;&nbsp;&nbsp;&nbsp;:<label style="color:#C62828">ARG1</label> (<label style="color:#BA68C8">b</label> / <label style="color:#1565C0">bone</label>))</p>
 <p><code>The dog wants to eat the bone</code><br>(want-01<br>&nbsp;&nbsp;&nbsp;&nbsp;:ARG0 (d / dog)<br>&nbsp;&nbsp;&nbsp;&nbsp;:ARG1 (e / eat-01<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:ARG0 d<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:ARG1 (b / bone)))</p>
 <p><strong>Coreference</strong><br>Charles just graduated, and now Bob wants Anna to give <strong>him</strong> a job.<br>Q: who does <strong>him</strong> refer to?</p>
 <p><strong>Metonymy</strong><br><strong>Westminster</strong> decided to distribute funds throughout England, Wales, Northern Island, and Scotland<br>decided(Parliament, …)</p>
@@ -807,7 +819,7 @@
 <p>$w_i | t_i = t ∼ Multinomial(ω^{(t)})$</p>
 <p>So as tag, given that $t_{i−1} = t$, the value of $t_i$ is drawn from a multinomial distribution with parameters $τ^{(t)}$.</p>
 <p>How to estimate ω and τ without supervision. This is still maximum likelihood estimation, but notice that it’s more difficult because the tags y are unobserved, so you must marginalize them out.</p>
-<p>For <strong>estimation</strong> (i.e., training the model, determining its parameters), we need a procedure to set θ based on data. Rely on Bayes Rule:<br>\begin{equation}\begin{split}<br>    P(θ|w)&amp;=\frac{P(w|θ)P(θ)}{P(w)}\\\\<br>    &amp;∝P(w|θ)P(θ)\\\\<br>\end{split}\end{equation}<br>Choose the θ that maximize the likelihood $P(w|θ)$. Basically, we ignore the prior. In most cases, this is equivalent to assuming a uniform prior.</p>
+<p>For <strong>estimation</strong> (i.e., training the model, determining its parameters), we need a procedure to set θ based on data. Rely on Bayes Rule:<br>\begin{equation}\begin{split}<br>    P(θ|w)&amp;=\frac{P(w|θ)P(θ)}{P(w)}\\<br>    &amp;∝P(w|θ)P(θ)\\<br>\end{split}\end{equation}<br>Choose the θ that maximize the likelihood $P(w|θ)$. Basically, we ignore the prior. In most cases, this is equivalent to assuming a uniform prior.</p>
 <p>To do this, you can use <strong>expectation maximization</strong> (EM), a variant of MLE that can cope with unobserved data, which was also covered in <a href="">ANLP</a>. For examples, forward-backward algorithm for HMMs, inside-outside algorithm for PCFGs, k-means clustering.</p>
 <p>For <strong>inference</strong> (i.e., decoding, applying the model at test time), we need to know θ and then we can compute $P(t, w)$:<br><img src="/images/Inference_for_HMMs.png" alt="" title="Inference for HMMs. image from: http://www.inf.ed.ac.uk/teaching/courses/nlu/assets/slides/2018/l11.pdf"></p>
 <p>E-step: use current estimate of θ to compute expected counts of hidden events ($n(t,t^{\prime})$, $n(t,w)$).<br>M-step: recompute θ using expected counts.</p>
@@ -831,7 +843,7 @@
 <p>总结：<br>· Bayesian HMM improves performance by averaging out uncertainty;<br>· allows us to use priors that favor sparse solutions as they occur in language data.<br>· Using a tag dictionary is also really helpful. We still have no labeled training data, but if we only allow each word to be tagged with one of the labels that appears in the dictionary, then most word-tag pairs will have probability zero. So this is a very different way of supplying information to the unsupervised model that is very effective.</p>
 <h2 id="Bias-in-NLP"><a href="#Bias-in-NLP" class="headerlink" title="Bias in NLP"></a>Bias in NLP</h2><h3 id="The-social-impact-of-NLP"><a href="#The-social-impact-of-NLP" class="headerlink" title="The social impact of NLP"></a>The social impact of NLP</h3><p>Outcome of an NLP experiment can have a direct effect on people’s lives, e.g.</p>
 <ol>
-<li><a href="https://www.youtube.com/watch?v=p8phGxzUC_Y" target="_blank" rel="noopener">频繁出现亚马逊 Alexa 突然发出诡异笑声，给多名用户造成困惑和恐慌</a>, 因为人们谈话中偶然包含 trigger 词：“Alexa, laugh” 而发出 - 亚马逊的<a href="https://www.nytimes.com/2018/03/08/business/alexa-laugh-amazon-echo.html" target="_blank" rel="noopener">解决方案是把 trigger 改为更难触发的 “Alexa, can you laugh”</a></li>
+<li><a href="https://www.youtube.com/watch?v=p8phGxzUC_Y" target="_blank" rel="noopener">频繁出现亚马逊 Alexa 突然发出诡异笑声，给多名用户造成困惑和恐慌</a>, 因为人们谈话中偶然包含 trigger 词：”Alexa, laugh” 而发出 - 亚马逊的<a href="https://www.nytimes.com/2018/03/08/business/alexa-laugh-amazon-echo.html" target="_blank" rel="noopener">解决方案是把 trigger 改为更难触发的 “Alexa, can you laugh”</a></li>
 <li>Chatbot 对于人们敏感问题的不恰当回答, 比如 “Should I kill myself?” - “Yes.”，这些回答对患有心理障碍的人群或者青少年儿童带来非常大的危害。</li>
 <li><a href="https://www.theverge.com/2016/3/24/11297050/tay-microsoft-chatbot-racist" target="_blank" rel="noopener">Microsoft 的 AI chatbot 上线仅一天, 就通过 twitter 和人交谈并学会涉及种族, 性别歧视等的话语</a>, 典型的 “garbage in, garbage out” 现象.</li>
 <li>其他涉及数据隐私等问题</li>
@@ -844,12 +856,12 @@
 <p>Measure bias using implicit association tests:<br>1, Compute similarity of group1 and stereotype1 word embeddings. Cosine similarity is use to measure association (in place of reaction time).<br>2, Compute similarity of group1 and stereotype 2 word embeddings.<br>3, Null hypothesis: if group1 is not more strongly associated to one of the stereotypes, there will be no difference in the means.<br>4, Effect size measured using Cohen’s d.<br>5, Repeat for group 2.</p>
 <p>Experiments<br>• Uses GloVe trained on Common Crawl—a large-scale crawl of the web.<br>• Removed low frequency names.<br>• Removed names that were least “name-like” (e.g. Will) algorithmically.<br>• Each concept is represented using a small set of words, designed for previous experiments in the psychology literature.</p>
 <p>Result:<br>· flowers associate with pleasant, insects associate with unpleasant. $p &lt; 10^{−7}$<br>· Men’s names associate with career, women’s names associate with family. $p &lt; 10^{−3}$<br>· European American names associate with pleasant, African American names associate with unpleasant. $p &lt; 10^{−8}$</p>
-<p>这些结果的确真实地反映人类社会的现状。但大部分性别方面的偏见其实是反映了目前的社会分工，无所谓高低贵贱；人种的偏见倒是反映了历史问题对现在的影响，这种偏见是不符合道德的。人对于其他生物的偏见，虽然是没必要的，但人类的确倾向于喜爱行为“可爱”，外形“美好”的生物，比如大熊猫就是比鳄鱼受欢迎。</p>
+<p>这些结果的确真实地反映人类社会的现状。但大部分性别方面的偏见其实是反映了目前的社会分工，无所谓高低贵贱；人种的偏见倒是反映了历史问题对现在的影响，这种偏见是不符合道德的。人对于其他生物的偏见，虽然是没必要的，但人类的确倾向于喜爱行为”可爱”，外形”美好”的生物，比如大熊猫就是比鳄鱼受欢迎。</p>
 <p>偏见的存在不一定合理。哪些偏见是不合理的，才是人们更应该去思考和讨论的地方。</p>
 <h3 id="Debiasing-word-embeddings"><a href="#Debiasing-word-embeddings" class="headerlink" title="Debiasing word embeddings"></a>Debiasing word embeddings</h3><p><a href="https://arxiv.org/abs/1607.06520" target="_blank" rel="noopener">Bolukbasi. et. al., 2016. Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings</a>提供了一个思路:</p>
 <ol>
 <li>确认偏见的方向</li>
-<li>中和抵消偏见: 对于非定性的词（如“医生”），通过投射来消除偏见</li>
+<li>中和抵消偏见: 对于非定性的词（如”医生”），通过投射来消除偏见</li>
 <li>等价：让<code>father - mother</code>和<code>boy - girl</code>等距，让定性词间的距离只有性别的距离；或者让<code>doctor - woman</code>和<code>doctor - man</code>等距，消除非定性词的性别偏见。</li>
 </ol>
 <p>什么词需要抵消偏见: 训练一个线性分类器来确定词是非定性还是非定性的, 结果当然是大部分英语词都是非定性的.</p>
