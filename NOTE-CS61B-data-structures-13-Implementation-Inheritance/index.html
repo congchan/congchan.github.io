@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Implementation Inheritance实现继承是subclass从superclass继承实现的关系。 default method 缺省方法（从 Java 8开始）除了signature之外，Java也允许subclass继承implementation。我们可以在List中列出已实现的method。这些方法是 default method，定义了List hypernyms的一些">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T22:09:04.447Z">
+<meta property="og:updated_time" content="2018-05-11T21:32:07.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley">
 <meta name="twitter:description" content="Implementation Inheritance实现继承是subclass从superclass继承实现的关系。 default method 缺省方法（从 Java 8开始）除了signature之外，Java也允许subclass继承implementation。我们可以在List中列出已实现的method。这些方法是 default method，定义了List hypernyms的一些">
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  827 字
+                  829 字
                 </span>
               
 
@@ -458,9 +458,13 @@
 <li>人会犯错。我们有可能忘了自己曾经重写过一个方法。</li>
 <li>如果两个接口给出冲突的 default method，则可能很难解决冲突。</li>
 <li>无形中鼓励代码复杂化。</li>
+<li>Breaks encapsulation!</li>
 </ul>
 <p>最后，注意从属和拥有的区别：subclass 和 superclass 是上下级从属分类，而不是拥有与被拥有的关系，不要跟 nested class 混淆。</p>
-<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="noopener">Oracle</a>：<br>Interface Methods<br>Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict. These rules are driven by the following two principles:</p>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="noopener">Oracle</a>：</p>
+<blockquote>
+<p>Interface Methods: Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict. These rules are driven by the following two principles:</p>
+</blockquote>
 
       
     </div>
