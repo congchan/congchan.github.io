@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/sapm/</loc>
-    <lastmod>2018-05-19T14:30:28.148Z</lastmod>
+    <lastmod>2018-05-22T22:03:05.926Z</lastmod>
     <data>
         <display>
         <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
@@ -15,6 +15,27 @@
          
         <tag>软件架构</tag>
          
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/software-testing/</loc>
+    <lastmod>2018-05-21T09:18:47.809Z</lastmod>
+    <data>
+        <display>
+        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
+        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
+        
          
            
              
@@ -126,27 +147,6 @@
           
              
               <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/software-testing/</loc>
-    <lastmod>2018-05-10T16:39:15.633Z</lastmod>
-    <data>
-        <display>
-        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
           
         </display>
     </data>
