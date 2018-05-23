@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://yoursite.com</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/sapm/</loc>
+        <lastmod>2018-05-23T10:58:47.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/software-testing/</loc>
+        <lastmod>2018-05-21T09:18:47.809Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/natural-language-understanding/</loc>
+        <lastmod>2018-05-16T15:15:36.330Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/ppls/</loc>
+        <lastmod>2018-05-16T07:40:38.953Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/csapp/</loc>
+        <lastmod>2018-05-12T22:49:06.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
+        <lastmod>2018-05-11T21:32:07.871Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/python-digest/</loc>
+        <lastmod>2018-05-08T10:23:59.212Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/</loc>
+        <lastmod>2018-05-08T09:46:10.243Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
+        <lastmod>2018-05-08T09:03:09.223Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+        <lastmod>2018-05-08T09:03:03.117Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
+        <lastmod>2018-05-02T15:51:54.504Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
+        <lastmod>2018-04-25T15:44:47.940Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
+        <lastmod>2018-04-25T15:42:19.296Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
+        <lastmod>2018-04-23T13:44:33.590Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
+        <lastmod>2018-03-26T19:10:31.801Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
+        <lastmod>2018-03-20T22:41:39.442Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
+        <lastmod>2018-03-20T22:41:16.607Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
+        <lastmod>2018-03-20T22:40:26.645Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
+        <lastmod>2018-03-20T22:40:13.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+        <lastmod>2018-03-20T22:40:02.862Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
+        <lastmod>2018-03-20T22:39:47.241Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+        <lastmod>2018-03-20T22:39:28.654Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/</loc>
+        <lastmod>2018-03-20T22:38:53.768Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
+        <lastmod>2018-03-20T22:11:31.780Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
+        <lastmod>2018-02-27T18:00:48.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/cs/</loc>
+        <lastmod>2018-01-28T17:32:57.440Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/ai/</loc>
+        <lastmod>2018-01-21T12:12:05.894Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
+        <lastmod>2018-01-06T22:45:03.611Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
