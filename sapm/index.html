@@ -129,7 +129,7 @@
 <meta property="og:image" content="http://yoursite.com/images/GPES_customers.png">
 <meta property="og:image" content="http://yoursite.com/images/GPES_structure.png">
 <meta property="og:image" content="http://yoursite.com/images/GPES_extract_develop_process.png">
-<meta property="og:updated_time" content="2018-05-23T19:44:23.889Z">
+<meta property="og:updated_time" content="2018-05-23T22:58:37.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学">
 <meta name="twitter:description" content="Reference:microsoftIBMSoftware Architecture in Practice (3rd edition), Bass, Clements, and Kazman">
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  9,754 字
+                  9,755 字
                 </span>
               
 
@@ -509,7 +509,7 @@
 </li>
 <li><strong>Design</strong> - Patterns, Styles, Domain Specific Architecture (DSSA)<ul>
 <li>A DSSA is collection of (pre-decided) design decisions that:<ul>
-<li>Capture important aspects of par’cular tasks (domain),</li>
+<li>Capture important aspects of particular tasks (domain),</li>
 <li>Common across a range of systems in the domain</li>
 <li>Typically they will have some predefined structures</li>
 <li>These are not general purpose because they incorporate many specific characteristics of the domain.</li>
@@ -517,7 +517,7 @@
 </li>
 <li>Architectural pattern is a set of architectural design decisions that are applicable to a recurring design problem, and parameterized to account for different software development contexts in which that problem appears.<ul>
 <li>Similar to DSSAs but capture less of the behaviour and attributes of the system</li>
-<li>More general because they are intended to abstract a common paMern over several domains.</li>
+<li>More general because they are intended to abstract a common pattern over several domains.</li>
 <li>Three-Tiered Pattern: State(database)-Logic(Business)-Display(UI)</li>
 <li>Model-View-Controller (MVC): to separate between information, presentation and user interaction.</li>
 <li>Sense-Compute-Control: Structuring embedded control applications</li>
@@ -572,7 +572,7 @@
 <li>Identifying resources to be managed</li>
 <li>What system element should manage a resource</li>
 <li>资源共享策略和争端仲裁 Work out sharing strategies and how to arbitrate in contention situations</li>
-<li>Consider the consequences of resource saturation(e.g. Memory).</li>
+<li>Consider the consequences of resource starvation(e.g. Memory).</li>
 </ul>
 </li>
 <li>Mapping among architectural elements<ul>
@@ -609,7 +609,7 @@
 <p>Generic Scenario<br><img src="/images/general_scenario_for_availability.png" alt="" title="A general scenario for availability. image from: Software Architecture in Practice (3rd edition), Bass, Clements, and Kazman"></p>
 <p><img src="/images/Availability_tactics.png" alt="" title="Availability tactics. image from: Software Architecture in Practice (3rd edition), Bass, Clements, and Kazman"></p>
 <h3 id="Design-Checklist-for-Availability"><a href="#Design-Checklist-for-Availability" class="headerlink" title="Design Checklist for Availability"></a>Design Checklist for Availability</h3><p><strong>Allocation of Responsibilities</strong><br>■ Determine the system responsibilities that need to be highly available.<br>■ Within those responsibilities, ensure that additional responsibilities have been allocated to detect an omission, crash, incorrect timing, or incorrect response.<br>■ Additionally, ensure that there are responsibilities to do the following:<br>• Log the fault<br>• Notify appropriate entities (people or systems)<br>• Disable the source of events causing the fault<br>• Be temporarily unavailable<br>• Fix or mask the fault/failure<br>• Operate in a degraded mode</p>
-<p><strong>Coordination Model</strong><br>Determine the system responsibilities that need to be highly available. With respect to those responsibilities, do the following:<br>■ Ensure that coordination mechanisms can detect an omission, crash, incorrect timing, or incorrect response. For example, whether guaranteed delivery is necessary. Will the coordination work under conditions of degraded communication?<br>■ Ensure that coordination mechanisms enable the logging of the fault, notifcation of appropriate entities, disabling of the source of the events causing the fault, fxing or masking the fault, or operating in a <strong>degraded mode</strong>.<br>■ Ensure that the coordination model supports the replacement of the artifacts used (processors, communications channels, persistent storage, and processes). For example, does replacement of a server allow the system to continue to operate?<br>■ Determine if the coordination will work under conditions of degraded communication, at startup/shutdown, in repair mode, or under overloaded operation. For example, how much lost information can the coordination model withstand and with what consequences?</p>
+<p><strong>Coordination Model</strong><br>Determine the system responsibilities that need to be highly available. With respect to those responsibilities, do the following:<br>■ Ensure that coordination mechanisms can detect an omission, crash, incorrect timing, or incorrect response. For example, whether guaranteed delivery is necessary. Will the coordination work under conditions of degraded communication?<br>■ Ensure that coordination mechanisms enable the logging of the fault, notification of appropriate entities, disabling of the source of the events causing the fault, fxing or masking the fault, or operating in a <strong>degraded mode</strong>.<br>■ Ensure that the coordination model supports the replacement of the artifacts used (processors, communications channels, persistent storage, and processes). For example, does replacement of a server allow the system to continue to operate?<br>■ Determine if the coordination will work under conditions of degraded communication, at startup/shutdown, in repair mode, or under overloaded operation. For example, how much lost information can the coordination model withstand and with what consequences?</p>
 <p><strong>Data Model</strong><br>■ Determine which portions of the system need to be highly available.<br>■ Within those portions, determine which data abstractions, along with their operations or their properties, could cause a fault of omission, a crash, incorrect timing behavior, or an incorrect response.<br>■ For those data abstractions, operations, and properties, ensure that they can be disabled, be temporarily unavailable, or be fxed or masked in the event of a fault.<br>■ For example, ensure that write requests are cached if a server is temporarily unavailable and performed when the server is returned to service.</p>
 <p><strong>Mapping among Architectural Elements</strong><br>■ Determine which artifacts (processors, communication channels, persistent storage, or processes) may produce a fault.<br>■ Ensure that the mapping (or remapping) of architectural elements is ﬂexible enough to permit the recovery from the fault. This may involve a consideration of the following:<br>• Which processes on failed processors need to be reassigned at runtime<br>• Which processors, data stores, or communication channels can be activated or reassigned at runtime<br>• How data on failed processors or storage can be served by replacement units<br>• How quickly the system can be reinstalled based on the units of delivery provided<br>• How to (re)assign runtime elements to processors, communication channels, and data stores<br>• When employing tactics that depend on redundancy of functionality, the mapping from modules to redundant components is important. For example, it is possible to write one module that contains code appropriate for both the active  component and backup components in a protection group.</p>
 <p><strong>Resource Management</strong><br>■ Determine what critical resources are necessary to continue operating in the presence of a fault.<br>■ Ensure there are suffcient remaining resources in the event of a fault to log the fault; notify appropriate entities (people or systems); disable the source of events causing the fault; be temporarily unavailable; fx or mask the fault/failure; operate normally, in startup, shutdown, repair mode, degraded operation, and overloaded operation.<br>■ Determine the <strong>availability time</strong> for critical resources, what critical resources must be available during specifed time intervals, time intervals during which the critical resources may be in a degraded mode, and repair time for critical resources. Ensure that the critical resources are available during these time intervals.<br>■ For example, ensure that input queues are large enough to buffer anticipated messages if a server fails so that the messages are not permanently lost.</p>
@@ -632,7 +632,7 @@
 </ol>
 <p>其他用于支撑 CIA 的特征:</p>
 <ol start="4">
-<li>认证 Authentication verifes the identities of the parties to a transaction and checks if they are truly who they claim to be.</li>
+<li>认证识别 Authentication verifes the identities of the parties to a transaction and checks if they are truly who they claim to be.</li>
 <li>不可否认性 Nonrepudiation guarantees that the sender of a message cannot later deny having sent the message, and that the recipient cannot deny having received the message.</li>
 <li>授权 Authorization grants a user the privileges to perform a task.</li>
 </ol>
