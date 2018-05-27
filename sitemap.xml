@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
+    
+    <lastmod>2018-05-27T15:52:22.984Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
+    
+    <lastmod>2018-05-27T15:52:01.668Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
+    
+    <lastmod>2018-05-27T15:51:07.598Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
+    
+    <lastmod>2018-05-27T15:50:48.650Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/cs/</loc>
     
     <lastmod>2018-05-27T15:08:15.445Z</lastmod>
@@ -72,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
-    
-    <lastmod>2018-05-26T21:59:27.633Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/csapp/</loc>
     
     <lastmod>2018-05-12T22:49:06.478Z</lastmod>
@@ -142,13 +163,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
-    
-    <lastmod>2018-03-20T22:41:16.607Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
     
     <lastmod>2018-03-20T22:40:26.645Z</lastmod>
@@ -187,20 +201,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/</loc>
     
     <lastmod>2018-03-20T22:38:53.768Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
-    
-    <lastmod>2018-03-20T22:11:31.780Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
-    
-    <lastmod>2018-02-27T18:00:48.799Z</lastmod>
     
   </url>
   
