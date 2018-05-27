@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Java基本语法12345public class HelloWorld &amp;#123;    public static void main(String[] args) &amp;#123;        System.out.println(&quot;Hello world!&quot;);    &amp;#125;&amp;#125; 上面的程序由一个类声明组成，该声明使用关键字public class声明。  Java所有的代码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-20T22:41:39.442Z">
+<meta property="og:updated_time" content="2018-05-26T21:59:27.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 02 语法基础 - CS61B Berkeley">
 <meta name="twitter:description" content="Java基本语法12345public class HelloWorld &amp;#123;    public static void main(String[] args) &amp;#123;        System.out.println(&quot;Hello world!&quot;);    &amp;#125;&amp;#125; 上面的程序由一个类声明组成，该声明使用关键字public class声明。  Java所有的代码">
@@ -450,9 +450,9 @@
 </li>
 <li>使用大括号<code>{ }</code>来表示一段代码的开始和结束。</li>
 <li>声明必须以分号结尾<a id="more"></a>
-<h2 id="静态分类-Static-Typing"><a href="#静态分类-Static-Typing" class="headerlink" title="静态分类 Static Typing"></a>静态分类 Static Typing</h2>程序语言静态与动态的分类，可以参考oracle的<a href="https://docs.oracle.com/cd/E57471_01/bigData.100/extensions_bdd/src/cext_transform_typing.html" target="_blank" rel="noopener">说明文件</a>，它解释了动态和静态类型之间的区别, 帮助你理解由程序的错误提示信息。<br>两个主要区别:<br>1. 动态类型语言在运行时执行类型检查，而静态类型语言在编译时执行类型检查。这意味如果以静态类型语言（如Java）编写的脚本包含错误，则在编译错误之前将无法编译. 而用动态类型语言编写的脚本可以编译，即使它们包含会阻止脚本正常运行（如果有的话）的错误。<br>2. 静态类型语言要求你在使用它们之前声明变量的数据类型，而动态类型语言则不需要。<br>考虑以下两个代码示例：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="keyword">int</span> num;</span><br><span class="line">num = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h2 id="静态分类-Static-Typing"><a href="#静态分类-Static-Typing" class="headerlink" title="静态分类 Static Typing"></a>静态分类 Static Typing</h2><p>程序语言静态与动态的分类，可以参考oracle的<a href="https://docs.oracle.com/cd/E57471_01/bigData.100/extensions_bdd/src/cext_transform_typing.html" target="_blank" rel="noopener">说明文件</a>，它解释了动态和静态类型之间的区别, 帮助你理解由程序的错误提示信息。<br>两个主要区别:<br>1. 动态类型语言在运行时执行类型检查，而静态类型语言在编译时执行类型检查。这意味如果以静态类型语言（如Java）编写的脚本包含错误，则在编译错误之前将无法编译. 而用动态类型语言编写的脚本可以编译，即使它们包含会阻止脚本正常运行（如果有的话）的错误。<br>2. 静态类型语言要求你在使用它们之前声明变量的数据类型，而动态类型语言则不需要。<br>考虑以下两个代码示例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="keyword">int</span> num;</span><br><span class="line">num = <span class="number">5</span>;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python</span></span><br><span class="line">num = <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>这两段代码都创建一个名为num的变量并赋值为5. 不同之处在于Java需要将num的数据类型明确定义为int。因为Java是静态类型的，因此它期望变量在被赋值之前被声明。</p>
 <p>Python是动态类型的，不需要定义类型, Python根据变量的值确定其数据类型。动态类型语言更加灵活，在编写脚本时可以节省时间和空间。但是，这可能会导致运行时出现问题。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line">number = <span class="number">5</span></span><br><span class="line">numbr = (number + <span class="number">15</span>) / <span class="number">2</span>  <span class="comment">#注意错字</span></span><br></pre></td></tr></table></figure></p>
@@ -617,7 +617,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +639,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

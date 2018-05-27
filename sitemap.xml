@@ -2,30 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/sapm/</loc>
+    <loc>http://yoursite.com/cs/</loc>
     
-    <lastmod>2018-05-23T22:58:37.259Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/software-testing/</loc>
-    
-    <lastmod>2018-05-21T09:18:47.809Z</lastmod>
+    <lastmod>2018-05-27T12:07:57.900Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/natural-language-understanding/</loc>
+    <loc>http://yoursite.com/ai/</loc>
     
-    <lastmod>2018-05-16T15:15:36.330Z</lastmod>
+    <lastmod>2018-05-27T11:50:25.941Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ppls/</loc>
+    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions/</loc>
     
-    <lastmod>2018-05-16T07:40:38.953Z</lastmod>
+    <lastmod>2018-05-26T22:37:04.058Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/machine-learning/</loc>
+    
+    <lastmod>2018-05-26T22:17:03.221Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/machine-learning-with-sklearn/</loc>
+    
+    <lastmod>2018-05-26T22:16:39.840Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/UoE-ppls/</loc>
+    
+    <lastmod>2018-05-26T22:04:11.349Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/UoE-sapm/</loc>
+    
+    <lastmod>2018-05-26T22:03:36.283Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/UoE-st/</loc>
+    
+    <lastmod>2018-05-26T22:03:10.312Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/UoE-anlp/</loc>
+    
+    <lastmod>2018-05-26T22:02:54.326Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/UoE-nlu/</loc>
+    
+    <lastmod>2018-05-26T22:02:43.589Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
+    
+    <lastmod>2018-05-26T21:59:27.633Z</lastmod>
     
   </url>
   
@@ -51,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/</loc>
-    
-    <lastmod>2018-05-08T09:46:10.243Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
     
     <lastmod>2018-05-08T09:03:09.223Z</lastmod>
@@ -68,13 +110,6 @@
     <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
     
     <lastmod>2018-05-08T09:03:03.117Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
-    
-    <lastmod>2018-05-02T15:51:54.504Z</lastmod>
     
   </url>
   
@@ -103,13 +138,6 @@
     <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     
     <lastmod>2018-03-26T19:10:31.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
-    
-    <lastmod>2018-03-20T22:41:39.442Z</lastmod>
     
   </url>
   
@@ -173,20 +201,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
     
     <lastmod>2018-02-27T18:00:48.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/cs/</loc>
-    
-    <lastmod>2018-01-28T17:32:57.440Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    
-    <lastmod>2018-01-21T12:12:05.894Z</lastmod>
     
   </url>
   

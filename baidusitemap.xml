@@ -4,8 +4,176 @@
 
     
   <url>
-    <loc>http://yoursite.com/sapm/</loc>
-    <lastmod>2018-05-23T22:58:37.259Z</lastmod>
+    <loc>http://yoursite.com/cs/</loc>
+    <lastmod>2018-05-27T12:07:57.900Z</lastmod>
+    <data>
+        <display>
+        <title>CS入门到进阶</title>
+        <pubTime>2100-01-01T00:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>计算机科学</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/ai/</loc>
+    <lastmod>2018-05-27T11:50:25.941Z</lastmod>
+    <data>
+        <display>
+        <title>人工智能AI入门到进阶</title>
+        <pubTime>2017-01-01T00:00:00.000Z</pubTime>
+        
+        <tag>人工智能</tag>
+         
+        <tag>自然语言处理</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>深度学习</tag>
+         
+        <tag>计算机视觉</tag>
+         
+        <tag>大数据</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions/</loc>
+    <lastmod>2018-05-26T22:37:04.058Z</lastmod>
+    <data>
+        <display>
+        <title>CS106b Programming Abstractions - C++ 算法与数据结构 Stanford cs106b</title>
+        <pubTime>2017-06-22T23:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs106b</tag>
+         
+        <tag>C++</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/machine-learning/</loc>
+    <lastmod>2018-05-26T22:17:03.221Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning Note - cs229 - Stanford</title>
+        <pubTime>2017-12-05T00:00:00.000Z</pubTime>
+        
+        <tag>人工智能</tag>
+         
+        <tag>机器学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/machine-learning-with-sklearn/</loc>
+    <lastmod>2018-05-26T22:16:39.840Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning with Scikit-learn (Sklearn) 机器学习实践</title>
+        <pubTime>2017-12-01T00:00:00.000Z</pubTime>
+        
+        <tag>人工智能</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>python</tag>
+         
+        <tag>sklearn</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/UoE-ppls/</loc>
+    <lastmod>2018-05-26T22:04:11.349Z</lastmod>
+    <data>
+        <display>
+        <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
+        <pubTime>2018-05-10T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/UoE-sapm/</loc>
+    <lastmod>2018-05-26T22:03:36.283Z</lastmod>
     <data>
         <display>
         <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
@@ -14,6 +182,10 @@
         <tag>软件工程</tag>
          
         <tag>软件架构</tag>
+         
+        <tag>UoE</tag>
+         
+        <tag>软件管理</tag>
          
          
            
@@ -29,8 +201,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/software-testing/</loc>
-    <lastmod>2018-05-21T09:18:47.809Z</lastmod>
+    <loc>http://yoursite.com/UoE-st/</loc>
+    <lastmod>2018-05-26T22:03:10.312Z</lastmod>
     <data>
         <display>
         <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
@@ -50,8 +222,35 @@
 
     
   <url>
-    <loc>http://yoursite.com/natural-language-understanding/</loc>
-    <lastmod>2018-05-16T15:15:36.330Z</lastmod>
+    <loc>http://yoursite.com/UoE-anlp/</loc>
+    <lastmod>2018-05-26T22:02:54.326Z</lastmod>
+    <data>
+        <display>
+        <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
+        <pubTime>2018-01-31T00:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>NLP</tag>
+         
+        <tag>UoE</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/UoE-nlu/</loc>
+    <lastmod>2018-05-26T22:02:43.589Z</lastmod>
     <data>
         <display>
         <title>Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡大学</title>
@@ -71,13 +270,25 @@
 
     
   <url>
-    <loc>http://yoursite.com/ppls/</loc>
-    <lastmod>2018-05-16T07:40:38.953Z</lastmod>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
+    <lastmod>2018-05-26T21:59:27.633Z</lastmod>
     <data>
         <display>
-        <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-10T23:00:00.000Z</pubTime>
+        <title>算法与数据结构 - Java | 02 语法基础 - CS61B Berkeley</title>
+        <pubTime>2017-12-20T00:00:00.000Z</pubTime>
         
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
          
            
              
@@ -179,39 +390,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions-Stanford/</loc>
-    <lastmod>2018-05-08T09:46:10.243Z</lastmod>
-    <data>
-        <display>
-        <title>抽象编程 - C++ 算法与数据结构 Stanford cs106b</title>
-        <pubTime>2018-01-23T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs106b</tag>
-         
-        <tag>C++</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
     <lastmod>2018-05-08T09:03:09.223Z</lastmod>
     <data>
@@ -248,31 +426,6 @@
         
         <tag>自然语言处理</tag>
          
-        <tag>Python</tag>
-         
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/Accelerated-Natural-Language-Processing-UoE/</loc>
-    <lastmod>2018-05-02T15:51:54.504Z</lastmod>
-    <data>
-        <display>
-        <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
-        <pubTime>2018-01-31T00:00:00.000Z</pubTime>
-        
         <tag>Python</tag>
          
         <tag>NLP</tag>
@@ -404,39 +557,6 @@
         <tag>软件工程</tag>
          
         <tag>数据结构</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
-    <lastmod>2018-03-20T22:41:39.442Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 02 语法基础 - CS61B Berkeley</title>
-        <pubTime>2017-12-20T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
          
          
            
@@ -742,66 +862,6 @@
           
              
               <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/cs/</loc>
-    <lastmod>2018-01-28T17:32:57.440Z</lastmod>
-    <data>
-        <display>
-        <title>CS入门到进阶</title>
-        <pubTime>2017-01-01T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>计算机科学</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    <lastmod>2018-01-21T12:12:05.894Z</lastmod>
-    <data>
-        <display>
-        <title>人工智能AI入门到进阶</title>
-        <pubTime>2017-01-01T00:00:00.000Z</pubTime>
-        
-        <tag>人工智能</tag>
-         
-        <tag>自然语言处理</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>深度学习</tag>
-         
-        <tag>计算机视觉</tag>
-         
-        <tag>大数据</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>

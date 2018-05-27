@@ -88,7 +88,7 @@
 <meta name="description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA cha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
-<meta property="og:url" content="http://yoursite.com/ppls/index.html">
+<meta property="og:url" content="http://yoursite.com/UoE-ppls/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA cha">
 <meta property="og:locale" content="zh-Hans">
@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://yoursite.com/images/1_d_jacobi_MPI.png">
 <meta property="og:image" content="https://www.threadingbuildingblocks.org/docs/help/tbb_userguide/Images/image009.jpg">
 <meta property="og:image" content="http://yoursite.com/images/TBB_Scheduler.png">
-<meta property="og:updated_time" content="2018-05-16T07:40:38.953Z">
+<meta property="og:updated_time" content="2018-05-26T22:04:11.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
 <meta name="twitter:description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA cha">
@@ -141,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/ppls/"/>
+  <link rel="canonical" href="http://yoursite.com/UoE-ppls/"/>
 
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ppls/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/UoE-ppls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -388,7 +388,7 @@
 
           
           
-             <span id="/ppls/" class="leancloud_visitors" data-flag-title="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
+             <span id="/UoE-ppls/" class="leancloud_visitors" data-flag-title="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -726,7 +726,7 @@
 <p>We use <code>MPI_Comm_spawn</code> to <strong>dynamically create</strong> new sieve processes as we need them, and <code>MPI_Comm_get_parent</code> to find an inter-communicator to the process group which created us.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    MPI_Comm predComm, succComm; MPI_Status status;</span><br><span class="line">    <span class="keyword">int</span> myprime, candidate;</span><br><span class="line">    <span class="keyword">int</span> firstoutput = <span class="number">1</span>;            <span class="comment">// a C style boolean</span></span><br><span class="line">    MPI_Init (&amp;argc, &amp;argv);</span><br><span class="line">    MPI_Comm_get_parent (&amp;predComm);</span><br><span class="line">    MPI_Recv(&amp;myprime, <span class="number">1</span>, MPI_INT, <span class="number">0</span>, <span class="number">0</span>, predComm, &amp;status);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">"%d is a prime\n"</span>, myprime);</span><br><span class="line">    MPI_Recv(&amp;candidate, <span class="number">1</span>, MPI_INT, <span class="number">0</span>, <span class="number">0</span>, predComm, &amp;status);</span><br><span class="line">    <span class="keyword">while</span> (candidate!=<span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (candidate%myprime != <span class="number">0</span>) &#123;    <span class="comment">// not sieved out</span></span><br><span class="line">            <span class="keyword">if</span> (firstoutput) &#123;      <span class="comment">// create my successor if necessary</span></span><br><span class="line">                MPI_Comm_spawn(<span class="string">"sieve"</span>, argv, <span class="number">1</span>, MPI_INFO_NULL, <span class="number">0</span>,  MPI_COMM_WORLD, &amp;succComm, MPI_ERRCODES_IGNORE);</span><br><span class="line">                firstoutput = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            MPI_Send(&amp;candidate, <span class="number">1</span>, MPI_INT, <span class="number">0</span>, <span class="number">0</span>, succComm) <span class="comment">// pass on the candidate</span></span><br><span class="line">        &#125;</span><br><span class="line">        MPI_Recv(&amp;candidate, <span class="number">1</span>, MPI_INT, <span class="number">0</span>, <span class="number">0</span>, predComm, &amp;status); <span class="comment">// next candidate</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!firstoutput) MPI_Send(&amp;candidate, <span class="number">1</span>, MPI_INT, <span class="number">0</span>, <span class="number">0</span>, succComm); <span class="comment">// candidate=-1, shut down</span></span><br><span class="line">    MPI_Finalize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>The message flow is insured by the method in which new processes are spawned/created. Every time a new “sieve” process is spawned, MPI creates it in a new group/communicator. succComm is a handle to this new group which always contains only one process. Therefore, when a candidate is sent to the process, there is only one process in the succComm group and it has id 0.</p>
 <p>The Recv function works in the same way predComm is a handle of the parent group (i.e. group of the process that created this sieve). And because the parent was the only process in this group/communicator, it can be identified by id 0.</p>
-<p>In conclusion, a process creates at most one successor. This successor is the only process in its group/communicator. The succCom and predComm are handles to the children and parent groups respectively, both of which contain a single process with id 0 which is unique in its own group/communicator. </p>
+<p>In conclusion, a process creates at most one successor. This successor is the only process in its group/communicator. The succCom and predComm are handles to the children and parent groups respectively, both of which contain a single process with id 0 which is unique in its own group/communicator.</p>
 <p>Spawning New MPI Processes<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Comm_spawn</span> <span class="params">(<span class="keyword">char</span> *command, <span class="keyword">char</span> *argv[], <span class="keyword">int</span> p, MPI_Info info,</span></span></span><br><span class="line"><span class="function"><span class="params">     <span class="keyword">int</span> root, MPI_Comm comm, MPI_Comm *intercomm, <span class="keyword">int</span> errcodes[])</span></span></span><br></pre></td></tr></table></figure></p>
 <p>This <strong>spawns</strong> p new processes, each executing a copy of program <code>command</code>, in a new communicator returned as <code>intercomm</code>. To the new processes, <code>intercomm</code> appears as <code>MPI_COMM_WORLD</code>. It must be<br>called by <strong>all processes</strong> in <code>comm</code> (it is “collective”), with process root computing the parameters. <code>info</code> and <code>errcodes</code> are used in system dependent ways to control/monitor process placement, errors etc.</p>
 <p><code>MPI_Comm_get_parent</code> gives the new processes a reference to the communicator which created them.</p>
@@ -884,7 +884,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/sapm/" rel="prev" title="Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学">
+              <a href="/UoE-sapm/" rel="prev" title="Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学">
                 Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -972,7 +972,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -994,7 +994,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
