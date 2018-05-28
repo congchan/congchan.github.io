@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[CS入门到进阶]]></title>
+    <title><![CDATA[劝退保平安]]></title>
     <url>%2Fcs%2F</url>
-    <content type="text"><![CDATA[我学习CS历程，也包含基础知识的总结以及编程实现的整理。 每一阶段里面, 都有很多个性化选项, 仅供参考 入门 CS入门 学习编写(至少)一种面向对象编程语言(C ++，Java®，Python®) 测试你的代码 夯实基础你可以跳过这些而直接进入下面的进阶实践环节，并根据自己需要查漏补缺。但是这些都是非常重要的基础，任何时候，只要有时间，就可以去学习了解。 逻辑推理和离散数学 熟悉计算机操作系统 学习计算机网络 掌握数据库 了解编译器和优化 了解计算理论 学习其他编程语言 进阶与实践 深入了解算法和数据结构 分布式，并行和大数据 安卓开发 iOS开发 网页开发 加密与区块链 参与项目 English template 英文模板我的进度 CS入门现在的入门课基本都是用Python语言。 计算机科学导论，优达学城 CS50x 哈佛，语言包括C，Python，SQL和JavaScript加CSS和HTML CMU 15213: Introduction to Computer Systems (ICS) 面向对象编程语言一般而言，建议先学Java 或 Python，再学C++。 这三种语言都基本掌握后，再根据自身的职业需求，选择其中一个语言（或者其他语言）进一步深入练习。 面向初学者程序员的在线资源： 编程方法学，斯坦福CS106A，Java 伯克利大学CS 61A计算机程序的结构与解读，Python Java编程简介，MIT Google Python Class 面向有经验的程序员的在线资源： 数据结构，伯克利大学 CS 61B，Java 计算机程序设计，Udacity，Python 抽象编程，斯坦福 CS106B，C ++, 最新作业 http://web.stanford.edu/class/cs106b/ 《数据结构与算法分析:C++描述》, Mark A. Weiss 测试你的代码了解如何捕获错误，创建测试和破解软件. 软件测试，Udacity 软件调试，Udacity 操作系统 CMU 15213: Introduction to Computer Systems (ICS) CS162 UC Berkeley: Operating Systems and Systems Programming 逻辑推理和离散数学 数学计算机科学，麻省理工学院 数学思考导论，斯坦福大学，Coursera 概率图形模型，斯坦福大学，Coursera 博弈论，Coursera 计算理论 Introduction to the theory of computation, Michael Sipser 计算机网络 Computer Networking A Top-Down Approach, James F. Kurose, Keith W. Ross 数据库 SQL A First Course in Database Systems, Jeffrey D. Ullman, Jennifer Widom 编译器算法和数据结构了解基本数据类型(堆栈，队列和袋子)，排序算法(快速排序，合并，堆栈)，数据结构(二叉搜索树，红黑树，哈希表)和Big O. 算法简介，麻省理工学院，2011秋季 算法，普林斯顿大学，Part1 算法，普林斯顿大学，Part2 算法：设计和分析，斯坦福大学 算法，第4版，by Robert Sedgewick and Kevin Wayne 分布式，并行和大数据 Hadoop 和 MapReduce 入门，优达学城 并行计算入门：MPI, openMP, and CUDA, 斯坦福 MapReduce 极限计算，爱丁堡大学 加密与区块链 Cryptography, Stanford, Coursera Applied Cryptography, Udacity 安卓开发 Google Developer Training for Android, on Udacity iOS开发网页开发参与项目 尝试课堂以外的项目：创建和维护网站，构建自己的服务器或构建机器人。 Capstone project: Analyzing (Social) Network Data - scroll down to bottom of page,UCSD, Coursera Capstone project: Java Programming: A DIY Version of Netflix and Amazon Recommendation Engines, Duke University, Coursera Project Directory, Apache Google Summer of Code Project Archive 参与大型系统（代码库）的一小部分，阅读并理解现有代码，跟踪文档和调试 Version control with Git GitHub®：关注github热门开源项目的issue 与其他程序员一起工作 参与开源项目： 尝试提出一个issue 针对一个issue，尝试给出解决方案，并提交 pull request 参与公司实习 其他编程语言根据实际需要自行选择一种或多种学习, 一些在线资源： CS50x 哈佛，语言包括C，Python，SQL和JavaScript加CSS和HTML Codecademy JavaScript Bento JavaScript Learning Track(Bento) Egghead.io 学习如何编程：JavaScript - Epicodus Inc. 学习：查询 CSS ＆ HTML Bento CSS Learning Track(Bento) Bento HTML Learning Track(Bento) 用破折号建立个人网站 使用Webflow构建响应式网站 使用骨架构建SaaS着陆页 建立动态网站 在1小时内编写个人启动页面：实用HTML和CSS简介 学习如何编程：CSS - Epicodus Inc. 从头开始学习HTML5编程 Ruby 学习如何编程：Ruby - Epicodus Inc. RubyMonk - 交互式Ruby教程 Haskell C9：功能编程基础知识 - Erik Meijer CIS 194：Haskell简介 - Brent Yorgey CS240h：Haskell的功能系统 - Bryan O’Sullivan edX：功能编程简介 - Erik Meijer 亚琛大学：功能编程 - JürgenGiesl Lua Lua Interactive Crash Course Lua Tutorial PHP 学习如何编程：PHP - Epicodus Inc. GO Go Tutorial 参考资料Guide to technical development from Google educationOS Free Programming Books]]></content>
+    <content type="text"><![CDATA[我学习CS历程，也包含基础知识的总结以及编程实现的整理。 每一阶段里面, 都有很多个性化选项, 仅供参考 入门 CS入门 学习编写(至少)一种面向对象编程语言(C ++，Java®，Python®) 测试你的代码 夯实基础你可以跳过这些而直接进入下面的进阶实践环节，并根据自己需要查漏补缺。但是这些都是非常重要的基础，任何时候，只要有时间，就可以去学习了解。 逻辑推理和离散数学 熟悉计算机操作系统 学习计算机网络 掌握数据库 了解编译器和优化 了解计算理论 学习其他编程语言 进阶与实践 深入了解算法和数据结构 分布式，并行和大数据 安卓开发 iOS开发 网页开发 加密与区块链 参与项目 English template 英文模板 CS入门现在的入门课基本都是用Python语言。 计算机科学导论，优达学城 CS50x 哈佛，语言包括C，Python，SQL和JavaScript加CSS和HTML CMU 15213: Introduction to Computer Systems (ICS) 面向对象编程语言一般而言，建议先学Java 或 Python，再学C++。 这三种语言都基本掌握后，再根据自身的职业需求，选择其中一个语言（或者其他语言）进一步深入练习。 面向初学者程序员的在线资源： 编程方法学，斯坦福CS106A，Java 伯克利大学CS 61A计算机程序的结构与解读，Python Java编程简介，MIT Google Python Class 面向有经验的程序员的在线资源： 数据结构，伯克利大学 CS 61B，Java 计算机程序设计，Udacity，Python 抽象编程，斯坦福 CS106B，C ++, 最新作业 http://web.stanford.edu/class/cs106b/ 《数据结构与算法分析:C++描述》, Mark A. Weiss 测试你的代码了解如何捕获错误，创建测试和破解软件. 软件测试，Udacity 软件调试，Udacity 操作系统 CMU 15213: Introduction to Computer Systems (ICS) CS162 UC Berkeley: Operating Systems and Systems Programming 逻辑推理和离散数学 数学计算机科学，麻省理工学院 数学思考导论，斯坦福大学，Coursera 概率图形模型，斯坦福大学，Coursera 博弈论，Coursera 计算理论 Introduction to the theory of computation, Michael Sipser 计算机网络 Computer Networking A Top-Down Approach, James F. Kurose, Keith W. Ross 数据库 SQL A First Course in Database Systems, Jeffrey D. Ullman, Jennifer Widom 编译器算法和数据结构了解基本数据类型(堆栈，队列和袋子)，排序算法(快速排序，合并，堆栈)，数据结构(二叉搜索树，红黑树，哈希表)和Big O. 算法简介，麻省理工学院，2011秋季 算法，普林斯顿大学，Part1 算法，普林斯顿大学，Part2 算法：设计和分析，斯坦福大学 算法，第4版，by Robert Sedgewick and Kevin Wayne 分布式，并行和大数据 Hadoop 和 MapReduce 入门，优达学城 并行计算入门：MPI, openMP, and CUDA, 斯坦福 MapReduce 极限计算，爱丁堡大学 加密与区块链 Cryptography, Stanford, Coursera Applied Cryptography, Udacity 安卓开发 Google Developer Training for Android, on Udacity iOS开发网页开发参与项目 尝试课堂以外的项目：创建和维护网站，构建自己的服务器或构建机器人。 Capstone project: Analyzing (Social) Network Data - scroll down to bottom of page,UCSD, Coursera Capstone project: Java Programming: A DIY Version of Netflix and Amazon Recommendation Engines, Duke University, Coursera Project Directory, Apache Google Summer of Code Project Archive 参与大型系统（代码库）的一小部分，阅读并理解现有代码，跟踪文档和调试 Version control with Git GitHub®：关注github热门开源项目的issue 与其他程序员一起工作 参与开源项目： 尝试提出一个issue 针对一个issue，尝试给出解决方案，并提交 pull request 参与公司实习 其他编程语言根据实际需要自行选择一种或多种学习, 一些在线资源： CS50x 哈佛，语言包括C，Python，SQL和JavaScript加CSS和HTML Codecademy JavaScript Bento JavaScript Learning Track(Bento) Egghead.io 学习如何编程：JavaScript - Epicodus Inc. 学习：查询 CSS ＆ HTML Bento CSS Learning Track(Bento) Bento HTML Learning Track(Bento) 用破折号建立个人网站 使用Webflow构建响应式网站 使用骨架构建SaaS着陆页 建立动态网站 在1小时内编写个人启动页面：实用HTML和CSS简介 学习如何编程：CSS - Epicodus Inc. 从头开始学习HTML5编程 Ruby 学习如何编程：Ruby - Epicodus Inc. RubyMonk - 交互式Ruby教程 Haskell C9：功能编程基础知识 - Erik Meijer CIS 194：Haskell简介 - Brent Yorgey CS240h：Haskell的功能系统 - Bryan O’Sullivan edX：功能编程简介 - Erik Meijer 亚琛大学：功能编程 - JürgenGiesl Lua Lua Interactive Crash Course Lua Tutorial PHP 学习如何编程：PHP - Epicodus Inc. GO Go Tutorial 参考资料Guide to technical development from Google educationOS Free Programming Books]]></content>
       <categories>
         <category>学习笔记</category>
         <category>计算机科学</category>
@@ -12,6 +12,23 @@
         <tag>编程</tag>
         <tag>软件工程</tag>
         <tag>计算机科学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[程序员学人工智能]]></title>
+    <url>%2Fai%2F</url>
+    <content type="text"><![CDATA[记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。 English template 英文模板 机器学习 Coursera Machine Learning， 吴恩达的简化版机器学习 Machine Learning, 吴恩达的机器学习课程 这个比较深入 Deep Learning, 吴恩达的深度学习课程 Neural Networks for Machine Learning, Hinton的神经网络课程 深度学习 Deep learning, Coursera Machine Learning Practical: DNN, CNN, RNN 每个lab的答案在下一个lab 分支，即lab1的答案可以在lab2 branch里面看到。这个代码全部用Python class，比coursera的难度高点。 自然语言处理 自然语言处理, 斯坦福 加速自然语言处理, 爱丁堡大学 深度学习处理自然语言，斯坦福 计算机视觉 图像识别：卷积神经网络，李飞飞，斯坦福 机器人 机器人入门，斯坦福]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+        <tag>自然语言处理</tag>
+        <tag>机器学习</tag>
+        <tag>深度学习</tag>
+        <tag>计算机视觉</tag>
+        <tag>大数据</tag>
       </tags>
   </entry>
   <entry>
@@ -195,7 +212,7 @@
   <entry>
     <title><![CDATA[算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley]]></title>
     <url>%2FNOTE-CS61B-data-structures-10-java-which-list%2F</url>
-    <content type="text"><![CDATA[Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API.队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.Deque 就是双端队列 Double Ended Queue。双端队列是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩（定义来源 cplusplus.com）. CS61b的project 1a就是实现两种双端队列（array based 和 linkedklist based）. 不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异: 搜索/定位：与LinkedList搜索操作相比，ArrayList搜索操作更快。 ArrayList的get(int index)性能是O(1)的，而LinkedList的性能是O(n)。因为ArrayList基于array数据结构，可以直接用靠 array index 索引元素。 删除/插入：LinkedList 操作性能是O(1)，而ArrayList的性能从O(n)（删除/插入第一个元素）到O(n)（最后一个元素）都有可能。因为LinkedList的每个元素都包含两个指向其相邻前后元素的指针（地址），因此仅需要改变，被删节点的prev和next指针位置。而在ArrayList中，需要移动剩余元素，来重新填充array空间。 内存开销：LinkedList的每个元素都有更多的内存开销(额外的指针), 而ArrayLists没有这个开销。但是，ArrayLists需要占用初始容量。一般ArrayList的默认初始容量非常小（Java 1.4 - 1.8使用10）。但是，往ArrayLists添加元素时， 它可能会适当地增大容量，所以如果添加了很多元素，则必须不断调整数组的大小，那样也可能会导致元素频繁挪动位置。 综上所述： 如果在应用中需要频繁插入和删除，那么选择LinkedList。 假如一开始，就知道后面要添加大量元素，那就使用较高的初始容量来构造ArrayList。 大部分用例中, 相比LinkedList, 人们更偏爱ArrayList以及ArrayDeque。如果你不确定应该选哪个, 那么就直接考虑ArrayList吧(参考).]]></content>
+    <content type="text"><![CDATA[Java 提供了 ArrayList, ArrayDeque 和 LinkedList 几个API. 队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入. 双端队列 Double Ended Queue (Deque) 是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩–http://www.cplusplus.com/reference/deque/deque/ CS61b的project 1a需要实现两种双端队列（array based 和 linkedklist based）. 不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异: 搜索/定位：与LinkedList相比，ArrayList搜索更快。 ArrayList的get(int index)性能是O(1)的，而LinkedList的性能是O(n)。因为ArrayList基于array数据结构，可以直接用 array index 定位元素。 删除/插入：LinkedList 操作性能是O(1)，而ArrayList的性能从O(n)（删除/插入第一个元素）到O(n)（最后一个元素）都有可能。因为LinkedList的每个元素都包含两个指向其相邻前后元素的指针（地址），因此仅需要改变，被删节点的prev和next指针位置。而在ArrayList中，需要移动剩余元素，来重新填充array空间。 内存开销：LinkedList的每个元素都有更多的内存开销(额外的指针), 而ArrayLists没有这个开销。但是，ArrayLists需要占用初始容量。一般ArrayList的默认初始容量非常小（Java 1.4 - 1.8使用10）。但是，往ArrayLists添加元素时， 它可能会适当地增大容量，所以如果添加了很多元素，则必须不断调整数组的大小，那样也可能会导致元素频繁挪动位置。 综上所述： 如果在应用中需要频繁插入和删除，那么选择LinkedList。 假如一开始，就知道后面要添加大量元素，那就使用较高的初始容量来构造ArrayList。 大部分用例中, 相比LinkedList, 人们更偏爱ArrayList以及ArrayDeque。如果你不确定应该选哪个, 那么就直接考虑ArrayList吧(参考 https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist).]]></content>
       <categories>
         <category>学习笔记</category>
         <category>计算机科学</category>
@@ -438,23 +455,6 @@
         <tag>算法</tag>
         <tag>cs106b</tag>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[人工智能AI入门到进阶]]></title>
-    <url>%2Fai%2F</url>
-    <content type="text"><![CDATA[记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。 English template 英文模板我的进度 机器学习 Coursera Machine Learning， 吴恩达的简化版机器学习 Machine Learning, 吴恩达的机器学习课程 这个比较深入 Deep Learning, 吴恩达的深度学习课程 Neural Networks for Machine Learning, Hinton的神经网络课程 深度学习 Deep learning, Coursera Machine Learning Practical: DNN, CNN, RNN 每个lab的答案在下一个lab 分支，即lab1的答案可以在lab2 branch里面看到。这个代码全部用Python class，比coursera的难度高点。 自然语言处理 自然语言处理, 斯坦福 加速自然语言处理, 爱丁堡大学 深度学习处理自然语言，斯坦福 计算机视觉 图像识别：卷积神经网络，李飞飞，斯坦福 机器人 机器人入门，斯坦福]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>人工智能</category>
-      </categories>
-      <tags>
-        <tag>人工智能</tag>
-        <tag>自然语言处理</tag>
-        <tag>机器学习</tag>
-        <tag>深度学习</tag>
-        <tag>计算机视觉</tag>
-        <tag>大数据</tag>
       </tags>
   </entry>
 </search>

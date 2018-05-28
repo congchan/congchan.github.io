@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/cs/</loc>
+    
+    <lastmod>2018-05-28T15:57:41.543Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/ai/</loc>
+    
+    <lastmod>2018-05-28T15:57:34.781Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
+    
+    <lastmod>2018-05-28T15:52:46.906Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
     
     <lastmod>2018-05-28T15:47:52.242Z</lastmod>
@@ -68,20 +89,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
     
     <lastmod>2018-05-27T15:52:01.668Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/cs/</loc>
-    
-    <lastmod>2018-05-27T15:08:15.445Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    
-    <lastmod>2018-05-27T11:50:25.941Z</lastmod>
     
   </url>
   
@@ -187,13 +194,6 @@
     <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     
     <lastmod>2018-03-26T19:10:31.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
-    
-    <lastmod>2018-03-20T22:39:47.241Z</lastmod>
     
   </url>
   
