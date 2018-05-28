@@ -1618,7 +1618,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,718 字
+                  1,734 字
                 </span>
               
 
@@ -1656,8 +1656,9 @@
 
       
         
-          <h2 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表 Linked List"></a>链表 Linked List</h2><p>前面有介绍以array为基础搭建的列表，支持自动扩容, 各种插入，删除速度都很快.<br>这里再介绍另一种方案, 链表, 也可以实现列表自动扩容.</p>
-<h3 id="带链接的节点"><a href="#带链接的节点" class="headerlink" title="带链接的节点"></a>带链接的节点</h3><p>链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢.<br>
+          <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>Linked List</p>
+<p>前面有介绍以array为基础搭建的列表，支持自动扩容, 各种插入，删除速度都很快. 这里再介绍另一种方案, 链表, 也可以实现列表自动扩容.</p>
+<h3 id="带链接的节点"><a href="#带链接的节点" class="headerlink" title="带链接的节点"></a>带链接的节点</h3><p>链表的核心组成是带链接的节点, 每个节点就像火车车厢, 有钩子连接下一节车厢.<img src="/images/408px-Singly-linked-list.png" alt=""><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NOTE-CS61B-data-structures-08-java-singly-linked-list/#more" rel="contents">
@@ -2026,7 +2027,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,038 字
+                  2,030 字
                 </span>
               
 
@@ -2064,7 +2065,7 @@
 
       
         
-          <h2 id="列表-List"><a href="#列表-List" class="headerlink" title="列表 List"></a>列表 List</h2><p>前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="noopener">list</a>）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="noopener">oracle官网</a>）。<br>
+          <h2 id="列表（List）"><a href="#列表（List）" class="headerlink" title="列表（List）"></a>列表（List）</h2><p>前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="noopener">list</a>）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="noopener">oracle官网</a>）。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NOTE-CS61B-data-structures-07-java-array-based-list/#more" rel="contents">
@@ -2264,8 +2265,9 @@
 
       
         
-          <h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><p>数组是一种特殊的对象，有一个固定的数组长度参数N，由一连串（N个）连续的带编号的内存块组成，每个都是相同的类型(不像Python可以包含不同类型)，索引从0到N-1编号。A[i]获得数组A的第i个元素。这与普通的类实例不同，类实例有具体变量名命名的内存块。</p>
-<h3 id="数组实例化，包含对象的数组-Array-Instantiation-Arrays-of-Objects"><a href="#数组实例化，包含对象的数组-Array-Instantiation-Arrays-of-Objects" class="headerlink" title="数组实例化，包含对象的数组 Array Instantiation, Arrays of Objects"></a>数组实例化，包含对象的数组 Array Instantiation, Arrays of Objects</h3><p>要创建最简单的整数数组, 有三种方式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">3</span>]; <span class="comment">//创建一个指定长度的数组，并用默认值（0）填充每个内存块。</span></span><br><span class="line">y = <span class="keyword">new</span> <span class="keyword">int</span> [] &#123;<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;; <span class="comment">//创建一个合适大小的数组，以容纳指定的初始值</span></span><br><span class="line"><span class="keyword">int</span> [] z = &#123;<span class="number">9</span>，<span class="number">10</span>，<span class="number">11</span>，<span class="number">12</span>，<span class="number">13</span>&#125;; <span class="comment">//省略了new，只能结合变量声明使用。</span></span><br></pre></td></tr></table></figure></p>
+          <h2 id="数组（Array）"><a href="#数组（Array）" class="headerlink" title="数组（Array）"></a>数组（Array）</h2><p>数组是一种特殊的对象，有一个固定的数组长度参数N，由一连串（N个）连续的带编号的内存块组成，每个都是相同的类型(不像Python可以包含不同类型)，索引从0到N-1编号。A[i]获得数组A的第i个元素。这与普通的类实例不同，类实例有具体变量名命名的内存块。</p>
+<h3 id="数组实例化，包含对象的数组"><a href="#数组实例化，包含对象的数组" class="headerlink" title="数组实例化，包含对象的数组"></a>数组实例化，包含对象的数组</h3><p>Array Instantiation, Arrays of Objects</p>
+<p>要创建最简单的整数数组, 有三种方式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">3</span>]; <span class="comment">//创建一个指定长度的数组，并用默认值（0）填充每个内存块。</span></span><br><span class="line">y = <span class="keyword">new</span> <span class="keyword">int</span> [] &#123;<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;; <span class="comment">//创建一个合适大小的数组，以容纳指定的初始值</span></span><br><span class="line"><span class="keyword">int</span> [] z = &#123;<span class="number">9</span>，<span class="number">10</span>，<span class="number">11</span>，<span class="number">12</span>，<span class="number">13</span>&#125;; <span class="comment">//省略了new，只能结合变量声明使用。</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NOTE-CS61B-data-structures-06-java-array/#more" rel="contents">
