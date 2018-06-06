@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法与实例方法Class Methods vs. Instance Methods 参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();. 同理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T10:45:14.281Z">
+<meta property="og:updated_time" content="2018-06-02T16:24:59.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley">
 <meta name="twitter:description" content="Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法与实例方法Class Methods vs. Instance Methods 参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();. 同理">
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  845 字
+                  954 字
                 </span>
               
 
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -460,6 +460,11 @@
 <li>声明(declaration): <code>Dog smalldog;</code>声明一个类作为一个变量在内存中占位</li>
 <li>实例化: <code>new Dog(20)</code>, 如果没有把它作为值赋给一个类声明变量,那么这个实例化的值会被垃圾回收.</li>
 <li>声明, 实例化并赋值: <code>Dog smalldog = new Dog(5)</code></li>
+</ul>
+<p>构造器并不总是必须的。编译器会自动为没有构造器的类提供一个无参数的默认构造函数。这个默认构造函数将调用其超类的（可调用的）无参构造函数。</p>
+<ul>
+<li>如果其超类没有无参数构造函数，编译会出错。</li>
+<li>如果没有显式的超类，那么就调用隐式的超类<code>Object</code>的无参构造函数。</li>
 </ul>
 
       

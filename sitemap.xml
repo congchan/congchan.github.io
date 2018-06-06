@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/python-digest/</loc>
+    
+    <lastmod>2018-06-06T10:17:48.338Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/cs61b/</loc>
     
-    <lastmod>2018-05-31T18:47:30.684Z</lastmod>
+    <lastmod>2018-06-04T13:40:41.426Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+    
+    <lastmod>2018-06-03T17:45:38.799Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
+    
+    <lastmod>2018-06-02T16:24:59.973Z</lastmod>
     
   </url>
   
@@ -58,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
-    
-    <lastmod>2018-05-28T14:55:17.939Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
     
     <lastmod>2018-05-28T10:56:10.225Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
     
     <lastmod>2018-05-28T10:45:46.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
-    
-    <lastmod>2018-05-28T10:45:14.281Z</lastmod>
     
   </url>
   
@@ -180,13 +187,6 @@
     <loc>http://yoursite.com/csapp/</loc>
     
     <lastmod>2018-05-12T22:49:06.478Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/python-digest/</loc>
-    
-    <lastmod>2018-05-08T10:23:59.212Z</lastmod>
     
   </url>
   
