@@ -95,7 +95,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://eclipsesource.com/wp-content/uploads/2012/09/generate-hashcode-equals.png">
 <meta property="og:image" content="https://eclipsesource.com/wp-content/uploads/2012/09/hashcode-error-config.png">
-<meta property="og:updated_time" content="2018-03-26T19:10:31.801Z">
+<meta property="og:updated_time" content="2018-06-15T15:31:47.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java | 对象 哈希 重写 @Override equals() hashcode()">
 <meta name="twitter:description" content="主要介绍：  Hashcode（哈希码）与 equals（判断相等）的关系 Hashcode 方法的底层实现原理 开发中需要掌握的原则和方法  HashSet, HashMap, HashTableHashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。">
@@ -462,7 +462,7 @@
 </blockquote>
 <p>Java的set是使用它包含的元素（对象）的 <code>equals()</code>来比较 b 和 a 的。这里 String 类的<code>equals()</code>method 是比较字符串值是否相等(准确的说，是先检查是不是引用同一个对象，再看是不是同一个类，再比较值)，而不是引用的对象是否一样，故<code>b.equals(a)</code>是 true。</p>
 <p>同样的，remove 和 add 也会先进行类似检查。</p>
-<p>问题是，为何 hashCode 不同，就没有进一步调用 equals()的必要呢？因为有一个前提是代码遵守The hashCode contract。</p>
+<p>问题是，为何 hashCode 不同，就没有进一步调用<code>equals()</code>的必要呢？因为有一个前提是代码遵守The hashCode contract。</p>
 <h3 id="Hashcode-and-equals"><a href="#Hashcode-and-equals" class="headerlink" title="Hashcode and equals"></a>Hashcode and equals</h3><p>在Java中，每个对象都有一个hashCode，它有时容易被人遗忘或误用。有以下三点需要注意，避免掉入常见的陷阱。</p>
 <h4 id="The-hashCode-contract"><a href="#The-hashCode-contract" class="headerlink" title="The hashCode contract"></a>The hashCode contract</h4><p>根据 The hashCode contract:</p>
 <blockquote>
@@ -494,7 +494,7 @@
 <p><strong>三、不要在分布式应用程序中使用 hashCode</strong><br>此外，要意识到，hashCode函数的实现可能会随着版本的更改而改变。因此我们的代码最好不依赖任何特定的hash code 值。例如，你不应该使用hash code来保持某种状态，不然下次运行时，“相同”对象的hash code可能会不同。</p>
 <p>所以最好的建议可能是：除非自己创建了基于 hashcode 算法，否则根本就不要使用 hashCode 呵呵……</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在依赖于 HashSet, HashMap, HashTable … 等数据结构的程序中：</p>
-<ol>
+<ol start="3">
 <li>仅重写 equals()，会导致业务出错</li>
 <li>仅重写 hashcode(), 在比较两个对象时不会强制Java忽略内存地址</li>
 <li>如果不涉及对象比较(比如仅仅是iteration), 那么不需要hashCode and/or equals</li>

@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/python-digest/</loc>
+    <loc>http://yoursite.com/cs61b/</loc>
     
-    <lastmod>2018-06-06T10:17:48.338Z</lastmod>
+    <lastmod>2018-06-16T13:50:15.377Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/cs61b/</loc>
+    <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
     
-    <lastmod>2018-06-04T13:40:41.426Z</lastmod>
+    <lastmod>2018-06-15T15:31:47.185Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/UoE-anlp/</loc>
+    
+    <lastmod>2018-06-11T20:03:48.779Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/python-digest/</loc>
+    
+    <lastmod>2018-06-06T10:17:48.338Z</lastmod>
     
   </url>
   
@@ -170,13 +184,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/UoE-anlp/</loc>
-    
-    <lastmod>2018-05-26T22:02:54.326Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/UoE-nlu/</loc>
     
     <lastmod>2018-05-26T22:02:43.589Z</lastmod>
@@ -201,13 +208,6 @@
     <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
     
     <lastmod>2018-05-08T09:03:03.117Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/NOTE-Java-miscellaneous-hashcode-equals/</loc>
-    
-    <lastmod>2018-03-26T19:10:31.801Z</lastmod>
     
   </url>
   
