@@ -85,12 +85,12 @@
 
 
 
-<meta name="description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA cha">
+<meta name="description" content="Reference:http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA chapter on M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
 <meta property="og:url" content="http://yoursite.com/UoE-ppls/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA cha">
+<meta property="og:description" content="Reference:http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA chapter on M">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/Shared_Memory_Architectures.png">
 <meta property="og:image" content="http://yoursite.com/images/Multicomputer_Architectures.png">
@@ -107,10 +107,10 @@
 <meta property="og:image" content="http://yoursite.com/images/1_d_jacobi_MPI.png">
 <meta property="og:image" content="https://www.threadingbuildingblocks.org/docs/help/tbb_userguide/Images/image009.jpg">
 <meta property="og:image" content="http://yoursite.com/images/TBB_Scheduler.png">
-<meta property="og:updated_time" content="2018-05-26T22:04:11.349Z">
+<meta property="og:updated_time" content="2018-06-18T16:59:00.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
-<meta name="twitter:description" content="并行编程语言和系统 - 知识点汇总参考http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA cha">
+<meta name="twitter:description" content="Reference:http://www.inf.ed.ac.uk/teaching/courses/ppls/CMU 15213: Introduction to Computer Systems (ICS)Computer Systems: A Programmer’s PerspectiveA Comprehensive MPI Tutorial ResourceA chapter on M">
 <meta name="twitter:image" content="http://yoursite.com/images/Shared_Memory_Architectures.png">
 
 
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  16,421 字
+                  16,406 字
                 </span>
               
 
@@ -451,7 +451,7 @@
       
 
       
-        <p>并行编程语言和系统 - 知识点汇总<br>参考<br><a href="http://www.inf.ed.ac.uk/teaching/courses/ppls/" target="_blank" rel="noopener">http://www.inf.ed.ac.uk/teaching/courses/ppls/</a><br><a href="http://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">CMU 15213: Introduction to Computer Systems (ICS)</a><br><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective</a><br><a href="http://mpitutorial.com/" target="_blank" rel="noopener">A Comprehensive MPI Tutorial Resource</a><br><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node94.html#SECTION03500000000000000000" target="_blank" rel="noopener">A chapter on MPI from Ian Foster’s online Book Designing and Building Parallel Programs</a><br><a id="more"></a></p>
+        <p>Reference:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/ppls/" target="_blank" rel="noopener">http://www.inf.ed.ac.uk/teaching/courses/ppls/</a><br><a href="http://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">CMU 15213: Introduction to Computer Systems (ICS)</a><br><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective</a><br><a href="http://mpitutorial.com/" target="_blank" rel="noopener">A Comprehensive MPI Tutorial Resource</a><br><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node94.html#SECTION03500000000000000000" target="_blank" rel="noopener">A chapter on MPI from Ian Foster’s online Book Designing and Building Parallel Programs</a><br><a id="more"></a></p>
 <h2 id="Introduction-to-parallel-computer-architecture"><a href="#Introduction-to-parallel-computer-architecture" class="headerlink" title="Introduction to parallel computer architecture"></a>Introduction to parallel computer architecture</h2><p>Covering some of the nasty issues presented by the shared memory model, including weak consistency models and false sharing in the cache, and some architectural issues for the multicomputer model.</p>
 <p>Bridging the gap between the parallel applications and algorithms which we can design and describe in abstract terms and the parallel computer architectures (and their lowest level programming interfaces) which it is practical to construct.</p>
 <p>The ability to express parallelism (a.k.a concurrency) concisely, correctly and efficiently is important in several contexts:<br>• Performance Computing: parallelism is the means by which the execution time of computationally demanding applications can be reduced. In the era of static (or even falling) clock speeds and increasing core count, this class is entering the computing mainstream.<br>• Distributed Computing: when concurrency is inherent in the nature of the system and we have no choice but to express and control it.<br>• Systems Programming: when it is conceptually simpler to think of a system as being composed of concurrent components, even though these will actually be executed by time-sharing a single processor.</p>
