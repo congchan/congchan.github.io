@@ -88,17 +88,17 @@
 <meta name="description" content="Extends, Casting, Higher Order Functions定义接口之间的层次关系可以使用implement, SLList&amp;lt;xxx&amp;gt; implements List61B&amp;lt;xxx&amp;gt;. 但假如我们想要定义class之间的层次关系呢？ 假设要构建一个RotatingSLList，它具有与SLList相同的功能，如addFirst, size等，但是需要额外">
 <meta name="keywords" content="编程,Java,软件工程,数据结构,算法,cs61b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法与数据结构 - Java |  - CS61B Berkeley">
-<meta property="og:url" content="http://yoursite.com/cs61b/index.html">
+<meta property="og:title" content="Java 语法和特性 - CS61B Berkeley">
+<meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-other-syntaxes/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Extends, Casting, Higher Order Functions定义接口之间的层次关系可以使用implement, SLList&amp;lt;xxx&amp;gt; implements List61B&amp;lt;xxx&amp;gt;. 但假如我们想要定义class之间的层次关系呢？ 假设要构建一个RotatingSLList，它具有与SLList相同的功能，如addFirst, size等，但是需要额外">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/collection_hierarchy.png">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/callstack.png">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/checked_exceptions.png">
-<meta property="og:updated_time" content="2018-06-17T11:25:18.923Z">
+<meta property="og:updated_time" content="2018-06-24T22:47:43.567Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法与数据结构 - Java |  - CS61B Berkeley">
+<meta name="twitter:title" content="Java 语法和特性 - CS61B Berkeley">
 <meta name="twitter:description" content="Extends, Casting, Higher Order Functions定义接口之间的层次关系可以使用implement, SLList&amp;lt;xxx&amp;gt; implements List61B&amp;lt;xxx&amp;gt;. 但假如我们想要定义class之间的层次关系呢？ 假设要构建一个RotatingSLList，它具有与SLList相同的功能，如addFirst, size等，但是需要额外">
 <meta name="twitter:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/collection_hierarchy.png">
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/cs61b/"/>
+  <link rel="canonical" href="http://yoursite.com/NOTE-CS61B-data-structures-other-syntaxes/"/>
 
 
 
 
 
-  <title>算法与数据结构 - Java |  - CS61B Berkeley | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Java 语法和特性 - CS61B Berkeley | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/cs61b/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-other-syntaxes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法与数据结构 - Java |  - CS61B Berkeley</h1>
+          <h1 class="post-title" itemprop="name headline">Java 语法和特性 - CS61B Berkeley</h1>
         
 
         <div class="post-meta">
@@ -377,7 +377,7 @@
 
           
           
-             <span id="/cs61b/" class="leancloud_visitors" data-flag-title="算法与数据结构 - Java |  - CS61B Berkeley">
+             <span id="/NOTE-CS61B-data-structures-other-syntaxes/" class="leancloud_visitors" data-flag-title="Java 语法和特性 - CS61B Berkeley">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8,014 字
+                  8,050 字
                 </span>
               
 
@@ -542,6 +542,7 @@
 </blockquote>
 <p>在 Java 7 及之前的版本, memory boxes (variables) 不能包含指向 functions 的 pointers, 也就是无法给 functions 指定 types. 所以不能像Python一样直接把 function 作为参数传递到另一个 function 中。只能借用 interface：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IntUnaryFunction</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TenX</span> <span class="keyword">implements</span> <span class="title">IntUnaryFunction</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* Returns ten times the argument. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span> * x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高阶方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">do_twice</span><span class="params">(IntUnaryFunction f, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> f.apply(f.apply(x));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用高阶方法</span></span><br><span class="line">System.out.println(do_twice(<span class="keyword">new</span> TenX(), <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+<p>Java 8 引入<code>java.util.Function&lt;T, R&gt;</code>接口, 可以接受存储一个函数，<code>&lt;T, R&gt;</code>对应该函数的参数和返回对象</p>
 <h2 id="Subtype-Polymorphism"><a href="#Subtype-Polymorphism" class="headerlink" title="Subtype Polymorphism"></a>Subtype Polymorphism</h2><blockquote>
 <p>多态（polymorphism），是指指相同的消息给予不同的对象会引发不同的动作。</p>
 <ul>
@@ -845,8 +846,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ai/" rel="prev" title="程序员学人工智能">
-                程序员学人工智能 <i class="fa fa-chevron-right"></i>
+              <a href="/cs/" rel="prev" title="Computer Science Step by Step">
+                Computer Science Step by Step <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
