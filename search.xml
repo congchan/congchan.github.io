@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[程序员学人工智能]]></title>
+    <title><![CDATA[Learn AI Step by Step]]></title>
     <url>%2Fai%2F</url>
     <content type="text"><![CDATA[记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。 English template 英文模板 机器学习 Coursera Machine Learning， 吴恩达的简化版机器学习 Machine Learning, 吴恩达的机器学习课程 这个比较深入 Deep Learning, 吴恩达的深度学习课程 Neural Networks for Machine Learning, Hinton的神经网络课程 深度学习 Deep learning, Coursera Machine Learning Practical: DNN, CNN, RNN 每个lab的答案在下一个lab 分支，即lab1的答案可以在lab2 branch里面看到。这个代码全部用Python class，比coursera的难度高点。 自然语言处理 自然语言处理, 斯坦福 加速自然语言处理, 爱丁堡大学 深度学习处理自然语言，斯坦福 计算机视觉 图像识别：卷积神经网络，李飞飞，斯坦福 机器人 机器人入门，斯坦福]]></content>
       <categories>

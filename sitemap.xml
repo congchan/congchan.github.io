@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/ai/</loc>
+    
+    <lastmod>2018-06-24T22:48:59.534Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-other-syntaxes/</loc>
     
     <lastmod>2018-06-24T22:47:43.567Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
     
     <lastmod>2018-05-28T15:59:04.863Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    
-    <lastmod>2018-05-28T15:57:34.781Z</lastmod>
     
   </url>
   
