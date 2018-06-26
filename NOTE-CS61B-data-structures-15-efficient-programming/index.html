@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="Efficient Programming效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？  Encapsulation Module: A set of methods that work togeth">
+<meta name="description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
 <meta name="keywords" content="编程,Java,软件工程,数据结构,算法,cs61b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Efficient Programming in Java - CS61B Berkeley">
 <meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Efficient Programming效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？  Encapsulation Module: A set of methods that work togeth">
+<meta property="og:description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-26T11:47:34.954Z">
+<meta property="og:updated_time" content="2018-06-26T14:22:49.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Efficient Programming in Java - CS61B Berkeley">
-<meta name="twitter:description" content="Efficient Programming效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？  Encapsulation Module: A set of methods that work togeth">
+<meta name="twitter:description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
 
 
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  778 字
+                  776 字
                 </span>
               
 
@@ -436,14 +436,15 @@
       
 
       
-        <h2 id="Efficient-Programming"><a href="#Efficient-Programming" class="headerlink" title="Efficient Programming"></a>Efficient Programming</h2><p>效率来源两个方面:</p>
+        <p>效率来源两个方面:</p>
 <ol>
 <li>编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？</li>
-<li>运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？</li>
-</ol>
+<li>运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？<a id="more"></a>
 <h2 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h2><blockquote>
 <p>Module: A set of methods that work together as a whole to perform some task or set of related tasks.<br>Encapsulated: A module is said to be encapsulated if its implementation is completely hidden, and it can be accessed only through a documented interface.</p>
 </blockquote>
+</li>
+</ol>
 <h2 id="API’s"><a href="#API’s" class="headerlink" title="API’s"></a>API’s</h2><blockquote>
 <p>An API(Application Programming Interface) of an ADT is the list of constructors and methods and a short description of each.</p>
 </blockquote>
@@ -725,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Efficient-Programming"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Efficient-Programming" class="headerlink" title="Efficient Programming"></a>Efficient Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">3.</span> <span class="nav-text"><a href="#API&#x2019;s" class="headerlink" title="API&#x2019;s"></a>API&#x2019;s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#ADT&#x2019;s" class="headerlink" title="ADT&#x2019;s"></a>ADT&#x2019;s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Asymptotic-Analysis" class="headerlink" title="Asymptotic Analysis"></a>Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#Big-Theta" class="headerlink" title="Big Theta"></a>Big Theta</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">2.</span> <span class="nav-text"><a href="#API&#x2019;s" class="headerlink" title="API&#x2019;s"></a>API&#x2019;s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#ADT&#x2019;s" class="headerlink" title="ADT&#x2019;s"></a>ADT&#x2019;s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Asymptotic-Analysis" class="headerlink" title="Asymptotic Analysis"></a>Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#Big-Theta" class="headerlink" title="Big Theta"></a>Big Theta</span></a></li></ol></li></ol></div>
             
 
           </div>
