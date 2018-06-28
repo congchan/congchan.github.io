@@ -88,15 +88,17 @@
 <meta name="description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
 <meta name="keywords" content="编程,Java,软件工程,数据结构,算法,cs61b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Efficient Programming in Java - CS61B Berkeley">
+<meta property="og:title" content="Efficient Programming in Java - CS61B Berkeley - Josh Hug">
 <meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-27T17:11:44.676Z">
+<meta property="og:image" content="http://yoursite.com/images/three_Asymptotics.png">
+<meta property="og:updated_time" content="2018-06-28T19:26:07.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Efficient Programming in Java - CS61B Berkeley">
+<meta name="twitter:title" content="Efficient Programming in Java - CS61B Berkeley - Josh Hug">
 <meta name="twitter:description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
+<meta name="twitter:image" content="http://yoursite.com/images/three_Asymptotics.png">
 
 
 
@@ -132,7 +134,7 @@
 
 
 
-  <title>Efficient Programming in Java - CS61B Berkeley | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Efficient Programming in Java - CS61B Berkeley - Josh Hug | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -310,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Efficient Programming in Java - CS61B Berkeley</h1>
+          <h1 class="post-title" itemprop="name headline">Efficient Programming in Java - CS61B Berkeley - Josh Hug</h1>
         
 
         <div class="post-meta">
@@ -373,7 +375,7 @@
 
           
           
-             <span id="/NOTE-CS61B-data-structures-15-efficient-programming/" class="leancloud_visitors" data-flag-title="Efficient Programming in Java - CS61B Berkeley">
+             <span id="/NOTE-CS61B-data-structures-15-efficient-programming/" class="leancloud_visitors" data-flag-title="Efficient Programming in Java - CS61B Berkeley - Josh Hug">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -399,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  950 字
+                  1,517 字
                 </span>
               
 
@@ -415,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5 分钟
+                  8 分钟
                 </span>
               
             </div>
@@ -514,6 +516,53 @@
 <p>用 merge sort 加速 selection sort - 把 selection sort 递归地平分, 总共能分解出$\log_2N$个 merge sorts, 伪代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">If the list is size 1:</span><br><span class="line">    return</span><br><span class="line">else:</span><br><span class="line">    Mergesort the left half</span><br><span class="line">    Mergesort the right half</span><br><span class="line">    Merge the results</span><br></pre></td></tr></table></figure></p>
 <p>Total runtime is $≈Nk$, where $k = \log_2(N)$ is the number of levels, overall runtime is $\Theta(N \log N)$.<br>$N^2$ vs. $N \log N$ is an enormous difference. Going from $N\log N$ to $N$ is nice, but not a radical change.</p>
 <p>Useful math:<br>$1 + 2 + 3 + … + N = N * (N + 1) / 2 = \Theta(N^2)$<br>$1 + 2 + 4 + … + N = 2N - 1 = \Theta(N)$</p>
+<h3 id="Big-O"><a href="#Big-O" class="headerlink" title="Big O"></a>Big O</h3><p>Big Theta expresses the exact order of as a function of the input size. However, if the runtime depends on more than just the size of the input, then we must qualify our statements into different cases before using Big Theta.</p>
+<p>Big O: $R(N) \in O(f(N))$, means that there exists positive constants $k_2$, such that: $R(N) \leq k_2 \cdot f(N)$ for all values of $N$ greater than some $N_0$(a very large $N$). This is a looser condition than Big Theta since Big O does not care about the lower bound, thus it is less informative than Big Theta.</p>
+<p>To summarize the usefulness of Big O:</p>
+<ul>
+<li>It allows us to make simple statements without case qualifications, in cases where the runtime is different for different inputs.</li>
+<li>Sometimes, for particularly tricky problems, we (the computer science community) don’t know the exact runtime, so we may only state an upper bound.</li>
+<li>It’s a lot easier to write proofs for Big O than Big Theta, like we saw in finding the runtime of mergesort in the previous chapter. This is beyond the scope of this course.</li>
+</ul>
+<p>类似的也可以定义一个<strong>下限</strong>概念 - Big Omega ($\Omega$)， 一般用于表明一个问题的难度有多大。</p>
+<p><img src="/images/three_Asymptotics.png" alt="" title="Three Big letters. image from: https://joshhug.gitbooks.io/"></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><blockquote>
+<ul>
+<li>Big O is an upper bound (“less than or equals”)</li>
+<li>Big Omega is a lower bound (“greater than or equals”)</li>
+<li>Big Theta is both an upper and lower bound (“equals”)</li>
+<li>Big O does NOT mean “worst case”. We can still describe worst cases using Big Theta</li>
+<li>Big Omega does NOT mean “best case”. We can still describe best cases using Big Theta</li>
+<li>Big O is sometimes colloquially used in cases where Big Theta would provide a more precise statement<br>– from: <a href="https://joshhug.gitbooks.io/" target="_blank" rel="noopener">https://joshhug.gitbooks.io/</a></li>
+</ul>
+</blockquote>
+<h2 id="Amortized-Analysis"><a href="#Amortized-Analysis" class="headerlink" title="Amortized Analysis"></a>Amortized Analysis</h2><p>平摊分析</p>
+<p>假如有两种交税方式：</p>
+<ol>
+<li>每天付 3 金币</li>
+<li>每次付的金币呈指数级增长，但通知付款频率呈指数级下降<ul>
+<li>第1天：付 1</li>
+<li>第2天：付 2 (累计 3)</li>
+<li>第4天：付 4 (累积 7)</li>
+<li>第8天：付 8 (累积 15)</li>
+</ul>
+</li>
+</ol>
+<p>哪种付的钱比较少？<br>第二种比较划算，本质上等同于每天付 2，就是<strong>amortized constant</strong>。</p>
+<p>A more rigorous examination of amortized analysis is done here, in three steps:</p>
+<ol>
+<li>Pick a cost model (like in regular runtime analysis)</li>
+<li>Compute the average cost of the i’th operation</li>
+<li>Show that this average (amortized) cost is bounded by a constant.</li>
+</ol>
+<p>类似的应用在<a href="/NOTE-CS61B-data-structures-07-java-array-based-list#数组扩容">Array list 扩容</a>中提到的 geometric resizing 方法(实际也是Python list 使用的方法)有体现, 所以使用一个因数来扩容数组, 可以让 ArrayList 的 <code>add</code>操作变为 amortized constant time.</p>
+<p>总结</p>
+<blockquote>
+<ul>
+<li>Amortized analysis provides a way to prove the average cost of operations.</li>
+<li>If we chose $a_i$ such that $\Phi_i$ is never negative and $a_i$ is constant for all $i$, then the amortized cost is an upper bound on the true cost.<br>– from: <a href="https://joshhug.gitbooks.io/" target="_blank" rel="noopener">https://joshhug.gitbooks.io/</a></li>
+</ul>
+</blockquote>
 
       
     </div>
@@ -554,8 +603,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NOTE-CS61B-data-structures-14-other-syntaxes/" rel="next" title="Java 语法和特性 - CS61B Berkeley">
-                <i class="fa fa-chevron-left"></i> Java 语法和特性 - CS61B Berkeley
+              <a href="/NOTE-CS61B-data-structures-14-other-syntaxes/" rel="next" title="Java 语法和特性 - CS61B Berkeley - Josh Hug">
+                <i class="fa fa-chevron-left"></i> Java 语法和特性 - CS61B Berkeley - Josh Hug
               </a>
             
           </div>
@@ -730,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">2.</span> <span class="nav-text"><a href="#API&#x2019;s" class="headerlink" title="API&#x2019;s"></a>API&#x2019;s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#ADT&#x2019;s" class="headerlink" title="ADT&#x2019;s"></a>ADT&#x2019;s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Asymptotic-Analysis" class="headerlink" title="Asymptotic Analysis"></a>Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#Big-Theta" class="headerlink" title="Big Theta"></a>Big Theta</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">2.</span> <span class="nav-text"><a href="#API&#x2019;s" class="headerlink" title="API&#x2019;s"></a>API&#x2019;s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#ADT&#x2019;s" class="headerlink" title="ADT&#x2019;s"></a>ADT&#x2019;s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Asymptotic-Analysis" class="headerlink" title="Asymptotic Analysis"></a>Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#Big-Theta" class="headerlink" title="Big Theta"></a>Big Theta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#Big-O" class="headerlink" title="Big O"></a>Big O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amortized-Analysis"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Amortized-Analysis" class="headerlink" title="Amortized Analysis"></a>Amortized Analysis</span></a></li></ol></div>
             
 
           </div>
