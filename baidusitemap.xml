@@ -4,20 +4,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-st/</loc>
-    <lastmod>2018-06-29T09:32:40.105Z</lastmod>
+    <loc>http://yoursite.com/machine-learning/</loc>
+    <lastmod>2018-06-29T19:36:01.282Z</lastmod>
     <data>
         <display>
-        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
+        <title>Machine Learning Note - cs229 - Stanford</title>
+        <pubTime>2017-12-05T00:00:00.000Z</pubTime>
         
+        <tag>Machine Learning</tag>
+         
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+              <breadCrumb title="Machine Learning" url="http://yoursite.com/categories/Machine-Learning/"/>
           
         </display>
     </data>
@@ -25,28 +24,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-sapm/</loc>
-    <lastmod>2018-06-29T09:32:34.287Z</lastmod>
+    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+    <lastmod>2018-06-29T19:35:57.287Z</lastmod>
     <data>
         <display>
-        <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
-        <pubTime>2018-05-15T23:00:00.000Z</pubTime>
+        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
+        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
         
-        <tag>软件工程</tag>
+        <tag>Python</tag>
          
-        <tag>UoE</tag>
-         
-        <tag>软件架构</tag>
-         
-        <tag>软件管理</tag>
+        <tag>NLP</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
           
         </display>
     </data>
@@ -54,20 +46,401 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-ppls/</loc>
-    <lastmod>2018-06-29T09:32:24.753Z</lastmod>
+    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
+    <lastmod>2018-06-29T19:35:53.370Z</lastmod>
     <data>
         <display>
-        <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-10T23:00:00.000Z</pubTime>
+        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
+        <pubTime>2018-04-01T23:00:00.000Z</pubTime>
         
+        <tag>NLP</tag>
+         
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
+    <lastmod>2018-06-29T19:35:49.882Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 01 安装 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-18T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
              
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
+    <lastmod>2018-06-29T19:35:46.256Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 02 语法基础 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-20T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
+    <lastmod>2018-06-29T19:35:40.867Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 03 代码风格 注释 Javadoc - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-21T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
+    <lastmod>2018-06-29T19:35:36.970Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 04 类 class 01 变量和方法 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-24T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
+    <lastmod>2018-06-29T19:35:33.402Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-25T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
+    <lastmod>2018-06-29T19:35:29.050Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
+    <lastmod>2018-06-29T19:35:24.576Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 06 array 数组 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-27T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
+    <lastmod>2018-06-29T19:35:21.173Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug - Josh Hug</title>
+        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+    <lastmod>2018-06-29T19:35:17.083Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 08 单向链表 Singly Linked List - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-01-12T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+    <lastmod>2018-06-29T19:35:13.309Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 09 双向链表 Doubly Linked List - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-01-13T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
+    <lastmod>2018-06-29T19:35:09.766Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-01-28T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
+    <lastmod>2018-06-29T19:35:04.889Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/</loc>
+    <lastmod>2018-06-29T19:35:00.697Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-02-23T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
+    <lastmod>2018-06-29T19:34:55.434Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-02-24T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/</loc>
+    <lastmod>2018-06-29T19:34:51.111Z</lastmod>
+    <data>
+        <display>
+        <title>Java 语法和特性 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-05-28T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions/</loc>
+    <lastmod>2018-06-29T19:34:44.382Z</lastmod>
+    <data>
+        <display>
+        <title>CS106b Programming Abstractions - C++ 算法与数据结构 Stanford cs106b</title>
+        <pubTime>2017-06-22T23:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>C++</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
           
         </display>
     </data>
@@ -76,7 +449,7 @@
     
   <url>
     <loc>http://yoursite.com/UoE-nlu/</loc>
-    <lastmod>2018-06-29T09:32:16.028Z</lastmod>
+    <lastmod>2018-06-29T19:34:30.851Z</lastmod>
     <data>
         <display>
         <title>Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡大学</title>
@@ -85,10 +458,31 @@
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
+    <lastmod>2018-06-29T19:34:16.032Z</lastmod>
+    <data>
+        <display>
+        <title>Efficient Programming in Java - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-06-25T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
              
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
           
         </display>
     </data>
@@ -97,7 +491,7 @@
     
   <url>
     <loc>http://yoursite.com/UoE-anlp/</loc>
-    <lastmod>2018-06-29T09:32:11.430Z</lastmod>
+    <lastmod>2018-06-29T19:34:11.842Z</lastmod>
     <data>
         <display>
         <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
@@ -112,10 +506,7 @@
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
           
         </display>
     </data>
@@ -123,32 +514,17 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
-    <lastmod>2018-06-29T09:30:48.883Z</lastmod>
+    <loc>http://yoursite.com/UoE-ppls/</loc>
+    <lastmod>2018-06-29T19:34:08.551Z</lastmod>
     <data>
         <display>
-        <title>Efficient Programming in Java - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-06-25T23:00:00.000Z</pubTime>
+        <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
+        <pubTime>2018-05-10T23:00:00.000Z</pubTime>
         
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
           
         </display>
     </data>
@@ -156,32 +532,17 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
-    <lastmod>2018-06-28T19:27:52.246Z</lastmod>
+    <loc>http://yoursite.com/UoE-sapm/</loc>
+    <lastmod>2018-06-29T19:34:04.478Z</lastmod>
     <data>
         <display>
-        <title>算法与数据结构 - Java | 01 安装 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-18T00:00:00.000Z</pubTime>
+        <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
+        <pubTime>2018-05-15T23:00:00.000Z</pubTime>
         
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
           
         </display>
     </data>
@@ -189,550 +550,17 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
-    <lastmod>2018-06-28T19:27:48.439Z</lastmod>
+    <loc>http://yoursite.com/UoE-st/</loc>
+    <lastmod>2018-06-29T19:34:00.378Z</lastmod>
     <data>
         <display>
-        <title>算法与数据结构 - Java | 02 语法基础 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-20T00:00:00.000Z</pubTime>
+        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
+        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
         
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
-    <lastmod>2018-06-28T19:27:44.644Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 03 代码风格 注释 Javadoc - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-21T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
-    <lastmod>2018-06-28T19:27:40.674Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 04 类 class 01 变量和方法 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-24T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
-    <lastmod>2018-06-28T19:27:36.362Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-25T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
-    <lastmod>2018-06-28T19:27:31.587Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
-    <lastmod>2018-06-28T19:26:58.691Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 06 array 数组 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-27T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
-    <lastmod>2018-06-28T19:26:54.030Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug - Josh Hug</title>
-        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
-    <lastmod>2018-06-28T19:26:49.842Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 08 单向链表 Singly Linked List - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-12T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
-    <lastmod>2018-06-28T19:26:46.146Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 09 双向链表 Doubly Linked List - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-13T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
-    <lastmod>2018-06-28T19:26:41.282Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-28T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
-    <lastmod>2018-06-28T19:26:37.372Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/</loc>
-    <lastmod>2018-06-28T19:26:32.910Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-02-23T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
-    <lastmod>2018-06-28T19:26:28.540Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-02-24T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/</loc>
-    <lastmod>2018-06-28T19:26:23.998Z</lastmod>
-    <data>
-        <display>
-        <title>Java 语法和特性 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-05-28T23:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/ai/</loc>
-    <lastmod>2018-06-24T22:48:59.534Z</lastmod>
-    <data>
-        <display>
-        <title>Learn AI Step by Step</title>
-        <pubTime>2100-01-31T00:00:00.000Z</pubTime>
-        
-        <tag>深度学习</tag>
-         
-        <tag>人工智能</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>自然语言处理</tag>
-         
-        <tag>计算机视觉</tag>
-         
-        <tag>大数据</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/cs/</loc>
-    <lastmod>2018-06-18T17:01:35.034Z</lastmod>
-    <data>
-        <display>
-        <title>Computer Science Step by Step</title>
-        <pubTime>2100-01-31T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>计算机科学</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/Java-hashcode-equals/</loc>
-    <lastmod>2018-06-18T16:58:08.126Z</lastmod>
-    <data>
-        <display>
-        <title>Java | Hash @Override equals() hashcode()</title>
-        <pubTime>2018-02-27T00:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
           
         </display>
     </data>
@@ -741,81 +569,20 @@
     
   <url>
     <loc>http://yoursite.com/python-digest/</loc>
-    <lastmod>2018-06-06T10:17:48.338Z</lastmod>
+    <lastmod>2018-06-29T19:18:48.676Z</lastmod>
     <data>
         <display>
         <title>Python Digest 之奇技淫巧</title>
         <pubTime>2018-05-07T23:00:00.000Z</pubTime>
         
-        <tag>编程</tag>
-         
         <tag>Python</tag>
          
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="编程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions/</loc>
-    <lastmod>2018-05-26T22:37:04.058Z</lastmod>
-    <data>
-        <display>
-        <title>CS106b Programming Abstractions - C++ 算法与数据结构 Stanford cs106b</title>
-        <pubTime>2017-06-22T23:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs106b</tag>
-         
-        <tag>C++</tag>
+        <tag>Programming Language</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/machine-learning/</loc>
-    <lastmod>2018-05-26T22:17:03.221Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning Note - cs229 - Stanford</title>
-        <pubTime>2017-12-05T00:00:00.000Z</pubTime>
-        
-        <tag>人工智能</tag>
-         
-        <tag>机器学习</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
           
         </display>
     </data>
@@ -824,15 +591,15 @@
     
   <url>
     <loc>http://yoursite.com/machine-learning-with-sklearn/</loc>
-    <lastmod>2018-05-26T22:16:39.840Z</lastmod>
+    <lastmod>2018-06-29T19:12:04.358Z</lastmod>
     <data>
         <display>
         <title>Machine Learning with Scikit-learn (Sklearn) 机器学习实践</title>
         <pubTime>2017-12-01T00:00:00.000Z</pubTime>
         
-        <tag>人工智能</tag>
+        <tag>AI</tag>
          
-        <tag>机器学习</tag>
+        <tag>Machine Learning</tag>
          
         <tag>python</tag>
          
@@ -841,64 +608,7 @@
          
            
              
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
-    <lastmod>2018-05-08T09:03:09.223Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
-        <pubTime>2018-04-01T23:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>NLP</tag>
-         
-        <tag>自然语言处理</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
-    <lastmod>2018-05-08T09:03:03.117Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
-        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>NLP</tag>
-         
-        <tag>自然语言处理</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+              <breadCrumb title="Machine Learning" url="http://yoursite.com/categories/Machine-Learning/"/>
           
         </display>
     </data>
@@ -907,28 +617,80 @@
     
   <url>
     <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
-    <lastmod>2018-01-06T22:45:03.611Z</lastmod>
+    <lastmod>2018-06-29T19:11:17.502Z</lastmod>
     <data>
         <display>
         <title>Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件</title>
         <pubTime>2018-01-01T00:00:00.000Z</pubTime>
         
-        <tag>编程</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>Git Bash</tag>
-         
-        <tag>Sublime</tag>
-         
-        <tag>Atom</tag>
-         
-        <tag>编辑器</tag>
+        <tag>Software Engineer</tag>
          
          
            
              
-              <breadCrumb title="提高效率" url="http://yoursite.com/categories/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87/"/>
+              <breadCrumb title="Productivity" url="http://yoursite.com/categories/Productivity/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/Java-hashcode-equals/</loc>
+    <lastmod>2018-06-29T19:10:35.858Z</lastmod>
+    <data>
+        <display>
+        <title>Java | Hash @Override equals() hashcode()</title>
+        <pubTime>2018-02-27T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/cs/</loc>
+    <lastmod>2018-06-29T17:12:56.271Z</lastmod>
+    <data>
+        <display>
+        <title>Computer Science Step by Step</title>
+        <pubTime>2100-01-31T00:00:00.000Z</pubTime>
+        
+        <tag>CS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/ai/</loc>
+    <lastmod>2018-06-29T17:12:40.022Z</lastmod>
+    <data>
+        <display>
+        <title>Learn AI Step by Step</title>
+        <pubTime>2100-01-31T00:00:00.000Z</pubTime>
+        
+        <tag>AI</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://yoursite.com/categories/AI/"/>
           
         </display>
     </data>
