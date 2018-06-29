@@ -34,9 +34,9 @@
         
         <tag>软件工程</tag>
          
-        <tag>软件架构</tag>
-         
         <tag>UoE</tag>
+         
+        <tag>软件架构</tag>
          
         <tag>软件管理</tag>
          
@@ -658,13 +658,13 @@
         <title>Learn AI Step by Step</title>
         <pubTime>2100-01-31T00:00:00.000Z</pubTime>
         
-        <tag>人工智能</tag>
+        <tag>深度学习</tag>
          
-        <tag>自然语言处理</tag>
+        <tag>人工智能</tag>
          
         <tag>机器学习</tag>
          
-        <tag>深度学习</tag>
+        <tag>自然语言处理</tag>
          
         <tag>计算机视觉</tag>
          
@@ -747,9 +747,9 @@
         <title>Python Digest 之奇技淫巧</title>
         <pubTime>2018-05-07T23:00:00.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>编程</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -852,35 +852,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/csapp/</loc>
-    <lastmod>2018-05-12T22:49:06.478Z</lastmod>
-    <data>
-        <display>
-        <title>从程序员的视角理解计算机系统 - csapp - CMU 15213</title>
-        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
-        
-        <tag>计算机入门</tag>
-         
-        <tag>计算机科学</tag>
-         
-        <tag>csapp</tag>
-         
-        <tag>C 语言</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
     <lastmod>2018-05-08T09:03:09.223Z</lastmod>
     <data>
@@ -888,11 +859,11 @@
         <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
         <pubTime>2018-04-01T23:00:00.000Z</pubTime>
         
-        <tag>自然语言处理</tag>
-         
         <tag>Python</tag>
          
         <tag>NLP</tag>
+         
+        <tag>自然语言处理</tag>
          
          
            
@@ -915,11 +886,11 @@
         <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
         <pubTime>2018-03-31T23:00:00.000Z</pubTime>
         
-        <tag>自然语言处理</tag>
-         
         <tag>Python</tag>
          
         <tag>NLP</tag>
+         
+        <tag>自然语言处理</tag>
          
          
            
