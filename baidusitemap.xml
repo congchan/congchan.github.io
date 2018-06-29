@@ -4,6 +4,158 @@
 
     
   <url>
+    <loc>http://yoursite.com/UoE-st/</loc>
+    <lastmod>2018-06-29T09:32:40.105Z</lastmod>
+    <data>
+        <display>
+        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
+        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/UoE-sapm/</loc>
+    <lastmod>2018-06-29T09:32:34.287Z</lastmod>
+    <data>
+        <display>
+        <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
+        <pubTime>2018-05-15T23:00:00.000Z</pubTime>
+        
+        <tag>软件工程</tag>
+         
+        <tag>软件架构</tag>
+         
+        <tag>UoE</tag>
+         
+        <tag>软件管理</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/UoE-ppls/</loc>
+    <lastmod>2018-06-29T09:32:24.753Z</lastmod>
+    <data>
+        <display>
+        <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
+        <pubTime>2018-05-10T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/UoE-nlu/</loc>
+    <lastmod>2018-06-29T09:32:16.028Z</lastmod>
+    <data>
+        <display>
+        <title>Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡大学</title>
+        <pubTime>2018-04-30T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/UoE-anlp/</loc>
+    <lastmod>2018-06-29T09:32:11.430Z</lastmod>
+    <data>
+        <display>
+        <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
+        <pubTime>2018-01-31T00:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>NLP</tag>
+         
+        <tag>UoE</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
+    <lastmod>2018-06-29T09:30:48.883Z</lastmod>
+    <data>
+        <display>
+        <title>Efficient Programming in Java - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-06-25T23:00:00.000Z</pubTime>
+        
+        <tag>编程</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
     <lastmod>2018-06-28T19:27:52.246Z</lastmod>
     <data>
@@ -499,39 +651,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
-    <lastmod>2018-06-28T19:26:07.691Z</lastmod>
-    <data>
-        <display>
-        <title>Efficient Programming in Java - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-06-25T23:00:00.000Z</pubTime>
-        
-        <tag>编程</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>数据结构</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/ai/</loc>
     <lastmod>2018-06-24T22:48:59.534Z</lastmod>
     <data>
@@ -585,96 +704,6 @@
           
              
               <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/UoE-st/</loc>
-    <lastmod>2018-06-18T16:59:27.303Z</lastmod>
-    <data>
-        <display>
-        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/UoE-ppls/</loc>
-    <lastmod>2018-06-18T16:59:00.267Z</lastmod>
-    <data>
-        <display>
-        <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-10T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="计算机科学" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/UoE-nlu/</loc>
-    <lastmod>2018-06-18T16:58:36.649Z</lastmod>
-    <data>
-        <display>
-        <title>Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡大学</title>
-        <pubTime>2018-04-30T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/UoE-anlp/</loc>
-    <lastmod>2018-06-18T16:58:26.795Z</lastmod>
-    <data>
-        <display>
-        <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
-        <pubTime>2018-01-31T00:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>NLP</tag>
-         
-        <tag>UoE</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>
@@ -816,35 +845,6 @@
           
              
               <breadCrumb title="人工智能" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/UoE-sapm/</loc>
-    <lastmod>2018-05-26T22:03:36.283Z</lastmod>
-    <data>
-        <display>
-        <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
-        <pubTime>2018-05-15T23:00:00.000Z</pubTime>
-        
-        <tag>软件工程</tag>
-         
-        <tag>软件架构</tag>
-         
-        <tag>UoE</tag>
-         
-        <tag>软件管理</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="软件工程" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
           
         </display>
     </data>
