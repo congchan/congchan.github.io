@@ -336,6 +336,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/ai/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="ai/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -525,6 +536,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/cs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="cs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -674,6 +696,273 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/note-algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/note-algorithms/" itemprop="url">Algorithms - Princeton</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-01T00:00:00+01:00">
+                2018-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/note-algorithms/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="note-algorithms/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/note-algorithms/" class="leancloud_visitors" data-flag-title="Algorithms - Princeton">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  831
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  5 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>Algorithms, Part I, <a href="https://online.princeton.edu/course/algorithms-part-i" target="_blank" rel="noopener">https://online.princeton.edu/course/algorithms-part-i</a></li>
+<li>Algorithms, Part II, <a href="https://online.princeton.edu/course/algorithms-part-ii" target="_blank" rel="noopener">https://online.princeton.edu/course/algorithms-part-ii</a></li>
+<li>Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne <a href="https://algs4.cs.princeton.edu/" target="_blank" rel="noopener">https://algs4.cs.princeton.edu/</a></li>
+</ul>
+<h2 id="Union−Find"><a href="#Union−Find" class="headerlink" title="Union−Find"></a>Union−Find</h2><p>Considering the dynamic connectivity problem, modeling of multiple objects connected in a space/network.</p>
+<p>Applications involve manipulating objects of all types.<br>・Pixels in a digital photo.<br>・Computers in a network.<br>・Friends in a social network.<br>・Transistors in a computer chip.</p>
+<p>Given a set of N objects.</p>
+<ul>
+<li><code>union(a, b)</code>: connect two objects.</li>
+<li><code>connected(p, q)</code>: is two objects connected?</li>
+<li><code>find(p)</code>: Find component identifier for <code>p</code> (0 to N – 1)</li>
+</ul>
+<p>Modeling the objects: array.</p>
+<p>Modeling the connections:<br>Maximal set of objects that are mutually connected - Connected components.</p>
+<p>Data structure:</p>
+<ol>
+<li><p>Quick find<br>Integer array <code>id[]</code> of length N, two objects are connected iff they have the same id.<br><img src="https://algs4.cs.princeton.edu/15uf/images/quick-find-overview.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br>Defect: <code>union</code> too expensive, $\in \Theta(N^2)$.</p>
+</li>
+<li><p>Quick-union<br>Integer array <code>id[]</code> of length N, <code>id[i]</code> is parent of i, root of i is <code>id[id[id[...id[i]...]]]</code> (until it doesn’t change).<br><img src="https://algs4.cs.princeton.edu/15uf/images/quick-union-overview.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br>The <code>find</code> is recursive.</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** chase parent pointers until reach root</span></span><br><span class="line"><span class="comment"> * (depth of i array accesses) */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i != id[i]) i = id[i];</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> Defect: Trees can get tall, <code>find</code> too expensive, $\in \Theta(N)$.</p>
+</li>
+<li><p>Weighted quick-union<br>Modify quick-union to avoid tall trees. Balance by linking root of smaller tree to root of larger tree. Maintain extra array <code>sz[i]</code> to keep track of size of each tree (number of objects).<br><img src="https://algs4.cs.princeton.edu/15uf/images/weighted-quick-union-overview.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br><code>find</code>: time proportional to depth of p and q, the depth of any node x is at most $\log N$,</p>
+</li>
+<li><p>Weighted quick-union with path compression<br>Making all the nodes that examined directly link to its root. Keeps tree almost completely flat.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Make every other node in path point to its grandparent</span></span><br><span class="line"><span class="comment">* (thereby halving path length). */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i != id[i]) &#123;</span><br><span class="line">        id[i] = id[id[i]];</span><br><span class="line">        i = id[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> Amortized analysis: <code>[Hopcroft-Ulman, Tarjan]</code> Starting from an empty data structure, any sequence of M union-find ops on N objects makes $≤ c ( N + M \lg \ast N )$ array accesses. $\lg \ast N$ is <a href="https://en.wikipedia.org/wiki/Iterated_logarithm" target="_blank" rel="noopener">Iterated logarithm</a>, for $N = 2^{65536}$, $\lg \ast N = 5$. In theory, WQUPC is not quite linear. In practice, WQUPC is linear.</p>
+</li>
+</ol>
+<blockquote>
+<p>Amazing fact. <code>[Fredman-Saks]</code> No linear-time algorithm exists.</p>
+</blockquote>
+<p><img src="https://algs4.cs.princeton.edu/15uf/images/uf-performance.png" alt="" title="Summary. image from: https://algs4.cs.princeton.edu/"></p>
+<h3 id="Union-find-applications-Percolation"><a href="#Union-find-applications-Percolation" class="headerlink" title="Union-find applications: Percolation"></a>Union-find applications: Percolation</h3><p><a href="http://coursera.cs.princeton.edu/algs4/assignments/percolation.html" target="_blank" rel="noopener">Problem discriptions</a></p>
+<p>Percolation data type. To model a percolation system, create a data type Percolation with the following API:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Percolation</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Percolation</span><span class="params">(<span class="keyword">int</span> n)</span></span>;                <span class="comment">// create n-by-n grid, with all sites blocked</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>    <span class="keyword">void</span> <span class="title">open</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>;    <span class="comment">// open site (row, col) if it is not open already</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOpen</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>;  <span class="comment">// is site (row, col) open?</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>;  <span class="comment">// is site (row, col) full?</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>     <span class="keyword">int</span> <span class="title">numberOfOpenSites</span><span class="params">()</span></span>;       <span class="comment">// number of open sites</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">percolates</span><span class="params">()</span></span>;              <span class="comment">// does the system percolate?</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Monte Carlo simulation. To estimate the percolation threshold, consider the following computational experiment:</p>
+<ul>
+<li>Initialize all sites to be blocked.</li>
+<li>Repeat the following until the system percolates:<ul>
+<li>Choose a site uniformly at random among all blocked sites.</li>
+<li>Open the site.</li>
+</ul>
+</li>
+<li>The fraction of sites that are opened when the system percolates provides an estimate of the percolation threshold.</li>
+</ul>
+<h4 id="The-back-wash-issue"><a href="#The-back-wash-issue" class="headerlink" title="The back wash issue"></a><a href="http://coursera.cs.princeton.edu/algs4/checklists/percolation.html" target="_blank" rel="noopener">The back wash issue</a></h4><p><img src="http://coursera.cs.princeton.edu/algs4/checklists/percolation-backwash.png" alt="" title="image from: http://coursera.cs.princeton.edu"></p>
+<p>My solution inspired from this post <a href="https://www.sigmainfy.com/blog/avoid-backwash-in-percolation.html" target="_blank" rel="noopener">https://www.sigmainfy.com/blog/avoid-backwash-in-percolation.html</a>, with some improvements:</p>
+<ol>
+<li>Using one <code>WeightedQuickUnionUF(n * n)</code> objects to track each site’s parent.</li>
+<li>Use a <code>byte[n * n]</code> to store the each site’s state.<ul>
+<li>There are four possible states, represented as<ul>
+<li><code>BLOCKED: 0b000</code></li>
+<li><code>OPEN: 0b001</code></li>
+<li><code>CONNECT_TO_BOTTOM: 0b010</code></li>
+<li><code>CONNECT_TO_TOP: 0b100</code></li>
+</ul>
+</li>
+<li>With byte operation <code>|</code>, we enable sites to have mixture of states.</li>
+</ul>
+</li>
+<li><code>open(row, col)</code>: to open the current site <code>cur</code>, we need to<ul>
+<li>find out its four possible neibourghs (<code>up</code>, <code>down</code>, <code>left</code>, <code>right</code>, if exist);</li>
+<li>use <code>find()</code> to return the neibourghs’ parents (<code>upParent</code>, etc..), use <code>union()</code> to connect <code>cur</code> and its neibourghs;</li>
+<li>Fianally, update <code>cur</code>‘s new parent <code>newParent</code>‘s state with the combination of <code>cur</code>‘s parent state and the neibourghs’ parents states.</li>
+<li>in totalm, there involves 4 <code>union()</code> and 5 <code>find()</code> API calls at most but the time complexity is still $\Theta(\lg N)$</li>
+</ul>
+</li>
+<li><code>isOpen()</code>: $\in \Theta(1)$ by checking the <code>byte[n * n]</code>.</li>
+<li><code>isFull()</code>: $\in \Theta(1)$, use one call <code>find()</code> API and thus is $\in \Theta (\lg N)$</li>
+<li><code>percolates()</code>: use a <code>boolean isPercolates</code> as mark, for any new open site that becomes both <code>CONNECT_TO_BOTTOM</code> and <code>CONNECT_TO_TOP</code>, we could mark the model as percolates.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Estimated student memory = 9.00 n^2 + 0.00 n + 160.00   (R^2 = 1.000)</span><br><span class="line"></span><br><span class="line">Test 2 (bonus): check that total memory &lt;= 11 n^2 + 128 n + 1024 bytes</span><br><span class="line"></span><br><span class="line">==&gt; passed</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis-of-Algorithms"><a href="#Analysis-of-Algorithms" class="headerlink" title="Analysis of Algorithms"></a>Analysis of Algorithms</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -740,6 +1029,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NOTE-CS61B-data-structures-15-efficient-programming/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="NOTE-CS61B-data-structures-15-efficient-programming/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -932,6 +1232,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NOTE-CS61B-data-structures-14-other-syntaxes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="NOTE-CS61B-data-structures-14-other-syntaxes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1119,6 +1430,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/UoE-sapm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="UoE-sapm/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1308,6 +1630,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/UoE-ppls/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="UoE-ppls/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1495,6 +1828,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/python-digest/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="python-digest/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1684,6 +2028,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/UoE-st/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="UoE-st/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1872,6 +2227,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/UoE-nlu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="UoE-nlu/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1980,200 +2346,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/NOTE-ANLP-02-n-gram-model/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/NOTE-ANLP-02-n-gram-model/" itemprop="url">自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T00:00:00+01:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/NOTE-ANLP-02-n-gram-model/" class="leancloud_visitors" data-flag-title="自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  1,079
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  5 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>生成模型在语言模型中的应用包括 N-Gram语言模型，朴素贝叶斯分类器，隐马尔可夫模型。</p>
-<blockquote>
-<p>在概率统计理论中, 生成模型是指能够生成观测数据的模型，尤其是在给定某些隐含参数的条件下。它给观测值和标注数据序列指定一个联合概率分布。</p>
-</blockquote>
-<blockquote>
-<p>生成模型的定义与判别模型相对应：生成模型是所有变量的全概率模型，而判别模型是在给定观测变量值前提下目标变量条件概率模型。因此生成模型能够用于模拟（即生成）模型中任意变量的分布情况，而判别模型只能根据观测变量得到目标变量的采样。判别模型不对观测变量的分布建模，因此它不能够表达观测变量与目标变量之间更复杂的关系。因此，生成模型更适用于无监督的任务，如分类和聚类。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/NOTE-ANLP-02-n-gram-model/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2228,7 +2400,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2250,7 +2422,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2449,6 +2621,14 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
 
 
 
@@ -2461,10 +2641,6 @@
   
 
 
-
-
-
-  
 
 
 
