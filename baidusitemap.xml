@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
+    <lastmod>2018-07-14T11:51:44.820Z</lastmod>
+    <data>
+        <display>
+        <title>Efficient Programming in Java - A preview of Algorithms and Data Structures</title>
+        <pubTime>2018-06-25T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>algs4</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/note-algorithms/</loc>
     <lastmod>2018-07-06T17:22:51.974Z</lastmod>
     <data>
@@ -516,30 +542,6 @@
            
              
               <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
-    <lastmod>2018-06-29T19:34:16.032Z</lastmod>
-    <data>
-        <display>
-        <title>Efficient Programming in Java - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-06-25T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>cs61b</tag>
-         
-        <tag>Software Engineer</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
           
         </display>
     </data>

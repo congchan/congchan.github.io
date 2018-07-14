@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Java,cs61b,Software Engineer," />
+  <meta name="keywords" content="Java,cs61b,algs4,Software Engineer," />
 
 
 
@@ -85,19 +85,19 @@
 
 
 
-<meta name="description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
-<meta name="keywords" content="Java,cs61b,Software Engineer">
+<meta name="description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
+<meta name="keywords" content="Java,cs61b,algs4,Software Engineer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Efficient Programming in Java - CS61B Berkeley - Josh Hug">
+<meta property="og:title" content="Efficient Programming in Java - A preview of Algorithms and Data Structures">
 <meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
+<meta property="og:description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/three_Asymptotics.png">
-<meta property="og:updated_time" content="2018-06-29T19:34:16.032Z">
+<meta property="og:updated_time" content="2018-07-14T11:51:44.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Efficient Programming in Java - CS61B Berkeley - Josh Hug">
-<meta name="twitter:description" content="效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？">
+<meta name="twitter:title" content="Efficient Programming in Java - A preview of Algorithms and Data Structures">
+<meta name="twitter:description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
 <meta name="twitter:image" content="http://yoursite.com/images/three_Asymptotics.png">
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <title>Efficient Programming in Java - CS61B Berkeley - Josh Hug | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Efficient Programming in Java - A preview of Algorithms and Data Structures | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Efficient Programming in Java - CS61B Berkeley - Josh Hug</h1>
+          <h1 class="post-title" itemprop="name headline">Efficient Programming in Java - A preview of Algorithms and Data Structures</h1>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/NOTE-CS61B-data-structures-15-efficient-programming/" class="leancloud_visitors" data-flag-title="Efficient Programming in Java - CS61B Berkeley - Josh Hug">
+             <span id="/NOTE-CS61B-data-structures-15-efficient-programming/" class="leancloud_visitors" data-flag-title="Efficient Programming in Java - A preview of Algorithms and Data Structures">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,517
+                  1,657
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  8 min
+                  9 min
                 </span>
               
             </div>
@@ -417,7 +417,12 @@
       
 
       
-        <p>效率来源两个方面:</p>
+        <p>Resource and Reference:</p>
+<ul>
+<li>CS61B Berkeley - Josh Hug</li>
+<li>Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE</li>
+</ul>
+<p>效率来源两个方面:</p>
 <ol>
 <li>编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？</li>
 <li>运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？<a id="more"></a>
@@ -495,6 +500,10 @@
 <p>用 merge sort 加速 selection sort - 把 selection sort 递归地平分, 总共能分解出$\log_2N$个 merge sorts, 伪代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">If the list is size 1:</span><br><span class="line">    return</span><br><span class="line">else:</span><br><span class="line">    Mergesort the left half</span><br><span class="line">    Mergesort the right half</span><br><span class="line">    Merge the results</span><br></pre></td></tr></table></figure></p>
 <p>Total runtime is $≈Nk$, where $k = \log_2(N)$ is the number of levels, overall runtime is $\Theta(N \log N)$.<br>$N^2$ vs. $N \log N$ is an enormous difference. Going from $N\log N$ to $N$ is nice, but not a radical change.</p>
 <p>Useful math:<br>$1 + 2 + 3 + … + N = N * (N + 1) / 2 = \Theta(N^2)$<br>$1 + 2 + 4 + … + N = 2N - 1 = \Theta(N)$</p>
+<p>To estimate a discrete sum, replace the sum with an integral, and use calculus:<br>$1 + 2 + 3 + … + N = \sum_{i=1}^{N} i \sim \int_{x=1}^N x dx \sim \frac{1}{2}(N^2)$</p>
+<p>$1^k + 2^k + … + N^k = \sum_{i=1}^{N} i^k \sim \int_{x=1}^N x^k dx \sim \frac{1}{k+1}(N^{k+1})$</p>
+<p>$1 + 1/2 + 1/3 + … + 1/N = \sum_{i=1}^{N} i^{-1} \sim \int_{x=1}^N x^{-1} dx \sim \ln N$</p>
+<p>3-sum triple loop, $\sum_{i=1}^{N}\sum_{j=1}^{N}\sum_{k=1}^{N} 1 \sim \int_{x=1}^N\int_{y=x}^N\int_{z=y}^N dz dy dx \sim \frac{1}{6}N^3$</p>
 <h3 id="Big-O"><a href="#Big-O" class="headerlink" title="Big O"></a>Big O</h3><p>Big Theta expresses the exact order of as a function of the input size. However, if the runtime depends on more than just the size of the input, then we must qualify our statements into different cases before using Big Theta.</p>
 <p>Big O: $R(N) \in O(f(N))$, means that there exists positive constants $k_2$, such that: $R(N) \leq k_2 \cdot f(N)$ for all values of $N$ greater than some $N_0$(a very large $N$). This is a looser condition than Big Theta since Big O does not care about the lower bound, thus it is less informative than Big Theta.</p>
 <p>To summarize the usefulness of Big O:</p>
@@ -562,6 +571,8 @@
             <a href="/tags/Java/" rel="tag"># Java</a>
           
             <a href="/tags/cs61b/" rel="tag"># cs61b</a>
+          
+            <a href="/tags/algs4/" rel="tag"># algs4</a>
           
             <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
           
@@ -935,7 +946,7 @@
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/';
           this.page.identifier = 'NOTE-CS61B-data-structures-15-efficient-programming/';
-          this.page.title = 'Efficient Programming in Java - CS61B Berkeley - Josh Hug';
+          this.page.title = 'Efficient Programming in Java - A preview of Algorithms and Data Structures';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';
