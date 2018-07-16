@@ -4,6 +4,78 @@
 
     
   <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
+    <lastmod>2018-07-16T09:10:25.382Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug - Josh Hug</title>
+        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
+    <lastmod>2018-07-16T08:57:38.419Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/</loc>
+    <lastmod>2018-07-15T22:13:12.323Z</lastmod>
+    <data>
+        <display>
+        <title>Java 语法和特性 - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2018-05-28T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>cs61b</tag>
+         
+        <tag>Software Engineer</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
     <lastmod>2018-07-14T11:51:44.820Z</lastmod>
     <data>
@@ -269,60 +341,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
-    <lastmod>2018-06-29T19:35:29.050Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>cs61b</tag>
-         
-        <tag>Software Engineer</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
     <lastmod>2018-06-29T19:35:24.576Z</lastmod>
     <data>
         <display>
         <title>算法与数据结构 - Java | 06 array 数组 - CS61B Berkeley - Josh Hug</title>
         <pubTime>2017-12-27T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>cs61b</tag>
-         
-        <tag>Software Engineer</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
-    <lastmod>2018-06-29T19:35:21.173Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug - Josh Hug</title>
-        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -467,30 +491,6 @@
         <display>
         <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug</title>
         <pubTime>2018-02-24T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>cs61b</tag>
-         
-        <tag>Software Engineer</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/</loc>
-    <lastmod>2018-06-29T19:34:51.111Z</lastmod>
-    <data>
-        <display>
-        <title>Java 语法和特性 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-05-28T23:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          

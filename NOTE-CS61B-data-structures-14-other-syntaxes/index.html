@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/collection_hierarchy.png">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/callstack.png">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/checked_exceptions.png">
-<meta property="og:updated_time" content="2018-06-29T19:34:51.111Z">
+<meta property="og:updated_time" content="2018-07-15T22:13:12.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 语法和特性 - CS61B Berkeley - Josh Hug">
 <meta name="twitter:description" content="Java 高级语法。">
@@ -651,7 +651,7 @@
 <li>接口的方法默认是<code>public</code>的</li>
 </ol>
 <h3 id="Build-Systems"><a href="#Build-Systems" class="headerlink" title="Build Systems"></a>Build Systems</h3><p>可以简单地将文件放入适当的位置，然后通过 Maven, Ant 和 Gradle 等工具使用 Build Systems 来自动设置项目, 省去了手动加载一长串 libraries.</p>
-<h2 id="丰富扩展generics的语法或特性"><a href="#丰富扩展generics的语法或特性" class="headerlink" title="丰富扩展generics的语法或特性"></a>丰富扩展generics的语法或特性</h2><h3 id="Autoboxing"><a href="#Autoboxing" class="headerlink" title="Autoboxing"></a>Autoboxing</h3><p>在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (<code>byte, short, int, long, float, double, boolean, char</code>)，必须要用其对应的 reference type (<code>Byte, Short, Integer, Long, Float, Double, Boolean, Character</code>) - 也即是 wrapper classes 作为泛型的实际类型参数。虽然声明函数和变量时必须要用 wraper classes，但在实际的数值传递中，对于 primitives 类型的数据，并不需要显示地转换为 reference types。</p>
+<h2 id="丰富扩展generics的语法或特性"><a href="#丰富扩展generics的语法或特性" class="headerlink" title="丰富扩展generics的语法或特性"></a>丰富扩展generics的语法或特性</h2><h3 id="Autoboxing"><a href="#Autoboxing" class="headerlink" title="Autoboxing"></a>Autoboxing</h3><p>在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (<code>byte, short, int, long, float, double, boolean, char</code>)，必须要用其对应的 reference type (<code>Byte, Short, Integer, Long, Float, Double, Boolean, Character</code>) - 也即是 wrapper classes 作为泛型的实际类型参数。虽然声明函数和变量时必须要用 wraper classes，但在实际的数值传递中，对于 primitives 类型的数据，并不需要显式地转换为 reference types。</p>
 <p>因为 Java 有 Autoboxing，可以隐式地在 wrapper/primitives 类型间转换. Java会自动 “box” 和 “unbox” primitive type 和其对应的 reference type 之间的值。也就是说，如果Java期望的是 wrapper classes （如Integer），假如即使接收到的是 int 这样的基本类型，Java也会“autoboxing”这种整数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">blah</span><span class="params">(Integer x)</span> </span>&#123;</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">20</span>;</span><br><span class="line">blah(x); <span class="comment">// 实际上会转换为 blah(new Integer(20))</span></span><br></pre></td></tr></table></figure></p>
 <p>反过来就是<code>unboxing</code>。</p>
 <p>Autoboxing/Unboxing 注意事项:</p>

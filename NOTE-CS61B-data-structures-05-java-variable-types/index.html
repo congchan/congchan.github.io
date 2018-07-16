@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T19:35:29.050Z">
+<meta property="og:updated_time" content="2018-07-16T08:57:38.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley - Josh Hug">
 <meta name="twitter:description" content="数据类型数据类型是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,751
+                  2,759
                 </span>
               
 
@@ -455,7 +455,10 @@
 <p>给函数传递参数，本质上也是赋值操作，参考上面的等值规则，也即复制这些参数的bits给函数，也称之为pass by value。Java的参数传递都是pass by value。至于传递过去的参数会不会因为函数内部的操作而更改，其判断原理在上面的<a href="#等值规则">等值规则</a>已经阐明。</p>
 <h3 id="通用数据类型"><a href="#通用数据类型" class="headerlink" title="通用数据类型"></a>通用数据类型</h3><p>Generic</p>
 <p>在定义类的时候，有时候我们可能希望这个类能够接受任何类型的数据，而不仅仅是限定了基本类型中的任何一种。比如我们想实现一个类似excel表格的类，自然需要这个表格类能够接收各种类型的字符，数字，并呈现出来。这个时候就需要使用泛型 Generic, 也即通用数据类型。</p>
-<p>在2004年，Java的设计者在语言中加入了泛型，使​​我们能够创建包含任何引用类型的数据结构。方法就是在类声明的类名后面，使用一个任意的占位符，并用尖括号括住<code>&lt;随便什么字符&gt;</code>。然后，在任何你想使用泛型的地方，改用占位符。<br>比如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">table</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">table</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Guiding principles. Welcome compile-time errors; avoid run-time errors.</p>
+</blockquote>
+<p>在2004年，Java的设计者在语言中加入了泛型，使​​我们能够创建包含任何引用类型的数据结构。方法就是在类声明的类名后面，使用一个任意的占位符，并用尖括号括住<code>&lt;随便什么字符&gt;</code>。然后，在任何你想使用泛型的地方，改用占位符。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">table</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">table</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>改为<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">table</span>&lt;<span class="title">xxx</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">table</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> xxx item;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>&lt;xxx&gt;</code>里面的名称并不重要, 改成其他也行, 只是一个标识符, 用来接受参数, 当用户实例化这个类时, 必须使用特殊的语法<code>table&lt;String&gt; d = new table&lt;&gt;(&quot;hello&quot;);</code></p>
 <p>由于泛型仅适用于引用类型，因此我们不能将基本类型<code>int</code>等放在尖括号内。相反，我们使用基本类型的引用版本，比如对于int, 用 Integer，<code>table&lt;Integer&gt; d = new table&lt;&gt;(&quot;10&quot;);</code></p>
