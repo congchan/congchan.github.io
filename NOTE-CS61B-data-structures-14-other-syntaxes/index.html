@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Java,cs61b,Software Engineer," />
+  <meta name="keywords" content="Java,Software Engineer,cs61b," />
 
 
 
@@ -86,7 +86,7 @@
 
 
 <meta name="description" content="Java 高级语法。">
-<meta name="keywords" content="Java,cs61b,Software Engineer">
+<meta name="keywords" content="Java,Software Engineer,cs61b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 语法和特性 - CS61B Berkeley - Josh Hug">
 <meta property="og:url" content="http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/index.html">
@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/collection_hierarchy.png">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/callstack.png">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/checked_exceptions.png">
-<meta property="og:updated_time" content="2018-07-15T22:13:12.323Z">
+<meta property="og:updated_time" content="2018-07-21T15:58:14.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 语法和特性 - CS61B Berkeley - Josh Hug">
 <meta name="twitter:description" content="Java 高级语法。">
@@ -382,7 +382,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  7,553
+                  7,633
                 </span>
               
 
@@ -722,6 +722,11 @@
 <p>不同的数据结构，<code>Iterator</code>有不同的实现方式.</p>
 <p><code>KeyIterator</code>即使是<code>private</code>也可以编译, 因为<code>iterator()</code>在这里是<code>public</code>的:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayMap&lt;String, Integer&gt; am = <span class="keyword">new</span> ArrayMap&lt;String, Integer&gt;();</span><br><span class="line"></span><br><span class="line">        Iterator&lt;String&gt; it = am.iterator();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String s : am) &#123; ... &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>除了用嵌套类来自定义实现<code>Iterator</code>, 也可以利用数据结构本身的特性. 比如<code>ArrayMap</code>里面刚好包含一个可迭代的数据结构<code>List keys</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;K&gt; keylist = keys();</span><br><span class="line">    <span class="keyword">return</span> keylist.Iterator();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意要点</strong></p>
+<ul>
+<li><code>hasNext()</code>的判断依据是<strong>当前状态下能返回至少一个成员</strong>, 不要混淆为<em>下一次能否返回</em>: 因为迭代时过程中, 每次调用<code>next()</code>之前, java 都会先调用<code>hasNext()</code>.</li>
+<li>实现方法时, 要保证第一次<code>next()</code>返回的是第一个成员.</li>
+</ul>
 <h2 id="总结Java的特性"><a href="#总结Java的特性" class="headerlink" title="总结Java的特性"></a>总结Java的特性</h2><blockquote>
 <ul>
 <li>Packages<ul>
@@ -760,9 +765,9 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/cs61b/" rel="tag"># cs61b</a>
-          
             <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
+          
+            <a href="/tags/cs61b/" rel="tag"># cs61b</a>
           
         </div>
       
@@ -884,7 +889,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
