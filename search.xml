@@ -146,23 +146,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley]]></title>
-    <url>%2FNOTE-CS61B-data-structures-00-template%2F</url>
-    <content type="text"><![CDATA[section 1 section 1.2]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>编程</tag>
-        <tag>软件工程</tag>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
-        <tag>cs61b</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug]]></title>
     <url>%2FNOTE-CS61B-data-structures-13-Implementation-Inheritance%2F</url>
     <content type="text"><![CDATA[Implementation Inheritance除了signature之外，Java也允许subclass继承具体的实现方法。实现继承是subclass从superclass继承实现的关系。 缺省方法从 Java 8开始支持 Default method。 我们可以在List中列出已实现的method。这些方法就是 default method，定义了List hypernyms的一些默认行为：default public void method() { ... }. 我们可以自由调用interface中定义的方法，而不用操心具体的实现。Default method 适用于实现接口的任何类型的对象！子类可以直接调用，而不必重新实现 default method。1234// Listdefault public void print() &#123; ...&#125; 不过，我们仍然可以override default method，在子类中重新定义该方法。这样，只要我们在LinkedLList上调用print()，它就会调用子类override的方案，而不是父类的。12345// LinkedList@Overridepublic void print() &#123; ...&#125; Dynamic typeJava是通过一个叫“dynamic method selection”的特性，来确定要调用 default method 还是已经被子类override的method。 当实例声明List&lt;String&gt; l = new LinkedList&lt;String&gt;();, 则指明l是 static 类型的 List。由 new 生成的 object 是LinkedList类型，也从属于 List 类型。但是，因为这个对象本身是使用 LinkedList 构造函数实例化的，所以我们称之为 dynamic type。 Dynamic type 的名称源于: 当l被重新分配指向另一种类型的对象时，比如说一个 ArrayList 对象，l的动态类型现在就变为 ArrayList. 因为它根据当前引用的对象的类型而改变, 所以是动态的。 Static vs. Dynamic Type: Java 每个变量都有一个static type （compile-time type），这是变量声明时指定的类型，在编译时会检查。 每个变量也有一个 Dynamic Type（run-time type），此类型在变量实例化（new）时指定，并在运行时检查。等同于地址指向的对象的类型。 当Java运行一个被overriden的方法时，会根据该实例的dynamic type 匹配对应的 method。 注意，如果是overload:123456public static void peek(List&lt;String&gt; list) &#123; ...&#125;public static void peek(LinkedList&lt;String&gt; list) &#123; ...&#125; 对于上面的实例化的l, 当Java检查要调用哪个方法时，它会检查 static type (此时是List)并使用相同类型的参数调用该方法，也就是使用List作为签名的那个方法。 区别 Interface Inheritance 与 Implementation InheritanceInterface Inheritance 接口继承（what）：指定 subclass 应该实现的功能，即只提供 method signature。 Implementation Inheritance 实现继承（how）：提供功能的实现方案，即提供 method implementation。允许代码再利用，也给subclass设计者提供了更多的自由度，由他们自行决定是否override default method。 Implementation inheritance 也有一些缺点： 人会犯错。我们有可能忘了自己曾经override过一个方法。 如果两个接口给出冲突的 default method，则可能很难解决冲突。 无形中鼓励代码复杂化。 Breaks encapsulation! 最后，注意从属和拥有的区别：subclass 和 superclass 是上下级从属分类，而不是拥有与被拥有的关系，不要跟 nested class 混淆。 Interface Methods: Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict.– https://docs.oracle.com/javase/tutorial/java/IandI/index.html]]></content>
