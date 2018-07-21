@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/UoE-st/</loc>
+    
+    <lastmod>2018-07-21T16:18:41.644Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/ai/</loc>
     
     <lastmod>2018-07-21T16:10:08.513Z</lastmod>
@@ -208,13 +215,6 @@
     <loc>http://yoursite.com/UoE-sapm/</loc>
     
     <lastmod>2018-06-29T19:34:04.478Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/UoE-st/</loc>
-    
-    <lastmod>2018-06-29T19:34:00.378Z</lastmod>
     
   </url>
   

@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://yoursite.com/UoE-st/</loc>
+    <lastmod>2018-07-21T16:18:41.644Z</lastmod>
+    <data>
+        <display>
+        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡大学</title>
+        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/ai/</loc>
     <lastmod>2018-07-21T16:10:08.513Z</lastmod>
     <data>
@@ -685,24 +703,6 @@
         <display>
         <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
         <pubTime>2018-05-15T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/UoE-st/</loc>
-    <lastmod>2018-06-29T19:34:00.378Z</lastmod>
-    <data>
-        <display>
-        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
         
          
            
