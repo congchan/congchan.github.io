@@ -88,14 +88,14 @@
 <meta name="description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
 <meta name="keywords" content="Java,Software Engineer,Algorithms">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Randomized queue with maximum size at most k">
-<meta property="og:url" content="http://yoursite.com/algorithms-applications-02-randomized-queue/index.html">
+<meta property="og:title" content="Randomized queue with Knuth shuffling or Reservoir sampling">
+<meta property="og:url" content="http://shukebeta.me/algorithms-applications-02-randomized-queue/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-21T16:08:59.314Z">
+<meta property="og:updated_time" content="2018-07-21T16:31:28.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Randomized queue with maximum size at most k">
+<meta name="twitter:title" content="Randomized queue with Knuth shuffling or Reservoir sampling">
 <meta name="twitter:description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/algorithms-applications-02-randomized-queue/"/>
+  <link rel="canonical" href="http://shukebeta.me/algorithms-applications-02-randomized-queue/"/>
 
 
 
 
 
-  <title>Randomized queue with maximum size at most k | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Randomized queue with Knuth shuffling or Reservoir sampling | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/algorithms-applications-02-randomized-queue/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/algorithms-applications-02-randomized-queue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Randomized queue with maximum size at most k</h1>
+          <h1 class="post-title" itemprop="name headline">Randomized queue with Knuth shuffling or Reservoir sampling</h1>
         
 
         <div class="post-meta">
@@ -353,7 +353,7 @@
 
           
           
-             <span id="/algorithms-applications-02-randomized-queue/" class="leancloud_visitors" data-flag-title="Randomized queue with maximum size at most k">
+             <span id="/algorithms-applications-02-randomized-queue/" class="leancloud_visitors" data-flag-title="Randomized queue with Knuth shuffling or Reservoir sampling">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  594
+                  595
                 </span>
               
 
@@ -424,7 +424,10 @@
 <p>More specifically, as the program sees a sequence of input, one at a time, the programe could only keep k items in memory, and they should be selected at random from the sequence. If we know the total number of items (n), then the solution is easy: select ten distinct indices i between 1 and n with equal probability, and keep the i-th elements. The challenge is that we do not know the input sequence length in advance.</p>
 <p>Two methods explain the same solution:</p>
 <ol>
-<li><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="noopener">Reservoir sampling</a><blockquote>
+<li><p><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Knuth shuffling</a><br>For a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="noopener">Reservoir sampling</a></p>
+<blockquote>
 <p>Reservoir sampling is a family of randomized algorithms for randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number. Typically n is large enough that the list doesn’t fit into main memory.</p>
 <ol>
 <li>Keep the first k items in memory.</li>
@@ -436,9 +439,6 @@
 </ol>
 </blockquote>
 </li>
-</ol>
-<ol start="2">
-<li><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Knuth shuffling</a><br>For a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</li>
 </ol>
 <p>Test report:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Correctness:  43/43 tests passed</span><br><span class="line">Memory:       106/105 tests passed</span><br><span class="line">Timing:       136/136 tests passed</span><br><span class="line"></span><br><span class="line">Aggregate score: 100.10%</span><br><span class="line">[Compilation: 5%, API: 5%, Findbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]</span><br><span class="line"></span><br><span class="line">Test 3 (bonus): check that maximum size of any or Deque or RandomizedQueue object</span><br><span class="line">                created is equal to k</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 500</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5000</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50000</span><br><span class="line">==&gt; passed</span><br><span class="line"></span><br><span class="line">Total: 3/2 tests passed!</span><br></pre></td></tr></table></figure></p>
 
@@ -828,9 +828,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/algorithms-applications-02-randomized-queue/';
+          this.page.url = 'http://shukebeta.me/algorithms-applications-02-randomized-queue/';
           this.page.identifier = 'algorithms-applications-02-randomized-queue/';
-          this.page.title = 'Randomized queue with maximum size at most k';
+          this.page.title = 'Randomized queue with Knuth shuffling or Reservoir sampling';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';

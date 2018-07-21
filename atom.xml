@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2018-07-21T16:08:59.314Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://shukebeta.me/"/>
+  <updated>2018-07-21T16:31:28.938Z</updated>
+  <id>http://shukebeta.me/</id>
   
   <author>
     <name>Cong</name>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Randomized queue with maximum size at most k</title>
-    <link href="http://yoursite.com/algorithms-applications-02-randomized-queue/"/>
-    <id>http://yoursite.com/algorithms-applications-02-randomized-queue/</id>
+    <title>Randomized queue with Knuth shuffling or Reservoir sampling</title>
+    <link href="http://shukebeta.me/algorithms-applications-02-randomized-queue/"/>
+    <id>http://shukebeta.me/algorithms-applications-02-randomized-queue/</id>
     <published>2018-07-20T23:00:00.000Z</published>
-    <updated>2018-07-21T16:08:59.314Z</updated>
+    <updated>2018-07-21T16:31:28.938Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Randomized-queue"><a href="#Randomized-queue" class="headerlink" title="Randomized queue"></a>Randomized queue</h3><p>For a randomized queue, the item removed is chosen <strong>uniformly</strong> at random from items in the data structure. API:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomizedQueue</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">RandomizedQueue</span><span class="params">()</span> </span>&#123;&#125;                 <span class="comment">// construct an empty randomized queue</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;&#125;                 <span class="comment">// is the randomized queue empty?</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;&#125;                        <span class="comment">// return the number of items on the randomized queue</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(Item item)</span> </span>&#123;&#125;           <span class="comment">// add the item</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Item <span class="title">dequeue</span><span class="params">()</span> </span>&#123;&#125;                    <span class="comment">// remove and return a random item</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Item <span class="title">sample</span><span class="params">()</span> </span>&#123;&#125;                     <span class="comment">// return a random item (but do not remove it)</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;&#125;         <span class="comment">// return an independent iterator over items in random order</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;&#125;   <span class="comment">// unit testing (optional)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>Each iterator must return the items in <strong>uniformly</strong> random order. The order of two or more iterators to the same randomized queue must be mutually independent; each iterator must maintain its own random order.</p><p>More detail could be found at programming assignment <a href="http://coursera.cs.princeton.edu/algs4/assignments/queues.html" target="_blank" rel="noopener">specification</a> and <a href="http://coursera.cs.princeton.edu/algs4/checklists/queues.html" target="_blank" rel="noopener">checklist</a>.</p><h3 id="Permutation-client-memory-challenge"><a href="#Permutation-client-memory-challenge" class="headerlink" title="Permutation client memory challenge"></a>Permutation client memory challenge</h3><a id="more"></a><p>A client program <code>Permutation.java</code> that takes an integer k as a command-line argument; reads in a sequence of strings from standard input using <code>StdIn.readString()</code>; and prints exactly k of them, uniformly at random. Print each item from the sequence at most once.</p><p>The bonu point is to use only one RandomizedQueue object of maximum size at most k.</p><p>More specifically, as the program sees a sequence of input, one at a time, the programe could only keep k items in memory, and they should be selected at random from the sequence. If we know the total number of items (n), then the solution is easy: select ten distinct indices i between 1 and n with equal probability, and keep the i-th elements. The challenge is that we do not know the input sequence length in advance.</p><p>Two methods explain the same solution:</p><ol><li><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="noopener">Reservoir sampling</a><blockquote><p>Reservoir sampling is a family of randomized algorithms for randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number. Typically n is large enough that the list doesn’t fit into main memory.</p><ol><li>Keep the first k items in memory.</li><li>When the i-th item arrives (for $i&gt;k$):<ul><li>with probability $k/i$, keep the new item (discard an old one, selecting which to replace at random, each with chance $1/k$)</li><li>with probability $1-k/i$, keep the old items (ignore the new one)</li></ul></li></ol></blockquote></li></ol><ol start="2"><li><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Knuth shuffling</a><br>For a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</li></ol><p>Test report:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Correctness:  43/43 tests passed</span><br><span class="line">Memory:       106/105 tests passed</span><br><span class="line">Timing:       136/136 tests passed</span><br><span class="line"></span><br><span class="line">Aggregate score: 100.10%</span><br><span class="line">[Compilation: 5%, API: 5%, Findbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]</span><br><span class="line"></span><br><span class="line">Test 3 (bonus): check that maximum size of any or Deque or RandomizedQueue object</span><br><span class="line">                created is equal to k</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 500</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5000</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50000</span><br><span class="line">==&gt; passed</span><br><span class="line"></span><br><span class="line">Total: 3/2 tests passed!</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="Randomized-queue"><a href="#Randomized-queue" class="headerlink" title="Randomized queue"></a>Randomized queue</h3><p>For a randomized queue, the item removed is chosen <strong>uniformly</strong> at random from items in the data structure. API:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomizedQueue</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">RandomizedQueue</span><span class="params">()</span> </span>&#123;&#125;                 <span class="comment">// construct an empty randomized queue</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;&#125;                 <span class="comment">// is the randomized queue empty?</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;&#125;                        <span class="comment">// return the number of items on the randomized queue</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(Item item)</span> </span>&#123;&#125;           <span class="comment">// add the item</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Item <span class="title">dequeue</span><span class="params">()</span> </span>&#123;&#125;                    <span class="comment">// remove and return a random item</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Item <span class="title">sample</span><span class="params">()</span> </span>&#123;&#125;                     <span class="comment">// return a random item (but do not remove it)</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;&#125;         <span class="comment">// return an independent iterator over items in random order</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;&#125;   <span class="comment">// unit testing (optional)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>Each iterator must return the items in <strong>uniformly</strong> random order. The order of two or more iterators to the same randomized queue must be mutually independent; each iterator must maintain its own random order.</p><p>More detail could be found at programming assignment <a href="http://coursera.cs.princeton.edu/algs4/assignments/queues.html" target="_blank" rel="noopener">specification</a> and <a href="http://coursera.cs.princeton.edu/algs4/checklists/queues.html" target="_blank" rel="noopener">checklist</a>.</p><h3 id="Permutation-client-memory-challenge"><a href="#Permutation-client-memory-challenge" class="headerlink" title="Permutation client memory challenge"></a>Permutation client memory challenge</h3><a id="more"></a><p>A client program <code>Permutation.java</code> that takes an integer k as a command-line argument; reads in a sequence of strings from standard input using <code>StdIn.readString()</code>; and prints exactly k of them, uniformly at random. Print each item from the sequence at most once.</p><p>The bonu point is to use only one RandomizedQueue object of maximum size at most k.</p><p>More specifically, as the program sees a sequence of input, one at a time, the programe could only keep k items in memory, and they should be selected at random from the sequence. If we know the total number of items (n), then the solution is easy: select ten distinct indices i between 1 and n with equal probability, and keep the i-th elements. The challenge is that we do not know the input sequence length in advance.</p><p>Two methods explain the same solution:</p><ol><li><p><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Knuth shuffling</a><br>For a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</p></li><li><p><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="noopener">Reservoir sampling</a></p><blockquote><p>Reservoir sampling is a family of randomized algorithms for randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number. Typically n is large enough that the list doesn’t fit into main memory.</p><ol><li>Keep the first k items in memory.</li><li>When the i-th item arrives (for $i&gt;k$):<ul><li>with probability $k/i$, keep the new item (discard an old one, selecting which to replace at random, each with chance $1/k$)</li><li>with probability $1-k/i$, keep the old items (ignore the new one)</li></ul></li></ol></blockquote></li></ol><p>Test report:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Correctness:  43/43 tests passed</span><br><span class="line">Memory:       106/105 tests passed</span><br><span class="line">Timing:       136/136 tests passed</span><br><span class="line"></span><br><span class="line">Aggregate score: 100.10%</span><br><span class="line">[Compilation: 5%, API: 5%, Findbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]</span><br><span class="line"></span><br><span class="line">Test 3 (bonus): check that maximum size of any or Deque or RandomizedQueue object</span><br><span class="line">                created is equal to k</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 500</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5000</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50000</span><br><span class="line">==&gt; passed</span><br><span class="line"></span><br><span class="line">Total: 3/2 tests passed!</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
@@ -34,21 +34,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="Algorithms" scheme="http://yoursite.com/tags/Algorithms/"/>
+      <category term="Algorithms" scheme="http://shukebeta.me/tags/Algorithms/"/>
     
   </entry>
   
   <entry>
     <title>Percolations problem</title>
-    <link href="http://yoursite.com/algorithms-applications-01-percolation/"/>
-    <id>http://yoursite.com/algorithms-applications-01-percolation/</id>
+    <link href="http://shukebeta.me/algorithms-applications-01-percolation/"/>
+    <id>http://shukebeta.me/algorithms-applications-01-percolation/</id>
     <published>2018-07-01T23:00:00.000Z</published>
     <updated>2018-07-21T16:09:10.949Z</updated>
     
@@ -72,21 +72,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="Algorithms" scheme="http://yoursite.com/tags/Algorithms/"/>
+      <category term="Algorithms" scheme="http://shukebeta.me/tags/Algorithms/"/>
     
   </entry>
   
   <entry>
     <title>Algorithms - Princeton</title>
-    <link href="http://yoursite.com/algorithms/"/>
-    <id>http://yoursite.com/algorithms/</id>
+    <link href="http://shukebeta.me/algorithms/"/>
+    <id>http://shukebeta.me/algorithms/</id>
     <published>2018-06-30T23:00:00.000Z</published>
     <updated>2018-07-21T16:08:44.812Z</updated>
     
@@ -101,21 +101,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="Algorithms" scheme="http://yoursite.com/tags/Algorithms/"/>
+      <category term="Algorithms" scheme="http://shukebeta.me/tags/Algorithms/"/>
     
   </entry>
   
   <entry>
     <title>Efficient Programming in Java - A preview of Algorithms and Data Structures</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-15-efficient-programming/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-15-efficient-programming/</id>
     <published>2018-06-25T23:00:00.000Z</published>
     <updated>2018-07-14T11:51:44.820Z</updated>
     
@@ -135,23 +135,23 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
-      <category term="algs4" scheme="http://yoursite.com/tags/algs4/"/>
+      <category term="algs4" scheme="http://shukebeta.me/tags/algs4/"/>
     
   </entry>
   
   <entry>
     <title>Java 语法和特性 - CS61B Berkeley - Josh Hug</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-14-other-syntaxes/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-14-other-syntaxes/</id>
     <published>2018-05-28T23:00:00.000Z</published>
     <updated>2018-07-21T15:58:14.662Z</updated>
     
@@ -163,21 +163,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
   </entry>
   
   <entry>
     <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
-    <link href="http://yoursite.com/UoE-sapm/"/>
-    <id>http://yoursite.com/UoE-sapm/</id>
+    <link href="http://shukebeta.me/UoE-sapm/"/>
+    <id>http://shukebeta.me/UoE-sapm/</id>
     <published>2018-05-15T23:00:00.000Z</published>
     <updated>2018-06-29T19:34:04.478Z</updated>
     
@@ -189,15 +189,15 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
   </entry>
   
   <entry>
     <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
-    <link href="http://yoursite.com/UoE-ppls/"/>
-    <id>http://yoursite.com/UoE-ppls/</id>
+    <link href="http://shukebeta.me/UoE-ppls/"/>
+    <id>http://shukebeta.me/UoE-ppls/</id>
     <published>2018-05-10T23:00:00.000Z</published>
     <updated>2018-06-29T19:34:08.551Z</updated>
     
@@ -209,15 +209,15 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
   </entry>
   
   <entry>
     <title>Python Digest 之奇技淫巧</title>
-    <link href="http://yoursite.com/python-digest/"/>
-    <id>http://yoursite.com/python-digest/</id>
+    <link href="http://shukebeta.me/python-digest/"/>
+    <id>http://shukebeta.me/python-digest/</id>
     <published>2018-05-07T23:00:00.000Z</published>
     <updated>2018-06-29T19:18:48.676Z</updated>
     
@@ -229,19 +229,19 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://shukebeta.me/tags/Python/"/>
     
-      <category term="Programming Language" scheme="http://yoursite.com/tags/Programming-Language/"/>
+      <category term="Programming Language" scheme="http://shukebeta.me/tags/Programming-Language/"/>
     
   </entry>
   
   <entry>
     <title>Software Testing - Informatics - University of Edinburgh 爱丁堡大学</title>
-    <link href="http://yoursite.com/UoE-st/"/>
-    <id>http://yoursite.com/UoE-st/</id>
+    <link href="http://shukebeta.me/UoE-st/"/>
+    <id>http://shukebeta.me/UoE-st/</id>
     <published>2018-05-05T23:00:00.000Z</published>
     <updated>2018-07-21T16:18:41.644Z</updated>
     
@@ -253,15 +253,15 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
   </entry>
   
   <entry>
     <title>Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡大学</title>
-    <link href="http://yoursite.com/UoE-nlu/"/>
-    <id>http://yoursite.com/UoE-nlu/</id>
+    <link href="http://shukebeta.me/UoE-nlu/"/>
+    <id>http://shukebeta.me/UoE-nlu/</id>
     <published>2018-04-30T23:00:00.000Z</published>
     <updated>2018-06-29T19:34:30.851Z</updated>
     
@@ -273,15 +273,15 @@
     
     </summary>
     
-      <category term="NLP" scheme="http://yoursite.com/categories/NLP/"/>
+      <category term="NLP" scheme="http://shukebeta.me/categories/NLP/"/>
     
     
   </entry>
   
   <entry>
     <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
-    <link href="http://yoursite.com/NOTE-ANLP-02-n-gram-model/"/>
-    <id>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</id>
+    <link href="http://shukebeta.me/NOTE-ANLP-02-n-gram-model/"/>
+    <id>http://shukebeta.me/NOTE-ANLP-02-n-gram-model/</id>
     <published>2018-04-01T23:00:00.000Z</published>
     <updated>2018-06-29T19:35:53.370Z</updated>
     
@@ -299,17 +299,17 @@
     
     </summary>
     
-      <category term="NLP" scheme="http://yoursite.com/categories/NLP/"/>
+      <category term="NLP" scheme="http://shukebeta.me/categories/NLP/"/>
     
     
-      <category term="NLP" scheme="http://yoursite.com/tags/NLP/"/>
+      <category term="NLP" scheme="http://shukebeta.me/tags/NLP/"/>
     
   </entry>
   
   <entry>
     <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
-    <link href="http://yoursite.com/NOTE-ANLP-01-probability-model/"/>
-    <id>http://yoursite.com/NOTE-ANLP-01-probability-model/</id>
+    <link href="http://shukebeta.me/NOTE-ANLP-01-probability-model/"/>
+    <id>http://shukebeta.me/NOTE-ANLP-01-probability-model/</id>
     <published>2018-03-31T23:00:00.000Z</published>
     <updated>2018-06-29T19:35:57.287Z</updated>
     
@@ -322,19 +322,19 @@
     
     </summary>
     
-      <category term="NLP" scheme="http://yoursite.com/categories/NLP/"/>
+      <category term="NLP" scheme="http://shukebeta.me/categories/NLP/"/>
     
     
-      <category term="NLP" scheme="http://yoursite.com/tags/NLP/"/>
+      <category term="NLP" scheme="http://shukebeta.me/tags/NLP/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://shukebeta.me/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Java | Hash @Override equals() hashcode()</title>
-    <link href="http://yoursite.com/Java-hashcode-equals/"/>
-    <id>http://yoursite.com/Java-hashcode-equals/</id>
+    <link href="http://shukebeta.me/Java-hashcode-equals/"/>
+    <id>http://shukebeta.me/Java-hashcode-equals/</id>
     <published>2018-02-27T00:00:00.000Z</published>
     <updated>2018-06-29T19:10:35.858Z</updated>
     
@@ -352,19 +352,19 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
   </entry>
   
   <entry>
     <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-13-Implementation-Inheritance/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</id>
     <published>2018-02-24T00:00:00.000Z</published>
     <updated>2018-06-29T19:34:55.434Z</updated>
     
@@ -376,21 +376,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
   </entry>
   
   <entry>
     <title>算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley - Josh Hug</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-12-Interface-Inheritance/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-12-Interface-Inheritance/</id>
     <published>2018-02-23T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:00.697Z</updated>
     
@@ -403,21 +403,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
   </entry>
   
   <entry>
     <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
-    <link href="http://yoursite.com/UoE-anlp/"/>
-    <id>http://yoursite.com/UoE-anlp/</id>
+    <link href="http://shukebeta.me/UoE-anlp/"/>
+    <id>http://shukebeta.me/UoE-anlp/</id>
     <published>2018-01-31T00:00:00.000Z</published>
     <updated>2018-06-29T19:34:11.842Z</updated>
     
@@ -429,21 +429,21 @@
     
     </summary>
     
-      <category term="NLP" scheme="http://yoursite.com/categories/NLP/"/>
+      <category term="NLP" scheme="http://shukebeta.me/categories/NLP/"/>
     
     
-      <category term="NLP" scheme="http://yoursite.com/tags/NLP/"/>
+      <category term="NLP" scheme="http://shukebeta.me/tags/NLP/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://shukebeta.me/tags/Python/"/>
     
-      <category term="UoE" scheme="http://yoursite.com/tags/UoE/"/>
+      <category term="UoE" scheme="http://shukebeta.me/tags/UoE/"/>
     
   </entry>
   
   <entry>
     <title>算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley - Josh Hug</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-11-testing/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-11-testing/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-11-testing/</id>
     <published>2018-01-29T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:04.889Z</updated>
     
@@ -461,21 +461,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
   </entry>
   
   <entry>
     <title>算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley - Josh Hug</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-10-java-which-list/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-10-java-which-list/</id>
     <published>2018-01-28T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:09.766Z</updated>
     
@@ -492,21 +492,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
   </entry>
   
   <entry>
     <title>算法与数据结构 - Java | 09 双向链表 Doubly Linked List - CS61B Berkeley - Josh Hug</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-09-java-doubly-linked-list/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</id>
     <published>2018-01-13T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:13.309Z</updated>
     
@@ -519,21 +519,21 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
   </entry>
   
   <entry>
     <title>算法与数据结构 - Java | 08 单向链表 Singly Linked List - CS61B Berkeley - Josh Hug</title>
-    <link href="http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/"/>
-    <id>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</id>
+    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-08-java-singly-linked-list/"/>
+    <id>http://shukebeta.me/NOTE-CS61B-data-structures-08-java-singly-linked-list/</id>
     <published>2018-01-12T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:17.083Z</updated>
     
@@ -547,14 +547,14 @@
     
     </summary>
     
-      <category term="CS" scheme="http://yoursite.com/categories/CS/"/>
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="http://shukebeta.me/tags/Java/"/>
     
-      <category term="Software Engineer" scheme="http://yoursite.com/tags/Software-Engineer/"/>
+      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
     
-      <category term="cs61b" scheme="http://yoursite.com/tags/cs61b/"/>
+      <category term="cs61b" scheme="http://shukebeta.me/tags/cs61b/"/>
     
   </entry>
   

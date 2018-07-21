@@ -4,7 +4,31 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-st/</loc>
+    <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
+    <lastmod>2018-07-21T16:31:28.938Z</lastmod>
+    <data>
+        <display>
+        <title>Randomized queue with Knuth shuffling or Reservoir sampling</title>
+        <pubTime>2018-07-20T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-st/</loc>
     <lastmod>2018-07-21T16:18:41.644Z</lastmod>
     <data>
         <display>
@@ -14,7 +38,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -22,7 +46,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/ai/</loc>
+    <loc>http://shukebeta.me/ai/</loc>
     <lastmod>2018-07-21T16:10:08.513Z</lastmod>
     <data>
         <display>
@@ -34,7 +58,7 @@
          
            
              
-              <breadCrumb title="AI" url="http://yoursite.com/categories/AI/"/>
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
           
         </display>
     </data>
@@ -42,7 +66,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/cs/</loc>
+    <loc>http://shukebeta.me/cs/</loc>
     <lastmod>2018-07-21T16:09:52.218Z</lastmod>
     <data>
         <display>
@@ -54,7 +78,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -62,7 +86,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/algorithms-applications-01-percolation/</loc>
+    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
     <lastmod>2018-07-21T16:09:10.949Z</lastmod>
     <data>
         <display>
@@ -78,7 +102,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -86,31 +110,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/algorithms-applications-02-randomized-queue/</loc>
-    <lastmod>2018-07-21T16:08:59.314Z</lastmod>
-    <data>
-        <display>
-        <title>Randomized queue with maximum size at most k</title>
-        <pubTime>2018-07-20T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/algorithms/</loc>
+    <loc>http://shukebeta.me/algorithms/</loc>
     <lastmod>2018-07-21T16:08:44.812Z</lastmod>
     <data>
         <display>
@@ -126,7 +126,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -134,7 +134,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-14-other-syntaxes/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-14-other-syntaxes/</loc>
     <lastmod>2018-07-21T15:58:14.662Z</lastmod>
     <data>
         <display>
@@ -150,7 +150,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -158,7 +158,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-07-java-array-based-list/</loc>
     <lastmod>2018-07-16T09:10:25.382Z</lastmod>
     <data>
         <display>
@@ -174,7 +174,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -182,7 +182,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-05-java-variable-types/</loc>
     <lastmod>2018-07-16T08:57:38.419Z</lastmod>
     <data>
         <display>
@@ -198,7 +198,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -206,7 +206,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-15-efficient-programming/</loc>
     <lastmod>2018-07-14T11:51:44.820Z</lastmod>
     <data>
         <display>
@@ -224,7 +224,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -232,7 +232,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/machine-learning/</loc>
+    <loc>http://shukebeta.me/machine-learning/</loc>
     <lastmod>2018-06-29T19:36:01.282Z</lastmod>
     <data>
         <display>
@@ -244,7 +244,7 @@
          
            
              
-              <breadCrumb title="Machine Learning" url="http://yoursite.com/categories/Machine-Learning/"/>
+              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/Machine-Learning/"/>
           
         </display>
     </data>
@@ -252,7 +252,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-ANLP-01-probability-model/</loc>
+    <loc>http://shukebeta.me/NOTE-ANLP-01-probability-model/</loc>
     <lastmod>2018-06-29T19:35:57.287Z</lastmod>
     <data>
         <display>
@@ -266,7 +266,7 @@
          
            
              
-              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
           
         </display>
     </data>
@@ -274,7 +274,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-ANLP-02-n-gram-model/</loc>
+    <loc>http://shukebeta.me/NOTE-ANLP-02-n-gram-model/</loc>
     <lastmod>2018-06-29T19:35:53.370Z</lastmod>
     <data>
         <display>
@@ -286,7 +286,7 @@
          
            
              
-              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
           
         </display>
     </data>
@@ -294,7 +294,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-01-java-install/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-01-java-install/</loc>
     <lastmod>2018-06-29T19:35:49.882Z</lastmod>
     <data>
         <display>
@@ -310,7 +310,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -318,7 +318,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-02-java-basic-syntax/</loc>
     <lastmod>2018-06-29T19:35:46.256Z</lastmod>
     <data>
         <display>
@@ -334,7 +334,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -342,7 +342,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-03-java-code-style-comments/</loc>
     <lastmod>2018-06-29T19:35:40.867Z</lastmod>
     <data>
         <display>
@@ -358,7 +358,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -366,7 +366,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-04-java-class-01-intro/</loc>
     <lastmod>2018-06-29T19:35:36.970Z</lastmod>
     <data>
         <display>
@@ -382,7 +382,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -390,7 +390,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-04-java-class-02-class-instance/</loc>
     <lastmod>2018-06-29T19:35:33.402Z</lastmod>
     <data>
         <display>
@@ -406,7 +406,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -414,7 +414,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-06-java-array/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-06-java-array/</loc>
     <lastmod>2018-06-29T19:35:24.576Z</lastmod>
     <data>
         <display>
@@ -430,7 +430,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -438,7 +438,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-08-java-singly-linked-list/</loc>
     <lastmod>2018-06-29T19:35:17.083Z</lastmod>
     <data>
         <display>
@@ -454,7 +454,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -462,7 +462,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</loc>
     <lastmod>2018-06-29T19:35:13.309Z</lastmod>
     <data>
         <display>
@@ -478,7 +478,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -486,7 +486,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-10-java-which-list/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-10-java-which-list/</loc>
     <lastmod>2018-06-29T19:35:09.766Z</lastmod>
     <data>
         <display>
@@ -502,7 +502,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -510,7 +510,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-11-testing/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-11-testing/</loc>
     <lastmod>2018-06-29T19:35:04.889Z</lastmod>
     <data>
         <display>
@@ -526,7 +526,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -534,7 +534,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-12-Interface-Inheritance/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-12-Interface-Inheritance/</loc>
     <lastmod>2018-06-29T19:35:00.697Z</lastmod>
     <data>
         <display>
@@ -550,7 +550,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -558,7 +558,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
+    <loc>http://shukebeta.me/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</loc>
     <lastmod>2018-06-29T19:34:55.434Z</lastmod>
     <data>
         <display>
@@ -574,7 +574,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -582,7 +582,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/NOTE-CS106B-Programming-Abstractions/</loc>
+    <loc>http://shukebeta.me/NOTE-CS106B-Programming-Abstractions/</loc>
     <lastmod>2018-06-29T19:34:44.382Z</lastmod>
     <data>
         <display>
@@ -596,7 +596,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -604,7 +604,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-nlu/</loc>
+    <loc>http://shukebeta.me/UoE-nlu/</loc>
     <lastmod>2018-06-29T19:34:30.851Z</lastmod>
     <data>
         <display>
@@ -614,7 +614,7 @@
          
            
              
-              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
           
         </display>
     </data>
@@ -622,7 +622,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-anlp/</loc>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
     <lastmod>2018-06-29T19:34:11.842Z</lastmod>
     <data>
         <display>
@@ -638,7 +638,7 @@
          
            
              
-              <breadCrumb title="NLP" url="http://yoursite.com/categories/NLP/"/>
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
           
         </display>
     </data>
@@ -646,7 +646,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-ppls/</loc>
+    <loc>http://shukebeta.me/UoE-ppls/</loc>
     <lastmod>2018-06-29T19:34:08.551Z</lastmod>
     <data>
         <display>
@@ -656,7 +656,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -664,7 +664,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/UoE-sapm/</loc>
+    <loc>http://shukebeta.me/UoE-sapm/</loc>
     <lastmod>2018-06-29T19:34:04.478Z</lastmod>
     <data>
         <display>
@@ -674,7 +674,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -682,7 +682,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/python-digest/</loc>
+    <loc>http://shukebeta.me/python-digest/</loc>
     <lastmod>2018-06-29T19:18:48.676Z</lastmod>
     <data>
         <display>
@@ -696,7 +696,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -704,7 +704,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/machine-learning-with-sklearn/</loc>
+    <loc>http://shukebeta.me/machine-learning-with-sklearn/</loc>
     <lastmod>2018-06-29T19:12:04.358Z</lastmod>
     <data>
         <display>
@@ -722,7 +722,7 @@
          
            
              
-              <breadCrumb title="Machine Learning" url="http://yoursite.com/categories/Machine-Learning/"/>
+              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/Machine-Learning/"/>
           
         </display>
     </data>
@@ -730,7 +730,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/Launch-editor-in-Gitbash/</loc>
+    <loc>http://shukebeta.me/Launch-editor-in-Gitbash/</loc>
     <lastmod>2018-06-29T19:11:17.502Z</lastmod>
     <data>
         <display>
@@ -742,7 +742,7 @@
          
            
              
-              <breadCrumb title="Productivity" url="http://yoursite.com/categories/Productivity/"/>
+              <breadCrumb title="Productivity" url="http://shukebeta.me/categories/Productivity/"/>
           
         </display>
     </data>
@@ -750,7 +750,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/Java-hashcode-equals/</loc>
+    <loc>http://shukebeta.me/Java-hashcode-equals/</loc>
     <lastmod>2018-06-29T19:10:35.858Z</lastmod>
     <data>
         <display>
@@ -764,7 +764,7 @@
          
            
              
-              <breadCrumb title="CS" url="http://yoursite.com/categories/CS/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
