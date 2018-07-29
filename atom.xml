@@ -114,8 +114,8 @@
   
   <entry>
     <title>Efficient Programming in Java - A preview of Algorithms and Data Structures</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-15-efficient-programming/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-15-efficient-programming/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-efficient-programming/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-efficient-programming/</id>
     <published>2018-06-25T23:00:00.000Z</published>
     <updated>2018-07-25T09:48:14.758Z</updated>
     
@@ -150,8 +150,8 @@
   
   <entry>
     <title>Java 语法和特性</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-14-other-syntaxes/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-14-other-syntaxes/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/</id>
     <published>2018-05-28T23:00:00.000Z</published>
     <updated>2018-07-29T17:13:33.856Z</updated>
     
@@ -363,8 +363,8 @@
   
   <entry>
     <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-13-Implementation-Inheritance/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-13-Implementation-Inheritance/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-CS61B-13-Implementation-Inheritance/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-CS61B-13-Implementation-Inheritance/</id>
     <published>2018-02-24T00:00:00.000Z</published>
     <updated>2018-06-29T19:34:55.434Z</updated>
     
@@ -389,8 +389,8 @@
   
   <entry>
     <title>算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley - Josh Hug</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-12-Interface-Inheritance/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-12-Interface-Inheritance/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-CS61B-12-Interface-Inheritance/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-CS61B-12-Interface-Inheritance/</id>
     <published>2018-02-23T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:00.697Z</updated>
     
@@ -442,8 +442,8 @@
   
   <entry>
     <title>算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley - Josh Hug</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-11-testing/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-11-testing/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-CS61B-11-testing/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-CS61B-11-testing/</id>
     <published>2018-01-29T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:04.889Z</updated>
     
@@ -474,8 +474,8 @@
   
   <entry>
     <title>算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley - Josh Hug</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-10-java-which-list/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-10-java-which-list/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-CS61B-10-java-which-list/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-CS61B-10-java-which-list/</id>
     <published>2018-01-28T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:09.766Z</updated>
     
@@ -505,8 +505,8 @@
   
   <entry>
     <title>算法与数据结构 - Java | 09 双向链表 Doubly Linked List - CS61B Berkeley - Josh Hug</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-09-java-doubly-linked-list/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-09-java-doubly-linked-list/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-CS61B-09-java-doubly-linked-list/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-CS61B-09-java-doubly-linked-list/</id>
     <published>2018-01-13T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:13.309Z</updated>
     
@@ -532,8 +532,8 @@
   
   <entry>
     <title>算法与数据结构 - Java | 08 单向链表 Singly Linked List - CS61B Berkeley - Josh Hug</title>
-    <link href="http://shukebeta.me/NOTE-CS61B-data-structures-08-java-singly-linked-list/"/>
-    <id>http://shukebeta.me/NOTE-CS61B-data-structures-08-java-singly-linked-list/</id>
+    <link href="http://shukebeta.me/NOTE-data-structures-CS61B-08-java-singly-linked-list/"/>
+    <id>http://shukebeta.me/NOTE-data-structures-CS61B-08-java-singly-linked-list/</id>
     <published>2018-01-12T00:00:00.000Z</published>
     <updated>2018-06-29T19:35:17.083Z</updated>
     
