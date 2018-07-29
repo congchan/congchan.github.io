@@ -94,7 +94,8 @@
 <meta property="og:description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://shukebeta.me/images/three_Asymptotics.png">
-<meta property="og:updated_time" content="2018-07-14T11:51:44.820Z">
+<meta property="og:image" content="http://shukebeta.me/images/string_memory/png">
+<meta property="og:updated_time" content="2018-07-25T09:48:14.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Efficient Programming in Java - A preview of Algorithms and Data Structures">
 <meta name="twitter:description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
@@ -380,7 +381,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,657
+                  1,778
                 </span>
               
 
@@ -396,7 +397,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  9 min
+                  10 min
                 </span>
               
             </div>
@@ -551,6 +552,10 @@
 <li>If we chose $a_i$ such that $\Phi_i$ is never negative and $a_i$ is constant for all $i$, then the amortized cost is an upper bound on the true cost.<br>– from: <a href="https://joshhug.gitbooks.io/" target="_blank" rel="noopener">https://joshhug.gitbooks.io/</a></li>
 </ul>
 </blockquote>
+<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><p>Bit. 0 or 1.<br>Byte. 8 bits.<br>Megabyte (MB). 1 million or $2^20$ bytes.<br>Gigabyte (GB). 1 billion or $2^30$ bytes.<br>64-bit machine. We assume a 64-bit machine with 8 byte pointers (References).<br>・Can address more memory.<br>・Pointers use more space (some JVMs “compress” ordinary object pointers to 4 bytes to avoid this cost).</p>
+<h3 id="Typical-memory-usage-for-primitive-types-and-arrays"><a href="#Typical-memory-usage-for-primitive-types-and-arrays" class="headerlink" title="Typical memory usage for primitive types and arrays"></a>Typical memory usage for primitive types and arrays</h3><p>primitive types (bytes):<br><code>boolean</code> 1<br><code>byte</code> 1<br><code>char</code> 2<br><code>int</code> 4<br><code>float</code> 4<br><code>long</code> 8<br><code>double</code> 8</p>
+<p>for one-dimensional arrays (bytes):<br><code>char[]</code> 2N + 24<br><code>int[]</code> 4N + 24<br><code>double[]</code> 8N + 24</p>
+<h3 id="Typical-memory-usage-for-objects-in-Java"><a href="#Typical-memory-usage-for-objects-in-Java" class="headerlink" title="Typical memory usage for objects in Java"></a>Typical memory usage for objects in Java</h3><p>Object overhead. 16 bytes.<br>Reference. 8 bytes.<br>Padding. Each object uses a multiple of 8 bytes.<br><img src="/images/string_memory/png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part1/"></p>
 
       
     </div>
@@ -587,8 +592,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NOTE-CS61B-data-structures-14-other-syntaxes/" rel="next" title="Java 语法和特性 - CS61B Berkeley - Josh Hug">
-                <i class="fa fa-chevron-left"></i> Java 语法和特性 - CS61B Berkeley - Josh Hug
+              <a href="/NOTE-CS61B-data-structures-14-other-syntaxes/" rel="next" title="Java 语法和特性">
+                <i class="fa fa-chevron-left"></i> Java 语法和特性
               </a>
             
           </div>
@@ -774,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">1.</span> <span class="nav-text">Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">2.</span> <span class="nav-text">API’s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">2.1.</span> <span class="nav-text">ADT’s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">3.</span> <span class="nav-text">Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">3.1.</span> <span class="nav-text">Big Theta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">3.2.</span> <span class="nav-text">Big O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amortized-Analysis"><span class="nav-number">4.</span> <span class="nav-text">Amortized Analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">1.</span> <span class="nav-text">Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">2.</span> <span class="nav-text">API’s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">2.1.</span> <span class="nav-text">ADT’s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">3.</span> <span class="nav-text">Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">3.1.</span> <span class="nav-text">Big Theta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">3.2.</span> <span class="nav-text">Big O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amortized-Analysis"><span class="nav-number">4.</span> <span class="nav-text">Amortized Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory"><span class="nav-number">5.</span> <span class="nav-text">Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-primitive-types-and-arrays"><span class="nav-number">5.1.</span> <span class="nav-text">Typical memory usage for primitive types and arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-objects-in-Java"><span class="nav-number">5.2.</span> <span class="nav-text">Typical memory usage for objects in Java</span></a></li></ol></li></ol></div>
             
 
           </div>
