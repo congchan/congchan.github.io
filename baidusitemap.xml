@@ -4,12 +4,36 @@
 
     
   <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-03-java-code-style-comments/</loc>
-    <lastmod>2018-07-29T17:17:21.409Z</lastmod>
+    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
+    <lastmod>2018-08-04T15:56:41.221Z</lastmod>
     <data>
         <display>
-        <title>算法与数据结构 - Java | 03 代码风格 注释 Javadoc - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-21T00:00:00.000Z</pubTime>
+        <title>Find All Collinear Points - a pattern recognition problem</title>
+        <pubTime>2018-08-03T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/</loc>
+    <lastmod>2018-07-29T19:27:02.647Z</lastmod>
+    <data>
+        <display>
+        <title>Java 语法和特性</title>
+        <pubTime>2018-05-28T23:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -28,12 +52,12 @@
 
     
   <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/</loc>
-    <lastmod>2018-07-29T17:13:33.856Z</lastmod>
+    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-03-java-code-style-comments/</loc>
+    <lastmod>2018-07-29T17:17:21.409Z</lastmod>
     <data>
         <display>
-        <title>Java 语法和特性</title>
-        <pubTime>2018-05-28T23:00:00.000Z</pubTime>
+        <title>算法与数据结构 - Java | 03 代码风格 注释 Javadoc - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-21T00:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
