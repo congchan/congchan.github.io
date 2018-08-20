@@ -4,18 +4,18 @@
 
     
   <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-07-java-array-based-list/</loc>
-    <lastmod>2018-08-20T10:21:54.754Z</lastmod>
+    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
+    <lastmod>2018-08-20T10:24:36.148Z</lastmod>
     <data>
         <display>
-        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
+        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
+        <pubTime>2018-08-03T23:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
         <tag>Software Engineer</tag>
          
-        <tag>cs61b</tag>
+        <tag>Algorithms</tag>
          
          
            
@@ -28,18 +28,18 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
-    <lastmod>2018-08-20T10:20:44.933Z</lastmod>
+    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-07-java-array-based-list/</loc>
+    <lastmod>2018-08-20T10:21:54.754Z</lastmod>
     <data>
         <display>
-        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
-        <pubTime>2018-08-03T23:00:00.000Z</pubTime>
+        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
         <tag>Software Engineer</tag>
          
-        <tag>Algorithms</tag>
+        <tag>cs61b</tag>
          
          
            
