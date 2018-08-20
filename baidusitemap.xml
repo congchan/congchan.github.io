@@ -3,13 +3,12 @@
 
 
     
-    
   <url>
     <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
-    <lastmod>2018-08-04T15:56:41.221Z</lastmod>
+    <lastmod>2018-08-20T10:20:44.933Z</lastmod>
     <data>
         <display>
-        <title>Find All Collinear Points - a pattern recognition problem</title>
+        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
         <pubTime>2018-08-03T23:00:00.000Z</pubTime>
         
         <tag>Java</tag>
@@ -27,6 +26,7 @@
     </data>
     </url>
 
+    
     
   <url>
     <loc>http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/</loc>
