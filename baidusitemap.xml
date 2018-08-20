@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-07-java-array-based-list/</loc>
+    <lastmod>2018-08-20T10:21:54.754Z</lastmod>
+    <data>
+        <display>
+        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug</title>
+        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>cs61b</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
     <lastmod>2018-08-20T10:20:44.933Z</lastmod>
     <data>
@@ -221,30 +245,6 @@
         <tag>Software Engineer</tag>
          
         <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-07-java-array-based-list/</loc>
-    <lastmod>2018-07-16T09:10:25.382Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug - Josh Hug</title>
-        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
          
          
            

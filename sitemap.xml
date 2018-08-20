@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-07-java-array-based-list/</loc>
+    
+    <lastmod>2018-08-20T10:21:54.754Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
     
     <lastmod>2018-08-20T10:20:44.933Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
     
     <lastmod>2018-07-21T16:09:10.949Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-07-java-array-based-list/</loc>
-    
-    <lastmod>2018-07-16T09:10:25.382Z</lastmod>
     
   </url>
   
