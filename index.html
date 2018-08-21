@@ -702,8 +702,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-02T00:00:00+01:00">
-                2018-07-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+01:00">
+                2018-07-03
               </time>
             
 
@@ -882,6 +882,234 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/SQuAd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/SQuAd/" itemprop="url">斯坦福问答数据集 (SQuAd)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-02T00:00:00+01:00">
+                2018-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目实践/" itemprop="url" rel="index">
+                    <span itemprop="name">项目实践</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目实践/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/SQuAd/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="SQuAd/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/SQuAd/" class="leancloud_visitors" data-flag-title="斯坦福问答数据集 (SQuAd)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,046
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  4 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>The Standford question and answer dataset <a href="https://rajpurkar.github.io/SQuAD-explorer/" target="_blank" rel="noopener">(SQuAD)</a> 是由 Rajpurkar 等人提出的一个较有挑战性的阅读理解数据集。该数据集包含 10 万个（问题，原文，答案）三元组，原文来自于 536 篇维基百科文章，而问题和答案的构建主要是通过众包的方式，让标注人员提出最多 5 个基于文章内容的问题并提供正确答案，且答案出现在原文中。SQuAD 和之前的完形填空类阅读理解数据集如 CNN/DM，CBT 等最大的区别在于：SQuAD 中的答案不在是单个实体或单词，而可能是一段短语，这使得其答案更难预测。SQuAD 包含公开的训练集和开发集，以及一个隐藏的测试集，其采用了与 ImageNet 类似的封闭评测的方式，研究人员需提交算法到一个开放平台，并由 SQuAD 官方人员进行测试并公布结果。</p>
+<p>由于 SQuAD 的答案限定于来自原文，模型只需要判断原文中哪些词是答案即可，因此是一种抽取式的 QA 任务而不是生成式任务。简单的 SQuAD 的模型框架可以参考seq2seq：Embed 层，Encode 层 和 Decode 层。Embed 层负责将原文和问题中的 tokens 映射为向量表示；Encode 层主要使用 RNN 来对原文和问题进行编码，这样编码后每个 token 的向量表示就蕴含了上下文的语义信息；Decode 层则基于 query-aware 的原文表示来预测答案起始位置。</p>
+<p>但这个文本数据集涉及问题，原文，答案三个部分, 特别是需要根据问题在原文中搜寻答案的范围, 这就涉及如果把问题的信息提取出来并作用于原文. 目前各种前沿模型的关注点几乎都是在如何捕捉问题和原文之间的交互关系，也就是在 Encode 层和 Decode 层之间, 使用一个 Interaction 层处理编码了问题语义信息的原文表示，即 query-aware 的原文表示，再输入给 Decode 层。而本来应用机器翻译Attention机制就能很好的处理这种交互。</p>
+<p>Attention机制参考另一篇文章<a href="\attention">注意力机制</a>.</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><p>内容段落摘自维基百科文章中的536篇文章，包含107,785对问题和答案，这使得SQuAD显着大于以前任何人类标注的数据集。在该数据集中，80％的数据用于训练，10％用于验证, 剩余10％用于测试。在训练集中，进一步划分出5％用于训练时的验证。</p>
+<p>与其他问答数据集相比，SQUAD具有比较独特的特征，所有答案都是出自相应的上下文中。对于每一个段落, 众包人员生成几个问题，并选择原段落中的一小段作为答案. 答案由两个index组成, 对应答案在段落中的起始位置。因此，SQuAD数据集的答案可能比其他以单个单词和实体为答案为主的数据集长得多。实例:</p>
+<blockquote>
+<p>Question:<br>Why was Tesla returned to Gospic?</p>
+</blockquote>
+<blockquote>
+<p>Context paragraph:<br>On 24 March 1879, Tesla was returned to Gospicunder police guard for <strong>not having a residence permit</strong>…</p>
+</blockquote>
+<blockquote>
+<p>Answer:<br>{12, 16}</p>
+</blockquote>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>整体的模型由Embedding层，Encodr层，Attention层，Decoder层组成。</p>
+<h3 id="Embedding"><a href="#Embedding" class="headerlink" title="Embedding"></a>Embedding</h3><p>Embedding 层使用预训练好的 Glove embedding.</p>
+<blockquote>
+<p>Glove is a log-bilinear regression model that combines the advantages of global matrix factorization and local context window methods.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_glove_embeddings</span><span class="params">(embed_path)</span>:</span></span><br><span class="line">    logger.info(<span class="string">"Loading glove embedding..."</span>)</span><br><span class="line">    glove = np.load(embed_path)[<span class="string">'glove'</span>]</span><br><span class="line">    logger.info(<span class="string">"Dimension: &#123;&#125;"</span>.format(glove.shape[<span class="number">1</span>]))</span><br><span class="line">    logger.info(<span class="string">"Vocabulary: &#123;&#125;"</span> .format(glove.shape[<span class="number">0</span>]))</span><br><span class="line">    <span class="keyword">return</span> glove</span><br><span class="line"></span><br><span class="line">embeddings = load_glove_embeddings(embed_path)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(metaclass=ABCMeta)</span>:</span></span><br><span class="line">    ...</span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setup_embeddings</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setup_embeddings</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Loads distributed word representations based on placeholder tokens</span></span><br><span class="line"><span class="string">        :return: embeddings representaion of question and context.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">with</span> tf.variable_scope(<span class="string">"embeddings"</span>):</span><br><span class="line">            <span class="keyword">if</span> self.config.RE_TRAIN_EMBED:</span><br><span class="line">                embeddings = tf.get_variable(<span class="string">"embeddings"</span>, initializer=self.embeddings)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                embeddings = tf.cast(self.embeddings, dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">            question_embeddings = tf.nn.embedding_lookup(embeddings, self.question_placeholder)</span><br><span class="line">            question_embeddings = tf.reshape(question_embeddings,</span><br><span class="line">                        shape = [<span class="number">-1</span>, self.max_question_length_placeholder, self.config.embedding_size])</span><br><span class="line"></span><br><span class="line">            context_embeddings = tf.nn.embedding_lookup(embeddings, self.context_placeholder)</span><br><span class="line">            context_embeddings = tf.reshape(context_embeddings,</span><br><span class="line">                        shape = [<span class="number">-1</span>, self.max_context_length_placeholder, self.config.embedding_size])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> question_embeddings, context_embeddings</span><br></pre></td></tr></table></figure>
+<p>Encoder就是一个双向</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shukebeta.me/algorithms/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -989,7 +1217,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  545
+                  1,369
                 </span>
               
 
@@ -1005,7 +1233,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  3 min
+                  9 min
                 </span>
               
             </div>
@@ -1038,6 +1266,227 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/attention/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/attention/" itemprop="url">注意力机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-01T00:00:00+01:00">
+                2018-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/attention/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="attention/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/attention/" class="leancloud_visitors" data-flag-title="注意力机制">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  897
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  4 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014)</a>。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”信息的背景变量来生成“Ils”，在时间步 2 使用更集中编码了“watching”信息的背景变量来生成“regardent”，在时间步 3 使用更集中编码了“.”信息的背景变量来生成“.”。这看上去就像是在解码器的每一时间步对输入序列中不同时间步编码的信息分配不同的注意力。</p>
+<p><strong>目标</strong>：<br>对于解码器的每一个时间步$t’$, 生成一个背景向量$c_{t’}$来捕捉相关的解码器信息, 以用于预测输出目标值$y_{t’}$.</p>
+<p><strong>具体步骤</strong>：<br>解码器在时间步 $t’$ 的隐藏状态</p>
+<p>$$s_{t’} = g(y_{t’-1}, c_{t’}, s_{t’-1}).$$</p>
+<p>令编码器在时间 $t$ 的隐藏状态为 $h_t$，且总时间步数为 $T$。解码器在时间步 $t’$ 的背景变量为</p>
+<p>$$c_{t’} = \sum_{t=1}^T \alpha_{t’ t} h_t,$$</p>
+<p>其中 $\alpha_{t’ t}$ 是权重，用于给定解码器的当前隐藏状态 $s_{t’}$，对编码器中不同时间步的隐藏状态$h_t$求加权平均。这里的权值也称注意力权重：</p>
+<p>$$\alpha_{t’ t} = align(s_{t’}, h_t) = \frac{\exp(score(t’ t))}{ \sum_{t=1}^T \exp(score(t’ t)) },$$</p>
+<p>其中 $score(t’ t) \in \mathbb{R}$ 的计算为</p>
+<p>$$score(t’ t) = a(s_{t’ - 1}, h_t).$$</p>
+<p>上式中的score打分函数 $score(t’ t)$ 有多种设计方法。Bahanau 等使用了多层感知机：</p>
+<p>$$e_{t’t} = v^\top \tanh(W_s s_{t’ - 1} + W_h h_t),$$</p>
+<p>其中 $v$、$W_s$、$W_h$ 以及编码器与解码器中的各个权重和偏差都是模型参数。</p>
+<p>Bahanau 等在编码器和解码器中分别使用了门控循环单元GRU。在解码器中，我们需要对门控循环单元的设计稍作修改。解码器在 $t’ $ 时间步的隐藏状态为</p>
+<p>$$s_{t’} = z_{t’} \odot s_{t’-1}  + (1 - z_{t’}) \odot \tilde{s}_{t’},$$</p>
+<p>其中的重置门、更新门和候选隐含状态分别为</p>
+<p>$$<br>\begin{aligned}<br>r_{t’} &amp;= \sigma(W_{yr} y_{t’-1} + W_{sr} s_{t’ - 1} + W_{cr} c_{t’} + b_r), \\<br>z_{t’} &amp;= \sigma(W_{yz} y_{t’-1} + W_{sz} s_{t’ - 1} + W_{cz} c_{t’} + b_z),\\<br>\tilde{s_{t’}} &amp;= \text{tanh}(W_{ys} y_{t’-1} + W_{ss} (s_{t’ - 1} \odot r_{t’}) + W_{cs} c_{t’} + b_s).<br>\end{aligned}<br>$$</p>
+<p>然后，给定目标(解码器)隐藏状态$h_{t’}$, 以及背景向量$c_{t’}$, 通过使用简单的并联层合并这两个向量的信息, 来生成所谓的注意力隐藏状态:</p>
+<p>$$\tilde{h_{t’}} = \tanh(W_c[c_{t’} : h_{t’}]) $$</p>
+<p>这个注意力向量 $\tilde{h_t}$ 之后会通过一个softmax层来生成预测的概率分布.</p>
+<h3 id="全局注意力机制"><a href="#全局注意力机制" class="headerlink" title="全局注意力机制"></a>全局注意力机制</h3><p><a href="https://arxiv.org/pdf/1508.04025.pdf" target="_blank" rel="noopener">Luong  et  al. (2015)</a>提出了两种注意力机制的变种：全局（global）和局部（local）注意力机制。区别在于“注意力”是放在所有源位置或仅放置在少数源位置。</p>
+<blockquote>
+<p>The idea of a global attentional model is to consider all the hidden states of the encoder when deriving the context vector $c_t$.</p>
+</blockquote>
+<p><img src="/images/global_attention.png" alt="" title="image from: lLuong  et  al. (2015)"><br>两种注意力机制区别就在于如何生成背景向量$c_{t’}$.</p>
+<p>Luong  et  al. (2015) 给出了几种打分函数的计算</p>
+<p>$$<br>\begin{aligned}<br>    score_{dot}(t’ t) &amp;= s^\top_{t’}h_t \\<br>    score_{general}(t’ t) &amp;= s^\top_{t’} W_\alpha h_t, \\<br>    score_{concat}(t’ t) &amp;= v^\top_\alpha \tanh (W_\alpha[s_{t’} : h_t])<br>\end{aligned}<br>$$</p>
+
+          
         
       
     </div>
@@ -1490,404 +1939,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-sapm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/UoE-sapm/" itemprop="url">Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-16T00:00:00+01:00">
-                2018-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/UoE-sapm/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="UoE-sapm/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/UoE-sapm/" class="leancloud_visitors" data-flag-title="Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  9,755
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  59 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Reference:<br><a href="https://msdn.microsoft.com/en-us/library/ff650706.aspx" target="_blank" rel="noopener">microsoft</a><br><a href="https://www.ibm.com/developerworks/rational/library/feb06/eeles/" target="_blank" rel="noopener">IBM</a><br>Software Architecture in Practice (3rd edition), Bass, Clements, and Kazman</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/UoE-sapm/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-ppls/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/UoE-ppls/" itemprop="url">Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T00:00:00+01:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/UoE-ppls/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="UoE-ppls/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/UoE-ppls/" class="leancloud_visitors" data-flag-title="Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  16,406
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  96 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Reference:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/ppls/" target="_blank" rel="noopener">http://www.inf.ed.ac.uk/teaching/courses/ppls/</a><br><a href="http://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">CMU 15213: Introduction to Computer Systems (ICS)</a><br><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective</a><br><a href="http://mpitutorial.com/" target="_blank" rel="noopener">A Comprehensive MPI Tutorial Resource</a><br><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node94.html#SECTION03500000000000000000" target="_blank" rel="noopener">A chapter on MPI from Ian Foster’s online Book Designing and Building Parallel Programs</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/UoE-ppls/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shukebeta.me/python-digest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2087,7 +2138,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-st/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NOTE-ANLP-02-n-gram-model/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -2106,7 +2157,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/UoE-st/" itemprop="url">Software Testing - Informatics - University of Edinburgh 爱丁堡大学</a></h1>
+                <a class="post-title-link" href="/NOTE-ANLP-02-n-gram-model/" itemprop="url">自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</a></h1>
         
 
         <div class="post-meta">
@@ -2118,8 +2169,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-06T00:00:00+01:00">
-                2018-05-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T00:00:00+01:00">
+                2018-04-02
               </time>
             
 
@@ -2141,8 +2192,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
                   </a>
                 </span>
 
@@ -2159,9 +2210,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/UoE-st/#comments" itemprop="discussionUrl">
+                <a href="/NOTE-ANLP-02-n-gram-model/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="UoE-st/" itemprop="commentCount"></span>
+                        data-disqus-identifier="NOTE-ANLP-02-n-gram-model/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2169,7 +2220,7 @@
 
           
           
-             <span id="/UoE-st/" class="leancloud_visitors" data-flag-title="Software Testing - Informatics - University of Edinburgh 爱丁堡大学">
+             <span id="/NOTE-ANLP-02-n-gram-model/" class="leancloud_visitors" data-flag-title="自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2194,7 +2245,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  11,988
+                  1,079
                 </span>
               
 
@@ -2210,7 +2261,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  70 min
+                  5 min
                 </span>
               
             </div>
@@ -2232,10 +2283,16 @@
 
       
         
-          <p>Reference:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html" target="_blank" rel="noopener">http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html</a><br>Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007.<br>
+          <p>生成模型在语言模型中的应用包括 N-Gram语言模型，朴素贝叶斯分类器，隐马尔可夫模型。</p>
+<blockquote>
+<p>在概率统计理论中, 生成模型是指能够生成观测数据的模型，尤其是在给定某些隐含参数的条件下。它给观测值和标注数据序列指定一个联合概率分布。</p>
+</blockquote>
+<blockquote>
+<p>生成模型的定义与判别模型相对应：生成模型是所有变量的全概率模型，而判别模型是在给定观测变量值前提下目标变量条件概率模型。因此生成模型能够用于模拟（即生成）模型中任意变量的分布情况，而判别模型只能根据观测变量得到目标变量的采样。判别模型不对观测变量的分布建模，因此它不能够表达观测变量与目标变量之间更复杂的关系。因此，生成模型更适用于无监督的任务，如分类和聚类。</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/UoE-st/#more" rel="contents">
+            <a class="btn" href="/NOTE-ANLP-02-n-gram-model/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2327,7 +2384,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2338,7 +2395,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

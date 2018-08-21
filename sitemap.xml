@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
+    
+    <lastmod>2018-08-20T23:04:06.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/SQuAd/</loc>
+    
+    <lastmod>2018-08-20T23:03:58.444Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/attention/</loc>
+    
+    <lastmod>2018-08-20T23:03:40.108Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/UoE-sapm/</loc>
+    
+    <lastmod>2018-08-20T23:01:49.864Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/UoE-st/</loc>
+    
+    <lastmod>2018-08-20T23:01:38.767Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/UoE-nlu/</loc>
+    
+    <lastmod>2018-08-20T23:00:59.445Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
+    
+    <lastmod>2018-08-20T23:00:22.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/UoE-ppls/</loc>
+    
+    <lastmod>2018-08-20T22:59:16.392Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    
+    <lastmod>2018-08-20T12:23:43.051Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
     
     <lastmod>2018-08-20T10:24:36.148Z</lastmod>
@@ -37,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    
-    <lastmod>2018-07-28T23:04:13.730Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-efficient-programming/</loc>
     
     <lastmod>2018-07-25T09:48:14.758Z</lastmod>
@@ -58,13 +114,6 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/UoE-st/</loc>
-    
-    <lastmod>2018-07-21T16:18:41.644Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/ai/</loc>
     
     <lastmod>2018-07-21T16:10:08.513Z</lastmod>
@@ -75,13 +124,6 @@
     <loc>http://shukebeta.me/cs/</loc>
     
     <lastmod>2018-07-21T16:09:52.218Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
-    
-    <lastmod>2018-07-21T16:09:10.949Z</lastmod>
     
   </url>
   
@@ -194,34 +236,6 @@
     <loc>http://shukebeta.me/NOTE-CS106B-Programming-Abstractions/</loc>
     
     <lastmod>2018-06-29T19:34:44.382Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/UoE-nlu/</loc>
-    
-    <lastmod>2018-06-29T19:34:30.851Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/UoE-anlp/</loc>
-    
-    <lastmod>2018-06-29T19:34:11.842Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/UoE-ppls/</loc>
-    
-    <lastmod>2018-06-29T19:34:08.551Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/UoE-sapm/</loc>
-    
-    <lastmod>2018-06-29T19:34:04.478Z</lastmod>
     
   </url>
   

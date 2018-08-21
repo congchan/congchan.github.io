@@ -4,6 +4,203 @@
 
     
   <url>
+    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
+    <lastmod>2018-08-20T23:04:06.318Z</lastmod>
+    <data>
+        <display>
+        <title>Percolations problem</title>
+        <pubTime>2018-07-02T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/SQuAd/</loc>
+    <lastmod>2018-08-20T23:03:58.444Z</lastmod>
+    <data>
+        <display>
+        <title>斯坦福问答数据集 (SQuAd)</title>
+        <pubTime>2018-07-01T23:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>编程</tag>
+         
+        <tag>软件工程</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>深度学习</tag>
+         
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="项目实践" url="http://shukebeta.me/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/"/>
+          
+             
+              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/attention/</loc>
+    <lastmod>2018-08-20T23:03:40.108Z</lastmod>
+    <data>
+        <display>
+        <title>注意力机制</title>
+        <pubTime>2018-06-30T23:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-sapm/</loc>
+    <lastmod>2018-08-20T23:01:49.864Z</lastmod>
+    <data>
+        <display>
+        <title>Software Architecture, Process, and Management</title>
+        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-st/</loc>
+    <lastmod>2018-08-20T23:01:38.767Z</lastmod>
+    <data>
+        <display>
+        <title>Software Testing</title>
+        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-nlu/</loc>
+    <lastmod>2018-08-20T23:00:59.445Z</lastmod>
+    <data>
+        <display>
+        <title>Natural Language Understanding</title>
+        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
+    <lastmod>2018-08-20T23:00:22.204Z</lastmod>
+    <data>
+        <display>
+        <title>Accelerated Natural Language Processing</title>
+        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>UoE</tag>
+         
+         
+           
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-ppls/</loc>
+    <lastmod>2018-08-20T22:59:16.392Z</lastmod>
+    <data>
+        <display>
+        <title>Parallel Programming Language and Systems</title>
+        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    <lastmod>2018-08-20T12:23:43.051Z</lastmod>
+    <data>
+        <display>
+        <title>Algorithms - Princeton</title>
+        <pubTime>2018-06-30T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
     <lastmod>2018-08-20T10:24:36.148Z</lastmod>
     <data>
@@ -101,30 +298,6 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    <lastmod>2018-07-28T23:04:13.730Z</lastmod>
-    <data>
-        <display>
-        <title>Algorithms - Princeton</title>
-        <pubTime>2018-06-30T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-efficient-programming/</loc>
     <lastmod>2018-07-25T09:48:14.758Z</lastmod>
     <data>
@@ -175,24 +348,6 @@
 
     
   <url>
-    <loc>http://shukebeta.me/UoE-st/</loc>
-    <lastmod>2018-07-21T16:18:41.644Z</lastmod>
-    <data>
-        <display>
-        <title>Software Testing - Informatics - University of Edinburgh 爱丁堡大学</title>
-        <pubTime>2018-05-05T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/ai/</loc>
     <lastmod>2018-07-21T16:10:08.513Z</lastmod>
     <data>
@@ -221,30 +376,6 @@
         <pubTime>2016-12-31T00:00:00.000Z</pubTime>
         
         <tag>CS</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
-    <lastmod>2018-07-21T16:09:10.949Z</lastmod>
-    <data>
-        <display>
-        <title>Percolations problem</title>
-        <pubTime>2018-07-01T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
          
          
            
@@ -618,84 +749,6 @@
          
         <tag>C++</tag>
          
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/UoE-nlu/</loc>
-    <lastmod>2018-06-29T19:34:30.851Z</lastmod>
-    <data>
-        <display>
-        <title>Natural Language Understanding - Informatics - University of Edinburgh 爱丁堡大学</title>
-        <pubTime>2018-04-30T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/UoE-anlp/</loc>
-    <lastmod>2018-06-29T19:34:11.842Z</lastmod>
-    <data>
-        <display>
-        <title>Accelerated Natural Language Processing - Informatics - University of Edinburgh</title>
-        <pubTime>2018-01-31T00:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Python</tag>
-         
-        <tag>UoE</tag>
-         
-         
-           
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/UoE-ppls/</loc>
-    <lastmod>2018-06-29T19:34:08.551Z</lastmod>
-    <data>
-        <display>
-        <title>Parallel Programming Language and Systems - Informatics - University of Edinburgh 爱丁堡</title>
-        <pubTime>2018-05-10T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/UoE-sapm/</loc>
-    <lastmod>2018-06-29T19:34:04.478Z</lastmod>
-    <data>
-        <display>
-        <title>Software Architecture, Process, and Management - Informatics - University of Edinburgh 爱丁堡大学</title>
-        <pubTime>2018-05-15T23:00:00.000Z</pubTime>
-        
          
            
              

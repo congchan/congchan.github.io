@@ -97,7 +97,12 @@
 <meta property="og:image" content="https://algs4.cs.princeton.edu/15uf/images/quick-union-overview.png">
 <meta property="og:image" content="https://algs4.cs.princeton.edu/15uf/images/weighted-quick-union-overview.png">
 <meta property="og:image" content="https://algs4.cs.princeton.edu/15uf/images/uf-performance.png">
-<meta property="og:updated_time" content="2018-07-28T23:04:13.730Z">
+<meta property="og:image" content="https://algs4.cs.princeton.edu/21elementary/images/selection.png">
+<meta property="og:image" content="https://algs4.cs.princeton.edu/21elementary/images/insertion.png">
+<meta property="og:image" content="https://algs4.cs.princeton.edu/21elementary/images/h-sorted.png">
+<meta property="og:image" content="https://algs4.cs.princeton.edu/21elementary/images/shell.png">
+<meta property="og:image" content="https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD.png">
+<meta property="og:updated_time" content="2018-08-20T12:23:43.051Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms - Princeton">
 <meta name="twitter:description" content="Algorithms, Part I, https://online.princeton.edu/course/algorithms-part-i Algorithms, Part II, https://online.princeton.edu/course/algorithms-part-ii Algorithms, 4th Edition by Robert Sedgewick and K">
@@ -383,7 +388,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  545
+                  1,369
                 </span>
               
 
@@ -399,7 +404,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  3 min
+                  9 min
                 </span>
               
             </div>
@@ -424,8 +429,9 @@
 <li>Algorithms, Part I, <a href="https://online.princeton.edu/course/algorithms-part-i" target="_blank" rel="noopener">https://online.princeton.edu/course/algorithms-part-i</a></li>
 <li>Algorithms, Part II, <a href="https://online.princeton.edu/course/algorithms-part-ii" target="_blank" rel="noopener">https://online.princeton.edu/course/algorithms-part-ii</a></li>
 <li>Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne <a href="https://algs4.cs.princeton.edu/" target="_blank" rel="noopener">https://algs4.cs.princeton.edu/</a><a id="more"></a>
-<h2 id="Union−Find"><a href="#Union−Find" class="headerlink" title="Union−Find"></a>Union−Find</h2>Considering the dynamic connectivity problem, modeling of multiple objects connected in a space/network.</li>
+</li>
 </ul>
+<h2 id="Union−Find"><a href="#Union−Find" class="headerlink" title="Union−Find"></a>Union−Find</h2><p>Considering the dynamic connectivity problem, modeling of multiple objects connected in a space/network.</p>
 <p>Applications involve manipulating objects of all types.<br>・Pixels in a digital photo.<br>・Computers in a network.<br>・Friends in a social network.<br>・Transistors in a computer chip.</p>
 <p>Given a set of N objects.</p>
 <ul>
@@ -454,10 +460,60 @@
 <p>Amazing fact. <code>[Fredman-Saks]</code> No linear-time algorithm exists.</p>
 </blockquote>
 <p><img src="https://algs4.cs.princeton.edu/15uf/images/uf-performance.png" alt="" title="Summary. image from: https://algs4.cs.princeton.edu/"></p>
-<h2 id="Element-Sort"><a href="#Element-Sort" class="headerlink" title="Element Sort"></a>Element Sort</h2><p>Dutch national flag problem</p>
-<h2 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h2><p>Counting inversions: An inversion in an array <code>a[]</code> is a pair of entries <code>a[i]</code> and <code>a[j]</code> such that <code>i &lt; j</code> but <code>a[i] &gt; a[j]</code>. Given an array, design a linearithmic algorithm to count the number of inversions. Hint: count while mergesorting.</p>
-<p>Shuffling a linked list. Given a singly-linked list containing nn items, rearrange the items uniformly at random. Your algorithm should consume a logarithmic (or constant) amount of extra memory and run in time proportional to $n \log n$ in the worst case. Hint: design a linear-time subroutine that can take two uniformly shuffled linked lists of sizes $n_1$ and $n_2$ and combined them into a uniformly shuffled linked lists of size $n_1 + n_2$.</p>
-
+<h2 id="Element-Sort"><a href="#Element-Sort" class="headerlink" title="Element Sort"></a>Element Sort</h2><p>Two elementary sorting methods: selection sort and insertion sort. Shellsort is a variation of one of them.</p>
+<blockquote>
+<p>The objective is to rearrange the items such that their keys are in ascending order.</p>
+</blockquote>
+<p>In Java, the abstract notion of a key is captured by the Comparable interface. The Comparable interface provides an elegant API for callback when Java need to compare keys.</p>
+<p>Some background knowlege:</p>
+<ul>
+<li>Cost model, please refer to <a href="/NOTE-data-structures-efficient-programming#Asymptotic-Analysis">Asymptotic Analysis</a></li>
+<li>Sorting cost model. How many compares and exchanges, or array accesses, for a sorting.</li>
+<li>Memory. There are sorting algorithms that sort in place (no extra memory except perhaps for a small function-call stack or a constant number of instance variables), and those that need enough extra memory to hold another copy of the array to be sorted.</li>
+</ul>
+<h3 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h3><p>Repeatedly selecting the smallest remaining item:</p>
+<ol>
+<li>Find the smallest item in the array, and exchange it with the first entry.</li>
+<li>Find the next smallest item and exchange it with the second entry.</li>
+<li>Continue until the entire array is sorted.<br><img src="https://algs4.cs.princeton.edu/21elementary/images/selection.png" alt="" title="image from: https://algs4.cs.princeton.edu/"></li>
+</ol>
+<p>Selection sort uses ~$n^2/2$ compares and n exchanges to sort an array of length n.</p>
+<h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3><p>Works like people sort Pokers: consider the cards one at a time, inserting each into its proper place among those already considered (keeping them sorted).<br><img src="https://algs4.cs.princeton.edu/21elementary/images/insertion.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br>In a computer implementation, we need to make space for the current item by moving larger items one position to the right, before inserting the current item into the vacated position.</p>
+<blockquote>
+<p>For randomly ordered arrays of length N with distinct keys, insertion sort uses ~$N^2/4$ compares and ~$N^2/4$ exchanges on the average. The worst case is ~ $N^2/2$ compares and ~ $N^2/2$ exchanges and the best case is $N-1$ compares and 0 exchanges.</p>
+</blockquote>
+<blockquote>
+<p>Insertion sort works well for certain types of nonrandom arrays that often arise in practice, even if they are huge. An inversion is a pair of keys that are out of order in the array. For instance, E X A M P L E has 11 inversions: E-A, X-A, X-M, X-P, X-L, X-E, M-L, M-E, P-L, P-E, and L-E. If the number of inversions in an array is less than a constant multiple of the array size, we say that the array is partially sorted.</p>
+</blockquote>
+<h3 id="Shellsort"><a href="#Shellsort" class="headerlink" title="Shellsort"></a>Shellsort</h3><p>Shellsort gains speed by allowing exchanges of entries that are far apart, to produce partially sorted arrays that can be efficiently sorted, eventually by insertion sort.</p>
+<p>The idea is to rearrange the array to give it the property that taking every $h_{th}$ entry (starting anywhere) yields a sorted sequence. Such an array is said to be h-sorted.<img src="https://algs4.cs.princeton.edu/21elementary/images/h-sorted.png" alt="" title="image from: https://algs4.cs.princeton.edu/">By h-sorting for some large values of h, we can move entries in the array long distances and thus make it easier to h-sort for smaller values of h. Using such a procedure for any increment sequence of values of h that ends in 1 will produce a sorted array:<img src="https://algs4.cs.princeton.edu/21elementary/images/shell.png" alt="" title="image from: https://algs4.cs.princeton.edu/"></p>
+<blockquote>
+<p>The number of compares used by shellsort with the increments 1, 4, 13, 40, 121, 364, … is O(N^{3/2}).</p>
+</blockquote>
+<h2 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h2><p>Merging means combining two ordered arrays to make one larger ordered array. Merge sort is an utility of divide and conquer paradigm.</p>
+<p>Mergesort guarantees to sort an array of N items in time proportional to $N \log N$, no matter what the input. But it uses extra space proportional to N. Specifically, mergesort uses between $1/2 N \lg N$ and $N \lg N$ compares and at most $6 N \lg N$ array accesses to sort any array of length N.</p>
+<blockquote>
+<p><strong>Abstract in-place merge</strong>: The method <code>merge(a, lo, mid, hi)</code> in <a href="https://algs4.cs.princeton.edu/22mergesort/Merge.java.html" target="_blank" rel="noopener">Merge.java</a> puts the results of merging the subarrays <code>a[lo..mid]</code> with <code>a[mid+1..hi]</code> into a single ordered array, leaving the result in <code>a[lo..hi]</code>. While it would be desirable to implement this method without using a significant amount of extra space, such solutions are remarkably complicated.</p>
+</blockquote>
+<h3 id="Top-down-mergesort"><a href="#Top-down-mergesort" class="headerlink" title="Top-down mergesort"></a>Top-down mergesort</h3><p>A recursive mergesort implementation based on this abstract in-place merge.<br><img src="https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD.png" alt="" title="image from: https://algs4.cs.princeton.edu/"></p>
+<h3 id="Bottom-up-mergesort"><a href="#Bottom-up-mergesort" class="headerlink" title="Bottom-up mergesort"></a>Bottom-up mergesort</h3><p>Do all the merges of tiny arrays on one pass, then do a second pass to merge those arrays in pairs, and so forth, continuing until we do a merge that encompasses the whole array.</p>
+<ol>
+<li>We start by doing a pass of 1-by-1 merges</li>
+<li>then a pass of 2-by-2 merges (merge subarrays of size 2 to make subarrays of size 4),</li>
+<li>then 4-by-4 merges, and so forth.</li>
+</ol>
+<blockquote>
+<p>Proposition: No compare-based sorting algorithm can guarantee to sort N items with fewer than $lg(N!)$ ~ $N \lg N$ compares.<br>Proposition. Mergesort is an asymptotically optimal compare-based sorting algorithm. That is, both the number of compares used by mergesort in the worst case and the minimum number of compares that any compare-based sorting algorithm can guarantee are ~N lg N.</p>
+</blockquote>
+<h3 id="Mergesort-Applications"><a href="#Mergesort-Applications" class="headerlink" title="Mergesort Applications"></a>Mergesort Applications</h3><p>Counting inversions: An inversion in an array <code>a[]</code> is a pair of entries <code>a[i]</code> and <code>a[j]</code> such that <code>i &lt; j</code> but <code>a[i] &gt; a[j]</code>. Given an array, design a linearithmic algorithm to count the number of inversion.</p>
+<blockquote>
+<p>count while mergesorting.</p>
+</blockquote>
+<p>Shuffling a linked list: Given a singly-linked list containing n items, rearrange the items uniformly at random. Your algorithm should consume a logarithmic (or constant) amount of extra memory and run in time proportional to $n \log n$ in the worst case:</p>
+<blockquote>
+<p>Design a linear-time subroutine that can take two uniformly shuffled linked lists of sizes $n_1$ and $n_2$ and combined them into a uniformly shuffled linked lists of size $n_1 + n_2$.</p>
+</blockquote>
+<h2 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h2>
       
     </div>
     
@@ -491,8 +547,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NOTE-data-structures-efficient-programming/" rel="next" title="Efficient Programming in Java - A preview of Algorithms and Data Structures">
-                <i class="fa fa-chevron-left"></i> Efficient Programming in Java - A preview of Algorithms and Data Structures
+              <a href="/attention/" rel="next" title="注意力机制">
+                <i class="fa fa-chevron-left"></i> 注意力机制
               </a>
             
           </div>
@@ -501,8 +557,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/algorithms-applications-01-percolation/" rel="prev" title="Percolations problem">
-                Percolations problem <i class="fa fa-chevron-right"></i>
+              <a href="/SQuAd/" rel="prev" title="斯坦福问答数据集 (SQuAd)">
+                斯坦福问答数据集 (SQuAd) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -600,7 +656,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -611,7 +667,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -678,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Union−Find"><span class="nav-number">1.</span> <span class="nav-text">Union−Find</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-Sort"><span class="nav-number">2.</span> <span class="nav-text">Element Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-sort"><span class="nav-number">3.</span> <span class="nav-text">Merge sort</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Union−Find"><span class="nav-number">1.</span> <span class="nav-text">Union−Find</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-Sort"><span class="nav-number">2.</span> <span class="nav-text">Element Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-Sort"><span class="nav-number">2.1.</span> <span class="nav-text">Selection Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-Sort"><span class="nav-number">2.2.</span> <span class="nav-text">Insertion Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shellsort"><span class="nav-number">2.3.</span> <span class="nav-text">Shellsort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">3.</span> <span class="nav-text">Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-down-mergesort"><span class="nav-number">3.1.</span> <span class="nav-text">Top-down mergesort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-up-mergesort"><span class="nav-number">3.2.</span> <span class="nav-text">Bottom-up mergesort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mergesort-Applications"><span class="nav-number">3.3.</span> <span class="nav-text">Mergesort Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Sort"><span class="nav-number">4.</span> <span class="nav-text">Quick Sort</span></a></li></ol></div>
             
 
           </div>
