@@ -5,31 +5,40 @@
     
   <url>
     <loc>http://shukebeta.me/SQuAd/</loc>
-    <lastmod>2018-08-21T18:07:34.536Z</lastmod>
+    <lastmod>2018-08-21T19:10:16.118Z</lastmod>
     <data>
         <display>
         <title>注意力机制应用于斯坦福问答数据集 (SQuAd)</title>
         <pubTime>2018-07-01T23:00:00.000Z</pubTime>
         
-        <tag>Python</tag>
-         
-        <tag>编程</tag>
-         
-        <tag>软件工程</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>深度学习</tag>
+        <tag>NLP</tag>
          
         <tag>TensorFlow</tag>
          
          
            
              
-              <breadCrumb title="项目实践" url="http://shukebeta.me/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/"/>
+              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/attention/</loc>
+    <lastmod>2018-08-21T19:09:27.446Z</lastmod>
+    <data>
+        <display>
+        <title>注意力机制</title>
+        <pubTime>2018-06-30T23:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+         
+           
              
-              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>
@@ -54,26 +63,6 @@
            
              
               <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/attention/</loc>
-    <lastmod>2018-08-20T23:03:40.108Z</lastmod>
-    <data>
-        <display>
-        <title>注意力机制</title>
-        <pubTime>2018-06-30T23:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>

@@ -94,7 +94,7 @@
 <meta property="og:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://shukebeta.me/images/global_attention.png">
-<meta property="og:updated_time" content="2018-08-20T23:03:40.108Z">
+<meta property="og:updated_time" content="2018-08-21T19:09:27.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="注意力机制">
 <meta name="twitter:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”">
@@ -417,7 +417,7 @@
       
 
       
-        <h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014)</a>。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”信息的背景变量来生成“Ils”，在时间步 2 使用更集中编码了“watching”信息的背景变量来生成“regardent”，在时间步 3 使用更集中编码了“.”信息的背景变量来生成“.”。这看上去就像是在解码器的每一时间步对输入序列中不同时间步编码的信息分配不同的注意力。</p>
+        <h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014)</a>。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”信息的背景变量来生成“Ils”，在时间步 2 使用更集中编码了“watching”信息的背景变量来生成“regardent”，在时间步 3 使用更集中编码了“.”信息的背景变量来生成“.”。这看上去就像是在解码器的每一时间步对输入序列中不同时间步编码的信息分配不同的注意力。<br><a id="more"></a></p>
 <p><strong>目标</strong>：<br>对于解码器的每一个时间步$t’$, 生成一个背景向量$c_{t’}$来捕捉相关的解码器信息, 以用于预测输出目标值$y_{t’}$.</p>
 <p><strong>具体步骤</strong>：<br>解码器在时间步 $t’$ 的隐藏状态</p>
 <p>$$s_{t’} = g(y_{t’-1}, c_{t’}, s_{t’-1}).$$</p>
