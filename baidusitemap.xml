@@ -4,35 +4,11 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
-    <lastmod>2018-08-20T23:04:06.318Z</lastmod>
-    <data>
-        <display>
-        <title>Percolations problem</title>
-        <pubTime>2018-07-02T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/SQuAd/</loc>
-    <lastmod>2018-08-20T23:03:58.444Z</lastmod>
+    <lastmod>2018-08-21T18:07:34.536Z</lastmod>
     <data>
         <display>
-        <title>斯坦福问答数据集 (SQuAd)</title>
+        <title>注意力机制应用于斯坦福问答数据集 (SQuAd)</title>
         <pubTime>2018-07-01T23:00:00.000Z</pubTime>
         
         <tag>Python</tag>
@@ -54,6 +30,30 @@
           
              
               <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
+    <lastmod>2018-08-20T23:04:06.318Z</lastmod>
+    <data>
+        <display>
+        <title>Percolations problem</title>
+        <pubTime>2018-07-02T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
