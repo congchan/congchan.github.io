@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://shukebeta.me/SQuAD/</loc>
+    <lastmod>2018-09-01T02:20:58.447Z</lastmod>
+    <data>
+        <display>
+        <title>注意力机制应用于斯坦福问答数据集 (SQuAD)</title>
+        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
+    <lastmod>2018-08-21T20:05:26.894Z</lastmod>
+    <data>
+        <display>
+        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
+        <pubTime>2018-08-03T23:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/csapp/</loc>
     <lastmod>2018-08-21T19:44:14.466Z</lastmod>
     <data>
@@ -21,28 +67,6 @@
            
              
               <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/SQuAd/</loc>
-    <lastmod>2018-08-21T19:10:16.118Z</lastmod>
-    <data>
-        <display>
-        <title>注意力机制应用于斯坦福问答数据集 (SQuAd)</title>
-        <pubTime>2018-07-01T23:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>
@@ -196,30 +220,6 @@
         <display>
         <title>Algorithms - Princeton</title>
         <pubTime>2018-06-30T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
-    <lastmod>2018-08-20T10:24:36.148Z</lastmod>
-    <data>
-        <display>
-        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
-        <pubTime>2018-08-03T23:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          

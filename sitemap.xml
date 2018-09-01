@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://shukebeta.me/csapp/</loc>
+    <loc>http://shukebeta.me/SQuAD/</loc>
     
-    <lastmod>2018-08-21T19:44:14.466Z</lastmod>
+    <lastmod>2018-09-01T02:20:58.447Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shukebeta.me/SQuAd/</loc>
+    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
     
-    <lastmod>2018-08-21T19:10:16.118Z</lastmod>
+    <lastmod>2018-08-21T20:05:26.894Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/csapp/</loc>
+    
+    <lastmod>2018-08-21T19:44:14.466Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://shukebeta.me/algorithms/</loc>
     
     <lastmod>2018-08-20T12:23:43.051Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
-    
-    <lastmod>2018-08-20T10:24:36.148Z</lastmod>
     
   </url>
   
