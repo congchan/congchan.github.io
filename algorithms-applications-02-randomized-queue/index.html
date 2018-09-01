@@ -88,14 +88,14 @@
 <meta name="description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
 <meta name="keywords" content="Java,Software Engineer,Algorithms">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Randomized Queue with Fisher–Yates Shuffle or Reservoir Sampling">
+<meta property="og:title" content="Randomized Queue with Reservoir Sampling">
 <meta property="og:url" content="http://shukebeta.me/algorithms-applications-02-randomized-queue/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-01T02:26:15.785Z">
+<meta property="og:updated_time" content="2018-09-01T02:42:10.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Randomized Queue with Fisher–Yates Shuffle or Reservoir Sampling">
+<meta name="twitter:title" content="Randomized Queue with Reservoir Sampling">
 <meta name="twitter:description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <title>Randomized Queue with Fisher–Yates Shuffle or Reservoir Sampling | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Randomized Queue with Reservoir Sampling | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Randomized Queue with Fisher–Yates Shuffle or Reservoir Sampling</h1>
+          <h1 class="post-title" itemprop="name headline">Randomized Queue with Reservoir Sampling</h1>
         
 
         <div class="post-meta">
@@ -353,7 +353,7 @@
 
           
           
-             <span id="/algorithms-applications-02-randomized-queue/" class="leancloud_visitors" data-flag-title="Randomized Queue with Fisher–Yates Shuffle or Reservoir Sampling">
+             <span id="/algorithms-applications-02-randomized-queue/" class="leancloud_visitors" data-flag-title="Randomized Queue with Reservoir Sampling">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  668
+                  759
                 </span>
               
 
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  4 min
+                  5 min
                 </span>
               
             </div>
@@ -423,24 +423,17 @@
 <p>The bonu point is to use only one RandomizedQueue object of maximum size at most k.</p>
 <p>More specifically, as the program sees a sequence of input, one at a time, the programe could only keep k items in memory, and they should be selected at random from the sequence. If we know the total number of items (n), then the solution is easy: select ten distinct indices i between 1 and n with equal probability, and keep the i-th elements. The challenge is that we do not know the input sequence length in advance.</p>
 <p>The idea is when reading in input strings one by one, we maintain the RandomizedQueue with size at most k on the fly. If the RandomizedQueue is full, then we need to decide whether a new input string should be accepted or not. If it should be accepted, then one of the old elements must be kicked out of the queues. The key point here is how to make the decision.</p>
-<p>Two algorithms explain similar mechanism:</p>
-<ol>
-<li><p><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Fisher–Yates shuffle (Knuth shuffle)</a><br>For a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="noopener">Reservoir sampling</a></p>
+<p>Two algorithms explain similar mechanism:<br>1.<br>For a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="noopener">Reservoir sampling</a> algorithms could solve the problem:</p>
 <blockquote>
 <p>Reservoir sampling is a family of randomized algorithms for randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number. Typically n is large enough that the list doesn’t fit into main memory.</p>
-<ol>
-<li>Keep the first k items in memory.</li>
-<li>When the i-th item arrives (for $i&gt;k$):<ul>
-<li>with probability $k/i$, keep the new item (discard an old one, selecting which to replace at random, each with chance $1/k$)</li>
-<li>with probability $1-k/i$, keep the old items (ignore the new one)</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-</li>
-</ol>
+<pre><code>1. Keep the first k items in memory.
+2. When the i-th item arrives (for $i&gt;k$):
+    * with probability $k/i$, keep the new item (discard an old one, selecting which to replace at random, each with chance $1/k$)
+    * with probability $1-k/i$, keep the old items (ignore the new one)
+</code></pre></blockquote>
+<p>In our case of implementation, for a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</p>
+<p>There is another shuffle method called <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Fisher–Yates shuffle</a> and its $O(n)$ version called Knuth shuffle which could shuffle a given sequence. </p>
 <p>Test report:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Correctness:  43/43 tests passed</span><br><span class="line">Memory:       106/105 tests passed</span><br><span class="line">Timing:       136/136 tests passed</span><br><span class="line"></span><br><span class="line">Aggregate score: 100.10%</span><br><span class="line">[Compilation: 5%, API: 5%, Findbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]</span><br><span class="line"></span><br><span class="line">Test 3 (bonus): check that maximum size of any or Deque or RandomizedQueue object</span><br><span class="line">                created is equal to k</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 500</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5000</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50000</span><br><span class="line">==&gt; passed</span><br><span class="line"></span><br><span class="line">Total: 3/2 tests passed!</span><br></pre></td></tr></table></figure></p>
 
       
@@ -835,7 +828,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/algorithms-applications-02-randomized-queue/';
           this.page.identifier = 'algorithms-applications-02-randomized-queue/';
-          this.page.title = 'Randomized Queue with Fisher–Yates Shuffle or Reservoir Sampling';
+          this.page.title = 'Randomized Queue with Reservoir Sampling';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';
