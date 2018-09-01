@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
+    
+    <lastmod>2018-09-01T02:26:15.785Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/SQuAD/</loc>
     
     <lastmod>2018-09-01T02:20:58.447Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>http://shukebeta.me/NOTE-data-structures-efficient-programming/</loc>
     
     <lastmod>2018-07-25T09:48:14.758Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
-    
-    <lastmod>2018-07-22T10:46:10.312Z</lastmod>
     
   </url>
   
