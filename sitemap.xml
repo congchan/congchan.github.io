@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/programming-contest/</loc>
+    
+    <lastmod>2018-09-06T03:43:47.815Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
     
     <lastmod>2018-09-01T02:42:10.756Z</lastmod>
