@@ -4,18 +4,52 @@
 
     
   <url>
-    <loc>http://shukebeta.me/programming-contest/</loc>
-    <lastmod>2018-09-06T03:43:47.815Z</lastmod>
+    <loc>http://shukebeta.me/NLP-string-searching-algorithm-kmp/</loc>
+    <lastmod>2018-09-08T10:24:04.047Z</lastmod>
     <data>
         <display>
-        <title>Programming contest</title>
-        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
+        <title>String-searching Algorithm - KMP Algorithm</title>
+        <pubTime>2018-09-07T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>KMP</tag>
+         
+        <tag>Aho–Corasick algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
+    <lastmod>2018-09-08T03:46:19.017Z</lastmod>
+    <data>
+        <display>
+        <title>Randomized Queue with Reservoir Sampling</title>
+        <pubTime>2018-07-20T16:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
         <tag>Software Engineer</tag>
          
         <tag>Algorithms</tag>
+         
+        <tag>Reservoir Sampling</tag>
+         
+        <tag>Fisher–Yates shuffle</tag>
          
          
            
@@ -28,12 +62,62 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
-    <lastmod>2018-09-01T02:42:10.756Z</lastmod>
+    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
+    <lastmod>2018-09-08T03:45:52.260Z</lastmod>
     <data>
         <display>
-        <title>Randomized Queue with Reservoir Sampling</title>
-        <pubTime>2018-07-20T16:00:00.000Z</pubTime>
+        <title>Percolations problem</title>
+        <pubTime>2018-07-02T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Bitwise Operation</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
+    <lastmod>2018-09-07T07:21:44.947Z</lastmod>
+    <data>
+        <display>
+        <title>Accelerated Natural Language Processing</title>
+        <pubTime>2017-09-30T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>UoE</tag>
+         
+         
+           
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/programming-contest/</loc>
+    <lastmod>2018-09-06T03:43:47.815Z</lastmod>
+    <data>
+        <display>
+        <title>Programming contest</title>
+        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -142,30 +226,6 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
-    <lastmod>2018-08-20T23:04:06.318Z</lastmod>
-    <data>
-        <display>
-        <title>Percolations problem</title>
-        <pubTime>2018-07-02T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/UoE-sapm/</loc>
     <lastmod>2018-08-20T23:01:49.864Z</lastmod>
     <data>
@@ -209,30 +269,6 @@
         <title>Natural Language Understanding</title>
         <pubTime>2017-09-30T23:00:00.000Z</pubTime>
         
-         
-           
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/UoE-anlp/</loc>
-    <lastmod>2018-08-20T23:00:22.204Z</lastmod>
-    <data>
-        <display>
-        <title>Accelerated Natural Language Processing</title>
-        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Python</tag>
-         
-        <tag>UoE</tag>
-         
          
            
              

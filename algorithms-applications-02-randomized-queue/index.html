@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer,Algorithms," />
+  <meta name="keywords" content="Java,Software Engineer,Algorithms,Reservoir Sampling,Fisher–Yates shuffle," />
 
 
 
@@ -86,14 +86,14 @@
 
 
 <meta name="description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
-<meta name="keywords" content="Java,Software Engineer,Algorithms">
+<meta name="keywords" content="Java,Software Engineer,Algorithms,Reservoir Sampling,Fisher–Yates shuffle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Randomized Queue with Reservoir Sampling">
 <meta property="og:url" content="http://shukebeta.me/algorithms-applications-02-randomized-queue/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-01T02:42:10.756Z">
+<meta property="og:updated_time" content="2018-09-08T03:46:19.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Randomized Queue with Reservoir Sampling">
 <meta name="twitter:description" content="Randomized queueFor a randomized queue, the item removed is chosen uniformly at random from items in the data structure. API:12345678910public class RandomizedQueue&amp;lt;Item&amp;gt; implements Iterable&amp;lt;">
@@ -433,7 +433,7 @@
     * with probability $1-k/i$, keep the old items (ignore the new one)
 </code></pre></blockquote>
 <p>In our case of implementation, for a loop over n, swap item <code>[n]</code> with a random item in the range <code>[0]</code> through <code>[n]</code>. We store only the first k elements (<code>[0 : k-1]</code>) as that are all we need. Afterwards, when we get a new string (index <code>[n]</code>), we’ll swap it with one of the first k strings for a given probability <code>P</code>, otherwise just discard it.</p>
-<p>There is another shuffle method called <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Fisher–Yates shuffle</a> and its $O(n)$ version called Knuth shuffle which could shuffle a given sequence. </p>
+<p>There is another shuffle method called <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Fisher–Yates shuffle</a> and its $O(n)$ version called Knuth shuffle which could shuffle a given sequence.</p>
 <p>Test report:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Correctness:  43/43 tests passed</span><br><span class="line">Memory:       106/105 tests passed</span><br><span class="line">Timing:       136/136 tests passed</span><br><span class="line"></span><br><span class="line">Aggregate score: 100.10%</span><br><span class="line">[Compilation: 5%, API: 5%, Findbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]</span><br><span class="line"></span><br><span class="line">Test 3 (bonus): check that maximum size of any or Deque or RandomizedQueue object</span><br><span class="line">                created is equal to k</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 500</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 5000</span><br><span class="line">  * filename = tale.txt, n = 138653, k = 50000</span><br><span class="line">==&gt; passed</span><br><span class="line"></span><br><span class="line">Total: 3/2 tests passed!</span><br></pre></td></tr></table></figure></p>
 
       
@@ -457,6 +457,10 @@
             <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
           
             <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
+          
+            <a href="/tags/Reservoir-Sampling/" rel="tag"># Reservoir Sampling</a>
+          
+            <a href="/tags/Fisher–Yates-shuffle/" rel="tag"># Fisher–Yates shuffle</a>
           
         </div>
       
@@ -578,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -600,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
