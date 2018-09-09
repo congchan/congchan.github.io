@@ -4,7 +4,91 @@
   <url>
     <loc>http://shukebeta.me/NLP-string-searching-algorithm-kmp/</loc>
     
-    <lastmod>2018-09-09T02:47:48.578Z</lastmod>
+    <lastmod>2018-09-09T08:48:25.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/UoE-nlu/</loc>
+    
+    <lastmod>2018-09-09T08:48:11.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
+    
+    <lastmod>2018-09-09T08:48:03.283Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/SQuAD/</loc>
+    
+    <lastmod>2018-09-09T08:47:55.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NOTE-ANLP-01-probability-model/</loc>
+    
+    <lastmod>2018-09-09T08:47:12.414Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NOTE-ANLP-02-n-gram-model/</loc>
+    
+    <lastmod>2018-09-09T08:47:03.814Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/machine-learning/</loc>
+    
+    <lastmod>2018-09-09T08:46:46.311Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/csapp/</loc>
+    
+    <lastmod>2018-09-09T08:46:31.234Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/attention/</loc>
+    
+    <lastmod>2018-09-09T08:46:24.210Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/machine-learning-with-sklearn/</loc>
+    
+    <lastmod>2018-09-09T08:46:01.505Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    
+    <lastmod>2018-09-09T08:45:16.082Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
+    
+    <lastmod>2018-09-09T08:44:51.567Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/ai/</loc>
+    
+    <lastmod>2018-09-09T08:44:31.804Z</lastmod>
     
   </url>
   
@@ -23,44 +107,9 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/UoE-anlp/</loc>
-    
-    <lastmod>2018-09-07T07:21:44.947Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/programming-contest/</loc>
     
     <lastmod>2018-09-06T03:43:47.815Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/SQuAD/</loc>
-    
-    <lastmod>2018-09-01T02:20:58.447Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
-    
-    <lastmod>2018-08-21T20:05:26.894Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/csapp/</loc>
-    
-    <lastmod>2018-08-21T19:44:14.466Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/attention/</loc>
-    
-    <lastmod>2018-08-21T19:09:27.446Z</lastmod>
     
   </url>
   
@@ -79,23 +128,9 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/UoE-nlu/</loc>
-    
-    <lastmod>2018-08-20T23:00:59.445Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/UoE-ppls/</loc>
     
     <lastmod>2018-08-20T22:59:16.392Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    
-    <lastmod>2018-08-20T12:23:43.051Z</lastmod>
     
   </url>
   
@@ -135,13 +170,6 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/ai/</loc>
-    
-    <lastmod>2018-07-21T16:10:08.513Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/cs/</loc>
     
     <lastmod>2018-07-21T16:09:52.218Z</lastmod>
@@ -152,27 +180,6 @@
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-05-java-variable-types/</loc>
     
     <lastmod>2018-07-16T08:57:38.419Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/machine-learning/</loc>
-    
-    <lastmod>2018-06-29T19:36:01.282Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NOTE-ANLP-01-probability-model/</loc>
-    
-    <lastmod>2018-06-29T19:35:57.287Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NOTE-ANLP-02-n-gram-model/</loc>
-    
-    <lastmod>2018-06-29T19:35:53.370Z</lastmod>
     
   </url>
   
@@ -264,13 +271,6 @@
     <loc>http://shukebeta.me/python-digest/</loc>
     
     <lastmod>2018-06-29T19:18:48.676Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/machine-learning-with-sklearn/</loc>
-    
-    <lastmod>2018-06-29T19:12:04.358Z</lastmod>
     
   </url>
   

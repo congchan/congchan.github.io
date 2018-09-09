@@ -5,15 +5,13 @@
     
   <url>
     <loc>http://shukebeta.me/NLP-string-searching-algorithm-kmp/</loc>
-    <lastmod>2018-09-09T02:47:48.578Z</lastmod>
+    <lastmod>2018-09-09T08:48:25.922Z</lastmod>
     <data>
         <display>
         <title>String-searching Algorithm - KMP Algorithm</title>
         <pubTime>2018-09-07T16:00:00.000Z</pubTime>
         
         <tag>NLP</tag>
-         
-        <tag>AI</tag>
          
         <tag>Algorithm</tag>
          
@@ -23,6 +21,297 @@
          
         <tag>Trie</tag>
          
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-nlu/</loc>
+    <lastmod>2018-09-09T08:48:11.943Z</lastmod>
+    <data>
+        <display>
+        <title>Natural Language Understanding</title>
+        <pubTime>2017-09-30T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
+    <lastmod>2018-09-09T08:48:03.283Z</lastmod>
+    <data>
+        <display>
+        <title>Accelerated Natural Language Processing</title>
+        <pubTime>2017-09-30T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>UoE</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/SQuAD/</loc>
+    <lastmod>2018-09-09T08:47:55.233Z</lastmod>
+    <data>
+        <display>
+        <title>注意力机制应用于斯坦福问答数据集 (SQuAD)</title>
+        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>TensorFlow</tag>
+         
+        <tag>SQuAD</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NOTE-ANLP-01-probability-model/</loc>
+    <lastmod>2018-09-09T08:47:12.414Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
+        <pubTime>2018-03-31T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NOTE-ANLP-02-n-gram-model/</loc>
+    <lastmod>2018-09-09T08:47:03.814Z</lastmod>
+    <data>
+        <display>
+        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
+        <pubTime>2018-04-01T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/machine-learning/</loc>
+    <lastmod>2018-09-09T08:46:46.311Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning Note - cs229 - Stanford</title>
+        <pubTime>2017-12-04T16:00:00.000Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/AI/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/csapp/</loc>
+    <lastmod>2018-09-09T08:46:31.234Z</lastmod>
+    <data>
+        <display>
+        <title>Computer Systems - A Programmer's Perspective (CSAPP) - CMU 15213</title>
+        <pubTime>2018-01-28T16:00:00.000Z</pubTime>
+        
+        <tag>csapp</tag>
+         
+        <tag>C</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/attention/</loc>
+    <lastmod>2018-09-09T08:46:24.210Z</lastmod>
+    <data>
+        <display>
+        <title>注意力机制</title>
+        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/machine-learning-with-sklearn/</loc>
+    <lastmod>2018-09-09T08:46:01.505Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning with Scikit-learn (Sklearn) 机器学习实践</title>
+        <pubTime>2017-11-30T16:00:00.000Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+        <tag>python</tag>
+         
+        <tag>sklearn</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/AI/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    <lastmod>2018-09-09T08:45:16.082Z</lastmod>
+    <data>
+        <display>
+        <title>Algorithms - Princeton</title>
+        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>algs4</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
+    <lastmod>2018-09-09T08:44:51.567Z</lastmod>
+    <data>
+        <display>
+        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
+        <pubTime>2018-08-03T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Sorting</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/ai/</loc>
+    <lastmod>2018-09-09T08:44:31.804Z</lastmod>
+    <data>
+        <display>
+        <title>Learn AI Step by Step</title>
+        <pubTime>2016-12-30T16:00:00.000Z</pubTime>
+        
          
            
              
@@ -88,30 +377,6 @@
 
     
   <url>
-    <loc>http://shukebeta.me/UoE-anlp/</loc>
-    <lastmod>2018-09-07T07:21:44.947Z</lastmod>
-    <data>
-        <display>
-        <title>Accelerated Natural Language Processing</title>
-        <pubTime>2017-09-30T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Python</tag>
-         
-        <tag>UoE</tag>
-         
-         
-           
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/programming-contest/</loc>
     <lastmod>2018-09-06T03:43:47.815Z</lastmod>
     <data>
@@ -129,96 +394,6 @@
            
              
               <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/SQuAD/</loc>
-    <lastmod>2018-09-01T02:20:58.447Z</lastmod>
-    <data>
-        <display>
-        <title>注意力机制应用于斯坦福问答数据集 (SQuAD)</title>
-        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
-    <lastmod>2018-08-21T20:05:26.894Z</lastmod>
-    <data>
-        <display>
-        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
-        <pubTime>2018-08-03T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/csapp/</loc>
-    <lastmod>2018-08-21T19:44:14.466Z</lastmod>
-    <data>
-        <display>
-        <title>Computer Systems - A Programmer's Perspective (CSAPP) - CMU 15213</title>
-        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
-        
-        <tag>CS</tag>
-         
-        <tag>csapp</tag>
-         
-        <tag>C</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/attention/</loc>
-    <lastmod>2018-08-21T19:09:27.446Z</lastmod>
-    <data>
-        <display>
-        <title>注意力机制</title>
-        <pubTime>2018-06-30T23:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="人工智能" url="http://shukebeta.me/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
           
         </display>
     </data>
@@ -262,24 +437,6 @@
 
     
   <url>
-    <loc>http://shukebeta.me/UoE-nlu/</loc>
-    <lastmod>2018-08-20T23:00:59.445Z</lastmod>
-    <data>
-        <display>
-        <title>Natural Language Understanding</title>
-        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/UoE-ppls/</loc>
     <lastmod>2018-08-20T22:59:16.392Z</lastmod>
     <data>
@@ -287,30 +444,6 @@
         <title>Parallel Programming Language and Systems</title>
         <pubTime>2017-09-30T23:00:00.000Z</pubTime>
         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    <lastmod>2018-08-20T12:23:43.051Z</lastmod>
-    <data>
-        <display>
-        <title>Algorithms - Princeton</title>
-        <pubTime>2018-06-30T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
          
            
              
@@ -421,26 +554,6 @@
 
     
   <url>
-    <loc>http://shukebeta.me/ai/</loc>
-    <lastmod>2018-07-21T16:10:08.513Z</lastmod>
-    <data>
-        <display>
-        <title>Learn AI Step by Step</title>
-        <pubTime>2016-12-31T00:00:00.000Z</pubTime>
-        
-        <tag>AI</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/cs/</loc>
     <lastmod>2018-07-21T16:09:52.218Z</lastmod>
     <data>
@@ -478,68 +591,6 @@
            
              
               <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/machine-learning/</loc>
-    <lastmod>2018-06-29T19:36:01.282Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning Note - cs229 - Stanford</title>
-        <pubTime>2017-12-05T00:00:00.000Z</pubTime>
-        
-        <tag>Machine Learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NOTE-ANLP-01-probability-model/</loc>
-    <lastmod>2018-06-29T19:35:57.287Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
-        <pubTime>2018-03-31T23:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NOTE-ANLP-02-n-gram-model/</loc>
-    <lastmod>2018-06-29T19:35:53.370Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
-        <pubTime>2018-04-01T23:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/NLP/"/>
           
         </display>
     </data>
@@ -848,32 +899,6 @@
            
              
               <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/machine-learning-with-sklearn/</loc>
-    <lastmod>2018-06-29T19:12:04.358Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning with Scikit-learn (Sklearn) 机器学习实践</title>
-        <pubTime>2017-12-01T00:00:00.000Z</pubTime>
-        
-        <tag>AI</tag>
-         
-        <tag>Machine Learning</tag>
-         
-        <tag>python</tag>
-         
-        <tag>sklearn</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/Machine-Learning/"/>
           
         </display>
     </data>
