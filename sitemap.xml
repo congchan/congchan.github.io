@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-kmp/</loc>
+    
+    <lastmod>2018-09-11T14:18:19.166Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/algorithm-design-dynamic-programming/</loc>
     
     <lastmod>2018-09-11T14:02:55.777Z</lastmod>
@@ -9,14 +16,7 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/NLP-string-searching-algorithm-kmp/</loc>
-    
-    <lastmod>2018-09-11T01:56:38.548Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NLP-string-match-algorithm-Trie-tree/</loc>
+    <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
     
     <lastmod>2018-09-10T08:38:13.868Z</lastmod>
     
