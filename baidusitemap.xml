@@ -4,16 +4,46 @@
 
     
   <url>
-    <loc>http://shukebeta.me/NLP-string-match-algorithm-Trie-tree/</loc>
-    <lastmod>2018-09-10T08:38:13.868Z</lastmod>
+    <loc>http://shukebeta.me/algorithm-design-dynamic-programming/</loc>
+    <lastmod>2018-09-11T14:02:55.777Z</lastmod>
     <data>
         <display>
-        <title>NLP Serials 02 - String Matching Data Structure - Trie</title>
-        <pubTime>2018-09-09T16:00:00.000Z</pubTime>
+        <title>Programing Design - Dynamic Programming</title>
+        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-string-searching-algorithm-kmp/</loc>
+    <lastmod>2018-09-11T01:56:38.548Z</lastmod>
+    <data>
+        <display>
+        <title>NLP Serials 01 - String Searching Algorithm - KMP Algorithm</title>
+        <pubTime>2018-09-07T16:00:00.000Z</pubTime>
         
         <tag>NLP</tag>
          
         <tag>Algorithm</tag>
+         
+        <tag>KMP</tag>
+         
+        <tag>Aho–Corasick algorithm</tag>
          
         <tag>Trie</tag>
          
@@ -31,20 +61,16 @@
 
     
   <url>
-    <loc>http://shukebeta.me/NLP-string-searching-algorithm-kmp/</loc>
-    <lastmod>2018-09-10T02:39:25.606Z</lastmod>
+    <loc>http://shukebeta.me/NLP-string-match-algorithm-Trie-tree/</loc>
+    <lastmod>2018-09-10T08:38:13.868Z</lastmod>
     <data>
         <display>
-        <title>NLP Serials 01 - String-searching Algorithm - KMP Algorithm</title>
-        <pubTime>2018-09-07T16:00:00.000Z</pubTime>
+        <title>NLP Serials 02 - String Matching Data Structure - Trie</title>
+        <pubTime>2018-09-09T16:00:00.000Z</pubTime>
         
         <tag>NLP</tag>
          
         <tag>Algorithm</tag>
-         
-        <tag>KMP</tag>
-         
-        <tag>Aho–Corasick algorithm</tag>
          
         <tag>Trie</tag>
          
