@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://shukebeta.me/algorithm-design-dynamic-programming/</loc>
+    <lastmod>2018-09-12T16:17:33.660Z</lastmod>
+    <data>
+        <display>
+        <title>Programing Design - Dynamic Programming</title>
+        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-kmp/</loc>
     <lastmod>2018-09-11T14:18:19.166Z</lastmod>
     <data>
@@ -28,32 +54,6 @@
           
              
               <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithm-design-dynamic-programming/</loc>
-    <lastmod>2018-09-11T14:02:55.777Z</lastmod>
-    <data>
-        <display>
-        <title>Programing Design - Dynamic Programming</title>
-        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
