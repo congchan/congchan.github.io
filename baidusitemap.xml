@@ -4,6 +4,84 @@
 
     
   <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-01-dynamic-programming-01/</loc>
+    <lastmod>2018-09-14T10:33:22.527Z</lastmod>
+    <data>
+        <display>
+        <title>算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划</title>
+        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-03-dynamic-programming-03/</loc>
+    <lastmod>2018-09-14T10:33:02.101Z</lastmod>
+    <data>
+        <display>
+        <title>算法和程序设计范例 03 - Dynamic Programming 03 - Knapsack背包问题</title>
+        <pubTime>2018-09-02T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
+    <lastmod>2018-09-14T10:32:44.861Z</lastmod>
+    <data>
+        <display>
+        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 应用动态规划</title>
+        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
     <lastmod>2018-09-14T07:27:10.316Z</lastmod>
     <data>
@@ -55,32 +133,6 @@
           
              
               <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-dynamic-programming/</loc>
-    <lastmod>2018-09-14T07:21:21.387Z</lastmod>
-    <data>
-        <display>
-        <title>Programing Paradigm - Dynamic Programming</title>
-        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
