@@ -4,25 +4,26 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-dynamic-programming/</loc>
-    <lastmod>2018-09-14T03:56:19.429Z</lastmod>
+    <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
+    <lastmod>2018-09-14T07:27:10.316Z</lastmod>
     <data>
         <display>
-        <title>Programing Paradigm - Dynamic Programming</title>
-        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
+        <title>NLP与信息处理 02 - String Matching Data Structure - Trie</title>
+        <pubTime>2018-09-09T16:00:00.000Z</pubTime>
         
-        <tag>Java</tag>
+        <tag>NLP</tag>
          
-        <tag>Software Engineer</tag>
+        <tag>Algorithm</tag>
          
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
+        <tag>Trie</tag>
          
          
            
              
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
           
         </display>
     </data>
@@ -31,10 +32,10 @@
     
   <url>
     <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-kmp/</loc>
-    <lastmod>2018-09-13T13:07:48.408Z</lastmod>
+    <lastmod>2018-09-14T07:27:01.875Z</lastmod>
     <data>
         <display>
-        <title>NLP Serials 01 - String Searching Algorithm - KMP</title>
+        <title>NLP与信息处理 01 - String Searching Algorithm - KMP</title>
         <pubTime>2018-09-07T16:00:00.000Z</pubTime>
         
         <tag>NLP</tag>
@@ -61,26 +62,25 @@
 
     
   <url>
-    <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
-    <lastmod>2018-09-10T08:38:13.868Z</lastmod>
+    <loc>http://shukebeta.me/algorithm-paradigm-dynamic-programming/</loc>
+    <lastmod>2018-09-14T07:21:21.387Z</lastmod>
     <data>
         <display>
-        <title>NLP Serials 02 - String Matching Data Structure - Trie</title>
-        <pubTime>2018-09-09T16:00:00.000Z</pubTime>
+        <title>Programing Paradigm - Dynamic Programming</title>
+        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
         
-        <tag>NLP</tag>
+        <tag>Java</tag>
          
-        <tag>Algorithm</tag>
+        <tag>Software Engineer</tag>
          
-        <tag>Trie</tag>
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
          
          
            
              
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
