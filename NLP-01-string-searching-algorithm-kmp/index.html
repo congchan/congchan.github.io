@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://img-blog.csdn.net/20140812223633281">
 <meta property="og:image" content="http://hi.csdn.net/attachment/201106/14/8394323_13080758591kyV.jpg">
 <meta property="og:image" content="https://img-blog.csdn.net/20150812214857858">
-<meta property="og:updated_time" content="2018-09-11T14:18:19.166Z">
+<meta property="og:updated_time" content="2018-09-13T13:07:48.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NLP Serials 01 - String Searching Algorithm - KMP">
 <meta name="twitter:description" content="In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also">
@@ -436,7 +436,7 @@
 <p>In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also called patterns) are found within a larger string or text.</p>
 </blockquote>
 <p>字符串搜索/匹配算法在大规模文本应用中有非常重要的作用，比如文章敏感词搜索，多关键词过滤搜索等。如果使用暴力搜索，则时间复杂度很高（若 m 为关键字的长度， n 为要待搜索的字符串长度， k为关键字数量，则复杂度为$O(n \times m \times k)$。而好的算法可以让这些问题的时间复杂度大大降低。</p>
-<p>常用的算法有KMP, BM, Aho–Corasick algorithm，Trie图等。<br><a id="more"></a></p>
+<p>常用的算法有KMP, BM, <a href="http://www.hankcs.com/program/algorithm/implementation-and-analysis-of-aho-corasick-algorithm-in-java.html" target="_blank" rel="noopener">Aho–Corasick algorithm</a>，Trie图等。<br><a id="more"></a></p>
 <h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><p>Knuth–Morris–Pratt 算法在每次搜索匹配前，预处理模式字符串，记录模式字符串自身重复的情况，即包含左临界的子字符串和包含右临界的子字符串的重复长度，以此来作为后续匹配的参考。当实际去匹配带搜索字符串时，想象是我们拿着模式字符串从左到右匹配过去。任何时候，如果发现匹配不上的时，不是简单地右移一位继续重新匹配，而是在已匹配部分的范围内，直接跳过k个字符，右移到与模式开头部分重复的位置，并接着重复部分后面继续开始匹配（重复的部分证明已经匹配过）。</p>
 <p>一个很好解释参考 <a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/details/7041827</a></p>
 <p><img src="/images/kmp1.png" alt=""><img src="/images/kmp2.png" alt="" title="https://blog.csdn.net/v_july_v/article/details/7041827"></p>
