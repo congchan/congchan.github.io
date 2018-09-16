@@ -85,21 +85,21 @@
 
 
 
-<meta name="description" content="Trie，也称字典树，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.  A trie, also called digital tree, radix tree or prefix tree is a kind of search tree - an ordered tree data struct">
+<meta name="description" content="Trie 也称字典树，名称来源于Retrieval，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.  A trie, also called digital tree, radix tree or prefix tree is a kind of search tree - an ordered t">
 <meta name="keywords" content="NLP,Algorithm,Trie">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NLP与信息处理 02 - String Matching Data Structure - Trie">
+<meta property="og:title" content="NLP与信息处理 02 - 字符匹配与拼写检查 - Trie">
 <meta property="og:url" content="http://shukebeta.me/NLP-02-string-match-algorithm-Trie/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Trie，也称字典树，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.  A trie, also called digital tree, radix tree or prefix tree is a kind of search tree - an ordered tree data struct">
+<meta property="og:description" content="Trie 也称字典树，名称来源于Retrieval，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.  A trie, also called digital tree, radix tree or prefix tree is a kind of search tree - an ordered t">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://shukebeta.me/images/Trie_example.png">
 <meta property="og:image" content="http://shukebeta.me/images/fsm.png">
 <meta property="og:image" content="http://shukebeta.me/images/b_tree.png">
-<meta property="og:updated_time" content="2018-09-14T07:27:10.316Z">
+<meta property="og:updated_time" content="2018-09-15T09:24:02.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NLP与信息处理 02 - String Matching Data Structure - Trie">
-<meta name="twitter:description" content="Trie，也称字典树，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.  A trie, also called digital tree, radix tree or prefix tree is a kind of search tree - an ordered tree data struct">
+<meta name="twitter:title" content="NLP与信息处理 02 - 字符匹配与拼写检查 - Trie">
+<meta name="twitter:description" content="Trie 也称字典树，名称来源于Retrieval，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.  A trie, also called digital tree, radix tree or prefix tree is a kind of search tree - an ordered t">
 <meta name="twitter:image" content="http://shukebeta.me/images/Trie_example.png">
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title>NLP与信息处理 02 - String Matching Data Structure - Trie | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>NLP与信息处理 02 - 字符匹配与拼写检查 - Trie | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NLP与信息处理 02 - String Matching Data Structure - Trie</h1>
+          <h1 class="post-title" itemprop="name headline">NLP与信息处理 02 - 字符匹配与拼写检查 - Trie</h1>
         
 
         <div class="post-meta">
@@ -368,7 +368,7 @@
 
           
           
-             <span id="/NLP-02-string-match-algorithm-Trie/" class="leancloud_visitors" data-flag-title="NLP与信息处理 02 - String Matching Data Structure - Trie">
+             <span id="/NLP-02-string-match-algorithm-Trie/" class="leancloud_visitors" data-flag-title="NLP与信息处理 02 - 字符匹配与拼写检查 - Trie">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  965
+                  1,054
                 </span>
               
 
@@ -430,15 +430,18 @@
       
 
       
-        <p>Trie，也称字典树，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.</p>
+        <p>Trie 也称字典树，名称来源于Re<font color="red">trie</font>val，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配等.</p>
 <blockquote>
 <p>A <strong>trie</strong>, also called <strong>digital tre</strong>e, <strong>radix tree</strong> or <strong>prefix tre</strong>e is a kind of search tree - an ordered tree data structure used to store a dynamic set or associative array where the keys are usually strings. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty string. Keys tend to be associated with leaves, though some inner nodes may correspond to keys of interest. Hence, keys are not necessarily associated with every node.</p>
 </blockquote>
-<p><img src="/images/Trie_example.png" alt="" title="A trie for keys &quot;A&quot;,&quot;to&quot;, &quot;tea&quot;, &quot;ted&quot;, &quot;ten&quot;, &quot;i&quot;, &quot;in&quot;, and &quot;inn&quot;. Image from https://en.wikipedia.org/wiki/Trie"><br><a id="more"></a><br>结构上类似有限状态机<img src="/images/fsm.png" alt="" title="image from: ANLP, University of Edinburgh"></p>
-<h2 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h2><p>应用例子是在一本字典中查找特定前缀的所有单词. 简化的例子是在英文字典中, 根据查询前缀, 返回相同前缀的所有单词数.</p>
+<a id="more"></a>
+<p><img src="/images/Trie_example.png" alt="" title="A trie for keys &quot;A&quot;,&quot;to&quot;, &quot;tea&quot;, &quot;ted&quot;, &quot;ten&quot;, &quot;i&quot;, &quot;in&quot;, and &quot;inn&quot;. Image from https://en.wikipedia.org/wiki/Trie"></p>
+<p>结构上类似有限状态机<img src="/images/fsm.png" alt="" title="image from: ANLP, University of Edinburgh"></p>
+<h2 id="Trie"><a href="#Trie" class="headerlink" title="Trie"></a>Trie</h2><p>Trie没有规定每一个节点的分支数量, 用<strong>R-way Trie</strong>来表示分支数量为<code>R</code>的Trie. 对于不同的应用, 可以设置不同的<code>R</code>.</p>
+<h3 id="字符（模糊）匹配与拼写检查"><a href="#字符（模糊）匹配与拼写检查" class="headerlink" title="字符（模糊）匹配与拼写检查"></a>字符（模糊）匹配与拼写检查</h3><p>应用例子是在一本字典中查找特定前缀的所有单词. 简化的例子是在英文字典中, 根据查询前缀, 返回相同前缀的所有单词数. 同样的结构可以用来检查拼写错误.</p>
 <p>那么只需要在每一个节点存储该节点以下所有单词数就行了. 每一个节点包含一个长度26的数组，以方便快速定位对应的26个字母, 类似B-tree:<img src="/images/b_tree.png" alt="" title="image from https://www.coursera.org/learn/algorithms-part1"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 字母本身可以用来作为索引：a - 97, z - 122</span></span><br><span class="line"><span class="comment"> * Color 是备用属性， 用于标记该节点是否为单词结尾，这里暂时用不到。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ALPHABET = <span class="number">26</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ATO0 = <span class="number">97</span>;</span><br><span class="line">    <span class="keyword">int</span> color;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    Trie[] node;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Trie</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.n = n;</span><br><span class="line">        node = <span class="keyword">new</span> Trie[ALPHABET];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(String words)</span> </span>&#123;</span><br><span class="line">        Trie[] curNode = node;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> x : words.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">int</span> index = x - ATO0;</span><br><span class="line">            insert(curNode, index);</span><br><span class="line">            curNode = curNode[index].node;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Trie[] curNode, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (curNode[index] == <span class="keyword">null</span>) &#123;</span><br><span class="line">            curNode[index] = <span class="keyword">new</span> Trie(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            curNode[index].n++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String prefix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        Trie[] curNode = node;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> x : prefix.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">int</span> index = x - ATO0;</span><br><span class="line">            <span class="keyword">if</span> (curNode[index] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            count = curNode[index].n;</span><br><span class="line">            curNode = curNode[index].node;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>如果要问题扩展为返回所有相同前缀的单词，那么就要在插入字典时，在对应单词结尾的节点标记颜色。</p>
-<h2 id="提高扩展性"><a href="#提高扩展性" class="headerlink" title="提高扩展性"></a>提高扩展性</h2><p>用固定长度为26的数组来处理英文，好处是数组内存占用小，索引时也不需要搜索，直接用字符码作为索引。相应的也可以根据ASCII码进一步扩大数组长度以支持更多字符。但弊端是可扩展性很差，而且开辟出的数组内存利用率其实不高。</p>
+<h3 id="提高扩展性"><a href="#提高扩展性" class="headerlink" title="提高扩展性"></a>提高扩展性</h3><p>用固定长度为26的数组来处理英文，好处是数组内存占用小，索引时也不需要搜索，直接用字符码作为索引。相应的也可以根据ASCII码进一步扩大数组长度以支持更多字符。但弊端是可扩展性很差，而且开辟出的数组内存利用率其实不高。现在很多系统都使用Unicode，分支可高达<code>65,536</code>.</p>
 <p>为了提高可扩展性，考虑用其他更灵活的数据结构来替代数组，比如HashMap，同时把HashMap放进一个TrieNode类。这样以后要修改核心的存储结构，只需要改动TrieNode即可，其余的接口不用改。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TrieNode node;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Trie</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.node = <span class="keyword">new</span> TrieNode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode curNode = node;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> x : word.toCharArray()) &#123;</span><br><span class="line">            curNode = curNode.set(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode curNode = node;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> x : prefix.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (curNode.get(x) == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            curNode = curNode.get(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curNode.count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span> </span>&#123;</span><br><span class="line">        HashMap&lt;Character, TrieNode&gt; map;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">char</span> value;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">TrieNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            count = <span class="number">0</span>;</span><br><span class="line">            map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">TrieNode</span><span class="params">(Character val)</span> </span>&#123;</span><br><span class="line">            count = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">this</span>.value = val;</span><br><span class="line">            map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> TrieNode <span class="title">get</span><span class="params">(<span class="keyword">char</span> ch)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> map.get(ch);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> TrieNode <span class="title">set</span><span class="params">(<span class="keyword">char</span> ch)</span> </span>&#123;</span><br><span class="line">            TrieNode t = map.get(ch);</span><br><span class="line">            <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</span><br><span class="line">                t = <span class="keyword">new</span> TrieNode(ch);</span><br><span class="line">                <span class="keyword">this</span>.map.put(ch, t);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                t.count++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> t;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.count;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>HashMap的寻址虽然会靠字符码作为地址的数组慢一点点，但也是非常快的（$O(\log N)$)。</p>
 
@@ -484,6 +487,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NLP-03-string-symbol-table-Trie/" rel="prev" title="NLP与信息处理 03 - 字符串符号表和三元搜索Trie">
+                NLP与信息处理 03 - 字符串符号表和三元搜索Trie <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -580,7 +587,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -602,7 +609,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -658,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模糊匹配"><span class="nav-number">1.</span> <span class="nav-text">模糊匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提高扩展性"><span class="nav-number">2.</span> <span class="nav-text">提高扩展性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Trie"><span class="nav-number">1.</span> <span class="nav-text">Trie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符（模糊）匹配与拼写检查"><span class="nav-number">1.1.</span> <span class="nav-text">字符（模糊）匹配与拼写检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提高扩展性"><span class="nav-number">1.2.</span> <span class="nav-text">提高扩展性</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -830,7 +837,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/NLP-02-string-match-algorithm-Trie/';
           this.page.identifier = 'NLP-02-string-match-algorithm-Trie/';
-          this.page.title = 'NLP与信息处理 02 - String Matching Data Structure - Trie';
+          this.page.title = 'NLP与信息处理 02 - 字符匹配与拼写检查 - Trie';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';

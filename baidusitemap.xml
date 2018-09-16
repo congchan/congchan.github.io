@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-01-dynamic-programming-01/</loc>
-    <lastmod>2018-09-14T10:33:22.527Z</lastmod>
+    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
+    <lastmod>2018-09-16T05:53:03.761Z</lastmod>
     <data>
         <display>
-        <title>算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划</title>
-        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
+        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用</title>
+        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -30,8 +30,92 @@
 
     
   <url>
+    <loc>http://shukebeta.me/NLP-03-string-symbol-table-Trie/</loc>
+    <lastmod>2018-09-15T09:25:02.175Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 03 - 字符串符号表和三元搜索Trie</title>
+        <pubTime>2018-09-14T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+        <tag>Information Retrieval</tag>
+         
+        <tag>Symbol table</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
+    <lastmod>2018-09-15T09:24:02.487Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 02 - 字符匹配与拼写检查 - Trie</title>
+        <pubTime>2018-09-09T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    <lastmod>2018-09-14T12:25:44.465Z</lastmod>
+    <data>
+        <display>
+        <title>Algorithms - Princeton</title>
+        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>algs4</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/algorithm-paradigm-03-dynamic-programming-03/</loc>
-    <lastmod>2018-09-14T10:33:02.101Z</lastmod>
+    <lastmod>2018-09-14T12:21:12.105Z</lastmod>
     <data>
         <display>
         <title>算法和程序设计范例 03 - Dynamic Programming 03 - Knapsack背包问题</title>
@@ -56,12 +140,12 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
-    <lastmod>2018-09-14T10:32:44.861Z</lastmod>
+    <loc>http://shukebeta.me/algorithm-paradigm-01-dynamic-programming-01/</loc>
+    <lastmod>2018-09-14T10:33:22.527Z</lastmod>
     <data>
         <display>
-        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 应用动态规划</title>
-        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        <title>算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划</title>
+        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -75,33 +159,6 @@
            
              
               <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
-    <lastmod>2018-09-14T07:27:10.316Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 02 - String Matching Data Structure - Trie</title>
-        <pubTime>2018-09-09T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
           
         </display>
     </data>
@@ -351,32 +408,6 @@
           
              
               <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/AI/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    <lastmod>2018-09-09T08:45:16.082Z</lastmod>
-    <data>
-        <display>
-        <title>Algorithms - Princeton</title>
-        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>algs4</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>

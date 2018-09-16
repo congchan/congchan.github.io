@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer,Algorithms,Dynamic Programming," />
+  <meta name="keywords" content="NLP,Algorithm,Trie,Information Retrieval,Symbol table," />
 
 
 
@@ -85,18 +85,21 @@
 
 
 
-<meta name="description" content="继上篇的01 理解动态规划后, 这篇继续分享各种动态规划的初级应用案例.">
-<meta name="keywords" content="Java,Software Engineer,Algorithms,Dynamic Programming">
+<meta name="description" content="符号表 在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。常用哈希表来实现.  符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致">
+<meta name="keywords" content="NLP,Algorithm,Trie,Information Retrieval,Symbol table">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用">
-<meta property="og:url" content="http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/index.html">
+<meta property="og:title" content="NLP与信息处理 03 - 字符串符号表和三元搜索Trie">
+<meta property="og:url" content="http://shukebeta.me/NLP-03-string-symbol-table-Trie/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="继上篇的01 理解动态规划后, 这篇继续分享各种动态规划的初级应用案例.">
+<meta property="og:description" content="符号表 在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。常用哈希表来实现.  符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-16T05:53:03.761Z">
+<meta property="og:image" content="http://shukebeta.me/images/tst.png">
+<meta property="og:image" content="http://shukebeta.me/images/string_symbol_table_cost_sum.png">
+<meta property="og:updated_time" content="2018-09-15T09:25:02.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用">
-<meta name="twitter:description" content="继上篇的01 理解动态规划后, 这篇继续分享各种动态规划的初级应用案例.">
+<meta name="twitter:title" content="NLP与信息处理 03 - 字符串符号表和三元搜索Trie">
+<meta name="twitter:description" content="符号表 在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。常用哈希表来实现.  符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致">
+<meta name="twitter:image" content="http://shukebeta.me/images/tst.png">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/"/>
+  <link rel="canonical" href="http://shukebeta.me/NLP-03-string-symbol-table-Trie/"/>
 
 
 
 
 
-  <title>算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>NLP与信息处理 03 - 字符串符号表和三元搜索Trie | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -273,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NLP-03-string-symbol-table-Trie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -290,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用</h1>
+          <h1 class="post-title" itemprop="name headline">NLP与信息处理 03 - 字符串符号表和三元搜索Trie</h1>
         
 
         <div class="post-meta">
@@ -302,8 +305,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-02T00:00:00+08:00">
-                2018-09-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T00:00:00+08:00">
+                2018-09-15
               </time>
             
 
@@ -325,8 +328,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
                   </a>
                 </span>
 
@@ -343,9 +357,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/algorithm-paradigm-02-dynamic-programming-02/#comments" itemprop="discussionUrl">
+                <a href="/NLP-03-string-symbol-table-Trie/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="algorithm-paradigm-02-dynamic-programming-02/" itemprop="commentCount"></span>
+                        data-disqus-identifier="NLP-03-string-symbol-table-Trie/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -353,7 +367,7 @@
 
           
           
-             <span id="/algorithm-paradigm-02-dynamic-programming-02/" class="leancloud_visitors" data-flag-title="算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用">
+             <span id="/NLP-03-string-symbol-table-Trie/" class="leancloud_visitors" data-flag-title="NLP与信息处理 03 - 字符串符号表和三元搜索Trie">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,7 +392,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,392
+                  867
                 </span>
               
 
@@ -394,7 +408,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  11 min
+                  5 min
                 </span>
               
             </div>
@@ -415,49 +429,17 @@
       
 
       
-        <p>继上篇的<a href="/algorithm-paradigm-01-dynamic-programming-01">01 理解动态规划</a>后, 这篇继续分享各种动态规划的初级应用案例.<br><a id="more"></a></p>
-<h2 id="跳台阶"><a href="#跳台阶" class="headerlink" title="跳台阶"></a>跳台阶</h2><p>跳上一个n级的台阶总共有多少种跳法，先后次序不同算不同的结果，限制条件是每次只能跳1级或者2级。</p>
-<p>抽象出来的模型是：给定正整数<code>N</code>，有多少种累加方案，不同顺序当做不同方案，限制条件可以是给定的整数$n_0, n_1, …, n_k$作为可选累加元素.</p>
-<p>对于限制条件为只有两种跳法, 即1阶或者2阶的, 问题可以分解为:</p>
-<ul>
-<li>假定第一次跳的是<code>1</code>阶，那么就剩下<code>n-1</code>个台阶，剩余跳法是<code>f(n-1)</code>;</li>
-<li>假定第一次跳的是<code>2</code>阶，则剩下<code>n-2</code>个台阶，剩余跳法是<code>f(n-2)</code></li>
-</ul>
-<p>可以归纳出通用的公式: <code>f(n) = f(n-1) + f(n-2)</code>, 只有一阶的时候<code>f(1) = 1</code>, 只有两阶的时候可以有<code>f(2) = 2</code>, 刚好就是斐波那契数列. 所以这个简单的跳台阶问题就是计算斐波那契数列的问题。</p>
-<p>反过来思考, 比如对于<code>8</code>个台阶, 有多少种回滚方案? 只有两种: 回滚1个台阶, 就到了<code>7</code>; 回滚2个台阶, 就到了<code>6</code>. 等于说: 假如有<code>f(7)</code>种方案跳到<code>7</code>, 有<code>f(6)</code>种方案跳到<code>6</code>，那么就有<code>f(7) + f(6)</code>种方案到达<code>8</code></p>
-<p>从树结构来理解: 如果节点代表台阶数<code>n</code>对应的跳法<code>f(n)</code>, 节点与节点间的枝代表单次可以跳的阶数, 父节点的值就是其所有子节点的值和. 对于只有两种跳法限制问题, 父节点<code>f(n)</code>就只有两个子节点, 分别为<code>f(n-1)</code>和<code>f(n-2)</code>.</p>
-<h3 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h3><p>举例：Fibonacci sequence: ${\displaystyle 0,\;1,\;1,\;2,\;3,\;5,\;8,\;13,\;21,\;34,\;55,\;89,\;144,\;\ldots }$<br>$$F_0 = 0, F_1 = 1, F_2 = 1, F_n = F_{n-1} + F_{n-2} (n&gt;2) $$</p>
-<p>Fibonacci numbers grow almost as fast as the powers of 2.</p>
-<p>Recursive solution is exponential algorithm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fib1(n):</span><br><span class="line">    if n = 0:  return 0</span><br><span class="line">    if n = 1:  return 1</span><br><span class="line">    return fib1(n - 1) + fib1(n - 2)</span><br></pre></td></tr></table></figure></p>
-<p>因为每一个<code>fib1()</code>都会生成指数级数量的子分支计算, 所以这个算法复杂度是$O(2^n)$.</p>
-<p>但是注意到斐波那契数列公式是$F_n = F_{n-1} + F_{n-2}$, 也就是只要知道n前面两个值, 就能计算出$f_n$. 又因为斐波那契数列天然的是从低往高算, 那么每次迭代只需要用到前两次的值$F_{n-1}, F_{n-2}$, 计算后更新它们即可. 用这个思路来计算斐波那契数列, 复杂度就是$O(n)$.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">JumpFloor</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (target &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span> target; &#125;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> n0 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> n1 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> ways = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n &lt;= target) &#123;</span><br><span class="line">        ways = n0 + n1;</span><br><span class="line">        n0 = n1;</span><br><span class="line">        n1 = ways;</span><br><span class="line">        n++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ways;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="变态跳台阶"><a href="#变态跳台阶" class="headerlink" title="变态跳台阶"></a>变态跳台阶</h3><p>变态跳台阶就是是用来更复杂的限制条件, 比如可选单次跳阶数为<code>[1, ... n]</code>, 也就是无限制的情况, 也可以按照上面的思路推导.</p>
-<p>比如从树结构的考虑, 就变成每个父节点<code>f(n)</code>可以有<code>n</code>个子节点, 就是<code>f(n-1), f(n-2), ..., f(n-n)</code>, 所以<code>f(n)</code>就是所有这些子节点的和. <code>f(n-n)</code>也就是<code>f(0)</code>意味着一次跳完所有阶数<code>n</code>, 所以<code>f(0) = 1</code>. 进一步归纳, <code>f(n-2) + ... + f(n-n) = f(n-1)</code>, 所以<code>f(n) = f(n-1) + f(n-1)</code>, 可以用递归或者动态规划来计算.</p>
-<p>当然进一步归纳会发现$f(n) = 2^{n-1}$, 可以用位移来操作:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">JumpFloorII</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> a &lt;&lt; (target - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>只是要注意<code>int</code>是有范围的.</p>
-<p>这里解释一下, java中有三种<a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html" target="_blank" rel="noopener">移位运算符</a>.</p>
-<ul>
-<li><code>&lt;&lt;</code>: 左移运算符，<code>num &lt;&lt; 1</code>, 把<code>num</code>的二进制左移一位, 右边的空位加<code>0</code>, 相当于<code>num * 2</code></li>
-<li><code>&gt;&gt;</code>: 右移运算符，<code>num &gt;&gt; 1</code>, 减位, 相当于<code>num / 2</code></li>
-<li><code>&gt;&gt;&gt;</code>:无符号右移，忽略符号位，空位都以0补齐</li>
-</ul>
-<h3 id="大变态跳台阶"><a href="#大变态跳台阶" class="headerlink" title="大变态跳台阶"></a>大变态跳台阶</h3><p>再举一个更复杂的限制条件, 可选单次跳阶数为$2^0, 2^1, …, 2^k$, $2^k$要小于<code>n</code>. 那么相应的,<br>$$f(n) = f(n - 2^0) + f(n - 2^1)… + f(n - 2^k), \quad s.t. \quad 2^k &lt;= n,$$<br>这样就意味着对于每个<code>f(n)</code>, 需要用到的<code>f(k)</code>值数量是不同的, 就不能简单地用固定数量的变量来保留较小值了.</p>
-<p>对于不同的<code>f(n)</code>, 它们的很多子分支计算是共享的, 比如<code>f(6)</code>和<code>f(5)</code>都用到了<code>f(4)</code>. 那么在递归的过程中，只要把每次计算出来的较小的<code>f(k)</code>储存到数组中, 后续其他<code>f(n)</code>要用到<code>f(n - 2^k)</code>时, 直接从内存中取值即可. 初始值取<code>f(0) = f(1) = 1</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">JumpFloorIII</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[target];</span><br><span class="line">    f[<span class="number">0</span>] = f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> jump(f, target);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] f, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (f[target] == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> ways = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; (<span class="number">1</span> &lt;&lt; i) &lt;= target; i++) &#123;</span><br><span class="line">            ways += jump(f, target - (<span class="number">1</span> &lt;&lt; i));</span><br><span class="line">        &#125;</span><br><span class="line">        f[target] = ways;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[target];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个代码适用于<code>n &lt;= 1024</code>的情况.</p>
-<h2 id="丑数"><a href="#丑数" class="headerlink" title="丑数"></a>丑数</h2><p>把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。</p>
-<p>要判断一个数是不是丑数, 不断地分别除以<code>2, 3, 5</code>，然后检查<code>num</code>是否到达<code>1</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isUgly</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//(除数包括`4`可以让代码更简洁)</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;<span class="number">6</span> &amp;&amp; num&gt;<span class="number">0</span>; i++)</span><br><span class="line">        <span class="keyword">while</span> (num % i == <span class="number">0</span>)</span><br><span class="line">            num /= i;</span><br><span class="line">    <span class="keyword">return</span> num == <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果要返回第<code>n</code>个丑数(<a href="https://leetcode.com/problems/ugly-number-ii/" target="_blank" rel="noopener">leetcode原题</a>), 情况就稍微复杂点. 从动态规划的角度考虑, 对于一个较大的丑数<code>N</code>, 必定是由某个更小的丑数<code>M</code>乘以<code>2, 3, 5</code>其中一个得来的. 所以可以从小到大不断生成丑数. 为了避免在循环中每一次计算都从头开始检查每一个数<code>k</code>对应的<code>2*k, 3*k, 5*k</code>, 需要用三个变量<code>last2, last3, last5</code>来分别记录最近一次用到的丑数的索引, 下一次计算时就直接从上一次停止的地方开始运行.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** return the nth ugly number */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">unglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> INIT = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span>[] uglys = <span class="keyword">new</span> <span class="keyword">int</span>[n + INIT];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>;) &#123;</span><br><span class="line">        uglys[i] = ++i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> last2, last3, last5, m2, m3, m5;</span><br><span class="line">    last2 = last3 = last5 = <span class="number">0</span>;</span><br><span class="line">    m2 = m3 = m5 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = INIT; i &lt; n; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = last2 + <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m2 &lt;= uglys[i - <span class="number">1</span>] &amp;&amp; uglys[j] * <span class="number">2</span> &gt; uglys[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                m2 = uglys[j] * <span class="number">2</span>;</span><br><span class="line">                last2 = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = last3 + <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m3 &lt;= uglys[i - <span class="number">1</span>] &amp;&amp; uglys[j] * <span class="number">3</span> &gt; uglys[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                m3 = uglys[j] * <span class="number">3</span>;</span><br><span class="line">                last3 = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = last5 + <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m5 &lt;= uglys[i - <span class="number">1</span>] &amp;&amp; uglys[j] * <span class="number">5</span> &gt; uglys[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                m5 = uglys[j] * <span class="number">5</span>;</span><br><span class="line">                last5 = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        uglys[i] = Math.min(Math.min(m2, m3), m5);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> uglys[n - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.geeksforgeeks.org/ugly-numbers/" target="_blank" rel="noopener">这里</a>提供了另一个理解这个问题的思路，并由此得出了一个更快的的算法(<code>O(n)</code>)：因为每个数字只能除以2,3,5，查看序列的一种视角是将序列分为三组，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1) 1×2, 2×2, 3×2, 4×2, 5×2, …</span><br><span class="line">(2) 1×3, 2×3, 3×3, 4×3, 5×3, …</span><br><span class="line">(3) 1×5, 2×5, 3×5, 4×5, 5×5, …</span><br></pre></td></tr></table></figure></p>
-<p>可以发现每个子序列都是丑数序列本身<code>1, 2, 3, 4, 5......</code>分别乘以<code>2, 3, 5</code>。使用类似merge sort的合并方法，每次从三个数组中弹出最小的数:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** return the nth ugly number */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">unglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ugly[] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    <span class="keyword">int</span> i2 = <span class="number">0</span>, i3 = <span class="number">0</span>, i5 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> next2 = <span class="number">2</span>, next3 = <span class="number">3</span>, next5 = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> nextUgly = <span class="number">1</span>;</span><br><span class="line">    ugly[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        nextUgly = Math.min(next2, Math.min(next3, next5));</span><br><span class="line">        ugly[i] = nextUgly;</span><br><span class="line">        <span class="keyword">if</span> (next2 == nextUgly)</span><br><span class="line">           next2 = ugly[++i2] * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (next3 == nextUgly)</span><br><span class="line">           next3 = ugly[++i3] * <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span> (next5 == nextUgly)</span><br><span class="line">           next5 = ugly[++i5] * <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nextUgly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="最长公共子序列LCS"><a href="#最长公共子序列LCS" class="headerlink" title="最长公共子序列LCS"></a>最长公共子序列LCS</h2><p>对于一个字符串, 它的子序列，就是将给字符串中任意个元素去掉之后剩余的字符串, 所以子序列不要求是连续的, 但是维持原来的顺序. 在文本相似度比较中，常用到最长公共子序列（longest common sequence）。</p>
-<p>另一个不一样的概念是最长公共子串（longest common substring）, 要求的是任意连续的子字符串。</p>
-<p>同时遍历两个字符串, 如果<code>x[i] == y[j]</code>, 则<code>x[i]</code>和<code>y[j]</code>参与了最长公共子序列<code>z[k]</code>的构建.</p>
-<p>如果用<code>lcs[i, j]</code>表示遍历到<code>x[0-i]</code>和<code>y[0-j]</code>时的LCS长度, 那么现在就需要判断<code>x[i]</code>和<code>y[j]</code>的关系, 分两种情况:</p>
-<ul>
-<li>如果二者相等, 那么<code>lcs1 = lcs[i - 1, j - 1] + 1</code></li>
-<li>若不相等, 那么只能在<code>x</code>和<code>y</code>中选择一个进行推进, 选择依据就是取较大值, <code>lcs2 = max(lcs[i - 1, j], lcs[i, j - 1])</code></li>
-</ul>
-<p>初始状态自然是<code>lcs[0, 0] = 0</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span>[][] lcs;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">longestCS</span><span class="params">(String x, String y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span>[] xList = x.toCharArray();</span><br><span class="line">    <span class="keyword">char</span>[] yList = y.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= xList.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= yList.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (xList[i - <span class="number">1</span>] == yList[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                lcs[i][j] = lcs[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                lcs[i][j] = Math.max(lcs[i - <span class="number">1</span>][j], lcs[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> lcs[x.length()][y.length()];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="符号表"><a href="#符号表" class="headerlink" title="符号表"></a>符号表</h2><blockquote>
+<p>在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。<br>常用哈希表来实现.</p>
+</blockquote>
+<p>符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致性查询(concordance queries)等操作.</p>
+<p>字符符号表就是专门针对字符操作的符号表, API:<br>Prefix match. Keys with prefix sh: she, shells, and shore.<br>Wildcard match. Keys that match .he: she and the.<br>Longest prefix. Key that is the longest prefix of shellsort: shells.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StringST</span>&lt;<span class="title">Value</span>&gt; </span>&#123;</span><br><span class="line">    StringST(); create a symbol table with string keys</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, Value val)</span></span>; put key-value pair into the symbol table</span><br><span class="line">    <span class="function">Value <span class="title">get</span><span class="params">(String key)</span></span>; value paired with key</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(String key)</span></span>; delete key and corresponding value</span><br><span class="line">    <span class="function">Iterable&lt;String&gt; <span class="title">keys</span><span class="params">()</span></span>; all keys</span><br><span class="line">    <span class="function">Iterable&lt;String&gt; <span class="title">keysWithPrefix</span><span class="params">(String s)</span></span>; keys having s as a prefix</span><br><span class="line">    <span class="function">Iterable&lt;String&gt; <span class="title">keysThatMatch</span><span class="params">(String s)</span></span>; <span class="function">keys that match <span class="title">s</span> <span class="params">(where . is a wildcard)</span></span></span><br><span class="line"><span class="function">    String <span class="title">longestPrefixOf</span><span class="params">(String s)</span></span>; longest key that is a prefix of s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="以Trie为基础的字符符号表"><a href="#以Trie为基础的字符符号表" class="headerlink" title="以Trie为基础的字符符号表"></a>以Trie为基础的字符符号表</h3><p>algs4中提供了用 R-way trie 来实现符号表(symbol table)例子:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrieST</span>&lt;<span class="title">Value</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> R = <span class="number">256</span>; <span class="comment">// extended ASCII</span></span><br><span class="line">    <span class="keyword">private</span> Node root = <span class="keyword">new</span> Node();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Object value;</span><br><span class="line">        <span class="keyword">private</span> Node[] next = <span class="keyword">new</span> Node[R];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, Value val)</span> </span>&#123;</span><br><span class="line">        root = put(root, key, val, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node x, String key, Value val, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) x = <span class="keyword">new</span> Node();</span><br><span class="line">        <span class="keyword">if</span> (d == key.length()) &#123; x.val = val; <span class="keyword">return</span> x; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">        x.next[c] = put(x.next[c], key, val, d+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(String key)</span> </span>&#123; <span class="keyword">return</span> get(key) != <span class="keyword">null</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        Node x = get(root, key, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">             <span class="keyword">return</span> (Value) x.val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">get</span><span class="params">(Node x, String key, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (d == key.length()) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">        <span class="keyword">return</span> get(x.next[c], key, d+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但R-way trie的空间效率不高，读取比较大的文件往往导致内存不足。所以需要更高效的方法。</p>
+<h2 id="三元搜索Trie"><a href="#三元搜索Trie" class="headerlink" title="三元搜索Trie"></a>三元搜索Trie</h2><p>Ternary search tries:<br>・Store characters and values in nodes (not keys).<br>・Each node has 3 children: smaller (left), equal (middle), larger (right).<br><img src="/images/tst.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"><br>Search in a TST: Follow links corresponding to each character in the key.<br>・If less, take left link; if greater, take right link.<br>・If equal, take the middle link and move to the next key character.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TST</span>&lt;<span class="title">Value</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Node root;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Value val;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">private</span> Node left, mid, right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, Value val)</span></span></span><br><span class="line"><span class="function">    </span>&#123; root = put(root, key, val, <span class="number">0</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node x, String key, Value val, <span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) &#123; x = <span class="keyword">new</span> Node(); x.c = c; &#125;</span><br><span class="line">        <span class="keyword">if</span> (c &lt; x.c) x.left = put(x.left, key, val, d);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c &gt; x.c) x.right = put(x.right, key, val, d);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (d &lt; key.length() - <span class="number">1</span>) x.mid = put(x.mid, key, val, d+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> x.val = val;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(String key)</span></span></span><br><span class="line"><span class="function">    </span>&#123; <span class="keyword">return</span> get(key) != <span class="keyword">null</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(String key)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Node x = get(root, key, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> x.val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">get</span><span class="params">(Node x, String key, <span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">         <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">         <span class="keyword">if</span> (c &lt; x.c) <span class="keyword">return</span> get(x.left, key, d);</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (c &gt; x.c) <span class="keyword">return</span> get(x.right, key, d);</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (d &lt; key.length() - <span class="number">1</span>) <span class="keyword">return</span> get(x.mid, key, d+<span class="number">1</span>);</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/string_symbol_table_cost_sum.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"></p>
+<p>TSTs比hashing更快（特别是对于搜索缺失键的情况）。</p>
 
       
     </div>
@@ -475,13 +457,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
           
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
+            <a href="/tags/Trie/" rel="tag"># Trie</a>
           
-            <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
+            <a href="/tags/Information-Retrieval/" rel="tag"># Information Retrieval</a>
+          
+            <a href="/tags/Symbol-table/" rel="tag"># Symbol table</a>
           
         </div>
       
@@ -494,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/algorithm-paradigm-01-dynamic-programming-01/" rel="next" title="算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划">
-                <i class="fa fa-chevron-left"></i> 算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划
+              <a href="/NLP-02-string-match-algorithm-Trie/" rel="next" title="NLP与信息处理 02 - 字符匹配与拼写检查 - Trie">
+                <i class="fa fa-chevron-left"></i> NLP与信息处理 02 - 字符匹配与拼写检查 - Trie
               </a>
             
           </div>
@@ -503,10 +487,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/algorithm-paradigm-03-dynamic-programming-03/" rel="prev" title="算法和程序设计范例 03 - Dynamic Programming 03 - Knapsack背包问题">
-                算法和程序设计范例 03 - Dynamic Programming 03 - Knapsack背包问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -681,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跳台阶"><span class="nav-number">1.</span> <span class="nav-text">跳台阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">1.1.</span> <span class="nav-text">斐波那契数列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变态跳台阶"><span class="nav-number">1.2.</span> <span class="nav-text">变态跳台阶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大变态跳台阶"><span class="nav-number">1.3.</span> <span class="nav-text">大变态跳台阶</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#丑数"><span class="nav-number">2.</span> <span class="nav-text">丑数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最长公共子序列LCS"><span class="nav-number">3.</span> <span class="nav-text">最长公共子序列LCS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#符号表"><span class="nav-number">1.</span> <span class="nav-text">符号表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以Trie为基础的字符符号表"><span class="nav-number">1.1.</span> <span class="nav-text">以Trie为基础的字符符号表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三元搜索Trie"><span class="nav-number">2.</span> <span class="nav-text">三元搜索Trie</span></a></li></ol></div>
             
 
           </div>
@@ -851,9 +831,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/';
-          this.page.identifier = 'algorithm-paradigm-02-dynamic-programming-02/';
-          this.page.title = '算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用';
+          this.page.url = 'http://shukebeta.me/NLP-03-string-symbol-table-Trie/';
+          this.page.identifier = 'NLP-03-string-symbol-table-Trie/';
+          this.page.title = 'NLP与信息处理 03 - 字符串符号表和三元搜索Trie';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';
