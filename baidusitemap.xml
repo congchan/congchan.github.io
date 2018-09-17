@@ -4,34 +4,8 @@
 
     
   <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
-    <lastmod>2018-09-16T05:53:03.761Z</lastmod>
-    <data>
-        <display>
-        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用</title>
-        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/NLP-03-string-symbol-table-Trie/</loc>
-    <lastmod>2018-09-15T09:25:02.175Z</lastmod>
+    <lastmod>2018-09-17T08:48:37.439Z</lastmod>
     <data>
         <display>
         <title>NLP与信息处理 03 - 字符串符号表和三元搜索Trie</title>
@@ -61,8 +35,39 @@
 
     
   <url>
+    <loc>http://shukebeta.me/NLP-04-string-symbol-table-other-Trie/</loc>
+    <lastmod>2018-09-17T08:48:29.115Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 04 - 不同树结构的字符串符号表</title>
+        <pubTime>2018-09-16T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+        <tag>Information Retrieval</tag>
+         
+        <tag>Symbol table</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
-    <lastmod>2018-09-15T09:24:02.487Z</lastmod>
+    <lastmod>2018-09-17T07:39:12.925Z</lastmod>
     <data>
         <display>
         <title>NLP与信息处理 02 - 字符匹配与拼写检查 - Trie</title>
@@ -81,6 +86,32 @@
           
              
               <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
+    <lastmod>2018-09-17T07:14:16.327Z</lastmod>
+    <data>
+        <display>
+        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用</title>
+        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>

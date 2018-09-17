@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="继上篇的01 理解动态规划后, 这篇继续分享各种动态规划的初级应用案例.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-16T05:53:03.761Z">
+<meta property="og:updated_time" content="2018-09-17T07:14:16.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用">
 <meta name="twitter:description" content="继上篇的01 理解动态规划后, 这篇继续分享各种动态规划的初级应用案例.">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,392
+                  2,391
                 </span>
               
 
@@ -457,7 +457,7 @@
 <li>如果二者相等, 那么<code>lcs1 = lcs[i - 1, j - 1] + 1</code></li>
 <li>若不相等, 那么只能在<code>x</code>和<code>y</code>中选择一个进行推进, 选择依据就是取较大值, <code>lcs2 = max(lcs[i - 1, j], lcs[i, j - 1])</code></li>
 </ul>
-<p>初始状态自然是<code>lcs[0, 0] = 0</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span>[][] lcs;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">longestCS</span><span class="params">(String x, String y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span>[] xList = x.toCharArray();</span><br><span class="line">    <span class="keyword">char</span>[] yList = y.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= xList.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= yList.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (xList[i - <span class="number">1</span>] == yList[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                lcs[i][j] = lcs[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                lcs[i][j] = Math.max(lcs[i - <span class="number">1</span>][j], lcs[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> lcs[x.length()][y.length()];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>初始状态自然是<code>lcs[0, 0] = 0</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span>[][] lcs;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">longestCS</span><span class="params">(String x, String y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span>[] xList = x.toCharArray();</span><br><span class="line">    <span class="keyword">char</span>[] yList = y.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= xList.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= yList.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (xList[i - <span class="number">1</span>] == yList[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                lcs[i][j] = lcs[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                lcs[i][j] = Math.max(lcs[i - <span class="number">1</span>][j], lcs[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> lcs[x.length()][y.length()];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -603,7 +603,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
