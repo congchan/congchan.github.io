@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://shukebeta.me/images/build_dfa.png">
 <meta property="og:image" content="http://shukebeta.me/images/ushers_dfa.png">
 <meta property="og:image" content="http://shukebeta.me/images/ushers_dfa.png">
-<meta property="og:updated_time" content="2018-09-20T10:07:36.448Z">
+<meta property="og:updated_time" content="2018-09-20T10:11:15.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机">
 <meta name="twitter:description" content="虽然KMP可以用于单模式匹配问题，但如果是多模式问题, KMP的性能就得不到保证。比如根据墙内法律要求, 墙内的搜索引擎需要过滤敏感词后才能合法运营。敏感词的数量不少, 如果要求包含敏感词的网页不能被搜索到, 那么搜索引擎在爬取网页信息时, 就要标记网页的文本中是否包含任意个敏感词.">
@@ -446,7 +446,7 @@
 <li>然后补全其他字符的转移(失败转移), 用虚线表示. 补全了所有字符的转移方式, 才能让字符串永不回头地匹配下去, 避免了back up, 保证性能.</li>
 </ol>
 <p>问题的关键在如何补全所有的状态转移.</p>
-<h3 id="补全状态转移"><a href="#补全状态转移" class="headerlink" title="补全状态转移"></a>补全状态转移</h3><p><img src="/images/ushers_dfa.png" alt="" title="经典的ushers自动机，模式串是he/ she/ his /hers, 忽略了部分到根节点的转移边. image from: https://baike.baidu.com/pic"><br>这里要在Trie结构中定义一个<strong>后缀节点</strong>的概念: Trie中对应路径(已有模式)去掉部分前缀字符后剩余的后缀字符在Trie中对应的结点. 比如上图中, <code>h</code>作为<code>sh</code>的一个后缀, <code>h</code>对应的Trie节点<code>74</code>就是<code>sh</code>对应节点<code>90</code>的后缀节点. 等于说, <strong>节点和其后缀节点对应的模式有一部分后缀是相同</strong>.</p>
+<h3 id="补全状态转移"><a href="#补全状态转移" class="headerlink" title="补全状态转移"></a>补全状态转移</h3><p><img src="/images/ushers_dfa.png" alt="" title="经典的ushers自动机，模式串是he/ she/ his /hers, 忽略了部分到根节点的转移边. image from: https://baike.baidu.com/pic"><br>这里要在Trie结构中定义一个<a href="https://hihocoder.com/problemset/problem/1036" target="_blank" rel="noopener">后缀节点</a>的概念: Trie中对应路径(已有模式)去掉部分前缀字符后剩余的后缀字符在Trie中对应的结点. 比如上图中, <code>h</code>作为<code>sh</code>的一个后缀, <code>h</code>对应的Trie节点<code>74</code>就是<code>sh</code>对应节点<code>90</code>的后缀节点. 等于说, <strong>节点和其后缀节点对应的模式有一部分后缀是相同</strong>.</p>
 <p>如果知道了每一个节点的后缀节点, 那么在匹配的过程中, 在任一位置匹配失败, 都可以通过失败转移的方式转移到后缀节点, 继续进行后续匹配, 而不会遗漏, 因为后缀节点对应这个目前为止已匹配字符的某一部分后缀. 等于说, 后缀节点告诉我们, 在字符串中出现与模式不同的字符串时(匹配失败), 如何转移到其他状态.</p>
 <p>所以问题的关键又变成了如何求后缀节点.</p>
 <h3 id="求后缀节点"><a href="#求后缀节点" class="headerlink" title="求后缀节点"></a>求后缀节点</h3><p>观察Trie结构可以发现两个要点</p>
