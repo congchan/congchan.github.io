@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
+    
+    <lastmod>2018-09-20T10:07:36.448Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
     
     <lastmod>2018-09-20T09:39:27.256Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://shukebeta.me/NLP-05-string-symbol-table-Trie/</loc>
     
     <lastmod>2018-09-20T09:39:18.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
-    
-    <lastmod>2018-09-20T09:39:06.136Z</lastmod>
     
   </url>
   

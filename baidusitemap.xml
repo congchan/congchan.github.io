@@ -4,6 +4,35 @@
 
     
   <url>
+    <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
+    <lastmod>2018-09-20T10:07:36.448Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机</title>
+        <pubTime>2018-09-10T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie图</tag>
+         
+        <tag>AC自动机</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
     <lastmod>2018-09-20T09:39:27.256Z</lastmod>
     <data>
@@ -51,35 +80,6 @@
         <tag>Information Retrieval</tag>
          
         <tag>Symbol table</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
-    <lastmod>2018-09-20T09:39:06.136Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机</title>
-        <pubTime>2018-09-10T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie图</tag>
-         
-        <tag>AC自动机</tag>
          
          
            
