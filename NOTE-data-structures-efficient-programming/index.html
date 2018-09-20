@@ -94,8 +94,8 @@
 <meta property="og:description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://shukebeta.me/images/three_Asymptotics.png">
-<meta property="og:image" content="http://shukebeta.me/images/string_memory/png">
-<meta property="og:updated_time" content="2018-07-25T09:48:14.758Z">
+<meta property="og:image" content="http://shukebeta.me/images/string_memory.png">
+<meta property="og:updated_time" content="2018-09-19T04:08:46.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Efficient Programming in Java - A preview of Algorithms and Data Structures">
 <meta name="twitter:description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
@@ -305,7 +305,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-26T07:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-26T00:00:00+08:00">
                 2018-06-26
               </time>
             
@@ -555,7 +555,7 @@
 <h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><p>Bit. 0 or 1.<br>Byte. 8 bits.<br>Megabyte (MB). 1 million or $2^20$ bytes.<br>Gigabyte (GB). 1 billion or $2^30$ bytes.<br>64-bit machine. We assume a 64-bit machine with 8 byte pointers (References).<br>・Can address more memory.<br>・Pointers use more space (some JVMs “compress” ordinary object pointers to 4 bytes to avoid this cost).</p>
 <h3 id="Typical-memory-usage-for-primitive-types-and-arrays"><a href="#Typical-memory-usage-for-primitive-types-and-arrays" class="headerlink" title="Typical memory usage for primitive types and arrays"></a>Typical memory usage for primitive types and arrays</h3><p>primitive types (bytes):<br><code>boolean</code> 1<br><code>byte</code> 1<br><code>char</code> 2<br><code>int</code> 4<br><code>float</code> 4<br><code>long</code> 8<br><code>double</code> 8</p>
 <p>for one-dimensional arrays (bytes):<br><code>char[]</code> 2N + 24<br><code>int[]</code> 4N + 24<br><code>double[]</code> 8N + 24</p>
-<h3 id="Typical-memory-usage-for-objects-in-Java"><a href="#Typical-memory-usage-for-objects-in-Java" class="headerlink" title="Typical memory usage for objects in Java"></a>Typical memory usage for objects in Java</h3><p>Object overhead. 16 bytes.<br>Reference. 8 bytes.<br>Padding. Each object uses a multiple of 8 bytes.<br><img src="/images/string_memory/png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part1/"></p>
+<h3 id="Typical-memory-usage-for-objects-in-Java"><a href="#Typical-memory-usage-for-objects-in-Java" class="headerlink" title="Typical memory usage for objects in Java"></a>Typical memory usage for objects in Java</h3><p>Object overhead. 16 bytes.<br>Reference. 8 bytes.<br>Padding. Each object uses a multiple of 8 bytes.<br><img src="/images/string_memory.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part1/"></p>
 
       
     </div>
@@ -701,7 +701,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -723,7 +723,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

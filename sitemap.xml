@@ -2,23 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://shukebeta.me/NLP-03-string-symbol-table-Trie/</loc>
+    <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
     
-    <lastmod>2018-09-17T08:48:37.439Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NLP-04-string-symbol-table-other-Trie/</loc>
-    
-    <lastmod>2018-09-17T08:48:29.115Z</lastmod>
+    <lastmod>2018-09-20T09:39:27.256Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shukebeta.me/NLP-02-string-match-algorithm-Trie/</loc>
+    <loc>http://shukebeta.me/NLP-05-string-symbol-table-Trie/</loc>
     
-    <lastmod>2018-09-17T07:39:12.925Z</lastmod>
+    <lastmod>2018-09-20T09:39:18.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
+    
+    <lastmod>2018-09-20T09:39:06.136Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NLP-03-string-match-algorithm-Trie/</loc>
+    
+    <lastmod>2018-09-20T09:38:09.618Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
+    
+    <lastmod>2018-09-20T09:37:54.867Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NOTE-data-structures-efficient-programming/</loc>
+    
+    <lastmod>2018-09-19T04:08:46.851Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
+    
+    <lastmod>2018-09-18T09:45:20.520Z</lastmod>
     
   </url>
   
@@ -47,13 +75,6 @@
     <loc>http://shukebeta.me/algorithm-paradigm-01-dynamic-programming-01/</loc>
     
     <lastmod>2018-09-14T10:33:22.527Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-kmp/</loc>
-    
-    <lastmod>2018-09-14T07:27:01.875Z</lastmod>
     
   </url>
   
@@ -201,13 +222,6 @@
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-03-java-code-style-comments/</loc>
     
     <lastmod>2018-07-29T17:17:21.409Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-efficient-programming/</loc>
-    
-    <lastmod>2018-07-25T09:48:14.758Z</lastmod>
     
   </url>
   
