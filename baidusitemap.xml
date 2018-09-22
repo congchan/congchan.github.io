@@ -4,6 +4,56 @@
 
     
   <url>
+    <loc>http://shukebeta.me/bits-operations/</loc>
+    <lastmod>2018-09-22T01:37:48.715Z</lastmod>
+    <data>
+        <display>
+        <title>位操作</title>
+        <pubTime>2018-09-20T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
+    <lastmod>2018-09-21T02:44:57.575Z</lastmod>
+    <data>
+        <display>
+        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用</title>
+        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Dynamic Programming</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
     <lastmod>2018-09-20T10:11:15.059Z</lastmod>
     <data>
@@ -199,32 +249,6 @@
           
              
               <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
-    <lastmod>2018-09-17T07:14:16.327Z</lastmod>
-    <data>
-        <display>
-        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用</title>
-        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -614,30 +638,6 @@
         <tag>Algorithms</tag>
          
         <tag>Bitwise Operation</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/programming-contest/</loc>
-    <lastmod>2018-09-06T03:43:47.815Z</lastmod>
-    <data>
-        <display>
-        <title>Programming contest</title>
-        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
          
          
            
