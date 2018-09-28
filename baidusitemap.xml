@@ -4,6 +4,60 @@
 
     
   <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    <lastmod>2018-09-28T09:27:39.509Z</lastmod>
+    <data>
+        <display>
+        <title>Algorithms - Princeton</title>
+        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>algs4</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
+    <lastmod>2018-09-25T14:13:06.770Z</lastmod>
+    <data>
+        <display>
+        <title>Randomized Queue with Reservoir Sampling</title>
+        <pubTime>2018-07-20T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Reservoir Sampling</tag>
+         
+        <tag>Fisher–Yates shuffle</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/bits-operations/</loc>
     <lastmod>2018-09-22T09:30:33.637Z</lastmod>
     <data>
@@ -249,32 +303,6 @@
           
              
               <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    <lastmod>2018-09-14T12:25:44.465Z</lastmod>
-    <data>
-        <display>
-        <title>Algorithms - Princeton</title>
-        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>algs4</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
@@ -589,34 +617,6 @@
            
              
               <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
-    <lastmod>2018-09-08T03:46:19.017Z</lastmod>
-    <data>
-        <display>
-        <title>Randomized Queue with Reservoir Sampling</title>
-        <pubTime>2018-07-20T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Reservoir Sampling</tag>
-         
-        <tag>Fisher–Yates shuffle</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
           
         </display>
     </data>
