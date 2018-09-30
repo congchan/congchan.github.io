@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>http://shukebeta.me/bits-operations/</loc>
+    <lastmod>2018-09-30T01:49:30.658Z</lastmod>
+    <data>
+        <display>
+        <title>位操作</title>
+        <pubTime>2018-08-20T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/algorithms/</loc>
-    <lastmod>2018-09-28T09:27:39.509Z</lastmod>
+    <lastmod>2018-09-29T02:48:07.937Z</lastmod>
     <data>
         <display>
         <title>Algorithms - Princeton</title>
@@ -46,30 +70,6 @@
         <tag>Reservoir Sampling</tag>
          
         <tag>Fisher–Yates shuffle</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/bits-operations/</loc>
-    <lastmod>2018-09-22T09:30:33.637Z</lastmod>
-    <data>
-        <display>
-        <title>位操作</title>
-        <pubTime>2018-08-20T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
          
          
            
