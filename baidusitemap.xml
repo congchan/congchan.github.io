@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://shukebeta.me/bits-operations-06/</loc>
+    <lastmod>2018-09-30T09:38:41.128Z</lastmod>
+    <data>
+        <display>
+        <title>位操作 - 快速幂</title>
+        <pubTime>2018-09-24T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shukebeta.me/bits-operations-04/</loc>
     <lastmod>2018-09-30T09:25:49.173Z</lastmod>
     <data>
@@ -82,30 +106,6 @@
         <display>
         <title>位操作 - 汉明距离</title>
         <pubTime>2018-09-23T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/bits-operations-06/</loc>
-    <lastmod>2018-09-30T09:02:49.159Z</lastmod>
-    <data>
-        <display>
-        <title>位操作 - 快速幂</title>
-        <pubTime>2018-09-24T16:00:00.000Z</pubTime>
         
         <tag>Software Engineer</tag>
          
