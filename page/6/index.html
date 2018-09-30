@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Software Engineer,Algorithms,Computer Science," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -83,18 +83,13 @@
 
 
 
-<meta name="description" content="Bitwise operators">
-<meta name="keywords" content="Software Engineer,Algorithms,Computer Science">
-<meta property="og:type" content="article">
-<meta property="og:title" content="位操作">
-<meta property="og:url" content="http://shukebeta.me/bits-operations/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Computer Science &amp; AI">
+<meta property="og:url" content="http://shukebeta.me/page/6/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Bitwise operators">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-30T01:49:30.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="位操作">
-<meta name="twitter:description" content="Bitwise operators">
+<meta name="twitter:title" content="Computer Science &amp; AI">
 
 
 
@@ -124,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://shukebeta.me/bits-operations/"/>
+  <link rel="canonical" href="http://shukebeta.me/page/6/"/>
 
 
 
 
 
-  <title>位操作 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -149,7 +144,8 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,9 +252,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -271,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/bits-operations/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NOTE-CS106B-Programming-Abstractions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -288,7 +284,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">位操作</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NOTE-CS106B-Programming-Abstractions/" itemprop="url">CS106b Programming Abstractions - C++ 算法与数据结构 Stanford cs106b</a></h1>
         
 
         <div class="post-meta">
@@ -300,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-21T00:00:00+08:00">
-                2018-08-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-23T07:00:00+08:00">
+                2017-06-23
               </time>
             
 
@@ -341,9 +339,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/bits-operations/#comments" itemprop="discussionUrl">
+                <a href="/NOTE-CS106B-Programming-Abstractions/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="bits-operations/" itemprop="commentCount"></span>
+                        data-disqus-identifier="NOTE-CS106B-Programming-Abstractions/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -351,7 +349,7 @@
 
           
           
-             <span id="/bits-operations/" class="leancloud_visitors" data-flag-title="位操作">
+             <span id="/NOTE-CS106B-Programming-Abstractions/" class="leancloud_visitors" data-flag-title="CS106b Programming Abstractions - C++ 算法与数据结构 Stanford cs106b">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -376,7 +374,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,776
+                  8,078
                 </span>
               
 
@@ -392,7 +390,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  9 min
+                  50 min
                 </span>
               
             </div>
@@ -413,80 +411,17 @@
       
 
       
-        <h2 id="Bitwise-operators"><a href="#Bitwise-operators" class="headerlink" title="Bitwise operators"></a>Bitwise operators</h2><a id="more"></a>
-<p>Bitwise NOT - <code>~</code>, or complement: <code>0</code> become <code>1</code>, <code>1</code> become <code>0</code>.</p>
-<blockquote>
-<p>The bitwise complement is equal to the <strong>two’s complement</strong> of the value minus one. <code>~x = -x − 1</code></p>
-</blockquote>
-<p>The two’s complement of <code>010</code> is <code>110</code>, since <code>010 + 110 = 1000</code>.</p>
-<blockquote>
-<p>Two’s complement is a mathematical operation on binary numbers, best known for its role in computing as a method of signed number representation. For this reason, it is the most important example of a radix complement.</p>
-</blockquote>
-<blockquote>
-<p>In mathematics and computing, the method of complements is a technique used to subtract one number from another using only addition of positive numbers. This method was commonly used in mechanical calculators and is still used in modern computers.</p>
-</blockquote>
-<p>Bitwise AND - <code>&amp;</code>: <code>1 &amp; 1 = 1</code>, <code>1 &amp; 0 = 0</code>, <code>0 &amp; 0 = 0</code>.</p>
-<blockquote>
-<p>performs the logical AND operation on each pair of the corresponding bits, which is equivalent to multiplying them. Thus, if both bits in the compared position are 1, the bit in the resulting binary representation is 1 (1 × 1 = 1); otherwise, the result is 0 (1 × 0 = 0 and 0 × 0 = 0).</p>
-</blockquote>
-<p>Bitwise OR - <code>|</code>: <code>1 | 1 = 1</code>, <code>1 | 0 = 1</code>, <code>0 | 0 = 0</code></p>
-<blockquote>
-<p>takes two bit patterns of equal length and performs the logical inclusive OR operation on each pair of corresponding bits. The result in each position is 0 if both bits are 0, while otherwise the result is 1.</p>
-</blockquote>
-<p>Bitwise XOR - <code>^</code>: <code>1 ^ 1 = 0</code>, <code>1 ^ 0 = 1</code>, <code>0 ^ 0 = 0</code></p>
-<blockquote>
-<p>takes two bit patterns of equal length and performs the logical exclusive OR operation on each pair of corresponding bits. The result in each position is 1 if only the first bit is 1 or only the second bit is 1, but will be 0 if both are 0 or both are 1. In this we perform the comparison of two bits, being 1 if the two bits are different, and 0 if they are the same.</p>
-</blockquote>
-<h2 id="Bit-shifts"><a href="#Bit-shifts" class="headerlink" title="Bit shifts"></a>Bit shifts</h2><p>Java中有三种<a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html" target="_blank" rel="noopener">移位运算符</a>.</p>
-<ul>
-<li><code>&lt;&lt;</code>: 左移运算符，<code>num &lt;&lt; n</code>, 把<code>num</code>的二进制左移<code>n</code>位, 右边的空位用<code>0</code>补上, 每一次移位相当于<code>num * 2</code>(除非overflow)</li>
-<li><code>&gt;&gt;</code>: 右移运算符，<code>num &gt;&gt; n</code>, 右移<code>n</code>, 每次移位相当于<code>num / 2</code><ul>
-<li>如果是无符号数值，也就是<code>&gt;&gt;&gt;</code>，左边空缺用<code>0</code>补上,</li>
-<li>如果是有符号数值，则用数字的符号位填补最左边的<code>n</code>位<ul>
-<li>如果是正数, 则右移后在最左边补<code>n</code>个<code>0</code></li>
-<li>如果原先是负数, 则右移后在最左边补<code>n</code>个<code>1</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="基本位操作"><a href="#基本位操作" class="headerlink" title="基本位操作"></a>基本位操作</h2><p>一些常规的操作， 参考<a href="https://www.youtube.com/watch?v=7jkIUgLC29I" target="_blank" rel="noopener">这个视频</a>。</p>
-<p>把某一位变为<code>1</code>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_bit</span><span class="params">(x, position)</span>:</span></span><br><span class="line">    mask = <span class="number">1</span> &lt;&lt; position</span><br><span class="line">    <span class="keyword">return</span> x | mask</span><br><span class="line"></span><br><span class="line">bin(set_bit(<span class="number">0b110</span>, <span class="number">0b101</span>))</span><br></pre></td></tr></table></figure></p>
-<p>输出<code>0b100110</code>. 因为<code>x = 0b110 = 6</code>, 翻转第五位，就用<code>position = 0b101 = 5</code>， 得到<code>mask = 0b00100000</code>, 用<code>|</code>把第五位变为<code>1</code>.</p>
-<p>清除某一位（<code>1</code>变<code>0</code>)：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clear_bit</span><span class="params">(x, position)</span>:</span></span><br><span class="line">    mask = <span class="number">1</span> &lt;&lt; position</span><br><span class="line">    <span class="keyword">return</span> x &amp; ~mask</span><br></pre></td></tr></table></figure></p>
-<p>通过XOR<code>^</code>和<code>1</code>来翻转某一位：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">flip_bit</span><span class="params">(x, position)</span>:</span></span><br><span class="line">    mask = <span class="number">1</span> &lt;&lt; position</span><br><span class="line">    <span class="keyword">return</span> x ^ mask</span><br></pre></td></tr></table></figure></p>
-<p>通过<code>&amp;1</code>可以作为取位操作, 来判断某一位是否是<code>1</code>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_bit_set</span><span class="params">(x, position)</span>:</span></span><br><span class="line">    shifted = x &gt;&gt; position</span><br><span class="line">    <span class="keyword">return</span> shifted &amp; <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<p><code>0b1100110 &gt;&gt; 0b101</code> = <code>0b11</code>, <code>0b11 &amp; 0b01</code> = <code>1</code></p>
-<p>根据参数<code>state</code>来控制修改某一位, 如果参数是<code>1</code>那么就是set, 如果是<code>0</code>那么就是clear:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modify_bit</span><span class="params">(x, position, state)</span>:</span></span><br><span class="line">    mask = <span class="number">1</span> &lt;&lt; position</span><br><span class="line">    <span class="keyword">return</span> (x &amp; ~mask) | (-state &amp; mask)</span><br></pre></td></tr></table></figure></p>
-<p>如果<code>state = 0b1</code>, <code>-state = 0b11111111</code><br>如果<code>state = 0b0</code>, <code>-state = 0b0</code></p>
-<h2 id="位骚操作"><a href="#位骚操作" class="headerlink" title="位骚操作"></a>位骚操作</h2><p>检查一个数是否是偶数, 本质上就是取最后一位来判断, 如果是1那么就一定是奇数, 反之则为偶数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x &amp; <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<p>Check if power of two:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x &amp; x - <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<p>因为如果数<code>x</code>是以2底的真数, 那么其二进制一定只有一个位置是<code>1</code>, 如<code>0b1000</code>, 那么<code>x-1</code>就会变成只有该位置是<code>0</code>其右边所有位变为<code>1</code>, 即<code>0b0111</code>, 也就是说这种情况下<code>x</code>和<code>x-1</code>所有位置都互异. 那么它们的位与运算就是<code>x &amp; x - 1 = 0b0000</code>.</p>
-<p><code>x &amp; x - 1</code>的广义用途是求<code>x</code>二进制中<code>1</code>的个数, <a href="https://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetKernighan" target="_blank" rel="noopener">Counting bits set</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">unsigned int v; // count the number of bits set in v</span><br><span class="line">unsigned int c; // c accumulates the total bits set in v</span><br><span class="line">for (c = 0; v; c++)</span><br><span class="line">&#123;</span><br><span class="line">  v &amp;= v - 1; // clear the least significant bit set</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Brian Kernighan’s algorithm takes <code>O(log N)</code> to count set bits (1s) in an integer: each iteration sets the least significance bit that isn’t zero to zero - and only it. Since each iteration converts exactly bit from 1 to 0, it’ll take as many iterations as there are non-0 bits to convert all the bits to 0(and thus <code>v == 0</code> and the loop finishes). An integer n has <code>log(n)</code> bits, hence the worst case is <code>O(log(n))</code></p>
-</blockquote>
-<p>如果一个整数不为<code>0</code>, 那么其二进制就至少有一个<code>1</code>. 假设最右边一位是<code>1</code>, 那么减<code>1</code>就会把最后一位变为<code>0</code>, 前面所有位保持不变. 假如最后一位是<code>0</code>, 那么最靠右的<code>1</code>假设在<code>m</code>位置, 那么减去<code>1</code>, 该位置会变为<code>0</code>, 而其右边的所有<code>0</code>都会变为<code>1</code>, 其左边的所有位不变. <code>v &amp;= v - 1</code>把最右的<code>1</code>变为<code>0</code>.</p>
-<h3 id="两个整数的汉明距离-hamming-distance"><a href="#两个整数的汉明距离-hamming-distance" class="headerlink" title="两个整数的汉明距离 hamming distance"></a>两个整数的汉明距离 hamming distance</h3><p><a href="https://leetcode.com/problems/hamming-distance/description/" target="_blank" rel="noopener">Leetcode 461</a><br>两个整数之间的汉明距离是该两个数之间不同的位数。 给定两个整数x和y，计算汉明距离。问题也可以理解为对于两个整数<code>m</code>和<code>n</code>, 需要改变<code>m</code>的二进制多少位才能得到<code>n</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Use Brian Kernighan's way to count bits */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingDistance</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    x = x ^ y;</span><br><span class="line">    y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x != <span class="number">0</span>)&#123;</span><br><span class="line">        y++;</span><br><span class="line">        x &amp;= x - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingDistance</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.bitCount(x ^ y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>同样用到Brian Kernighan算法：</p>
-<blockquote>
-<p>Lets say that the bit at index n is 1 and that the bits in indexes 0 up to <code>n-1</code> are all 0 (we’ll use little endianess - so index 0 is 1, index 1 is 2, index 2 is 4, index 3 is 8 and so on).</p>
-</blockquote>
-<blockquote>
-<p><code>v-1</code> subtracts from index 0 - but it’s 0, so it converts it to 1 and subtracts from index 1 - but it’s also 0, so it converts it to 1 and subtracts from index 2 - and so on until we reach index n. Since index n is 1 it can subtract from it and turn it to 0 - and there it stops: <code>1101000 - 1 = 1100111</code></p>
-</blockquote>
-<blockquote>
-<p>So, <code>v-1</code> is like <code>v</code> except there are <code>n</code> 0 that became 1 and one 1 that became 0. In <code>v &amp; v - 1</code> all the other bits remain as is, the <code>n</code> zeros that where turned to ones remain 0 (because <code>0 &amp; 1 == 0</code>), and the one 1 that was turned to 0 turns to 0(because <code>1 &amp; 0 == 0</code>). So overall - only a single bit was changed in the iteration, and this change was from 1 to 0: <code>1101000 &amp; 1100111 = 1100000</code></p>
-</blockquote>
-<h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><p>要求$c = a^b$, 按照朴素算法把<code>a</code>连乘<code>b</code>次的时间复杂度是$O(n)$. 而快速幂能做到$O(\log n)$。把<code>b</code>转换为二进制, 二进制数第<code>i</code>位的权为$2^{i-1}$，就可以把二进制拆分为若干个以<code>2</code>为底的真数, 然后利用幂数的性质，例如用朴素算法求$a^11$要求乘<code>11</code>次, 而如果把$a^11$拆分:<br>$$a^11 = a^{2^0 + 2^1 + 2^3} = a^1 <em> a^2 </em> a^8 $$<br>$a1 = a^2 = a <em> a$, 利用$a^2 </em> a^2$求出$a2 = a^4$, 然后$a3 = a^8 = a^4 * a^4$, 每次计算只需要用到上一次计算出来的结果, 所以总的运算次数是<code>4</code>次. 任何一个数<code>b</code>最多能写成长度为$O(\log b)$的二进制, 因此这个算法就是$O(\log n)$.</p>
-<ul>
-<li>通过使用右移操作<code>&gt;&gt; 1</code>不断把<code>b</code>除以<code>2</code>直到<code>b == 0</code>来控制循环</li>
-<li>每次循环内, 如果<code>b</code>最右位为<code>1</code>, 累乘<code>c</code></li>
-<li>利用动态规划的思路, 使用变量<code>c</code>来存储最近计算出来的值, 并不断累乘最近一次更新的<code>a</code>.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span> == <span class="number">1</span>) <span class="comment">// 当b最右位是为1时才更新c</span></span><br><span class="line">            c *= a;</span><br><span class="line">        a *= a; <span class="comment">// 每次都更新a</span></span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
+          <p><a href="https://see.stanford.edu/Course/CS106B" target="_blank" rel="noopener">Stanford CS106B Programming Abstractions</a> 和 <a href="https://see.stanford.edu/Course/CS106A" target="_blank" rel="noopener">CS106A</a> 的学习笔记. 我的课程作业(cs106b spring 2017)实现代码见 <a href="https://github.com/ShootingSpace/cs106b-programming-abstraction" target="_blank" rel="noopener">https://github.com/ShootingSpace/cs106b-programming-abstraction</a></p>
+<h3 id="Topics"><a href="#Topics" class="headerlink" title="Topics:"></a>Topics:</h3><p>Recursion, algorithms analysis (sort/search/hash), dynamic data structures (lists, trees, heaps), data abstraction (stacks, queues, maps), implementation strategies/tradeoffs<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NOTE-CS106B-Programming-Abstractions/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -501,44 +436,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
-          
-            <a href="/tags/Computer-Science/" rel="tag"># Computer Science</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/algorithms-applications-03-pattern-recognition/" rel="next" title="Find All Collinear Points - A Pattern Recognition Problem">
-                <i class="fa fa-chevron-left"></i> Find All Collinear Points - A Pattern Recognition Problem
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/algorithm-paradigm-01-dynamic-programming-01/" rel="prev" title="算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划">
-                算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -548,17 +453,441 @@
   </article>
 
 
-
-    <div class="post-spread">
+    
       
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
 
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/cs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/cs/" itemprop="url">Computer Science Step by Step</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-31T08:00:00+08:00">
+                2016-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/cs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="cs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/cs/" class="leancloud_visitors" data-flag-title="Computer Science Step by Step">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,219
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  5 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>我学习CS历程，也包含基础知识的总结以及编程实现的整理。</p>
+<p>每一阶段里面, 都有很多个性化选项, 仅供参考</p>
+<p><strong>入门</strong></p>
+<ul>
+<li><a href="#CS入门">CS入门</a></li>
+<li><a href="#面向对象编程语言">学习编写(至少)一种面向对象编程语言(C ++，Java®，Python®)</a></li>
+<li><a href="#测试你的代码">测试你的代码</a></li>
+</ul>
+<p><strong>夯实基础</strong><br>你可以跳过这些而直接进入下面的进阶实践环节，并根据自己需要查漏补缺。<br>但是这些都是非常重要的基础，任何时候，只要有时间，就可以去学习了解。</p>
+<ul>
+<li><a href="#逻辑推理和离散数学">逻辑推理和离散数学</a></li>
+<li><a href="#操作系统">熟悉计算机操作系统</a></li>
+<li><a href="#计算机网络">学习计算机网络</a></li>
+<li><a href="#数据库">掌握数据库</a></li>
+<li><a href="#编译器">了解编译器和优化</a></li>
+<li><a href="#计算理论">了解计算理论</a></li>
+<li><a href="#其他编程语言">学习其他编程语言</a></li>
+</ul>
+<p><strong>进阶与实践</strong></p>
+<ul>
+<li><a href="#算法和数据结构">深入了解算法和数据结构</a></li>
+<li><a href="#分布式，并行和大数据">分布式，并行和大数据</a></li>
+<li><a href="#安卓开发">安卓开发</a></li>
+<li><a href="#iOS开发">iOS开发</a></li>
+<li><a href="#网页开发">网页开发</a></li>
+<li><a href="#加密与区块链">加密与区块链</a></li>
+<li><a href="#参与项目">参与项目</a></li>
+</ul>
+<p><a href="https://github.com/ShootingSpace/Guide-to-Computer-Science/blob/master/readme.md" target="_blank" rel="noopener">English template 英文模板</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/cs/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/ai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/ai/" itemprop="url">Learn AI Step by Step</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-31T00:00:00+08:00">
+                2016-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/ai/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="ai/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/ai/" class="leancloud_visitors" data-flag-title="Learn AI Step by Step">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  224
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。</p>
+<p><a href="https://github.com/ShootingSpace/Guide-to-Computer-Science/blob/master/readme.md" target="_blank" rel="noopener">English template 英文模板</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/ai/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
 
 
           </div>
@@ -566,20 +895,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -600,17 +915,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -629,7 +935,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -690,22 +996,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bitwise-operators"><span class="nav-number">1.</span> <span class="nav-text">Bitwise operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-shifts"><span class="nav-number">2.</span> <span class="nav-text">Bit shifts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本位操作"><span class="nav-number">3.</span> <span class="nav-text">基本位操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位骚操作"><span class="nav-number">4.</span> <span class="nav-text">位骚操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个整数的汉明距离-hamming-distance"><span class="nav-number">4.1.</span> <span class="nav-text">两个整数的汉明距离 hamming distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速幂"><span class="nav-number">4.2.</span> <span class="nav-text">快速幂</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -846,10 +1136,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -867,18 +1153,6 @@
       <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://shukebeta.me/bits-operations/';
-          this.page.identifier = 'bits-operations/';
-          this.page.title = '位操作';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   

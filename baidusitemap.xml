@@ -4,11 +4,307 @@
 
     
   <url>
-    <loc>http://shukebeta.me/bits-operations/</loc>
-    <lastmod>2018-09-30T01:49:30.658Z</lastmod>
+    <loc>http://shukebeta.me/bits-operations-04/</loc>
+    <lastmod>2018-09-30T09:25:49.173Z</lastmod>
     <data>
         <display>
-        <title>位操作</title>
+        <title>位操作 - 不使用加减符号求和整数</title>
+        <pubTime>2018-09-22T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/bits-operations-02/</loc>
+    <lastmod>2018-09-30T09:03:10.193Z</lastmod>
+    <data>
+        <display>
+        <title>位操作 - 基础的位运算</title>
+        <pubTime>2018-08-29T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/bits-operations-03/</loc>
+    <lastmod>2018-09-30T09:03:01.616Z</lastmod>
+    <data>
+        <display>
+        <title>位操作 - 风骚的走位操作</title>
+        <pubTime>2018-09-21T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/bits-operations-05/</loc>
+    <lastmod>2018-09-30T09:02:52.995Z</lastmod>
+    <data>
+        <display>
+        <title>位操作 - 汉明距离</title>
+        <pubTime>2018-09-23T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/bits-operations-06/</loc>
+    <lastmod>2018-09-30T09:02:49.159Z</lastmod>
+    <data>
+        <display>
+        <title>位操作 - 快速幂</title>
+        <pubTime>2018-09-24T16:00:00.000Z</pubTime>
+        
+        <tag>Software Engineer</tag>
+         
+        <tag>Algorithms</tag>
+         
+        <tag>Computer Science</tag>
+         
+         
+           
+             
+              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
+    <lastmod>2018-09-30T09:02:34.098Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP</title>
+        <pubTime>2018-09-25T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>KMP</tag>
+         
+        <tag>Aho–Corasick algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
+    <lastmod>2018-09-30T09:02:29.503Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 02 - 字符搜索匹配算法 02 - Boyer-Moore(BM) 和 Rabin-Karp(RK)</title>
+        <pubTime>2018-09-26T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Boyer-Moore</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-03-string-match-algorithm-Trie/</loc>
+    <lastmod>2018-09-30T09:02:24.563Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 03 - 单模式匹配与拼写检查 - Trie</title>
+        <pubTime>2018-09-27T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
+    <lastmod>2018-09-30T09:02:18.827Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机</title>
+        <pubTime>2018-09-28T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie图</tag>
+         
+        <tag>AC自动机</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-05-string-symbol-table-Trie/</loc>
+    <lastmod>2018-09-30T09:02:12.262Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 05 - 字符串符号表和三元搜索Trie</title>
+        <pubTime>2018-09-29T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+        <tag>Information Retrieval</tag>
+         
+        <tag>Symbol table</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
+    <lastmod>2018-09-30T09:01:59.295Z</lastmod>
+    <data>
+        <display>
+        <title>NLP与信息处理 06 - 不同树结构的字符串符号表</title>
+        <pubTime>2018-09-30T16:00:00.000Z</pubTime>
+        
+        <tag>NLP</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Trie</tag>
+         
+        <tag>Information Retrieval</tag>
+         
+        <tag>Symbol table</tag>
+         
+         
+           
+             
+              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shukebeta.me/bits-operations-01/</loc>
+    <lastmod>2018-09-30T08:39:05.516Z</lastmod>
+    <data>
+        <display>
+        <title>位操作 - 二进制操作符</title>
         <pubTime>2018-08-20T16:00:00.000Z</pubTime>
         
         <tag>Software Engineer</tag>
@@ -108,155 +404,6 @@
 
     
   <url>
-    <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
-    <lastmod>2018-09-20T10:11:15.059Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机</title>
-        <pubTime>2018-09-10T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie图</tag>
-         
-        <tag>AC自动机</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
-    <lastmod>2018-09-20T09:39:27.256Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 06 - 不同树结构的字符串符号表</title>
-        <pubTime>2018-09-16T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-        <tag>Information Retrieval</tag>
-         
-        <tag>Symbol table</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-05-string-symbol-table-Trie/</loc>
-    <lastmod>2018-09-20T09:39:18.783Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 05 - 字符串符号表和三元搜索Trie</title>
-        <pubTime>2018-09-14T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-        <tag>Information Retrieval</tag>
-         
-        <tag>Symbol table</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-03-string-match-algorithm-Trie/</loc>
-    <lastmod>2018-09-20T09:38:09.618Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 03 - 单模式匹配与拼写检查 - Trie</title>
-        <pubTime>2018-09-09T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
-    <lastmod>2018-09-20T09:37:54.867Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP</title>
-        <pubTime>2018-09-07T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>KMP</tag>
-         
-        <tag>Aho–Corasick algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-efficient-programming/</loc>
     <lastmod>2018-09-19T04:08:46.851Z</lastmod>
     <data>
@@ -276,33 +423,6 @@
            
              
               <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
-    <lastmod>2018-09-18T09:45:20.520Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 02 - 字符搜索匹配算法 02 - Boyer-Moore(BM) 和 Rabin-Karp(RK)</title>
-        <pubTime>2018-09-08T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Boyer-Moore</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
           
         </display>
     </data>
