@@ -93,7 +93,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://shukebeta.me/images/three_Asymptotics.png">
 <meta property="og:image" content="http://shukebeta.me/images/string_memory.png">
-<meta property="og:updated_time" content="2018-09-19T04:08:46.851Z">
+<meta property="og:updated_time" content="2018-10-06T03:39:43.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Efficient Programming in Java - A preview of Algorithms and Data Structures">
 <meta name="twitter:description" content="Resource and Reference:  CS61B Berkeley - Josh Hug Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE  效率来源两个方面:  编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？ 运行成本: 程序需要多长时间运行 (Time complexity)？">
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,778
+                  1,934
                 </span>
               
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  10 min
+                  11 min
                 </span>
               
             </div>
@@ -554,6 +554,12 @@
 <h3 id="Typical-memory-usage-for-primitive-types-and-arrays"><a href="#Typical-memory-usage-for-primitive-types-and-arrays" class="headerlink" title="Typical memory usage for primitive types and arrays"></a>Typical memory usage for primitive types and arrays</h3><p>primitive types (bytes):<br><code>boolean</code> 1<br><code>byte</code> 1<br><code>char</code> 2<br><code>int</code> 4<br><code>float</code> 4<br><code>long</code> 8<br><code>double</code> 8</p>
 <p>for one-dimensional arrays (bytes):<br><code>char[]</code> 2N + 24<br><code>int[]</code> 4N + 24<br><code>double[]</code> 8N + 24</p>
 <h3 id="Typical-memory-usage-for-objects-in-Java"><a href="#Typical-memory-usage-for-objects-in-Java" class="headerlink" title="Typical memory usage for objects in Java"></a>Typical memory usage for objects in Java</h3><p>Object overhead. 16 bytes.<br>Reference. 8 bytes.<br>Padding. Each object uses a multiple of 8 bytes.<br><img src="/images/string_memory.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part1/"></p>
+<h2 id="Immutability"><a href="#Immutability" class="headerlink" title="Immutability"></a>Immutability</h2><p>Immutable data type: Can’t change the data type value once created.<br>Immutable 的类型: String, Integer, Double, Color, Vector, Transaction, Point2D.<br>Mutable: StringBuilder, Stack, Counter, Java array.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Vector</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> N;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">double</span>[] data;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">(<span class="keyword">double</span>[] data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.N = data.length;</span><br><span class="line">        <span class="keyword">this</span>.data = <span class="keyword">new</span> <span class="keyword">double</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="comment">// defensive copy of mutable instance variables</span></span><br><span class="line">            <span class="keyword">this</span>.data[i] = data[i];</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Advantages.<br>・Simplifies debugging.<br>・Safer in presence of hostile code.<br>・Simplifies concurrent programming.<br>・Safe to use as key in <strong>priority queue</strong> or <strong>symbol table</strong>.</p>
+<p>Disadvantage<br>. Must create new object for each data type value.</p>
+<blockquote>
+<p>Classes should be immutable unless there’s a very good reason to make them mutable….  If a class cannot be made immutable, you should still limit its mutability as much as possible.<br>– Effective Java, by Joshua Bloch</p>
+</blockquote>
 
       
     </div>
@@ -770,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">1.</span> <span class="nav-text">Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">2.</span> <span class="nav-text">API’s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">2.1.</span> <span class="nav-text">ADT’s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">3.</span> <span class="nav-text">Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">3.1.</span> <span class="nav-text">Big Theta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">3.2.</span> <span class="nav-text">Big O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amortized-Analysis"><span class="nav-number">4.</span> <span class="nav-text">Amortized Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory"><span class="nav-number">5.</span> <span class="nav-text">Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-primitive-types-and-arrays"><span class="nav-number">5.1.</span> <span class="nav-text">Typical memory usage for primitive types and arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-objects-in-Java"><span class="nav-number">5.2.</span> <span class="nav-text">Typical memory usage for objects in Java</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encapsulation"><span class="nav-number">1.</span> <span class="nav-text">Encapsulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API’s"><span class="nav-number">2.</span> <span class="nav-text">API’s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ADT’s"><span class="nav-number">2.1.</span> <span class="nav-text">ADT’s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-Analysis"><span class="nav-number">3.</span> <span class="nav-text">Asymptotic Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Theta"><span class="nav-number">3.1.</span> <span class="nav-text">Big Theta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">3.2.</span> <span class="nav-text">Big O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amortized-Analysis"><span class="nav-number">4.</span> <span class="nav-text">Amortized Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory"><span class="nav-number">5.</span> <span class="nav-text">Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-primitive-types-and-arrays"><span class="nav-number">5.1.</span> <span class="nav-text">Typical memory usage for primitive types and arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-objects-in-Java"><span class="nav-number">5.2.</span> <span class="nav-text">Typical memory usage for objects in Java</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Immutability"><span class="nav-number">6.</span> <span class="nav-text">Immutability</span></a></li></ol></div>
             
 
           </div>
