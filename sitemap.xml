@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
+    
+    <lastmod>2018-10-07T07:26:10.789Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/bits-operations-01/</loc>
+    
+    <lastmod>2018-10-07T03:55:46.079Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/algorithms/</loc>
     
     <lastmod>2018-10-06T03:56:00.950Z</lastmod>
@@ -93,23 +107,9 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/bits-operations-01/</loc>
-    
-    <lastmod>2018-09-30T08:39:05.516Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
     
     <lastmod>2018-09-25T14:13:06.770Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
-    
-    <lastmod>2018-09-21T02:44:57.575Z</lastmod>
     
   </url>
   
