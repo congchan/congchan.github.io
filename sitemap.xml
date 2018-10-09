@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    
+    <lastmod>2018-10-09T07:26:39.532Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
+    
+    <lastmod>2018-10-09T05:06:18.606Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/csapp/</loc>
+    
+    <lastmod>2018-10-08T01:19:10.286Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
+    
+    <lastmod>2018-10-07T07:57:01.029Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
+    
+    <lastmod>2018-10-07T07:44:44.008Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
     
     <lastmod>2018-10-07T07:26:10.789Z</lastmod>
@@ -12,13 +47,6 @@
     <loc>http://shukebeta.me/bits-operations-01/</loc>
     
     <lastmod>2018-10-07T03:55:46.079Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    
-    <lastmod>2018-10-06T03:56:00.950Z</lastmod>
     
   </url>
   
@@ -65,20 +93,6 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
-    
-    <lastmod>2018-09-30T09:02:34.098Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
-    
-    <lastmod>2018-09-30T09:02:29.503Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/NLP-03-string-match-algorithm-Trie/</loc>
     
     <lastmod>2018-09-30T09:02:24.563Z</lastmod>
@@ -96,13 +110,6 @@
     <loc>http://shukebeta.me/NLP-05-string-symbol-table-Trie/</loc>
     
     <lastmod>2018-09-30T09:02:12.262Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
-    
-    <lastmod>2018-09-30T09:01:59.295Z</lastmod>
     
   </url>
   
@@ -166,13 +173,6 @@
     <loc>http://shukebeta.me/machine-learning/</loc>
     
     <lastmod>2018-09-09T08:46:46.311Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/csapp/</loc>
-    
-    <lastmod>2018-09-09T08:46:31.234Z</lastmod>
     
   </url>
   

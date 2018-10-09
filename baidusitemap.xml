@@ -1,1295 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-
-    
-  <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
-    <lastmod>2018-10-07T07:26:10.789Z</lastmod>
-    <data>
-        <display>
-        <title>算法和程序设计范例 02 - Dynamic Programming 02 - 动态规划应用</title>
-        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/bits-operations-01/</loc>
-    <lastmod>2018-10-07T03:55:46.079Z</lastmod>
-    <data>
-        <display>
-        <title>位操作 - 二进制操作符</title>
-        <pubTime>2018-08-20T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
   <url>
     <loc>http://shukebeta.me/algorithms/</loc>
-    <lastmod>2018-10-06T03:56:00.950Z</lastmod>
-    <data>
-        <display>
-        <title>Algorithms - Princeton</title>
-        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>algs4</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+    <lastmod>2018-10-09T07:26:39.532Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
+    <lastmod>2018-10-09T05:06:18.606Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/csapp/</loc>
+    <lastmod>2018-10-08T01:19:10.286Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
+    <lastmod>2018-10-07T07:57:01.029Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
+    <lastmod>2018-10-07T07:44:44.008Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
+    <lastmod>2018-10-07T07:26:10.789Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/bits-operations-01/</loc>
+    <lastmod>2018-10-07T03:55:46.079Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-efficient-programming/</loc>
     <lastmod>2018-10-06T03:39:43.133Z</lastmod>
-    <data>
-        <display>
-        <title>Efficient Programming in Java - A preview of Algorithms and Data Structures</title>
-        <pubTime>2018-06-25T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-        <tag>algs4</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/bits-operations-06/</loc>
     <lastmod>2018-09-30T10:30:00.010Z</lastmod>
-    <data>
-        <display>
-        <title>位操作 - 快速幂</title>
-        <pubTime>2018-09-24T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/bits-operations-04/</loc>
     <lastmod>2018-09-30T09:25:49.173Z</lastmod>
-    <data>
-        <display>
-        <title>位操作 - 不使用加减符号求和整数</title>
-        <pubTime>2018-09-22T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/bits-operations-02/</loc>
     <lastmod>2018-09-30T09:03:10.193Z</lastmod>
-    <data>
-        <display>
-        <title>位操作 - 基础的位运算</title>
-        <pubTime>2018-08-29T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/bits-operations-03/</loc>
     <lastmod>2018-09-30T09:03:01.616Z</lastmod>
-    <data>
-        <display>
-        <title>位操作 - 风骚的走位操作</title>
-        <pubTime>2018-09-21T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/bits-operations-05/</loc>
     <lastmod>2018-09-30T09:02:52.995Z</lastmod>
-    <data>
-        <display>
-        <title>位操作 - 汉明距离</title>
-        <pubTime>2018-09-23T16:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Computer Science</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
-    <lastmod>2018-09-30T09:02:34.098Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP</title>
-        <pubTime>2018-09-25T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>KMP</tag>
-         
-        <tag>Aho–Corasick algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
-    <lastmod>2018-09-30T09:02:29.503Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 02 - 字符搜索匹配算法 02 - Boyer-Moore(BM) 和 Rabin-Karp(RK)</title>
-        <pubTime>2018-09-26T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Boyer-Moore</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-03-string-match-algorithm-Trie/</loc>
     <lastmod>2018-09-30T09:02:24.563Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 03 - 单模式匹配与拼写检查 - Trie</title>
-        <pubTime>2018-09-27T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/</loc>
     <lastmod>2018-09-30T09:02:18.827Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机</title>
-        <pubTime>2018-09-28T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie图</tag>
-         
-        <tag>AC自动机</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-05-string-symbol-table-Trie/</loc>
     <lastmod>2018-09-30T09:02:12.262Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 05 - 字符串符号表和三元搜索Trie</title>
-        <pubTime>2018-09-29T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-        <tag>Information Retrieval</tag>
-         
-        <tag>Symbol table</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
-    <lastmod>2018-09-30T09:01:59.295Z</lastmod>
-    <data>
-        <display>
-        <title>NLP与信息处理 06 - 不同树结构的字符串符号表</title>
-        <pubTime>2018-09-30T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>Trie</tag>
-         
-        <tag>Information Retrieval</tag>
-         
-        <tag>Symbol table</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/algorithms-applications-02-randomized-queue/</loc>
     <lastmod>2018-09-25T14:13:06.770Z</lastmod>
-    <data>
-        <display>
-        <title>Randomized Queue with Reservoir Sampling</title>
-        <pubTime>2018-07-20T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Reservoir Sampling</tag>
-         
-        <tag>Fisher–Yates shuffle</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/algorithm-paradigm-03-dynamic-programming-03/</loc>
     <lastmod>2018-09-14T12:21:12.105Z</lastmod>
-    <data>
-        <display>
-        <title>算法和程序设计范例 03 - Dynamic Programming 03 - Knapsack背包问题</title>
-        <pubTime>2018-09-02T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/algorithm-paradigm-01-dynamic-programming-01/</loc>
     <lastmod>2018-09-14T10:33:22.527Z</lastmod>
-    <data>
-        <display>
-        <title>算法和程序设计范例 01 - Dynamic Programming 01 - 理解动态规划</title>
-        <pubTime>2018-08-31T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Dynamic Programming</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/UoE-nlu/</loc>
     <lastmod>2018-09-09T08:48:11.943Z</lastmod>
-    <data>
-        <display>
-        <title>Natural Language Understanding</title>
-        <pubTime>2017-09-30T16:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/UoE-anlp/</loc>
     <lastmod>2018-09-09T08:48:03.283Z</lastmod>
-    <data>
-        <display>
-        <title>Accelerated Natural Language Processing</title>
-        <pubTime>2017-09-30T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Python</tag>
-         
-        <tag>UoE</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/SQuAD/</loc>
     <lastmod>2018-09-09T08:47:55.233Z</lastmod>
-    <data>
-        <display>
-        <title>注意力机制应用于斯坦福问答数据集 (SQuAD)</title>
-        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>TensorFlow</tag>
-         
-        <tag>SQuAD</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-ANLP-01-probability-model/</loc>
     <lastmod>2018-09-09T08:47:12.414Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 01 概率模型 - 语言模型 - ANLP UoE 爱丁堡</title>
-        <pubTime>2018-03-31T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-ANLP-02-n-gram-model/</loc>
     <lastmod>2018-09-09T08:47:03.814Z</lastmod>
-    <data>
-        <display>
-        <title>自然语言处理快速入门 | 02 N-Gram 语言模型 - ANLP UoE 爱丁堡</title>
-        <pubTime>2018-04-01T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/machine-learning/</loc>
     <lastmod>2018-09-09T08:46:46.311Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning Note - cs229 - Stanford</title>
-        <pubTime>2017-12-04T16:00:00.000Z</pubTime>
-        
-        <tag>Machine Learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/AI/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shukebeta.me/csapp/</loc>
-    <lastmod>2018-09-09T08:46:31.234Z</lastmod>
-    <data>
-        <display>
-        <title>Computer Systems - A Programmer's Perspective (CSAPP) - CMU 15213</title>
-        <pubTime>2018-01-28T16:00:00.000Z</pubTime>
-        
-        <tag>csapp</tag>
-         
-        <tag>C</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/attention/</loc>
     <lastmod>2018-09-09T08:46:24.210Z</lastmod>
-    <data>
-        <display>
-        <title>注意力机制</title>
-        <pubTime>2018-06-30T16:00:00.000Z</pubTime>
-        
-        <tag>NLP</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="NLP" url="http://shukebeta.me/categories/AI/NLP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/machine-learning-with-sklearn/</loc>
     <lastmod>2018-09-09T08:46:01.505Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning with Scikit-learn (Sklearn) 机器学习实践</title>
-        <pubTime>2017-11-30T16:00:00.000Z</pubTime>
-        
-        <tag>Machine Learning</tag>
-         
-        <tag>python</tag>
-         
-        <tag>sklearn</tag>
-         
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-             
-              <breadCrumb title="Machine Learning" url="http://shukebeta.me/categories/AI/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
     <lastmod>2018-09-09T08:44:51.567Z</lastmod>
-    <data>
-        <display>
-        <title>Find All Collinear Points - A Pattern Recognition Problem</title>
-        <pubTime>2018-08-03T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Sorting</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/ai/</loc>
     <lastmod>2018-09-09T08:44:31.804Z</lastmod>
-    <data>
-        <display>
-        <title>Learn AI Step by Step</title>
-        <pubTime>2016-12-30T16:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="AI" url="http://shukebeta.me/categories/AI/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
     <lastmod>2018-09-08T03:45:52.260Z</lastmod>
-    <data>
-        <display>
-        <title>Percolations problem</title>
-        <pubTime>2018-07-02T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>Algorithms</tag>
-         
-        <tag>Bitwise Operation</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/UoE-sapm/</loc>
     <lastmod>2018-08-20T23:01:49.864Z</lastmod>
-    <data>
-        <display>
-        <title>Software Architecture, Process, and Management</title>
-        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/UoE-st/</loc>
     <lastmod>2018-08-20T23:01:38.767Z</lastmod>
-    <data>
-        <display>
-        <title>Software Testing</title>
-        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/UoE-ppls/</loc>
     <lastmod>2018-08-20T22:59:16.392Z</lastmod>
-    <data>
-        <display>
-        <title>Parallel Programming Language and Systems</title>
-        <pubTime>2017-09-30T23:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-07-java-array-based-list/</loc>
     <lastmod>2018-08-20T10:21:54.754Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 07 用数组构建数据列表 list - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-29T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/</loc>
     <lastmod>2018-07-29T19:27:02.647Z</lastmod>
-    <data>
-        <display>
-        <title>Java 语法和特性</title>
-        <pubTime>2018-05-28T23:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-03-java-code-style-comments/</loc>
     <lastmod>2018-07-29T17:17:21.409Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 03 代码风格 注释 Javadoc - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-21T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/cs/</loc>
     <lastmod>2018-07-21T16:09:52.218Z</lastmod>
-    <data>
-        <display>
-        <title>Computer Science Step by Step</title>
-        <pubTime>2016-12-31T00:00:00.000Z</pubTime>
-        
-        <tag>CS</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-05-java-variable-types/</loc>
     <lastmod>2018-07-16T08:57:38.419Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 05 数据类型 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-26T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-01-java-install/</loc>
     <lastmod>2018-06-29T19:35:49.882Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 01 安装 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-18T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-02-java-basic-syntax/</loc>
     <lastmod>2018-06-29T19:35:46.256Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 02 语法基础 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-20T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-04-java-class-01-intro/</loc>
     <lastmod>2018-06-29T19:35:36.970Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 04 类 class 01 变量和方法 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-24T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-04-java-class-02-class-instance/</loc>
     <lastmod>2018-06-29T19:35:33.402Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 04 类 class 02 类与实例 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-25T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-06-java-array/</loc>
     <lastmod>2018-06-29T19:35:24.576Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 06 array 数组 - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2017-12-27T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-08-java-singly-linked-list/</loc>
     <lastmod>2018-06-29T19:35:17.083Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 08 单向链表 Singly Linked List - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-12T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-09-java-doubly-linked-list/</loc>
     <lastmod>2018-06-29T19:35:13.309Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 09 双向链表 Doubly Linked List - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-13T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-10-java-which-list/</loc>
     <lastmod>2018-06-29T19:35:09.766Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 10 LinkedList 还是 ArrayList - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-28T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-11-testing/</loc>
     <lastmod>2018-06-29T19:35:04.889Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 11 测试 Testing - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-01-29T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-12-Interface-Inheritance/</loc>
     <lastmod>2018-06-29T19:35:00.697Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-02-23T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-13-Implementation-Inheritance/</loc>
     <lastmod>2018-06-29T19:34:55.434Z</lastmod>
-    <data>
-        <display>
-        <title>算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug</title>
-        <pubTime>2018-02-24T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-        <tag>cs61b</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/NOTE-CS106B-Programming-Abstractions/</loc>
     <lastmod>2018-06-29T19:34:44.382Z</lastmod>
-    <data>
-        <display>
-        <title>CS106b Programming Abstractions - C++ 算法与数据结构 Stanford cs106b</title>
-        <pubTime>2017-06-22T23:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-        <tag>C++</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/python-digest/</loc>
     <lastmod>2018-06-29T19:18:48.676Z</lastmod>
-    <data>
-        <display>
-        <title>Python Digest 之奇技淫巧</title>
-        <pubTime>2018-05-07T23:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>Programming Language</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/Launch-editor-in-Gitbash/</loc>
     <lastmod>2018-06-29T19:11:17.502Z</lastmod>
-    <data>
-        <display>
-        <title>Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件</title>
-        <pubTime>2018-01-01T00:00:00.000Z</pubTime>
-        
-        <tag>Software Engineer</tag>
-         
-         
-           
-             
-              <breadCrumb title="Productivity" url="http://shukebeta.me/categories/Productivity/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
+  </url>  <url>
     <loc>http://shukebeta.me/Java-hashcode-equals/</loc>
     <lastmod>2018-06-29T19:10:35.858Z</lastmod>
-    <data>
-        <display>
-        <title>Java | Hash @Override equals() hashcode()</title>
-        <pubTime>2018-02-27T00:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Software Engineer</tag>
-         
-         
-           
-             
-              <breadCrumb title="CS" url="http://shukebeta.me/categories/CS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
+  </url>
 </urlset>
