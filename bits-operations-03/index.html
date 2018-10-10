@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="通过位移实现很多风骚的操作， 参考这个视频。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-30T09:03:01.616Z">
+<meta property="og:updated_time" content="2018-10-10T09:45:33.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位操作 - 风骚的走位操作">
 <meta name="twitter:description" content="通过位移实现很多风骚的操作， 参考这个视频。">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  423
+                  541
                 </span>
               
 
@@ -425,6 +425,8 @@
 <p>Brian Kernighan’s algorithm takes <code>O(log N)</code> to count set bits (1s) in an integer: each iteration sets the least significance bit that isn’t zero to zero - and only it. Since each iteration converts exactly bit from 1 to 0, it’ll take as many iterations as there are non-0 bits to convert all the bits to 0(and thus <code>v == 0</code> and the loop finishes). An integer n has <code>log(n)</code> bits, hence the worst case is <code>O(log(n))</code></p>
 </blockquote>
 <p>如果一个整数不为<code>0</code>, 那么其二进制就至少有一个<code>1</code>. 假设最右边一位是<code>1</code>, 那么减<code>1</code>就会把最后一位变为<code>0</code>, 前面所有位保持不变. 假如最后一位是<code>0</code>, 那么最靠右的<code>1</code>假设在<code>m</code>位置, 那么减去<code>1</code>, 该位置会变为<code>0</code>, 而其右边的所有<code>0</code>都会变为<code>1</code>, 其左边的所有位不变. <code>v &amp;= v - 1</code>把最右的<code>1</code>变为<code>0</code>.</p>
+<p>获取二进制的最后一个<code>1</code>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">last_set_bit</span><span class="params">(x)</span>:</span></span><br><span class="line">    y = ~(x - <span class="number">1</span>) <span class="comment"># = - (x - 1) - 1 = -x</span></span><br><span class="line">    <span class="keyword">return</span> x &amp; y</span><br></pre></td></tr></table></figure></p>
+<p>假设最右边的<code>1</code>位于n, <code>-1</code>操作会把n右边所有<code>0</code>变为<code>1</code>, 而n位变为<code>0</code>. 接着<code>~</code>操作会把n左边所有位翻转, 而n及其右边的数会变为原来的样子, 也就是n为<code>1</code>, 右边全为<code>0</code>(或者没有右边). 最后<code>&amp;</code>操作就只剩下n位的<code>1</code>和右边的<code>0</code>(如果有的话).</p>
 
       
     </div>
@@ -559,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
