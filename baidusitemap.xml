@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
+    <lastmod>2018-10-12T14:53:49.962Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-07-data-compression-introduction/</loc>
     <lastmod>2018-10-11T12:13:28.771Z</lastmod>
   </url>  <url>
@@ -36,9 +39,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
     <lastmod>2018-10-07T07:44:44.008Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
-    <lastmod>2018-10-07T07:26:10.789Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/bits-operations-01/</loc>
     <lastmod>2018-10-07T03:55:46.079Z</lastmod>
