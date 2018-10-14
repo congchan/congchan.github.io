@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="An immutable data type is a data type whose instances cannot change in any observable way after instantiation.  比如String是immutable, Array是mutable.">
+<meta name="description" content="An immutable data type is a data type whose instances cannot change in any observable way after instantiation.  比如String是immutable, Array是mutable. Immutable 的类型: String, Integer, Double, Color, Vecto">
 <meta name="keywords" content="Java,Software Engineer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Immutability">
 <meta property="og:url" content="http://shukebeta.me/java-immutability/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="An immutable data type is a data type whose instances cannot change in any observable way after instantiation.  比如String是immutable, Array是mutable.">
+<meta property="og:description" content="An immutable data type is a data type whose instances cannot change in any observable way after instantiation.  比如String是immutable, Array是mutable. Immutable 的类型: String, Integer, Double, Color, Vecto">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T13:16:00.224Z">
+<meta property="og:updated_time" content="2018-10-14T14:58:27.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Immutability">
-<meta name="twitter:description" content="An immutable data type is a data type whose instances cannot change in any observable way after instantiation.  比如String是immutable, Array是mutable.">
+<meta name="twitter:description" content="An immutable data type is a data type whose instances cannot change in any observable way after instantiation.  比如String是immutable, Array是mutable. Immutable 的类型: String, Integer, Double, Color, Vecto">
 
 
 
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  230
+                  387
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  1 min
+                  2 min
                 </span>
               
             </div>
@@ -420,21 +420,30 @@
         <blockquote>
 <p>An immutable data type is a data type whose instances cannot change in any observable way after instantiation.</p>
 </blockquote>
-<p>比如<code>String</code>是immutable, <code>Array</code>是mutable.<br><a id="more"></a><br>防止变量在第一次赋值后被更改</p>
+<p>比如<code>String</code>是immutable, <code>Array</code>是mutable.</p>
+<p>Immutable 的类型: String, Integer, Double, Color, Vector, Transaction, Point2D.<br>Mutable: StringBuilder, Stack, Counter, Java array.<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Vector</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> N;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">double</span>[] data;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">(<span class="keyword">double</span>[] data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.N = data.length;</span><br><span class="line">        <span class="keyword">this</span>.data = <span class="keyword">new</span> <span class="keyword">double</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="comment">// defensive copy of mutable instance variables</span></span><br><span class="line">            <span class="keyword">this</span>.data[i] = data[i];</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如何防止变量在第一次赋值后被更改：</p>
 <ul>
 <li>可以使用<code>final</code>: 在 class constructor 里面, 或者变量初始化时, 给变量赋值一次, 之后就无法再被赋值了.</li>
 <li>要保证immutable不一定要使用<code>final</code>, 有时候也可以用<code>private</code>.</li>
 </ul>
-<p>Immutable data types 因为属性不能改变, 缺点是需要创建一个新对象才能更改属性，优点是：</p>
+<p>Immutable data types 因为属性不能改变, 优点是：</p>
 <ul>
 <li>可以防止bugs, 并使debugging更容易</li>
 <li>可以信赖对象具有某种行为/特质</li>
+<li>更安全（出现攻击性代码时）</li>
+<li>简化并发</li>
+<li>可以放心地用作优先队列和符号表的键</li>
 </ul>
+<p>缺点是需要更改属性，复制等操作时，需要给每个数据类型创建一个新对象</p>
 <p>注意：</p>
 <ul>
 <li>将一个引用声明为<code>final</code>并不会保证引用指向的对象是immutable. <code>public final ArrayDeque&lt;String&gt;() deque = new ArrayDeque&lt;String&gt;();</code>变量<code>deque</code>是<code>final</code>的, 仅意味着不能重新被赋值, 但其指向的数组队列对象自身还是可变的.</li>
 <li>使用<code>Reflection API</code>，甚至可能对<code>private</code>变量进行更改</li>
 </ul>
+<blockquote>
+<p>Classes should be immutable unless there’s a very good reason to make them mutable….  If a class cannot be made immutable, you should still limit its mutability as much as possible.<br>– Effective Java, by Joshua Bloch</p>
+</blockquote>
 
       
     </div>
@@ -477,8 +486,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/data-structures-efficient-programming/" rel="prev" title="Efficient Programming in Java - A preview of Algorithms and Data Structures">
-                Efficient Programming in Java - A preview of Algorithms and Data Structures <i class="fa fa-chevron-right"></i>
+              <a href="/java-adt/" rel="prev" title="Java 抽象数据类型">
+                Java 抽象数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +576,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

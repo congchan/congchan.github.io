@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="Abstract Data Types (ADTS)ArrayDeque和LinkedListDeque都是实现deque这个接口，deque只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由ArrayDeque和LinkedListDeque完成。从概念上讲，deque就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的">
+<meta name="description" content="Abstract Data Types (ADTS)ADTS 是由其行为属性定义的抽象类型, 跟如何实现无关. 堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:push(): 加入peek(): 返回下一个poll(): 返回下一个并删除 Java的Deque(double e">
 <meta name="keywords" content="Java,Software Engineer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 抽象数据类型">
 <meta property="og:url" content="http://shukebeta.me/java-adt/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Abstract Data Types (ADTS)ArrayDeque和LinkedListDeque都是实现deque这个接口，deque只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由ArrayDeque和LinkedListDeque完成。从概念上讲，deque就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的">
+<meta property="og:description" content="Abstract Data Types (ADTS)ADTS 是由其行为属性定义的抽象类型, 跟如何实现无关. 堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:push(): 加入peek(): 返回下一个poll(): 返回下一个并删除 Java的Deque(double e">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/collection_hierarchy.png">
-<meta property="og:updated_time" content="2018-10-14T13:09:23.866Z">
+<meta property="og:updated_time" content="2018-10-14T14:49:48.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 抽象数据类型">
-<meta name="twitter:description" content="Abstract Data Types (ADTS)ArrayDeque和LinkedListDeque都是实现deque这个接口，deque只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由ArrayDeque和LinkedListDeque完成。从概念上讲，deque就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的">
+<meta name="twitter:description" content="Abstract Data Types (ADTS)ADTS 是由其行为属性定义的抽象类型, 跟如何实现无关. 堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:push(): 加入peek(): 返回下一个poll(): 返回下一个并删除 Java的Deque(double e">
 <meta name="twitter:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/collection_hierarchy.png">
 
 
@@ -382,7 +382,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  797
+                  1,159
                 </span>
               
 
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  4 min
+                  5 min
                 </span>
               
             </div>
@@ -419,7 +419,32 @@
       
 
       
-        <h2 id="Abstract-Data-Types-ADTS"><a href="#Abstract-Data-Types-ADTS" class="headerlink" title="Abstract Data Types (ADTS)"></a>Abstract Data Types (ADTS)</h2><p><code>ArrayDeque</code>和<code>LinkedListDeque</code>都是实现<code>deque</code>这个接口，<code>deque</code>只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由<code>ArrayDeque</code>和<code>LinkedListDeque</code>完成。从概念上讲，<code>deque</code>就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的。<br><a id="more"></a></p>
+        <h2 id="Abstract-Data-Types-ADTS"><a href="#Abstract-Data-Types-ADTS" class="headerlink" title="Abstract Data Types (ADTS)"></a>Abstract Data Types (ADTS)</h2><p>ADTS 是由其行为属性定义的抽象类型, 跟如何实现无关.</p>
+<p>堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:<br><code>push()</code>: 加入<br><code>peek()</code>: 返回下一个<br><code>poll()</code>: 返回下一个并删除</p>
+<p>Java的<code>Deque</code>(double ended queue, “deck”) 接口融合了堆栈和队列, 支持两端的元素插入和移除. <code>ArrayDeque</code>和<code>LinkedListDeque</code>都是实现<code>deque</code>这个接口，<code>deque</code>只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由<code>ArrayDeque</code>和<code>LinkedListDeque</code>完成。从概念上讲，<code>deque</code>就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的。</p>
+<p>优先级队列 priority queue 的每个元素都有一个与之关联的优先级，以决定从队列中元素操作的顺序。<br><a id="more"></a></p>
+<p>三种方式实现<code>Stack</code>的<code>push(Item x)</code>:</p>
+<ol>
+<li><p>继承模式：<code>extends LinkedList&lt;Item&gt;</code>以使用其方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtensionStack</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">extends</span> <span class="title">LinkedList</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">        add(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>委托模式<strong>Delegation</strong>， 生成<code>Linked List</code>并调用其方法来达到目的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DelegationStack</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Item&gt; L = <span class="keyword">new</span> LinkedList&lt;Item&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">        L.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类似委托模式, 只是这里可以利用任何实现了<code>List</code>接口的类, 如<code>Linked List, ArrayList</code>, 等等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackAdapter</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List L;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StackAdapter</span><span class="params">(List&lt;Item&gt; worker)</span> </span>&#123;</span><br><span class="line">        L = worker;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">        L.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了解认知下才会使用。此外，扩展基本上等于在说明正在扩展的类与被扩展类是相似的。如果两个类无法看做是同属的, 那么就用委托模式。</p>
+<p>Views: 通过视图进行的更改会影响底层对象。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Create an ArrayList. */</span></span><br><span class="line">List&lt;String&gt; L = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="comment">/** Add some items. */</span></span><br><span class="line">L.add(“at”); L.add(“ax”); …</span><br><span class="line">List&lt;String&gt; SL = l.subList(<span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line"><span class="comment">/** Mutate that thing. */</span></span><br><span class="line">SL.set(<span class="number">0</span>, “jug”);</span><br></pre></td></tr></table></figure></p>
+<h3 id="API’s"><a href="#API’s" class="headerlink" title="API’s"></a>API’s</h3><blockquote>
+<p>An API(Application Programming Interface) of an ADT is the list of constructors and methods and a short description of each.</p>
+</blockquote>
+<p>API 包括语法规范和语义规范</p>
+<ul>
+<li>编译器确认语法符合要求</li>
+<li>测试以帮助确认语义描述是否正确</li>
+</ul>
 <h3 id="Java-Libraries"><a href="#Java-Libraries" class="headerlink" title="Java Libraries"></a>Java Libraries</h3><p>Java有一些内置的抽象数据类型，打包在Java库中。 三个最重要的ADTs来自<code>java.util</code>库：</p>
 <ul>
 <li>List 列表：一个有序的元素集合，如<code>ArrayList</code></li>
@@ -436,9 +461,6 @@
 </ul>
 <p>IntelliJ会忽略<code>CLASSPATH</code>，它会自动调用<code>-cp</code>, 变量是基于当前项目指定的 libraries.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 查看 IntelliJ 使用的 classpath*/</span></span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.net.URLClassLoader;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ClassLoader cl = ClassLoader.getSystemClassLoader();</span><br><span class="line"></span><br><span class="line">    URL[] urls = ((URLClassLoader)cl).getURLs();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(URL url: urls)&#123;</span><br><span class="line">        System.out.println(url.getFile());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Build Systems：可以简单地将文件放入适当的位置，然后通过 Maven, Ant 和 Gradle 等工具使用 Build Systems 来自动设置项目, 省去了手动加载一长串 libraries.</p>
-<h3 id="其他ADT"><a href="#其他ADT" class="headerlink" title="其他ADT"></a>其他ADT</h3><p>堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:<br><code>push()</code>: 加入<br><code>peek()</code>: 返回下一个<br><code>poll()</code>: 返回下一个并删除</p>
-<p>Java的<code>Deque</code>(double ended queue, “deck”) 接口融合了堆栈和队列, 支持两端的元素插入和移除.</p>
-<p>优先级队列 priority queue 的每个元素都有一个与之关联的优先级，以决定从队列中元素操作的顺序。</p>
 
       
     </div>
@@ -471,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-abstract-class/" rel="next" title="Java 抽象类">
-                <i class="fa fa-chevron-left"></i> Java 抽象类
+              <a href="/java-immutability/" rel="next" title="Java Immutability">
+                <i class="fa fa-chevron-left"></i> Java Immutability
               </a>
             
           </div>
@@ -481,8 +503,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-compare/" rel="prev" title="Java 比较对象大小">
-                Java 比较对象大小 <i class="fa fa-chevron-right"></i>
+              <a href="/java-iteration/" rel="prev" title="Java 迭代 Iteration">
+                Java 迭代 Iteration <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,7 +602,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -651,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract-Data-Types-ADTS"><span class="nav-number">1.</span> <span class="nav-text">Abstract Data Types (ADTS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Libraries"><span class="nav-number">1.1.</span> <span class="nav-text">Java Libraries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他ADT"><span class="nav-number">1.2.</span> <span class="nav-text">其他ADT</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract-Data-Types-ADTS"><span class="nav-number">1.</span> <span class="nav-text">Abstract Data Types (ADTS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#API’s"><span class="nav-number">1.1.</span> <span class="nav-text">API’s</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Libraries"><span class="nav-number">1.2.</span> <span class="nav-text">Java Libraries</span></a></li></ol></li></ol></div>
             
 
           </div>

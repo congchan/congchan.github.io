@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/algorithms-03-memory/</loc>
+    <lastmod>2018-10-14T15:00:43.652Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/algorithms-01-asymptotic-analysis/</loc>
+    <lastmod>2018-10-14T14:59:32.452Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/algorithms-02-amortized-analysis/</loc>
+    <lastmod>2018-10-14T14:59:09.000Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-immutability/</loc>
+    <lastmod>2018-10-14T14:58:27.882Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-adt/</loc>
+    <lastmod>2018-10-14T14:49:48.529Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-encapsulation-packages-jar-access/</loc>
+    <lastmod>2018-10-14T14:43:27.466Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/java-extends-class/</loc>
     <lastmod>2018-10-14T13:23:56.744Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-iteration/</loc>
     <lastmod>2018-10-14T13:22:32.714Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/java-encapsulation-packages-jar-access/</loc>
-    <lastmod>2018-10-14T13:20:33.610Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/java-exception/</loc>
     <lastmod>2018-10-14T13:17:33.298Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-immutability/</loc>
-    <lastmod>2018-10-14T13:16:00.224Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-generics/</loc>
     <lastmod>2018-10-14T13:13:28.559Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-abstract-class/</loc>
     <lastmod>2018-10-14T13:11:45.456Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-adt/</loc>
-    <lastmod>2018-10-14T13:09:23.866Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-compare/</loc>
     <lastmod>2018-10-14T12:57:12.739Z</lastmod>
@@ -114,9 +123,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/bits-operations-01/</loc>
     <lastmod>2018-10-07T03:55:46.079Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/data-structures-efficient-programming/</loc>
-    <lastmod>2018-10-06T03:39:43.133Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/bits-operations-04/</loc>
     <lastmod>2018-09-30T09:25:49.173Z</lastmod>
