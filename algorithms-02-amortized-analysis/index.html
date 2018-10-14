@@ -95,12 +95,10 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="假如有两种交税方式：  每天付 3 金币 每次付的金币呈指数级增长，但通知付款频率呈指数级下降 第1天：付 1 第2天：付 2 (累计 3) 第4天：付 4 (累积 7) 第8天：付 8 (累积 15)    哪种付的钱比较少？第二种比较划算，本质上等同于每天付 2，就是amortized constant。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://shukebeta.me/images/string_memory.png">
-<meta property="og:updated_time" content="2018-10-14T14:59:09.000Z">
+<meta property="og:updated_time" content="2018-10-14T15:26:12.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms 02 - Amortized Analysis 平摊分析">
 <meta name="twitter:description" content="假如有两种交税方式：  每天付 3 金币 每次付的金币呈指数级增长，但通知付款频率呈指数级下降 第1天：付 1 第2天：付 2 (累计 3) 第4天：付 4 (累积 7) 第8天：付 8 (累积 15)    哪种付的钱比较少？第二种比较划算，本质上等同于每天付 2，就是amortized constant。">
-<meta name="twitter:image" content="http://shukebeta.me/images/string_memory.png">
 
 
 
@@ -382,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  372
+                  251
                 </span>
               
 
@@ -398,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  2 min
+                  1 min
                 </span>
               
             </div>
@@ -444,10 +442,6 @@
 <li>If we chose $a_i$ such that $\Phi_i$ is never negative and $a_i$ is constant for all $i$, then the amortized cost is an upper bound on the true cost.<br>– from: <a href="https://joshhug.gitbooks.io/" target="_blank" rel="noopener">https://joshhug.gitbooks.io/</a></li>
 </ul>
 </blockquote>
-<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><p>Bit. 0 or 1.<br>Byte. 8 bits.<br>Megabyte (MB). 1 million or $2^20$ bytes.<br>Gigabyte (GB). 1 billion or $2^30$ bytes.<br>64-bit machine. We assume a 64-bit machine with 8 byte pointers (References).<br>・Can address more memory.<br>・Pointers use more space (some JVMs “compress” ordinary object pointers to 4 bytes to avoid this cost).</p>
-<h3 id="Typical-memory-usage-for-primitive-types-and-arrays"><a href="#Typical-memory-usage-for-primitive-types-and-arrays" class="headerlink" title="Typical memory usage for primitive types and arrays"></a>Typical memory usage for primitive types and arrays</h3><p>primitive types (bytes):<br><code>boolean</code> 1<br><code>byte</code> 1<br><code>char</code> 2<br><code>int</code> 4<br><code>float</code> 4<br><code>long</code> 8<br><code>double</code> 8</p>
-<p>for one-dimensional arrays (bytes):<br><code>char[]</code> 2N + 24<br><code>int[]</code> 4N + 24<br><code>double[]</code> 8N + 24</p>
-<h3 id="Typical-memory-usage-for-objects-in-Java"><a href="#Typical-memory-usage-for-objects-in-Java" class="headerlink" title="Typical memory usage for objects in Java"></a>Typical memory usage for objects in Java</h3><p>Object overhead. 16 bytes.<br>Reference. 8 bytes.<br>Padding. Each object uses a multiple of 8 bytes.<br><img src="/images/string_memory.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part1/"></p>
 
       
     </div>
@@ -564,17 +558,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -654,22 +639,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory"><span class="nav-number">1.</span> <span class="nav-text">Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-primitive-types-and-arrays"><span class="nav-number">1.1.</span> <span class="nav-text">Typical memory usage for primitive types and arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typical-memory-usage-for-objects-in-Java"><span class="nav-number">1.2.</span> <span class="nav-text">Typical memory usage for objects in Java</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
