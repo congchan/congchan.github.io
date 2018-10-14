@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/</loc>
+    
+    <lastmod>2018-10-14T10:16:13.127Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-13-Implementation-Inheritance/</loc>
+    
+    <lastmod>2018-10-14T08:54:16.574Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-12-Interface-Inheritance/</loc>
+    
+    <lastmod>2018-10-14T08:52:44.862Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/algorithm-paradigm-02-dynamic-programming-02/</loc>
     
     <lastmod>2018-10-12T14:53:49.962Z</lastmod>
@@ -275,13 +296,6 @@
   </url>
   
   <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-java-other-syntaxes/</loc>
-    
-    <lastmod>2018-07-29T19:27:02.647Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-03-java-code-style-comments/</loc>
     
     <lastmod>2018-07-29T17:17:21.409Z</lastmod>
@@ -362,20 +376,6 @@
     <loc>http://shukebeta.me/NOTE-data-structures-CS61B-11-testing/</loc>
     
     <lastmod>2018-06-29T19:35:04.889Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-12-Interface-Inheritance/</loc>
-    
-    <lastmod>2018-06-29T19:35:00.697Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NOTE-data-structures-CS61B-13-Implementation-Inheritance/</loc>
-    
-    <lastmod>2018-06-29T19:34:55.434Z</lastmod>
     
   </url>
   

@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="我们前面创建的 LinkedList and ArrayList 其实很相似 - 所有的method都一样. 如果我们需要写一个需要用到 list 的类比如WordUtils class, 我们如何让它既可以使用LinkedList又可以用ArrayList？">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T19:35:00.697Z">
+<meta property="og:updated_time" content="2018-10-14T08:52:44.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 12 接口继承 Interface Inheritance - CS61B Berkeley - Josh Hug">
 <meta name="twitter:description" content="我们前面创建的 LinkedList and ArrayList 其实很相似 - 所有的method都一样. 如果我们需要写一个需要用到 list 的类比如WordUtils class, 我们如何让它既可以使用LinkedList又可以用ArrayList？">
@@ -304,7 +304,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-23T08:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-23T00:00:00+08:00">
                 2018-02-23
               </time>
             
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,016
+                  1,018
                 </span>
               
 
@@ -443,7 +443,7 @@
 </blockquote>
 <p>在子类中实现合约指定的功能时，需要在method的signature顶部包含<code>@Override</code>标签。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>但即使不包含这个<code>@Override</code>，我们仍然override了这个方法。所以从技术上来说，<code>@Override</code>并不是必须的。但是，它可以作为一个保障, 提醒编译器我们打算override此方法, 如果过程中出现问题, 编译器可以提醒。假设当我们想 override <code>addLast</code>，却不小心写成<code>addLsat</code>。此时如果不包含<code>@Override</code>，那么可能无法发现错误。如果有了<code>@Override</code>，编译器就会提示我们修复错误。</p>
-<h3 id="总结：Interface-Inheritance"><a href="#总结：Interface-Inheritance" class="headerlink" title="总结：Interface Inheritance"></a>总结：Interface Inheritance</h3><p>接口继承是指subclass继承superclass的所有方法/行为的关系：</p>
+<h3 id="总结接口继承"><a href="#总结接口继承" class="headerlink" title="总结接口继承"></a>总结接口继承</h3><p>接口继承是指subclass继承superclass的所有方法/行为的关系：</p>
 <ul>
 <li>子类继承父类</li>
 <li>Interfaces 接口列出所有方法的签名，就像‘合约’，但没有具体的实现</li>
@@ -668,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#上位词，下义词和接口继承"><span class="nav-number">1.</span> <span class="nav-text">上位词，下义词和接口继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overriding"><span class="nav-number">2.</span> <span class="nav-text">Overriding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结：Interface-Inheritance"><span class="nav-number">3.</span> <span class="nav-text">总结：Interface Inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GRoE"><span class="nav-number">4.</span> <span class="nav-text">GRoE</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#上位词，下义词和接口继承"><span class="nav-number">1.</span> <span class="nav-text">上位词，下义词和接口继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overriding"><span class="nav-number">2.</span> <span class="nav-text">Overriding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结接口继承"><span class="nav-number">3.</span> <span class="nav-text">总结接口继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GRoE"><span class="nav-number">4.</span> <span class="nav-text">GRoE</span></a></li></ol></div>
             
 
           </div>

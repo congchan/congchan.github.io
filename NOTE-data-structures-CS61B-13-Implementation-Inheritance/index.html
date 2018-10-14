@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Implementation Inheritance除了signature之外，Java也允许subclass继承具体的实现方法。实现继承是subclass从superclass继承实现的关系。">
+<meta name="description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
 <meta name="keywords" content="Java,Software Engineer,cs61b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug">
 <meta property="og:url" content="http://shukebeta.me/NOTE-data-structures-CS61B-13-Implementation-Inheritance/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Implementation Inheritance除了signature之外，Java也允许subclass继承具体的实现方法。实现继承是subclass从superclass继承实现的关系。">
+<meta property="og:description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T19:34:55.434Z">
+<meta property="og:updated_time" content="2018-10-14T08:54:16.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构 - Java | 13 实现继承 Implementation Inheritance - CS61B Berkeley - Josh Hug">
-<meta name="twitter:description" content="Implementation Inheritance除了signature之外，Java也允许subclass继承具体的实现方法。实现继承是subclass从superclass继承实现的关系。">
+<meta name="twitter:description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
 
 
 
@@ -304,7 +304,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T08:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T00:00:00+08:00">
                 2018-02-24
               </time>
             
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  821
+                  809
                 </span>
               
 
@@ -417,7 +417,7 @@
       
 
       
-        <h2 id="Implementation-Inheritance"><a href="#Implementation-Inheritance" class="headerlink" title="Implementation Inheritance"></a>Implementation Inheritance</h2><p>除了signature之外，Java也允许subclass继承具体的实现方法。实现继承是subclass从superclass继承实现的关系。<br><a id="more"></a></p>
+        <h2 id="实现继承"><a href="#实现继承" class="headerlink" title="实现继承"></a>实现继承</h2><p>除了signature之外，Java也允许subclass继承具体的实现方法。<br><a id="more"></a></p>
 <h3 id="缺省方法"><a href="#缺省方法" class="headerlink" title="缺省方法"></a>缺省方法</h3><p>从 Java 8开始支持 Default method。</p>
 <p>我们可以在List中列出已实现的method。这些方法就是 default method，定义了List hypernyms的一些默认行为：<code>default public void method() { ... }</code>.</p>
 <p>我们可以自由调用interface中定义的方法，而不用操心具体的实现。Default method 适用于实现接口的任何类型的对象！子类可以直接调用，而不必重新实现 default method。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List</span></span><br><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -435,8 +435,8 @@
 <p>当Java运行一个被overriden的方法时，会根据该实例的dynamic type 匹配对应的 method。</p>
 <p>注意，如果是overload:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(LinkedList&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>对于上面的实例化的<code>l</code>, 当Java检查要调用哪个方法时，它会检查 static type (此时是List)并使用相同类型的参数调用该方法，也就是使用List作为签名的那个方法。</p>
-<h3 id="区别-Interface-Inheritance-与-Implementation-Inheritance"><a href="#区别-Interface-Inheritance-与-Implementation-Inheritance" class="headerlink" title="区别 Interface Inheritance 与 Implementation Inheritance"></a>区别 Interface Inheritance 与 Implementation Inheritance</h3><p>Interface Inheritance 接口继承（what）：指定 subclass 应该实现的功能，即只提供 method signature。</p>
-<p>Implementation Inheritance 实现继承（how）：提供功能的实现方案，即提供 method implementation。允许代码再利用，也给subclass设计者提供了更多的自由度，由他们自行决定是否override default method。</p>
+<h3 id="区别接口继承与实现基础"><a href="#区别接口继承与实现基础" class="headerlink" title="区别接口继承与实现基础"></a>区别接口继承与实现基础</h3><p>接口继承（what）：指定 subclass 应该实现的功能，即只提供 method signature。</p>
+<p>实现继承（how）：提供功能的实现方案，即提供 method implementation。允许代码再利用，也给subclass设计者提供了更多的自由度，由他们自行决定是否override default method。</p>
 <p>Implementation inheritance 也有一些缺点：</p>
 <ul>
 <li>人会犯错。我们有可能忘了自己曾经override过一个方法。</li>
@@ -662,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation-Inheritance"><span class="nav-number">1.</span> <span class="nav-text">Implementation Inheritance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺省方法"><span class="nav-number">1.1.</span> <span class="nav-text">缺省方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-type"><span class="nav-number">1.2.</span> <span class="nav-text">Dynamic type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别-Interface-Inheritance-与-Implementation-Inheritance"><span class="nav-number">1.3.</span> <span class="nav-text">区别 Interface Inheritance 与 Implementation Inheritance</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现继承"><span class="nav-number">1.</span> <span class="nav-text">实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺省方法"><span class="nav-number">1.1.</span> <span class="nav-text">缺省方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-type"><span class="nav-number">1.2.</span> <span class="nav-text">Dynamic type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别接口继承与实现基础"><span class="nav-number">1.3.</span> <span class="nav-text">区别接口继承与实现基础</span></a></li></ol></li></ol></div>
             
 
           </div>
