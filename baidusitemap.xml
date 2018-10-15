@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/NLP-attention-03-self-attention/</loc>
+    <lastmod>2018-10-15T03:16:30.520Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/NLP-attention-02-lstm-reading-comprehension/</loc>
+    <lastmod>2018-10-15T01:58:35.352Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-09-data-compression-huffman-compression/</loc>
     <lastmod>2018-10-14T15:45:57.724Z</lastmod>
   </url>  <url>
@@ -154,9 +160,6 @@
     <loc>http://shukebeta.me/UoE-anlp/</loc>
     <lastmod>2018-09-09T08:48:03.283Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/SQuAD/</loc>
-    <lastmod>2018-09-09T08:47:55.233Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/ANLP-01-probability-model/</loc>
     <lastmod>2018-09-09T08:47:12.414Z</lastmod>
   </url>  <url>
@@ -166,7 +169,7 @@
     <loc>http://shukebeta.me/machine-learning/</loc>
     <lastmod>2018-09-09T08:46:46.311Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/attention/</loc>
+    <loc>http://shukebeta.me/NLP-attention-01/</loc>
     <lastmod>2018-09-09T08:46:24.210Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/machine-learning-with-sklearn/</loc>

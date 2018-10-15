@@ -271,6 +271,223 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/Launch-editor-in-Gitbash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Launch-editor-in-Gitbash/" itemprop="url">Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T08:00:00+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Productivity/" itemprop="url" rel="index">
+                    <span itemprop="name">Productivity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Launch-editor-in-Gitbash/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="Launch-editor-in-Gitbash/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/Launch-editor-in-Gitbash/" class="leancloud_visitors" data-flag-title="Git Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,107
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  4 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>程序员或者其他需要码字多的人，经常要使用编辑器如sublime、atom 和 Typora等。如果每次都要用鼠标点击才能用sublime打开文件，或者在编辑器中新建文件，那么就会有点麻烦！但你可以用一句命令解决！</p>
+<p>配置在Git Bash中用各种文本编辑器打开文件或者直接新建文件。这里以atom为例。</p>
+<h2 id="常规步骤"><a href="#常规步骤" class="headerlink" title="常规步骤"></a>常规步骤</h2><ol>
+<li>打开Git Bash并<code>cd</code>到你的目标文件夹, 或者直接在目标文件中右键打开Git Bash.</li>
+<li><code>atom xxx.md</code> 就会在弹出的atom窗口中打开名为<code>xxx.md</code>的markdown文件, 如果没有这个文件, 会自动创建一个.</li>
+<li>适用于其他类型文件, 如<code>.java</code>等.</li>
+<li>如果想用sublime, 可以用<code>subl xxx.java</code>, 同理notepad++ 可以用 <code>notepad++ xxx.java</code>等。 (若出现错误,看下面)</li>
+</ol>
+<h2 id="若系统无法识别命令"><a href="#若系统无法识别命令" class="headerlink" title="若系统无法识别命令"></a>若系统无法识别命令</h2><p>一般使用sublime或者notepad++的用户, 可能会出现<code>error: 系统无法识别命令...</code>之类的, 可以这么解决:</p>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>新建一个文件命名为<code>subl</code>（注意不能有后缀名），内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">&quot;D:\Sublime Text 3\sublime_text.exe&quot; $1 &amp;</span><br></pre></td></tr></table></figure></p>
+<p>第一行指明这是个 shell 脚本.<br>第二行的字符串是sublime的安装目录, 示例只是我电脑的目录, 注意这里要改为你自己的目录,<br>第二行的$1 是取的命令之后输入的参数<br>第二行的&amp;是此命令在后台打开，这样sublime打开之后，就不会阻塞你的git bash</p>
+<p>文件保存到 <code>C:\Program Files (x86)\Git\mingW32\bin</code> 目录下(你的git目录可能与我的不一样，注意改成你自己的)</p>
+<p>同理适用于其他编辑器，比如用<code>chrome</code>打开<code>.html</code>文件等。如果不想每次都新建一个文件，可以用下面的方法2。</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><ol>
+<li>找到 <code>C:\Users\你的计算机名</code>目录，如果你的计算机名是Administrator，那么你就要去<code>C:\Users\Administrator</code>目录下, 这里一般存放着windows系统的<code>我的文档, 桌面</code>等文件夹.</li>
+<li>在该目录下用Git Bash输入<code>notepad .bashrc</code>, 这会用windows记事本新建并打开一个文件<code>.bashrc</code>，这个文件没有名称只有后缀名。<code>.bashrc</code>里面可以给Git Bash设置命令的别名, 设置路径等。</li>
+<li>在.bashrc文件加入下面一行文本<code>alias notepad++=&quot;/D/Notepad++/notepad++.exe&quot;</code>, 这里你需要修改为你电脑的安装路径。<code>alias</code>就是别名的意思，当我们执行<code>notepad++</code>的时候，实际执行的是<code>=</code>后面的语句.</li>
+<li>重新打开Git Bash, 设置才能生效，如果不想关掉在打开的话，可以直接在bash下输入<code>source ~/.bashrc</code>就可以立刻加载修改后的设置，设置立即生效。<br>现在在bash下输入<code>notepad++ test.py</code>, 就直接打开了notepad++并创建了这个叫test的Python文件。这里的别名不一定非要取<code>notepad++</code>，随你想叫什么都行。</li>
+</ol>
+<p>同理也可以扩展到别的文本编辑器，<code>alias atom=&quot;atom的路径&quot;</code>, <code>alias sublime=&quot;sublime的路径&quot;</code>等. 最后还要注意一点，上面所说的路径最好不要有空格，括号等，否则会造成命令无效.</p>
+<p><code>.bashrc</code>还有很多有用的配置,可以根据需要进行扩展. 比如很多程序猿会选择修改删除命令<code>rm</code>(此命令不加任何参数的话，会直接删除文件, 可能会造成误删的后果)。这个时候可以给rm加个参数-i，意为在删除的时候给出提示。在文件<code>.bashrc</code>里添加这行代码<code>alias rm=&quot;rm -i&quot;</code>。但这里不建议这么做，因为<code>rm=&quot;rm -i&quot;</code>是一个定时炸弹，在使用它之后，习惯了之后, 你会本能地期望<code>rm</code>在删除文件之前会提示你。但是，总有一天你可能会用一个没有rm alias 别名的系统, 这时若你也直接随手一甩<code>rm</code>, 本以为会有提示, 结果发现数据真的被删除了。</p>
+<p>在任何情况下，预防文件丢失或损坏的好方法就是进行备份。</p>
+<p>所以如果你想个性化删除命令, 最好不要动<code>rm</code>，而是创建属于你的命令，比如<code>trash, myrm, delete</code>等, 用<code>alias trash=&#39;/bin/rm -irv&#39;</code>会创建一条把文件放入垃圾回收站的命令.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-07-data-structures-array-based-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2109,214 +2326,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/machine-learning-with-sklearn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/machine-learning-with-sklearn/" itemprop="url">Machine Learning with Scikit-learn (Sklearn) 机器学习实践</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">
-                2017-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/machine-learning-with-sklearn/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="machine-learning-with-sklearn/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/machine-learning-with-sklearn/" class="leancloud_visitors" data-flag-title="Machine Learning with Scikit-learn (Sklearn) 机器学习实践">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  126
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Scikit-learn 提供一套实用的工具，用于解决机器学习中的实际问题，并配合适当的方法来制定解决方案。</p>
-<p>涉及数据和模型简介，决策树，误差的作用，最小化误差，回归拟合，逻辑回归，神经网络，感知器，支持向量机，朴素贝叶斯，降维，K均值，简单高斯混合模型，分层聚类，模型评估。</p>
-<p>实验和代码在<a href="https://github.com/JamesOwers/iaml2017" target="_blank" rel="noopener">GitHub</a>;<br>练习作业答案可以参考<a href="https://github.com/ShootingSpace/Machine-learning-practical-with-scikit-learn" target="_blank" rel="noopener">GitHub</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2371,7 +2380,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
