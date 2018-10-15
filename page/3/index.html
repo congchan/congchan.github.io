@@ -1040,9 +1040,7 @@
 
       
         
-          <p>The Standford question and answer dataset <a href="https://rajpurkar.github.io/SQuAD-explorer/" target="_blank" rel="noopener">(SQuAD)</a> 是由 Rajpurkar 等人提出的一个较有挑战性的阅读理解数据集。该数据集包含 10 万个（问题，原文，答案）三元组，原文来自于 536 篇维基百科文章，而问题和答案的构建主要是通过众包的方式，让标注人员提出最多 5 个基于文章内容的问题并提供正确答案，且答案出现在原文中。SQuAD 和之前的完形填空类阅读理解数据集如 CNN/DM，CBT 等最大的区别在于：SQuAD 中的答案不在是单个实体或单词，而可能是一段短语，这使得其答案更难预测。SQuAD 包含公开的训练集和开发集，以及一个隐藏的测试集，其采用了与 ImageNet 类似的封闭评测的方式，研究人员需提交算法到一个开放平台，并由 SQuAD 官方人员进行测试并公布结果。</p>
-<p>由于 SQuAD 的答案限定于来自原文，模型只需要判断原文中哪些词是答案即可，因此是一种抽取式的 QA 任务而不是生成式任务。简单的 SQuAD 的模型框架可以参考seq2seq：Embed 层，Encode 层 和 Decode 层。Embed 层负责将原文和问题中的 tokens 映射为向量表示；Encode 层主要使用 RNN 来对原文和问题进行编码，这样编码后每个 token 的向量表示就蕴含了上下文的语义信息；Decode 层则基于 query-aware 的原文表示来预测答案起始位置。</p>
-<p>但这个文本数据集涉及问题，原文，答案三个部分, 特别是需要根据问题在原文中搜寻答案的范围, 这就涉及如果把问题的信息提取出来并作用于原文. 目前各种前沿模型的关注点几乎都是在如何捕捉问题和原文之间的交互关系，也就是在 Encode 层和 Decode 层之间, 使用一个 Interaction 层处理编码了问题语义信息的原文表示，即 query-aware 的原文表示，再输入给 Decode 层。而本来应用机器翻译Attention机制就能很好的处理这种交互。<br>
+          <p>The Standford question and answer dataset <a href="https://rajpurkar.github.io/SQuAD-explorer/" target="_blank" rel="noopener">(SQuAD)</a> 是由 Rajpurkar 等人提出的一个较有挑战性的阅读理解数据集。该数据集包含 10 万个（问题，原文，答案）三元组，原文来自于 536 篇维基百科文章，而问题和答案的构建主要是通过众包的方式，让标注人员提出最多 5 个基于文章内容的问题并提供正确答案，且答案出现在原文中。SQuAD 和之前的完形填空类阅读理解数据集如 CNN/DM，CBT 等最大的区别在于：SQuAD 中的答案不在是单个实体或单词，而可能是一段短语，这使得其答案更难预测。SQuAD 包含公开的训练集和开发集，以及一个隐藏的测试集，其采用了与 ImageNet 类似的封闭评测的方式，研究人员需提交算法到一个开放平台，并由 SQuAD 官方人员进行测试并公布结果。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NLP-attention-02-lstm-reading-comprehension/#more" rel="contents">
