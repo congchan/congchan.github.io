@@ -87,20 +87,18 @@
 
 
 
-<meta name="description" content="不能使用+和-, 仅通过^和&amp;amp;操作来求和两个整数a.">
+<meta name="description" content="“找出只出现一次的数”， “找出唯二的只出现M次的数”， “找出缺失的数”等等，都可以利用异或操作的特性， 即一个整数和自己进行异或运算会归0的性质。 找出唯一一个仅出现M次的数在一个非空整数数组，找出那个只出现了一次的元素，已知其余每个元素均出现两次。">
 <meta name="keywords" content="Software Engineer,Algorithms,Computer Science">
 <meta property="og:type" content="article">
-<meta property="og:title" content="位操作 - 不使用加减符号求和整数">
+<meta property="og:title" content="位操作 - 找出只出现一次的数 - 及类似问题">
 <meta property="og:url" content="http://shukebeta.me/bits-operations-04/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="不能使用+和-, 仅通过^和&amp;amp;操作来求和两个整数a.">
+<meta property="og:description" content="“找出只出现一次的数”， “找出唯二的只出现M次的数”， “找出缺失的数”等等，都可以利用异或操作的特性， 即一个整数和自己进行异或运算会归0的性质。 找出唯一一个仅出现M次的数在一个非空整数数组，找出那个只出现了一次的元素，已知其余每个元素均出现两次。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://shukebeta.me/images/full_adder.png">
-<meta property="og:updated_time" content="2018-09-30T09:25:49.173Z">
+<meta property="og:updated_time" content="2018-10-16T10:30:09.411Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="位操作 - 不使用加减符号求和整数">
-<meta name="twitter:description" content="不能使用+和-, 仅通过^和&amp;amp;操作来求和两个整数a.">
-<meta name="twitter:image" content="http://shukebeta.me/images/full_adder.png">
+<meta name="twitter:title" content="位操作 - 找出只出现一次的数 - 及类似问题">
+<meta name="twitter:description" content="“找出只出现一次的数”， “找出唯二的只出现M次的数”， “找出缺失的数”等等，都可以利用异或操作的特性， 即一个整数和自己进行异或运算会归0的性质。 找出唯一一个仅出现M次的数在一个非空整数数组，找出那个只出现了一次的元素，已知其余每个元素均出现两次。">
 
 
 
@@ -136,7 +134,7 @@
 
 
 
-  <title>位操作 - 不使用加减符号求和整数 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>位操作 - 找出只出现一次的数 - 及类似问题 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -294,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">位操作 - 不使用加减符号求和整数</h1>
+          <h1 class="post-title" itemprop="name headline">位操作 - 找出只出现一次的数 - 及类似问题</h1>
         
 
         <div class="post-meta">
@@ -306,8 +304,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-23T00:00:00+08:00">
-                2018-09-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-24T00:00:00+08:00">
+                2018-09-24
               </time>
             
 
@@ -357,7 +355,7 @@
 
           
           
-             <span id="/bits-operations-04/" class="leancloud_visitors" data-flag-title="位操作 - 不使用加减符号求和整数">
+             <span id="/bits-operations-04/" class="leancloud_visitors" data-flag-title="位操作 - 找出只出现一次的数 - 及类似问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  490
+                  2,269
                 </span>
               
 
@@ -398,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  2 min
+                  10 min
                 </span>
               
             </div>
@@ -419,20 +417,46 @@
       
 
       
-        <p>不能使用<code>+</code>和<code>-</code>, 仅通过<code>^</code>和<code>&amp;</code>操作来求和两个整数<code>a</code>.<br><a id="more"></a><br>参考<a href="https://www.cnblogs.com/kiven-code/archive/2012/09/15/2686922.html" target="_blank" rel="noopener"></a><br>每位相加可能会产生进位(carry), 所以可以把相加拆分为两部分, 如<code>759 + 674</code>可以拆分为不考虑进位的部分<code>323</code>和仅考虑进位的部分<code>1110</code>, 故<code>759 + 674 = 323 + 1110 = 1433</code>.</p>
-<p>二进制的加法也是从低位开始逐步往高位计算:</p>
-<ol>
-<li>进行一位二进制的加法, 也就是暂不考虑进位的位相加: <code>0+0=0， 0+1=1, 1+0=1， 1+1=0</code>, 那么就是<code>^</code>操作. 所得的和作为新的<code>a</code>.</li>
-<li>求进位: 通过<code>a &amp; b</code>判断是否进位, 因为只有两个位均为<code>1</code>才会进位. 所得的进位左移一位作为新的<code>b</code>.</li>
-<li>不断重复这个过程, 把低位的进位传递到高位, 累加到<code>a</code>中, 直到进位为<code>0</code>, 最后得到的<code>a</code>就是答案.</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (b != <span class="number">0</span>) &#123; <span class="comment">// 关键在于判断终止的时机</span></span><br><span class="line">			<span class="keyword">int</span> c = a &amp; b; <span class="comment">//carry</span></span><br><span class="line">			a ^= b; <span class="comment">//add</span></span><br><span class="line">			b = c &lt;&lt; <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>涉及的运算就是一个多位二进制加法真值表：(对应于硬件中的全加器)</p>
-<blockquote>
-<p>全加器（full adder）将两个一位二进制数相加，并根据接收到的低位进位信号，输出和、进位输出。全加器的三个输入信号为两个加数A、B和低位进位Cin。全加器通常可以通过级联（cascade）的方式，构成多位（如8位、16位、32位）二进制数加法器的基本部分。全加器的输出和半加器类似，包括向高位的进位信号Cout和本位的和信号S，相加结果的总和表达为 ${\displaystyle \mathrm {sum} =2\times C_{out}+S}$。</p>
-</blockquote>
-<p><img src="/images/full_adder.png" alt="" title="image from https://en.wikipedia.org/wiki/Adder_(electronics)"><br>规则是<br><code>s = (x ^ y) ^ Cin</code><br><code>Cout = (x &amp; y) | (y &amp; Cin) | (x &amp; Cin)</code></p>
-<p>更简单的版本:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b == <span class="number">0</span> ? a : getSum(a ^ b, (a &amp; b) &lt;&lt; <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>“找出只出现一次的数”， “找出唯二的只出现M次的数”， “找出缺失的数”等等，都可以利用异或操作的特性， 即一个整数和自己进行异或运算会归0的性质。</p>
+<h2 id="找出唯一一个仅出现M次的数"><a href="#找出唯一一个仅出现M次的数" class="headerlink" title="找出唯一一个仅出现M次的数"></a>找出唯一一个仅出现M次的数</h2><p>在一个非空整数数组，找出那个只出现了一次的元素，已知其余每个元素均出现两次。<br><a id="more"></a><br>要达到O(n)复杂度需要利用<strong>位异或</strong>. 位异或运算能够把二进制相同的数化为0. 把数组所有的数都异或, 出现两次的数就会互相抵消为0, 剩余的就是那个只出现了一次的数:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> output = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i : nums)</span><br><span class="line">        output ^= i;</span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但如果把问题扩展为“其余每个元素均出现三次”， 这样就无法直接利用异或抵消的性质了。剑指Offer的解法是用一个长度<code>32</code>的数组<code>bitSum</code>, 把原数组所有整数的二进制每一位分别累加到<code>bitSum</code>里面, 这样就可以通过判断<code>bitSum</code>哪些位不可以被3整除来找出那个数:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] bitSum = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> bitMask = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">31</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> b = nums[i] &amp; bitMask;</span><br><span class="line">            <span class="keyword">if</span> (b != <span class="number">0</span>)</span><br><span class="line">                bitSum[j] += <span class="number">1</span>;</span><br><span class="line">            bitMask &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        res &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        res += bitSum[i] % <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为<code>bitSum</code>的长度是常数, 所以该方法复杂度还是O(N). 该方法可以进一步扩展问题为求唯一一个元素出现M次，其他所有元素出现K次的问题。</p>
+<p>除此之外, 还有其他更精简的通用的方法来解决此类问题.</p>
+<h3 id="构造状态转移表"><a href="#构造状态转移表" class="headerlink" title="构造状态转移表"></a>构造状态转移表</h3><p>方法来自<a href="https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions." target="_blank" rel="noopener">An General Way to Handle All this sort of questions</a>, 这个方法核心思想是建立一个记录状态的变量, 该变量代表某个数字出现一次后的状态. 目标就是使得一个数字重复出现K次后状态刚好归0.</p>
+<p>对于<code>K=2</code>, 就要使两次叠加后归0, 需要两种状态, 从信息论的角度看待, 只需要一个位(<code>0</code>,<code>1</code>)来表达，状态<code>0</code>对应着两种等价的情况: 一个数字完全没出现过, 或者出现了2次后一起抵消重置. 状态<code>1</code>对应着仅仅出现一次的情况. 在这里数字和状态概念等价，构建一个状态转移表（真值表）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">状态 输入 输出</span><br><span class="line">a    c    a</span><br><span class="line">0    0    0</span><br><span class="line">1    0    1</span><br><span class="line">0    1    1</span><br><span class="line">1    1    0</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，不管是状态1还是0，如果输入相同数字，就会变为0；如果输入不同的数字，就会变为1. 根据表写出逻辑表达式为异或运算.</p>
+<p>根据真值表写出逻辑式的基本套路是: 只看输出结果为1的转移, 凡取值为1的变量写成原变量，取值为0的变量写成反变量, 得出对应的表达式, 再把所有转移方程的表达式加起来. 如输出为1的是<code>0 &amp; 1 = 1, 1 &amp; 0 = 1</code>, 表达式就是<code>(~a &amp; c) | (a &amp; ~c)</code>, 这个本质上就是<code>a ^ c</code></p>
+<p>对于<code>K = 3, M = 1(or 2)</code>, 需要三种状态, 那么至少需要两个位(<code>00</code>, <code>01</code>, <code>10</code>)来表达. 让状态<code>00</code>对应”假”输出, 对应两种等价的情况: 一个数字完全没出现过, 或者出现了3次后一起抵消重置. 再定义<code>01</code>为出现了一次的状态, <code>10</code>为出现了2次, 这两种状态都对应着”真”输出, 也就是我们想要的答案, 得出状态转移为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">状态      输入      输出</span><br><span class="line">(a, b)    (c)      (a,b)</span><br><span class="line">0, 0	   0	   0, 0</span><br><span class="line">0, 1	   0	   0, 1</span><br><span class="line">1, 0	   0	   1, 0</span><br><span class="line">0, 0	   1	   0, 1</span><br><span class="line">0, 1	   1	   1, 0</span><br><span class="line">1, 0	   1	   0, 0</span><br></pre></td></tr></table></figure></p>
+<p>得出<code>a = (a &amp; ~b &amp; ~c) | (~a &amp; b &amp; c)</code>, <code>b = (~a &amp; b &amp; ~c) | (~a &amp; ~b &amp; c)</code>.<br>只要把数组所有数按照这个逻辑分别叠加到<code>a</code>和<code>b</code>上面, 最后答案就是<code>a | b</code>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c : nums)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = (a &amp; ~b &amp; ~c) | (~a &amp; b &amp; c);</span><br><span class="line">        b = (~a &amp; b &amp; ~c) | (~a &amp; ~b &amp; c);</span><br><span class="line">        a = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (a | b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上只是一种通用的套路，对于每一种特定的<code>K, M</code>组合, 可能会有不同的特殊最优方案.</p>
+<h3 id="通过不同集合收录不同数字"><a href="#通过不同集合收录不同数字" class="headerlink" title="通过不同集合收录不同数字"></a>通过不同集合收录不同数字</h3><p>同上面的问题，LeetCode某大神给出一个<a href="https://leetcode.com/problems/single-number-ii/discuss/43294/Challenge-me-thx" target="_blank" rel="noopener">目前为止最优的方案</a>, 并放言”Challenge me”, 草鸡们看了瑟瑟发抖：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ones = <span class="number">0</span>, twos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c : nums)</span><br><span class="line">    &#123;</span><br><span class="line">        ones = (ones ^ c) &amp; ~twos;</span><br><span class="line">        twos = (twos ^ c) &amp; ~ones;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ones;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原理是利用两个数<code>ones</code>和<code>twos</code>作为一种概念上的集合<code>set</code>，通过异或操作来收录分别出现了1次和2次的数, <code>set ^ val</code>有两种结果:</p>
+<ul>
+<li>如果<code>set</code>里面没有<code>val</code>, 把<code>val</code>异或进去, 如<code>a ^ 0 = a</code></li>
+<li>如果<code>set</code>之前已经收录了<code>val</code>, 那么亦或操作就会在<code>set</code>中移除这个<code>val</code>, 如 <code>a ^ a = 0</code></li>
+</ul>
+<p>按照上面的定义来理解:</p>
+<ul>
+<li><code>(ones ^ c) &amp; ~twos</code>: 当且仅当<code>c</code>没有收录在<code>twos</code>中, 把<code>ones</code>收录<code>c</code>，否则移除<code>c</code>。这样的话，任何第一次出现的数都会被收入<code>ones</code>中, 而任何第二次出现的数会从<code>ones</code>中移出.<br>So, effectively anything that appears for the first time will be in the set. Anything that appears a second time will be removed. We’ll see what happens when an element appears a third time (thats handled by the set “twos”).</li>
+<li>紧接着, <code>(twos ^ c) &amp; ~ones</code>用同样的逻辑更新<code>twos</code>. 这样意味着<ul>
+<li><code>twos</code>不会收录第一次出现的数;</li>
+<li>但对于第二次出现的数, 因为上一步已经把这个数从<code>ones</code>中移除, 那么这个数就会被收录进<code>twos</code>中,</li>
+<li>对于第三次出现的数, 因为<code>twos</code>中已经收录了, 所以<code>ones</code>不会再收录, 而异或操作会把<code>twos</code>中的这个数移除.</li>
+</ul>
+</li>
+</ul>
+<p>最后的结果就是, <code>ones</code>仅保留出现了1次的数, <code>twos</code>仅保留出现了2次的数, 而那些出现了3次的数都被移除了.</p>
+<p>这种方法可以扩展为通用方法, 适用于任何仅存在一个只出现了<code>M</code>次的数, 其他数都出现了<code>K</code>次的数组, 如<code>K = 4, M = 3</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ones = <span class="number">0</span>, twos = <span class="number">0</span>, threes = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c : nums)</span><br><span class="line">    &#123;</span><br><span class="line">        ones = (ones ^ c) &amp; ~twos &amp; ~threes;</span><br><span class="line">        twos = (twos ^ c) &amp; ~ones &amp; ~threes;</span><br><span class="line">        threes = (threes ^ c) &amp; ~twos &amp; ~ones;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> threes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] nums = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>&#125;;</span><br><span class="line">    System.out.println(singleNumber(nums)); <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="找出唯二的仅出现M次的数"><a href="#找出唯二的仅出现M次的数" class="headerlink" title="找出唯二的仅出现M次的数"></a>找出唯二的仅出现M次的数</h2><p><a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener">LeetCode原题</a>:给定一个整数数组<code>nums</code>，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。跟前面的问题类似, 我们需要再次使用XOR来解决这个问题。通过分割数组, 把出现一次的两个数, 划分到不同的数组中, 问题就转化为寻找唯一的出现一次的数问题. 所以关键就是如何拆分数组.</p>
+<p>具体需要两次遍历：</p>
+<ul>
+<li>第一次遍历，对数组所有元素进行异或，获得要找的两个数字的XOR。由于两个数字是不同的，因此在XOR结果中必定有一个<code>set bit</code>, 即位值为’1’的位。</li>
+<li>找出任意<code>set bit</code>（如最右边的）。</li>
+<li>第二次遍历，将所有数字分成两组: 一组为具有上述<code>set bit</code>的数, 另一组没有。按照这种方法分组, 相同的数字一定会被分配到同一组中, 而两个只出现一次的数会分配到不同数组中。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**代码来自: https://leetcode.com/problems/single-number-iii/discuss/68900/Accepted-C%2B%2BJava-O(n)-time-O(1)-space-Easy-Solution-with-Detail-Explanations</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] singleNumber(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="comment">// Pass 1 :</span></span><br><span class="line">        <span class="comment">// Get the XOR of the two numbers we need to find</span></span><br><span class="line">        <span class="keyword">int</span> diff = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">            diff ^= num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Get its last set bit</span></span><br><span class="line">        diff &amp;= -diff;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Pass 2 :</span></span><br><span class="line">        <span class="keyword">int</span>[] rets = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;; <span class="comment">// this array stores the two numbers we will return</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((num &amp; diff) == <span class="number">0</span>) <span class="comment">// the bit is not set</span></span><br><span class="line">            &#123;</span><br><span class="line">                rets[<span class="number">0</span>] ^= num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="comment">// the bit is set</span></span><br><span class="line">            &#123;</span><br><span class="line">                rets[<span class="number">1</span>] ^= num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rets;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="找出缺失的数"><a href="#找出缺失的数" class="headerlink" title="找出缺失的数"></a>找出缺失的数</h2><p>给定一个包含n个不同数字的数组，取自<code>0,1,2,...,n</code>，找到数组中缺少的数字。把所有数字和索引<code>0 ~ n</code>取异或, 索引是完整的, 但数字缺失了一个, 最后得到的就一定是那个缺失的数.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> miss = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)</span><br><span class="line">        miss ^= (nums[i] ^ i);</span><br><span class="line">    <span class="keyword">return</span> miss;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>除此之外也可以通过求等差数列和， 然后减去实际的数组和，得出缺失的数。</p>
 
       
     </div>
@@ -467,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/bits-operations-03/" rel="next" title="位操作 - 风骚的走位操作">
-                <i class="fa fa-chevron-left"></i> 位操作 - 风骚的走位操作
+              <a href="/bits-operations-05/" rel="next" title="位操作 - 不使用加减符号求和整数">
+                <i class="fa fa-chevron-left"></i> 位操作 - 不使用加减符号求和整数
               </a>
             
           </div>
@@ -477,8 +501,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/bits-operations-05/" rel="prev" title="位操作 - 找出只出现一次的数 - 及同类问题">
-                位操作 - 找出只出现一次的数 - 及同类问题 <i class="fa fa-chevron-right"></i>
+              <a href="/bits-operations-06/" rel="prev" title="位操作 - 汉明距离">
+                位操作 - 汉明距离 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,8 +571,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -567,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -628,6 +661,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#找出唯一一个仅出现M次的数"><span class="nav-number">1.</span> <span class="nav-text">找出唯一一个仅出现M次的数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造状态转移表"><span class="nav-number">1.1.</span> <span class="nav-text">构造状态转移表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过不同集合收录不同数字"><span class="nav-number">1.2.</span> <span class="nav-text">通过不同集合收录不同数字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找出唯二的仅出现M次的数"><span class="nav-number">2.</span> <span class="nav-text">找出唯二的仅出现M次的数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找出缺失的数"><span class="nav-number">3.</span> <span class="nav-text">找出缺失的数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -794,7 +843,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/bits-operations-04/';
           this.page.identifier = 'bits-operations-04/';
-          this.page.title = '位操作 - 不使用加减符号求和整数';
+          this.page.title = '位操作 - 找出只出现一次的数 - 及类似问题';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';
