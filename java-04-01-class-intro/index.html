@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer,cs61b," />
+  <meta name="keywords" content="Java,Software Engineer," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为">
-<meta name="keywords" content="Java,Software Engineer,cs61b">
+<meta name="description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。 构造对象的过程:">
+<meta name="keywords" content="Java,Software Engineer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 04 | 类 class - 01 变量和方法">
 <meta property="og:url" content="http://shukebeta.me/java-04-01-class-intro/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为">
+<meta property="og:description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。 构造对象的过程:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T15:33:07.837Z">
+<meta property="og:updated_time" content="2018-10-21T12:16:01.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 04 | 类 class - 01 变量和方法">
-<meta name="twitter:description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为">
+<meta name="twitter:description" content="ClassJava的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它. 类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。 构造对象的过程:">
 
 
 
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,157
+                  1,083
                 </span>
               
 
@@ -418,21 +418,32 @@
 
       
         <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>Java的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它.</p>
-<p>类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。类的方法和变量又细分为静态的和非静态的.</p>
-<p>静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；<br>非静态只能由实例调用，所以也称之为实例方法/变量。实例instance的概念后面会解释。<br><a id="more"></a></p>
-<h3 id="类（静态）变量与方法"><a href="#类（静态）变量与方法" class="headerlink" title="类（静态）变量与方法"></a>类（静态）变量与方法</h3><p>Class(Static) Variables and Methods</p>
-<p>静态变量和方法的特征就是有<code>static</code>字符在前面.<br>以下代码定义了一个类来模拟狗，包含一个类变量作为这个类的说明，一个类方法用于发出叫声：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String instruction = <span class="string">"狗类实例"</span>; <span class="comment">//类变量, 说明</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"汪!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里没有定义<code>main()</code>, 在这种情况下如何直接运行这个类(<code>java Dog</code>), 程序是会报错的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误: 在类 Dog 中找不到 main 方法, 请将 main 方法定义为:</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">否则 JavaFX 应用程序类必须扩展javafx.application.Application.</span></span><br></pre></td></tr></table></figure></p>
-<p>你可以选择在里面添加一个<code>main()</code>方法. 但这次我们选择不定义具体的<code>main()</code>. 具体要如何运行, 我们可以另写一个类定义一个main()方法来调用这个类.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这两种方式(在类A内部定义好<code>main()</code>vs. 在其他类B定义<code>main()</code>来调用A)没有优劣之分, 二者有不同的适用情况. 随着不断深入学习，二者的区分将变得更清晰。</p>
-<p>注意到, 类变量和方法是有局限性的。现实世界中, 并不是所有的狗都是一样的特征，仅仅靠类这个概念是无法区分不同个体的狗, 除非你为不同的狗定义不同的类（以及里面的变量和方法）, 那么就会很繁琐痛苦. 也就是说，用类来模拟个体是低效的，我们要使用实例.</p>
-<h3 id="实例变量与对象实例化"><a href="#实例变量与对象实例化" class="headerlink" title="实例变量与对象实例化"></a>实例变量与对象实例化</h3><p>Instance Variables and Object Instantiation.</p>
-<p>Java的类定义就像定义一张蓝图, 我们可以在这个蓝图的基础上, 生成不同的实例instance. 实例是概念性的说法，本质上在Java里就是对象object。这样的特性提供了一个很自然而然地在java中模拟生成实体世界的方法：定义一个狗的类，在这个类的基础上，通过不同的特征参数实例化不同特征的狗（instances），并使类方法的输出取决于特定实例的狗的属性。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 一只狗的类:*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (weight &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"嘤嘤嘤!"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (weight &lt; <span class="number">30</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"汪汪汪"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"嗷呜!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里的方法和变量没有<code>static</code>, 所以是实例（非静态）方法和变量. 如果直接用 <code>Dog</code> 类来调用这些方法, 会报错:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.weight = <span class="number">21</span>;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DogLauncher.java:<span class="number">3</span>: 错误: 无法从静态上下文中引用非静态 变量 weight</span><br><span class="line">        Dog.weight = <span class="number">21</span>;</span><br><span class="line">           ^</span><br><span class="line">DogLauncher.java:<span class="number">4</span>: 错误: 无法从静态上下文中引用非静态 方法 makeNoise()</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">           ^</span><br></pre></td></tr></table></figure>
-<p>这个时候, 你需要实例化一只狗, 让这个实例来调用非静态变量和方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog bigDog = <span class="keyword">new</span> Dog();</span><br><span class="line">        bigDog.weight = <span class="number">5</span>;</span><br><span class="line">        bigDog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行时，这个程序将会创建一个重量为5的狗，这个狗就会“嗷呜”叫。</p>
-<p>总的来说，之所以需要实例方法和变量，是因为我们需要模拟个体，一只具体的狗，并让它发出声音。这个<code>weight</code>和<code>makeNoise()</code>只能由具体的狗调用。狗类不能调用，也没有调用的意义, 毕竟每只狗的重量和声音都不同的. 在设计程序时, 如果其中一个方法我们只打算让特定的实例来调用它(而不让类去调用它), 那么这个方法应该设计成实例方法。</p>
+<p>类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。</p>
+<p>构造对象的过程:</p>
+<ol>
+<li>声明(declaration)引用变量: <code>Dog smalldog;</code></li>
+<li>创建对象：实例化 <code>new Dog(20)</code>, 如果没有把它作为值赋给一个类声明变量, 那么这个实例化的值会被垃圾回收.</li>
+<li>连接对象和引用：赋值对象给引用<code>Dog smalldog = new Dog(5)</code></li>
+</ol>
+<p>创建对象这一步，调用了<code>Dog()</code>, 不是普通的方法, 而是类的构造函数 Constructors.</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数在初始化一个对象时执行, 构造函数与类名<strong>同名</strong>且没有返回类型, 而且可以带参数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 注意：构造函数与class类同名</span></span><br><span class="line"><span class="comment">    但没有返回类型  */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    weight = w;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在<code>DogLauncher</code>里实例化一只狗时, 直接<code>Dog d = new Dog(20);</code>即可.</p>
+<p>在以上代码的基础上, 后续当我们想使用new和参数创建一只狗时，可以随时调用<code>public Dog(int w)</code>构造函数。对于熟悉Python的人来说，你可以理解java的构造函数为Python的<code>__init__</code>。</p>
+<p><strong>Java可以有与类同名的方法，只是要指明返回类型。</strong><br><strong>构造函数无法被继承</strong><br><strong>如果类有一个以上的构造函数，则参数一定要不一样，包括参数顺序和类型</strong></p>
+<h3 id="构造函数链"><a href="#构造函数链" class="headerlink" title="构造函数链"></a>构造函数链</h3><p>执行<code>new</code>指令会启动构造函数的连锁反应(Constructor Chaining), 首先会执行其父类的构造函数, 依此类推连锁反应到<code>Object</code>类为止. 就算是抽象类, 也会有构造函数, 虽然不能被直接实例化, 但也会被唤醒. 理论上，每个类的构造函数需要先调用其父类的构造函数<code>super()</code>，依次入栈<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">(<span class="keyword">int</span> newSize)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(); <span class="comment">// 调用父类构造函数, 且必须是在函数中的第一行</span></span><br><span class="line">        size = newSize;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果明确写了<code>super();</code>, 则必须位于构造函数第一行. 但很多构造函数没有写<code>super();</code>也可以编译通过, 甚至连自身的构造函数<code>public Duck(int newSize)</code>也不一定是必须的。</p>
+<ul>
+<li>如果没有<code>super()</code>, 编译器会帮我们加上.</li>
+<li>如果连自身的构造函数都没有, 编译器会自动为没有构造函数的类提供一个无参数的默认构造函数。这个默认构造函数将调用其超类的（可调用的）无参构造函数。<ul>
+<li>此时, 如果其<code>extends</code>的父类没有无参数构造函数，编译会出错。</li>
+<li>如果没有显式的超类，那么就调用隐式的超类<code>Object</code>的无参构造函数。</li>
+</ul>
+</li>
+</ul>
+<p>但如果在类中已经实现了带参数的构造函数，那么编译器不会再帮你构造无参数的构造函数，你需要自己编写。如果某个父类只有带参数的构造函数, 那么继承该父类的子类必须有构造函数, 且要有带参数的<code>super(args)</code>.</p>
+<p>如果存在不同重载版本的构造函数, 其中有某个构造函数可以负责大部分构造工作, 我们这个时候肯定希望能够让同类的其他构造函数先调用该构造函数, 完成大部分构造工作, 已达到代码重用的目的, 这样可以更好地维护代码.</p>
+<p><code>this()</code>就是用来从某个构造函数中调用同一个类的另外一个构造函数.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mini</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    Color color;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里无参数的构造函数使用默认颜色调用阵阵的构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Mini</span><span class="params">()</span> </span>&#123; <span class="keyword">this</span>(Color.Red); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Mini</span><span class="params">(Color c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"Mini"</span>);</span><br><span class="line">        color = c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>this()</code>只能存在于构造函数中, 且必须要在第一行, 所以会跟<code>super()</code>冲突, 二者不能同时调用.</p>
 
       
     </div>
@@ -453,8 +464,6 @@
             <a href="/tags/Java/" rel="tag"># Java</a>
           
             <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
-            <a href="/tags/cs61b/" rel="tag"># cs61b</a>
           
         </div>
       
@@ -576,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -647,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class"><span class="nav-number">1.</span> <span class="nav-text">Class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类（静态）变量与方法"><span class="nav-number">1.1.</span> <span class="nav-text">类（静态）变量与方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例变量与对象实例化"><span class="nav-number">1.2.</span> <span class="nav-text">实例变量与对象实例化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class"><span class="nav-number">1.</span> <span class="nav-text">Class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">1.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数链"><span class="nav-number">1.2.</span> <span class="nav-text">构造函数链</span></a></li></ol></li></ol></div>
             
 
           </div>

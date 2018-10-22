@@ -97,7 +97,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://eclipsesource.com/wp-content/uploads/2012/09/generate-hashcode-equals.png">
 <meta property="og:image" content="https://eclipsesource.com/wp-content/uploads/2012/09/hashcode-error-config.png">
-<meta property="og:updated_time" content="2018-06-29T19:10:35.858Z">
+<meta property="og:updated_time" content="2018-10-21T12:20:26.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java | Hash @Override equals() hashcode()">
 <meta name="twitter:description" content="主要介绍：  Hashcode（哈希码）与 equals（判断相等）的关系 Hashcode 方法的底层实现原理 开发中需要掌握的原则和方法  HashSet, HashMap, HashTableHashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。">
@@ -307,7 +307,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-27T08:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-27T00:00:00+08:00">
                 2018-02-27
               </time>
             
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,029
+                  2,026
                 </span>
               
 
@@ -426,7 +426,7 @@
 <li>Hashcode 方法的底层实现原理</li>
 <li>开发中需要掌握的原则和方法</li>
 </ol>
-<h3 id="HashSet-HashMap-HashTable"><a href="#HashSet-HashMap-HashTable" class="headerlink" title="HashSet, HashMap, HashTable"></a>HashSet, HashMap, HashTable</h3><p>HashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。<br><a id="more"></a><br>拿HashSet和add()举例(其余的数据结构,和 remove, contains等方法类似):假设HashSet里面已经有了obj1, 那么当调用HashSet.add(obj2)时:</p>
+<h2 id="HashSet-HashMap-HashTable"><a href="#HashSet-HashMap-HashTable" class="headerlink" title="HashSet, HashMap, HashTable"></a>HashSet, HashMap, HashTable</h2><p>HashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。<br><a id="more"></a><br>拿HashSet和add()举例(其余的数据结构,和 remove, contains等方法类似): 假设HashSet里面已经有了obj1, 那么当调用HashSet.add(obj2)时:</p>
 <ol>
 <li>if (obj1 == obj2), 那么没有必要调用 hashCode(), 已经有了这个对象, 没必要添加了</li>
 <li>else, if hashCode 不同，那么可以直接添加了, 没必要进一步调用 obj1.equals(obj2) 来判断对象是否相等</li>
@@ -445,7 +445,7 @@
 <p>同样的，remove 和 add 也会先进行类似检查。</p>
 <p>问题是，为何 hashCode 不同，就没有进一步调用<code>equals()</code>的必要呢？因为有一个前提是代码遵守The hashCode contract。</p>
 <h3 id="Hashcode-and-equals"><a href="#Hashcode-and-equals" class="headerlink" title="Hashcode and equals"></a>Hashcode and equals</h3><p>在Java中，每个对象都有一个hashCode，它有时容易被人遗忘或误用。有以下三点需要注意，避免掉入常见的陷阱。</p>
-<h4 id="The-hashCode-contract"><a href="#The-hashCode-contract" class="headerlink" title="The hashCode contract"></a>The hashCode contract</h4><p>根据 The hashCode contract:</p>
+<p>根据 The hashCode contract:</p>
 <blockquote>
 <p>Objects that are equal must have the same hash code within a running process.</p>
 </blockquote>
@@ -513,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-13-implementation-inheritance/" rel="next" title="Java 13 | 实现继承 Implementation Inheritance">
-                <i class="fa fa-chevron-left"></i> Java 13 | 实现继承 Implementation Inheritance
+              <a href="/java-abstract-class/" rel="next" title="Java 抽象类">
+                <i class="fa fa-chevron-left"></i> Java 抽象类
               </a>
             
           </div>
@@ -622,7 +622,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -693,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet-HashMap-HashTable"><span class="nav-number">1.</span> <span class="nav-text">HashSet, HashMap, HashTable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashcode-and-equals"><span class="nav-number">2.</span> <span class="nav-text">Hashcode and equals</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-hashCode-contract"><span class="nav-number">2.1.</span> <span class="nav-text">The hashCode contract</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashCode-collisions"><span class="nav-number">3.</span> <span class="nav-text">HashCode collisions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashCodes-会变"><span class="nav-number">4.</span> <span class="nav-text">HashCodes 会变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashSet-HashMap-HashTable"><span class="nav-number">1.</span> <span class="nav-text">HashSet, HashMap, HashTable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashcode-and-equals"><span class="nav-number">1.1.</span> <span class="nav-text">Hashcode and equals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashCode-collisions"><span class="nav-number">1.2.</span> <span class="nav-text">HashCode collisions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashCodes-会变"><span class="nav-number">1.3.</span> <span class="nav-text">HashCodes 会变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>

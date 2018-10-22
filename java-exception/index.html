@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。">
-<meta name="keywords" content="Java,Software Engineer">
+<meta name="description" content="Exception-handling假如调用了一个不是自己写的方法, 该方法执行某些有风险的任务(当然,自己写的也可能会有风险),可能会在运行期间出状况,那么就必须认识到该方法是有风险的, 要写出可以在发生状况时做出应对的代码. 当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Exceptions">
 <meta property="og:url" content="http://shukebeta.me/java-exception/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。">
+<meta property="og:description" content="Exception-handling假如调用了一个不是自己写的方法, 该方法执行某些有风险的任务(当然,自己写的也可能会有风险),可能会在运行期间出状况,那么就必须认识到该方法是有风险的, 要写出可以在发生状况时做出应对的代码. 当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/callstack.png">
 <meta property="og:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/checked_exceptions.png">
-<meta property="og:updated_time" content="2018-10-14T13:17:33.298Z">
+<meta property="og:updated_time" content="2018-10-21T12:17:34.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Exceptions">
-<meta name="twitter:description" content="当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。">
+<meta name="twitter:description" content="Exception-handling假如调用了一个不是自己写的方法, 该方法执行某些有风险的任务(当然,自己写的也可能会有风险),可能会在运行期间出状况,那么就必须认识到该方法是有风险的, 要写出可以在发生状况时做出应对的代码. 当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。">
 <meta name="twitter:image" content="https://joshhug.gitbooks.io/hug61b/content/assets/callstack.png">
 
 
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,149
+                  2,089
                 </span>
               
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  5 min
+                  9 min
                 </span>
               
             </div>
@@ -420,22 +420,37 @@
       
 
       
-        <p>当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。<br><a id="more"></a></p>
+        <h2 id="Exception-handling"><a href="#Exception-handling" class="headerlink" title="Exception-handling"></a>Exception-handling</h2><p>假如调用了一个不是自己写的方法, 该方法执行某些有风险的任务(当然,自己写的也可能会有风险),可能会在运行期间出状况,那么就必须认识到该方法是有风险的, 要写出可以在发生状况时做出应对的代码.</p>
+<p>当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。<br><a id="more"></a></p>
 <h3 id="Throwing-Exceptions"><a href="#Throwing-Exceptions" class="headerlink" title="Throwing Exceptions"></a>Throwing Exceptions</h3><p>比如当想从某<code>ArrayMap</code>中提取某个不存在的键值时, java自动抛出一个<code>implicit exception</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java ExceptionDemo</span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.ArrayIndexOutOfBoundsException: -<span class="number">1</span></span><br><span class="line">at ArrayMap.get(ArrayMap.java:<span class="number">38</span>)</span><br><span class="line">at ExceptionDemo.main(ExceptionDemo.java:<span class="number">6</span>)</span><br></pre></td></tr></table></figure></p>
 <p>如果想让自己的程序抛出更详细的信息, 可以在程序中加入<code>explicit exception</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">    intlocation = findKey(key);</span><br><span class="line">    <span class="keyword">if</span>(location &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> newIllegalArgumentException(<span class="string">"Key "</span> + key + <span class="string">" does not exist in map."</span>\);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> values[findKey(key)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$java ExceptionDemo</span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.IllegalArgumentException: Key yolp does not exist in map.</span><br><span class="line">at ArrayMap.get(ArrayMap.java:<span class="number">40</span>)</span><br><span class="line">at ExceptionDemo.main(ExceptionDemo.java:<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-<p>单纯 throw exception 会导致代码崩溃。但是通过 <code>try - catch</code> “捕捉”异常(<code>RuntimeException</code> 是 Java object), 可以防止程序崩溃。</p>
-<p>比如通过捕捉异常, 来引入修正措施: 下面这个代码通过<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 当狗在生气时, 如果尝试拍拍它，会抛出一个 RuntimeException，</span></span><br><span class="line"><span class="comment">捕捉到 exception 后, 用香蕉来抚慰它. */</span></span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="string">"Lucy"</span>, <span class="string">"Retriever"</span>, <span class="number">80</span>);</span><br><span class="line">d.becomeAngry();</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    d.receivePat();</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    System.out.println(</span><br><span class="line">    <span class="string">"Tried to pat: "</span> + e);</span><br><span class="line">    d.eatTreat(<span class="string">"banana"</span>);</span><br><span class="line">&#125;</span><br><span class="line">d.receivePat();</span><br><span class="line">System.out.println(d);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Catch-Exceptions"><a href="#Catch-Exceptions" class="headerlink" title="Catch Exceptions"></a>Catch Exceptions</h3><p>单纯 throw exception 会导致代码崩溃。但是通过 <code>try - catch</code> “捕捉”异常(<code>RuntimeException</code> 是 Java object), 可以防止程序崩溃。</p>
+<p>比如通过捕捉异常, 来引入修正措施: 下面这个代码通过<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 当狗在生气时, 如果尝试拍拍它，会抛出一个 RuntimeException，</span></span><br><span class="line"><span class="comment">捕捉到 exception 后, 用香蕉来抚慰它. */</span></span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="string">"Lucy"</span>, <span class="string">"Retriever"</span>, <span class="number">80</span>);</span><br><span class="line">d.becomeAngry();</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123; <span class="comment">// 把有风险的代码块放在try块</span></span><br><span class="line">    d.receivePat();</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    System.out.println(</span><br><span class="line">    <span class="string">"Tried to pat: "</span> + e);</span><br><span class="line">    d.eatTreat(<span class="string">"banana"</span>);</span><br><span class="line">&#125;</span><br><span class="line">d.receivePat();</span><br><span class="line">System.out.println(d);</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ java ExceptionDemo</span><br><span class="line">Tried to pat: java.lang.RuntimeException: grrr... snarl snarl</span><br><span class="line">Lucy is a displeased Retriever weighing <span class="number">80.0</span> standard lb units.</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ java ExceptionDemo</span><br><span class="line">Tried to pat: java.lang.RuntimeException: grrr... snarl snarl</span><br><span class="line">Lucy munches the banana</span><br><span class="line"></span><br><span class="line">Lucy enjoys the pat.</span><br><span class="line"></span><br><span class="line">Lucy is a happy Retriever weighing <span class="number">80.0</span> standard lb units.</span><br></pre></td></tr></table></figure>
-<p>使用<code>if else</code>来管理异常会让代码变得很乱而难以阅读. 而使用<code>try catch</code>可以为每种类型的 exception 提供不同的应对。使代码像清晰的记述文般铺展开来: 首先，尝试执行所需的操作。然后，捕捉任何错误。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125; <span class="keyword">catch</span> (...) &#123;</span><br><span class="line">    doSomething;</span><br><span class="line">&#125; <span class="keyword">catch</span> (...) &#123;</span><br><span class="line">    doSomething;</span><br><span class="line">&#125; ...</span><br></pre></td></tr></table></figure></p>
-<p>好的代码像一个故事, 构建上有一定的美感。这种清晰度使代码的长期维护变得更容易。</p>
-<h3 id="Uncaught-Exceptions-Stack-Trace"><a href="#Uncaught-Exceptions-Stack-Trace" class="headerlink" title="Uncaught Exceptions Stack Trace"></a>Uncaught Exceptions Stack Trace</h3><p>如果 exception 到达堆栈底部后仍未被捕获，程序崩溃，Java 打印出堆栈的跟踪:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java.lang.RuntimeException in thread “main”:</span><br><span class="line">at ArrayRingBuffer.peek:<span class="number">63</span></span><br><span class="line">at GuitarString.sample:<span class="number">48</span></span><br><span class="line">at GuitarHeroLite.java:<span class="number">110</span></span><br></pre></td></tr></table></figure></p>
+<p>Exception 继承自 <code>Throwable</code>, 异常也是多态的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class Throwable extends Object implements Serializable</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>The Throwable class is the superclass of all errors and exceptions in the Java language. Direct Known Subclasses: Error, Exception</p>
+</blockquote>
+<p>如果使用<code>if else</code>来管理异常会让代码变得很乱而难以阅读. 而使用<code>try catch</code>可以为每种类型的 exception 提供不同的应对。使代码像清晰的记述文般铺展开来: 首先，尝试执行所需的操作。然后，捕捉任何错误。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Laundry</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doLaundry</span><span class="params">()</span> <span class="keyword">throws</span> PantsException, LingerieException </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Laundry laundry = <span class="keyword">new</span> Laundry();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            laundry.doLaundry();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (PantsException pex) &#123;</span><br><span class="line">            <span class="comment">// doSomething</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (LingerieException lex) &#123;</span><br><span class="line">            <span class="comment">//doSomething</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种清晰度使代码的长期维护变得更容易。<br>以异常的父类来声明会抛出的异常, 这样就不必声明每个子类异常了, 在<code>catch</code>块中只需要捕捉异常的父类.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doLaundry</span><span class="params">()</span> <span class="keyword">throws</span> ClothingException </span>&#123;&#125;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    laundry.doLaundry();</span><br><span class="line">&#125; <span class="keyword">catch</span> (ClothingException cex) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但如果需要对每个不同的子类异常采取不同的措施, 那么还是需要声明各个子类异常, 并分别捕捉.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    laundry.doLaundry();</span><br><span class="line">&#125; <span class="keyword">catch</span> (LingerieException lex) &#123;</span><br><span class="line">    <span class="comment">//doSomething</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ClothingException cex) &#123;</span><br><span class="line">    <span class="comment">//doSomething</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">    <span class="comment">//doSomething</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时多个<code>catch</code>块要从小排到大(在继承树上看, 就是先捕捉子类), <strong>不能把父类异常放在子类上面,否则无法通过编译</strong>. 因为JVM只会从上开始往下找第一个符合范围的catch块, 如果第一个catch就是<code>catch (Exception ex)</code>, 那么剩下的捕捉都没用了.</p>
+<h3 id="Finally"><a href="#Finally" class="headerlink" title="Finally"></a>Finally</h3><p>在<code>try-catch</code>后面, 使用<code>finally</code>指示无论如何都要执行的部分(不管有没有异常).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    turnOvenOn();</span><br><span class="line">    x.bake();</span><br><span class="line">&#125; <span class="keyword">catch</span> (BakingException ex) &#123;</span><br><span class="line">    ex.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123; <span class="comment">// 不管怎样最后都要关火!</span></span><br><span class="line">    turnOvenOff();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>如果<code>try</code>块失败了, 抛出异常, 流程马上转移到<code>catch</code>块. 当<code>catch</code>块完成时, 继续执行<code>finally</code>块. 当<code>finally</code>块完成时, 继续执行其他代码</li>
+<li>如果<code>try</code>块成功, 流程会跳过<code>catch</code>块并移动到<code>finally</code>. <code>finally</code>块完成时, 继续执行其他代码</li>
+<li><strong>即使try或者catch块中有return指令，finally还是会执行！</strong>， 流程会先暂时保存<code>return</code>的值，去执行<code>finally</code>, 然后再<code>return</code>.</li>
+<li>但是, <strong>如果finally中也有return指令，那么会直接执行该return指令，结束整个流程</strong>，这意味着<code>try/catch</code>中的<code>return</code>得不到执行, 且它的值会丢失.</li>
+</ul>
+<h3 id="如果不想处理异常"><a href="#如果不想处理异常" class="headerlink" title="如果不想处理异常"></a>如果不想处理异常</h3><p>有些情况下, 比如某个异常是在你的程序调用的其他程序中抛出的, 你可以选择不处理这个异常, 把它<code>duck</code>掉, 让那些调用你方法的程序来处理这个异常. 也就说你的程序只是把异常转个手, 给个出路.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只有抛出, 没有try/catch 异常</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> <span class="keyword">throws</span> ReallyBadException </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>方法抛出异常时, 方法会从栈上立即被取出, 而异常会再度丢给栈上的方法, 也就说下一个调用方, 这种过程可以一直循环下去. 但ducking只是在击鼓传花, 最后总得有个方法接盘, 如果连<code>main()</code>也duck掉, 那么就是<code>Uncaught Exceptions Stack Trace</code>, 异常到达堆栈底部后仍未被捕获，JVM崩溃，Java 打印出堆栈的跟踪:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java.lang.RuntimeException in thread “main”:</span><br><span class="line">at ArrayRingBuffer.peek:<span class="number">63</span></span><br><span class="line">at GuitarString.sample:<span class="number">48</span></span><br><span class="line">at GuitarHeroLite.java:<span class="number">110</span></span><br></pre></td></tr></table></figure></p>
 <p><img src="https://joshhug.gitbooks.io/hug61b/content/assets/callstack.png" alt="" title="image from: https://joshhug.gitbooks.io/hug61b"><br>程序猿可以据此追踪错误路径。</p>
-<h3 id="Checked-vs-Unchecked-Exceptions"><a href="#Checked-vs-Unchecked-Exceptions" class="headerlink" title="Checked vs Unchecked Exceptions"></a>Checked vs Unchecked Exceptions</h3><p>有时候，某些抛出的 exception 无法通过编译，可以理解为这些异常在编译器看来是非常恶心的存在，需要程序猿必须给这些 exception 提供明确的应对处理方案 - 这种叫 checked exception （”must be checked”）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Eagle</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">gulgate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (today == “Thursday”) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"hi"</span>); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Checked-vs-Unchecked-Exceptions"><a href="#Checked-vs-Unchecked-Exceptions" class="headerlink" title="Checked vs Unchecked Exceptions"></a>Checked vs Unchecked Exceptions</h3><p>有时候，某些抛出的 exception 无法通过编译，可以理解为这些异常在编译器看来是非常恶心的存在，需要程序猿必须给这些 exception 提供明确的应对处理方案 - 这种叫 checked exception （”must be checked”）。这种异常是以人无法预测或防止的方法出现的执行期失败状况, 比如我们无法保证文件一直都在, 无法保证服务器不会死机.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Eagle</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">gulgate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (today == “Thursday”) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"hi"</span>); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ javac Eagle</span><br><span class="line">Eagle.java:<span class="number">4</span>: error: unreported exception IOException; must be caught or declared to be thrown</span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"hi"</span>); &#125;</span><br><span class="line">^</span><br></pre></td></tr></table></figure>
-<p>很明显，Java对此<code>IOException</code>并不满意, 因为<code>IOExceptions</code>是 checked exception, 而这里没有提供应对处理方案。但假如换做<code>RuntimeException</code>就可以编译通过 (虽然在 runtime 时会崩溃).<br><img src="https://joshhug.gitbooks.io/hug61b/content/assets/checked_exceptions.png" alt="" title="image from: https://joshhug.gitbooks.io/hug61b/"><br><code>Errors</code> 和 <code>Runtime Exceptions</code>, 以及它们的子类都是<code>unchecked</code>. 这种异常都是直到运行时才能发现的错误, 它们一般无法从中恢复到正常状态 - 比如代码尝试从数组中获取<code>-1</code>元素，好像就没什么解决办法。</p>
-<p>其余的都是 <code>checked exception</code>, 它们其中大多数都有修正的可能性。例如遇到<code>FileNotFound</code>，可以考虑要求用户重新指定他们想要的文件 (可能是因为错误输入导致的)。</p>
+<p>很明显，Java对此<code>IOException</code>并不满意, 因为<code>IOExceptions</code>是 checked exception, 而这里没有提供应对处理方案。但假如换做<code>RuntimeException</code>就可以编译通过 (虽然在 runtime 时会崩溃).<img src="https://joshhug.gitbooks.io/hug61b/content/assets/checked_exceptions.png" alt="" title="image from: https://joshhug.gitbooks.io/hug61b/"> <code>InterruptException</code>也是要检查的异常. 大多数<code>check exception</code>都有修正的可能性。例如遇到<code>FileNotFound</code>，可以考虑要求用户重新指定他们想要的文件 (可能是因为错误输入导致的)。</p>
+<p><code>Errors</code> 和 <code>Runtime Exceptions</code>, 以及它们的子类都是<code>unchecked</code>. 大部分<code>RuntimeException</code>都是因为程序逻辑的问题. 虽然<code>check exception</code>是人力无法保证, 但我们可以确保程序的逻辑不出错, 例如对只有长度N的数组中取第<code>N+1</code>个元素, 这种是逻辑错误了, 不存在什么补救, 而是应该在写代码时就要避免。<code>try/catch</code>是用来处理真正的异常, 而不是程序的逻辑错误.</p>
 <p>Java在尽最大努力确保每个程序运行时不会崩溃，所以它不会允许程序留下任何明明可以应对修正却没有被明确地修正的错误。</p>
 <p>两种方法来处理 checked error:</p>
 <ol>
@@ -449,6 +464,12 @@
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// catch</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        gulgate();</span><br><span class="line">    &#125; <span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"Averted!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或 specify</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    gulgate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 需要明确异常处理责任人。同时确保调用者知道该方法是危险的！</p>
 </li>
+</ol>
+<h3 id="异常处理规则"><a href="#异常处理规则" class="headerlink" title="异常处理规则"></a>异常处理规则</h3><ol>
+<li>catch和finally不能没有try</li>
+<li>try块和catch块之间不能有其他代码</li>
+<li>try一定要有catch或finally</li>
+<li>只带有finally而没有catch的try必须要声明异常, 也就是明确抛出<code>void go() throws FooException {try {} finally {} }</code></li>
 </ol>
 
       
@@ -469,8 +490,6 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
         </div>
       
 
@@ -482,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-encapsulation-packages-jar-access/" rel="next" title="Java 封装, 包, JAR, 权限控制">
-                <i class="fa fa-chevron-left"></i> Java 封装, 包, JAR, 权限控制
+              <a href="/java-formatting/" rel="next" title="Java 格式">
+                <i class="fa fa-chevron-left"></i> Java 格式
               </a>
             
           </div>
@@ -492,8 +511,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-extends-class/" rel="prev" title="Java 类的继承扩展 Extends">
-                Java 类的继承扩展 Extends <i class="fa fa-chevron-right"></i>
+              <a href="/algorithms-01-asymptotic-analysis/" rel="prev" title="Algorithms 01 - Asymptotic Analysis 渐进分析">
+                Algorithms 01 - Asymptotic Analysis 渐进分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -591,7 +610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -662,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Throwing-Exceptions"><span class="nav-number">1.</span> <span class="nav-text">Throwing Exceptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uncaught-Exceptions-Stack-Trace"><span class="nav-number">2.</span> <span class="nav-text">Uncaught Exceptions Stack Trace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checked-vs-Unchecked-Exceptions"><span class="nav-number">3.</span> <span class="nav-text">Checked vs Unchecked Exceptions</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exception-handling"><span class="nav-number">1.</span> <span class="nav-text">Exception-handling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Throwing-Exceptions"><span class="nav-number">1.1.</span> <span class="nav-text">Throwing Exceptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Catch-Exceptions"><span class="nav-number">1.2.</span> <span class="nav-text">Catch Exceptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finally"><span class="nav-number">1.3.</span> <span class="nav-text">Finally</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果不想处理异常"><span class="nav-number">1.4.</span> <span class="nav-text">如果不想处理异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checked-vs-Unchecked-Exceptions"><span class="nav-number">1.5.</span> <span class="nav-text">Checked vs Unchecked Exceptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理规则"><span class="nav-number">1.6.</span> <span class="nav-text">异常处理规则</span></a></li></ol></li></ol></div>
             
 
           </div>

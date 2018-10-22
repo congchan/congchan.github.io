@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -88,14 +88,14 @@
 
 
 <meta name="description" content="Autoboxing在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (byte, short, int, long, float, double, boolean, char)，必须要用其对应的 reference type (Byte, Short, Integer, Long, Float, Double, Boolea">
-<meta name="keywords" content="Java,Software Engineer">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 扩展通用类型">
 <meta property="og:url" content="http://shukebeta.me/java-generics/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="Autoboxing在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (byte, short, int, long, float, double, boolean, char)，必须要用其对应的 reference type (Byte, Short, Integer, Long, Float, Double, Boolea">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T15:29:23.328Z">
+<meta property="og:updated_time" content="2018-10-22T00:37:41.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 扩展通用类型">
 <meta name="twitter:description" content="Autoboxing在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (byte, short, int, long, float, double, boolean, char)，必须要用其对应的 reference type (Byte, Short, Integer, Long, Float, Double, Boolea">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  829
+                  900
                 </span>
               
 
@@ -425,6 +425,15 @@
 <li>有性能负担</li>
 <li>Wrapper types 比 primitive types 占用更多内存: 在大多数现代的系统里，对象的引用地址占用64位，还需要额外的64位开销用于存储动态类型等信息。 更多信息参考 <a href="https://www.javamex.com/tutorials/memory/object_memory_usage.shtml" target="_blank" rel="noopener">Memory usage of Java objects: general guide</a> 或 <a href="http://blog.kiyanpro.com/2016/10/07/system_design/memory-usage-estimation-in-java/" target="_blank" rel="noopener">Memory Usage Estimation in Java</a>.</li>
 </ul>
+<p>类型转换的静态方法:</p>
+<ul>
+<li><code>Integer.parseInt(&quot;2&quot;)</code>, <code>Double.parseDouble(&quot;135.26&quot;)</code>, <code>new Boolean(&quot;true&quot;).booleanValue()</code>, 取<code>String</code>, 返回对应的primitive类型值.</li>
+<li>将 primitive 主数据类型值转换为String<ul>
+<li><code>double d = 22.2; String DoubleString = &quot;&quot; + d;</code>, <code>+</code>操作数是Java中唯一有重载过的运算符</li>
+<li><code>String s = Double.toString(d);</code></li>
+</ul>
+</li>
+</ul>
 <h3 id="Widening"><a href="#Widening" class="headerlink" title="Widening"></a>Widening</h3><p>Java会根据需要在 primitive types 之间自动扩展.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">blahDouble</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">    System.out.println(“<span class="keyword">double</span>: “ + x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">20</span>;</span><br><span class="line">blahDouble(x); <span class="comment">//等同于 blahDouble((double) x)</span></span><br></pre></td></tr></table></figure></p>
 <p>但如果想从一个 wider type 转换为 narrower type，则必须手动 cast.<br>有关 widening 的更多详细信息，包括哪些类型比其他类型更 wider ，参阅<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html" target="_blank" rel="noopener">官方的Java文档</a>。</p>
 <h3 id="Generic-Methods"><a href="#Generic-Methods" class="headerlink" title="Generic Methods"></a>Generic Methods</h3><p>泛型方法的语法用map数据类型举例. 假如有一个现成的映射数据结构<code>Map61B</code>, 我们需要为她写两个helper methods放在<code>MapHelper</code>里面.</p>
@@ -452,8 +461,6 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
         </div>
       
 
@@ -465,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-abstract-class/" rel="next" title="Java 抽象类">
-                <i class="fa fa-chevron-left"></i> Java 抽象类
+              <a href="/java-adt/" rel="next" title="Java 抽象数据类型">
+                <i class="fa fa-chevron-left"></i> Java 抽象数据类型
               </a>
             
           </div>
@@ -475,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/algorithms-01-asymptotic-analysis/" rel="prev" title="Algorithms 01 - Asymptotic Analysis 渐进分析">
-                Algorithms 01 - Asymptotic Analysis 渐进分析 <i class="fa fa-chevron-right"></i>
+              <a href="/java-immutability/" rel="prev" title="Java Immutability">
+                Java Immutability <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -574,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

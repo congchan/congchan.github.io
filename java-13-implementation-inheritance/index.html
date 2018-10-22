@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer,cs61b," />
+  <meta name="keywords" content="Java,Software Engineer," />
 
 
 
@@ -88,14 +88,14 @@
 
 
 <meta name="description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
-<meta name="keywords" content="Java,Software Engineer,cs61b">
+<meta name="keywords" content="Java,Software Engineer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 13 | 实现继承 Implementation Inheritance">
 <meta property="og:url" content="http://shukebeta.me/java-13-implementation-inheritance/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T15:33:40.707Z">
+<meta property="og:updated_time" content="2018-10-21T12:17:08.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 13 | 实现继承 Implementation Inheritance">
 <meta name="twitter:description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
@@ -423,7 +423,7 @@
 <p>我们可以自由调用interface中定义的方法，而不用操心具体的实现。Default method 适用于实现接口的任何类型的对象！子类可以直接调用，而不必重新实现 default method。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List</span></span><br><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>不过，我们仍然可以override default method，在子类中重新定义该方法。这样，只要我们在LinkedLList上调用<code>print()</code>，它就会调用子类override的方案，而不是父类的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// LinkedList</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="Dynamic-type"><a href="#Dynamic-type" class="headerlink" title="Dynamic type"></a>Dynamic type</h3><p>Java是通过一个叫“dynamic method selection”的特性，来确定要调用 default method 还是已经被子类override的method。</p>
-<p>当实例声明<code>List&lt;String&gt; l = new LinkedList&lt;String&gt;();</code>, 则指明<code>l</code>是 static 类型的 List。由 new 生成的 object 是LinkedList类型，也从属于 List 类型。但是，因为这个对象本身是使用 LinkedList 构造函数实例化的，所以我们称之为 dynamic type。</p>
+<p>当实例声明<code>List&lt;String&gt; l = new LinkedList&lt;String&gt;();</code>, 则指明<code>l</code>是 static 类型的 <code>List</code>。由 new 生成的 object 是LinkedList类型，也从属于 List 类型。但是，因为这个对象本身是使用 LinkedList 构造函数实例化的，所以我们称之为 dynamic type。</p>
 <blockquote>
 <p>Dynamic type 的名称源于: 当<code>l</code>被重新分配指向另一种类型的对象时，比如说一个 ArrayList 对象，<code>l</code>的动态类型现在就变为 ArrayList. 因为它根据当前引用的对象的类型而改变, 所以是动态的。</p>
 </blockquote>
@@ -435,7 +435,7 @@
 <p>当Java运行一个被overriden的方法时，会根据该实例的dynamic type 匹配对应的 method。</p>
 <p>注意，如果是overload:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(LinkedList&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>对于上面的实例化的<code>l</code>, 当Java检查要调用哪个方法时，它会检查 static type (此时是List)并使用相同类型的参数调用该方法，也就是使用List作为签名的那个方法。</p>
-<h3 id="区别接口继承与实现基础"><a href="#区别接口继承与实现基础" class="headerlink" title="区别接口继承与实现基础"></a>区别接口继承与实现基础</h3><p>接口继承（what）：指定 subclass 应该实现的功能，即只提供 method signature。</p>
+<h3 id="区别接口继承与实现继承"><a href="#区别接口继承与实现继承" class="headerlink" title="区别接口继承与实现继承"></a>区别接口继承与实现继承</h3><p>接口继承（what）：指定 subclass 应该实现的功能，即只提供 method signature。</p>
 <p>实现继承（how）：提供功能的实现方案，即提供 method implementation。允许代码再利用，也给subclass设计者提供了更多的自由度，由他们自行决定是否override default method。</p>
 <p>Implementation inheritance 也有一些缺点：</p>
 <ul>
@@ -469,8 +469,6 @@
           
             <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
           
-            <a href="/tags/cs61b/" rel="tag"># cs61b</a>
-          
         </div>
       
 
@@ -492,8 +490,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Java-hashcode-equals/" rel="prev" title="Java | Hash @Override equals() hashcode()">
-                Java | Hash @Override equals() hashcode() <i class="fa fa-chevron-right"></i>
+              <a href="/java-extends-class/" rel="prev" title="Java 类的继承扩展 Extends">
+                Java 类的继承扩展 Extends <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -591,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -662,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现继承"><span class="nav-number">1.</span> <span class="nav-text">实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺省方法"><span class="nav-number">1.1.</span> <span class="nav-text">缺省方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-type"><span class="nav-number">1.2.</span> <span class="nav-text">Dynamic type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别接口继承与实现基础"><span class="nav-number">1.3.</span> <span class="nav-text">区别接口继承与实现基础</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现继承"><span class="nav-number">1.</span> <span class="nav-text">实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺省方法"><span class="nav-number">1.1.</span> <span class="nav-text">缺省方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-type"><span class="nav-number">1.2.</span> <span class="nav-text">Dynamic type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别接口继承与实现继承"><span class="nav-number">1.3.</span> <span class="nav-text">区别接口继承与实现继承</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer,cs61b," />
+  <meta name="keywords" content="Java,Software Engineer," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法与实例方法Class Methods vs. Instance Methods 参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();. 同理">
-<meta name="keywords" content="Java,Software Engineer,cs61b">
+<meta name="description" content="Class类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。">
+<meta name="keywords" content="Java,Software Engineer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 04 | 类 class - 02 类与实例">
 <meta property="og:url" content="http://shukebeta.me/java-04-02-class-instance/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法与实例方法Class Methods vs. Instance Methods 参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();. 同理">
+<meta property="og:description" content="Class类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T15:32:59.551Z">
+<meta property="og:updated_time" content="2018-10-21T12:15:53.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 04 | 类 class - 02 类与实例">
-<meta name="twitter:description" content="Class前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。 类方法与实例方法Class Methods vs. Instance Methods 参考上一篇文章的例子，类方法由类调用Dog.makeNoise();. 实例方法只能由实例调用bigDog.makeNoise();. 同理">
+<meta name="twitter:description" content="Class类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。">
 
 
 
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  954
+                  1,805
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  4 min
+                  7 min
                 </span>
               
             </div>
@@ -417,12 +417,43 @@
       
 
       
-        <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>前面提到，类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；<br>非静态只能由实例调用，所以也称之为实例方法/变量。</p>
-<h3 id="类方法与实例方法"><a href="#类方法与实例方法" class="headerlink" title="类方法与实例方法"></a>类方法与实例方法</h3><p>Class Methods vs. Instance Methods</p>
-<p>参考<a href="/java-04-01-class-intro#实例变量和对象实例化">上一篇文章的例子</a>，类方法由类调用<code>Dog.makeNoise();</code>. 实例方法只能由实例调用<code>bigDog.makeNoise();</code>. 同理可推, 类方法无法调用实例变量.<br><a id="more"></a><br>可以看到实例方法更具体, 更贴近实体世界, 那我们仍需要类方法, 因为:</p>
+        <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>类的方法和变量细分为静态的和非静态的. 静态就是可以被类调用，所以静态方法/变量也称之为类方法/变量；非静态只能由实例调用，所以也称之为实例方法/变量。<br><a id="more"></a></p>
+<h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><p>类变量 Class Variables 有<code>static</code>声明(静态变量).</p>
+<p>静态变量一般是类本身固有的属性, 被该类所有实例共享。例如，我们可能需要用狗类的另一种生物学的统称“犬科”来作为类的说明， 这个时候可以用<code>public static String binomen = &quot;犬科&quot;;</code>，这个变量理论上是由类来访问的。静态方法也类似.</p>
+<p>以下代码定义了一个类来模拟狗，包含一个类变量作为这个类的说明，一个类方法用于发出叫声：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String instruction = <span class="string">"狗类实例"</span>; <span class="comment">//类变量, 说明</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"汪!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里没有定义<code>main()</code>, 在这种情况下如何直接运行这个类(<code>java Dog</code>), 程序是会报错的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">错误: 在类 Dog 中找不到 main 方法, 请将 main 方法定义为:</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">否则 JavaFX 应用程序类必须扩展javafx.application.Application.</span></span><br></pre></td></tr></table></figure></p>
+<p>你可以选择在里面添加一个<code>main()</code>方法. 但这次我们选择不定义具体的<code>main()</code>. 具体要如何运行, 我们可以另写一个类定义一个main()方法来调用这个类.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类变量和方法是有局限性的。现实世界中, 并不是所有的狗都是一样的特征，仅仅靠类这个概念是无法区分不同个体的狗, 除非你为不同的狗定义不同的类（以及里面的变量和方法）, 那么就会很繁琐痛苦.</p>
+<h3 id="静态变量初始化"><a href="#静态变量初始化" class="headerlink" title="静态变量初始化"></a>静态变量初始化</h3><p>静态变量会在该类的任何对象创建之前就完成了初始化.<br>静态变量会在该类的任何静态方法执行之前就初始化.</p>
+<p>primitive主数据类型整数默认值是<code>0</code>, 浮点数默认值是<code>0.0</code>, boolean默认值是<code>false</code>, 对象引用是<code>null</code>.</p>
+<p>静态的<code>final</code>变量是常数: 一个被标记<code>final</code>的变量代表一旦被初始化之后就不会改动. 常数变量的名称全部都要大写.</p>
+<p>静态final变量必须初始化后才能使用, 初始化有两种方法:</p>
+<ol>
+<li>声明时<code>public class Foo { public static final int FOO_X = 25; }</code></li>
+<li>使用静态初始化程序 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> BAR_SIGN;</span><br><span class="line">    <span class="keyword">static</span> &#123; BAR_SIGN = (<span class="keyword">double</span>) Math.random(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>包括实例变量Instance Variables 和实例方法Instance method.</p>
+<p>Java的类定义就像定义一张蓝图, 我们可以在这个蓝图的基础上, 生成不同的实例instance. 实例是概念性的说法，本质上在Java里就是对象object。这样的特性提供了一个很自然而然地在java中模拟生成实体世界的方法：定义一个狗的类，在这个类的基础上，通过不同的特征参数实例化不同特征的狗（instances），并使类方法的输出取决于特定实例的狗的属性。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 一只狗的类:*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (weight &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"嘤嘤嘤!"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (weight &lt; <span class="number">30</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"汪汪汪"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"嗷呜!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里的方法和变量没有<code>static</code>, 所以是实例（非静态）方法和变量. 如果直接用 <code>Dog</code> 类来调用这些方法, 会报错:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.weight = <span class="number">21</span>;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DogLauncher.java:<span class="number">3</span>: 错误: 无法从静态上下文中引用非静态 变量 weight</span><br><span class="line">        Dog.weight = <span class="number">21</span>;</span><br><span class="line">           ^</span><br><span class="line">DogLauncher.java:<span class="number">4</span>: 错误: 无法从静态上下文中引用非静态 方法 makeNoise()</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">           ^</span><br></pre></td></tr></table></figure>
+<p>这个时候, 你需要实例化一只狗, 让这个实例来调用非静态变量和方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog bigDog = <span class="keyword">new</span> Dog();</span><br><span class="line">        bigDog.weight = <span class="number">5</span>;</span><br><span class="line">        bigDog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行时，这个程序将会创建一个重量为5的狗，这个狗就会“嗷呜”叫。</p>
+<p>虽然Java在技术上允许使用实例变量来访问静态变量或静态方法，但合法的不一定是好的, 这样会产生容易误解的代码，所以还是少用为好。</p>
+<p>总的来说，之所以需要实例方法和变量，是因为我们需要模拟个体，一只具体的狗，并让它发出声音。这个<code>weight</code>和<code>makeNoise()</code>只能由具体的狗调用。狗类不能调用，也没有调用的意义, 毕竟每只狗的重量和声音都不同的. 在设计程序时, 如果其中一个方法我们只打算让特定的实例来调用它(而不让类去调用它), 那么这个方法应该设计成实例方法。</p>
+<h3 id="静态方法与实例方法"><a href="#静态方法与实例方法" class="headerlink" title="静态方法与实例方法"></a>静态方法与实例方法</h3><p>类(静态)方法Class Methods由类调用<code>Dog.makeNoise();</code>.</p>
 <ul>
-<li>有些类不需要实例化, 毕竟我们也经常需要处理抽象的概念, 这些抽象概念在人类认知范畴内是统一的, 比如数学计算, 我们需要计算某个数值的平方根, <code>x = Math.sqrt(100);</code>, 拿来就用, 不需要先实例化. 这点在Python中体现得很好.</li>
-<li><p>有些类有静态方法, 是有实际作用的 - 每个实例都通用的方法。例如，若想比较一个类里面的不同实例, 比如两只狗的重量。比较简单的方法就是使用一个比较狗的重量的类方法:</p>
+<li><strong>静态方法无法调用实例变量</strong>. 否则会报错<code>non-static variable size cannot be referenced from a static context</code>.</li>
+<li><strong>静态方法不能调用非静态的方法</strong>: 即使非静态方法中没有涉及实例变量, 也无法通过编译, 因为不能保证整个非静态方法在以后会不会改动涉及实例变量, 或者如果子类去覆盖此方法可能会用到实例变量.</li>
+</ul>
+<p>实例方法Instance Methods只能由实例来调用<code>bigDog.makeNoise();</code>.</p>
+<ul>
+<li><strong>实例方法访问本成员变量是不受限制的</strong>, 也就是它可以访问静态变量和静态方法.</li>
+</ul>
+<p>可以看到实例方法更具体, 更贴近实体世界, 那我们仍需要静态方法, 因为:</p>
+<ul>
+<li>有些类不需要实例化, 毕竟我们也经常需要处理抽象的概念, 这些抽象概念在人类认知范畴内是统一的, 比如Java的<code>Math</code>包含很多数学运算的静态方法, 这是客观规律，比如<code>x = Math.sqrt(100)</code>不管创建多少个实例，数学运算的结果都是一样的, 所以没必要实例化来浪费空间.</li>
+<li><p>有些类有静态方法, 是有实际作用的 - 每个实例都通用的方法。若想比较一个类里面的不同实例, 比如两只狗的重量。比较简单的方法就是使用一个比较狗的重量的类方法:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title">maxDog</span><span class="params">(Dog d1, Dog d2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (d1.weight &gt; d2.weight) &#123;</span><br><span class="line">        <span class="keyword">return</span> d1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line">&#125;</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="number">15</span>);</span><br><span class="line">Dog d2 = <span class="keyword">new</span> Dog(<span class="number">100</span>);</span><br><span class="line">Dog.maxDog(d, d2);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>这个时候, 若使用实例方法也可以, 但没那么直观：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 我们使用关键字this来引用当前对象d。*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Dog <span class="title">maxDog</span><span class="params">(Dog d2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.weight &gt; d2.weight) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line">&#125;</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="number">15</span>);</span><br><span class="line">Dog d2 = <span class="keyword">new</span> Dog(<span class="number">100</span>);</span><br><span class="line">d.maxDog(d, d2);</span><br></pre></td></tr></table></figure>
@@ -430,23 +461,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="类变量与实例变量"><a href="#类变量与实例变量" class="headerlink" title="类变量与实例变量"></a>类变量与实例变量</h3><p>Class Variables vs. Instance Variables</p>
-<p>静态变量的也是有用处的。这些变量一般是类本身固有的属性。例如，我们可能需要用狗类的另一种生物学的统称“犬科”来作为类的说明， 这个时候可以用<code>public static String binomen = &quot;犬科&quot;;</code>，这个变量理论上是由类来访问的。</p>
-<p>虽然Java在技术上允许使用实例名称来访问静态变量，但是这有时候可能会令人困惑， 所以还是少用为好。</p>
-<h3 id="构造器（Constructors）"><a href="#构造器（Constructors）" class="headerlink" title="构造器（Constructors）"></a>构造器（Constructors）</h3><p>与上面的<code>DogLauncher</code>实例化对象的方式相比, 我们更希望实例化可以带参数的，那样可以为我们节省手动给实例变量赋值的麻烦。为了启用这样的语法，我们只需把如下与类名<strong>同名</strong>的构造函数直接添加进Dog类中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**注意：构造函数与class类同名</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    weight = w;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后在<code>DogLauncher</code>里实例化一只狗时, 直接<code>Dog d = new Dog(20);</code>即可.</p>
-<p>在以上代码的基础上, 后续当我们想使用new和参数创建一只狗时，可以随时调用<code>public Dog(int w)</code>构造函数。对于熟悉Python的人来说，你可以理解java的构造函数为Python的<code>__init__</code>。</p>
-<p>一些术语:</p>
-<ul>
-<li>声明(declaration): <code>Dog smalldog;</code>声明一个类作为一个变量在内存中占位</li>
-<li>实例化: <code>new Dog(20)</code>, 如果没有把它作为值赋给一个类声明变量,那么这个实例化的值会被垃圾回收.</li>
-<li>声明, 实例化并赋值: <code>Dog smalldog = new Dog(5)</code></li>
-</ul>
-<p>构造器并不总是必须的。编译器会自动为没有构造器的类提供一个无参数的默认构造函数。这个默认构造函数将调用其超类的（可调用的）无参构造函数。</p>
-<ul>
-<li>如果其超类没有无参数构造函数，编译会出错。</li>
-<li>如果没有显式的超类，那么就调用隐式的超类<code>Object</code>的无参构造函数。</li>
-</ul>
+<p>如果一个类只有静态的方法, 可以将构造函数标记为<code>private</code>以避免被初始化, 就像Java的<code>Math</code>一样.</p>
 
       
     </div>
@@ -467,8 +482,6 @@
             <a href="/tags/Java/" rel="tag"># Java</a>
           
             <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
-            <a href="/tags/cs61b/" rel="tag"># cs61b</a>
           
         </div>
       
@@ -590,7 +603,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -661,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class"><span class="nav-number">1.</span> <span class="nav-text">Class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类方法与实例方法"><span class="nav-number">1.1.</span> <span class="nav-text">类方法与实例方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类变量与实例变量"><span class="nav-number">1.2.</span> <span class="nav-text">类变量与实例变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造器（Constructors）"><span class="nav-number">1.3.</span> <span class="nav-text">构造器（Constructors）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class"><span class="nav-number">1.</span> <span class="nav-text">Class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态变量"><span class="nav-number">1.1.</span> <span class="nav-text">静态变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态变量初始化"><span class="nav-number">1.2.</span> <span class="nav-text">静态变量初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">1.3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法与实例方法"><span class="nav-number">1.4.</span> <span class="nav-text">静态方法与实例方法</span></a></li></ol></li></ol></div>
             
 
           </div>
