@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Java,Software Engineer," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
-<meta name="keywords" content="Java,Software Engineer">
+<meta name="description" content="除了单纯提供声明之外，Java 8 也允许接口提供具体的实现方法。">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 13 | 实现继承 Implementation Inheritance">
+<meta property="og:title" content="Java 13 | 继承实现默认方法">
 <meta property="og:url" content="http://shukebeta.me/java-13-implementation-inheritance/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
+<meta property="og:description" content="除了单纯提供声明之外，Java 8 也允许接口提供具体的实现方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-21T12:17:08.473Z">
+<meta property="og:updated_time" content="2018-10-22T04:02:21.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 13 | 实现继承 Implementation Inheritance">
-<meta name="twitter:description" content="实现继承除了signature之外，Java也允许subclass继承具体的实现方法。">
+<meta name="twitter:title" content="Java 13 | 继承实现默认方法">
+<meta name="twitter:description" content="除了单纯提供声明之外，Java 8 也允许接口提供具体的实现方法。">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <title>Java 13 | 实现继承 Implementation Inheritance | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Java 13 | 继承实现默认方法 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 13 | 实现继承 Implementation Inheritance</h1>
+          <h1 class="post-title" itemprop="name headline">Java 13 | 继承实现默认方法</h1>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/java-13-implementation-inheritance/" class="leancloud_visitors" data-flag-title="Java 13 | 实现继承 Implementation Inheritance">
+             <span id="/java-13-implementation-inheritance/" class="leancloud_visitors" data-flag-title="Java 13 | 继承实现默认方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  809
+                  634
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  3 min
+                  2 min
                 </span>
               
             </div>
@@ -417,7 +417,7 @@
       
 
       
-        <h2 id="实现继承"><a href="#实现继承" class="headerlink" title="实现继承"></a>实现继承</h2><p>除了signature之外，Java也允许subclass继承具体的实现方法。<br><a id="more"></a></p>
+        <p>除了单纯提供声明之外，Java 8 也允许接口提供具体的实现方法。<br><a id="more"></a></p>
 <h3 id="缺省方法"><a href="#缺省方法" class="headerlink" title="缺省方法"></a>缺省方法</h3><p>从 Java 8开始支持 Default method。</p>
 <p>我们可以在List中列出已实现的method。这些方法就是 default method，定义了List hypernyms的一些默认行为：<code>default public void method() { ... }</code>.</p>
 <p>我们可以自由调用interface中定义的方法，而不用操心具体的实现。Default method 适用于实现接口的任何类型的对象！子类可以直接调用，而不必重新实现 default method。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List</span></span><br><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -435,8 +435,6 @@
 <p>当Java运行一个被overriden的方法时，会根据该实例的dynamic type 匹配对应的 method。</p>
 <p>注意，如果是overload:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">peek</span><span class="params">(LinkedList&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>对于上面的实例化的<code>l</code>, 当Java检查要调用哪个方法时，它会检查 static type (此时是List)并使用相同类型的参数调用该方法，也就是使用List作为签名的那个方法。</p>
-<h3 id="区别接口继承与实现继承"><a href="#区别接口继承与实现继承" class="headerlink" title="区别接口继承与实现继承"></a>区别接口继承与实现继承</h3><p>接口继承（what）：指定 subclass 应该实现的功能，即只提供 method signature。</p>
-<p>实现继承（how）：提供功能的实现方案，即提供 method implementation。允许代码再利用，也给subclass设计者提供了更多的自由度，由他们自行决定是否override default method。</p>
 <p>Implementation inheritance 也有一些缺点：</p>
 <ul>
 <li>人会犯错。我们有可能忘了自己曾经override过一个方法。</li>
@@ -444,10 +442,6 @@
 <li>无形中鼓励代码复杂化。</li>
 <li>Breaks encapsulation!</li>
 </ul>
-<p>最后，注意<strong>从属</strong>和<strong>拥有</strong>的区别：subclass 和 superclass 是上下级从属分类，而不是拥有与被拥有的关系，不要跟 nested class 混淆。</p>
-<blockquote>
-<p>Interface Methods: Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict.<br>– <a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/java/IandI/index.html</a></p>
-</blockquote>
 
       
     </div>
@@ -467,8 +461,6 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
         </div>
       
 
@@ -480,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-12-interface-inheritance/" rel="next" title="Java 12 | 接口继承 Interface Inheritance">
-                <i class="fa fa-chevron-left"></i> Java 12 | 接口继承 Interface Inheritance
+              <a href="/java-12-interface/" rel="next" title="Java 12 | 接口 Interface">
+                <i class="fa fa-chevron-left"></i> Java 12 | 接口 Interface
               </a>
             
           </div>
@@ -589,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -660,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现继承"><span class="nav-number">1.</span> <span class="nav-text">实现继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺省方法"><span class="nav-number">1.1.</span> <span class="nav-text">缺省方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-type"><span class="nav-number">1.2.</span> <span class="nav-text">Dynamic type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别接口继承与实现继承"><span class="nav-number">1.3.</span> <span class="nav-text">区别接口继承与实现继承</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺省方法"><span class="nav-number">1.</span> <span class="nav-text">缺省方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-type"><span class="nav-number">2.</span> <span class="nav-text">Dynamic type</span></a></li></ol></div>
             
 
           </div>
@@ -832,7 +824,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/java-13-implementation-inheritance/';
           this.page.identifier = 'java-13-implementation-inheritance/';
-          this.page.title = 'Java 13 | 实现继承 Implementation Inheritance';
+          this.page.title = 'Java 13 | 继承实现默认方法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';

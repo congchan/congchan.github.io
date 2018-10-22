@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/java-12-interface/</loc>
+    <lastmod>2018-10-22T04:13:28.818Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-13-implementation-inheritance/</loc>
+    <lastmod>2018-10-22T04:02:21.520Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-extends-class/</loc>
+    <lastmod>2018-10-22T04:02:17.229Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-abstract-class/</loc>
+    <lastmod>2018-10-22T03:58:46.770Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-07-data-structures-array-based-list/</loc>
+    <lastmod>2018-10-22T03:24:05.958Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-04-03-class-nested-class/</loc>
+    <lastmod>2018-10-22T02:08:24.385Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-08-data-structures-singly-linked-list/</loc>
+    <lastmod>2018-10-22T01:19:33.453Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-09-data-compression-huffman-compression/</loc>
     <lastmod>2018-10-22T01:09:15.512Z</lastmod>
   </url>  <url>
@@ -25,9 +46,6 @@
     <loc>http://shukebeta.me/java-higher-order-functions-call-back/</loc>
     <lastmod>2018-10-21T12:17:52.750Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/java-extends-class/</loc>
-    <lastmod>2018-10-21T12:17:45.352Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/java-exception/</loc>
     <lastmod>2018-10-21T12:17:34.934Z</lastmod>
   </url>  <url>
@@ -40,15 +58,6 @@
     <loc>http://shukebeta.me/java-adt/</loc>
     <lastmod>2018-10-21T12:17:19.905Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/java-abstract-class/</loc>
-    <lastmod>2018-10-21T12:17:14.939Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-13-implementation-inheritance/</loc>
-    <lastmod>2018-10-21T12:17:08.473Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-12-interface-inheritance/</loc>
-    <lastmod>2018-10-21T12:17:03.316Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/java-11-testing/</loc>
     <lastmod>2018-10-21T12:17:00.048Z</lastmod>
   </url>  <url>
@@ -57,12 +66,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/java-09-data-structures-doubly-linked-list/</loc>
     <lastmod>2018-10-21T12:16:53.375Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-08-data-structures-singly-linked-list/</loc>
-    <lastmod>2018-10-21T12:16:50.431Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-07-data-structures-array-based-list/</loc>
-    <lastmod>2018-10-21T12:16:47.774Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-06-data-structures-array/</loc>
     <lastmod>2018-10-21T12:16:44.958Z</lastmod>

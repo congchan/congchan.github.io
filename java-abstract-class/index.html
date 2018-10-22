@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...&amp;#1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-21T12:17:14.939Z">
+<meta property="og:updated_time" content="2018-10-22T03:58:46.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 抽象类">
 <meta name="twitter:description" content="有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...&amp;#1">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,343
+                  1,342
                 </span>
               
 
@@ -426,12 +426,12 @@
 <p>基本上，接口能做的抽象类都可以做。 但接口的最大意义就是其无比的适用性, 若以接口取代具体的子类或抽象类作为参数或返回类型, 那么就可以传入任何有实现该接口的东西. 有了接口,</p>
 <ul>
 <li>类就可以继承超过一个以上的来源: 可以继承某个父类, 并且实现其他接口.</li>
-<li>接口自身可以<strong>extends</strong>其他接口.</li>
+<li>接口自身可以<strong>extends</strong>多个其他接口.</li>
 <li>一个类, 可以实现多个接口. <code>class Dog extends Animal implements Pet, Saveable, paintable {}</code></li>
 <li>一个接口, 可以给不同的类使用, 因此就可以为不同的需求组合出不同的继承层次.</li>
 </ul>
 <p>等于说有了接口, 那么不管一个类是什么类, 只要它实现了一个接口, 那么就知道它一定会履行对应的行为合约. 允许不同继承树的类实现共同的接口对Java API来说是非常重要的, 比如要将对象状态保存起来, 只要去实现<code>Serializable</code>接口即可; 打算让对象以单独的线程来执行, 就实现<code>Runnable</code>.</p>
-<p>要注意，接口只能<strong>扩展</strong><code>extends</code>另一个接口，不能实现<code>implement</code>另一个接口.</p>
+<p>要注意，接口能<strong>扩展</strong><code>extends</code>多个接口，不能实现<code>implement</code>任何接口.</p>
 <p>实际应用中，抽象类通常用于部分地实现接口，在接口和实际的类中间扮演一个中间概念。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(Speed x)</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">DeluxeModel</span> <span class="keyword">implements</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span> x;</span><br><span class="line">	...</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">(Speed x)</span> </span>&#123; ... &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">autoPilot</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现时, 要 override 所有抽象方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TeslaX</span> <span class="keyword">extends</span> <span class="title">DeluxeModel</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">autoPilot</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>若不确定用哪种, 就优先考虑接口，以降低复杂性。<br>– <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html</a></p>
@@ -600,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

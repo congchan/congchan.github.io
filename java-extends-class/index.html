@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="类的继承扩展定义接口之间的层次关系可以使用implement, SLList&amp;lt;xxx&amp;gt; implements List61B&amp;lt;xxx&amp;gt;. 但假如我们想要定义class之间的层次关系呢？">
+<meta name="description" content="类的继承扩展定义class之间的层次关系.">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 类的继承扩展 Extends">
 <meta property="og:url" content="http://shukebeta.me/java-extends-class/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="类的继承扩展定义接口之间的层次关系可以使用implement, SLList&amp;lt;xxx&amp;gt; implements List61B&amp;lt;xxx&amp;gt;. 但假如我们想要定义class之间的层次关系呢？">
+<meta property="og:description" content="类的继承扩展定义class之间的层次关系.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-21T12:17:45.352Z">
+<meta property="og:updated_time" content="2018-10-22T04:02:17.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 类的继承扩展 Extends">
-<meta name="twitter:description" content="类的继承扩展定义接口之间的层次关系可以使用implement, SLList&amp;lt;xxx&amp;gt; implements List61B&amp;lt;xxx&amp;gt;. 但假如我们想要定义class之间的层次关系呢？">
+<meta name="twitter:description" content="类的继承扩展定义class之间的层次关系.">
 
 
 
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,455
+                  2,664
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  10 min
+                  11 min
                 </span>
               
             </div>
@@ -417,7 +417,7 @@
       
 
       
-        <h2 id="类的继承扩展"><a href="#类的继承扩展" class="headerlink" title="类的继承扩展"></a>类的继承扩展</h2><p>定义接口之间的层次关系可以使用<code>implement</code>, <code>SLList&lt;xxx&gt; implements List61B&lt;xxx&gt;</code>. 但假如我们想要定义class之间的层次关系呢？<br><a id="more"></a><br>假设要构建一个<code>RotatingSLList</code>，它具有与<code>SLList</code>相同的功能，如<code>addFirst, size</code>等，但是需要额外的<code>rotateRight</code>操作将最后一项放到列表的前面，因为继承允许子类重用已经定义的类中的代码。所以让<code>RotatingSLList</code>类从<code>SLList</code>继承部分代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RotatingSLList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">extends</span> <span class="title">SLList</span>&lt;<span class="title">Item</span>&gt; </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="类的继承扩展"><a href="#类的继承扩展" class="headerlink" title="类的继承扩展"></a>类的继承扩展</h2><p>定义class之间的层次关系.<br><a id="more"></a><br>假设要构建一个<code>RotatingSLList</code>，它具有与<code>SLList</code>相同的功能，如<code>addFirst, size</code>等，但是需要额外的<code>rotateRight</code>操作将最后一项放到列表的前面，因为继承允许子类重用已经定义的类中的代码。所以让<code>RotatingSLList</code>类从<code>SLList</code>继承部分代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RotatingSLList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">extends</span> <span class="title">SLList</span>&lt;<span class="title">Item</span>&gt; </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>RotatingSLList</code>“是一种”<code>SLList</code>, <code>extends</code>可以让我们继承<code>SLList</code>的原始功能，并能修改或添加其他功能。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** The rotateRight method  takes in an existing list,</span></span><br><span class="line"><span class="comment">    and rotates every element one spot to the right,</span></span><br><span class="line"><span class="comment">    moving the last item to the front of the list.</span></span><br><span class="line"><span class="comment">    For example, input [5, 9, 15, 22] should return [22, 5, 9, 15].</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotateRight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Item x = removeLast();</span><br><span class="line">    addFirst(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>通过<code>extends</code>, 子类<strong>继承</strong>父类的所有成员，成员包括：</p>
 <ul>
@@ -426,8 +426,18 @@
 <li>所有嵌套类</li>
 </ul>
 <p>但注意，构造函数不继承，并且私有成员不能被子类直接访问。</p>
-<p>上面的例子使用父类的<code>removeLast()</code>把最后的元素直接丢弃了，但假如有一个子类<code>VengefulSLList</code>想保留被丢弃的元素呢? 考虑到子类可以直接override父类的成员, 可以override父类的<code>removeLast</code>, 通过添加一个实例变量来追踪所有已删除的元素.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VengefulSLList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">extends</span> <span class="title">SLList</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    SLList&lt;Item&gt; deletedItems;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        deleteItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">removeLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Item x = <span class="keyword">super</span>.removeLast();</span><br><span class="line">        deletedItems.addLast(x);</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Prints deleted items. */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printLostItems</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       deletedItems.print();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>从属</strong>和<strong>拥有</strong>的区别：subclass 和 superclass 是上下级从属分类，而不是拥有与被拥有的关系，不要跟 nested class 混淆。</p>
+<blockquote>
+<p>Interface Methods: Default methods and abstract methods in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict.<br>– <a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/java/IandI/index.html</a></p>
+</blockquote>
+<h3 id="Overriding"><a href="#Overriding" class="headerlink" title="Overriding"></a>Overriding</h3><p>上面的例子使用父类的<code>removeLast()</code>把最后的元素直接丢弃了，但假如有一个子类<code>VengefulSLList</code>想保留被丢弃的元素呢?</p>
+<p>子类可以<strong>覆盖 override</strong>父类的方法。</p>
+<blockquote>
+<p>区分 Override 与 重载 overloaded：Override 的方法 signature 相同；overloaded的方法同名但不同signature。</p>
+</blockquote>
+<p>子类可以override父类的<code>removeLast</code>, 通过添加一个实例变量来追踪所有已删除的元素.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VengefulSLList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">extends</span> <span class="title">SLList</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    SLList&lt;Item&gt; deletedItems;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        deleteItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">removeLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Item x = <span class="keyword">super</span>.removeLast();</span><br><span class="line">        deletedItems.addLast(x);</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Prints deleted items. */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printLostItems</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       deletedItems.print();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>继承的好处是代码得以重复利用. 坏处是因为“Is a”的关系, debugging的路径会很烦人。</p>
+<p>但即使不包含这个<code>@Override</code>，我们仍然override了这个方法。所以从技术上来说，<code>@Override</code>并不是必须的。但是，它可以作为一个保障, 提醒编译器我们打算override此方法, 如果过程中出现问题, 编译器可以提醒。假设当我们想 override <code>addLast</code>，却不小心写成<code>addLsat</code>。此时如果不包含<code>@Override</code>，那么可能无法发现错误。如果有了<code>@Override</code>，编译器就会提示我们修复错误。</p>
 <h3 id="Constructors-Are-Not-Inherited"><a href="#Constructors-Are-Not-Inherited" class="headerlink" title="Constructors Are Not Inherited"></a>Constructors Are Not Inherited</h3><blockquote>
 <p>Java要求所有子类的构造函数必须先调用其某一超类的构造函数。<br>– <a href="https://docs.oracle.com/javase/tutorial/java/IandI/super.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/java/IandI/super.html</a></p>
 </blockquote>
@@ -559,8 +569,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-13-implementation-inheritance/" rel="next" title="Java 13 | 实现继承 Implementation Inheritance">
-                <i class="fa fa-chevron-left"></i> Java 13 | 实现继承 Implementation Inheritance
+              <a href="/java-13-implementation-inheritance/" rel="next" title="Java 13 | 继承实现默认方法">
+                <i class="fa fa-chevron-left"></i> Java 13 | 继承实现默认方法
               </a>
             
           </div>
@@ -668,7 +678,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -739,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的继承扩展"><span class="nav-number">1.</span> <span class="nav-text">类的继承扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructors-Are-Not-Inherited"><span class="nav-number">1.1.</span> <span class="nav-text">Constructors Are Not Inherited</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance-Cheatsheet"><span class="nav-number">1.2.</span> <span class="nav-text">Inheritance Cheatsheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（子类型）多态"><span class="nav-number">1.3.</span> <span class="nav-text">（子类型）多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Object-Class"><span class="nav-number">1.4.</span> <span class="nav-text">The Object Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型检查"><span class="nav-number">1.5.</span> <span class="nav-text">类型检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Casting"><span class="nav-number">1.6.</span> <span class="nav-text">Casting</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的继承扩展"><span class="nav-number">1.</span> <span class="nav-text">类的继承扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overriding"><span class="nav-number">1.1.</span> <span class="nav-text">Overriding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructors-Are-Not-Inherited"><span class="nav-number">1.2.</span> <span class="nav-text">Constructors Are Not Inherited</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance-Cheatsheet"><span class="nav-number">1.3.</span> <span class="nav-text">Inheritance Cheatsheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（子类型）多态"><span class="nav-number">1.4.</span> <span class="nav-text">（子类型）多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Object-Class"><span class="nav-number">1.5.</span> <span class="nav-text">The Object Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型检查"><span class="nav-number">1.6.</span> <span class="nav-text">类型检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Casting"><span class="nav-number">1.7.</span> <span class="nav-text">Casting</span></a></li></ol></li></ol></div>
             
 
           </div>
