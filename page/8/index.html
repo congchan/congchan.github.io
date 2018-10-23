@@ -271,6 +271,645 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-01-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/java-01-install/" itemprop="url">Java 01 | 安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T00:00:00+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/java-01-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="java-01-install/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/java-01-install/" class="leancloud_visitors" data-flag-title="Java 01 | 安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  660
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  3 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>参考了伯克利 Josh Hug 的 <a href="datastructur.es/sp17/">cs61b spring 2017</a> 和 <a href="http://sp18.datastructur.es" target="_blank" rel="noopener">cs61b spring 2018</a>. Lab, homework 和 project 代码实现参考 <a href="https://github.com/ShootingSpace/cs61b-data-structures" target="_blank" rel="noopener">https://github.com/ShootingSpace/cs61b-data-structures</a>.</p>
+<h2 id="Java安装与配置"><a href="#Java安装与配置" class="headerlink" title="Java安装与配置"></a>Java安装与配置</h2><p>安装Java，前往<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a>下载java sdk，我用的是Java SE 8u151/ 8u152 版本。安装sdk时会同时安装sdr。</p>
+<p>Windows系统配置:</p>
+<ul>
+<li>推荐安装<a href="http://git-scm.com/download/" target="_blank" rel="noopener">git bash</a>, 一切按照默认安装就好.</li>
+<li>更新系统环境变量: 直接在<code>运行</code>中搜索<code>Environment Variables</code>, 选择<code>编辑系统环境变量</code>, 在弹出的框中选择<code>高级-&gt;环境变量</code>, 在弹出的框中<code>系统变量</code>里面<ul>
+<li>新建变量: 变量名 = <code>JAVA_HOME</code>, 变量值 = 你的jdk路径,如<code>C:\Program Files\Java\jdk1.8.0_151</code></li>
+<li>编辑Path: 在前面加入<code>%JAVA_HOME%\bin;%PYTHON_HOME%;</code>(请注意，不能有空格.)</li>
+</ul>
+</li>
+</ul>
+<p>OS X系统配置:</p>
+<ul>
+<li>安装Homebrew，一个非常好用的包管理工具。要安装，请在terminal终端输入<code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code>(注意：在此过程中，可能会提示输入密码。当输入密码时，终端上不会显示任何内容，但计算机还是会记录你的密码的。这是一个安全措施, 让其他人在屏幕上看不到你的密码。只需输入您的密码，然后按回车。)</li>
+<li>然后，通过输入以下命令来检查brew系统是否正常工作<code>brew doctor</code>. 如果遇到警告，要求下载命令行工具，则需要执行此操作。请参考这个<a href="http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-%20%20command-line-tools" target="_blank" rel="noopener">StackOverflow</a>。</li>
+<li>安装git：输入<code>brew install git</code></li>
+</ul>
+<p>安装并配置好java后，测试是否成功:<br>随便在你喜欢的文件夹里新建一个java文件<code>HelloWorld.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你可以选择用sublime来快速新建文件, 直接在你选择的文件里右键 git bash, 在git bash 里面键入<code>subl HelloWorld.java</code>, 还自动启动sublime并新建一个空白的<code>HelloWorld.java</code>文件, 把上面的代码复制进去并保存即可. (若出现类似提示: 找不到subl command, 解决办法请参考博文<a href="/Launch-editor-in-Gitbash">在Gitbash中直接启动sublime或atom等编辑器以打开或新建文件</a> )<br>开始真正的测试。直接在之前打开的git bash中输入:</p>
+<ol>
+<li><code>ls</code>, 会看到<code>HelloWorld.java</code>这个文件, <code>ls</code>会列出这个目录中的文件/文件夹</li>
+<li><code>javac HelloWorld.java</code>, 理论上这一步不会有任何输出，有的话可能是设置有问题。现在，如果你继续<code>ls</code>，会看到多了一个<code>HelloWorld.class</code>文件， 这是javac创建的。</li>
+<li><code>java HelloWorld</code> (注意没有<code>.java</code>), 会看到输出<code>Hello World</code>, 表明你的Java设置没有问题</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/machine-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/machine-learning/" itemprop="url">Machine Learning Note - cs229 - Stanford</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-05T00:00:00+08:00">
+                2017-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/machine-learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="machine-learning/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/machine-learning/" class="leancloud_visitors" data-flag-title="Machine Learning Note - cs229 - Stanford">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  4,377
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  26 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>参考<br><a href="http://cs229.stanford.edu/notes" target="_blank" rel="noopener">CS229: Machine Learning, Stanford</a></p>
+<p>什么是机器学习？目前有两个定义。</p>
+<p>亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。</p>
+<p>汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：<br>E：经验，即历史的数据集。<br>T：某类任务。<br>P：任务的绩效衡量。<br>若该计算机程序通过利用经验E在任务T上获得了性能P的改善，则称该程序对E进行了学习<br>“如果计算机程序能够利用经验E，提升实现任务T的成绩P，则可以认为这个计算机程序能够从经验E中学习任务T”。<br>例如：玩跳棋。E =玩许多棋子游戏的经验，T = 玩跳棋的任务。P = 程序将赢得下一场比赛的概率。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/machine-learning/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/machine-learning-with-sklearn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/machine-learning-with-sklearn/" itemprop="url">Machine Learning with Scikit-learn (Sklearn) 机器学习实践</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">
+                2017-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/machine-learning-with-sklearn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="machine-learning-with-sklearn/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/machine-learning-with-sklearn/" class="leancloud_visitors" data-flag-title="Machine Learning with Scikit-learn (Sklearn) 机器学习实践">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  126
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Scikit-learn 提供一套实用的工具，用于解决机器学习中的实际问题，并配合适当的方法来制定解决方案。</p>
+<p>涉及数据和模型简介，决策树，误差的作用，最小化误差，回归拟合，逻辑回归，神经网络，感知器，支持向量机，朴素贝叶斯，降维，K均值，简单高斯混合模型，分层聚类，模型评估。</p>
+<p>实验和代码在<a href="https://github.com/JamesOwers/iaml2017" target="_blank" rel="noopener">GitHub</a>;<br>练习作业答案可以参考<a href="https://github.com/ShootingSpace/Machine-learning-practical-with-scikit-learn" target="_blank" rel="noopener">GitHub</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-st/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -471,7 +1110,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-anlp/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-sapm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -490,7 +1129,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/UoE-anlp/" itemprop="url">Accelerated Natural Language Processing</a></h1>
+                <a class="post-title-link" href="/UoE-sapm/" itemprop="url">Software Architecture, Process, and Management</a></h1>
         
 
         <div class="post-meta">
@@ -502,7 +1141,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-01T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-01T07:00:00+08:00">
                 2017-10-01
               </time>
             
@@ -525,19 +1164,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
                   </a>
                 </span>
 
@@ -554,9 +1182,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/UoE-anlp/#comments" itemprop="discussionUrl">
+                <a href="/UoE-sapm/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="UoE-anlp/" itemprop="commentCount"></span>
+                        data-disqus-identifier="UoE-sapm/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -564,7 +1192,7 @@
 
           
           
-             <span id="/UoE-anlp/" class="leancloud_visitors" data-flag-title="Accelerated Natural Language Processing">
+             <span id="/UoE-sapm/" class="leancloud_visitors" data-flag-title="Software Architecture, Process, and Management">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -589,7 +1217,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  6,756
+                  9,777
                 </span>
               
 
@@ -605,7 +1233,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  41 min
+                  59 min
                 </span>
               
             </div>
@@ -627,11 +1255,211 @@
 
       
         
-          <p>爱丁堡大学信息学院课程笔记 Accelerated Natural Language Processing, Informatics, University of Edinburgh</p>
-<p>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/anlp/" target="_blank" rel="noopener">Accelerated natural language processing</a><br><a href="https://www.inf.ed.ac.uk/teaching/courses/anlp/review/review_ay17.html" target="_blank" rel="noopener">ANLP revision guide</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a><br>
+          <p>爱丁堡大学信息学院课程笔记 Software Architecture, Process, and Management, Informatics, University of Edinburgh</p>
+<p>Reference:<br><a href="https://msdn.microsoft.com/en-us/library/ff650706.aspx" target="_blank" rel="noopener">microsoft</a><br><a href="https://www.ibm.com/developerworks/rational/library/feb06/eeles/" target="_blank" rel="noopener">IBM</a><br>Software Architecture in Practice (3rd edition), Bass, Clements, and Kazman</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/UoE-anlp/#more" rel="contents">
+            <a class="btn" href="/UoE-sapm/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-ppls/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/UoE-ppls/" itemprop="url">Parallel Programming Language and Systems</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-01T07:00:00+08:00">
+                2017-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/UoE-ppls/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="UoE-ppls/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/UoE-ppls/" class="leancloud_visitors" data-flag-title="Parallel Programming Language and Systems">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  16,428
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  96 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>爱丁堡大学信息学院课程笔记 Parallel Programming Language and Systems, Informatics, University of Edinburgh</p>
+<p>Reference:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/ppls/" target="_blank" rel="noopener">http://www.inf.ed.ac.uk/teaching/courses/ppls/</a><br><a href="http://www.cs.cmu.edu/~213/" target="_blank" rel="noopener">CMU 15213: Introduction to Computer Systems (ICS)</a><br><a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener">Computer Systems: A Programmer’s Perspective</a><br><a href="http://mpitutorial.com/" target="_blank" rel="noopener">A Comprehensive MPI Tutorial Resource</a><br><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node94.html#SECTION03500000000000000000" target="_blank" rel="noopener">A chapter on MPI from Ian Foster’s online Book Designing and Building Parallel Programs</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/UoE-ppls/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -843,6 +1671,217 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/UoE-nlu/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/UoE-anlp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/UoE-anlp/" itemprop="url">Accelerated Natural Language Processing</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-01T00:00:00+08:00">
+                2017-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/UoE-anlp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="UoE-anlp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/UoE-anlp/" class="leancloud_visitors" data-flag-title="Accelerated Natural Language Processing">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  6,756
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  41 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>爱丁堡大学信息学院课程笔记 Accelerated Natural Language Processing, Informatics, University of Edinburgh</p>
+<p>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/anlp/" target="_blank" rel="noopener">Accelerated natural language processing</a><br><a href="https://www.inf.ed.ac.uk/teaching/courses/anlp/review/review_ay17.html" target="_blank" rel="noopener">ANLP revision guide</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/UoE-anlp/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1307,211 +2346,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/ai/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/ai/" itemprop="url">Learn AI Step by Step</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-31T00:00:00+08:00">
-                2016-12-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/ai/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="ai/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/ai/" class="leancloud_visitors" data-flag-title="Learn AI Step by Step">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  224
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。</p>
-<p><a href="https://github.com/ShootingSpace/Guide-to-Computer-Science/blob/master/readme.md" target="_blank" rel="noopener">English template 英文模板</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ai/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1561,7 +2400,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

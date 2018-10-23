@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://shukebeta.me/java-12-interface/</loc>
-    <lastmod>2018-10-22T04:13:28.818Z</lastmod>
+    <loc>http://shukebeta.me/NLP-09-data-compression-huffman-compression/</loc>
+    <lastmod>2018-10-23T02:13:56.515Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-HashMap/</loc>
+    <lastmod>2018-10-23T01:56:53.135Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/algorithms/</loc>
+    <lastmod>2018-10-22T15:44:16.350Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-HashMap-LinkedHashMap-LRU/</loc>
+    <lastmod>2018-10-22T15:43:30.929Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-BitMap/</loc>
+    <lastmod>2018-10-22T15:43:04.829Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-HashMap-LinkedHashMap/</loc>
+    <lastmod>2018-10-22T15:06:33.245Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-hashcode-equals/</loc>
+    <lastmod>2018-10-22T10:30:58.688Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/bits-operations-07/</loc>
+    <lastmod>2018-10-22T09:18:06.806Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/bits-operations-01/</loc>
+    <lastmod>2018-10-22T08:40:40.141Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-HashTable/</loc>
+    <lastmod>2018-10-22T04:49:44.371Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-13-implementation-inheritance/</loc>
-    <lastmod>2018-10-22T04:02:21.520Z</lastmod>
+    <lastmod>2018-10-22T04:40:18.925Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-12-interface/</loc>
+    <lastmod>2018-10-22T04:13:28.818Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-extends-class/</loc>
     <lastmod>2018-10-22T04:02:17.229Z</lastmod>
@@ -22,17 +52,11 @@
     <loc>http://shukebeta.me/java-08-data-structures-singly-linked-list/</loc>
     <lastmod>2018-10-22T01:19:33.453Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/NLP-09-data-compression-huffman-compression/</loc>
-    <lastmod>2018-10-22T01:09:15.512Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/java-generics/</loc>
     <lastmod>2018-10-22T00:37:41.450Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-formatting/</loc>
     <lastmod>2018-10-21T12:48:39.899Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/Java-hashcode-equals/</loc>
-    <lastmod>2018-10-21T12:20:26.056Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-stack-heap/</loc>
     <lastmod>2018-10-21T12:18:06.898Z</lastmod>
@@ -88,9 +112,6 @@
     <loc>http://shukebeta.me/java-04-02-class-instance/</loc>
     <lastmod>2018-10-21T12:15:53.526Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/algorithms/</loc>
-    <lastmod>2018-10-19T08:56:50.897Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/NLP-attention-01/</loc>
     <lastmod>2018-10-17T15:22:21.025Z</lastmod>
   </url>  <url>
@@ -145,9 +166,6 @@
     <loc>http://shukebeta.me/bits-operations-03/</loc>
     <lastmod>2018-10-10T09:45:33.617Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/bits-operations-07/</loc>
-    <lastmod>2018-10-10T03:26:41.653Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/bits-operations-06/</loc>
     <lastmod>2018-10-10T03:26:37.010Z</lastmod>
   </url>  <url>
@@ -162,9 +180,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
     <lastmod>2018-10-07T07:44:44.008Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/bits-operations-01/</loc>
-    <lastmod>2018-10-07T03:55:46.079Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/bits-operations-02/</loc>
     <lastmod>2018-09-30T09:03:10.193Z</lastmod>

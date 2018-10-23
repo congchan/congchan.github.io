@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://shukebeta.me/images/Morse_Code.png">
 <meta property="og:image" content="http://shukebeta.me/images/huffman_trie.png">
 <meta property="og:image" content="http://shukebeta.me/images/preorder_traversal_trie.png">
-<meta property="og:updated_time" content="2018-10-22T01:09:15.512Z">
+<meta property="og:updated_time" content="2018-10-23T02:13:56.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NLP与信息处理 09 - 数据压缩 - 哈夫曼编码">
 <meta name="twitter:description" content="避免歧义的编码在构建压缩编码的对应关系时，我们使用不同的数量的位来编码不同的字符.">
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,114
+                  1,228
                 </span>
               
 
@@ -465,6 +465,7 @@
 <p><a href="https://algs4.cs.princeton.edu/55compression/Huffman.java.html" target="_blank" rel="noopener">完整代码见</a></p>
 <p>Implementation.<br>・Pass 1:  tabulate char frequencies and build trie.<br>・Pass 2:  encode file by traversing trie or lookup table</p>
 <p>Running time. Using a binary heap ⇒ <code>N + R log R</code>. N input size, R alphabet size.</p>
+<p>对于具有n个叶子节点的哈夫曼树，一共需要<code>2*n-1</code>个节点: 二叉树有三种类型节点，即子节点数为2的节点，为1的节点和为0的叶节点。而哈夫曼树的非叶子节点是由两个节点生成的，因此不能出现只有单子节点的节点，如果叶子节点个数为n, 那么非叶子节点的个数为<code>n-1</code>.</p>
 <p>哈夫曼编码广泛应用于jpeg, pdf, MP3, MP4等文件编码中.</p>
 <p>在神经网络中, 哈夫曼树也被用于构建层级Softmax.</p>
 <p>一个使用Huffman Encoding的实例：<br><a href="https://github.com/congchan/cs106b-programming-abstraction/tree/master/HW6_Huffman%20Encoding/Huffman/src" target="_blank" rel="noopener">https://github.com/congchan/cs106b-programming-abstraction/tree/master/HW6_Huffman%20Encoding/Huffman/src</a></p>
@@ -515,6 +516,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/java-BitMap/" rel="prev" title="Java BitMap 和 Bloom Filter">
+                Java BitMap 和 Bloom Filter <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -611,7 +616,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
