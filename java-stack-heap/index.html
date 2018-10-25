@@ -87,18 +87,20 @@
 
 
 
-<meta name="description" content="认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。 对象生存在课垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。">
+<meta name="description" content="认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。 对象生存在可垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 堆栈">
 <meta property="og:url" content="http://shukebeta.me/java-stack-heap/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。 对象生存在课垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。">
+<meta property="og:description" content="认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。 对象生存在可垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-21T12:18:06.898Z">
+<meta property="og:image" content="http://shukebeta.me/images/jvm.png">
+<meta property="og:updated_time" content="2018-10-23T03:50:47.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 堆栈">
-<meta name="twitter:description" content="认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。 对象生存在课垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。">
+<meta name="twitter:description" content="认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。 对象生存在可垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。">
+<meta name="twitter:image" content="http://shukebeta.me/images/jvm.png">
 
 
 
@@ -418,7 +420,7 @@
 
       
         <p>认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。</p>
-<p>对象生存在课垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。<br><a id="more"></a></p>
+<p>对象生存在可垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。<br><a id="more"></a></p>
 <p>当JVM启动时，从底层操作系统取得一块内存， 以此区段来执行Java程序。</p>
 <h2 id="实例变量和局部变量"><a href="#实例变量和局部变量" class="headerlink" title="实例变量和局部变量"></a>实例变量和局部变量</h2><p>实例变量声明在类方法之外：实例变量保存在所属的对象中，位于堆上。如果实例变量是个对对象的引用，则引用和对象都在堆上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    Mouth mouth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>当新建一个<code>Duck()</code>时, Java必须在堆上帮它找位置, 保证空间足够存放该对象所有<strong>实例变量</strong>.</p>
@@ -445,7 +447,7 @@
 <li>Scope：局部变量的活动范围仅限于声明它的方法之内。此方法如果调用别的方法时，该变量还活着，但不在目前活跃的方法范围内。得等到其他方法执行完毕返回时，才回到该局部变量所属方法的范围。</li>
 </ul>
 <p>引用变量只能在处于它的范围内才能被引用。即使引用变量暂时不在活跃范围内，只要引用变量还活着，被引用的对象也就活着。如果一个对象唯一的引用变量死了（随着堆栈块一起解散），对象就会被认定为可被垃圾回收（Garbage Collection）的。没有被引用的对象，是没有存在意义的，因为没有人知道它的地址，无法调用它，它的存在只会浪费空间。</p>
-<p>程序内存不足时，GC就会去把可GC的对象回收，释放内存，具体怎么回收，回收多少，有很多不同算法。如果回收完全，内存还是不够用，那就会变成真正的内存不足。</p>
+<p>程序内存不足时，GC就会去把可GC的对象回收，释放内存，具体怎么回收，回收多少，有很多不同算法。如果回收完全，内存还是不够用，那就会变成真正的内存不足。<img src="/images/jvm.png" alt=""></p>
 <p>三种方法释放对象的引用：</p>
 <ol>
 <li>引用永久性地离开它的范围<code>void go() { Life z = new Life(); }</code>, <code>z</code>会在方法结束时消失.</li>
@@ -482,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-exception/" rel="next" title="Java Exceptions">
-                <i class="fa fa-chevron-left"></i> Java Exceptions
+              <a href="/java-higher-order-functions-call-back/" rel="next" title="Java 高阶函数和回调">
+                <i class="fa fa-chevron-left"></i> Java 高阶函数和回调
               </a>
             
           </div>
@@ -492,8 +494,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-HashTable/" rel="prev" title="Java Hash Table">
-                Java Hash Table <i class="fa fa-chevron-right"></i>
+              <a href="/java-formatting/" rel="prev" title="Java 格式">
+                Java 格式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -591,7 +593,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

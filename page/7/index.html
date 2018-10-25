@@ -271,6 +271,418 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-10-data-structures-which-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/java-10-data-structures-which-list/" itemprop="url">Java 10 | 数据结构 - LinkedList 还是 ArrayList</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-28T00:00:00+08:00">
+                2018-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/java-10-data-structures-which-list/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="java-10-data-structures-which-list/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/java-10-data-structures-which-list/" class="leancloud_visitors" data-flag-title="Java 10 | 数据结构 - LinkedList 还是 ArrayList">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  509
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  2 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.</p>
+<p>队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.</p>
+<blockquote>
+<p>双端队列 Double Ended Queue (Deque) 是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩<br>–<a href="http://www.cplusplus.com/reference/deque/deque/" target="_blank" rel="noopener">http://www.cplusplus.com/reference/deque/deque/</a></p>
+</blockquote>
+<p>CS61b的<a href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a" target="_blank" rel="noopener">project 1a</a>需要实现两种双端队列（array based 和 linkedklist based）.</p>
+<p>不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异:</p>
+<ul>
+<li><strong>搜索/定位</strong>：与<code>LinkedList</code>相比，<code>ArrayList</code>搜索更快。 <code>ArrayList</code>的<code>get(int index)</code>性能是<code>O(1)</code>的，而LinkedList的性能是<code>O(n)</code>。因为<code>ArrayList</code>基于<code>array</code>数据结构，可以直接用 array index 定位元素。</li>
+<li><strong>删除/插入</strong>：<code>LinkedList</code> 操作性能是<code>O(1)</code>，而<code>ArrayList</code>的性能从<code>O(n)</code>（删除/插入第一个元素）到<code>O(n)</code>（最后一个元素）都有可能。因为<code>LinkedList</code>的每个元素都包含两个指向其相邻前后元素的指针（地址），因此仅需要改变，被删节点的<code>prev</code>和<code>next</code>指针位置。而在<code>ArrayList</code>中，需要移动剩余元素，来重新填充<code>array</code>空间。</li>
+<li><strong>内存开销</strong>：<code>LinkedList</code>的每个元素都有更多的内存开销(额外的指针), 而<code>ArrayLists</code>没有这个开销。但是，<code>ArrayLists</code>需要占用初始容量。一般<code>ArrayList</code>的默认初始容量非常小（Java 1.4 - 1.8使用10）。但是，往<code>ArrayLists</code>添加元素时， 它可能会适当地增大容量，所以如果添加了很多元素，则必须不断调整数组的大小，那样也可能会导致元素频繁挪动位置。</li>
+</ul>
+<p>综上所述：</p>
+<ol>
+<li>如果在应用中需要<strong>频繁插入和删除</strong>，那么选择<code>LinkedList</code>。</li>
+<li>假如一开始，就知道后面要添加大量元素，那就使用较高的初始容量来构造<code>ArrayList</code>。</li>
+<li>大部分用例中, 相比LinkedList, 人们更偏爱ArrayList以及ArrayDeque。如果你不确定应该选哪个, 那么就直接考虑ArrayList吧(参考 <a href="https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist)" target="_blank" rel="noopener">https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist)</a>.</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-09-data-structures-doubly-linked-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/java-09-data-structures-doubly-linked-list/" itemprop="url">Java 09 | 数据结构 - 双向链表 Doubly Linked List</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-13T00:00:00+08:00">
+                2018-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/java-09-data-structures-doubly-linked-list/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="java-09-data-structures-doubly-linked-list/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/java-09-data-structures-doubly-linked-list/" class="leancloud_visitors" data-flag-title="Java 09 | 数据结构 - 双向链表 Doubly Linked List">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,013
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  4 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p>Doubly Linked List</p>
+<p>前面介绍过的单向链表有几个缺点. 第一个就是它的<code>addLast</code>操作非常慢。单向链表只有一个变量保存列表头的地址, 以及每个节点对后面节点的单向引用(链接). 对于很长的列表，<code>addLast</code>方法必须遍历整个列表, 直到找到列表末尾才能执行插入操作.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/java-09-data-structures-doubly-linked-list/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-08-data-structures-singly-linked-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1894,425 +2306,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-03-code-style-comments/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/java-03-code-style-comments/" itemprop="url">Java 03 | 代码风格 注释 Javadoc</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T00:00:00+08:00">
-                2017-12-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/java-03-code-style-comments/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-03-code-style-comments/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/java-03-code-style-comments/" class="leancloud_visitors" data-flag-title="Java 03 | 代码风格 注释 Javadoc">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  283
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="代码风格与注释"><a href="#代码风格与注释" class="headerlink" title="代码风格与注释"></a>代码风格与注释</h2><p>努力保持代码可读性。良好的编码风格的一些最重要的特点是：</p>
-<ul>
-<li>一致的风格（间距，变量命名，缩进风格等）</li>
-<li>大小（线不太宽，源文件不要太长）</li>
-<li>描述性命名（变量，函数，类），例如变量或函数名称为年份或getUserName而不是x或f。让代码本身提供可解读性。</li>
-<li>避免重复的代码：若有两个重要的代码块及其相似，应该想办法合并。</li>
-<li>适当的评论, 使其他读者也能轻松理解你的代码<ul>
-<li>行注释: <code>//</code>分隔符开头行被当做注释。</li>
-<li>Block（又名多行注释）注释: <code>/*</code>,  <code>*/</code>, 但我们更推荐javadoc形式的注释。</li>
-</ul>
-</li>
-</ul>
-<h3 id="Javadoc"><a href="#Javadoc" class="headerlink" title="Javadoc"></a>Javadoc</h3><p>Javadoc: <code>/ **</code>，<code>*/</code>, 可以（但不总是）包含描述性标签。 借助<a href="http://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html" target="_blank" rel="noopener">javadoc工具</a>可以生成HTML格式的API文档。<br>第一段是方法的描述。描述下面是不同的<a href="https://en.wikipedia.org/wiki/Javadoc" target="_blank" rel="noopener">描述性标签</a>, 比如参数 <code>@param</code>， 返回值 <code>@return</code>， 可能抛出的任何异常 <code>@throws</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>   名字，邮箱&lt;address @ example.com&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>     1.6 版本</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="comment">// class body</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-02-basic-syntax/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/java-02-basic-syntax/" itemprop="url">Java 02 | 语法基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T00:00:00+08:00">
-                2017-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/java-02-basic-syntax/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-02-basic-syntax/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/java-02-basic-syntax/" class="leancloud_visitors" data-flag-title="Java 02 | 语法基础">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  987
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  4 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Java基本语法"><a href="#Java基本语法" class="headerlink" title="Java基本语法"></a>Java基本语法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的程序由一个类声明组成，该声明使用关键字<code>public class</code>声明。</p>
-<ul>
-<li>Java所有的代码都应该包含在class里面。</li>
-<li>真正负责运行的代码，是一个名为main的method，它声明为<code>public static void main(String[] args)</code>。<ul>
-<li>public：公共的，大部分方法都是以这个关键字开始的，后面会进一步解释。</li>
-<li>static：这是一个静态方法，不与任何特定的实例关联，后面会解释。</li>
-<li>void：它没有返回类型。</li>
-<li>main：这是方法的名称。</li>
-<li><code>String [] args</code>：这是传递给main方法的参数。</li>
-</ul>
-</li>
-<li>使用大括号<code>{ }</code>来表示一段代码的开始和结束。</li>
-<li>声明必须以分号结尾
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/java-02-basic-syntax/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2367,7 +2360,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

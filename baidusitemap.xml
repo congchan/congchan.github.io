@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/NLP-attention-03-self-attention/</loc>
+    <lastmod>2018-10-24T10:19:11.963Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-socket/</loc>
+    <lastmod>2018-10-24T07:00:04.012Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-abstract-class/</loc>
+    <lastmod>2018-10-24T01:09:27.038Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-compare/</loc>
+    <lastmod>2018-10-24T00:33:09.573Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-BitMap/</loc>
+    <lastmod>2018-10-24T00:30:50.897Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-garbage-collection/</loc>
+    <lastmod>2018-10-23T07:32:52.711Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-stack-heap/</loc>
+    <lastmod>2018-10-23T03:50:47.653Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-09-data-compression-huffman-compression/</loc>
     <lastmod>2018-10-23T02:13:56.515Z</lastmod>
   </url>  <url>
@@ -12,9 +33,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/java-HashMap-LinkedHashMap-LRU/</loc>
     <lastmod>2018-10-22T15:43:30.929Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-BitMap/</loc>
-    <lastmod>2018-10-22T15:43:04.829Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-HashMap-LinkedHashMap/</loc>
     <lastmod>2018-10-22T15:06:33.245Z</lastmod>
@@ -40,9 +58,6 @@
     <loc>http://shukebeta.me/java-extends-class/</loc>
     <lastmod>2018-10-22T04:02:17.229Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/java-abstract-class/</loc>
-    <lastmod>2018-10-22T03:58:46.770Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/java-07-data-structures-array-based-list/</loc>
     <lastmod>2018-10-22T03:24:05.958Z</lastmod>
   </url>  <url>
@@ -58,9 +73,6 @@
     <loc>http://shukebeta.me/java-formatting/</loc>
     <lastmod>2018-10-21T12:48:39.899Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/java-stack-heap/</loc>
-    <lastmod>2018-10-21T12:18:06.898Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/java-immutability/</loc>
     <lastmod>2018-10-21T12:18:02.206Z</lastmod>
   </url>  <url>
@@ -75,9 +87,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/java-encapsulation-packages-jar-access/</loc>
     <lastmod>2018-10-21T12:17:28.369Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-compare/</loc>
-    <lastmod>2018-10-21T12:17:24.552Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-adt/</loc>
     <lastmod>2018-10-21T12:17:19.905Z</lastmod>
@@ -141,9 +150,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/algorithms-dynamic-programming-01/</loc>
     <lastmod>2018-10-15T09:25:10.252Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/NLP-attention-03-self-attention/</loc>
-    <lastmod>2018-10-15T03:23:06.571Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/NLP-attention-02-lstm-reading-comprehension/</loc>
     <lastmod>2018-10-15T03:21:58.173Z</lastmod>

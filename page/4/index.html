@@ -1975,7 +1975,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-stack-heap/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-garbage-collection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -1994,7 +1994,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-stack-heap/" itemprop="url">Java 堆栈</a></h1>
+                <a class="post-title-link" href="/java-garbage-collection/" itemprop="url">Java ；垃圾回收机制</a></h1>
         
 
         <div class="post-meta">
@@ -2006,8 +2006,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T00:00:00+08:00">
-                2018-05-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-19T00:00:00+08:00">
+                2018-06-19
               </time>
             
 
@@ -2047,9 +2047,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/java-stack-heap/#comments" itemprop="discussionUrl">
+                <a href="/java-garbage-collection/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-stack-heap/" itemprop="commentCount"></span>
+                        data-disqus-identifier="java-garbage-collection/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2057,7 +2057,7 @@
 
           
           
-             <span id="/java-stack-heap/" class="leancloud_visitors" data-flag-title="Java 堆栈">
+             <span id="/java-garbage-collection/" class="leancloud_visitors" data-flag-title="Java ；垃圾回收机制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2082,7 +2082,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,121
+                  2,856
                 </span>
               
 
@@ -2098,7 +2098,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  4 min
+                  10 min
                 </span>
               
             </div>
@@ -2120,11 +2120,10 @@
 
       
         
-          <p>认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。</p>
-<p>对象生存在课垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。<br>
+          <p>在Java中，JVM负责内存动态分配和垃圾回收的问题。Java的对象必须要有引用才能被使用，也就是说如果要操作对象，必须通过引用来进行。如果一个对象唯一的引用变量死了（随着堆栈块一起解散），对象就会被认定为可被垃圾回收（Garbage Collection）的。没有被引用的对象，是没有存在意义的，因为没有人知道它的地址，无法调用它，它的存在只会浪费空间。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java-stack-heap/#more" rel="contents">
+            <a class="btn" href="/java-garbage-collection/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2175,7 +2174,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-exception/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-encapsulation-packages-jar-access/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -2194,7 +2193,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-exception/" itemprop="url">Java Exceptions</a></h1>
+                <a class="post-title-link" href="/java-encapsulation-packages-jar-access/" itemprop="url">Java 封装, 包, JAR, 权限控制</a></h1>
         
 
         <div class="post-meta">
@@ -2247,9 +2246,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/java-exception/#comments" itemprop="discussionUrl">
+                <a href="/java-encapsulation-packages-jar-access/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-exception/" itemprop="commentCount"></span>
+                        data-disqus-identifier="java-encapsulation-packages-jar-access/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2257,7 +2256,7 @@
 
           
           
-             <span id="/java-exception/" class="leancloud_visitors" data-flag-title="Java Exceptions">
+             <span id="/java-encapsulation-packages-jar-access/" class="leancloud_visitors" data-flag-title="Java 封装, 包, JAR, 权限控制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2282,7 +2281,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,089
+                  922
                 </span>
               
 
@@ -2298,7 +2297,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  9 min
+                  4 min
                 </span>
               
             </div>
@@ -2320,11 +2319,10 @@
 
       
         
-          <h2 id="Exception-handling"><a href="#Exception-handling" class="headerlink" title="Exception-handling"></a>Exception-handling</h2><p>假如调用了一个不是自己写的方法, 该方法执行某些有风险的任务(当然,自己写的也可能会有风险),可能会在运行期间出状况,那么就必须认识到该方法是有风险的, 要写出可以在发生状况时做出应对的代码.</p>
-<p>当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。<br>
+          <h2 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h2><p>封装是面向对象编程的基本原则之一，也是程序员处理复杂性一个方法。管理复杂性是编写大型程序时必须面对的主要挑战之一。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java-exception/#more" rel="contents">
+            <a class="btn" href="/java-encapsulation-packages-jar-access/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2416,7 +2414,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

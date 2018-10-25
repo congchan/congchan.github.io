@@ -416,32 +416,14 @@
 
       
         
-          
-            <h2 id="Bit-Map"><a href="#Bit-Map" class="headerlink" title="Bit Map"></a>Bit Map</h2><p>Bit-map用一个bit位来标记某个元素对应的Value， 而Key即是该元素。由于采用了Bit为单位来存储数据，因此在存储空间方面，可以大大节省。</p>
-<p>假设我们要对0-7内的5个元素<code>4,7,2,5,3</code>排序（假设这些元素没有重复）。那么我们就可以采用Bit-map的方法来达到排序的目的。要表示8个数，我们就只需要8个Bit（1Bytes），</p>
-<ol>
-<li>首先我们开辟1Byte的空间，将这些空间的所有Bit位都置为0，<code>0 0 0 0 0 0 0 0</code>.</li>
-<li>然后遍历这5个元素，首先第一个元素是4，那么就把4对应的位置设为1, <code>p+(i/8)|(0x01&lt;&lt;(i%8))</code>, 这里默认为Big-ending, <code>0 0 0 0 1 0 0 0</code>.</li>
-<li>然后再处理第二个元素7，将第八位置为1,，接着再处理第三个元素，一直到最后处理完所有的元素，将相应的位置为1，这时候的内存的Bit位的状态<code>0 0 1 1 1 1 0 1</code></li>
-<li>遍历一遍Bit区域，把<code>1</code>的索引依次输出（<code>2，3，4，5，7</code>），这样就达到了排序的目的。</li>
-</ol>
-<p>算法的关键是如何确定十进制的数映射到二进制bit位的map图。算法占用很少内存，比如N=10000000；只需占用内存为N/8=1250000Byte=1.25M。缺点是不能有重复数据。</p>
-<h3 id="Map映射表"><a href="#Map映射表" class="headerlink" title="Map映射表"></a>Map映射表</h3><p>假设需要排序或者查找的总数<code>N=10000000</code>，那么我们需要申请内存空间的大小为<code>int a[1 + N/32]</code>，其中：<code>a[0]</code>在内存中占32位, 可以对应十进制数0-31，依次类推：<br>bitmap表为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a[0]---------&gt;0-31</span><br><span class="line">a[1]---------&gt;32-63</span><br><span class="line">a[2]---------&gt;64-95</span><br><span class="line">a[3]---------&gt;96-127</span><br><span class="line">..........</span><br></pre></td></tr></table></figure></p>
-<p>十进制数需要转换为对应的bit位</p>
-<h3 id="位移转换"><a href="#位移转换" class="headerlink" title="位移转换"></a>位移转换</h3><p>将十进制数转换为对应的bit位, 申请一个<code>int</code>一维数组，作为32列的二维数组，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int a[0]    |0000000000000000000000000000000000000|</span><br><span class="line"></span><br><span class="line">int a[1]    |0000000000000000000000000000000000000|</span><br><span class="line"></span><br><span class="line">………………</span><br><span class="line"></span><br><span class="line">int a[N]    |0000000000000000000000000000000000000|</span><br></pre></td></tr></table></figure></p>
-<p>例如十进制0，对应在<code>a[0]</code>第一位： <code>00000000000000000000000000000001</code></p>
-<ol>
-<li>求十进制<code>0-N</code>对应在数组<code>a</code>的索引：十进制<code>0-31</code>，对应<code>a[0]</code>，先由十进制数n转换为与32的余可转化为对应在数组<code>a</code>中的索引<code>0</code>。比如n=24,那么 n/32=0，则24对应<code>a[0]</code>。又比如n=60, 那么n/32=1，则60对应<code>a[1]</code>。</li>
-<li>求<code>0-N</code>对应<code>0-31</code>中的数：十进制0-31就对应0-31，而32-63则对应也是0-31，即给定一个数n可以通过模32求得对应0-31中的数。</li>
-<li>利用移位0-31使得对应32bit位为1. 找到对应0-31的数为M, 左移M位：即<code>2 ^ M</code>, 置1.</li>
-</ol>
-<h3 id="Bloom-Filter"><a href="#Bloom-Filter" class="headerlink" title="Bloom Filter"></a>Bloom Filter</h3><p>为了降低键值冲突的概率，Bloom Filter使用了多个哈希函数：创建一个m位BitSet，先将所有位初始化为0，然后选择k个不同的哈希函数。第i个哈希函数对字符串str哈希的结果记为<code>h(i, str)</code>，且<code>h(i, str)</code>的范围是0到m-1 。</p>
-<p>对于字符串<code>str</code>，分别计算<code>h(1, str), h(2, str), ... h(k, str)</code>, 以这些哈希值作为索引, 将BitSet的对应位置的位设为1, 这样就把<code>str</code>映射到BitSet的k个二进制位了.<img src="/images/bloom_filter.png" alt=""></p>
-<p>如果要检查某<code>string</code>是否已经被记录在BitSet中, 只需要计算其哈希值数组, 并检查BitSet上对应位置的值是否为<code>1</code>, 若对应位置中有任何一个不是<code>1</code>, 那么该字符串<strong>一定</strong>没有被记录过, 若全部对应位置都为<code>1</code>, 那么按照<strong>false positive</strong>认为该字符串已经被记录过了(但不是100%肯定).</p>
-<p>删除操作会影响到其他字符串。如果需要删除字符串的功能，使用Counting bloomfilter(CBF)，这是一种Bloom Filter的变体，CBF将Bloom Filter每一个Bit改为一个计数器，这样就可以实现删除字符串的功能了。</p>
-<p>Bloom Filter跟单哈希函数Bit-Map不同之处在于：Bloom Filter使用了k个哈希函数，每个字符串跟k个bit对应。从而降低了冲突的概率。</p>
-
-          
+          <h2 id="Bit-Map"><a href="#Bit-Map" class="headerlink" title="Bit Map"></a>Bit Map</h2><p>Bit-map用一个bit位来标记某个元素对应的Value， 而Key即是该元素。由于采用了Bit为单位来存储数据，因此在存储空间方面，可以大大节省。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/java-BitMap/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1236,7 +1218,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,754
+                  1,836
                 </span>
               
 
@@ -2421,7 +2403,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...&amp;#1">
+<meta name="description" content="抽象类有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 抽象类">
 <meta property="og:url" content="http://shukebeta.me/java-abstract-class/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...&amp;#1">
+<meta property="og:description" content="抽象类有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-22T03:58:46.770Z">
+<meta property="og:updated_time" content="2018-10-24T01:09:27.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 抽象类">
-<meta name="twitter:description" content="有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...&amp;#1">
+<meta name="twitter:description" content="抽象类有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的Animal, Canine等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).123456abstract class Canine extends Animal &amp;#123;    ...">
 
 
 
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,342
+                  1,377
                 </span>
               
 
@@ -417,11 +417,12 @@
       
 
       
-        <p>有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的<code>Animal</code>, <code>Canine</code>等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Canine</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Canine c = <span class="keyword">new</span> Dog;</span><br><span class="line"><span class="comment">// Canine c = new Canine(); 无法编译</span></span><br></pre></td></tr></table></figure></p>
+        <h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的<code>Animal</code>, <code>Canine</code>等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Canine</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Canine c = <span class="keyword">new</span> Dog;</span><br><span class="line"><span class="comment">// Canine c = new Canine(); 无法编译</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>反之，不抽象的类就是具体类.</p>
 <p>有抽象类自然就有抽象方法，抽象的方法没有实体，所有就不会含有具体的实现<code>public abstract void doSomething();</code>. 只有抽象类才能拥有抽象方法. 在抽象父类中定义可继承的抽象方法, 可以定义出一组子类共同的协议, 这样能够保证多态. 但因为抽象方法只是为了标记处多态而存在, 它们没有具体的内容, 这样在继承树结构下的第一个具体类就必须要实现所有的抽象方法. 当然, 树结构中的抽象类也可以提前把抽象方法实现了(default方法).</p>
-<h3 id="抽象类和接口的比较"><a href="#抽象类和接口的比较" class="headerlink" title="抽象类和接口的比较"></a>抽象类和接口的比较</h3><p>有很多情景需要某个类继承多种父类。比如，因为原来的业务需求比较单一，只需要<code>Animal - Canine - Dog</code>这种类结构就满足需求了, 此时<code>Dog</code>只是<code>Animal</code>的子类. 但后来有了新的功能需求, 上线了宠物功能, 理论上可以为每一种具体的属于宠物的子类添加宠物功能, 这就涉及大量的人工和bug. 但假如额外设计一种<code>Pet</code>类, 那么<code>Pet</code>和<code>Animal</code>会有交叉重叠, 如果让宠物子类同时继承两种超类, 那就是<strong>多重继承</strong>. 因为多重继承会有<strong>致命方块</strong>的问题. 所以Java不支持这种方式.</p>
+<h3 id="抽象类和接口的比较"><a href="#抽象类和接口的比较" class="headerlink" title="抽象类和接口的比较"></a>抽象类和接口的比较</h3><p>接口是抽象类的极端形式，接口是完全抽象的，不包含实现（新的特性支持default method）。</p>
+<p>有很多情景需要某个类继承多种父类。比如，因为原来的业务需求比较单一，只需要<code>Animal - Canine - Dog</code>这种类结构就满足需求了, 此时<code>Dog</code>只是<code>Animal</code>的子类. 但后来有了新的功能需求, 上线了宠物功能, 理论上可以为每一种具体的属于宠物的子类添加宠物功能, 这就涉及大量的人工和bug. 但假如额外设计一种<code>Pet</code>类, 那么<code>Pet</code>和<code>Animal</code>会有交叉重叠, 如果让宠物子类同时继承两种超类, 那就是<strong>多重继承</strong>. 因为多重继承会有<strong>致命方块</strong>的问题. 所以Java不支持这种方式.</p>
 <p>而接口这个概念, 就是用于解决这个问题的:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Pet</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">beFriendly</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对于属于宠物的子类，让其实现接口`Pet`.</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Canine</span> <span class="keyword">implements</span> <span class="title">Pet</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>基本上，接口能做的抽象类都可以做。 但接口的最大意义就是其无比的适用性, 若以接口取代具体的子类或抽象类作为参数或返回类型, 那么就可以传入任何有实现该接口的东西. 有了接口,</p>
 <ul>
@@ -436,15 +437,6 @@
 <blockquote>
 <p>若不确定用哪种, 就优先考虑接口，以降低复杂性。<br>– <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html</a></p>
 </blockquote>
-<p>Interface:</p>
-<ul>
-<li>除非指定<code>access modifier</code>, 否则所有的方法默认都是<code>public</code> （Java 9 支持 <code>private</code>）</li>
-<li>可以提供变量, 但都是<code>public static final</code>, 也即没有实例变量</li>
-<li>无法实例化</li>
-<li>除非指定为<code>default</code>，否则所有方法均为抽象的</li>
-<li>一个类可以实现多个接口</li>
-<li>根据协议承诺, 实现类必须实现其继承的接口的所有抽象方法; 否则要声明为抽象类.</li>
-</ul>
 <p>Abstract classes 介于接口和 classes 之间。</p>
 <ul>
 <li>方法可以是<code>public</code>或<code>private</code>, 也支持<code>protected</code>和<code>package private</code>.</li>
@@ -453,6 +445,15 @@
 <li>除非指定为<code>abstract</code>，否则方法默认是具体的实现</li>
 <li>每个类只能实现一个 Abstract classes</li>
 <li>抽象类不需要实现其继承的接口所有抽象方法</li>
+</ul>
+<p>Interface:</p>
+<ul>
+<li>除非指定<code>access modifier</code>, 否则所有的方法默认都是<code>public</code> （Java 9 支持 <code>private</code>）</li>
+<li>可以提供变量, 但都是<code>public static final</code>, 也即没有实例变量</li>
+<li>无法实例化</li>
+<li>除非指定为<code>default</code>，否则所有方法均为抽象的</li>
+<li>一个类可以实现多个接口</li>
+<li>根据协议承诺, 实现类必须实现其继承的接口的所有抽象方法; 否则要声明为抽象类.</li>
 </ul>
 <p>如何判断应该设计类，子类，抽象类，还是接口呢？</p>
 <ul>
@@ -501,8 +502,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-hashcode-equals/" rel="prev" title="Java | Hash @Override equals() hashcode()">
-                Java | Hash @Override equals() hashcode() <i class="fa fa-chevron-right"></i>
+              <a href="/java-socket/" rel="prev" title="Java 套接字Socket">
+                Java 套接字Socket <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -600,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -671,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类和接口的比较"><span class="nav-number">1.</span> <span class="nav-text">抽象类和接口的比较</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象类"><span class="nav-number">1.</span> <span class="nav-text">抽象类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类和接口的比较"><span class="nav-number">1.1.</span> <span class="nav-text">抽象类和接口的比较</span></a></li></ol></li></ol></div>
             
 
           </div>
