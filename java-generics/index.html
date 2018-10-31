@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Autoboxing在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (byte, short, int, long, float, double, boolean, char)，必须要用其对应的 reference type (Byte, Short, Integer, Long, Float, Double, Boolea">
+<meta name="description" content="泛型泛型意味着更好的类型安全性。主要目的是支持类型安全性的集合，让问题尽可能在编译阶段就能捉到。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 扩展通用类型">
+<meta property="og:title" content="Java 泛型">
 <meta property="og:url" content="http://shukebeta.me/java-generics/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Autoboxing在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (byte, short, int, long, float, double, boolean, char)，必须要用其对应的 reference type (Byte, Short, Integer, Long, Float, Double, Boolea">
+<meta property="og:description" content="泛型泛型意味着更好的类型安全性。主要目的是支持类型安全性的集合，让问题尽可能在编译阶段就能捉到。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-22T00:37:41.450Z">
+<meta property="og:updated_time" content="2018-10-31T13:24:55.737Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 扩展通用类型">
-<meta name="twitter:description" content="Autoboxing在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (byte, short, int, long, float, double, boolean, char)，必须要用其对应的 reference type (Byte, Short, Integer, Long, Float, Double, Boolea">
+<meta name="twitter:title" content="Java 泛型">
+<meta name="twitter:description" content="泛型泛型意味着更好的类型安全性。主要目的是支持类型安全性的集合，让问题尽可能在编译阶段就能捉到。">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <title>Java 扩展通用类型 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Java 泛型 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 扩展通用类型</h1>
+          <h1 class="post-title" itemprop="name headline">Java 泛型</h1>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/java-generics/" class="leancloud_visitors" data-flag-title="Java 扩展通用类型">
+             <span id="/java-generics/" class="leancloud_visitors" data-flag-title="Java 泛型">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  900
+                  1,465
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  4 min
+                  6 min
                 </span>
               
             </div>
@@ -417,7 +417,30 @@
       
 
       
-        <h3 id="Autoboxing"><a href="#Autoboxing" class="headerlink" title="Autoboxing"></a>Autoboxing</h3><p>在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (<code>byte, short, int, long, float, double, boolean, char</code>)，必须要用其对应的 reference type (<code>Byte, Short, Integer, Long, Float, Double, Boolean, Character</code>) - 也即是 wrapper classes 作为泛型的实际类型参数。虽然声明函数和变量时必须要用 wraper classes，但在实际的数值传递中，对于 primitives 类型的数据，并不需要显式地转换为 reference types。<br><a id="more"></a><br>因为 Java 有 Autoboxing，可以隐式地在 wrapper/primitives 类型间转换. Java会自动 “box” 和 “unbox” primitive type 和其对应的 reference type 之间的值。也就是说，如果Java期望的是 wrapper classes （如Integer），假如即使接收到的是 int 这样的基本类型，Java也会“autoboxing”这种整数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">blah</span><span class="params">(Integer x)</span> </span>&#123;</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">20</span>;</span><br><span class="line">blah(x); <span class="comment">// 实际上会转换为 blah(new Integer(20))</span></span><br></pre></td></tr></table></figure></p>
+        <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型意味着更好的类型安全性。主要目的是支持类型安全性的集合，让问题尽可能在编译阶段就能捉到。<br><a id="more"></a></p>
+<h3 id="泛型定义在类声明中"><a href="#泛型定义在类声明中" class="headerlink" title="泛型定义在类声明中"></a>泛型定义在类声明中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayLiat</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractL</span>ì<span class="title">st</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span> <span class="params">(E o)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>E代表用来创建赋予初始ArrayList的类型<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;;</span><br></pre></td></tr></table></figure></p>
+<p>编译器会自动把<code>E</code>看做<code>String</code>.</p>
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><p>使用未定义在类声明的类型参数: 在返回类型之前指定泛型</p>
+<p><code>maxKey</code>: 返回给定<code>ArrayMap</code>中所有keys的最大值（仅在key可以比较的情况下）。假如这样写<code>public static K maxKey(Map61B&lt;K, V&gt; map) { ... }</code>会报错. 要将方法声明为泛型，<strong>必须在返回类型前面指定正式的类型参数</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K extends Comparable&lt;K&gt;, V&gt; <span class="function">K <span class="title">maxKey</span><span class="params">(Map61B&lt;K, V&gt; map)</span> </span>&#123;</span><br><span class="line">    List&lt;K&gt; keylist = map.keys();</span><br><span class="line">    K largest = map.get(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (K k: keylist) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k.compareTo(largest)) &#123;</span><br><span class="line">            largest = k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> largest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>K extends Comparable&lt;K&gt;</code> 保证了keys必须实现<code>Comparable</code>接口（也是一个generic接口）, 并可以与其他<code>K</code>进行比较。</p>
+<p>这里没有使用<code>implement</code>, 而是用<code>extends</code>, 这里跟多态不同. <code>K extends Comparable&lt;K&gt;</code>是<strong>type upper bounding</strong>, 意味着<code>k</code>必须是一种<code>Comparable</code>, 但不需要具备<code>Comparable</code>的所有方法行为.</p>
+<p>在inheritance的含义中，<code>extends</code>指为子类提供超类的能力. 在泛型范畴内, <code>extends</code>只是陈述一个事实：该类是其扩展的类的一个子类, 是加了约束, 而不是赋予能力.</p>
+<h3 id="泛型与多态"><a href="#泛型与多态" class="headerlink" title="泛型与多态"></a>泛型与多态</h3><p>如果使用多态类定义下面的方法是没有问题的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeAnimals</span><span class="params">(ArrayList&lt;Animal&gt; animals)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Animal a : animals)</span><br><span class="line">        a.eat();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Animal&gt; animals = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    animals.add(<span class="keyword">new</span> Dog());</span><br><span class="line">    animals.add(<span class="keyword">new</span> Cat());</span><br><span class="line">    takeAnimals(animals); <span class="comment">// 可以编译</span></span><br><span class="line"></span><br><span class="line">    ArrayList&lt;Dog&gt; dogs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    dogs.add(<span class="keyword">new</span> Dog());</span><br><span class="line">    dogs.add(<span class="keyword">new</span> Dog());</span><br><span class="line">    takeAnimals(dogs); <span class="comment">// ! 无法编译</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么在实际运行时, 如果声明为<code>ArrayList&lt;Animal&gt;</code>, 则不管传入的<code>animals</code>包含的是<code>Dog</code>还是<code>Cat</code>, 这个方法调用的都是<code>Animal</code>的<code>eat()</code>, 多态支持这种操作. 但如果声明为<code>ArrayList&lt;Dog&gt;</code>就不行, 静态类型检查不通过.</p>
+<p>那么Java为何不允许这种情况编译呢? 反过来想, 如果可以会怎样? 假如方法换为这种<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeAnimals</span><span class="params">(ArrayList&lt;Animal&gt; animals)</span> </span>&#123;</span><br><span class="line">    animals.add(<span class="keyword">new</span> Cat());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到会有很大问题. 在方法内部看来, 把<code>Cat</code>加到<code>ArrayList&lt;Animal&gt;</code>中是完全合法的, 但是对于从外部传入的参数<code>ArrayList&lt;Dog&gt;</code>来说, 就不合理了. 所以需要保证这种情况无法通过编译.</p>
+<p>但如果是把<code>Dog[] dogs</code>中的元素改为<code>Cat</code>, 却可以通过编译.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeAnimals</span><span class="params">(ArrayList[] animals)</span> </span>&#123;</span><br><span class="line">    animals[<span class="number">0</span>] = <span class="keyword">new</span> Cat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但在运行时, JVM会指出错误. 因为数组的类型是在runtime期间检查的.</p>
+<p>要想在使用多态的情况下, 让方法自动调用子类型参数的方法, 就要使用万用字符(wildcard)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeAnimals</span><span class="params">(ArrayList&lt;? extends Animal&gt; animals)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Animal a : animals) a.eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用万用字符, 编译器会组织任何可能破坏参数所指向集合的行为, 比如加入元素<code>animals.add(new Cat());</code>是无法编译通过的.</p>
+<p>使用泛型, 也可以实现上面的方法, 就是让泛型继承父类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T extends Animal&gt; <span class="function"><span class="keyword">void</span> <span class="title">takeAnimals</span><span class="params">(ArrayList&lt;T&gt; list)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>这意味着<code>T</code>可以是任何一种<code>Animal</code>, 任何被声明为<code>Animal</code>或其子类的ArrayList都是合法的.</p>
+<p>这两种方法等价, 如果需要传入多个参数, 那么只声明一次会更有效率<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T extends Animal&gt; <span class="function"><span class="keyword">void</span> <span class="title">takeThing</span><span class="params">(ArrayList&lt;T&gt; one, ArrayList&lt;T&gt; two)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeAnimals</span><span class="params">(ArrayList&lt;? extends Animal&gt; one, ArrayList&lt;? extends Animal&gt; two)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>融合两种方法的声明<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Comparable&lt;? <span class="keyword">super</span> T&gt;&gt; <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List&lt;T&gt; list)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>这意味着<code>sort</code>支持任何一种实现了以<code>T</code>的父类为泛型的<code>Comparable</code>的类型.</p>
+<h3 id="Autoboxing"><a href="#Autoboxing" class="headerlink" title="Autoboxing"></a>Autoboxing</h3><p>在Java中调用包含 Generics 的class时，需要提供确切的类型参数。对于每一种 primitive type (<code>byte, short, int, long, float, double, boolean, char</code>)，必须要用其对应的 reference type (<code>Byte, Short, Integer, Long, Float, Double, Boolean, Character</code>) - 也即是 wrapper classes 作为泛型的实际类型参数。虽然声明函数和变量时必须要用 wraper classes，但在实际的数值传递中，对于 primitives 类型的数据，并不需要显式地转换为 reference types。</p>
+<p>因为 Java 有 Autoboxing，可以隐式地在 wrapper/primitives 类型间转换. Java会自动 “box” 和 “unbox” primitive type 和其对应的 reference type 之间的值。也就是说，如果Java期望的是 wrapper classes （如Integer），假如即使接收到的是 int 这样的基本类型，Java也会“autoboxing”这种整数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">blah</span><span class="params">(Integer x)</span> </span>&#123;</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">20</span>;</span><br><span class="line">blah(x); <span class="comment">// 实际上会转换为 blah(new Integer(20))</span></span><br></pre></td></tr></table></figure></p>
 <p>反过来就是<code>unboxing</code>。</p>
 <p>Autoboxing/Unboxing 注意事项:</p>
 <ul>
@@ -436,12 +459,6 @@
 </ul>
 <h3 id="Widening"><a href="#Widening" class="headerlink" title="Widening"></a>Widening</h3><p>Java会根据需要在 primitive types 之间自动扩展.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">blahDouble</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">    System.out.println(“<span class="keyword">double</span>: “ + x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">20</span>;</span><br><span class="line">blahDouble(x); <span class="comment">//等同于 blahDouble((double) x)</span></span><br></pre></td></tr></table></figure></p>
 <p>但如果想从一个 wider type 转换为 narrower type，则必须手动 cast.<br>有关 widening 的更多详细信息，包括哪些类型比其他类型更 wider ，参阅<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html" target="_blank" rel="noopener">官方的Java文档</a>。</p>
-<h3 id="Generic-Methods"><a href="#Generic-Methods" class="headerlink" title="Generic Methods"></a>Generic Methods</h3><p>泛型方法的语法用map数据类型举例. 假如有一个现成的映射数据结构<code>Map61B</code>, 我们需要为她写两个helper methods放在<code>MapHelper</code>里面.</p>
-<p><code>get(Map61B, key)</code>：返回映射中给定key对应的值（如果存在），否则返回null。假如这样写<code>public static V get(Map61B&lt;K, V&gt; map, String key) { ... }</code>会报错. 要将方法声明为泛型，<strong>必须在返回类型前面指定正式的类型参数</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; <span class="function">V <span class="title">get</span><span class="params">(Map61B&lt;K,V&gt; map, K key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> map.containsKey(key) &#123;</span><br><span class="line">        <span class="keyword">return</span> map.get(key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ArrayMap&lt;Integer, String&gt; isMap = <span class="keyword">new</span> ArrayMap&lt;Integer, String&gt;();</span><br><span class="line">System.out.println(mapHelper.get(isMap, <span class="number">5</span>)); <span class="comment">//Java可以自行推断`isMap`的数据类型.</span></span><br></pre></td></tr></table></figure></p>
-<p><code>maxKey</code>: 返回给定<code>ArrayMap</code>中所有keys的最大值（仅在key可以比较的情况下）。实现时要注意, 不能直接用<code>&lt;,&gt;,==</code>来比较, 因为key不一定是primitives. 需要用<code>Comparable</code>接口的<code>compareTo</code>,<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K extends Comparable&lt;K&gt;, V&gt; <span class="function">K <span class="title">maxKey</span><span class="params">(Map61B&lt;K, V&gt; map)</span> </span>&#123;</span><br><span class="line">    List&lt;K&gt; keylist = map.keys();</span><br><span class="line">    K largest = map.get(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (K k: keylist) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k.compareTo(largest)) &#123;</span><br><span class="line">            largest = k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> largest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>K extends Comparable&lt;K&gt;</code> 保证了keys必须实现<code>Comparable</code>接口（也是一个generic接口）, 并可以与其他<code>K</code>进行比较。</p>
-<p>这里没有使用<code>implement</code>, 而是用<code>extends</code>, 这里跟前面的<a href="#Subtype-Polymorphism">polymorphism</a>不同. <code>K extends Comparable&lt;K&gt;</code>是<strong>type upper bounding</strong>, 意味着<code>k</code>必须是一种<code>Comparable</code>, 但不需要具备<code>Comparable</code>的所有方法行为.</p>
-<p>在inheritance的含义中，<code>extends</code>指为子类提供超类的能力. 在generic范畴内, <code>extends</code>只是陈述一个事实：该类是其扩展的类的一个子类, 是加了约束, 而不是赋予能力.</p>
 
       
     </div>
@@ -472,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-adt/" rel="next" title="Java 抽象数据类型">
-                <i class="fa fa-chevron-left"></i> Java 抽象数据类型
+              <a href="/java-exception/" rel="next" title="Java Exceptions">
+                <i class="fa fa-chevron-left"></i> Java Exceptions
               </a>
             
           </div>
@@ -482,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-immutability/" rel="prev" title="Java Immutability">
-                Java Immutability <i class="fa fa-chevron-right"></i>
+              <a href="/java-formatting/" rel="prev" title="Java 格式">
+                Java 格式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -581,7 +598,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -652,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Autoboxing"><span class="nav-number">1.</span> <span class="nav-text">Autoboxing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Widening"><span class="nav-number">2.</span> <span class="nav-text">Widening</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generic-Methods"><span class="nav-number">3.</span> <span class="nav-text">Generic Methods</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型"><span class="nav-number">1.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型定义在类声明中"><span class="nav-number">1.1.</span> <span class="nav-text">泛型定义在类声明中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型方法"><span class="nav-number">1.2.</span> <span class="nav-text">泛型方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型与多态"><span class="nav-number">1.3.</span> <span class="nav-text">泛型与多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Autoboxing"><span class="nav-number">1.4.</span> <span class="nav-text">Autoboxing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Widening"><span class="nav-number">1.5.</span> <span class="nav-text">Widening</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -824,7 +841,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/java-generics/';
           this.page.identifier = 'java-generics/';
-          this.page.title = 'Java 扩展通用类型';
+          this.page.title = 'Java 泛型';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';
