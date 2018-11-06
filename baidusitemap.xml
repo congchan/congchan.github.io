@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/bits-operations-01/</loc>
+    <lastmod>2018-11-06T02:06:11.107Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/csapp/</loc>
+    <lastmod>2018-11-06T01:46:53.846Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/java-multithreading/</loc>
+    <lastmod>2018-10-31T14:30:34.460Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/java-generics/</loc>
     <lastmod>2018-10-31T13:24:55.737Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/algorithms-dynamic-programming-02/</loc>
     <lastmod>2018-10-30T12:32:05.413Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-multithreading/</loc>
-    <lastmod>2018-10-30T03:32:32.947Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-socket/</loc>
     <lastmod>2018-10-30T01:59:33.160Z</lastmod>
@@ -54,9 +60,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/bits-operations-07/</loc>
     <lastmod>2018-10-22T09:18:06.806Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/bits-operations-01/</loc>
-    <lastmod>2018-10-22T08:40:40.141Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-HashTable/</loc>
     <lastmod>2018-10-22T04:49:44.371Z</lastmod>
@@ -180,9 +183,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/NLP-06-string-symbol-table-other-Trie/</loc>
     <lastmod>2018-10-09T15:20:32.671Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/csapp/</loc>
-    <lastmod>2018-10-08T01:19:10.286Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/NLP-01-string-searching-algorithm-01-kmp/</loc>
     <lastmod>2018-10-07T07:57:01.029Z</lastmod>
