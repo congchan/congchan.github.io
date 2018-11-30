@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://shukebeta.me/bits-operations-01/</loc>
-    <lastmod>2018-11-06T02:06:11.107Z</lastmod>
+    <loc>http://shukebeta.me/java-garbage-collection/</loc>
+    <lastmod>2018-11-30T01:39:58.884Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/machine-learning-checklist/</loc>
+    <lastmod>2018-11-29T01:22:20.610Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/NLP-information-extraction/</loc>
+    <lastmod>2018-11-28T08:31:27.540Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/csapp/</loc>
-    <lastmod>2018-11-06T01:46:53.846Z</lastmod>
+    <lastmod>2018-11-07T12:20:10.729Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/bits-operations-01/</loc>
+    <lastmod>2018-11-06T02:06:11.107Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-multithreading/</loc>
     <lastmod>2018-10-31T14:30:34.460Z</lastmod>
@@ -33,9 +42,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/java-BitMap/</loc>
     <lastmod>2018-10-24T00:30:50.897Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/java-garbage-collection/</loc>
-    <lastmod>2018-10-23T07:32:52.711Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-stack-heap/</loc>
     <lastmod>2018-10-23T03:50:47.653Z</lastmod>

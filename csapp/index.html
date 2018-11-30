@@ -95,17 +95,20 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="CSAPP 非常巧妙的把程序设计及优化、数字电路基础、指令集体系、汇编语言、存储器体系结构、链接与装载、进程、虚存等来自不同学科的核心知识点和在一起，并以程序员的视角呈现; 告诉我们作为一个程序员，究竟需要对计算机的硬件了解到什么程度？  本笔记是 CMU CSAPP 的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.  C">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://shukebeta.me/images/floating_point.png">
+<meta property="og:image" content="http://shukebeta.me/images/floating_decoding.png">
+<meta property="og:image" content="http://shukebeta.me/images/floating_point_range.png">
 <meta property="og:image" content="http://shukebeta.me/images/JVM内存模型图.png">
 <meta property="og:image" content="http://shukebeta.me/images/Java内存区域.png">
 <meta property="og:image" content="http://shukebeta.me/images/memory_hierarchy.png">
 <meta property="og:image" content="http://shukebeta.me/images/operating_system_abs.png">
 <meta property="og:image" content="http://shukebeta.me/images/Process_context.png">
 <meta property="og:image" content="http://shukebeta.me/images/Process_virtual_address.png">
-<meta property="og:updated_time" content="2018-11-06T01:46:53.846Z">
+<meta property="og:updated_time" content="2018-11-07T12:20:10.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Systems - A Programmer&#39;s Perspective (CSAPP) - CMU 15213">
 <meta name="twitter:description" content="CSAPP 非常巧妙的把程序设计及优化、数字电路基础、指令集体系、汇编语言、存储器体系结构、链接与装载、进程、虚存等来自不同学科的核心知识点和在一起，并以程序员的视角呈现; 告诉我们作为一个程序员，究竟需要对计算机的硬件了解到什么程度？  本笔记是 CMU CSAPP 的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.  C">
-<meta name="twitter:image" content="http://shukebeta.me/images/JVM内存模型图.png">
+<meta name="twitter:image" content="http://shukebeta.me/images/floating_point.png">
 
 
 
@@ -387,7 +390,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  4,162
+                  4,436
                 </span>
               
 
@@ -403,7 +406,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  22 min
+                  23 min
                 </span>
               
             </div>
@@ -434,13 +437,35 @@
 <li><a href="https://courses.cs.washington.edu/courses/cse351/" target="_blank" rel="noopener">华盛顿大学 UW CSE351: The Hardware/Software Interface</a><a id="more"></a>
 </li>
 </ol>
-<h2 id="Computer-system"><a href="#Computer-system" class="headerlink" title="Computer system"></a>Computer system</h2><h3 id="Information-is-Bits-Context"><a href="#Information-is-Bits-Context" class="headerlink" title="Information is Bits + Context"></a>Information is Bits + Context</h3><p>Study systems by tracing the lifetime of the hello program, from the time it is created by a programmer, until it runs on a system, prints its simple message, and terminates.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"hello, world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="信息的表达与操作"><a href="#信息的表达与操作" class="headerlink" title="信息的表达与操作"></a>信息的表达与操作</h2><p>Information is Bits + Context. Study systems by tracing the lifetime of the hello program, from the time it is created by a programmer, until it runs on a system, prints its simple message, and terminates.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="built_in">printf</span>(<span class="string">"hello, world\n"</span>); &#125;</span><br></pre></td></tr></table></figure></p>
 <p>The source program is a sequence of bits, each with a value of 0 or 1, organized in 8-bit chunks(bytes). Each byte represents some text character in the program.</p>
 <p>All information in a system — including disk files, programs stored in memory, user data stored in memory, and data transferred across a network—is represented as a bunch of bits.</p>
-<h3 id="加减乘位移"><a href="#加减乘位移" class="headerlink" title="加减乘位移"></a>加减乘位移</h3><p>Most machines shift and add faster than multiply, compiler translate multiply to shift and add automatically.</p>
+<h3 id="整数加减乘位移"><a href="#整数加减乘位移" class="headerlink" title="整数加减乘位移"></a>整数加减乘位移</h3><p>Most machines shift and add faster than multiply, compiler translate multiply to shift and add automatically.</p>
 <p>Power-of-2 Multiply with Shift: <code>u &lt;&lt; k</code> gives $u \times 2^k$, <code>u * 24 = u * 32 - u * 8 = (u &lt;&lt; 5) - (u &lt;&lt; 3)</code></p>
 <p>Signed Power-of-2 Divide with Shift: <code>x &gt;&gt; k</code> using arithmetic shift(补1) gives $x / 2^k$, when <code>u &lt; 0</code>, say <code>y = -15213 = b[11000100 10010011]</code>, <code>y &gt;&gt; 1 = b[11100010 01001001] = -7607</code>, the rounding is downward, which is not the same as the convention toward zero.</p>
 <p>Correct Power-of-2 Divide by adding bias: $x / 2^k$, computed as $(x + 2^k - 1) / 2^k$, in C <code>(x&lt;0 ? x+(1&lt;&lt;k)-1 : x) &gt;&gt; k</code></p>
+<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>IEEE floating-point standard represents a number in a form $V = (−1)^s × M × 2^E$</p>
+<ol>
+<li>sign <code>s</code>: determines whether the number is negative (s = 1) or positive (s = 0)</li>
+<li>exponent <code>E</code> weights the value by a (possibly negative) power of 2, encoded by the <code>k</code>-bit exponent field <code>exp</code>.</li>
+<li>significand <code>M</code>: a fractional binary number that ranges either [1, 2 − ϵ) or [0, 1 − ϵ), encoded by the <code>n</code>-bit fraction field <code>frac</code></li>
+</ol>
+<p><img src="/images/floating_point.png" alt="" title="image from http://www.cs.cmu.edu/~213/"><br>Case 1: Normalized Values<br><code>E</code> is interpreted as representing a signed integer in biased form, <code>E = e − Bias</code>, where <code>e</code> is the <strong>unsigned</strong> number, <code>Bias</code> equals to $2^{k−1}−1$.<br>The significand is defined to be <code>M = 1 + f</code>, where <code>f</code> is the fraction field, <code>0 ≤ f &lt; 1</code>, <code>M</code> =  $1.f_{n−1}f_{n−2}…f_0$</p>
+<p>Case 2: Denormalized Values<br>Exponent field is all zeros, the exponent value is <code>E = 1 − Bias</code>, and the significand value is <code>M = f</code>, <code>M</code> =  $0.f_{n−1}f_{n−2}…f_0$<br>Denormalized numbers serve two purposes.</p>
+<ol>
+<li>provide a way to represent numeric value <code>0</code>,<ul>
+<li><code>+0.0</code>, bit pattern all zeros, <code>s = M = f = 0</code></li>
+<li><code>−0.0</code>, bit pattern all zeros except <code>s = 1</code>.</li>
+</ul>
+</li>
+<li>represent numbers that are very close to <code>0.0</code>: possible numeric values are spaced evenly near <code>0.0</code></li>
+</ol>
+<p>Case 3: Special Values<br>Exponent field is all ones.</p>
+<ol>
+<li>When the fraction field is all zeros, the resulting values represent <strong>infinity</strong>, either <code>+∞</code> when <code>s = 0</code>, or <code>−∞</code> when <code>s = 1</code>. Infinity can represent results that overflow</li>
+<li>When the fraction field is nonzero, the resulting value is <code>NaN</code></li>
+</ol>
+<p><img src="/images/floating_decoding.png" alt="" title="image from http://www.cs.cmu.edu/~213/"><br><img src="/images/floating_point_range.png" alt="" title="image from http://www.cs.cmu.edu/~213/"></p>
 <h3 id="Programs-are-traslated-by-other-programs-into-different-forms"><a href="#Programs-are-traslated-by-other-programs-into-different-forms" class="headerlink" title="Programs are traslated by other programs into different forms"></a>Programs are traslated by other programs into different forms</h3><p>The hello program begins as a high-level C program because it can be read and understood by human beings in that form. However, in order to run hello.c on the system, the individual C statements must be translated by other programs into a sequence of low-level machine-language instructions.</p>
 <p>These instructions are then packaged in a form called an executable object program and stored as a binary <strong>disk</strong> file. Object programs are also referred to as executable object files.</p>
 <p>The programs that perform the four phases (preprocessor, compiler, assembler, and linker) are known collectively as the compilation system.</p>
@@ -622,8 +647,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-10-data-structures-which-list/" rel="next" title="Java 10 | 数据结构 - LinkedList 还是 ArrayList">
-                <i class="fa fa-chevron-left"></i> Java 10 | 数据结构 - LinkedList 还是 ArrayList
+              <a href="/java-11-testing/" rel="next" title="Java 11 | 测试 Testing">
+                <i class="fa fa-chevron-left"></i> Java 11 | 测试 Testing
               </a>
             
           </div>
@@ -632,8 +657,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-11-testing/" rel="prev" title="Java 11 | 测试 Testing">
-                Java 11 | 测试 Testing <i class="fa fa-chevron-right"></i>
+              <a href="/java-12-interface/" rel="prev" title="Java 12 | 接口 Interface">
+                Java 12 | 接口 Interface <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -731,7 +756,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -802,7 +827,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Computer-system"><span class="nav-number">1.</span> <span class="nav-text">Computer system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Information-is-Bits-Context"><span class="nav-number">1.1.</span> <span class="nav-text">Information is Bits + Context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加减乘位移"><span class="nav-number">1.2.</span> <span class="nav-text">加减乘位移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programs-are-traslated-by-other-programs-into-different-forms"><span class="nav-number">1.3.</span> <span class="nav-text">Programs are traslated by other programs into different forms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Processors-read-and-interpret-instructions-stored-in-memory"><span class="nav-number">1.4.</span> <span class="nav-text">Processors read and interpret instructions stored in memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hardware-organization-of-a-systems"><span class="nav-number">1.5.</span> <span class="nav-text">Hardware organization of a systems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Buses"><span class="nav-number">1.5.1.</span> <span class="nav-text">Buses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-output-I-O-devices"><span class="nav-number">1.5.2.</span> <span class="nav-text">Input/output (I/O) devices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-Memory"><span class="nav-number">1.5.3.</span> <span class="nav-text">Main Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Processor-Central-Processing-Unit-CPU"><span class="nav-number">1.5.4.</span> <span class="nav-text">Processor: Central Processing Unit (CPU)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-operations-examples"><span class="nav-number">1.5.5.</span> <span class="nav-text">CPU operations examples</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Running-a-programs"><span class="nav-number">1.6.</span> <span class="nav-text">Running a programs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caches"><span class="nav-number">1.7.</span> <span class="nav-text">Caches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Storage-Devices-Form-a-Hierarchy"><span class="nav-number">1.8.</span> <span class="nav-text">Storage Devices Form a Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operating-system"><span class="nav-number">1.9.</span> <span class="nav-text">Operating system</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Process进程"><span class="nav-number">1.9.1.</span> <span class="nav-text">Process进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Virtual-Memory"><span class="nav-number">1.9.2.</span> <span class="nav-text">Virtual Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread线程"><span class="nav-number">1.9.3.</span> <span class="nav-text">Thread线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Files"><span class="nav-number">1.9.4.</span> <span class="nav-text">Files</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrency-and-Parallelism"><span class="nav-number">2.</span> <span class="nav-text">Concurrency and Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Level-Concurrency"><span class="nav-number">2.1.</span> <span class="nav-text">Thread-Level Concurrency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instruction-level-parallelism"><span class="nav-number">2.2.</span> <span class="nav-text">instruction-level parallelism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-Instruction-Multiple-Data-SIMD-Parallelism"><span class="nav-number">2.3.</span> <span class="nav-text">Single-Instruction, Multiple-Data (SIMD) Parallelism</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Data-amp-Addressing"><span class="nav-number">3.</span> <span class="nav-text">Memory, Data, &amp; Addressing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Address-and-Pointers"><span class="nav-number">3.1.</span> <span class="nav-text">Address and Pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer-and-floating-point-numbers"><span class="nav-number">3.2.</span> <span class="nav-text">Integer and floating point numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">4.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods"><span class="nav-number">4.1.</span> <span class="nav-text">Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Addresses-and-pointer-in-C"><span class="nav-number">4.2.</span> <span class="nav-text">Addresses and pointer in C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointers-and-arrays"><span class="nav-number">4.3.</span> <span class="nav-text">Pointers and arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.4.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息的表达与操作"><span class="nav-number">1.</span> <span class="nav-text">信息的表达与操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整数加减乘位移"><span class="nav-number">1.1.</span> <span class="nav-text">整数加减乘位移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点数"><span class="nav-number">1.2.</span> <span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programs-are-traslated-by-other-programs-into-different-forms"><span class="nav-number">1.3.</span> <span class="nav-text">Programs are traslated by other programs into different forms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Processors-read-and-interpret-instructions-stored-in-memory"><span class="nav-number">1.4.</span> <span class="nav-text">Processors read and interpret instructions stored in memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hardware-organization-of-a-systems"><span class="nav-number">1.5.</span> <span class="nav-text">Hardware organization of a systems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Buses"><span class="nav-number">1.5.1.</span> <span class="nav-text">Buses</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-output-I-O-devices"><span class="nav-number">1.5.2.</span> <span class="nav-text">Input/output (I/O) devices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-Memory"><span class="nav-number">1.5.3.</span> <span class="nav-text">Main Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Processor-Central-Processing-Unit-CPU"><span class="nav-number">1.5.4.</span> <span class="nav-text">Processor: Central Processing Unit (CPU)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-operations-examples"><span class="nav-number">1.5.5.</span> <span class="nav-text">CPU operations examples</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Running-a-programs"><span class="nav-number">1.6.</span> <span class="nav-text">Running a programs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caches"><span class="nav-number">1.7.</span> <span class="nav-text">Caches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Storage-Devices-Form-a-Hierarchy"><span class="nav-number">1.8.</span> <span class="nav-text">Storage Devices Form a Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operating-system"><span class="nav-number">1.9.</span> <span class="nav-text">Operating system</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Process进程"><span class="nav-number">1.9.1.</span> <span class="nav-text">Process进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Virtual-Memory"><span class="nav-number">1.9.2.</span> <span class="nav-text">Virtual Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread线程"><span class="nav-number">1.9.3.</span> <span class="nav-text">Thread线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Files"><span class="nav-number">1.9.4.</span> <span class="nav-text">Files</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrency-and-Parallelism"><span class="nav-number">2.</span> <span class="nav-text">Concurrency and Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Level-Concurrency"><span class="nav-number">2.1.</span> <span class="nav-text">Thread-Level Concurrency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instruction-level-parallelism"><span class="nav-number">2.2.</span> <span class="nav-text">instruction-level parallelism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-Instruction-Multiple-Data-SIMD-Parallelism"><span class="nav-number">2.3.</span> <span class="nav-text">Single-Instruction, Multiple-Data (SIMD) Parallelism</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Data-amp-Addressing"><span class="nav-number">3.</span> <span class="nav-text">Memory, Data, &amp; Addressing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Address-and-Pointers"><span class="nav-number">3.1.</span> <span class="nav-text">Address and Pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer-and-floating-point-numbers"><span class="nav-number">3.2.</span> <span class="nav-text">Integer and floating point numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">4.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods"><span class="nav-number">4.1.</span> <span class="nav-text">Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Addresses-and-pointer-in-C"><span class="nav-number">4.2.</span> <span class="nav-text">Addresses and pointer in C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointers-and-arrays"><span class="nav-number">4.3.</span> <span class="nav-text">Pointers and arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.4.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
             
 
           </div>

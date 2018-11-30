@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://shukebeta.me/images/mask_sweep_copy.png">
 <meta property="og:image" content="http://shukebeta.me/images/java_memory_alloc.png">
 <meta property="og:image" content="http://www.cnblogs.com/dolphin0520/p/3783345.html">
-<meta property="og:updated_time" content="2018-10-23T07:32:52.711Z">
+<meta property="og:updated_time" content="2018-11-30T01:39:58.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java ；垃圾回收机制">
 <meta name="twitter:description" content="在Java中，JVM负责内存动态分配和垃圾回收的问题。Java的对象必须要有引用才能被使用，也就是说如果要操作对象，必须通过引用来进行。如果一个对象唯一的引用变量死了（随着堆栈块一起解散），对象就会被认定为可被垃圾回收（Garbage Collection）的。没有被引用的对象，是没有存在意义的，因为没有人知道它的地址，无法调用它，它的存在只会浪费空间。">
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,856
+                  2,995
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  10 min
+                  11 min
                 </span>
               
             </div>
@@ -450,11 +450,11 @@
 <p>缺点：效率低；释放空间不连续容易导致内存碎片；会停止整个程序运行；</p>
 <h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p>Mark-Compact 该算法标记阶段和Mark-Sweep一样，但是在完成标记之后，它不是直接清理可回收对象，而是将存活对象都向一端移动，然后清理掉端边界以外的内存。</p>
 <h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用的内存空间一次清理掉，这样一来就不容易出现内存碎片的问题。<img src="/images/mask_sweep_copy.png" alt="">这种算法对内存空间的使用做了一半的牺牲，效率跟存活对象的数目多少有很大的关系，如果存活对象很多，那么Copying算法的效率将会大大降低。</p>
-<p>现在的商业虚拟机，基于IBM的研究假设：新生代中的对象98%是朝生暮死的，所以并不需要按照1:1划分内存，而是按照一定的比例把内存空间划分为一块较大的Eden空间（80%）和两块较小的Survivor空间（10%）， 每次使用Eden和其中一个Survivor，当回收时，将还存活着的对象一次性复制到另外一块Survivor上，然后再清理掉原先的空间。</p>
-<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>Generational Collection 是目前大部分JVM的垃圾收集器采用的算法。根据对象存活的生命周期将内存划分为若干个不同的区域。一般情况下将堆区划分为老年代（Tenured Generation）和新生代（Young Generation），老年代的特点是每次垃圾收集时只有少量对象需要被回收，而新生代的特点是每次垃圾回收时都有大量的对象死亡，那么就可以根据不同代的特点采取最适合的收集算法。</p>
+<p>现在的商业虚拟机，基于IBM的研究假设：新生代中的对象98%是朝生暮死的，所以并不需要按照1:1划分内存，而是按照一定的比例把内存空间划分为一块较大的Eden空间（80%）和两块较小的Survivor空间（10%）， 每次使用Eden和其中一个Survivor。所有对象创建在新生代的Eden区，当Eden区满后触发新生代的Minor GC，将Eden区和非空闲Survivor区存活的对象复制到另外一个空闲的Survivor区中，然后再清理掉原先的空间。这样保证其中一个Survivor区是空的，新生代Minor GC就是在两个Survivor区之间相互复制存活对象，直到Survivor区满为止。</p>
+<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>Generational Collection 是目前大部分JVM的垃圾收集器采用的算法。根据对象存活的生命周期将内存划分为若干个不同的区域。一般情况下将堆区划分为老年代（Tenured Generation）和新生代（Young Generation）。老年代的特点是每次垃圾收集时只有少量对象需要被回收，而新生代的特点是每次垃圾回收时都有大量的对象死亡，那么就可以根据不同代的特点采取最适合的收集算法。</p>
 <p>目前大部分垃圾收集器对于新生代都采取Copying算法，因为新生代中每次垃圾回收都要回收大部分对象，也就是说需要复制的操作次数较少。</p>
-<p>老年代的特点是每次回收都只回收少量对象，一般使用的是Mark-Compact或者Mask-Sweep算法。</p>
-<p>堆区之外还有一个永久代（Permanet Generation），它用来存储class类、常量、方法描述等。对永久代的回收主要回收两部分内容：废弃常量和无用的类。</p>
+<p>老年代的特点是每次回收都只回收少量对象，一般使用的是Mark-Compact或者Mask-Sweep算法。当新生代Survivor区也满了之后就通过Minor GC将对象复制到老年代。老年代也满了的话，就将触发Full GC，针对整个堆（包括新生代、老年代、持久代）进行垃圾回收。</p>
+<p>堆区之外还有一个永久代（Permanet Generation），它用来存储class类、常量、方法描述等。对永久代的回收主要回收两部分内容：废弃常量和无用的类。持久代如果满了，将触发Full GC。</p>
 <h4 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h4><p>垃圾收集算法是内存回收的理论基础，而垃圾收集器就是内存回收的具体实现。JDK 7的HotSpot虚拟机提供多种垃圾收集器，可以需求组合出各个年代使用的收集器。</p>
 <ol>
 <li>Serial/Serial Old：最基本最古老的收集器，它是一个单线程收集器，并且在它进行垃圾收集时，必须暂停所有用户线程。Serial收集器是针对新生代的收集器，采用的是Copying算法，Serial Old收集器是针对老年代的收集器，采用的是Mark-Compact算法。它的优点是实现简单高效，但是缺点是会给用户带来停顿。</li>
@@ -507,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-immutability/" rel="next" title="Java Immutability">
-                <i class="fa fa-chevron-left"></i> Java Immutability
+              <a href="/java-stack-heap/" rel="next" title="Java 堆栈">
+                <i class="fa fa-chevron-left"></i> Java 堆栈
               </a>
             
           </div>
@@ -517,8 +517,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-HashTable/" rel="prev" title="Java Hash Table">
-                Java Hash Table <i class="fa fa-chevron-right"></i>
+              <a href="/java-HashMap-LinkedHashMap/" rel="prev" title="Java LinkedHashMap">
+                Java LinkedHashMap <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -616,7 +616,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
