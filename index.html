@@ -271,289 +271,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/machine-learning-checklist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/machine-learning-checklist/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-28T22:53:21+08:00">
-                2018-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/machine-learning-checklist/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="machine-learning-checklist/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/machine-learning-checklist/" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  1,114
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  7 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Machine Learning Project Checklist</p>
-<ol>
-<li>Frame the problem and look at the big picture.</li>
-<li>Get the data.</li>
-<li>Explore the data to gain insights.</li>
-<li>Prepare the data to better expose the underlying data patterns to Machine Learning algorithms.</li>
-<li>Explore many different models and short-list the best ones.</li>
-<li>Fine-tune your models and combine them into a great solution.</li>
-<li>Present your solution.</li>
-<li>Launch, monitor, and maintain your system</li>
-</ol>
-<p>Frame the Problem and Look at the Big Picture</p>
-<ol>
-<li>Define the objective in business terms.</li>
-<li>How will your solution be used?</li>
-<li>What are the current solutions/workarounds (if any)?</li>
-<li>How should you frame this problem (supervised/unsupervised, online/offline,etc.)?</li>
-<li>How should performance be measured?</li>
-<li>Is the performance measure aligned with the business objective?</li>
-<li>What would be the minimum performance needed to reach the business objective?</li>
-<li>What are comparable problems? Can you reuse experience or tools?</li>
-<li>Is human expertise available?</li>
-<li>How would you solve the problem manually?</li>
-<li>List the assumptions you (or others) have made so far.</li>
-<li>Verify assumptions if possible.</li>
-</ol>
-<p>Get the Data<br>Note: automate as much as possible so you can easily get fresh data.</p>
-<ol>
-<li>List the data you need and how much you need.</li>
-<li>Find and document where you can get that data.</li>
-<li>Check how much space it will take.</li>
-<li>Check legal obligations, and get authorization if necessary.</li>
-<li>Get access authorizations.</li>
-<li>Create a workspace (with enough storage space).</li>
-<li>Get the data.</li>
-<li>Convert the data to a format you can easily manipulate (without changing thedata itself).</li>
-<li>Ensure sensitive information is deleted or protected (e.g., anonymized).</li>
-<li>Check the size and type of data (time series, sample, geographical, etc.).</li>
-<li>Sample a test set, put it aside, and never look at it (no data snooping!).</li>
-</ol>
-<p>Explore the Data<br>Note: try to get insights from a field expert for these steps.</p>
-<ol>
-<li>Create a copy of the data for exploration (sampling it down to a manageable sizeif necessary).</li>
-<li>Create a Jupyter notebook to keep a record of your data exploration.</li>
-<li>Study each attribute and its characteristics:<br>• Name<br>• Type (categorical, int/float, bounded/unbounded, text, structured, etc.)<br>• % of missing values<br>• Noisiness and type of noise (stochastic, outliers, rounding errors, etc.)<br>• Possibly useful for the task?<br>• Type of distribution (Gaussian, uniform, logarithmic, etc.)</li>
-<li>For supervised learning tasks, identify the target attribute(s).</li>
-<li>Visualize the data.</li>
-<li>Study the correlations between attributes.</li>
-<li>Study how you would solve the problem manually.</li>
-<li>Identify the promising transformations you may want to apply.</li>
-<li>Identify extra data that would be useful</li>
-<li>Document what you have learned.</li>
-</ol>
-<p>Prepare the Data<br>Notes:<br>• Work on copies of the data (keep the original dataset intact).<br>• Write functions for all data transformations you apply, for five reasons:<br>—So you can easily prepare the data the next time you get a fresh dataset<br>—So you can apply these transformations in future projects<br>—To clean and prepare the test set<br>—To clean and prepare new data instances once your solution is live<br>—To make it easy to treat your preparation choices as hyperparameters</p>
-<ol>
-<li><p>Data cleaning:<br>• Fix or remove outliers (optional).<br>• Fill in missing values (e.g., with zero, mean, median…) or drop their rows (orcolumns).</p>
-</li>
-<li><p>Feature selection (optional):<br>• Drop the attributes that provide no useful information for the task.</p>
-</li>
-<li><p>Feature engineering, where appropriate:<br>• Discretize continuous features.<br>• Decompose features (e.g., categorical, date/time, etc.).<br>• Add promising transformations of features (e.g., log(x), sqrt(x), x^2, etc.).<br>• Aggregate features into promising new features.</p>
-</li>
-<li><p>Feature scaling: standardize or normalize features.</p>
-</li>
-</ol>
-<p>Short-List Promising Models<br>Notes:<br>• If the data is huge, you may want to sample smaller training sets so you can trainmany different models in a reasonable time (be aware that this penalizes complexmodels such as large neural nets or Random Forests).<br>• Once again, try to automate these steps as much as possible.</p>
-<ol>
-<li><p>Train many quick and dirty models from different categories (e.g., linear, naiveBayes, SVM, Random Forests, neural net, etc.) using standard parameters.</p>
-</li>
-<li><p>Measure and compare their performance.<br>• For each model, use N-fold cross-validation and compute the mean and standarddeviation of the performance measure on the N folds.</p>
-</li>
-<li><p>Analyze the most significant variables for each algorithm.</p>
-</li>
-<li><p>Analyze the types of errors the models make.<br>• What data would a human have used to avoid these errors?</p>
-</li>
-<li><p>Have a quick round of feature selection and engineering.</p>
-</li>
-<li><p>Have one or two more quick iterations of the five previous steps.</p>
-</li>
-<li><p>Short-list the top three to five most promising models, preferring models thatmake different types of errors.</p>
-</li>
-</ol>
-<p>Fine-Tune the System<br>Notes:<br>• You will want to use as much data as possible for this step, especially as you movetoward the end of fine-tuning.<br>• As always automate what you can.</p>
-<ol>
-<li><p>Fine-tune the hyperparameters using cross-validation.<br>• Treat your data transformation choices as hyperparameters, especially whenyou are not sure about them (e.g., should I replace missing values with zero or with the median value? Or just drop the rows?).<br>• Unless there are very few hyperparameter values to explore, prefer randomsearch over grid search. If training is very long, you may prefer a Bayesianoptimization approach (e.g., using Gaussian process priors).</p>
-</li>
-<li><p>Try Ensemble methods. Combining your best models will often perform betterthan running them individually.</p>
-</li>
-<li><p>Once you are confident about your final model, measure its performance on thetest set to estimate the generalization error.</p>
-</li>
-</ol>
-<p>Present Your Solution</p>
-<ol>
-<li>Document what you have done.</li>
-<li><p>Create a nice presentation.<br>• Make sure you highlight the big picture first.</p>
-</li>
-<li><p>Explain why your solution achieves the business objective.</p>
-</li>
-<li><p>Don’t forget to present interesting points you noticed along the way.<br>• Describe what worked and what did not.<br>• List your assumptions and your system’s limitations.</p>
-</li>
-<li><p>Ensure your key findings are communicated through beautiful visualizations oreasy-to-remember statements (e.g., “the median income is the number-one predictorof housing prices”).</p>
-</li>
-</ol>
-<p>Launch!</p>
-<ol>
-<li><p>Get your solution ready for production (plug into production data inputs, writeunit tests, etc.).</p>
-</li>
-<li><p>Write monitoring code to check your system’s live performance at regular intervalsand trigger alerts when it drops.<br>• Beware of slow degradation too: models tend to “rot” as data evolves.<br>• Measuring performance may require a human pipeline (e.g., via a crowdsourcingservice).<br>• Also monitor your inputs’ quality (e.g., a malfunctioning sensor sending randomvalues, or another team’s output becoming stale). This is particularly important for online learning systems.</p>
-</li>
-<li><p>Retrain your models on a regular basis on fresh data (automate as much as possible).</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NLP-information-extraction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -710,8 +427,7 @@
 
       
         
-          <h2 id="信息抽取"><a href="#信息抽取" class="headerlink" title="信息抽取"></a>信息抽取</h2><p>1997年MUC会议（MUC-7） 召开时，评测任务已经增加到5个：<br>① 场景模板（scenario template, ST）填充：定义了描述场景的模板及槽填充规范；<br>② 命名实体（named entity, NE）识别：识别出文本中出现的专有名称和有意义的数量短语， 并加以归类；<br>③ 共指（coreference, CR）关系确定：识别出给定文本中的参照表达（ referring expressions），并确定这些表达之间的共指关系；<br>④ 模板元素（template element, TE）填充：类似于人名和组织机构名识别，但是要求系统必须识别出实体的描述和名字，如果一个实体在文本中被提到了多次，使用了几种可能的描述和不同的名字形式，要求系统都要把它们识别出来，一个文本中的每个实体只有一个模板元素［Grishman and Sundheim, 1996］；<br>⑤ 模板关系（template relation, TR）：确定实体之间与特定领域无关的关系。</p>
-<p>1999年起美国NIST组织了自动内容抽取（automatic content extraction, ACE）评测会议，旨在研究和<br>开发自动内容技术以支持对三种不同来源文本（普通文本、经语音识别后得到的文本、 由OCR识别得到的文本）的自动处理，以实现新闻语料中出现的实体、关系、事件等内容的自动抽取。评测任务设计:<br>实体检测与跟踪（entity detection and tracking, EDT）、数值检测与识别（value detection and recognition, VDR）、时间识别和规范化（time expression recognition and normalization, TERN）、关系检测与描述（relation detection and characterization, RDC）、事件检测与描述（event detection and characterization, EDC）和实体翻译（entity translation, ET）等。</p>
+          <h2 id="信息抽取"><a href="#信息抽取" class="headerlink" title="信息抽取"></a>信息抽取</h2><p>1997年MUC会议（MUC-7） 召开时，评测任务已经增加到5个：<br>① 场景模板（scenario template, ST）填充：定义了描述场景的模板及槽填充规范；<br>② 命名实体（named entity, NE）识别：识别出文本中出现的专有名称和有意义的数量短语， 并加以归类；<br>③ 共指（coreference, CR）关系确定：识别出给定文本中的参照表达（ referring expressions），并确定这些表达之间的共指关系；<br>④ 模板元素（template element, TE）填充：类似于人名和组织机构名识别，但是要求系统必须识别出实体的描述和名字，如果一个实体在文本中被提到了多次，使用了几种可能的描述和不同的名字形式，要求系统都要把它们识别出来，一个文本中的每个实体只有一个模板元素［Grishman and Sundheim, 1996］；<br>⑤ 模板关系（template relation, TR）：确定实体之间与特定领域无关的关系。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NLP-information-extraction/#more" rel="contents">
@@ -872,7 +588,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,051
+                  2,503
                 </span>
               
 
@@ -888,7 +604,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  4 min
+                  12 min
                 </span>
               
             </div>
@@ -1594,6 +1310,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/algorithms-majority-element/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-majority-element/" itemprop="url">众数问题 - Boyer–Moore majority vote algorithm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-03T00:00:00+08:00">
+                2018-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/algorithms-majority-element/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="algorithms-majority-element/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/algorithms-majority-element/" class="leancloud_visitors" data-flag-title="众数问题 - Boyer–Moore majority vote algorithm">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  514
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  2 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>数组中有一个数字出现的次数超过数组长度的一半，例如输入一个长度为9的数组<code>1,2,3,2,2,2,5,4,2</code>。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。因为这个数出现次数超过了数组长度一半以上, 那么它就是数组中出现次数最多的数, 故谓之<strong>众数</strong>.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/algorithms-majority-element/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NLP-attention-03-self-attention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1759,205 +1674,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NLP-attention-03-self-attention/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/algorithms-majority-element/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-majority-element/" itemprop="url">众数问题 - Boyer–Moore majority vote algorithm</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-03T00:00:00+08:00">
-                2018-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/algorithms-majority-element/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="algorithms-majority-element/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/algorithms-majority-element/" class="leancloud_visitors" data-flag-title="众数问题 - Boyer–Moore majority vote algorithm">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  514
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  2 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>数组中有一个数字出现的次数超过数组长度的一半，例如输入一个长度为9的数组<code>1,2,3,2,2,2,5,4,2</code>。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。因为这个数出现次数超过了数组长度一半以上, 那么它就是数组中出现次数最多的数, 故谓之<strong>众数</strong>.<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/algorithms-majority-element/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2420,6 +2136,216 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NLP-04-string-match-algorithm-ac-automaton/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NLP-04-string-match-algorithm-ac-automaton/" itemprop="url">NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T00:00:00+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NLP-04-string-match-algorithm-ac-automaton/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="NLP-04-string-match-algorithm-ac-automaton/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/NLP-04-string-match-algorithm-ac-automaton/" class="leancloud_visitors" data-flag-title="NLP与信息处理 04 - “和谐” - 多模式匹配算法 - AC自动机">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  2,853
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  11 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>虽然KMP可以用于<a href="/NLP-01-string-searching-algorithm-01-kmp">单模式匹配问题</a>，但如果是多模式问题, KMP的性能就得不到保证。比如根据墙内法律要求, 墙内的搜索引擎需要过滤敏感词后才能合法运营。敏感词的数量不少, 如果要求包含敏感词的网页不能被搜索到, 那么搜索引擎在爬取网页信息时, 就要标记网页的文本中是否包含任意个敏感词.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/NLP-04-string-match-algorithm-ac-automaton/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2474,7 +2400,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

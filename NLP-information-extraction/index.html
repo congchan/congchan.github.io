@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="信息抽取1997年MUC会议（MUC-7） 召开时，评测任务已经增加到5个：① 场景模板（scenario template, ST）填充：定义了描述场景的模板及槽填充规范；② 命名实体（named entity, NE）识别：识别出文本中出现的专有名称和有意义的数量短语， 并加以归类；③ 共指（coreference, CR）关系确定：识别出给定文本中的参照表达（ referring expre">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-28T08:31:27.540Z">
+<meta property="og:updated_time" content="2018-11-30T06:20:51.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NLP与信息处理 - 信息抽取">
 <meta name="twitter:description" content="信息抽取1997年MUC会议（MUC-7） 召开时，评测任务已经增加到5个：① 场景模板（scenario template, ST）填充：定义了描述场景的模板及槽填充规范；② 命名实体（named entity, NE）识别：识别出文本中出现的专有名称和有意义的数量短语， 并加以归类；③ 共指（coreference, CR）关系确定：识别出给定文本中的参照表达（ referring expre">
@@ -428,9 +428,8 @@
       
 
       
-        <h2 id="信息抽取"><a href="#信息抽取" class="headerlink" title="信息抽取"></a>信息抽取</h2><p>1997年MUC会议（MUC-7） 召开时，评测任务已经增加到5个：<br>① 场景模板（scenario template, ST）填充：定义了描述场景的模板及槽填充规范；<br>② 命名实体（named entity, NE）识别：识别出文本中出现的专有名称和有意义的数量短语， 并加以归类；<br>③ 共指（coreference, CR）关系确定：识别出给定文本中的参照表达（ referring expressions），并确定这些表达之间的共指关系；<br>④ 模板元素（template element, TE）填充：类似于人名和组织机构名识别，但是要求系统必须识别出实体的描述和名字，如果一个实体在文本中被提到了多次，使用了几种可能的描述和不同的名字形式，要求系统都要把它们识别出来，一个文本中的每个实体只有一个模板元素［Grishman and Sundheim, 1996］；<br>⑤ 模板关系（template relation, TR）：确定实体之间与特定领域无关的关系。</p>
+        <h2 id="信息抽取"><a href="#信息抽取" class="headerlink" title="信息抽取"></a>信息抽取</h2><p>1997年MUC会议（MUC-7） 召开时，评测任务已经增加到5个：<br>① 场景模板（scenario template, ST）填充：定义了描述场景的模板及槽填充规范；<br>② 命名实体（named entity, NE）识别：识别出文本中出现的专有名称和有意义的数量短语， 并加以归类；<br>③ 共指（coreference, CR）关系确定：识别出给定文本中的参照表达（ referring expressions），并确定这些表达之间的共指关系；<br>④ 模板元素（template element, TE）填充：类似于人名和组织机构名识别，但是要求系统必须识别出实体的描述和名字，如果一个实体在文本中被提到了多次，使用了几种可能的描述和不同的名字形式，要求系统都要把它们识别出来，一个文本中的每个实体只有一个模板元素［Grishman and Sundheim, 1996］；<br>⑤ 模板关系（template relation, TR）：确定实体之间与特定领域无关的关系。<br><a id="more"></a></p>
 <p>1999年起美国NIST组织了自动内容抽取（automatic content extraction, ACE）评测会议，旨在研究和<br>开发自动内容技术以支持对三种不同来源文本（普通文本、经语音识别后得到的文本、 由OCR识别得到的文本）的自动处理，以实现新闻语料中出现的实体、关系、事件等内容的自动抽取。评测任务设计:<br>实体检测与跟踪（entity detection and tracking, EDT）、数值检测与识别（value detection and recognition, VDR）、时间识别和规范化（time expression recognition and normalization, TERN）、关系检测与描述（relation detection and characterization, RDC）、事件检测与描述（event detection and characterization, EDC）和实体翻译（entity translation, ET）等。</p>
-<a id="more"></a>
 <h3 id="TF-IDF-关键词抽取"><a href="#TF-IDF-关键词抽取" class="headerlink" title="TF-IDF 关键词抽取"></a>TF-IDF 关键词抽取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba.analyse</span><br><span class="line">jieba.analyse.extract_tags(sentence, topK=<span class="number">20</span>, withWeight=<span class="keyword">False</span>, allowPOS=())</span><br></pre></td></tr></table></figure>
 <p><code>sentence</code> 为待提取的文本<br><code>topK</code> 为返回几个 TF/IDF 权重最大的关键词，默认值为 <code>20</code><br><code>withWeight</code> 为是否一并返回关键词权重值，默认值为 <code>False</code><br><code>allowPOS</code> 仅包括指定词性的词，默认值为空，即不筛选. 如电商评论指定要形容词</p>
 <p>关键词提取所使用逆向文件频率（IDF）文本语料库可以切换成自定义语料库的路径, 用法： <code>jieba.analyse.set_idf_path(file_name) # file_name为自定义语料库的路径</code><br>自定义语料库示例见 <a href="https://github.com/fxsjy/jieba/blob/master/extra_dict/idf.txt.big" target="_blank" rel="noopener">https://github.com/fxsjy/jieba/blob/master/extra_dict/idf.txt.big</a><br>用法示例见 <a href="https://github.com/fxsjy/jieba/blob/master/test/extract_tags_idfpath.py" target="_blank" rel="noopener">https://github.com/fxsjy/jieba/blob/master/test/extract_tags_idfpath.py</a></p>
@@ -505,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/machine-learning-checklist/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
