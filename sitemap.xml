@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
+    
+    <lastmod>2018-12-11T03:04:19.599Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/java-BitMap/</loc>
     
     <lastmod>2018-12-05T09:31:24.829Z</lastmod>
@@ -488,13 +495,6 @@
     <loc>http://shukebeta.me/UoE-nlu/</loc>
     
     <lastmod>2018-09-09T08:48:11.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/UoE-anlp/</loc>
-    
-    <lastmod>2018-09-09T08:48:03.283Z</lastmod>
     
   </url>
   

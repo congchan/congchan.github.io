@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://shukebeta.me/images/perplexity.png">
 <meta property="og:image" content="http://shukebeta.me/images/Contingency.png">
 <meta property="og:image" content="http://shukebeta.me/images/Pearson.png">
-<meta property="og:updated_time" content="2018-09-09T08:48:03.283Z">
+<meta property="og:updated_time" content="2018-12-11T03:04:19.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Accelerated Natural Language Processing">
 <meta name="twitter:description" content="爱丁堡大学信息学院课程笔记 Accelerated Natural Language Processing, Informatics, University of Edinburgh References:Accelerated natural language processingANLP revision guideLecture Slides from the Stanford Course">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  6,756
+                  6,821
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  41 min
+                  42 min
                 </span>
               
             </div>
@@ -533,17 +533,28 @@
 <li>For each sentence, assign probability P(S|C) = P(w1,w2,w3…|C)</li>
 <li>Running multiple languange models(classes) to assign probabilities, and pick out the highest language model.</li>
 </ul>
-<h3 id="Hidden-Markov-Model"><a href="#Hidden-Markov-Model" class="headerlink" title="Hidden Markov Model"></a>Hidden Markov Model</h3><ul>
-<li>What: The HMM is a probabilistic sequence model: given a sequence of units (words, letters, morphemes, sentences, whatever), they compute a probability distribution over possible sequences of labels and choose the best label sequence.</li>
-<li>parameter λ: A Transition probability matrix, B Emission probability</li>
+<h3 id="Hidden-Markov-Model"><a href="#Hidden-Markov-Model" class="headerlink" title="Hidden Markov Model"></a>Hidden Markov Model</h3><p>The HMM is a probabilistic sequence model: given a sequence of units (words, letters, morphemes, sentences, whatever), they compute a probability distribution over possible sequences of labels and choose the best label sequence.</p>
+<ul>
+<li>parameter λ:<ul>
+<li>Initial probability π</li>
+<li>Transition probability matrix A, $P(Tag_{i+1} | Tag_{i})$</li>
+<li>Emission probability B, $P(Word | Tag)$</li>
+</ul>
+</li>
 <li>Application: part-of-speech tagging, name entity recognition(NEr), parse tree, speech recognition</li>
 <li>Hidden: these tags, trees or words is not observed(hidden)</li>
 <li>The three fundamental problems of HMM:<ul>
-<li>decoding: discover the best hidden state sequence via <a href="#viterbi-algorithm">Viterbi algorithm</a></li>
+<li>decoding: discover the best hidden state sequence via <a href="#viterbi-algorithm">Viterbi algorithm</a>, Viterbi的实现参考<a href="https://github.com/congchan/Chinese-nlp/blob/master/hmm_pos_tag.ipynb" target="_blank" rel="noopener">HMM POS Tagging</a></li>
 <li>Probability of the observation: Given an HMM with know parameters λ and an observation sequence O, determine the likelihood P(O| λ) (a language model regardless of tags) via <a href="#forward-algorithm">Forward algorithm</a></li>
 <li>Learning: Given only the observed sequence, learn the best(MLE) HMM parameters λ via <a href="#forward-backward-algorithm">forward-backward algorithm</a>, thus <a href="#hmm-training">training a HMM</a> is an unsupervised learning task.</li>
 </ul>
 </li>
+</ul>
+<p>总结:</p>
+<ul>
+<li>前向算法和后向算法解决如何计算似然$P(O| λ)$的问题</li>
+<li>Viterbi算法解决HMM 解码问题.</li>
+<li>这些算法都是动态规划算法</li>
 </ul>
 <h4 id="Part-of-speech-tagging"><a href="#Part-of-speech-tagging" class="headerlink" title="Part-of-speech tagging"></a>Part-of-speech tagging</h4><ul>
 <li>Part-of-speech(POS), word classes, or syntactic categories, a description of eight parts-of-speech: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, and sometimes numeral, article or determiner.<ol>
