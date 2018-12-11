@@ -271,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-immutability/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-iteration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -290,7 +290,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-immutability/" itemprop="url">Java Immutability</a></h1>
+                <a class="post-title-link" href="/java-iteration/" itemprop="url">Java 迭代 Iteration</a></h1>
         
 
         <div class="post-meta">
@@ -343,9 +343,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/java-immutability/#comments" itemprop="discussionUrl">
+                <a href="/java-iteration/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-immutability/" itemprop="commentCount"></span>
+                        data-disqus-identifier="java-iteration/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -353,7 +353,7 @@
 
           
           
-             <span id="/java-immutability/" class="leancloud_visitors" data-flag-title="Java Immutability">
+             <span id="/java-iteration/" class="leancloud_visitors" data-flag-title="Java 迭代 Iteration">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  421
+                  415
                 </span>
               
 
@@ -416,14 +416,11 @@
 
       
         
-          <blockquote>
-<p>An immutable data type is a data type whose instances cannot change in any observable way after instantiation.</p>
-</blockquote>
-<p>比如<code>String</code>是immutable, <code>Array</code>是mutable.</p>
-<p>Immutable 的类型: String, Integer, Double, Color, Vector, Transaction, Point2D.<br>Mutable: StringBuilder, Stack, Counter, Java array.<br>
+          <p>Java提供了 foreach (enhanced for) 的循环简写语法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ArrayMap&lt;String, Integer&gt; am = <span class="keyword">new</span> ArrayMap&lt;String, Integer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String s : am) &#123;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现的关键原理是使用<code>Iterable</code>接口使一个类变成可迭代的: 该接口包含一个<code>iterator()</code>方法用于返回一个<code>Iterator</code>对象。<code>Iterator</code>接口定义<code>Iterator</code>对象和<code>hasNext(), next()</code>方法来进行实际的迭代操作。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java-immutability/#more" rel="contents">
+            <a class="btn" href="/java-iteration/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -674,7 +671,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-higher-order-functions-call-back/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-adt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -693,7 +690,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-higher-order-functions-call-back/" itemprop="url">Java 高阶函数和回调</a></h1>
+                <a class="post-title-link" href="/java-adt/" itemprop="url">Java 抽象数据类型</a></h1>
         
 
         <div class="post-meta">
@@ -746,9 +743,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/java-higher-order-functions-call-back/#comments" itemprop="discussionUrl">
+                <a href="/java-adt/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-higher-order-functions-call-back/" itemprop="commentCount"></span>
+                        data-disqus-identifier="java-adt/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -756,7 +753,7 @@
 
           
           
-             <span id="/java-higher-order-functions-call-back/" class="leancloud_visitors" data-flag-title="Java 高阶函数和回调">
+             <span id="/java-adt/" class="leancloud_visitors" data-flag-title="Java 抽象数据类型">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -781,7 +778,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  387
+                  1,159
                 </span>
               
 
@@ -797,7 +794,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  2 min
+                  5 min
                 </span>
               
             </div>
@@ -819,13 +816,13 @@
 
       
         
-          <h2 id="Higher-Order-Functions"><a href="#Higher-Order-Functions" class="headerlink" title="Higher Order Functions"></a>Higher Order Functions</h2><blockquote>
-<p>A higher order function is a function that treats other functions as data.</p>
-</blockquote>
-<p>在 Java 7 及之前的版本, memory boxes (variables) 不能包含指向 functions 的 pointers, 也就是无法给 functions 指定 types. 所以不能像Python一样直接把 function 作为参数传递到另一个 function 中。只能借用 interface：<br>
+          <h2 id="Abstract-Data-Types-ADTS"><a href="#Abstract-Data-Types-ADTS" class="headerlink" title="Abstract Data Types (ADTS)"></a>Abstract Data Types (ADTS)</h2><p>ADTS 是由其行为属性定义的抽象类型, 跟如何实现无关.</p>
+<p>堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:<br><code>push()</code>: 加入<br><code>peek()</code>: 返回下一个<br><code>poll()</code>: 返回下一个并删除</p>
+<p>Java的<code>Deque</code>(double ended queue, “deck”) 接口融合了堆栈和队列, 支持两端的元素插入和移除. <code>ArrayDeque</code>和<code>LinkedListDeque</code>都是实现<code>deque</code>这个接口，<code>deque</code>只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由<code>ArrayDeque</code>和<code>LinkedListDeque</code>完成。从概念上讲，<code>deque</code>就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的。</p>
+<p>优先级队列 priority queue 的每个元素都有一个与之关联的优先级，以决定从队列中元素操作的顺序。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java-higher-order-functions-call-back/#more" rel="contents">
+            <a class="btn" href="/java-adt/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1076,7 +1073,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-iteration/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-immutability/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -1095,7 +1092,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-iteration/" itemprop="url">Java 迭代 Iteration</a></h1>
+                <a class="post-title-link" href="/java-immutability/" itemprop="url">Java Immutability</a></h1>
         
 
         <div class="post-meta">
@@ -1148,9 +1145,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/java-iteration/#comments" itemprop="discussionUrl">
+                <a href="/java-immutability/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-iteration/" itemprop="commentCount"></span>
+                        data-disqus-identifier="java-immutability/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1158,7 +1155,7 @@
 
           
           
-             <span id="/java-iteration/" class="leancloud_visitors" data-flag-title="Java 迭代 Iteration">
+             <span id="/java-immutability/" class="leancloud_visitors" data-flag-title="Java Immutability">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1183,7 +1180,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  415
+                  421
                 </span>
               
 
@@ -1221,11 +1218,14 @@
 
       
         
-          <p>Java提供了 foreach (enhanced for) 的循环简写语法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ArrayMap&lt;String, Integer&gt; am = <span class="keyword">new</span> ArrayMap&lt;String, Integer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String s : am) &#123;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>实现的关键原理是使用<code>Iterable</code>接口使一个类变成可迭代的: 该接口包含一个<code>iterator()</code>方法用于返回一个<code>Iterator</code>对象。<code>Iterator</code>接口定义<code>Iterator</code>对象和<code>hasNext(), next()</code>方法来进行实际的迭代操作。<br>
+          <blockquote>
+<p>An immutable data type is a data type whose instances cannot change in any observable way after instantiation.</p>
+</blockquote>
+<p>比如<code>String</code>是immutable, <code>Array</code>是mutable.</p>
+<p>Immutable 的类型: String, Integer, Double, Color, Vector, Transaction, Point2D.<br>Mutable: StringBuilder, Stack, Counter, Java array.<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java-iteration/#more" rel="contents">
+            <a class="btn" href="/java-immutability/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1276,7 +1276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-formatting/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-higher-order-functions-call-back/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -1295,7 +1295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-formatting/" itemprop="url">Java 格式</a></h1>
+                <a class="post-title-link" href="/java-higher-order-functions-call-back/" itemprop="url">Java 高阶函数和回调</a></h1>
         
 
         <div class="post-meta">
@@ -1348,9 +1348,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/java-formatting/#comments" itemprop="discussionUrl">
+                <a href="/java-higher-order-functions-call-back/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-formatting/" itemprop="commentCount"></span>
+                        data-disqus-identifier="java-higher-order-functions-call-back/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1358,7 +1358,7 @@
 
           
           
-             <span id="/java-formatting/" class="leancloud_visitors" data-flag-title="Java 格式">
+             <span id="/java-higher-order-functions-call-back/" class="leancloud_visitors" data-flag-title="Java 高阶函数和回调">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1383,7 +1383,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  451
+                  387
                 </span>
               
 
@@ -1421,411 +1421,13 @@
 
       
         
-          <h2 id="Java格式化指令”"><a href="#Java格式化指令”" class="headerlink" title="Java格式化指令”"></a>Java格式化指令”</h2><p>跟在<code>%</code>后面的都是格式化指令.<br><code>% [argument number] [flags] [width] [.precision] type</code><br>
+          <h2 id="Higher-Order-Functions"><a href="#Higher-Order-Functions" class="headerlink" title="Higher Order Functions"></a>Higher Order Functions</h2><blockquote>
+<p>A higher order function is a function that treats other functions as data.</p>
+</blockquote>
+<p>在 Java 7 及之前的版本, memory boxes (variables) 不能包含指向 functions 的 pointers, 也就是无法给 functions 指定 types. 所以不能像Python一样直接把 function 作为参数传递到另一个 function 中。只能借用 interface：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java-formatting/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-generics/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/java-generics/" itemprop="url">Java 泛型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T00:00:00+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/java-generics/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-generics/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/java-generics/" class="leancloud_visitors" data-flag-title="Java 泛型">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  1,465
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  6 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型意味着更好的类型安全性。主要目的是支持类型安全性的集合，让问题尽可能在编译阶段就能捉到。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/java-generics/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-adt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/java-adt/" itemprop="url">Java 抽象数据类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T00:00:00+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/java-adt/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-adt/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/java-adt/" class="leancloud_visitors" data-flag-title="Java 抽象数据类型">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  1,159
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  5 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Abstract-Data-Types-ADTS"><a href="#Abstract-Data-Types-ADTS" class="headerlink" title="Abstract Data Types (ADTS)"></a>Abstract Data Types (ADTS)</h2><p>ADTS 是由其行为属性定义的抽象类型, 跟如何实现无关.</p>
-<p>堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:<br><code>push()</code>: 加入<br><code>peek()</code>: 返回下一个<br><code>poll()</code>: 返回下一个并删除</p>
-<p>Java的<code>Deque</code>(double ended queue, “deck”) 接口融合了堆栈和队列, 支持两端的元素插入和移除. <code>ArrayDeque</code>和<code>LinkedListDeque</code>都是实现<code>deque</code>这个接口，<code>deque</code>只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由<code>ArrayDeque</code>和<code>LinkedListDeque</code>完成。从概念上讲，<code>deque</code>就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的。</p>
-<p>优先级队列 priority queue 的每个元素都有一个与之关联的优先级，以决定从队列中元素操作的顺序。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/java-adt/#more" rel="contents">
+            <a class="btn" href="/java-higher-order-functions-call-back/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2261,6 +1863,404 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-formatting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/java-formatting/" itemprop="url">Java 格式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T00:00:00+08:00">
+                2018-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/java-formatting/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="java-formatting/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/java-formatting/" class="leancloud_visitors" data-flag-title="Java 格式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  451
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  2 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Java格式化指令”"><a href="#Java格式化指令”" class="headerlink" title="Java格式化指令”"></a>Java格式化指令”</h2><p>跟在<code>%</code>后面的都是格式化指令.<br><code>% [argument number] [flags] [width] [.precision] type</code><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/java-formatting/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/java-generics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/java-generics/" itemprop="url">Java 泛型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T00:00:00+08:00">
+                2018-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/java-generics/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="java-generics/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/java-generics/" class="leancloud_visitors" data-flag-title="Java 泛型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,465
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  6 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型意味着更好的类型安全性。主要目的是支持类型安全性的集合，让问题尽可能在编译阶段就能捉到。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/java-generics/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2326,7 +2326,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2337,7 +2337,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
