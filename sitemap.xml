@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/UoE-anlp/</loc>
+    
+    <lastmod>2018-12-17T14:36:13.622Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/NLP-information-extraction/</loc>
     
     <lastmod>2018-12-17T13:07:21.086Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://shukebeta.me/NLP-HMM-CRF/</loc>
     
     <lastmod>2018-12-17T13:03:50.845Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/UoE-anlp/</loc>
-    
-    <lastmod>2018-12-11T03:04:19.599Z</lastmod>
     
   </url>
   
