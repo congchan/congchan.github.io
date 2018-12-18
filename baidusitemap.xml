@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/NLP-language-model/</loc>
+    <lastmod>2018-12-18T02:09:30.335Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/UoE-anlp/</loc>
     <lastmod>2018-12-17T14:36:13.622Z</lastmod>
   </url>  <url>
@@ -213,12 +216,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/UoE-nlu/</loc>
     <lastmod>2018-09-09T08:48:11.943Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/ANLP-01-probability-model/</loc>
-    <lastmod>2018-09-09T08:47:12.414Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/ANLP-02-n-gram-model/</loc>
-    <lastmod>2018-09-09T08:47:03.814Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/machine-learning/</loc>
     <lastmod>2018-09-09T08:46:46.311Z</lastmod>
