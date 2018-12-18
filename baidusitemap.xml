@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/NLP-HMM-CRF/</loc>
+    <lastmod>2018-12-18T03:32:40.647Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-language-model/</loc>
     <lastmod>2018-12-18T02:09:30.335Z</lastmod>
   </url>  <url>
@@ -15,9 +18,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/NLP-08-data-compression-huffman-compression/</loc>
     <lastmod>2018-12-17T13:06:05.733Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/NLP-HMM-CRF/</loc>
-    <lastmod>2018-12-17T13:03:50.845Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-BitMap/</loc>
     <lastmod>2018-12-05T09:31:24.829Z</lastmod>

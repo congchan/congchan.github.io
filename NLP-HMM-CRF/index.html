@@ -92,8 +92,10 @@
 <meta property="og:description" content="词性标注（Part-of-Speech-Tagging）POS任务是指根据观察得到的序列, 推断出对应的词性标注, 比如Bob drank coffee at Starbucks, 标注可能为Bob (NOUN) drank (VERB) coffee (NOUN) at (PREPOSITION) Starbucks (NOUN). 除此之外, 还有命名实体识别, 以及其他涉及到需要根据观察序列">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://shukebeta.me/images/probabilistic_graphical_models.png">
+<meta property="og:image" content="http://shukebeta.me/images/人名指界词.png">
+<meta property="og:image" content="http://shukebeta.me/images/人名识别特征原子模板.png">
 <meta property="og:image" content="http://shukebeta.me/images/relationship_nbs_hmm_lr_crf.png">
-<meta property="og:updated_time" content="2018-12-17T13:03:50.845Z">
+<meta property="og:updated_time" content="2018-12-18T03:32:40.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
 <meta name="twitter:description" content="词性标注（Part-of-Speech-Tagging）POS任务是指根据观察得到的序列, 推断出对应的词性标注, 比如Bob drank coffee at Starbucks, 标注可能为Bob (NOUN) drank (VERB) coffee (NOUN) at (PREPOSITION) Starbucks (NOUN). 除此之外, 还有命名实体识别, 以及其他涉及到需要根据观察序列">
@@ -390,7 +392,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  3,137
+                  3,982
                 </span>
               
 
@@ -406,7 +408,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  12 min
+                  15 min
                 </span>
               
             </div>
@@ -461,8 +463,30 @@
 <li>CRF可以定义更广泛的特征函数：HMM受限于相邻位置的状态转换（二元转换）和发射概率函数，迫使每个单词仅依赖于当前标签，并且每个标签仅依赖于前一个标签。而CRF可以使用更多样的全局特征。例如，如果句子的结尾包含问号，则可以给给CRF模型增加一个特征函数，记录此时将句子的第一个单词标记为VERB的概率。这使得CRF可以使用长距离依赖的特征。</li>
 <li>CRF可以有任意的权重值：HMM的概率值必须满足特定的约束， $0 &lt;= p(w_i | l_i) &lt;= 1, \sum_w p(w_i = w | l_1) = 1)$, 而CRF的权重值是不受限制的。</li>
 </ol>
+<p>CRF既具有判别式模型的优点，又考虑到长距离上下文标记间的转移概率，以序列化形式进行全局参数优化和解码的特点，解决了其他判别式模型(如MEMM)难以避免的标记偏见问题。</p>
 <h3 id="CRF与Logistic-Regression"><a href="#CRF与Logistic-Regression" class="headerlink" title="CRF与Logistic Regression"></a>CRF与Logistic Regression</h3><p>CRF的概率计算与Logistic Regression (LR)的形式类似，<br>$$CRF: p(l | s) = \frac{exp[\sum_{j = 1}^m \sum_{i = 1}^n \lambda_j f_j(s, i, l_i, l_{i-1})]}{\sum_{l’} exp[\sum_{j = 1}^m \sum_{i = 1}^n \lambda_j f_j(s, i, l^\prime_i, l^\prime_{i-1})]} $$<br>$$LR: P(y|x) = \frac{\exp \bigg( \sum\limits_{i=1}^{N} w_{i} \cdot f_{i}(x,y) \bigg)} {\sum\limits_{y’ \in Y} \exp \bigg( \sum\limits_{i=1}^{N} w_{i} \cdot f_{i}(x,y’) \bigg)}$$<br>在LR中, $f_i(y, x)$是一个特征，$w_i$是与该特征相关的权重。提取的特征是二元特征，取值0或1，通常称为指示函数。这些特征中的每一个都由与输入$x$和分类$y$相关联的函数计算。</p>
 <p>实际上，CRF基本上就是逻辑回归的序列化：与逻辑回归是用于分类的对数线性模型不同，CRF是标签序列的对数线性模型。</p>
+<h3 id="CRF模型训练"><a href="#CRF模型训练" class="headerlink" title="CRF模型训练"></a>CRF模型训练</h3><p>如何通过数据训练CRF模型, 估计特征函数的权重? 利用极大似然估计（Maximum Likelihood Estimation，MLE)和梯度优化(gradient descent).</p>
+<p>$\log p(l | s)$相对于参数$λ_i$的梯度为:$$\frac{\partial}{\partial w_j} \log p(l | s) = \sum_{j = 1}^m f_i(s, j, l_j, l_{j-1}) - \sum_{l’} p(l’ | s) \sum_{j = 1}^m f_i(s, j, l^\prime_j, l^\prime_{j-1})$$<br>导数的第一项是真实标签下的特征$f_i$的贡献，第二项是当前模型下特征$f_i$的期望贡献。</p>
+<p>对于一堆训练样例（句子和相关的词性标签）。随机初始化CRF模型的权重。要将这些随机初始化的权重转移到正确的权重，对于每个训练示例:</p>
+<ul>
+<li>遍历每个特征函数$f_i$，计算训练示例相对于$λ_i$的对数概率的梯度</li>
+<li>以learning rate $\alpha$的速率沿梯度方向不断修正$λ_i$: $\lambda_i = \lambda_i + \alpha [\sum_{j = 1}^m f_i(s, j, l_j, l_{j-1}) - \sum_{l’} p(l’ | s) \sum_{j = 1}^m f_i(s, j, l^\prime_j, l^\prime_{j-1})]$</li>
+<li>重复这些训练步骤，直到满足停止条件（例如，更新低于某个阈值）。</li>
+</ul>
+<p>CRF的缺点是模型训练时收敛速度比较慢.</p>
+<p>训练后的CRF模型, 可以用于预测一个未标记序列的最大可能标记. 我们需要每个标记的概率$p(l | s)$, 对于大小为k的标签集和长度为m的句子, 需要比较的$p(l | s)$组合有$k^m$种. 但是计算时, 可以利用动态规划的方法, 原理类似于Viterbi算法.</p>
+<h3 id="CRF中文命名实体识别"><a href="#CRF中文命名实体识别" class="headerlink" title="CRF中文命名实体识别"></a>CRF中文命名实体识别</h3><p>比如中文命名实体识别任务, 假如需要判断人名、地名、组织名三类命名实体.</p>
+<p>对于人名, 通过一些模板来筛选特征。模板是对上下文的特定位置和特定信息的考虑, 适用于人名的特征模板:</p>
+<ul>
+<li>人名的指界词：主要包括称谓词、动词和副词等，句首位置和标点符号也可。根据指界词与人名共现的概率的大小，将人名的左右指界词各分为两级，生成4个人名指界词列表：<img src="/images/人名指界词.png" alt=""></li>
+<li>人名识别特征的原子模板，每个模板都只考虑了一种因素：<img src="/images/人名识别特征原子模板.png" alt=""></li>
+</ul>
+<p>当特征函数取特定值时，特征模板被实例化, 就可以得到具体的特征。比如当前词的前一个词 $w_{i-1}$ 在人名1级左指界词列表中出现, $f_i(x, y) = 1, if: PBW1(w_{i-1}) = true, y = PERSON$</p>
+<p>类似的，做地名、组织名的特征提取和选择，并将其实例化，得到所有的特征函数。</p>
+<p>评测指标:<br>召回 recall = $ \frac{正确识别的命名实体首部（尾部）的个数}{标准结果中命名实体首部（尾部）的的总数} \times 100\%$</p>
+<p>精确率 precision = $ \frac{正确识别的命名实体首部（尾部）的个数}{识别出的命名实体首部（尾部）的总数} \times 100\%$</p>
+<p>F1 =  $ \frac{2 \times precision \times recall}{precision + recall}$</p>
 <h2 id="生成式模型和判别式模型"><a href="#生成式模型和判别式模型" class="headerlink" title="生成式模型和判别式模型"></a>生成式模型和判别式模型</h2><p>从朴素贝叶斯, 到HMM; 从Logistic Regression到CRF, 这些概率图模型有如下转换关系:<br><img src="/images/relationship_nbs_hmm_lr_crf.png" alt="" title="Diagram of the relationship between naive Bayes, logistic regression, HMMs, linear-chain CRFs, generative models, and general CRFs. image from: An Introduction to Conditional Random Fields, by Charles Sutton and Andrew McCallum"></p>
 <p>而在朴素贝叶斯与Logistic Regression, 以及HMM和CRF之间, 又有生成式和判别式的区别.</p>
 <p>生成式模型描述标签向量y如何有概率地<strong>生成</strong>特征向量x, 即尝试构建x和y的联合分布$p(y, x)$, 典型的模型有HMM，贝叶斯模型，MRF。生成式模型</p>
@@ -676,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#词性标注（Part-of-Speech-Tagging）"><span class="nav-number">1.</span> <span class="nav-text">词性标注（Part-of-Speech-Tagging）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率图模型"><span class="nav-number">2.</span> <span class="nav-text">概率图模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#朴素贝叶斯分类器与隐马尔可夫模型"><span class="nav-number">2.1.</span> <span class="nav-text">朴素贝叶斯分类器与隐马尔可夫模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件随机场"><span class="nav-number">3.</span> <span class="nav-text">条件随机场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF特征函数"><span class="nav-number">3.1.</span> <span class="nav-text">CRF特征函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与HMM"><span class="nav-number">3.2.</span> <span class="nav-text">CRF与HMM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与Logistic-Regression"><span class="nav-number">3.3.</span> <span class="nav-text">CRF与Logistic Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成式模型和判别式模型"><span class="nav-number">4.</span> <span class="nav-text">生成式模型和判别式模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#词性标注（Part-of-Speech-Tagging）"><span class="nav-number">1.</span> <span class="nav-text">词性标注（Part-of-Speech-Tagging）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率图模型"><span class="nav-number">2.</span> <span class="nav-text">概率图模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#朴素贝叶斯分类器与隐马尔可夫模型"><span class="nav-number">2.1.</span> <span class="nav-text">朴素贝叶斯分类器与隐马尔可夫模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件随机场"><span class="nav-number">3.</span> <span class="nav-text">条件随机场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF特征函数"><span class="nav-number">3.1.</span> <span class="nav-text">CRF特征函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与HMM"><span class="nav-number">3.2.</span> <span class="nav-text">CRF与HMM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与Logistic-Regression"><span class="nav-number">3.3.</span> <span class="nav-text">CRF与Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF模型训练"><span class="nav-number">3.4.</span> <span class="nav-text">CRF模型训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF中文命名实体识别"><span class="nav-number">3.5.</span> <span class="nav-text">CRF中文命名实体识别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成式模型和判别式模型"><span class="nav-number">4.</span> <span class="nav-text">生成式模型和判别式模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
