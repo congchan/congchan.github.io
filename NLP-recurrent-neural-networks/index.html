@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="NLP," />
 
 
 
@@ -83,13 +83,30 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Computer Science &amp; AI">
-<meta property="og:url" content="http://shukebeta.me/tags/Java/page/3/index.html">
+<meta name="description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
+<meta name="keywords" content="NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循环神经网络">
+<meta property="og:url" content="http://shukebeta.me/NLP-recurrent-neural-networks/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
+<meta property="og:description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
+<meta property="og:image" content="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg">
+<meta property="og:image" content="http://karpathy.github.io/assets/rnn/diags.jpeg">
+<meta property="og:image" content="http://shukebeta.me/images/vanish_gradient.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png">
+<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png">
+<meta property="og:image" content="http://shukebeta.me/images/gru.vs.lstm.png">
+<meta property="og:image" content="http://shukebeta.me/images/bidirectional_rnn.png">
+<meta property="og:updated_time" content="2018-12-29T11:25:57.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Computer Science &amp; AI">
+<meta name="twitter:title" content="循环神经网络">
+<meta name="twitter:description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
+<meta name="twitter:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
 
 
 
@@ -119,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://shukebeta.me/tags/Java/page/3/"/>
+  <link rel="canonical" href="http://shukebeta.me/NLP-recurrent-neural-networks/"/>
 
 
 
 
 
-  <title>Tag: Java | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>循环神经网络 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -144,7 +161,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,310 +269,299 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Java<small>Tag</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NLP-recurrent-neural-networks/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/java-immutability/" itemprop="url">
-              
-                <span itemprop="name">Java Immutability</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">循环神经网络</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-15T00:00:00+08:00">
+                2018-12-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NLP-recurrent-neural-networks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="NLP-recurrent-neural-networks/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/NLP-recurrent-neural-networks/" class="leancloud_visitors" data-flag-title="循环神经网络">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,918
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  9 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-exception/" itemprop="url">
-              
-                <span itemprop="name">Java Exceptions</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-stack-heap/" itemprop="url">
-              
-                <span itemprop="name">Java 堆栈</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-iteration/" itemprop="url">
-              
-                <span itemprop="name">Java 迭代 Iteration</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-higher-order-functions-call-back/" itemprop="url">
-              
-                <span itemprop="name">Java 高阶函数和回调</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-generics/" itemprop="url">
-              
-                <span itemprop="name">Java 泛型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-formatting/" itemprop="url">
-              
-                <span itemprop="name">Java 格式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-encapsulation-packages-jar-access/" itemprop="url">
-              
-                <span itemprop="name">Java 封装, 包, JAR, 权限控制</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-adt/" itemprop="url">
-              
-                <span itemprop="name">Java 抽象数据类型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-compare/" itemprop="url">
-              
-                <span itemprop="name">Java 比较对象大小</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T00:00:00+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><p>当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。<br><a id="more"></a></p>
+<p>循环神经网络（Recurrent Neural Networks, RNNs)可以看做是多个<strong>共享参数</strong>的前馈神经网络不断叠加的结果<br><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. &quot;image from: http://colah.github.io"></p>
+<p><img src="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" alt="" title="image from: Nature"></p>
+<p>For a sequence of input data (sequence of words, or speech) and sequence of output problem (many to many):<br>· feed input $x_{t}$ into the RNN: feeding one word (represented as vector) at a time, e.g one word in a sentence from left to right, $x_1$ corresponds to the second word of a sentence.</p>
+<p>· $s_t$ is the hidden state at time step t. It is calculated based on the previous hidden state and the input at the current step:$s_t = f(Ux_t + Ws_{t-1})$. Function f is the activation.</p>
+<p>· o(t) is the output at step t. For example, if we wanted to predict the next word in a sentence it would be a vector of probabilities across our vocabulary. $o_t = softmax(Vs_t)$.</p>
+<p>RNN shares the same parameters ($U, V, W$ above) across all steps.</p>
+<p>In addition to the above normal many to many structure RNNs, there are other non-sequence input or output: Many to one, e.g. when predicting the sentiment of a sentence we may only care about the final output, not the sentiment after each word. One to many: Music generation.<br><img src="http://karpathy.github.io/assets/rnn/diags.jpeg" alt="" title="source from http://karpathy.github.io/2015/05/21/rnn-effectiveness/"></p>
+<p>除了应用于语言模型, RNNs 还可以应用于<br>· tagging, e.g. part-of-speech tagging, named entity recognition (many to many RNNs)<br>· sentence classification, e.g. sentiment classification (many to one RNNs)<br>· generate text, e.g. speech recognition, machine translation, summarization</p>
+<h3 id="RNNs-Backpropagation"><a href="#RNNs-Backpropagation" class="headerlink" title="RNNs Backpropagation"></a>RNNs Backpropagation</h3><p>Backpropagation Through Time (BPTT): Because the parameters are shared by all time steps in the network, the gradient at each output depends not only on the calculations of the current time step, but also the previous time steps.</p>
+<p>RNNs trained with BPTT have difficulties learning long-term dependencies (e.g. dependencies between steps that are far apart) due to what is called the vanishing/exploding gradient problem.</p>
+<h3 id="梯度消失与爆炸"><a href="#梯度消失与爆炸" class="headerlink" title="梯度消失与爆炸"></a>梯度消失与爆炸</h3><p>The Vanishing/Exploding Gradient problem。</p>
+<p>RNNs shares the same matrix (w, u, etc.) at each time step during forward prop and backprop. 求导数时, 根据链式法则, loss对各参数的导数会转换为loss对输出y的导数, 乘以y对隐含层的导数, 乘以隐含层相对隐含层之间的导数, 再乘以隐含层对参数的导数.<img src="/images/vanish_gradient.png" alt=""></p>
+<p>不同隐含层（举例如$h_t$和$h_k$）之间如果相隔太远, $h_t$对$h_k$的导数就变成多个jacobian矩阵的相乘， 对各个jacobian范数（norms）进行分析后，发现$h_t$对$h_k$的导数值在训练过程中会很快变得很极端（非常小或者非常大）。</p>
+<p>Gradient作为传导误差以帮助系统纠正参数的关键角色，如果本身变得接近于<code>0</code>或者<code>nan</code>，那么我们就无法判断t和t+n的数据的依赖性（是没有依赖？还是因为vanish of gradient？还是因为参数设置错误？）。梯度衰减会直接降低模型学习长距离依赖关系的能力，给定一个时间序列，例如文本序列，循环神经网络较难捕捉两个时刻距离较大的文本元素（字或词）之间的依赖关系。</p>
+<p>在使用RNN学习language model的时候，非常容易出现梯度爆炸，解决办法是使用 gradient clipping 梯度裁剪，就是通过把梯度映射到另一个大小的空间，以限制梯度范数的最大值<a href="https://arxiv.org/abs/1211.5063" target="_blank" rel="noopener">On the difficulty of training Recurrent Neural Networks</a>。</p>
+<p>虽然梯度裁剪可以应对梯度爆炸，但无法解决梯度衰减的问题。一个缓解梯度衰减的方案是使用更好的参数初始化方案和激活函数（ReLUs）<a href="https://arxiv.org/abs/1504.00941" target="_blank" rel="noopener">A Simple Way to Initialize Recurrent Networks of Rectified Linear Units</a>.</p>
+<p>不过更主流的解决梯度衰减的方案是使用更复杂的rnn隐含单元: Gated Recurrent Units (GRU) introduced by <a href="https://arxiv.org/abs/1406.1078" target="_blank" rel="noopener">Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation</a> and LSTMs.</p>
+<h2 id="Long-Short-Term-Memory"><a href="#Long-Short-Term-Memory" class="headerlink" title="Long Short-Term Memory"></a>Long Short-Term Memory</h2><p>Outside of the vanilla RNNs work flow, LSTMs use gated <strong>cells</strong> as memory to chose what error to be remembered. The cells take as input the previous state $s_{t-1}$ and current input $x_t$. Thus help to solve the long-term dependencies.</p>
+<p>Whether the gated cell let information flow through (open) or not (closed) depends on its inner sigmoid activation layer with a pointwise multiplication operation. A sigmoid function values between 0 and 1, it could be used to describe how much information is allowed to through the cell.</p>
+<p>Take a most basic sequence problem as example - predict next word: the cell state might include the gender of the present subject, so that the correct pronouns can be used. When we see a new subject, we want to forget the gender of the old subject.</p>
+<p>LSTM的细胞的直观理解，就是细胞可以完整地保存信息，而新的输入可以诱发细胞对旧信息的遗忘，细胞自行决定记忆哪些新信息。</p>
+<p>LSTM 用遗忘门来决定从 cell state 中丢弃哪些信息。<br>Forget gate: Control how much information of pervious state $h_{t-1}$ should be forgetten in the current internal cell. Learned by a sigmoid layer called the “forget gate layer” <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>用输入门 Input gate 来决定有多少新信息是值得储存的（记忆）。<br>Control how much new information is going to be remembered by internal state cell in current step t.<br>1, an input gate (a sigmoid hidden layer) decides which values we’ll update.<br>2, a hidden(tanh/relu) layer creates a vector of new candidate values $\hat{C}_t$, that could be added to the state. <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>下一步就可以更新旧的 cell sate $C_{t-1}$.<br>Input and forget gates together allow the network to control what information is stored and overwritten at each step. Combine the forget and remember information together to update the previous cell state.<br><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>最后，用一个输出门 Output gate 来决定要输出的内容。<br>1, Run a sigmoid layer to decide what parts of the cell state we’re going to output.<br>2, put the cell state through tanh pointwise operation (to push the values to be between −1 and 1) and multiply it by the output of the output gate, so that we only output the parts decided by the output gate.<br><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>总的来说, LSTM有输入门、遗忘门和输出门。这三个门形式上，都是关于旧隐含状态和新输入向量的 Sigmoid 隐含神经网络层, 只是各自有各自的参数矩阵.</p>
+<h2 id="Gated-Recurring-Unit"><a href="#Gated-Recurring-Unit" class="headerlink" title="Gated Recurring Unit"></a>Gated Recurring Unit</h2><p>GRU combines the forget and remember gates into one single gate. This combination leads to a simpler LSTMs model. This combined gate is called update gate. GRU first computes the update gate $z_t$ (another layer) based on current input word vector and hidden state. Then there is a reset gate r similarly but with different weights. The new memory content $\hat{h}_t$; Final memory $h_t$ at time step combines current and previous time steps:<br><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>GRU intuition</p>
+<ul>
+<li>重置门赋予了模型丢弃与未来无关的信息的能力。若重置门接近于0，则忽略之前的记忆，仅储存新加入的信息.</li>
+<li>更新门控制过去的状态对现在的影响程度（即决定更新多少），如果接近于1，则 $h_t=z_t\cdot h_{t-1}$, 等同于把过去的信息完整复制到未来，相应地缓解梯度衰减。</li>
+<li>短距离依赖的单元，过去的信息仅保留很短的时间，重置门一般很活跃，也就是数值在0和1之间频繁变动。</li>
+<li>长距离依赖的单元，重置门较稳定（保留过去的记忆较长时间），而更新门较活跃。</li>
+</ul>
+<h3 id="不同RNNs变种的比较"><a href="#不同RNNs变种的比较" class="headerlink" title="不同RNNs变种的比较"></a>不同RNNs变种的比较</h3><p>Vanilla RNNs Execution:</p>
+<ol>
+<li>Read the whole register h</li>
+<li>Update the whole register</li>
+</ol>
+<p>GRU Execution:</p>
+<ol>
+<li>Select a readable subset</li>
+<li>Read the subset</li>
+<li>Select a writable subset</li>
+<li>Update the subset</li>
+</ol>
+<p><img src="/images/gru.vs.lstm.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"></p>
+<h3 id="门控循环神经网络的训练"><a href="#门控循环神经网络的训练" class="headerlink" title="门控循环神经网络的训练"></a>门控循环神经网络的训练</h3><ol>
+<li>把参数矩阵初始化为正交</li>
+<li>把遗忘门的bias初始化为1，默认不遗忘</li>
+<li>别忘了梯度裁剪</li>
+<li>注意dropout在RNNs中的应用不同于DNN和CNN</li>
+</ol>
+<h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>Bidirectional RNNs are based on the idea that the output at time t may not only depend on the previous elements in the sequence, but also future elements. They are just two RNNs stacked on top of each other. The output is then computed based on the hidden state of both RNNs.<br><img src="/images/bidirectional_rnn.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>斯坦福cs224n <a href="http://web.stanford.edu/class/cs224n" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224n</a></p>
+<p><a href="http://colah.github.io" target="_blank" rel="noopener">http://colah.github.io</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/NLP-language-model/" rel="next" title="语言模型">
+                <i class="fa fa-chevron-left"></i> 语言模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NLP-HMM-CRF/" rel="prev" title="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
+                概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Java/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/Java/">1</a><a class="page-number" href="/tags/Java/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/tags/Java/page/4/">4</a><a class="page-number" href="/tags/Java/page/5/">5</a><a class="extend next" rel="next" href="/tags/Java/page/4/"><i class="fa fa-angle-right"></i></a>
-  </nav>
 
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -563,6 +569,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -583,8 +603,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -664,6 +693,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环神经网络"><span class="nav-number">1.</span> <span class="nav-text">循环神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RNNs-Backpropagation"><span class="nav-number">1.1.</span> <span class="nav-text">RNNs Backpropagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度消失与爆炸"><span class="nav-number">1.2.</span> <span class="nav-text">梯度消失与爆炸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Long-Short-Term-Memory"><span class="nav-number">2.</span> <span class="nav-text">Long Short-Term Memory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gated-Recurring-Unit"><span class="nav-number">3.</span> <span class="nav-text">Gated Recurring Unit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不同RNNs变种的比较"><span class="nav-number">3.1.</span> <span class="nav-text">不同RNNs变种的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#门控循环神经网络的训练"><span class="nav-number">3.2.</span> <span class="nav-text">门控循环神经网络的训练</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bidirectional-RNNs"><span class="nav-number">4.</span> <span class="nav-text">Bidirectional RNNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -804,6 +849,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -821,6 +870,18 @@
       <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://shukebeta.me/NLP-recurrent-neural-networks/';
+          this.page.identifier = 'NLP-recurrent-neural-networks/';
+          this.page.title = '循环神经网络';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shootingspace.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

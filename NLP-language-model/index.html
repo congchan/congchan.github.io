@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="语言模型语言模型Language modeling（LM）最初是针对语音识别问题而开发的, 现在广泛用于其他NLP应用中, 比如机器翻译需要利用LM来给翻译出的句子打分.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-29T04:25:07.952Z">
+<meta property="og:updated_time" content="2018-12-29T11:00:01.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="语言模型">
 <meta name="twitter:description" content="语言模型语言模型Language modeling（LM）最初是针对语音识别问题而开发的, 现在广泛用于其他NLP应用中, 比如机器翻译需要利用LM来给翻译出的句子打分.">
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T00:00:00+08:00">
-                2018-12-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T00:00:00+08:00">
+                2018-11-12
               </time>
             
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  3,497
+                  3,496
                 </span>
               
 
@@ -462,7 +462,7 @@
 </blockquote>
 <p>会有很多长尾单词很少甚至几乎没有出现过, 所以在总数为1的概率池子里, 为了给这些长尾单词分配至少频次1的概率, 需要从真正出现的单词(所谓真实发生的事件)中分走很多概率.</p>
 <p>因此可以给Laplace平滑加入控制因子，变为 Add alpha smoothing。更多平滑方案参考<a href="/UoE-anlp#平滑Smoothing">UoE-anlp</a></p>
-<h2 id="语言模型评估方法"><a href="#语言模型评估方法" class="headerlink" title="语言模型评估方法"></a>语言模型评估方法</h2><p>既然LM是用于评估句子是否准确的模型，那么在评价LM好坏时，就要看它在测试集上的表现如何。给定测试集包含$m$个句子$x^{(1)}, x^{(2)}, …, x^{(m)}$, 各个句子的长度分别为$n_i$. <strong>注意, 测试集必须是完全没有参与模型训练, 且是在人类标准中是好的句子.</strong> LM给这些测试集句子评估的概率大小为$$\prod_{i=1}^m p(x^{(i)})$$ 这个数值越高，说明LM评估测试集句子的质量越好。</p>
+<h2 id="语言模型评估方法"><a href="#语言模型评估方法" class="headerlink" title="语言模型评估方法"></a>语言模型评估方法</h2><p>既然LM是用于评估句子是否准确的模型，那么在评价LM好坏时，就要看它在测试集上的表现如何。给定测试集包含$m$个句子$x^{(1)}, x^{(2)}, …, x^{(m)}$, 各个句子的长度分别为$n_i$. LM给这些测试集句子评估的概率大小为$$\prod_{i=1}^m p(x^{(i)})$$ 这个数值越高，说明LM评估测试集句子的质量越好。<strong>注意, 测试集必须是完全没有参与模型训练, 且是在人类标准中是好的句子.</strong></p>
 <p>但在实际使用中, 我们往往使用上面这个概率的一种变换 - <code>困惑度</code>（<code>Perplexity</code>）来评价LM的质量. 首先取整个测试语料库的对数概率除以测试语料库中的单词总数$M$: $$l = \frac{1}{M} \log_2 \prod_{i=1}^m p(x^{(i)}) = \frac{1}{M} \sum_{i=1}^m \log_2 p(x^{(i)})$$<br>然后得到<br>$$\begin{align}<br>Perplexity &amp;= 2^{-l} \\<br>&amp;= 2^{-\frac{1}{M} \sum_{i=1}^m \log_2 p(x^{(i)})}\\<br>\\<br>&amp;= t^{-1}<br>\end{align}$$<br>其中，$t = \sqrt[\leftroot{-2}\uproot{2}M]{\prod_{i=1}^m p(x^{(i)})}$, 作为测试集概率的几何平均. 例如，如果困惑等于100，则$t = 0.01$，表明几何平均值为0.01. 可以看到, Perplexity的值越小，语言模型建模测试集的能力就越好.</p>
 <p>概率取对数转换可以避免数值下溢，可以把乘法转换为加法, 计算也更快.</p>
 <p>困惑度为何就是一种好的衡量标准呢？对于任何一个任务，我们需要定义Baseline模型作为基准，如果后续有一个新的模型，但无法超过此baseline，那么我们认为这个新的模型是没有进步的。对于语言建模这一个任务，最无脑最简单的baseline，就是假设每一个位置的每个单词出现概率相等，这就是最大熵分布，即假设此baseline对这个任务一无所知，所有位置所有单词在它眼里都是没区别的(均匀分布)。如果词汇集(包含<code>&lt;/s&gt;</code>)大小为<code>N</code>, 那么$$P_{i \in T}(w_i | w_{1:i-1}) = \frac{1}{N},$$ 此时的困惑度等于<code>N</code>, 即在均匀概率分布模型下，困惑度等于词汇量的大小。显而易见任何一个有效模型的困惑度必须小于类别个数. 此时困惑度可以理解为模型的<strong>有效词汇量</strong>：例如，词汇量大小为10,000, 而模型的困惑度为120，那么这大致说明有效的词汇量只有大概120个。最佳情况下，模型总是把测试集的概率预测为 1, 此时困惑度为 1。最坏情况下，概率预测为 0, 此时困惑度为正无穷。Baseline模型总是预测所有类别的概率都相同, 此时困惑度为词汇量大小（类别个数）。</p>
@@ -474,7 +474,7 @@
 <p>训练时，以输出的词向量和正确标签的词向量间的 cross-entropy loss 为损失函数.</p>
 <p>神经网络的参数数量比传统的N-gram少，因为其每增加一个词，参数就多$d_w$, 也就是线性增加, 而N-gram是多项式增加速率. 并且NNLM的参数矩阵对所有输入都是共享的, 这进一步减少了参数量.</p>
 <p>真正影响NNLM计算效率的是输出层的softmax计算, 因为训练样本的词汇量$\mathcal{V}$往往很大. 输出层的softmax需要与隐含层参数矩阵$W^2 \in \mathcal{R}^{d_{hid} \times \mathcal{V}}$进行昂贵的矩阵向量乘法, 然后进行$\mathcal{V}$次对数操作. 这部分计算占据了大部分运行时间，使得大词汇量的NNLM建模令人望而却步。</p>
-<p>后续发展的NNLM普遍使用循环神经网络（RNN, LSTM）来代替简单的前馈神经网络。卷积神经网络可以理解为非常多层的前馈神经网络叠加, 且各层隐含层的参数共享. 使用循环神经网络作为LM模型时, 同样最后一层还是使用softmax输出层。不同的是输入不再局限于定长的kgram词窗口，RNN理论上可以接受无限长序列, 但事实上RNN和LSTM的记忆能力也是有限的, 太长就会遗忘掉前面的信息.</p>
+<p>后续发展的NNLM普遍使用循环神经网络（RNN, LSTM）来代替简单的前馈神经网络。卷积神经网络可以理解为非常多层的前馈神经网络叠加, 且各层隐含层的参数共享. 使用循环神经网络作为LM模型时, 同样最后一层还是使用softmax输出层。不同的是输入不再局限于定长的kgram词窗口，LSTM理论上可以接受无限长序列, 但事实上LSTM的记忆能力也是有限的, 太长就会遗忘掉前面的信息.</p>
 <h3 id="对大词汇量语言模型的尝试"><a href="#对大词汇量语言模型的尝试" class="headerlink" title="对大词汇量语言模型的尝试"></a>对大词汇量语言模型的尝试</h3><p>Hierarchical softmax [Morin and Bengio, 2005]</p>
 <p>Self-normalizing aproaches, 比如 noise-contrastive estimation (NCE) <code>[Mnih and Teh, 2012, Vaswani et al., 2013]</code> 或者在训练目标函数中加入正则化项 <code>[Devlin et al., 2014]</code>.</p>
 <p>有关处理大输出词汇表的这些和其他技术的良好评论和比较，请参阅 <code>Chen et al. [2016]</code>.</p>
@@ -509,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NLP-HMM-CRF/" rel="next" title="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
-                <i class="fa fa-chevron-left"></i> 概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归
+              <a href="/NLP-information-extraction/" rel="next" title="信息抽取">
+                <i class="fa fa-chevron-left"></i> 信息抽取
               </a>
             
           </div>
@@ -518,6 +518,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NLP-recurrent-neural-networks/" rel="prev" title="循环神经网络">
+                循环神经网络 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -614,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

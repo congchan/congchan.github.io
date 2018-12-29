@@ -102,13 +102,9 @@
 <meta property="og:image" content="http://shukebeta.me/images/softmax.png">
 <meta property="og:image" content="http://shukebeta.me/images/discriminative.png">
 <meta property="og:image" content="http://shukebeta.me/images/cos.png">
-<meta property="og:image" content="http://shukebeta.me/images/PMI.png">
 <meta property="og:image" content="http://shukebeta.me/images/PMI_counts.png">
-<meta property="og:image" content="http://shukebeta.me/images/t_test.png">
-<meta property="og:image" content="http://shukebeta.me/images/perplexity.png">
 <meta property="og:image" content="http://shukebeta.me/images/Contingency.png">
-<meta property="og:image" content="http://shukebeta.me/images/Pearson.png">
-<meta property="og:updated_time" content="2018-12-17T14:36:13.622Z">
+<meta property="og:updated_time" content="2018-12-29T11:19:46.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Accelerated Natural Language Processing">
 <meta name="twitter:description" content="爱丁堡大学信息学院课程笔记 Accelerated Natural Language Processing, Informatics, University of Edinburgh References:Accelerated natural language processingANLP revision guideLecture Slides from the Stanford Course">
@@ -405,7 +401,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  7,347
+                  7,628
                 </span>
               
 
@@ -421,7 +417,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  43 min
+                  45 min
                 </span>
               
             </div>
@@ -445,26 +441,36 @@
         <p>爱丁堡大学信息学院课程笔记 Accelerated Natural Language Processing, Informatics, University of Edinburgh</p>
 <p>References:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/anlp/" target="_blank" rel="noopener">Accelerated natural language processing</a><br><a href="https://www.inf.ed.ac.uk/teaching/courses/anlp/review/review_ay17.html" target="_blank" rel="noopener">ANLP revision guide</a><br><a href="https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html" target="_blank" rel="noopener">Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning</a><br><a id="more"></a></p>
 <h2 id="概率模型-Probability-Model"><a href="#概率模型-Probability-Model" class="headerlink" title="概率模型 Probability Model"></a>概率模型 Probability Model</h2><p>概率模型是随机现象的数学表示，由样本空间，样本空间内的事件以及与每个事件相关的概率定义。目标是模拟给一个事件发生的概率</p>
-<h3 id="估算概率-Probability-Estimation"><a href="#估算概率-Probability-Estimation" class="headerlink" title="估算概率 Probability Estimation"></a>估算概率 Probability Estimation</h3><p>相关频率/最大似然估计<br>Relative frequency / maximum likelihood estimation p(X) = Count(x)/N</p>
+<p>估算概率（Probability Estimation）一般使用最大似然估计（MLE，相关频率）：$$p(x_i) = \frac{Count(x_i)}{\sum_{i=0}^nCount(x_i)}$$</p>
 <h3 id="平滑Smoothing"><a href="#平滑Smoothing" class="headerlink" title="平滑Smoothing"></a>平滑Smoothing</h3><p>一般用于处理0概率的问题，比如在训练集中看不到, 但出现在测试集中的词。</p>
-<h3 id="Language-modeling"><a href="#Language-modeling" class="headerlink" title="Language modeling"></a>Language modeling</h3><ul>
-<li>What: To compute the probability of sentence /sequence of words P(w1, w2, w3…), or to predict upcomming words P(w|w1, w2, w3…)… a language model is also a probability model.</li>
-<li>Why: the motivation is that probability is essential in identifying information in noisy, ambiguous inputs: speech recognition, machine translation, spelling correction…</li>
-<li>How: rely on chain rule of probability, the products of a sequence of <strong>conditional</strong> probability.</li>
-<li>Simplified by Markov Assumption: approximate the conditional probability by only accounting several prefixes,<br><code>P(the| water is so transparent that) ≈ P(the| that)</code></li>
-<li><a href="#evaluation-concepts-and-methods">Evaluation</a>: how good is the model</li>
+<h2 id="Language-modeling"><a href="#Language-modeling" class="headerlink" title="Language modeling"></a>Language modeling</h2><p>To compute the probability of sentence /sequence of words $P(w_1, w_2, w_3…)$, or to predict upcomming words $P(w|w_1, w_2, w_3…)$… a language model is also a probability model.</p>
+<p>Probability computation makes use of chain rule of probability, the products of a sequence of <strong>conditional</strong> probability.$$P(w_{1:n}) = P(w_1)P(w_2|w_1)P(w_3|w_{1:2})P(w_4|w_{1:3})…P(w_n|w_{1:n-1})$$</p>
+<p>But the last term based on the entire sentence is very difficult to compute. So it is simplified by <strong>Markov Assumption</strong>: approximate the conditional probability by only accounting several prefixes, a one-order Markov assumption simplifies as <code>P(the| water is so transparent that) ≈ P(the| that)</code><br>$$\begin{align}<br>P(w_{1:n}) &amp;= \prod_{i=1}^n P(w_i | w_1, …, w_{i-1}) \\<br>&amp;\propto \prod_{i=1}^n P(w_i | w_{i-k}, …, w_{i-1}) \end{align}$$<br>Evaluation: Perplexity</p>
+<h3 id="Perplexity"><a href="#Perplexity" class="headerlink" title="Perplexity"></a>Perplexity</h3><p>Intuition based on Shannon game: The best language model is one that best predicts an unseen test set(e.g. next word), gives the highest $P(sentence)$ to the word that actually occurs.</p>
+<ul>
+<li>Definition: Perplexity is the inverse probability of the test set, normalized by the number of words(lie between 0-1).</li>
 </ul>
-<h2 id="N-Gram-Language-Model"><a href="#N-Gram-Language-Model" class="headerlink" title="N-Gram Language Model"></a>N-Gram Language Model</h2><ul>
-<li>Unigram P(w1,w2,w3..) ≈ P(w1)*P(w2)*P(w3)</li>
-<li>Bigram P(wn| w1,w2,w3..) ≈ P(wn| wn-1)</li>
-<li>Estimate probability by counting:<br><code>P(wi| prefixes) = count(prefixes, wi)/count(prefixes)</code></li>
-<li>In practice, use log space to avoid underflow, and adding is faster than multiplying.</li>
+<p>Normalize the log probability of all the test sentences:<br>$$\frac{1}{M} \log_2 \prod_{i=1}^m p(x^{(i)}) = \frac{1}{M} \sum_{i=1}^m \log_2 p(x^{(i)})$$<br>Then transform to perplexity:<br>$$Perplexity = 2^{-\frac{1}{M} \sum_{i=1}^m \log_2 p(x^{(i)})}$$<br>So minimizing perplexity is the same as maximizing probability</p>
+<p>Bad approximation: unless the test data looks just like the training data, so generally only useful in pilot experiments.</p>
+<h2 id="N-Gram-Language-Model"><a href="#N-Gram-Language-Model" class="headerlink" title="N-Gram Language Model"></a>N-Gram Language Model</h2><p><code>N-Gram</code>语言模型是基于<code>N-1</code>阶马尔可夫假设且由MLE估算出的LM。<code>N-Gram</code>LM 预测下一个单词出现概率仅条件于前面的<code>(N-1)</code>个单词, 以<code>The students opened their books</code>为例:</p>
+<ul>
+<li><code>Bi-gram</code>: 统计$P(w_{i}=m|w_{i-1})$, <code>P(students | the)</code>, <code>P(opened | students)</code>, …, 属于<code>马尔可夫一阶模型</code>, 即当前<code>t</code>时间步的状态仅跟<code>t-1</code>相关.</li>
+<li><code>Tri-gram</code>: <code>P(students | &lt;/s&gt; The)</code>, <code>P(opened | The students)</code>, <code>马尔可夫二阶模型</code></li>
+<li><code>Four-gram</code>: 依此类推</li>
+</ul>
+<p>特殊的<code>Uni-gram</code>: 统计$P(w_i)$, <code>P(the)</code>, <code>P(students)</code>, …, 此时整个模型退化为词袋模型, 不再属于马尔可夫模型, 而是基于贝叶斯假设, 即各个单词是条件独立的. 所以一般<code>N-gram</code>是指<code>N&gt;1</code>的.</p>
+<p>How to estimate theparameter?<br>Maximum likelyhood estimate：$$P(w_{i}=m|w_{i-n:i-1}) = \frac{Count(w_{i-n:i})}{Count(w_{i-n:i-1})}$$</p>
+<p>In practice, use log space to avoid underflow, and adding is faster than multiplying.</p>
+<ul>
 <li>Insufficient:<ul>
-<li>long-distance dependencies</li>
+<li>To catch long-distance dependencies, the <code>n</code> has to be very large, that asks for very large memory requirement</li>
 <li>N-grams only work well for word prediction if the test corpus looks like the training corpus.</li>
 </ul>
 </li>
-<li>To deal with 0 probability, commonly use <a href="#kneser-ney-smoothing">Kneser-Ney smoothing</a>, for very large N-grams like web, use stupid backoff.</li>
+<li>Sparsity:<ul>
+<li>Zero count of gram, means zero probability? No. To deal with 0 probability, commonly use <a href="#kneser-ney-smoothing">Kneser-Ney smoothing</a>, for very large N-grams like web, use stupid backoff.</li>
+</ul>
+</li>
 </ul>
 <h3 id="Add-Alpha-Smoothing"><a href="#Add-Alpha-Smoothing" class="headerlink" title="Add Alpha Smoothing"></a>Add Alpha Smoothing</h3><ul>
 <li>Assign equal probability to all unseen events.</li>
@@ -477,19 +483,18 @@
 </ul>
 <h3 id="Interpolation-Smoothing"><a href="#Interpolation-Smoothing" class="headerlink" title="Interpolation Smoothing"></a>Interpolation Smoothing</h3><ul>
 <li>Interpolation: mix the probability estimates from all the N-gram estimators, weighing and combining the trigram, bigram, and unigram counts</li>
-<li>Simple interpolation: <code>P(w3|w1,w2)=1P(w3|w1,w2)+λ2P(w3|w2)+λ3P(w3)</code>, Σλ=1.</li>
+<li>Simple interpolation: $P(w_3|w_1, w_2) = \lambda_1 P(w_3|w_1, w_2) + \lambda_2 P(w_3|w_2) + \lambda_3 P(w_3), \sum \lambda = 1$.</li>
 <li>λ could be trianed/conditioned on training set/contest, choose λ that maximie the probability of held-out data</li>
 </ul>
 <h3 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h3><ul>
 <li>Combine absolute discounting and interpolation: Extending interpolatation with an absolute discounting 0.75 for high order grams.</li>
-<li>Use a better estimate for probabilities of lower-order unigrams, the continuation probability, P_continuatin(w) is how likely is w to appear as a novel continutaion.<ul>
+<li>Use a better estimate for probabilities of lower-order unigrams, the continuation probability, $P_{continuatin}(w)$ is how likely is w to appear as a novel continutaion.<ul>
 <li>For each word w, count the number of bigram types it completes. Or count the number of word types seen to precede w.</li>
 <li>Every bigram type was a novel continuation the first time it was seen.</li>
 <li>normalized by the total number of word bigram types.</li>
 </ul>
 </li>
 <li>To lower the probability of some fix bigram like “San Franscio”</li>
-<li>For bigram, <code>Pkn(wi|wi-1)=max(count(wi-1,wi)-d, 0)/c(wi-1) +λ(wi-1)P_continuatin(wi), λ(wi-1) = d{w:count(wi-1,w)&gt;0}/c(wi-1)</code>, where {w:count(wi-1,w)&gt;0} is the number of word types that can follow wi-1, also is the # of word types we discounted, also is the # of times we applied normalized discount.</li>
 <li>For general N-gram, <img src="/images/kneser-ney.png" alt=""></li>
 </ul>
 <h2 id="Naive-Bayes-Classifier"><a href="#Naive-Bayes-Classifier" class="headerlink" title="Naive Bayes Classifier"></a>Naive Bayes Classifier</h2><ul>
@@ -509,24 +514,24 @@
 </ul>
 <h3 id="Naive-Bayes-Assumptions"><a href="#Naive-Bayes-Assumptions" class="headerlink" title="Naive Bayes Assumptions"></a>Naive Bayes Assumptions</h3><ul>
 <li>Bags of words: a set of unordered words/features with its frequency in the documents, their order was ignored.</li>
-<li>Conditional independence: the probabilities P(w|C) are independence given the class, thus a sequence of words(w1,w2,w3…) probability coculd be estimate via prducts of each P(wi|C) by walking through every pisition of the sequence, noted that the orders in the sequence does not matter.</li>
+<li>Conditional independence: the probabilities $P(w|C)$ are independence given the class, thus a sequence of words(w1,w2,w3…) probability coculd be estimate via prducts of each $P(w_i|C)$ by walking through every pisition of the sequence, noted that the orders in the sequence does not matter.</li>
 </ul>
 <h3 id="Naive-Bayes-Training"><a href="#Naive-Bayes-Training" class="headerlink" title="Naive Bayes Training"></a>Naive Bayes Training</h3><ul>
 <li>Each classes’ prior probability P(C) is the percentage of the classes in the training set.</li>
-<li>For the test set, its probability as a class j, is the products of its sequence probability P(w1, w2, w3…|Cj) and P(Cj), normalized by the sequence probability P(w1, w2, w3…), which could be calculated by summing all P(w1, w2, w3…|Cj)*P(Cj).</li>
-<li>The joint features probability P(w1, w2, w3…|C) of each class is calculated by naively multiplying each word’s MLE given that class.</li>
+<li>For the test set, its probability as a class j, is the products of its sequence probability $P(w_1, w_2, w_3…|C_j)$ and $P(C_j)$, normalized by the sequence probability $P(w_1, w_2, w_3…)$, which could be calculated by summing all $P(w_1, w_2, w_3…|C_j)*P(C_j)$.</li>
+<li>The joint features probability $P(w_1, w_2, w_3…|C)$ of each class is calculated by naively multiplying each word’s MLE given that class.</li>
 <li>In practice, to deal with 0 probability, we dun use MLE, instead we use add alpha smoothing.<ul>
-<li>Why 0 probability matters? Because it makes the whole sequence probability P(w1, w2, w3…|C) 0, then all the other features as evidence for the class are eliminated too.</li>
+<li>Why 0 probability matters? Because it makes the whole sequence probability $P(w_1, w_2, w_3…|C)$ 0, then all the other features as evidence for the class are eliminated too.</li>
 <li>How: first extract all the vocabulary V in the training set.</li>
-<li>Then, for each feature/word k, its add alpha smoothing probability estimation within a class j is (Njk + alpha)/(Nj+V*alpha).</li>
+<li>Then, for each feature/word k, its add alpha smoothing probability estimation within a class j is $(Njk + \alpha)/(N_j+V*\alpha)$.</li>
 <li>This is not the actual probability, but just the numerator.</li>
 </ul>
 </li>
 </ul>
 <h3 id="Naive-Bayes-Relationship-to-Language-Modelling"><a href="#Naive-Bayes-Relationship-to-Language-Modelling" class="headerlink" title="Naive Bayes Relationship to Language Modelling"></a>Naive Bayes Relationship to Language Modelling</h3><ul>
 <li>When using all of the words as features for naive bayes, then each class in naive bayes is a unigram languange model.</li>
-<li>For each word, assign probability P(word|C),</li>
-<li>For each sentence, assign probability P(S|C) = P(w1,w2,w3…|C)</li>
+<li>For each word, assign probability $P(word|C)$,</li>
+<li>For each sentence, assign probability $P(S|C) = P(w_1, w_2, w_3…|C)$</li>
 <li>Running multiple languange models(classes) to assign probabilities, and pick out the highest language model.</li>
 </ul>
 <h2 id="Hidden-Markov-Model"><a href="#Hidden-Markov-Model" class="headerlink" title="Hidden Markov Model"></a>Hidden Markov Model</h2><p>The HMM is a probabilistic sequence model: given a sequence of units (words, letters, morphemes, sentences, whatever), they compute a probability distribution over possible sequences of labels and choose the best label sequence.</p>
@@ -543,17 +548,17 @@
 <p>The three fundamental problems of HMM:</p>
 <ul>
 <li>decoding: discover the best hidden state sequence via <a href="#viterbi-algorithm">Viterbi algorithm</a>.</li>
-<li>Probability of the observation: Given an HMM with know parameters λ and an observation sequence O, determine the likelihood P(O| λ) (a language model regardless of tags) via <a href="#forward-algorithm">Forward algorithm</a></li>
+<li>Probability of the observation: Given an HMM with know parameters λ and an observation sequence O, determine the likelihood $P(O| \lambda)$ (a language model regardless of tags) via <a href="#forward-algorithm">Forward algorithm</a></li>
 <li>Learning (training): Given only the observed sequence, learn the best(MLE) HMM parameters λ via <a href="#forward-backward-algorithm">forward-backward algorithm</a>, thus <a href="#hmm-training">training a HMM</a> is an unsupervised learning task.</li>
 </ul>
 <p>算法:</p>
 <ul>
-<li>前向算法和后向算法解决如何计算似然$P(O| λ)$的问题</li>
+<li>前向算法和后向算法解决如何计算似然$P(O| \lambda)$的问题</li>
 <li>Viterbi算法解决HMM 解码问题.</li>
 <li>这些算法都是动态规划算法</li>
 </ul>
 <p>HMM的缺陷是其基于观察序列中的每个元素都相互条件独立的假设。即在任何时刻观察值仅仅与状态（即要标注的标签）有关。对于简单的数据集，这个假设倒是合理。但大多数现实世界中的真实观察序列是由多个相互作用的特征和观察序列中较长范围内的元素之间的依赖而形成的。而条件随机场(conditional random fiel, CRF)恰恰就弥补了这个缺陷.</p>
-<p>同时, 由于生成模型定义的是联合概率，必须列举所有观察序列的可能值，这对<br>多数领域来说是比较困难的。</p>
+<p>同时, 由于生成模型定义的是联合概率，必须列举所有观察序列的可能值，这对多数领域来说是比较困难的。</p>
 <h3 id="Part-of-speech-Tagging"><a href="#Part-of-speech-Tagging" class="headerlink" title="Part-of-speech Tagging"></a>Part-of-speech Tagging</h3><ul>
 <li>Part-of-speech(POS), word classes, or syntactic categories, a description of eight parts-of-speech: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection, and sometimes numeral, article or determiner.<ol>
 <li>noun 名詞 (代號 n. )</li>
@@ -566,7 +571,7 @@
 <li>interjection 感歎詞 (代號 int. )</li>
 </ol>
 </li>
-<li>Motivation: Use model to find the best tag sequence T for an untagged sentence S: argmax P(T|S) -&gt; argmax P(S|T)*P(T), where P(T) is the  transition (prior) probabilities,  P(S|T) is the emission (likelihood) probabilities.</li>
+<li>Motivation: Use model to find the best tag sequence T for an untagged sentence S: argmax $P(T|S)$ -&gt; argmax $P(S|T)*P(T)$, where P(T) is the  transition (prior) probabilities, $P(S|T)$ is the emission (likelihood) probabilities.</li>
 <li>Parts-of-speech can be divided into two broad supercategories: <a href="#open-class-closed-class">closed class types and open class types</a></li>
 <li>Search for the best tag sequence: <a href="#Viterbi-Algorithm">Viterbi algorithm</a></li>
 <li>evaluation: tag accuracy</li>
@@ -590,10 +595,10 @@
 </ul>
 <h3 id="Viterbi-Algorithm"><a href="#Viterbi-Algorithm" class="headerlink" title="Viterbi Algorithm"></a>Viterbi Algorithm</h3><p>Decoding task: the task of determining which sequence of variables is the underlying source of some sequence of observations.</p>
 <p>Viterbi的实现参考<a href="https://github.com/congchan/Chinese-nlp/blob/master/hmm_pos_tag.ipynb" target="_blank" rel="noopener">HMM POS Tagging</a></p>
-<p>Intuition: The probability of words w1 followed by $w_2$ with tag/state i and j (i,j is index of all Tags), is the chain rule of the probability of i followed by j and the probability of i output $w_i$ $P(w_1 | i)$ and $P(w_2 |j)$, then choose the maximum from all the possible i j. Then using chain rule to multiply the whole sequence of words.</p>
+<p>Intuition: The probability of words $w_1$ followed by $w_2$ with tag/state i and j (i,j is index of all Tags), is the chain rule of the probability of i followed by j and the probability of i output $w_i$ $P(w_1 | i)$ and $P(w_2 |j)$, then choose the maximum from all the possible i j. Then using chain rule to multiply the whole sequence of words.</p>
 <p>The value of each cell $Vt(j)$ is computed by recursively taking the most probable path that could lead us to this cell from left columns to right. See exampls in <a href="http://www.inf.ed.ac.uk/teaching/courses/anlp/labs/lab_solutions.html#Tutorial_2" target="_blank" rel="noopener">tutorial 2</a><br><img src="/images/viterbi.png" alt=""></p>
 <ul>
-<li>Since HMM based on Markov Assumptions, so the present column Vt is only related with the nearby left column Vt-1.</li>
+<li>Since HMM based on Markov Assumptions, so the present column $V_t$ is only related with the nearby left column $V_{t-1}$.</li>
 </ul>
 <h3 id="HMM-Training"><a href="#HMM-Training" class="headerlink" title="HMM Training"></a>HMM Training</h3><p>给定观察序列$X = x_1, x_2, …, x_t$ ，训练调整模型参数λ, 使$p(X | \lambda)$最大: Baum-Welch算法 (Forward-backward algorithm)</p>
 <ul>
@@ -653,7 +658,7 @@
 <li>or a prediction about what complete constituent might be found (if working top-down).</li>
 </ul>
 </li>
-<li>The chart is a matrix where cell [i, j] holds information about the word span from position i to position j:<ul>
+<li>The chart is a matrix where cell <code>[i, j]</code> holds information about the word span from position i to position j:<ul>
 <li>The root node of any constituent(s) spanning those words</li>
 <li>Pointers to its sub-constituents</li>
 <li>(Depending on parsing method,) predictions about what<br>constituents might follow the substring.</li>
@@ -684,7 +689,7 @@
 <li>Like shift-reduce parsing, but the ‘reduce’ actions are specialized to create dependencies with head on left or right.</li>
 <li>configuration：consists of a stack, an input buffer of words or tokens, and a set of relations/arcs, a set of actions.</li>
 <li>How to choose the next action: each action is predicted by a <a href="#discriminative-probability-models">discriminative classifier</a>(often SVM, could be maxent) over each legal move.<ul>
-<li>features: a sequence of the correct (configuration, action) pairs f(c ; x).</li>
+<li>features: a sequence of the correct (configuration, action) pairs <code>f(c ; x)</code>.</li>
 </ul>
 </li>
 <li>Evaluation: accuracy (# correct dependencies with or ignore label)).</li>
@@ -700,7 +705,7 @@
 <h2 id="Noisy-Channel-Model"><a href="#Noisy-Channel-Model" class="headerlink" title="Noisy Channel Model:"></a>Noisy Channel Model:</h2><ul>
 <li>The intuition of the noisy channel model is to treat the misspelled word as if a correctly spelled word had been “distorted” by being passed through a noisy communication channel.</li>
 <li>a probability model using Bayesian inference, input -&gt; noisy/errorful encoding -&gt; output, see an observation x (a misspelled word) and our job is to find the word w that generated this misspelled word.</li>
-<li><code>P(w|x) = P(x|w)\*P(w)/P(x)</code></li>
+<li>$P(w|x) = P(x|w)*P(w)/P(x)$</li>
 </ul>
 <p>Noisy channel model of spelling using <a href="#nb-training">naive bayes</a></p>
 <ul>
@@ -725,7 +730,7 @@
 <li>Application: dependency parsing actions prediction, text classification, <a href="#word-sense-disambiguation">Word sense disambiguation</a><br><img src="/images/discriminative.png" alt=""></li>
 </ul>
 <h3 id="Training-Discriminative-Model"><a href="#Training-Discriminative-Model" class="headerlink" title="Training Discriminative Model"></a>Training Discriminative Model</h3><ul>
-<li>Features in NLP are more general, they specify indicator function(a yes/no[0,1] boolean matching function) of properties of the input and each class.</li>
+<li>Features in NLP are more general, they specify indicator function(a yes/no<code>[0,1]</code> boolean matching function) of properties of the input and each class.</li>
 <li>Weights: low possibility features will associate with low/negative weight, vise versa.</li>
 <li>Define features: Pick sets of data points d which are distinctive enough to deserve model parameters: related words, words contians #, words end with ing, etc.</li>
 </ul>
@@ -746,7 +751,7 @@
 </li>
 </ul>
 <h2 id="Morphology"><a href="#Morphology" class="headerlink" title="Morphology"></a>Morphology</h2><blockquote>
-<p>构词学（英语言学分科学名：morphology，“组织与形态”；morphology (/mɔːrˈfɒlədʒi/[1]) is the study of words, how they are formed, and their relationship to other words in the same language.<ref>），又称形态学，是语言学的一个分支，研究单词（word）的内部结构和其形成方式。如英语的dog、dogs和dog-catcher有相当的关系，英语使用者能够利用他们的背景知识来判断此关系，对他们来说，dog和dogs的关系就如同cat和cats，dog和dog-catcher就如同dish和dishwasher。构词学正是研究这种单字间组成的关系，并试着整理出其组成的规则。</ref></p>
+<p>构词学（英语言学分科学名：morphology，“组织与形态”)，又称形态学，是语言学的一个分支，研究单词（word）的内部结构和其形成方式。如英语的dog、dogs和dog-catcher有相当的关系，英语使用者能够利用他们的背景知识来判断此关系，对他们来说，dog和dogs的关系就如同cat和cats，dog和dog-catcher就如同dish和dishwasher。构词学正是研究这种单字间组成的关系，并试着整理出其组成的规则。</p>
 </blockquote>
 <p><strong>Morphemes</strong>: The way words are built up from smaller meaning-bearing units.</p>
 <p><strong>Lemma</strong>:</p>
@@ -907,7 +912,7 @@
 </li>
 <li>Measuring vectors similarity based on PPMI:<ul>
 <li>Dot product(inner product): More frequent words will have higher dot products, which cause similarity sensitive to word frequency.</li>
-<li>Cosine: normalized dot product <img src="/images/cos.png" alt="Cosine">, Raw frequency or PPMI is non-negative, so cosine range [0,1].</li>
+<li>Cosine: normalized dot product <img src="/images/cos.png" alt="Cosine">, Raw frequency or PPMI is non-negative, so cosine range <code>[0,1]</code>.</li>
 </ul>
 </li>
 <li>Evaluation of similarity<ul>
@@ -919,8 +924,8 @@
 </ul>
 <h3 id="Pointwise-Mutual-Information"><a href="#Pointwise-Mutual-Information" class="headerlink" title="Pointwise Mutual Information"></a>Pointwise Mutual Information</h3><p>PMI: do events x and y co-occur more than if they were independent?</p>
 <ul>
-<li>PMI between two words: <img src="/images/PMI.png" alt="PMI"></li>
-<li>Compute PMI on a term-context matrix(using counts):<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PMI(x, y) = log2( N·C(x, y)/C(x)C(y) )</span><br><span class="line">p(w=information,c=data)	= 6/19</span><br><span class="line">p(w=information) = 11/19</span><br><span class="line">p(c=data) = 7/19</span><br><span class="line">PMI(information,data) = log2(6\*19/(11\*7))</span><br></pre></td></tr></table></figure>
+<li>PMI between two words: $$PMI(w, c) = \log_2 \frac{P(w,c)}{P(W)P(c)}$$</li>
+<li>Compute PMI on a term-context matrix(using counts): $$PMI(x, y) = log_2 \frac{N \times count(x, y)}{Count(x) Count(y)}$$<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p(w=information, c=data) = 6/19</span><br><span class="line">p(w=information) = 11/19</span><br><span class="line">p(c=data) = 7/19</span><br><span class="line">PMI(information,data) = log2(6*19/(11*7))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><img src="/images/PMI_counts.png" alt="PMI"></p>
@@ -935,7 +940,7 @@
 <ul>
 <li>The t-test statistic computes the difference between observed and expected means, normalized by the variance.</li>
 <li>The higher the value of t, the greater the likelihood that we can reject the null hypothesis.</li>
-<li>Null hypothesis: the two words are independent, and hence P(a,b) = P(a)P(b) correctly models the relationship between the two words.<br><img src="/images/t_test.png" alt="t-test"></li>
+<li>Null hypothesis: the two words are independent, and hence P(a,b) = P(a)P(b) correctly models the relationship between the two words.$$t\textrm{-}test(a,b) = \frac{P(a,b) - P(a)P(b)}{\sqrt{P(a)P(b)}}$$</li>
 </ul>
 <h3 id="Minimum-Edit-Distance"><a href="#Minimum-Edit-Distance" class="headerlink" title="Minimum Edit Distance"></a>Minimum Edit Distance</h3><p>the minimum number of editing operations (operations like insertion, deletion, substitution) needed to transform one string into another.<br>Algorithm: searching the shortest path, use Dynamic programming to avoid repeating, (use BFS to search the shortest path?)</p>
 <h3 id="WordNet"><a href="#WordNet" class="headerlink" title="WordNet"></a><a href="http://wordnetweb.princeton.edu/perl/webwn" target="_blank" rel="noopener">WordNet</a></h3><p>A hierarchically organizesd lexical database, resource for English sense relations</p>
@@ -1052,15 +1057,6 @@
 </ol>
 <p>Unfortunately, running big NLP systems end-to-end is often very expensive.</p>
 <h3 id="Intrinsic-Evaluation"><a href="#Intrinsic-Evaluation" class="headerlink" title="Intrinsic Evaluation"></a>Intrinsic Evaluation</h3><p>Measures independenly to any application. Train the parameters of both models on the training set, and then compare how well the two trained models fit the test set. Which means whichever model assigns a higher probability to the test set</p>
-<h3 id="Perplexity"><a href="#Perplexity" class="headerlink" title="Perplexity"></a>Perplexity</h3><ul>
-<li>It is intrinsic.</li>
-<li>Intuition based on Shannon game:The best language model is one that best predicts an unseen test set(e.g. next word), gives the highest P(sentence) to the word that actually occurs.</li>
-<li>Definition： Perplexity is the inverse probability of the test set, normalized by the number of words(lie between 0-1).</li>
-<li><img src="/images/perplexity.png" alt="Use log probability"></li>
-<li>So minimizing perplexity is the same as maximizing probability</li>
-<li>Cannot divide 0, so use <a href="#smoothing">smoothing</a>.</li>
-<li>Bad approximation: unless the test data looks just like the training data, so generally only useful in pilot experiments.</li>
-</ul>
 <h3 id="Human-Evaluation"><a href="#Human-Evaluation" class="headerlink" title="Human Evaluation"></a>Human Evaluation</h3><p>E.g to know whether the email is actually spam or not, i.e. the human-defined labels for each document that we are trying to<br>gold labels match. We will refer to these human labels as the <strong>gold labels</strong>.</p>
 <h3 id="Precision-Recall-F-measure"><a href="#Precision-Recall-F-measure" class="headerlink" title="Precision, Recall, F-measure"></a>Precision, Recall, F-measure</h3><ul>
 <li>To deal with unbalanced lables</li>
@@ -1075,15 +1071,15 @@
 <li>The b parameter differentially weights the importance of recall and precision, based perhaps on the needs of an application. Values of b &gt; 1 favor recall, while values of b &lt; 1 favor precision.</li>
 <li>Balanced F1 measure with beta =1, F = 2PR/(P+R)</li>
 </ul>
-<h3 id="Confusion-Matrix"><a href="#Confusion-Matrix" class="headerlink" title="Confusion Matrix"></a>Confusion Matrix</h3><p>Recalled that confusion matrix’s row represent golden label, column represent the classifier’s output, to anwser the quesion：for any pair of classes(c1,c2), how many test sample from c1 were incorrectly assigned to c2&gt;</p>
+<h3 id="Confusion-Matrix"><a href="#Confusion-Matrix" class="headerlink" title="Confusion Matrix"></a>Confusion Matrix</h3><p>Recalled that confusion matrix’s row represent golden label, column represent the classifier’s output, to anwser the quesion：for any pair of classes(c1,c2), how many test sample from c1 were incorrectly assigned to c2</p>
 <ul>
-<li>Recall: Fraction of samples in c1 classified correctly, CM(c1,c1)/sum(CM(c1,:))</li>
-<li>Precision: fraction of samples assigned c1 that are actually c1, CM(c1,c1)/sum(CM(:,c1))</li>
-<li>Accuracy: sum of diagnal / all</li>
+<li>Recall: Fraction of samples in $c_1$ classified correctly, $\frac{CM(c_1, c_1)}{\sum_jCM(c_1, j)}$</li>
+<li>Precision: fraction of samples assigned $c_1$ that are actually $c_1$, $\frac{CM(c_1, c_1)}{\sum_iCM(i, c_1)}$</li>
+<li>Accuracy: $\frac{\sum diagnal}{all}$</li>
 </ul>
 <h3 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation"></a>Correlation</h3><p>When two sets of data are strongly linked together we say they have a High Correlation.<br>Correlation is Positive when the values increase together, and Correlation is Negative when one value decreases as the other increases.</p>
 <ul>
-<li>Pearson correlation: covariance of the two variables divided by the product of their standard deviations.<img src="/images/Pearson.png" alt="Pearson"></li>
+<li>Pearson correlation: covariance of the two variables divided by the product of their standard deviations.$$r = \frac{\sum_{i=1}^n(x_i - \overrightarrow{x})(y_i - \overrightarrow{y})}{\sqrt{\sum_{i=1}^n(x_i - \overrightarrow{x})^2} \sqrt{\sum_{i=1}^n(y_i - \overrightarrow{y})^2}}$$</li>
 <li>Spearman correlation: the Pearson correlation between the rank values of the two variables</li>
 </ul>
 <h2 id="Basic-Text-Processing"><a href="#Basic-Text-Processing" class="headerlink" title="Basic Text Processing"></a>Basic Text Processing</h2><h3 id="Regular-Expressions"><a href="#Regular-Expressions" class="headerlink" title="Regular Expressions"></a>Regular Expressions</h3><p>NLP工作必备技能(考试不需要).</p>
@@ -1134,8 +1130,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/UoE-ppls/" rel="next" title="Parallel Programming Language and Systems">
-                <i class="fa fa-chevron-left"></i> Parallel Programming Language and Systems
+              <a href="/UoE-st/" rel="next" title="Software Testing">
+                <i class="fa fa-chevron-left"></i> Software Testing
               </a>
             
           </div>
@@ -1243,7 +1239,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1314,7 +1310,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概率模型-Probability-Model"><span class="nav-number">1.</span> <span class="nav-text">概率模型 Probability Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#估算概率-Probability-Estimation"><span class="nav-number">1.1.</span> <span class="nav-text">估算概率 Probability Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平滑Smoothing"><span class="nav-number">1.2.</span> <span class="nav-text">平滑Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Language-modeling"><span class="nav-number">1.3.</span> <span class="nav-text">Language modeling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#N-Gram-Language-Model"><span class="nav-number">2.</span> <span class="nav-text">N-Gram Language Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-Alpha-Smoothing"><span class="nav-number">2.1.</span> <span class="nav-text">Add Alpha Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backoff-Smoothing"><span class="nav-number">2.2.</span> <span class="nav-text">Backoff Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interpolation-Smoothing"><span class="nav-number">2.3.</span> <span class="nav-text">Interpolation Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kneser-Ney-Smoothing"><span class="nav-number">2.4.</span> <span class="nav-text">Kneser-Ney Smoothing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Naive-Bayes-Classifier"><span class="nav-number">3.</span> <span class="nav-text">Naive Bayes Classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Text-Classification"><span class="nav-number">3.1.</span> <span class="nav-text">Text Classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentiments-Analysis"><span class="nav-number">3.2.</span> <span class="nav-text">Sentiments Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-Assumptions"><span class="nav-number">3.3.</span> <span class="nav-text">Naive Bayes Assumptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-Training"><span class="nav-number">3.4.</span> <span class="nav-text">Naive Bayes Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-Relationship-to-Language-Modelling"><span class="nav-number">3.5.</span> <span class="nav-text">Naive Bayes Relationship to Language Modelling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hidden-Markov-Model"><span class="nav-number">4.</span> <span class="nav-text">Hidden Markov Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-of-speech-Tagging"><span class="nav-number">4.1.</span> <span class="nav-text">Part-of-speech Tagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition-Probability-Matrix"><span class="nav-number">4.2.</span> <span class="nav-text">Transition Probability Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emission-Probability"><span class="nav-number">4.3.</span> <span class="nav-text">Emission Probability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Penn-Treebank"><span class="nav-number">4.4.</span> <span class="nav-text">Penn Treebank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Algorithm"><span class="nav-number">4.5.</span> <span class="nav-text">Forward Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Viterbi-Algorithm"><span class="nav-number">4.6.</span> <span class="nav-text">Viterbi Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HMM-Training"><span class="nav-number">4.7.</span> <span class="nav-text">HMM Training</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context-free-Grammar"><span class="nav-number">5.</span> <span class="nav-text">Context-free Grammar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constituency"><span class="nav-number">5.1.</span> <span class="nav-text">Constituency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Probabilistic-Context-free-Grammar"><span class="nav-number">5.2.</span> <span class="nav-text">Probabilistic Context-free Grammar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lexicalization-of-PCFGs"><span class="nav-number">5.3.</span> <span class="nav-text">Lexicalization of PCFGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Descent-Parsing"><span class="nav-number">5.4.</span> <span class="nav-text">Recursive Descent Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CKY-Parsing"><span class="nav-number">5.5.</span> <span class="nav-text">CKY Parsing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-Parsing"><span class="nav-number">6.</span> <span class="nav-text">Dependency Parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Syntax"><span class="nav-number">6.1.</span> <span class="nav-text">Dependency Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition-based-Dependency-Parsing"><span class="nav-number">6.2.</span> <span class="nav-text">Transition-based Dependency Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Tree"><span class="nav-number">6.3.</span> <span class="nav-text">Dependency Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bounded-and-Unbounded-Dependencies"><span class="nav-number">6.4.</span> <span class="nav-text">Bounded and Unbounded Dependencies</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noisy-Channel-Model"><span class="nav-number">7.</span> <span class="nav-text">Noisy Channel Model:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-vs-Discriminative-Models"><span class="nav-number">8.</span> <span class="nav-text">Generative vs. Discriminative Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exponential-Models"><span class="nav-number">8.1.</span> <span class="nav-text">Exponential Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-Discriminative-Model"><span class="nav-number">8.2.</span> <span class="nav-text">Training Discriminative Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization-in-Discriminative-Model"><span class="nav-number">8.3.</span> <span class="nav-text">Regularization in Discriminative Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Morphology"><span class="nav-number">9.</span> <span class="nav-text">Morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Morphological-Parsing"><span class="nav-number">9.1.</span> <span class="nav-text">Morphological Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inflectional-vs-Derivational-Morphology"><span class="nav-number">9.2.</span> <span class="nav-text">Inflectional vs. Derivational Morphology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Challenge-of-Rich-Morphology"><span class="nav-number">9.3.</span> <span class="nav-text">Challenge of Rich Morphology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linguistic-and-Representational-Concepts"><span class="nav-number">10.</span> <span class="nav-text">Linguistic and Representational Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parsing"><span class="nav-number">10.1.</span> <span class="nav-text">Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-Parsing"><span class="nav-number">10.2.</span> <span class="nav-text">Syntactic Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statistical-Parsing"><span class="nav-number">10.3.</span> <span class="nav-text">Statistical Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Parsing-1"><span class="nav-number">10.4.</span> <span class="nav-text">Dependency Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constituency-1"><span class="nav-number">10.5.</span> <span class="nav-text">Constituency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency"><span class="nav-number">10.6.</span> <span class="nav-text">Dependency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Morphology-1"><span class="nav-number">10.7.</span> <span class="nav-text">Morphology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ambiguity"><span class="nav-number">10.8.</span> <span class="nav-text">Ambiguity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-class-Closed-class"><span class="nav-number">10.9.</span> <span class="nav-text">Open-class Closed-class</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Sense"><span class="nav-number">11.</span> <span class="nav-text">Word Sense</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Sense-Disambiguation"><span class="nav-number">11.1.</span> <span class="nav-text">Word Sense Disambiguation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distributional-Semantic-Models"><span class="nav-number">11.2.</span> <span class="nav-text">Distributional Semantic Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointwise-Mutual-Information"><span class="nav-number">11.3.</span> <span class="nav-text">Pointwise Mutual Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T-test"><span class="nav-number">11.4.</span> <span class="nav-text">T-test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimum-Edit-Distance"><span class="nav-number">11.5.</span> <span class="nav-text">Minimum Edit Distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WordNet"><span class="nav-number">11.6.</span> <span class="nav-text">WordNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2Vec"><span class="nav-number">11.7.</span> <span class="nav-text">Word2Vec</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Meaning-Representation-Language"><span class="nav-number">12.</span> <span class="nav-text">Meaning Representation Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#First-order-Logic"><span class="nav-number">12.1.</span> <span class="nav-text">First-order Logic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda-λ-Expression"><span class="nav-number">12.2.</span> <span class="nav-text">Lambda λ Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reification-of-Events"><span class="nav-number">12.3.</span> <span class="nav-text">Reification of Events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semantic-Parsing"><span class="nav-number">12.4.</span> <span class="nav-text">Semantic Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax-Driven-Semantic-Analysis"><span class="nav-number">12.5.</span> <span class="nav-text">Syntax Driven Semantic Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semantic-Attachments"><span class="nav-number">12.6.</span> <span class="nav-text">Semantic Attachments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-Modelling"><span class="nav-number">13.</span> <span class="nav-text">Topic Modelling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation"><span class="nav-number">14.</span> <span class="nav-text">Evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Extrinsic-Evaluation"><span class="nav-number">14.1.</span> <span class="nav-text">Extrinsic Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intrinsic-Evaluation"><span class="nav-number">14.2.</span> <span class="nav-text">Intrinsic Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Perplexity"><span class="nav-number">14.3.</span> <span class="nav-text">Perplexity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Human-Evaluation"><span class="nav-number">14.4.</span> <span class="nav-text">Human Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precision-Recall-F-measure"><span class="nav-number">14.5.</span> <span class="nav-text">Precision, Recall, F-measure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Confusion-Matrix"><span class="nav-number">14.6.</span> <span class="nav-text">Confusion Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Correlation"><span class="nav-number">14.7.</span> <span class="nav-text">Correlation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Text-Processing"><span class="nav-number">15.</span> <span class="nav-text">Basic Text Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expressions"><span class="nav-number">15.1.</span> <span class="nav-text">Regular Expressions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Tokenization"><span class="nav-number">15.2.</span> <span class="nav-text">Word Tokenization</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概率模型-Probability-Model"><span class="nav-number">1.</span> <span class="nav-text">概率模型 Probability Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平滑Smoothing"><span class="nav-number">1.1.</span> <span class="nav-text">平滑Smoothing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-modeling"><span class="nav-number">2.</span> <span class="nav-text">Language modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Perplexity"><span class="nav-number">2.1.</span> <span class="nav-text">Perplexity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#N-Gram-Language-Model"><span class="nav-number">3.</span> <span class="nav-text">N-Gram Language Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-Alpha-Smoothing"><span class="nav-number">3.1.</span> <span class="nav-text">Add Alpha Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backoff-Smoothing"><span class="nav-number">3.2.</span> <span class="nav-text">Backoff Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interpolation-Smoothing"><span class="nav-number">3.3.</span> <span class="nav-text">Interpolation Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kneser-Ney-Smoothing"><span class="nav-number">3.4.</span> <span class="nav-text">Kneser-Ney Smoothing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Naive-Bayes-Classifier"><span class="nav-number">4.</span> <span class="nav-text">Naive Bayes Classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Text-Classification"><span class="nav-number">4.1.</span> <span class="nav-text">Text Classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentiments-Analysis"><span class="nav-number">4.2.</span> <span class="nav-text">Sentiments Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-Assumptions"><span class="nav-number">4.3.</span> <span class="nav-text">Naive Bayes Assumptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-Training"><span class="nav-number">4.4.</span> <span class="nav-text">Naive Bayes Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-Relationship-to-Language-Modelling"><span class="nav-number">4.5.</span> <span class="nav-text">Naive Bayes Relationship to Language Modelling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hidden-Markov-Model"><span class="nav-number">5.</span> <span class="nav-text">Hidden Markov Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-of-speech-Tagging"><span class="nav-number">5.1.</span> <span class="nav-text">Part-of-speech Tagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition-Probability-Matrix"><span class="nav-number">5.2.</span> <span class="nav-text">Transition Probability Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emission-Probability"><span class="nav-number">5.3.</span> <span class="nav-text">Emission Probability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Penn-Treebank"><span class="nav-number">5.4.</span> <span class="nav-text">Penn Treebank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Algorithm"><span class="nav-number">5.5.</span> <span class="nav-text">Forward Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Viterbi-Algorithm"><span class="nav-number">5.6.</span> <span class="nav-text">Viterbi Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HMM-Training"><span class="nav-number">5.7.</span> <span class="nav-text">HMM Training</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context-free-Grammar"><span class="nav-number">6.</span> <span class="nav-text">Context-free Grammar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constituency"><span class="nav-number">6.1.</span> <span class="nav-text">Constituency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Probabilistic-Context-free-Grammar"><span class="nav-number">6.2.</span> <span class="nav-text">Probabilistic Context-free Grammar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lexicalization-of-PCFGs"><span class="nav-number">6.3.</span> <span class="nav-text">Lexicalization of PCFGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Descent-Parsing"><span class="nav-number">6.4.</span> <span class="nav-text">Recursive Descent Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CKY-Parsing"><span class="nav-number">6.5.</span> <span class="nav-text">CKY Parsing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-Parsing"><span class="nav-number">7.</span> <span class="nav-text">Dependency Parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Syntax"><span class="nav-number">7.1.</span> <span class="nav-text">Dependency Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition-based-Dependency-Parsing"><span class="nav-number">7.2.</span> <span class="nav-text">Transition-based Dependency Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Tree"><span class="nav-number">7.3.</span> <span class="nav-text">Dependency Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bounded-and-Unbounded-Dependencies"><span class="nav-number">7.4.</span> <span class="nav-text">Bounded and Unbounded Dependencies</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noisy-Channel-Model"><span class="nav-number">8.</span> <span class="nav-text">Noisy Channel Model:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-vs-Discriminative-Models"><span class="nav-number">9.</span> <span class="nav-text">Generative vs. Discriminative Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exponential-Models"><span class="nav-number">9.1.</span> <span class="nav-text">Exponential Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-Discriminative-Model"><span class="nav-number">9.2.</span> <span class="nav-text">Training Discriminative Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization-in-Discriminative-Model"><span class="nav-number">9.3.</span> <span class="nav-text">Regularization in Discriminative Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Morphology"><span class="nav-number">10.</span> <span class="nav-text">Morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Morphological-Parsing"><span class="nav-number">10.1.</span> <span class="nav-text">Morphological Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inflectional-vs-Derivational-Morphology"><span class="nav-number">10.2.</span> <span class="nav-text">Inflectional vs. Derivational Morphology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Challenge-of-Rich-Morphology"><span class="nav-number">10.3.</span> <span class="nav-text">Challenge of Rich Morphology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linguistic-and-Representational-Concepts"><span class="nav-number">11.</span> <span class="nav-text">Linguistic and Representational Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parsing"><span class="nav-number">11.1.</span> <span class="nav-text">Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-Parsing"><span class="nav-number">11.2.</span> <span class="nav-text">Syntactic Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statistical-Parsing"><span class="nav-number">11.3.</span> <span class="nav-text">Statistical Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Parsing-1"><span class="nav-number">11.4.</span> <span class="nav-text">Dependency Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constituency-1"><span class="nav-number">11.5.</span> <span class="nav-text">Constituency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency"><span class="nav-number">11.6.</span> <span class="nav-text">Dependency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Morphology-1"><span class="nav-number">11.7.</span> <span class="nav-text">Morphology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ambiguity"><span class="nav-number">11.8.</span> <span class="nav-text">Ambiguity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-class-Closed-class"><span class="nav-number">11.9.</span> <span class="nav-text">Open-class Closed-class</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Sense"><span class="nav-number">12.</span> <span class="nav-text">Word Sense</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Sense-Disambiguation"><span class="nav-number">12.1.</span> <span class="nav-text">Word Sense Disambiguation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distributional-Semantic-Models"><span class="nav-number">12.2.</span> <span class="nav-text">Distributional Semantic Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointwise-Mutual-Information"><span class="nav-number">12.3.</span> <span class="nav-text">Pointwise Mutual Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T-test"><span class="nav-number">12.4.</span> <span class="nav-text">T-test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimum-Edit-Distance"><span class="nav-number">12.5.</span> <span class="nav-text">Minimum Edit Distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WordNet"><span class="nav-number">12.6.</span> <span class="nav-text">WordNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2Vec"><span class="nav-number">12.7.</span> <span class="nav-text">Word2Vec</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Meaning-Representation-Language"><span class="nav-number">13.</span> <span class="nav-text">Meaning Representation Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#First-order-Logic"><span class="nav-number">13.1.</span> <span class="nav-text">First-order Logic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda-λ-Expression"><span class="nav-number">13.2.</span> <span class="nav-text">Lambda λ Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reification-of-Events"><span class="nav-number">13.3.</span> <span class="nav-text">Reification of Events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semantic-Parsing"><span class="nav-number">13.4.</span> <span class="nav-text">Semantic Parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax-Driven-Semantic-Analysis"><span class="nav-number">13.5.</span> <span class="nav-text">Syntax Driven Semantic Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semantic-Attachments"><span class="nav-number">13.6.</span> <span class="nav-text">Semantic Attachments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-Modelling"><span class="nav-number">14.</span> <span class="nav-text">Topic Modelling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation"><span class="nav-number">15.</span> <span class="nav-text">Evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Extrinsic-Evaluation"><span class="nav-number">15.1.</span> <span class="nav-text">Extrinsic Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intrinsic-Evaluation"><span class="nav-number">15.2.</span> <span class="nav-text">Intrinsic Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Human-Evaluation"><span class="nav-number">15.3.</span> <span class="nav-text">Human Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precision-Recall-F-measure"><span class="nav-number">15.4.</span> <span class="nav-text">Precision, Recall, F-measure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Confusion-Matrix"><span class="nav-number">15.5.</span> <span class="nav-text">Confusion Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Correlation"><span class="nav-number">15.6.</span> <span class="nav-text">Correlation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Text-Processing"><span class="nav-number">16.</span> <span class="nav-text">Basic Text Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expressions"><span class="nav-number">16.1.</span> <span class="nav-text">Regular Expressions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Tokenization"><span class="nav-number">16.2.</span> <span class="nav-text">Word Tokenization</span></a></li></ol></li></ol></div>
             
 
           </div>
