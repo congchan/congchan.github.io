@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="语言模型语言模型Language modeling（LM）最初是针对语音识别问题而开发的, 现在广泛用于其他NLP应用中, 比如机器翻译需要利用LM来给翻译出的句子打分.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T08:52:50.024Z">
+<meta property="og:updated_time" content="2019-01-03T08:55:39.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="语言模型">
 <meta name="twitter:description" content="语言模型语言模型Language modeling（LM）最初是针对语音识别问题而开发的, 现在广泛用于其他NLP应用中, 比如机器翻译需要利用LM来给翻译出的句子打分.">
@@ -436,7 +436,7 @@
 <p>利用链式法则, $$P(w_{1:n}) = P(w_1)P(w_2|w_1)P(w_3|w_{1:2})P(w_4|w_{1:3})…P(w_n|w_{1:n-1}),$$ 最后一项基于<code>n-1</code>个词的条件概率计算难度非常大。为了简化LM参数的训练，利用<code>k</code>阶马尔可夫假设，声明序列的下一个词仅依赖于前<code>k</code>个词。如利用一阶马尔可夫假设得到<code>P(transparent | the water is so ) ≈ P(transparent | so)</code>.</p>
 <p>使用马尔可夫假设简化前面的乘链:<br>$$\begin{align}<br>P(w_{1:n}) &amp;= \prod_{i=1}^n P(w_i | w_1, …, w_{i-1}) \\<br>&amp;\propto \prod_{i=1}^n P(w_i | w_{i-k}, …, w_{i-1}) \end{align}$$<br>在语料处理时，开头的句子前面需要相应的加上<code>k</code>个补丁符号<code>&lt;s&gt;</code>，才能计算第一个词的条件概率。LM也是一种生成模型, 一般是在句子末尾加上特殊符号<code>&lt;/s&gt;</code>表示句子结束, 以方便生成任务时判断句子的生成结束.</p>
 <p>固然Markov假设对于任意<code>k</code>阶都是有偏差的（毕竟句子可以有任意长的依赖性），但仍可以使用较小的k建模出较强的LM，并且几十年来一直是语言建模的主要方法。</p>
-<p>对于LM参数中每一项似然概率的估算，可以使用<strong>最大似然估计（MLE）</strong>：$P(w_{i}=m|w_{i-k:i-1}) = \frac{Count(w_{i-k:i})}{Count(w_{i-k:i-1})}$</p>
+<p>对于LM参数中每一项似然概率的估算，可以使用<strong>最大似然估计（MLE）</strong>：$$P(w_{i}=m|w_{i-k:i-1}) = \frac{Count(w_{i-k:i})}{Count(w_{i-k:i-1})}$$</p>
 <p>这个就是经典的N-gram模型。</p>
 <h2 id="N-Gram语言模型"><a href="#N-Gram语言模型" class="headerlink" title="N-Gram语言模型"></a>N-Gram语言模型</h2><p><code>N-Gram</code>语言模型是基于<code>N-1</code>阶马尔可夫假设且由MLE估算出的LM。<code>N-Gram</code>LM 预测下一个单词出现概率仅条件于前面的<code>(N-1)</code>个单词, 以<code>The students opened their books</code>为例:</p>
 <ul>
@@ -470,7 +470,7 @@
 <p>那么困惑度一般都是多大呢？Goodman (“A bit of progress in language modeling”, figure 2) 评估了在英语数据上的unigram，bigram和trigram语言模型，词汇量为50,000。Goodman的报告结果显示，trigram模型的困惑度约为74，bigram模型为137，unigram模型为955。相比于Baseline模型困惑度50,000，trigram模型显然有了巨大的改进，且比bigram和unigram模型也有很大的改进。而更强大的SOTA神经语言模型，可以在wikitext-2数据集上跑出40以下的困惑度。</p>
 <h2 id="神经网络语言模型"><a href="#神经网络语言模型" class="headerlink" title="神经网络语言模型"></a>神经网络语言模型</h2><p>神经网络模型解决了传统语言模型的一些缺点：它们允许越来越长的距离依赖，而参数数量仅线性增加，它们减少了手动设计backoff顺序的需要，并且它们支持跨不同上下文的泛化。</p>
 <p><code>Bengio et al. [2003]</code>提出的神经网络语言模型(NNLM, 确切的说是前馈神经网络语言模型), 把文本处理成n个k-gram词窗口$w_{i:i+k-1}$,  每个词转换为词镶嵌的形式$\mathcal{v}(w) \in \mathcal{R}^{d_w}$, 一整个窗口的词向量拼接为矩阵向量$x = [\mathcal{v}(w_0); …; \mathcal{v}(w_{k-1})]$, 作为输入数据输入到一个1到2层的感知机.</p>
-<p>训练数据的处理一般这么操作, 每个句子的开头加上<code>&lt;s&gt;</code>, 末尾加上<code>&lt;/s&gt;</code>, 然后按照k大小的长度一段段截断成k-gram词窗口$w_{i:i+k-1}$. 每一段k-gram的词拼接为一个向量$x = (C(w_{i}), C(w_{i+1}), ···, C(w_{i+k-1}))$, 作为一个训练样本, 其末尾的下一个词$w_{i+k}$作为样本对应的预测标签$y_i = \mathcal{v}(w_{i+k})$. 训练时，以输出的词向量概率分布向量和对应正确标签的 one-hoc-vector 间的 cross-entropy loss 为损失函数.</p>
+<p>训练数据的处理一般这么操作, 每个句子的开头加上<code>&lt;s&gt;</code>, 末尾加上<code>&lt;/s&gt;</code>, 然后按照k大小的长度一段段截断成k-gram词窗口$w_{i:i+k-1}$. 每一段k-gram的词拼接为一个向量$x = (C(w_{i}), C(w_{i+1}), ···, C(w_{i+k-1}))$, 作为一个训练样本, 其末尾的下一个词$w_{i+k}$作为样本对应的预测标签$y_i = \mathcal{v}(w_{i+k})$. 训练时，以输出的词向量概率分布向量和对应正确标签的 one-hot-vector 间的 cross-entropy loss 为损失函数.</p>
 <p>神经网络的参数数量比传统的N-gram少，因为其每增加一个词，参数就多$d_w$, 也就是线性增加, 而N-gram是多项式增加速率. 并且NNLM的参数矩阵对所有输入都是共享的, 这进一步减少了参数量. 虽然如此, NNLM的训练时间还是比N-gram LM长.</p>
 <p>神经网络语言模型的泛化能力更好，因为相似的词具有相似的特征向量，并且因为概率函数（模型参数）是这些特征值的平滑函数，所以特征的微小变化相应地引起概率的微小变化。</p>
 <p>真正影响NNLM计算效率的是输出层的softmax计算, 因为训练样本的词汇量$\mathcal{V}$往往很大. 输出层的softmax需要与隐含层参数矩阵$W^2 \in \mathcal{R}^{d_{hid} \times \mathcal{V}}$进行昂贵的矩阵向量乘法, 然后进行$\mathcal{V}$次对数操作. 这部分计算占据了大部分运行时间，使得大词汇量的NNLM建模令人望而却步。</p>
