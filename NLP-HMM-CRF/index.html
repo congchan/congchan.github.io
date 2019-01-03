@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://shukebeta.me/images/人名指界词.png">
 <meta property="og:image" content="http://shukebeta.me/images/人名识别特征原子模板.png">
 <meta property="og:image" content="http://shukebeta.me/images/relationship_nbs_hmm_lr_crf.png">
-<meta property="og:updated_time" content="2018-12-18T04:01:35.580Z">
+<meta property="og:updated_time" content="2019-01-01T10:43:51.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
 <meta name="twitter:description" content="词性标注（Part-of-Speech-Tagging）POS任务是指根据观察得到的序列, 推断出对应的词性标注, 比如Bob drank coffee at Starbucks, 标注可能为Bob (NOUN) drank (VERB) coffee (NOUN) at (PREPOSITION) Starbucks (NOUN). 除此之外, 还有命名实体识别, 以及其他涉及到需要根据观察序列">
@@ -437,7 +437,7 @@
 <h3 id="朴素贝叶斯分类器与隐马尔可夫模型"><a href="#朴素贝叶斯分类器与隐马尔可夫模型" class="headerlink" title="朴素贝叶斯分类器与隐马尔可夫模型"></a>朴素贝叶斯分类器与隐马尔可夫模型</h3><p>朴素贝叶斯分类器(NBs)假设条件独立性(朴素贝叶斯假设, Hand and Yu, 2001)：$p(x_i | y, x_j) = p(x_i | y)$, 在给定目标值 y 时，x的属性值之间相互条件独立。这样, 计算可以简化为 $$p(y | \overrightarrow{x}) \propto p(y, \overrightarrow{x}) = p(y) \prod_{i=1} p(x_i | y).$$</p>
 <p>朴素贝叶斯模型只考虑了单个输出变量y。如果要为一个观察序列$\overrightarrow{x} =(x_1, …, x_n)$预测对应的分类序列$\overrightarrow{y} =（y_1, …, y_n)$ ，一个简单的序列模型可以表示为多个NBs的乘积。此时不考虑序列单个位置之间的相互依赖。$$p(\overrightarrow{y}, \overrightarrow{x}) = \prod^n_{i=1} p(y_i) p(x_i | y_i).$$<br>此时每个观察值$x_i$仅取决于对应序列位置的类变量$y_i$。由于这种独立性假设，从一个步骤到另一个步骤的转换概率不包括在该模型中。然而这种假设在实践中几乎不会符合，这导致这种模型的性能很有限。</p>
 <p>因此，比较合理的假设是观测序列在连续相邻位置间的观测值存在依赖。要模拟这种依赖关系, 就要引入状态转移概率$p(y_i | y_{i-1})$, 由此引出著名的隐马尔可夫模型 Hidden Markov model, HMM, Rabiner (1989):<br>$$p(\overrightarrow{y}, \overrightarrow{x}) = \prod^n_{i=1} p(y_i | y_{i-1}) p(x_i | y_i).$$ $$p(\overrightarrow{x}) = \sum_{y\in \mathcal{Y}} \prod^n_{i=1} p(y_i | y_{i-1}) p(x_i | y_i).$$</p>
-<p>HMM参数$λ= (Y, X, π, A, B)$ ，其中 Y是隐状态（输出变量）的集合，X是观察值（输入）集合，π是初始状态的概率，A是状态转移概率矩阵$p(y_i | y_{i-1})$，B是输出观察值概率矩阵$p(x_i | y_{i})$。在POS任务中, X就是观察到的句子, Y就是待推导的标注序列, 因为词性待求的, 所以人们称之为<strong>隐含状态</strong>.</p>
+<p>HMM参数$λ = (Y, X, π, A, B)$ ，其中Y是隐状态（输出变量）的集合，X是观察值（输入）集合，π是初始状态的概率，A是状态转移概率矩阵$p(y_i | y_{i-1})$，B是输出观察值概率矩阵$p(x_i | y_{i})$。在POS任务中, X就是观察到的句子, Y就是待推导的标注序列, 因为词性待求的, 所以人们称之为<strong>隐含状态</strong>.</p>
 <p>HMM的缺陷是其基于观察序列中的每个元素都相互条件独立的假设。即在任何时刻观察值仅仅与状态（即要标注的标签）有关。对于简单的数据集，这个假设倒是合理。但大多数现实世界中的真实观察序列是由多个相互作用的特征和观察序列中较长范围内的元素之间的依赖而形成的。而条件随机场(conditional random fiel, CRF)恰恰就弥补了这个缺陷.</p>
 <h2 id="条件随机场"><a href="#条件随机场" class="headerlink" title="条件随机场"></a>条件随机场</h2><p>随机场, 可以看成是一组随机变量的集合（这组随机变量对应同一个样本空间）。当给每一个位置按照某种分布随机赋予一个值之后，其全体就叫做随机场。这些随机变量之间可能有依赖关系，一般来说，也只有当这些变<br>量之间有依赖关系的时候，我们将其单独拿出来看成一个随机场才有实际意义。</p>
 <p>如果给定的MRF中每个随机变量下面还有观察值，我们要确定的是给定观察集合下，这个MRF的分布，也就是条件分布，那么这个MRF就称为 conditional random fields (CRF)。它的条件分布形式完全类似于MRF的分布形式，只不过多了一个观察集合X。所以, CRF本质上是给定了条件(观察值observations)集合的MRF</p>
