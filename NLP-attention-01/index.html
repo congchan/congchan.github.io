@@ -83,20 +83,21 @@
 
 
 
-<meta name="description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”">
+<meta name="description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就是力量&amp;lt;end&amp;gt;和英语输出序列Knowledge is power &amp;lt;end&amp;gt;。解码器可以在输出序列的时间步 1 使用更集中编码了知识信息的背景变量来生成Knowledge，在时间步">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="注意力机制">
 <meta property="og:url" content="http://shukebeta.me/NLP-attention-01/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”">
+<meta property="og:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就是力量&amp;lt;end&amp;gt;和英语输出序列Knowledge is power &amp;lt;end&amp;gt;。解码器可以在输出序列的时间步 1 使用更集中编码了知识信息的背景变量来生成Knowledge，在时间步">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/img/EncDecAttention.gif">
 <meta property="og:image" content="http://shukebeta.me/images/global_attention.png">
-<meta property="og:updated_time" content="2018-10-17T15:22:21.025Z">
+<meta property="og:updated_time" content="2019-01-15T10:18:12.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="注意力机制">
-<meta name="twitter:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”">
-<meta name="twitter:image" content="http://shukebeta.me/images/global_attention.png">
+<meta name="twitter:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就是力量&amp;lt;end&amp;gt;和英语输出序列Knowledge is power &amp;lt;end&amp;gt;。解码器可以在输出序列的时间步 1 使用更集中编码了知识信息的背景变量来生成Knowledge，在时间步">
+<meta name="twitter:image" content="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/img/EncDecAttention.gif">
 
 
 
@@ -389,7 +390,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  929
+                  1,308
                 </span>
               
 
@@ -405,7 +406,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  4 min
+                  5 min
                 </span>
               
             </div>
@@ -426,7 +427,17 @@
       
 
       
-        <h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014)</a>。以英语 - 法语翻译为例，给定一对英语输入序列“They”、“are”、“watching”、“.”和法语输出序列“Ils”、“regardent”、“.”。解码器可以在输出序列的时间步 1 使用更集中编码了“They”、“are”信息的背景变量来生成“Ils”，在时间步 2 使用更集中编码了“watching”信息的背景变量来生成“regardent”，在时间步 3 使用更集中编码了“.”信息的背景变量来生成“.”。这看上去就像是在解码器的每一时间步对输入序列中不同时间步编码的信息分配不同的注意力。<br><a id="more"></a></p>
+        <h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014)</a>。比如给定一对输入序列<code>知识就是力量&lt;end&gt;</code>和英语输出序列<code>Knowledge is power &lt;end&gt;</code>。解码器可以在输出序列的时间步 1 使用更集中编码了<code>知识</code>信息的背景变量来生成<code>Knowledge</code>，在时间步 2 使用更集中编码了<code>就是</code>的信息的背景变量来生成<code>is</code>，依此类推。这看上去就像是在解码器的每一时间步对输入序列中不同时间步编码的信息分配不同的注意力。<br><a id="more"></a></p>
+<p><img src="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/img/EncDecAttention.gif" alt="" title="注意力机制; 蓝色连线透明度表示解码器关注编码字的程度。透明度越低，注意力越强. image from https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/#attention-basis"><br>注意力机制可以理解为将query和一组key-value对映射到输出。输出被计算为value的加权和，其中分配给每个value的权重由query和相应key的 compatibility function（similarity function 相似函数）计算。</p>
+<p>计算注意力主要分为三个步骤。</p>
+<ol>
+<li>计算query和每个key之间的相似性$f_c(q,k_i)$以获得注意力分配权重。常用的相似性函数包括点积，拼接，检测器等。</li>
+<li>然后通常是使用softmax函数来正则化这些权重。</li>
+<li>最后将这些权重与相应的value一起加权并获得最终的值。</li>
+</ol>
+<p>$$\begin{eqnarray} A(q, {(k,v)} ) \xrightarrow[\text{output}]{\text{maps as}} \sum_{i=1}^k{\overbrace{f_c(q,k_i)}^{\theta_i}}v_i, q \in Q, k \in K, v \in V \end{eqnarray}$$</p>
+<p>具体地说，注意机制就是在输入状态上分配权重。它接受任意数量的输入${x_1, …, x_k}$和查询$q$，然后为每个输入生成权重${\theta_1, …, \theta_k}$。这可以衡量每个输入回应query或与query交互的程度。因此，注意机制的输出结果$out$是其输入的加权平均值：$$\begin{eqnarray} out = \sum_{i=1}^k \theta_i x_i \end{eqnarray}$$<br>这种线性组合的权重是由神经网络控制的。</p>
+<p>在编码器-解码器架构中，query通常是解码器的隐含状态。而key，是编码器的隐含状态，相应的value是正则化的权重，表示key获得多少注意力。加权求和作为输出. 对于Scaled Dot-Product Attention, value由query和key的点积求得。</p>
 <p><strong>目标</strong>：<br>对于解码器的每一个时间步$t’$, 生成一个背景向量$c_{t’}$来捕捉相关的解码器信息, 以用于预测输出目标值$y_{t’}$.</p>
 <p><strong>具体步骤</strong>：<br>解码器在时间步 $t’$ 的隐藏状态</p>
 <p>$$s_{t’} = g(y_{t’-1}, c_{t’}, s_{t’-1}).$$</p>
@@ -453,7 +464,7 @@
 <p><img src="/images/global_attention.png" alt="" title="image from: lLuong  et  al. (2015)"><br>两种注意力机制区别就在于如何生成背景向量$c_{t’}$.</p>
 <p>Luong  et  al. (2015) 给出了几种打分函数的计算</p>
 <p>$$<br>\begin{aligned}<br>    score_{dot}(t’ t) &amp;= s^\top_{t’}h_t \\<br>    score_{general}(t’ t) &amp;= s^\top_{t’} W_\alpha h_t, \\<br>    score_{concat}(t’ t) &amp;= v^\top_\alpha \tanh (W_\alpha[s_{t’} : h_t])<br>\end{aligned}<br>$$</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>目前主流的attention方法都有哪些？ - 张俊林的回答 - 知乎<br><a href="https://www.zhihu.com/question/68482809/answer/264632289" target="_blank" rel="noopener">https://www.zhihu.com/question/68482809/answer/264632289</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>目前主流的attention方法都有哪些？ - 张俊林的回答 - 知乎<br><a href="https://www.zhihu.com/question/68482809/answer/264632289" target="_blank" rel="noopener">https://www.zhihu.com/question/68482809/answer/264632289</a><br><a href="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/#attention-basis" target="_blank" rel="noopener">https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/#attention-basis</a></p>
 
       
     </div>

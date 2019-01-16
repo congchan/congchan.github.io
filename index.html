@@ -1845,7 +1845,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,836
+                  2,856
                 </span>
               
 
@@ -1861,7 +1861,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  7 min
+                  11 min
                 </span>
               
             </div>
@@ -1883,12 +1883,7 @@
 
       
         
-          <p>计算注意力主要分为三个步骤。</p>
-<ol>
-<li>计算query和每个key之间的相似性以获得权重。常用的相似性函数包括点积，拼接，检测器等。</li>
-<li>然后通常是使用softmax函数来正则化这些权重。</li>
-<li>最后将这些权重与相应的value一起加权并获得最终的注意力。</li>
-</ol>
+          <p>注意力机制的原理是计算query和每个key之间的相似性$f_c(q,k_i)$以获得注意力分配权重。在大部分NLP任务中，key一般也是value。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NLP-attention-03-self-attention/#more" rel="contents">
