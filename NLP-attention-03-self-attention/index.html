@@ -93,9 +93,10 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://shukebeta.me/images/transform20fps.gif">
 <meta property="og:image" content="http://shukebeta.me/images/transformer.png">
+<meta property="og:image" content="http://nlp.seas.harvard.edu/images/the-annotated-transformer_31_0.png">
 <meta property="og:image" content="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/CoreferenceResolution.png">
 <meta property="og:image" content="http://shukebeta.me/images/multi_head_attention.png">
-<meta property="og:updated_time" content="2019-01-21T15:21:16.243Z">
+<meta property="og:updated_time" content="2019-02-16T15:29:16.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transformer - 自注意力机制">
 <meta name="twitter:description" content="注意力机制的原理是计算query和每个key之间的相似性$f_c(q,k_i)$以获得注意力分配权重。在大部分NLP任务中，key一般也是value。">
@@ -392,7 +393,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,907
+                  3,019
                 </span>
               
 
@@ -408,7 +409,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  11 min
+                  12 min
                 </span>
               
             </div>
@@ -460,8 +461,10 @@
 <p>解码器的架构类似，但它在第3阶段采用了附加层, 在输出层上的 mask multi-head attention:</p>
 <ol>
 <li>Stage 1 – 输入解码: 输入 output embedding，偏移一个位置以确保对位置<code>i</code>的预测仅取决于<code>&lt; i</code>的位置。</li>
-<li>Stage 2 - Masked Multi-head attention: 稍作修改以防止注意到后续位置。</li>
+<li>Stage 2 - Masked Multi-head attention: 需要有一个mask来防止当前位置<code>i</code>的生成任务看到后续<code>&gt; i</code>位置的信息。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用pytorch版本的教程中提供的范例</span></span><br><span class="line"><span class="comment"># http://nlp.seas.harvard.edu/2018/04/03/attention.html</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subsequent_mask</span><span class="params">(size)</span>:</span></span><br><span class="line">    <span class="string">"Mask out subsequent positions."</span></span><br><span class="line">    attn_shape = (<span class="number">1</span>, size, size)</span><br><span class="line">    subsequent_mask = np.triu(np.ones(attn_shape), k=<span class="number">1</span>).astype(<span class="string">'uint8'</span>)</span><br><span class="line">    <span class="keyword">return</span> torch.from_numpy(subsequent_mask) == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># # The attention mask shows the position each tgt word (row) is allowed to look at (column).</span></span><br><span class="line"><span class="comment"># Words are blocked for attending to future words during training.</span></span><br><span class="line">plt.figure(figsize=(<span class="number">5</span>,<span class="number">5</span>))</span><br><span class="line">plt.imshow(subsequent_mask(<span class="number">20</span>)[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<p><img src="http://nlp.seas.harvard.edu/images/the-annotated-transformer_31_0.png" alt=""></p>
 <p>阶段2,3和4同样使用了残差连接，然后在输出使用归一化层。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Stage1_out = OutputEmbedding512 + TokenPositionEncoding512</span><br><span class="line"></span><br><span class="line">Stage2_Mask = masked_multihead_attention(Stage1_out)</span><br><span class="line">Stage2_Norm1 = layer_normalization(Stage2_Mask) + Stage1_out</span><br><span class="line">Stage2_Multi = multihead_attention(Stage2_Norm1 + out_enc) +  Stage2_Norm1</span><br><span class="line">Stage2_Norm2 = layer_normalization(Stage2_Multi) + Stage2_Multi</span><br><span class="line"></span><br><span class="line">Stage3_FNN = FNN(Stage2_Norm2)</span><br><span class="line">Stage3_Norm = layer_normalization(Stage3_FNN) + Stage2_Norm2</span><br><span class="line"></span><br><span class="line">out_dec = Stage3_Norm</span><br></pre></td></tr></table></figure></p>
 <p>可以利用开源的<a href="https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/transformer.py" target="_blank" rel="noopener">Tensor2Tensor</a>，通过调用几个命令来训练Transformer网络进行翻译和解析。</p>
 <p>可以看到，SA算法还有一个好处，处理共指消解（coreference resolution），例如句子中的单词“it”可以根据上下文引用句子的不同名词。<img src="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/CoreferenceResolution.png" alt="" title="Co-reference resolution. 两边的&quot;it&quot;指向不同的词. Adopted from Google Blog."></p>
