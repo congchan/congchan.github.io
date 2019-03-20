@@ -374,7 +374,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  770
+                  785
                 </span>
               
 
@@ -412,10 +412,9 @@
 
       
         
-          <h3 id="Randomized-queue"><a href="#Randomized-queue" class="headerlink" title="Randomized queue"></a>Randomized queue</h3><p>For a randomized queue, the item removed is chosen <strong>uniformly</strong> at random from items in the data structure. API:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomizedQueue</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">RandomizedQueue</span><span class="params">()</span> </span>&#123;&#125;                 <span class="comment">// construct an empty randomized queue</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;&#125;                 <span class="comment">// is the randomized queue empty?</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;&#125;                        <span class="comment">// return the number of items on the randomized queue</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(Item item)</span> </span>&#123;&#125;           <span class="comment">// add the item</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Item <span class="title">dequeue</span><span class="params">()</span> </span>&#123;&#125;                    <span class="comment">// remove and return a random item</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Item <span class="title">sample</span><span class="params">()</span> </span>&#123;&#125;                     <span class="comment">// return a random item (but do not remove it)</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;&#125;         <span class="comment">// return an independent iterator over items in random order</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;&#125;   <span class="comment">// unit testing (optional)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Each iterator must return the items in <strong>uniformly</strong> random order. The order of two or more iterators to the same randomized queue must be mutually independent; each iterator must maintain its own random order.</p>
-<p>More detail could be found at programming assignment <a href="http://coursera.cs.princeton.edu/algs4/assignments/queues.html" target="_blank" rel="noopener">specification</a> and <a href="http://coursera.cs.princeton.edu/algs4/checklists/queues.html" target="_blank" rel="noopener">checklist</a>.</p>
-<h3 id="Permutation-client-memory-challenge"><a href="#Permutation-client-memory-challenge" class="headerlink" title="Permutation client memory challenge"></a>Permutation client memory challenge</h3>
+          <p>This blog explains an apllication of randomized queue algorithms.</p>
+<h2 id="Permutation-client-memory-challenge"><a href="#Permutation-client-memory-challenge" class="headerlink" title="Permutation client memory challenge"></a>Permutation client memory challenge</h2><p>A client program <code>Permutation.java</code> that takes an integer k as a command-line argument; reads in a sequence of strings from standard input using <code>StdIn.readString()</code>; and prints exactly k of them, uniformly at random. Print each item from the sequence at most once.</p>
+<p>More detail could be found at programming assignment <a href="http://coursera.cs.princeton.edu/algs4/assignments/queues.html" target="_blank" rel="noopener">specification</a> and <a href="http://coursera.cs.princeton.edu/algs4/checklists/queues.html" target="_blank" rel="noopener">checklist</a>, codes available in <a href="https://github.com/congchan/algs4/tree/master/queues/src" target="_blank" rel="noopener">algs4/queues/src/</a>.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/algorithms-applications-02-randomized-queue/#more" rel="contents">
@@ -576,7 +575,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  410
+                  416
                 </span>
               
 
@@ -626,6 +625,7 @@
 </li>
 <li>The fraction of sites that are opened when the system percolates provides an estimate of the percolation threshold.</li>
 </ul>
+<p>Codes available at <a href="https://github.com/congchan/algs4" target="_blank" rel="noopener">algs4/Percolation/src/</a></p>
 <h4 id="The-back-wash-issue"><a href="#The-back-wash-issue" class="headerlink" title="The back wash issue"></a><a href="http://coursera.cs.princeton.edu/algs4/checklists/percolation.html" target="_blank" rel="noopener">The back wash issue</a></h4><p><img src="http://coursera.cs.princeton.edu/algs4/checklists/percolation-backwash.png" alt="" title="image from: http://coursera.cs.princeton.edu"><br>
           <!--noindex-->
           <div class="post-button text-center">

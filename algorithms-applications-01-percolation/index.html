@@ -92,7 +92,7 @@
 <meta property="og:description" content="Union-find applications: PercolationProblem discriptions Percolation data type. To model a percolation system, create a data type Percolation with the following API:12345678public class Percolation &amp;#">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://coursera.cs.princeton.edu/algs4/checklists/percolation-backwash.png">
-<meta property="og:updated_time" content="2018-09-08T03:45:52.260Z">
+<meta property="og:updated_time" content="2019-03-20T02:34:56.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Percolations problem">
 <meta name="twitter:description" content="Union-find applications: PercolationProblem discriptions Percolation data type. To model a percolation system, create a data type Percolation with the following API:12345678public class Percolation &amp;#">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  410
+                  416
                 </span>
               
 
@@ -427,6 +427,7 @@
 </li>
 <li>The fraction of sites that are opened when the system percolates provides an estimate of the percolation threshold.</li>
 </ul>
+<p>Codes available at <a href="https://github.com/congchan/algs4" target="_blank" rel="noopener">algs4/Percolation/src/</a></p>
 <h4 id="The-back-wash-issue"><a href="#The-back-wash-issue" class="headerlink" title="The back wash issue"></a><a href="http://coursera.cs.princeton.edu/algs4/checklists/percolation.html" target="_blank" rel="noopener">The back wash issue</a></h4><p><img src="http://coursera.cs.princeton.edu/algs4/checklists/percolation-backwash.png" alt="" title="image from: http://coursera.cs.princeton.edu"><br><a id="more"></a><br>My solution inspired from this post <a href="https://www.sigmainfy.com/blog/avoid-backwash-in-percolation.html" target="_blank" rel="noopener">https://www.sigmainfy.com/blog/avoid-backwash-in-percolation.html</a>, with some improvements:</p>
 <ol>
 <li>Using one <code>WeightedQuickUnionUF(n * n)</code> objects to track each site’s parent.</li>
