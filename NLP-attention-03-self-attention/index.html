@@ -86,7 +86,7 @@
 <meta name="description" content="注意力机制的原理是计算query和每个key之间的相似性$f_c(q,k_i)$以获得注意力分配权重。在大部分NLP任务中，key一般也是value。">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Transformer - 自注意力机制">
+<meta property="og:title" content="Transformer - 多头自注意力编码机制">
 <meta property="og:url" content="http://shukebeta.me/NLP-attention-03-self-attention/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="注意力机制的原理是计算query和每个key之间的相似性$f_c(q,k_i)$以获得注意力分配权重。在大部分NLP任务中，key一般也是value。">
@@ -97,9 +97,9 @@
 <meta property="og:image" content="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/CoreferenceResolution.png">
 <meta property="og:image" content="http://shukebeta.me/images/multi_head_attention.png">
 <meta property="og:image" content="http://nlp.seas.harvard.edu/images/the-annotated-transformer_49_0.png">
-<meta property="og:updated_time" content="2019-02-18T15:53:39.800Z">
+<meta property="og:updated_time" content="2019-04-17T03:13:05.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Transformer - 自注意力机制">
+<meta name="twitter:title" content="Transformer - 多头自注意力编码机制">
 <meta name="twitter:description" content="注意力机制的原理是计算query和每个key之间的相似性$f_c(q,k_i)$以获得注意力分配权重。在大部分NLP任务中，key一般也是value。">
 <meta name="twitter:image" content="http://shukebeta.me/images/transform20fps.gif">
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>Transformer - 自注意力机制 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Transformer - 多头自注意力编码机制 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -295,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Transformer - 自注意力机制</h1>
+          <h1 class="post-title" itemprop="name headline">Transformer - 多头自注意力编码机制</h1>
         
 
         <div class="post-meta">
@@ -369,7 +369,7 @@
 
           
           
-             <span id="/NLP-attention-03-self-attention/" class="leancloud_visitors" data-flag-title="Transformer - 自注意力机制">
+             <span id="/NLP-attention-03-self-attention/" class="leancloud_visitors" data-flag-title="Transformer - 多头自注意力编码机制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  4,217
+                  4,469
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  18 min
+                  19 min
                 </span>
               
             </div>
@@ -469,8 +469,19 @@
 <p>阶段2,3和4同样使用了残差连接，然后在输出使用归一化层。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Stage1_out = OutputEmbedding512 + TokenPositionEncoding512</span><br><span class="line"></span><br><span class="line">Stage2_Mask = masked_multihead_attention(Stage1_out)</span><br><span class="line">Stage2_Norm1 = layer_normalization(Stage2_Mask) + Stage1_out</span><br><span class="line">Stage2_Multi = multihead_attention(Stage2_Norm1 + out_enc) +  Stage2_Norm1</span><br><span class="line">Stage2_Norm2 = layer_normalization(Stage2_Multi) + Stage2_Multi</span><br><span class="line"></span><br><span class="line">Stage3_FNN = FNN(Stage2_Norm2)</span><br><span class="line">Stage3_Norm = layer_normalization(Stage3_FNN) + Stage2_Norm2</span><br><span class="line"></span><br><span class="line">out_dec = Stage3_Norm</span><br></pre></td></tr></table></figure></p>
 <p>可以利用开源的<a href="https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/transformer.py" target="_blank" rel="noopener">Tensor2Tensor</a>，通过调用几个命令来训练Transformer网络进行翻译和解析。</p>
 <p>可以看到，SA算法还有一个好处，处理共指消解（coreference resolution），例如句子中的单词“it”可以根据上下文引用句子的不同名词。<img src="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/CoreferenceResolution.png" alt="" title="Co-reference resolution. 两边的&quot;it&quot;指向不同的词. Adopted from Google Blog."></p>
-<h3 id="各个技术细节"><a href="#各个技术细节" class="headerlink" title="各个技术细节"></a>各个技术细节</h3><h3 id="Multi-head-Attention"><a href="#Multi-head-Attention" class="headerlink" title="Multi-head Attention"></a>Multi-head Attention</h3><p>传统的Scaled Dot-Product Attention, value由query和key的点积求得。点乘$q \cdot  k = \sum_{i=1}^{d_k}q_i k_i$如果按照比例因子$1/\sqrt{d_k}$缩放, 可以计算得更快更省空间, 因为使用了优化过的矩阵乘法代码. (特别是对于较大的$d_k$，点乘会数量级地放大, softmax可能会被推到梯度消失区域, 此时更推荐相加因子)$$\begin{eqnarray} Attention (Q,K,V) = softmax \Big( \frac{QK^T}{\sqrt{d_k}} \Big) V \end{eqnarray}$$<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用pytorch版本的教程中提供的范例</span></span><br><span class="line"><span class="comment"># http://nlp.seas.harvard.edu/2018/04/03/attention.html</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">attention</span><span class="params">(query, key, value, mask=None, dropout=<span class="number">0.0</span>)</span>:</span></span><br><span class="line">  <span class="string">"Compute 'Scaled Dot Product Attention'"</span></span><br><span class="line">  d_k = query.size(<span class="number">-1</span>)</span><br><span class="line">  scores = torch.matmul(query, key.transpose(<span class="number">-2</span>, <span class="number">-1</span>)) \</span><br><span class="line">           / math.sqrt(d_k)</span><br><span class="line">  <span class="keyword">if</span> mask <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">      scores = scores.masked_fill(mask == <span class="number">0</span>, <span class="number">-1e9</span>)</span><br><span class="line">  p_attn = F.softmax(scores, dim = <span class="number">-1</span>)</span><br><span class="line">  <span class="comment"># (Dropout described below)</span></span><br><span class="line">  p_attn = F.dropout(p_attn, p=dropout)</span><br><span class="line">  <span class="keyword">return</span> torch.matmul(p_attn, value), p_attn</span><br></pre></td></tr></table></figure></p>
-<p>Transformer将关联输入和输出序列中的（特别是远程）位置的计算量减少到$O(1)$。然而，这是以降低有效分辨率为代价的，因为注意力加权位置被平均了。为了弥补这种损失, 文章提出了 Multi-head Attention:<img src="/images/multi_head_attention.png" alt="" title="Multi-Head Attention consists of h attention layers running in parallel. image from https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/#positional-encoding-pe"></p>
+<h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>Google文章原文明确定义了使用的注意力算法$$\begin{eqnarray} Attention (Q,K,V) = softmax \Big( \frac{QK^T}{\sqrt{d_k}} \Big) V \end{eqnarray},$$其中$\boldsymbol{Q}\in\mathbb{R}^{n\times d_k}, \boldsymbol{K}\in\mathbb{R}^{m\times d_k}, \boldsymbol{V}\in\mathbb{R}^{m\times d_v}$. 这就是传统的Scaled Dot-Product Attention, 把这个Attention理解为一个神经网络层，将$n\times d_k$的序列$Q$编码成了一个新的$n\times d_v$的序列。因为对于较大的$d_k$，内积会数量级地放大, 太大的话softmax可能会被推到梯度消失区域, softmax后就非0即1(那就是hardmax), 所以$q \cdot  k = \sum_{i=1}^{d_k}q_i k_i$按照比例因子$\sqrt{d_k}$缩放.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用pytorch版本的教程中提供的范例</span></span><br><span class="line"><span class="comment"># http://nlp.seas.harvard.edu/2018/04/03/attention.html</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">attention</span><span class="params">(query, key, value, mask=None, dropout=<span class="number">0.0</span>)</span>:</span></span><br><span class="line">  <span class="string">"Compute 'Scaled Dot Product Attention'"</span></span><br><span class="line">  d_k = query.size(<span class="number">-1</span>)</span><br><span class="line">  scores = torch.matmul(query, key.transpose(<span class="number">-2</span>, <span class="number">-1</span>)) \</span><br><span class="line">           / math.sqrt(d_k)</span><br><span class="line">  <span class="keyword">if</span> mask <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">      scores = scores.masked_fill(mask == <span class="number">0</span>, <span class="number">-1e9</span>)</span><br><span class="line">  p_attn = F.softmax(scores, dim = <span class="number">-1</span>)</span><br><span class="line">  <span class="comment"># (Dropout described below)</span></span><br><span class="line">  p_attn = F.dropout(p_attn, p=dropout)</span><br><span class="line">  <span class="keyword">return</span> torch.matmul(p_attn, value), p_attn</span><br></pre></td></tr></table></figure></p>
+<p>这只是注意力的一种形式，还有其他比如query跟key的运算方式是拼接后再内积一个参数向量，权重也不一定要归一化，等等。</p>
+<h3 id="Self-Attention-SA"><a href="#Self-Attention-SA" class="headerlink" title="Self-Attention (SA)"></a>Self-Attention (SA)</h3><p>在实际的应用中, 不同的场景的$Q,K,V$是不一样的, 如果是SQuAD的话，$Q$是文章的向量序列，$K=V$为问题的向量序列，输出就是Aligned Question Embedding。</p>
+<p>Google所说的自注意力(SA), 就是$Attention(\boldsymbol{X},\boldsymbol{X},\boldsymbol{X})$, 通过在序列自身做Attention，寻找序列自身内部的联系。Google论文的主要贡献之一是它表明了SA在序列编码部分是相当重要的，甚至可以替代传统的RNN(LSTM), CNN, 而之前关于Seq2Seq的研究基本都是关注如何把注意力机制用在解码部分。</p>
+<p>编码时，自注意力层处理来自相同位置的输入$queries, keys, value$，即编码器前一层的输出。编码器中的每个位置都可以关注前一层的所有位置.</p>
+<p>在解码器中，SA层使每个位置能够关注解码器中当前及之前的所有位置。为了保持 auto-regressive 属性，需要阻止解码器中的向左信息流, 所以要在scaled dot-product attention层中屏蔽（设置为-∞）softmax输入中与非法连接相对应的所有值.</p>
+<p>作者使用SA层而不是CNN或RNN层的动机是:</p>
+<ol>
+<li>最小化每层的总计算复杂度: SA层通过$O(1)$数量的序列操作连接所有位置. ($O(n)$  in RNN)</li>
+<li>最大化可并行化计算：对于序列长度$n$ &lt; representation dimensionality $d$（对于SOTA序列表达模型，如word-piece, byte-pair）。对于非常长的序列$n &gt; d$, SA可以仅考虑以相应输出位置为中心的输入序列中的某个大小$r$的邻域，从而将最大路径长度增加到$O(n/r)$</li>
+<li>最小化由不同类型层组成的网络中任意两个输入和输出位置之间的最大路径长度。任何输入和输出序列中的位置组合之间的路径越短，越容易学习长距离依赖。</li>
+</ol>
+<h3 id="Multi-head-Attention"><a href="#Multi-head-Attention" class="headerlink" title="Multi-head Attention"></a>Multi-head Attention</h3><p>Transformer的SA将关联输入和输出序列中的（特别是远程）位置的计算量减少到$O(1)$。然而，这是以降低有效分辨率为代价的，因为注意力加权位置被平均了。为了弥补这种损失, 文章提出了 Multi-head Attention:<img src="/images/multi_head_attention.png" alt="" title="Multi-Head Attention consists of h attention layers running in parallel. image from https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/#positional-encoding-pe"></p>
 <ul>
 <li>$h=8$ attention layers (“heads”): 将key $K$ 和 query $Q$ 线性投影到 $d_k$ 维度, 将value $V$ 投影到$d_v$维度, (线性投影的目的是减少维度) $$head_i = Attention(Q W^Q_i, K W^K_i, V W^V_i) , i=1,\dots,h$$ 投影是参数矩阵$W^Q_i, W^K_i\in\mathbb{R}^{d_{model}\times d_k}, W^V_i\in\mathbb{R}^{d_{model}\times d_v}$ $d_k=d_v=d_{model}/h = 64$</li>
 <li>每层并行地应用 scaled-dot attention(用不同的线性变换), 得到$d_v$维度的输出</li>
@@ -483,14 +494,6 @@
 <li>在<code>encoder-decoder attention</code>层中，<code>queries</code>来自前一层decoder层，并且 memory keys and values 来自encoder的输出。这让decoder的每个位置都可以注意到输入序列的所有位置。这其实还原了典型的seq2seq模型里常用的编码器 - 解码器注意力机制（例如<a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau et al., 2014</a>或Conv2S2）。</li>
 <li>编码器本身也包含了self-attention layers。在self-attention layers中，所有 keys, values and queries 来自相同的位置，在这里是编码器中前一层的输出。这样，编码器的每个位置都可以注意到前一层的所有位置。</li>
 <li>类似地，解码器中的 self-attention layers 允许解码器的每个位置注意到解码器中包括该位置在内的所有前面的位置（有mask屏蔽了后面的位置）。需要阻止解码器中的向左信息流以保持<code>自回归</code>属性(auto-regressive 可以简单理解为时序序列的特性, 只能从左到右, 从过去到未来)。我们通过在scaled dot-product attention层中屏蔽（设置为-∞）softmax输入中与非法连接相对应的所有值来维持该特性。</li>
-</ol>
-<h3 id="Self-Attention-SA"><a href="#Self-Attention-SA" class="headerlink" title="Self-Attention (SA)"></a>Self-Attention (SA)</h3><p>在编码器中，自注意力层处理来自相同位置的输入$queries, keys, value$，即编码器前一层的输出。编码器中的每个位置都可以关注前一层的所有位置.</p>
-<p>在解码器中，SA层使每个位置能够关注解码器中当前及之前的所有位置。为了保持 auto-regressive 属性，需要阻止解码器中的向左信息流, 所以要在scaled dot-product attention层中屏蔽（设置为-∞）softmax输入中与非法连接相对应的所有值.</p>
-<p>作者使用SA层而不是CNN或RNN层的动机是:</p>
-<ol>
-<li>最小化每层的总计算复杂度: SA层通过$O(1)$数量的序列操作连接所有位置. ($O(n)$  in RNN)</li>
-<li>最大化可并行化计算：对于序列长度$n$ &lt; representation dimensionality $d$（对于SOTA序列表达模型，如word-piece, byte-pair）。对于非常长的序列$n &gt; d$, SA可以仅考虑以相应输出位置为中心的输入序列中的某个大小$r$的邻域，从而将最大路径长度增加到$O(n/r)$</li>
-<li>最小化由不同类型层组成的网络中任意两个输入和输出位置之间的最大路径长度。任何输入和输出序列中的位置组合之间的路径越短，越容易学习长距离依赖。</li>
 </ol>
 <h3 id="Position-wise-Feed-Forward-Networks"><a href="#Position-wise-Feed-Forward-Networks" class="headerlink" title="Position-wise Feed-Forward Networks"></a>Position-wise Feed-Forward Networks</h3><p>在编码器和解码器中，每个层都包含一个全连接的前馈网络(FFN)，FFN 分别应用于每个位置，使用相同的两个线性变换和一个ReLU $$FFN(x) = max(0, xW_1+b_1) W_2 + b_2$$<br>虽然线性变换在不同位置上是相同的，但它们在层与层之间使用不同的参数。它的工作方式类似于两个内核大小为1的卷积层. 输入/输出维度是$d_{model}=512$, 内层的维度$d_{ff} = 2048$.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用pytorch版本的教程中提供的范例</span></span><br><span class="line"><span class="comment"># http://nlp.seas.harvard.edu/2018/04/03/attention.html</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PositionwiseFeedForward</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">"Implements FFN equation."</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, d_model, d_ff, dropout=<span class="number">0.1</span>)</span>:</span></span><br><span class="line">    super(PositionwiseFeedForward, self).__init__()</span><br><span class="line">    <span class="comment"># Torch linears have a `b` by default.</span></span><br><span class="line">    self.w_1 = nn.Linear(d_model, d_ff)</span><br><span class="line">    self.w_2 = nn.Linear(d_ff, d_model)</span><br><span class="line">    self.dropout = nn.Dropout(dropout)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> self.w_2(self.dropout(F.relu(self.w_1(x))))</span><br></pre></td></tr></table></figure></p>
 <h3 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h3><p>在解码时序信息时，LSTM模型通过让时间步的概念以输入/输出流一次一个的形式编码的. 而Transformer选择把时序编码为正弦波。这些信号作为额外的信息加入到输入和输出中以表达时间的流逝.</p>
@@ -713,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer总体架构"><span class="nav-number">1.</span> <span class="nav-text">Transformer总体架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各个技术细节"><span class="nav-number">2.</span> <span class="nav-text">各个技术细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-head-Attention"><span class="nav-number">3.</span> <span class="nav-text">Multi-head Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Attention-SA"><span class="nav-number">4.</span> <span class="nav-text">Self-Attention (SA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Position-wise-Feed-Forward-Networks"><span class="nav-number">5.</span> <span class="nav-text">Position-wise Feed-Forward Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Positional-Encoding"><span class="nav-number">6.</span> <span class="nav-text">Positional Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shared-Weight-Embeddings-and-Softmax"><span class="nav-number">7.</span> <span class="nav-text">Shared-Weight Embeddings and Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启发"><span class="nav-number">8.</span> <span class="nav-text">启发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法适合哪些类型的问题？"><span class="nav-number">9.</span> <span class="nav-text">算法适合哪些类型的问题？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">10.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer总体架构"><span class="nav-number">1.</span> <span class="nav-text">Transformer总体架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Attention"><span class="nav-number">2.</span> <span class="nav-text">Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Attention-SA"><span class="nav-number">3.</span> <span class="nav-text">Self-Attention (SA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-head-Attention"><span class="nav-number">4.</span> <span class="nav-text">Multi-head Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Position-wise-Feed-Forward-Networks"><span class="nav-number">5.</span> <span class="nav-text">Position-wise Feed-Forward Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Positional-Encoding"><span class="nav-number">6.</span> <span class="nav-text">Positional Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shared-Weight-Embeddings-and-Softmax"><span class="nav-number">7.</span> <span class="nav-text">Shared-Weight Embeddings and Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启发"><span class="nav-number">8.</span> <span class="nav-text">启发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法适合哪些类型的问题？"><span class="nav-number">9.</span> <span class="nav-text">算法适合哪些类型的问题？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">10.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -885,7 +888,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/NLP-attention-03-self-attention/';
           this.page.identifier = 'NLP-attention-03-self-attention/';
-          this.page.title = 'Transformer - 自注意力机制';
+          this.page.title = 'Transformer - 多头自注意力编码机制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';

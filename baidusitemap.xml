@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/NLP-attention-03-self-attention/</loc>
+    <lastmod>2019-04-17T03:13:05.712Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/algorithms-applications-01-percolation/</loc>
     <lastmod>2019-03-20T02:34:56.302Z</lastmod>
   </url>  <url>
@@ -12,9 +15,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/NLP-text-classification/</loc>
     <lastmod>2019-03-14T16:03:56.027Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/NLP-attention-03-self-attention/</loc>
-    <lastmod>2019-02-18T15:53:39.800Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/NLP-attention-01/</loc>
     <lastmod>2019-01-15T10:18:12.467Z</lastmod>
