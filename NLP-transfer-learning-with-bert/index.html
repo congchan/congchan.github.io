@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Software Engineer,Algorithms,Computer Science," />
+  <meta name="keywords" content="NLP," />
 
 
 
@@ -83,18 +83,22 @@
 
 
 
-<meta name="description" content="通过位移实现很多风骚的操作， 参考这个视频。">
-<meta name="keywords" content="Software Engineer,Algorithms,Computer Science">
+<meta name="description" content="NLP任务的难点不像图像的普适性, 语言本身有其多样性, 如语境的偏移, 背景的变化, 人与人间的分歧, 这导致以下问题:  有标注数据的通用性低 标注数据质量不稳定 现实世界的语言和使用场景不断更新, 导致模型的维护更新换代成本极高 …">
+<meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="位操作 - 风骚的走位操作">
-<meta property="og:url" content="http://shukebeta.me/bits-operations-03/index.html">
+<meta property="og:title" content="利用bert进行迁移学习">
+<meta property="og:url" content="http://shukebeta.me/NLP-transfer-learning-with-bert/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="通过位移实现很多风骚的操作， 参考这个视频。">
+<meta property="og:description" content="NLP任务的难点不像图像的普适性, 语言本身有其多样性, 如语境的偏移, 背景的变化, 人与人间的分歧, 这导致以下问题:  有标注数据的通用性低 标注数据质量不稳定 现实世界的语言和使用场景不断更新, 导致模型的维护更新换代成本极高 …">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-10T09:45:33.617Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/7529838/47401354-f1a6f480-d77b-11e8-8f3d-94ed277de43f.png">
+<meta property="og:image" content="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/CoreferenceResolution.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/800/0*IuDR-YEFctSuyUB0">
+<meta property="og:updated_time" content="2019-06-24T14:36:28.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="位操作 - 风骚的走位操作">
-<meta name="twitter:description" content="通过位移实现很多风骚的操作， 参考这个视频。">
+<meta name="twitter:title" content="利用bert进行迁移学习">
+<meta name="twitter:description" content="NLP任务的难点不像图像的普适性, 语言本身有其多样性, 如语境的偏移, 背景的变化, 人与人间的分歧, 这导致以下问题:  有标注数据的通用性低 标注数据质量不稳定 现实世界的语言和使用场景不断更新, 导致模型的维护更新换代成本极高 …">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/7529838/47401354-f1a6f480-d77b-11e8-8f3d-94ed277de43f.png">
 
 
 
@@ -124,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://shukebeta.me/bits-operations-03/"/>
+  <link rel="canonical" href="http://shukebeta.me/NLP-transfer-learning-with-bert/"/>
 
 
 
 
 
-  <title>位操作 - 风骚的走位操作 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>利用bert进行迁移学习 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -271,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/bits-operations-03/">
+    <link itemprop="mainEntityOfPage" href="http://shukebeta.me/NLP-transfer-learning-with-bert/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -288,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">位操作 - 风骚的走位操作</h1>
+          <h1 class="post-title" itemprop="name headline">利用bert进行迁移学习</h1>
         
 
         <div class="post-meta">
@@ -300,8 +304,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-22T00:00:00+08:00">
-                2018-09-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-12T00:00:00+08:00">
+                2019-05-12
               </time>
             
 
@@ -323,8 +327,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
                   </a>
                 </span>
 
@@ -341,9 +356,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/bits-operations-03/#comments" itemprop="discussionUrl">
+                <a href="/NLP-transfer-learning-with-bert/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="bits-operations-03/" itemprop="commentCount"></span>
+                        data-disqus-identifier="NLP-transfer-learning-with-bert/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -351,7 +366,7 @@
 
           
           
-             <span id="/bits-operations-03/" class="leancloud_visitors" data-flag-title="位操作 - 风骚的走位操作">
+             <span id="/NLP-transfer-learning-with-bert/" class="leancloud_visitors" data-flag-title="利用bert进行迁移学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -376,7 +391,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  541
+                  1,940
                 </span>
               
 
@@ -392,7 +407,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  2 min
+                  8 min
                 </span>
               
             </div>
@@ -413,16 +428,108 @@
       
 
       
-        <p>通过位移实现很多风骚的操作， 参考<a href="https://www.youtube.com/watch?v=7jkIUgLC29I" target="_blank" rel="noopener">这个视频</a>。<br><a id="more"></a><br>检查一个数是否是偶数, 本质上就是取最后一位来判断, 如果是1那么就一定是奇数, 反之则为偶数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x &amp; <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<p>Check if power of two:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x &amp; x - <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<p>因为如果数<code>x</code>是以2底的真数, 那么其二进制一定只有一个位置是<code>1</code>, 如<code>0b1000</code>, 那么<code>x-1</code>就会变成只有该位置是<code>0</code>其右边所有位变为<code>1</code>, 即<code>0b0111</code>, 也就是说这种情况下<code>x</code>和<code>x-1</code>所有位置都互异. 那么它们的位与运算就是<code>x &amp; x - 1 = 0b0000</code>.</p>
-<p><code>x &amp; x - 1</code>的广义用途是求<code>x</code>二进制中<code>1</code>的个数, <a href="https://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetKernighan" target="_blank" rel="noopener">Counting bits set</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">unsigned int v; // count the number of bits set in v</span><br><span class="line">unsigned int c; // c accumulates the total bits set in v</span><br><span class="line">for (c = 0; v; c++)</span><br><span class="line">&#123;</span><br><span class="line">  v &amp;= v - 1; // clear the least significant bit set</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="NLP任务的难点"><a href="#NLP任务的难点" class="headerlink" title="NLP任务的难点"></a>NLP任务的难点</h3><p>不像图像的普适性, 语言本身有其多样性, 如语境的偏移, 背景的变化, 人与人间的分歧, 这导致以下问题:</p>
+<ol>
+<li>有标注数据的通用性低</li>
+<li>标注数据质量不稳定</li>
+<li>现实世界的语言和使用场景不断更新, 导致模型的维护更新换代成本极高</li>
+<li>…<a id="more"></a>
+</li>
+</ol>
+<p>为了应对NLP的难点, 需要充分利用各种可用的监督信号，包括但不限于传统监督学习（supervision），自监督学习（self-supervised），弱监督(weak supervision)，迁移学习（transfer learning），多任务学习（multi-task learning, MTL）。</p>
 <blockquote>
-<p>Brian Kernighan’s algorithm takes <code>O(log N)</code> to count set bits (1s) in an integer: each iteration sets the least significance bit that isn’t zero to zero - and only it. Since each iteration converts exactly bit from 1 to 0, it’ll take as many iterations as there are non-0 bits to convert all the bits to 0(and thus <code>v == 0</code> and the loop finishes). An integer n has <code>log(n)</code> bits, hence the worst case is <code>O(log(n))</code></p>
+<p>Near-term improvements in NLP will be mostly about making clever use of “free” data.</p>
 </blockquote>
-<p>如果一个整数不为<code>0</code>, 那么其二进制就至少有一个<code>1</code>. 假设最右边一位是<code>1</code>, 那么减<code>1</code>就会把最后一位变为<code>0</code>, 前面所有位保持不变. 假如最后一位是<code>0</code>, 那么最靠右的<code>1</code>假设在<code>m</code>位置, 那么减去<code>1</code>, 该位置会变为<code>0</code>, 而其右边的所有<code>0</code>都会变为<code>1</code>, 其左边的所有位不变. <code>v &amp;= v - 1</code>把最右的<code>1</code>变为<code>0</code>.</p>
-<p>获取二进制的最后一个<code>1</code>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">last_set_bit</span><span class="params">(x)</span>:</span></span><br><span class="line">    y = ~(x - <span class="number">1</span>) <span class="comment"># = - (x - 1) - 1 = -x</span></span><br><span class="line">    <span class="keyword">return</span> x &amp; y</span><br></pre></td></tr></table></figure></p>
-<p>假设最右边的<code>1</code>位于n, <code>-1</code>操作会把n右边所有<code>0</code>变为<code>1</code>, 而n位变为<code>0</code>. 接着<code>~</code>操作会把n左边所有位翻转, 而n及其右边的数会变为原来的样子, 也就是n为<code>1</code>, 右边全为<code>0</code>(或者没有右边). 最后<code>&amp;</code>操作就只剩下n位的<code>1</code>和右边的<code>0</code>(如果有的话).</p>
+<h3 id="语言模型-经典的自监督学习模型"><a href="#语言模型-经典的自监督学习模型" class="headerlink" title="语言模型 - 经典的自监督学习模型"></a>语言模型 - 经典的自监督学习模型</h3><p>Lecun有给自监督学习下定义，但我个人对自监督的理解是，基于数据本身进行学习，让模型学习到数据隐含的特征。</p>
+<p>比如语言模型的根据前文预测下一个单词。</p>
+<p>最近的BERT丰富了玩法，提出了Mask language model，就是通过上下文预测掩码位置的单词，作为其核心学习任务；BERT的训练过程还应用了多任务学习，把 next sentence prediction 也作为任务之一一起学习。</p>
+<p>目前除了语言模型和句模型(<code>next sentence</code>)，是否还有其他任务?</p>
+<blockquote>
+<p>Baidu ERNIE: 引入了论坛对话类数据，利用 DLM（Dialogue Language Model）建模 Query-Response 对话结构，将对话 Pair 对作为输入，引入 Dialogue Embedding 标识对话的角色，利用 Dialogue Response Loss 学习对话的隐式关系。</p>
+</blockquote>
+<h3 id="ELMo-vs-GPT-vs-BERT"><a href="#ELMo-vs-GPT-vs-BERT" class="headerlink" title="ELMo vs GPT vs BERT"></a>ELMo vs GPT vs BERT</h3><p>经典Word2vec表达是context free的，<code>open a bank account</code>和<code>on the river bank</code>的<code>bank</code>共用一个向量值<code>[0.3, 0.2, -0.8, …]</code>. 如指公司的<code>苹果</code>和指水果的<code>苹果</code>共用一个向量.</p>
+<p>解决方案：在文本语料中训练上下文表达<code>contextual representations</code></p>
+<p>而 ELMo, GPT, 和 BERT 都着眼于<code>contextual representations</code></p>
+<ul>
+<li>ELMo : Deep Contextual Word Embeddings, 训练独立的<code>left-to-right</code>和<code>right-to-left</code>的LMs, 外加一个<code>Word Embedding</code>层, 作为预训练的词向量使用</li>
+<li>OpenAI GPT : Improving Language Understanding by Generative Pre-Training. 使用 <code>left-to-right</code> Transformer LM, 然后在下游任务中fine-tune</li>
+<li>BERT : Bidirectional Encoder Representations from Transformers<br><img src="https://user-images.githubusercontent.com/7529838/47401354-f1a6f480-d77b-11e8-8f3d-94ed277de43f.png" alt=""></li>
+</ul>
+<p>但是, 为何2018年之前类似ELMo的<code>contextual representations</code>并不流行？</p>
+<p>因为好的预训练结果比有监督训练代价高1000倍甚至100,000倍。2013年微调好的二层512维度的LSTM sentiment analysis 有 80% 准确度, 训练时间 8 小时. 同期的相同结构的预训练模型需要训练一周, 准确率稍微好点, 80.5%.</p>
+<h3 id="迁移学习的两种思路-Feature-based-和-Fine-tune-based"><a href="#迁移学习的两种思路-Feature-based-和-Fine-tune-based" class="headerlink" title="迁移学习的两种思路: Feature based 和 Fine-tune  based"></a>迁移学习的两种思路: Feature based 和 Fine-tune  based</h3><p>ELMO区分不同同词不同意的方法是通过它的三层向量的加权组合(concat or sum whatever), 权重可以在下游任务中学习调整.</p>
+<p>而GPT和BERT是通过在下游任务中fine-tune模型参数, 同时也利用了transformer的self-attention机制解决共指消解 <img src="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/CoreferenceResolution.png" alt=""></p>
+<p>而这三个模型是一个不断进化的过程:</p>
+<ol>
+<li>ELMO 独立地训练前后向LSTM, 每一个位置只能直接接收其左右相邻位置的信息, 而且因为实践上LSTM cell 能够记忆的距离很有限(能够记忆的信息也很有限), 这导致ELMO的全局语境理解能力很有限.</li>
+<li>GPT 是从左到右</li>
+<li>BERT 放弃了”预测下一个词”的传统LM任务, 改用Mask-LM任务.</li>
+</ol>
+<p><code>BERT</code>模型学习的应该不仅仅是<code>contextual embeddings</code>：<br>预测缺失的单词（或下一个单词）需要学习许多类型的语义理解features: 语法，语义，语用，共指等.<br>这说明预训练模型其实远远大于它所需要解决的任何特定下游任务</p>
+<h3 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h3><p>迁移学习的主流思路是知识共享, 让模型在一种较为通用的数据上<strong>预训练</strong>, 然后把预训练的模型迁移到下游的具体任务中.</p>
+<p>迁移学习在图像领域大获成功（ImageNet + <code>resnet</code>），解决了<strong>分类</strong>这一图像领域的瓶颈。</p>
+<p>近年来涌现出<code>ULMFit</code>, <code>ELMO</code>，<code>GPT</code>, <code>BERT</code>这些优秀的预训练模型，但没有CV领域那么耀眼。主要原因是NLP目前没有单个明确的瓶颈，</p>
+<ol>
+<li>NLP需要多种多样的推理：逻辑，语言语义，情感，和视觉。</li>
+<li>NLP要求长期短期结合的记忆</li>
+</ol>
+<p>比较综合的语言理解任务是GLUE。</p>
+<p>BERT，GPT-2 等算法指明了一条可行的 NLP 在实际工业应用的可行路径：</p>
+<ol>
+<li>预训练：利用超大规模无监督数据预训练神经网络模型</li>
+<li>(可选) 知识注入, 加入知识图谱的结构化信息, 如基于BERT的ERNIE</li>
+<li>知识迁移，二个思路：<ul>
+<li>微调 Fine-tune</li>
+<li>单任务/多任务学习</li>
+</ul>
+</li>
+</ol>
+<h3 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h3><p>预训练阶段的核心是什么？</p>
+<ol>
+<li><code>resnet</code>, <code>BERT</code> 和 <code>GPT-2</code> 告诉我们: <strong>更大的数据规模，更多样性的数据，更高的数据质量</strong>。这三点的尺度上限都接近无穷大，所以天花板很高，未来模型的性能还有提升空间。</li>
+<li>针对数据量大和多样性，我们有两种解决思路,<ul>
+<li>预训练阶段需要自监督或者无监督的任务，显而易见的任务是<strong>语言模型</strong>, ELMo, GPT, 和 BERT 都用到了这个任务.</li>
+<li>使用弱监督(远程监督)</li>
+</ul>
+</li>
+</ol>
+<h3 id="知识注入"><a href="#知识注入" class="headerlink" title="知识注入"></a>知识注入</h3><p>百度的<code>ERNIE</code>的做法是: 基于百度的词库, 把<code>BERT</code>中对token level 的 mask 改进为 对 word level 的 mask.</p>
+<ol>
+<li>对于每一个序列, 我们需要进行 word level 的标记, 来区分各个 token 是否属于同一个词.</li>
+<li>对序列进行掩码时, 不再是随机选择 token, 而是选择词</li>
+</ol>
+<h3 id="多任务学习"><a href="#多任务学习" class="headerlink" title="多任务学习"></a>多任务学习</h3><p>与单独训练模型相比，多任务学习在使用shared representation的同时并行地学习任务。通过shared representation在任务之间传递知识，可以提高特定任务模型的学习效率和预测准确性。</p>
+<p>有两种MT思路：</p>
+<ol>
+<li>Hard parameter sharing：不同任务共享底层的神经网络层，但各个任务有自己特定任务的output layer。同时学习的任务越多，模型底层就越能找到捕捉所有任务的表达，而对单个任务过度拟合的可能性就越小。</li>
+<li>Soft parameter sharing：每个任务有自己的模型自己的参数，然后对各个模型的参数之间的距离进行正则化，以鼓励参数趋近。</li>
+</ol>
+<p>Hard parameter sharing的训练，目前至少有两种方式。</p>
+<ol>
+<li>交替地优化每个任务特定的<code>task_loss[k]</code>. 这种方法不需要各个任务的训练数据有任何对齐关联</li>
+<li>联合优化<code>total_loss=Σ(task_loss[k])</code>。 这个方法要求各个任务的batch训练数据相同或者有key来对齐</li>
+</ol>
+<p>除此之外, 第二种方法还方便我们为每个任务添加自适应权重(adaptive weight)，以获得更多task-sensitive learning。<br><a href="https://hanxiao.github.io/2017/07/07/Get-10x-Speedup-in-Tensorflow-Multi-Task-Learning-using-Python-Multiprocessing/3f9ea6de.png" target="_blank" rel="noopener"></a></p>
+<h3 id="弱（远程）监督"><a href="#弱（远程）监督" class="headerlink" title="弱（远程）监督"></a>弱（远程）监督</h3><p>Snorkel MeTaL<br><img src="https://cdn-images-1.medium.com/max/800/0*IuDR-YEFctSuyUB0" alt=""><br>In Snorkel, the heuristics are called Labeling Functions (LFs). Here are some common types of LFs:</p>
+<ul>
+<li>Hard-coded heuristics: usually regular expressions (regexes)</li>
+<li>Syntactics: for instance, Spacy’s dependency trees</li>
+<li>Distant supervision: external knowledge bases</li>
+<li>Noisy manual labels: crowdsourcing</li>
+<li>External models: other models with useful signals</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://towardsdatascience.com/a-technique-for-building-nlp-classifiers-efficiently-with-transfer-learning-and-weak-supervision-a8e2f21ca9c8" target="_blank" rel="noopener">Building NLP Classifiers Cheaply With Transfer Learning and Weak Supervision</a></li>
+<li>Snorkel DryBell: A Case Study in Deploying Weak Supervision at Industrial Scale</li>
+<li>Data Programming: Creating Large Training Sets, Quickly</li>
+<li>Improving Language Understanding by Generative Pre-Training</li>
+<li><a href="https://github.com/kweonwooj/papers/issues/114" target="_blank" rel="noopener">https://github.com/kweonwooj/papers/issues/114</a></li>
+<li><a href="https://dawn.cs.stanford.edu/2019/03/22/glue/#fn:practitioners" target="_blank" rel="noopener">Massive Multi-Task Learning with Snorkel MeTaL: Bringing More Supervision to Bear</a></li>
+<li><a href="http://ruder.io/multi-task/index.html" target="_blank" rel="noopener">An Overview of Multi-Task Learning in Deep Neural Networks</a></li>
+<li>Training Complex Models with Multi-Task Weak Supervision</li>
+<li><a href="https://nlp.stanford.edu/seminar/details/jdevlin.pdf" target="_blank" rel="noopener">https://nlp.stanford.edu/seminar/details/jdevlin.pdf</a></li>
+<li><a href="https://hanxiao.github.io/2017/07/07/Get-10x-Speedup-in-Tensorflow-Multi-Task-Learning-using-Python-Multiprocessing/" target="_blank" rel="noopener">Get 10x Speedup in Tensorflow Multi-Task Learning using Python Multiprocessing</a></li>
+</ol>
 
       
     </div>
@@ -440,11 +547,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
-          
-            <a href="/tags/Computer-Science/" rel="tag"># Computer Science</a>
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
           
         </div>
       
@@ -457,8 +560,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/algorithms-dynamic-programming-06/" rel="next" title="Dynamic Programming 06 - Knapsack背包问题">
-                <i class="fa fa-chevron-left"></i> Dynamic Programming 06 - Knapsack背包问题
+              <a href="/NLP-attention-03-self-attention/" rel="next" title="Transformer - 多头自注意力编码机制">
+                <i class="fa fa-chevron-left"></i> Transformer - 多头自注意力编码机制
               </a>
             
           </div>
@@ -466,10 +569,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/bits-operations-05/" rel="prev" title="位操作 - 不使用加减符号求和整数">
-                位操作 - 不使用加减符号求和整数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -537,8 +636,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -618,6 +726,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NLP任务的难点"><span class="nav-number">1.</span> <span class="nav-text">NLP任务的难点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言模型-经典的自监督学习模型"><span class="nav-number">2.</span> <span class="nav-text">语言模型 - 经典的自监督学习模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELMo-vs-GPT-vs-BERT"><span class="nav-number">3.</span> <span class="nav-text">ELMo vs GPT vs BERT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迁移学习的两种思路-Feature-based-和-Fine-tune-based"><span class="nav-number">4.</span> <span class="nav-text">迁移学习的两种思路: Feature based 和 Fine-tune  based</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迁移学习"><span class="nav-number">5.</span> <span class="nav-text">迁移学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预训练"><span class="nav-number">6.</span> <span class="nav-text">预训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识注入"><span class="nav-number">7.</span> <span class="nav-text">知识注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多任务学习"><span class="nav-number">8.</span> <span class="nav-text">多任务学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱（远程）监督"><span class="nav-number">9.</span> <span class="nav-text">弱（远程）监督</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number"></span> <span class="nav-text">Reference</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -782,9 +906,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://shukebeta.me/bits-operations-03/';
-          this.page.identifier = 'bits-operations-03/';
-          this.page.title = '位操作 - 风骚的走位操作';
+          this.page.url = 'http://shukebeta.me/NLP-transfer-learning-with-bert/';
+          this.page.identifier = 'NLP-transfer-learning-with-bert/';
+          this.page.title = '利用bert进行迁移学习';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';
