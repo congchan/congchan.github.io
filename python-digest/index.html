@@ -86,14 +86,14 @@
 <meta name="description" content="What you will get from this Python digest:1, Learn advanced python programming.2, Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice">
 <meta name="keywords" content="Python,Programming Language">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python Digest 之奇技淫巧">
+<meta property="og:title" content="Python Digest">
 <meta property="og:url" content="http://shukebeta.me/python-digest/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="What you will get from this Python digest:1, Learn advanced python programming.2, Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T19:18:48.676Z">
+<meta property="og:updated_time" content="2019-07-26T12:59:23.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python Digest 之奇技淫巧">
+<meta name="twitter:title" content="Python Digest">
 <meta name="twitter:description" content="What you will get from this Python digest:1, Learn advanced python programming.2, Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>Python Digest 之奇技淫巧 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Python Digest | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -288,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python Digest 之奇技淫巧</h1>
+          <h1 class="post-title" itemprop="name headline">Python Digest</h1>
         
 
         <div class="post-meta">
@@ -351,7 +351,7 @@
 
           
           
-             <span id="/python-digest/" class="leancloud_visitors" data-flag-title="Python Digest 之奇技淫巧">
+             <span id="/python-digest/" class="leancloud_visitors" data-flag-title="Python Digest">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -453,11 +453,14 @@
 <li>There is a balance of tradeoff, and sometimes saving some time and efforts to improving the Efficiency or adding more Features may be a better option.</li>
 <li>Elegance is good for maintaining and improving the program, which means saving for the future. <strong>Refactoring</strong> - moving along the Elegance direction without changing the other dimensions.<ul>
 <li>DRY: don’t repeat yourself</li>
-<li>Reuse: save time and code lines, also reduce the possibility of mistake<h3 id="Coding-Style"><a href="#Coding-Style" class="headerlink" title="Coding Style"></a><a href="https://docs.python.org/3.5/tutorial/controlflow.html#intermezzo-coding-style" target="_blank" rel="noopener">Coding Style</a></h3>For Python, <a href="https://www.python.org/dev/peps/pep-0008" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008</a> has emerged as the style guide that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Here are the most important points extracted:</li>
+<li>Reuse: save time and code lines, also reduce the possibility of mistake</li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h3 id="Coding-Style"><a href="#Coding-Style" class="headerlink" title="Coding Style"></a><a href="https://docs.python.org/3.5/tutorial/controlflow.html#intermezzo-coding-style" target="_blank" rel="noopener">Coding Style</a></h3><p>For Python, <a href="https://www.python.org/dev/peps/pep-0008" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008</a> has emerged as the style guide that most projects adhere to; it promotes a very readable and eye-pleasing coding style. Here are the most important points extracted:</p>
+<ul>
 <li><p>Use 4-space indentation, and no tabs.</p>
 <p> 4 spaces are a good compromise between small indentation (allows greater nesting depth) and large indentation (easier to read). Tabs introduce confusion, and are best left out.</p>
 </li>
@@ -488,7 +491,7 @@
 </ul>
 </li>
 <li><p>The following Python file shows the declaration of docstrings within a Python source file:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;Assuming this is file mymodule.py, then this string, being thefirst statement in the file, will become the &quot;mymodule&quot; module&apos;sdocstring when the file is imported.&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class MyClass(object):</span><br><span class="line">    &quot;&quot;&quot;The class&apos;s docstring&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def my_method(self):</span><br><span class="line">        &quot;&quot;&quot;The method&apos;s docstring&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">def my_function():</span><br><span class="line">    &quot;&quot;&quot;The function&apos;s docstring&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""Assuming this is file mymodule.py, then this string, being thefirst statement in the file, will become the "mymodule" module'sdocstring when the file is imported."""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""The class's docstring"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">my_method</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""The method's docstring"""</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_function</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""The function's docstring"""</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>The following is an interactive session showing how the docstrings may be accessed:</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import mymodule&gt;&gt;&gt; help(mymodule)</span><br><span class="line"></span><br><span class="line">Assuming this is file mymodule.py then this string, being thefirst statement in the file will become the mymodule modulesdocstring when the file is imported</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; help(mymodule.MyClass)The class&apos;s docstring&gt;&gt;&gt; help(mymodule.MyClass.my_method)The method&apos;s docstring&gt;&gt;&gt; help(mymodule.my_function)The function&apos;s docstring&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
@@ -502,16 +505,16 @@
 <li>checking parameter types, classes, or values</li>
 <li>checking data structure invariants</li>
 <li>checking “can’t happen” situations (duplicates in a list, contradictory state variables.)</li>
-<li>after calling a function, to make sure that its return is reasonable<h3 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h3></li>
+<li>after calling a function, to make sure that its return is reasonable</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Tracking time<br> Track which part of the code is the bottle neck of efficiency<ul>
+</ul>
+<h3 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h3><p>Track which part of the code is the bottle neck of efficiency</p>
+<ul>
 <li>>&gt; python -m cProfile file.py</li>
 <li><code>import cProfile</code>, <code>cProfile.run(&#39;test()&#39;)</code></li>
-</ul>
-</li>
 </ul>
 <h2 id="Aspect-oriented-programming"><a href="#Aspect-oriented-programming" class="headerlink" title="Aspect-oriented programming"></a>Aspect-oriented programming</h2><ul>
 <li>correct</li>
@@ -648,8 +651,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-generics/" rel="prev" title="Java 泛型">
-                Java 泛型 <i class="fa fa-chevron-right"></i>
+              <a href="/java-encapsulation-packages-jar-access/" rel="prev" title="Java 封装, 包, JAR, 权限控制">
+                Java 封装, 包, JAR, 权限控制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -747,7 +750,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -769,7 +772,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -990,7 +993,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/python-digest/';
           this.page.identifier = 'python-digest/';
-          this.page.title = 'Python Digest 之奇技淫巧';
+          this.page.title = 'Python Digest';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';
