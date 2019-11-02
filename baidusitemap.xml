@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/python-digest-cn/</loc>
+    <lastmod>2019-11-02T08:49:18.588Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/NLP-attention-01/</loc>
+    <lastmod>2019-10-31T06:47:22.814Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/algorithms-applications-03-pattern-recognition/</loc>
     <lastmod>2019-07-30T09:45:16.498Z</lastmod>
   </url>  <url>
@@ -12,9 +18,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/python-digest/</loc>
     <lastmod>2019-07-26T12:59:23.361Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/python-digest-cn/</loc>
-    <lastmod>2019-07-26T12:41:34.585Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/stanford-cs106ab/</loc>
     <lastmod>2019-07-19T13:16:01.122Z</lastmod>
@@ -33,9 +36,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/NLP-text-classification/</loc>
     <lastmod>2019-03-14T16:03:56.027Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/NLP-attention-01/</loc>
-    <lastmod>2019-01-15T10:18:12.467Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/UoE-anlp/</loc>
     <lastmod>2019-01-10T15:41:28.619Z</lastmod>

@@ -83,20 +83,20 @@
 
 
 
-<meta name="description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就是力量&amp;lt;end&amp;gt;和英语输出序列Knowledge is power &amp;lt;end&amp;gt;。解码器可以在输出序列的时间步 1 使用更集中编码了知识信息的背景变量来生成Knowledge，在时间步">
+<meta name="description" content="注意力机制神经网络中的注意力机制启发自动物的视觉注意力机制，能够聚焦于“高分辨率”图像的特定区域（节省大脑资源），同时感知“低分辨率”周围的图像，然后随着时间的推移调整焦点（状态调整）。 注意力机制一开始被应用于图像识别领域，后来推广到机器翻译中，为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="注意力机制">
 <meta property="og:url" content="http://shukebeta.me/NLP-attention-01/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就是力量&amp;lt;end&amp;gt;和英语输出序列Knowledge is power &amp;lt;end&amp;gt;。解码器可以在输出序列的时间步 1 使用更集中编码了知识信息的背景变量来生成Knowledge，在时间步">
+<meta property="og:description" content="注意力机制神经网络中的注意力机制启发自动物的视觉注意力机制，能够聚焦于“高分辨率”图像的特定区域（节省大脑资源），同时感知“低分辨率”周围的图像，然后随着时间的推移调整焦点（状态调整）。 注意力机制一开始被应用于图像识别领域，后来推广到机器翻译中，为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/img/EncDecAttention.gif">
 <meta property="og:image" content="http://shukebeta.me/images/global_attention.png">
-<meta property="og:updated_time" content="2019-01-15T10:18:12.467Z">
+<meta property="og:updated_time" content="2019-10-31T06:47:22.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="注意力机制">
-<meta name="twitter:description" content="注意力机制注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就是力量&amp;lt;end&amp;gt;和英语输出序列Knowledge is power &amp;lt;end&amp;gt;。解码器可以在输出序列的时间步 1 使用更集中编码了知识信息的背景变量来生成Knowledge，在时间步">
+<meta name="twitter:description" content="注意力机制神经网络中的注意力机制启发自动物的视觉注意力机制，能够聚焦于“高分辨率”图像的特定区域（节省大脑资源），同时感知“低分辨率”周围的图像，然后随着时间的推移调整焦点（状态调整）。 注意力机制一开始被应用于图像识别领域，后来推广到机器翻译中，为不同的对应词分配权重的提出的 Bahdanau, D., Cho, K., &amp;amp; Bengio, Y. (2014)。比如给定一对输入序列知识就">
 <meta name="twitter:image" content="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/img/EncDecAttention.gif">
 
 
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,308
+                  1,417
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  5 min
+                  6 min
                 </span>
               
             </div>
@@ -427,8 +427,9 @@
       
 
       
-        <h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>注意力机制就是为了解决机器翻译中为不同的对应词分配权重的提出的 <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014)</a>。比如给定一对输入序列<code>知识就是力量&lt;end&gt;</code>和英语输出序列<code>Knowledge is power &lt;end&gt;</code>。解码器可以在输出序列的时间步 1 使用更集中编码了<code>知识</code>信息的背景变量来生成<code>Knowledge</code>，在时间步 2 使用更集中编码了<code>就是</code>的信息的背景变量来生成<code>is</code>，依此类推。这看上去就像是在解码器的每一时间步对输入序列中不同时间步编码的信息分配不同的注意力。<br><a id="more"></a></p>
-<p><img src="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/img/EncDecAttention.gif" alt="" title="注意力机制; 蓝色连线透明度表示解码器关注编码字的程度。透明度越低，注意力越强. image from https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/#attention-basis"><br>注意力机制可以理解为将query和一组key-value对映射到输出。输出被计算为value的加权和，其中分配给每个value的权重由query和相应key的 compatibility function（similarity function 相似函数）计算。</p>
+        <h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>神经网络中的注意力机制启发自动物的<strong>视觉注意力机制</strong>，能够聚焦于“高分辨率”图像的特定区域（节省大脑资源），同时感知“低分辨率”周围的图像，然后随着时间的推移调整焦点（状态调整）。</p>
+<p>注意力机制一开始被应用于图像识别领域，后来推广到机器翻译中，为不同的对应词分配权重的提出的 <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014)</a>。比如给定一对输入序列<code>知识就是力量&lt;end&gt;</code>和英语输出序列<code>Knowledge is power &lt;end&gt;</code>。解码器可以在输出序列的时间步 1 使用更集中编码了<code>知识</code>信息的背景变量来生成<code>Knowledge</code>，在时间步 2 使用更集中编码了<code>就是</code>的信息的背景变量来生成<code>is</code>，依此类推。这看上去就像是在解码器的每一时间步对输入序列中不同时间步编码的信息分配不同的注意力。<br><a id="more"></a></p>
+<p><img src="https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/img/EncDecAttention.gif" alt="" title="注意力机制; 蓝色连线透明度表示解码器关注编码字的程度。透明度越低，注意力越强. image from https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/#attention-basis"><br>注意力机制可以理解为，给定一组key-value用于表达权重分布，对于任意一个query，通过权重分布计算（如value的加权和）得到该query对应的输出。其中分配给每个value的权重由query和相应key的 compatibility function（similarity function 相似函数）计算。</p>
 <p>计算注意力主要分为三个步骤。</p>
 <ol>
 <li>计算query和每个key之间的相似性$f_c(q,k_i)$以获得注意力分配权重。常用的相似性函数包括点积，拼接，检测器等。</li>
@@ -495,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/algorithms-03-memory/" rel="next" title="Algorithms 03 - Memory 内存">
-                <i class="fa fa-chevron-left"></i> Algorithms 03 - Memory 内存
+              <a href="/algorithms/" rel="next" title="Algorithms - Princeton">
+                <i class="fa fa-chevron-left"></i> Algorithms - Princeton
               </a>
             
           </div>
@@ -505,8 +506,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/algorithms/" rel="prev" title="Algorithms - Princeton">
-                Algorithms - Princeton <i class="fa fa-chevron-right"></i>
+              <a href="/NLP-attention-02-lstm-reading-comprehension/" rel="prev" title="机器阅读理解 - LSTM与注意力机制 - 斯坦福问答数据集 (SQuAD)">
+                机器阅读理解 - LSTM与注意力机制 - 斯坦福问答数据集 (SQuAD) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1341,7 +1342,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
