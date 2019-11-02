@@ -85,7 +85,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Computer Science &amp; AI">
-<meta property="og:url" content="http://shukebeta.me/tags/python/index.html">
+<meta property="og:url" content="http://shukebeta.me/tags/Python/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://shukebeta.me/tags/python/"/>
+  <link rel="canonical" href="http://shukebeta.me/tags/Python/"/>
 
 
 
 
 
-  <title>Tag: python | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Tag: Python | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -259,7 +259,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>python<small>Tag</small>
+        <h1>Python<small>Tag</small>
         </h1>
       </div>
 
@@ -271,9 +271,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/machine-learning-with-sklearn/" itemprop="url">
+            <a class="post-title-link" href="/word2vec/" itemprop="url">
               
-                <span itemprop="name">Machine Learning with Scikit-learn (Sklearn) 机器学习实践</span>
+                <span itemprop="name">深入理解word2vec细节以及TensorFlow实现</span>
               
             </a>
         
@@ -281,9 +281,93 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-01T00:00:00+08:00"
-              content="2017-12-01" >
-          12-01
+              datetime="2019-07-22T00:00:00+08:00"
+              content="2019-07-22" >
+          07-22
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/python-digest-cn/" itemprop="url">
+              
+                <span itemprop="name">Python之 奇技淫巧</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-02-22T00:00:00+08:00"
+              content="2019-02-22" >
+          02-22
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/python-digest/" itemprop="url">
+              
+                <span itemprop="name">Python Digest</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-08T00:00:00+08:00"
+              content="2018-05-08" >
+          05-08
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/UoE-anlp/" itemprop="url">
+              
+                <span itemprop="name">Accelerated Natural Language Processing</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-10-01T00:00:00+08:00"
+              content="2017-10-01" >
+          10-01
         </time>
       </div>
 
@@ -999,87 +1083,6 @@
             newcounter.save(null, {
               success: function(newcounter) {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
-
-</body>
-</html>
-document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
