@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/NLP-attention-02-lstm-reading-comprehension/</loc>
+    <lastmod>2019-11-19T06:29:15.996Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/NLP-attention-01/</loc>
-    <lastmod>2019-11-19T06:25:53.777Z</lastmod>
+    <lastmod>2019-11-19T06:29:09.054Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/python-digest-cn/</loc>
     <lastmod>2019-11-02T09:04:42.481Z</lastmod>
@@ -87,9 +90,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/java-socket/</loc>
     <lastmod>2018-10-30T01:59:33.160Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/NLP-attention-02-lstm-reading-comprehension/</loc>
-    <lastmod>2018-10-26T05:59:31.354Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/java-abstract-class/</loc>
     <lastmod>2018-10-24T01:09:27.038Z</lastmod>
