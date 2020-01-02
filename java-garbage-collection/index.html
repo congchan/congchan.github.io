@@ -86,7 +86,7 @@
 <meta name="description" content="在Java中，JVM负责内存动态分配和垃圾回收的问题。Java的对象必须要有引用才能被使用，也就是说如果要操作对象，必须通过引用来进行。如果一个对象唯一的引用变量死了（随着堆栈块一起解散），对象就会被认定为可被垃圾回收（Garbage Collection）的。没有被引用的对象，是没有存在意义的，因为没有人知道它的地址，无法调用它，它的存在只会浪费空间。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java ；垃圾回收机制">
+<meta property="og:title" content="Java 垃圾回收机制">
 <meta property="og:url" content="http://shukebeta.me/java-garbage-collection/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="在Java中，JVM负责内存动态分配和垃圾回收的问题。Java的对象必须要有引用才能被使用，也就是说如果要操作对象，必须通过引用来进行。如果一个对象唯一的引用变量死了（随着堆栈块一起解散），对象就会被认定为可被垃圾回收（Garbage Collection）的。没有被引用的对象，是没有存在意义的，因为没有人知道它的地址，无法调用它，它的存在只会浪费空间。">
@@ -95,10 +95,9 @@
 <meta property="og:image" content="http://shukebeta.me/images/mask_sweep.png">
 <meta property="og:image" content="http://shukebeta.me/images/mask_sweep_copy.png">
 <meta property="og:image" content="http://shukebeta.me/images/java_memory_alloc.png">
-<meta property="og:image" content="http://www.cnblogs.com/dolphin0520/p/3783345.html">
-<meta property="og:updated_time" content="2018-11-30T01:39:58.884Z">
+<meta property="og:updated_time" content="2019-12-30T09:33:40.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java ；垃圾回收机制">
+<meta name="twitter:title" content="Java 垃圾回收机制">
 <meta name="twitter:description" content="在Java中，JVM负责内存动态分配和垃圾回收的问题。Java的对象必须要有引用才能被使用，也就是说如果要操作对象，必须通过引用来进行。如果一个对象唯一的引用变量死了（随着堆栈块一起解散），对象就会被认定为可被垃圾回收（Garbage Collection）的。没有被引用的对象，是没有存在意义的，因为没有人知道它的地址，无法调用它，它的存在只会浪费空间。">
 <meta name="twitter:image" content="http://shukebeta.me/images/jvm.png">
 
@@ -136,7 +135,7 @@
 
 
 
-  <title>Java ；垃圾回收机制 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Java 垃圾回收机制 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -294,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java ；垃圾回收机制</h1>
+          <h1 class="post-title" itemprop="name headline">Java 垃圾回收机制</h1>
         
 
         <div class="post-meta">
@@ -306,8 +305,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-19T00:00:00+08:00">
-                2018-06-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-19T00:00:00+08:00">
+                2017-06-19
               </time>
             
 
@@ -357,7 +356,7 @@
 
           
           
-             <span id="/java-garbage-collection/" class="leancloud_visitors" data-flag-title="Java ；垃圾回收机制">
+             <span id="/java-garbage-collection/" class="leancloud_visitors" data-flag-title="Java 垃圾回收机制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,7 +381,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,995
+                  3,002
                 </span>
               
 
@@ -460,7 +459,7 @@
 <li>Current Mark Sweep（CMS）收集器是一种以获取最短回收停顿时间为目标的收集器，它是一种并发收集器，采用的是Mark-Sweep算法。</li>
 <li>G1收集器是当今收集器技术发展最前沿的成果，它是一款面向服务端应用的收集器，它能充分利用多CPU、多核环境。因此它是一款并行与并发收集器，并且它能建立可预测的停顿时间模型。</li>
 </ol>
-<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>对象的内存分配，总的来说就是在堆上分配，对象主要分配在新生代的Eden Space和From Space，少数情况下会直接分配在老年代。<img src="/images/java_memory_alloc.png" alt=""></p>
+<h3 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h3><p>对象的内存分配，总的来说就是在堆上分配，对象主要分配在新生代的Eden Space和From Space，少数情况下会直接分配在老年代。<img src="/images/java_memory_alloc.png" alt=""></p>
 <p>对象优先在Eden分配。</p>
 <ul>
 <li>如果新生代的Eden Space和From Space的空间不足，则会发起一次Minor GC。</li>
@@ -472,7 +471,10 @@
 <p>长期存活的对象进入老年代。虚拟机给每个对象定义了一个对象年龄计数器，如对象在Survivor区躲过一次GC的话，其对象年龄便会加1，默认情况下，如果对象年龄达到15岁，就会移动到老年代中。阈值可以通过<code>-XX : MaxTenuringThreshold</code>设置.</p>
 <p>如果在Survivor空间中相同年龄的所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就直接进入老年代，不必等到<code>MaxTenuringThreshold</code></p>
 <p>当然分配的规则并不是百分之百固定的，这要取决于当前使用的是哪种垃圾收集器组合和JVM的相关参数。</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>深入理解Java虚拟机<br><img src="http://www.cnblogs.com/dolphin0520/p/3783345.html" alt="Java垃圾回收机制"></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li>深入理解Java虚拟机</li>
+<li><a href="http://www.cnblogs.com/dolphin0520/p/3783345.html" target="_blank" rel="noopener">Java垃圾回收机制</a></li>
+</ul>
 
       
     </div>
@@ -503,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java-adt/" rel="next" title="Java 抽象数据类型">
-                <i class="fa fa-chevron-left"></i> Java 抽象数据类型
+              <a href="/java-compare/" rel="next" title="Java 比较对象大小">
+                <i class="fa fa-chevron-left"></i> Java 比较对象大小
               </a>
             
           </div>
@@ -513,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java-HashTable/" rel="prev" title="Java Hash Table">
-                Java Hash Table <i class="fa fa-chevron-right"></i>
+              <a href="/java-HashMap/" rel="prev" title="Java HashMap">
+                Java HashMap <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -612,7 +614,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -683,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断对象是否可回收"><span class="nav-number">1.</span> <span class="nav-text">判断对象是否可回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">2.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GC收集算法"><span class="nav-number">3.</span> <span class="nav-text">GC收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记／清除算法"><span class="nav-number">3.1.</span> <span class="nav-text">标记／清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记-整理算法"><span class="nav-number">3.2.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制算法"><span class="nav-number">3.3.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分代收集算法"><span class="nav-number">3.4.</span> <span class="nav-text">分代收集算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">3.5.</span> <span class="nav-text">垃圾收集器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配"><span class="nav-number"></span> <span class="nav-text">内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断对象是否可回收"><span class="nav-number">1.</span> <span class="nav-text">判断对象是否可回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">2.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GC收集算法"><span class="nav-number">3.</span> <span class="nav-text">GC收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记／清除算法"><span class="nav-number">3.1.</span> <span class="nav-text">标记／清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记-整理算法"><span class="nav-number">3.2.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制算法"><span class="nav-number">3.3.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分代收集算法"><span class="nav-number">3.4.</span> <span class="nav-text">分代收集算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">3.5.</span> <span class="nav-text">垃圾收集器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存分配"><span class="nav-number">4.</span> <span class="nav-text">内存分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -703,7 +705,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -855,7 +857,7 @@
         var disqus_config = function () {
           this.page.url = 'http://shukebeta.me/java-garbage-collection/';
           this.page.identifier = 'java-garbage-collection/';
-          this.page.title = 'Java ；垃圾回收机制';
+          this.page.title = 'Java 垃圾回收机制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';

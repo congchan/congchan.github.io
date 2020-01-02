@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="NLP,Attention," />
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="注意力机制如何起源的神经网络中的注意力机制启发自人类的视觉注意力机制，能够（高分辨率地）聚焦于图像中需要重点关注的目标区域（节省大脑资源），同时（低分辨率地）感知周围的图像，然后随着时间的推移调整焦点（状态调整）。 在神经网路中，注意力机制是为了解决什么问题？">
-<meta name="keywords" content="NLP">
+<meta name="keywords" content="NLP,Attention">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从头理解注意力机制">
 <meta property="og:url" content="http://shukebeta.me/NLP-attention-01/index.html">
@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://shukebeta.me/images/attention_mechanism.png">
 <meta property="og:image" content="http://shukebeta.me/images/hierarchical_attention_network.png">
 <meta property="og:image" content="http://shukebeta.me/images/global_attention.png">
-<meta property="og:updated_time" content="2019-11-19T06:29:09.054Z">
+<meta property="og:updated_time" content="2019-11-19T06:46:02.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从头理解注意力机制">
 <meta name="twitter:description" content="注意力机制如何起源的神经网络中的注意力机制启发自人类的视觉注意力机制，能够（高分辨率地）聚焦于图像中需要重点关注的目标区域（节省大脑资源），同时（低分辨率地）感知周围的图像，然后随着时间的推移调整焦点（状态调整）。 在神经网路中，注意力机制是为了解决什么问题？">
@@ -441,7 +441,7 @@
 <p>不过对于比较长的句子, 那么这个架构的弱点就暴露无疑了. </p>
 <ol>
 <li>首先, 编码器能否把句子的所有信息(语言学上的和常识等知识)都理解/捕捉到?</li>
-<li>其次, 受限于目前的实现技术(主要是硬件), 单个隐含状态(如$h_3$这个向量)的维度大小是有限的(), 而句子长度以及语言的组合情况是无限的, 单靠$h_3$自身是存储信息能力是有限的.</li>
+<li>其次, 受限于目前的实现技术(主要是硬件), 单个隐含状态(如$h_3$这个向量)的维度大小是有限的, 而句子长度以及语言的组合情况是无限的, 单靠$h_3$自身是存储信息能力是有限的.</li>
 <li>再者, 解码器是否有足够的解码能力从一个隐含状态中解码出所有的信息?</li>
 </ol>
 <p>虽然大部分句子是相对紧凑的, 但语言有个特点, 就是一个词有可能和前面好几步之外的词有联系, 比如一些指代词用于指代文本最开头出现的名词; 语义上, 某个句子的理解, 可能依赖于前面多个句子; 当然往大了说, 要理解一篇文章或一本书, 我们通常需要理解并联系多个段落, 多个章节. 这种现象称之为语言的长距离依赖(<strong>long-term dependency</strong>), 在一般性的序列数据中, 这个现象称之为的Long-range dependence(LRD). 即使是使用了LSTM这种理论上可以克服长距离依赖问题地网络, 也无法很好的克服语言的长距离依赖问题, 究其原因, 除了LSTM自身的局限性之外, 更主要是深度学习的梯度学习方法的局限性(在梯度反向传播中, 会出现梯度消失).</p>
@@ -524,6 +524,8 @@
           
             <a href="/tags/NLP/" rel="tag"># NLP</a>
           
+            <a href="/tags/Attention/" rel="tag"># Attention</a>
+          
         </div>
       
 
@@ -544,6 +546,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NLP-transfer-learning-with-bert/" rel="prev" title="利用bert进行迁移学习">
+                利用bert进行迁移学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -640,7 +646,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -731,7 +737,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
