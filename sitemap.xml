@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shukebeta.me/NLP-albert/</loc>
+    
+    <lastmod>2020-01-03T09:40:44.351Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shukebeta.me/NLP-information-extraction/</loc>
     
     <lastmod>2020-01-02T10:00:53.240Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://shukebeta.me/NLP-attention-03-self-attention/</loc>
     
     <lastmod>2020-01-02T10:00:08.500Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shukebeta.me/NLP-albert/</loc>
-    
-    <lastmod>2020-01-02T09:59:08.701Z</lastmod>
     
   </url>
   
