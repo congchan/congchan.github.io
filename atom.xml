@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shukebeta.me/"/>
-  <updated>2020-02-06T09:00:10.551Z</updated>
+  <updated>2020-02-06T09:04:21.870Z</updated>
   <id>http://shukebeta.me/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://shukebeta.me/application-table-OCR/"/>
     <id>http://shukebeta.me/application-table-OCR/</id>
     <published>2020-02-05T16:00:00.000Z</published>
-    <updated>2020-02-06T09:00:10.551Z</updated>
+    <updated>2020-02-06T09:04:21.870Z</updated>
     
-    <content type="html"><![CDATA[<p>最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。</p><p>朋友公司最近就上海周边一个地方政府的请求，能否把高铁站纸质登记表格电子化归档。临时受托帮朋友写了个程序。<br><a id="more"></a></p><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ol><li>分析场景：拿到朋友给的图片，手写很潦草，而且身份证等长数字都超出边界挤在边边角角里面。</li><li>确定目标：优先保证表格结构，不然错乱的的文字没有意义。其次保证文本准确识别。</li><li>寻找现在市面上的开源方案：看到优图实验室的OCR，有两个接口，一个是针对表格的，一个是针对手写的。</li><li>分析方案：我们的情况是表格+手写的结合。在demo页面试用了一下，觉得手写接口对字的识别较好，但是表格接口更好地兼顾了表格结构。因此最后决定使用表格OCR接口。</li></ol><p>程序基本的思路是</p><ol><li>图片预处理</li><li>优图OCR接口处理 </li><li>接口输出解码到本地excel</li></ol><p>开源地址：<a href="https://github.com/congchan/OCR-For-Table" target="_blank" rel="noopener">https://github.com/congchan/OCR-For-Table</a></p>]]></content>
+    <content type="html"><![CDATA[<p>最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。</p><p>朋友公司最近就收到上海周边一个地方政府的请求，能否把高铁站纸质登记表格电子化归档。临时受托帮朋友写了个程序。<br><a id="more"></a></p><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ol><li>分析场景：拿到朋友给的图片，手写很潦草，而且身份证等长数字都超出边界挤在边边角角里面。</li><li>确定目标：优先保证表格结构，不然错乱的的文字没有意义。其次保证文本准确识别。</li><li>寻找现在市面上的开源方案：看到优图实验室的OCR，有两个接口，一个是针对表格的，一个是针对手写的。</li><li>分析方案：我们的情况是表格+手写的结合。在demo页面试用了一下，觉得手写接口对字的识别较好，但是表格接口更好地兼顾了表格结构。因此最后决定使用表格OCR接口。</li></ol><p>程序基本的思路是</p><ol><li>图片预处理</li><li>优图OCR接口处理 </li><li>接口输出解码到本地excel</li></ol><p>开源地址：<a href="https://github.com/congchan/OCR-For-Table" target="_blank" rel="noopener">https://github.com/congchan/OCR-For-Table</a></p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。&lt;/p&gt;
-&lt;p&gt;朋友公司最近就上海周边一个地方政府的请求，能否把高铁站纸质登记表格电子化归档。临时受托帮朋友写了个程序。&lt;br&gt;
+&lt;p&gt;朋友公司最近就收到上海周边一个地方政府的请求，能否把高铁站纸质登记表格电子化归档。临时受托帮朋友写了个程序。&lt;br&gt;
     
     </summary>
     
