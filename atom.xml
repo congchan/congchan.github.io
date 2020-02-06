@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shukebeta.me/"/>
-  <updated>2020-01-11T02:58:51.256Z</updated>
+  <updated>2020-02-06T09:00:10.551Z</updated>
   <id>http://shukebeta.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用OCR把纸质登记表电子化归档</title>
+    <link href="http://shukebeta.me/application-table-OCR/"/>
+    <id>http://shukebeta.me/application-table-OCR/</id>
+    <published>2020-02-05T16:00:00.000Z</published>
+    <updated>2020-02-06T09:00:10.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。</p><p>朋友公司最近就上海周边一个地方政府的请求，能否把高铁站纸质登记表格电子化归档。临时受托帮朋友写了个程序。<br><a id="more"></a></p><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ol><li>分析场景：拿到朋友给的图片，手写很潦草，而且身份证等长数字都超出边界挤在边边角角里面。</li><li>确定目标：优先保证表格结构，不然错乱的的文字没有意义。其次保证文本准确识别。</li><li>寻找现在市面上的开源方案：看到优图实验室的OCR，有两个接口，一个是针对表格的，一个是针对手写的。</li><li>分析方案：我们的情况是表格+手写的结合。在demo页面试用了一下，觉得手写接口对字的识别较好，但是表格接口更好地兼顾了表格结构。因此最后决定使用表格OCR接口。</li></ol><p>程序基本的思路是</p><ol><li>图片预处理</li><li>优图OCR接口处理 </li><li>接口输出解码到本地excel</li></ol><p>开源地址：<a href="https://github.com/congchan/OCR-For-Table" target="_blank" rel="noopener">https://github.com/congchan/OCR-For-Table</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。&lt;/p&gt;
+&lt;p&gt;朋友公司最近就上海周边一个地方政府的请求，能否把高铁站纸质登记表格电子化归档。临时受托帮朋友写了个程序。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
+    
+    
+      <category term="Python" scheme="http://shukebeta.me/tags/Python/"/>
+    
+      <category term="OCR" scheme="http://shukebeta.me/tags/OCR/"/>
+    
+  </entry>
   
   <entry>
     <title>A Lite BERT(AlBERT) 原理和源码解析</title>
@@ -540,32 +565,6 @@
     <summary type="html">
     
       &lt;p&gt;如何实现快速的幂运算？&lt;br&gt;
-    
-    </summary>
-    
-      <category term="CS" scheme="http://shukebeta.me/categories/CS/"/>
-    
-    
-      <category term="Software Engineer" scheme="http://shukebeta.me/tags/Software-Engineer/"/>
-    
-      <category term="Algorithms" scheme="http://shukebeta.me/tags/Algorithms/"/>
-    
-      <category term="Computer Science" scheme="http://shukebeta.me/tags/Computer-Science/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>位操作 - 汉明距离</title>
-    <link href="http://shukebeta.me/bits-operations-06/"/>
-    <id>http://shukebeta.me/bits-operations-06/</id>
-    <published>2018-09-24T16:00:00.000Z</published>
-    <updated>2018-10-10T03:26:37.010Z</updated>
-    
-    <content type="html"><![CDATA[<p>求两个整数的汉明距离 hamming distance<br><a id="more"></a><br><a href="https://leetcode.com/problems/hamming-distance/description/" target="_blank" rel="noopener">Leetcode 461</a><br>两个整数之间的汉明距离是该两个数之间不同的位数。 给定两个整数x和y，计算汉明距离。问题也可以理解为对于两个整数<code>m</code>和<code>n</code>, 需要改变<code>m</code>的二进制多少位才能得到<code>n</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Use Brian Kernighan's way to count bits */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingDistance</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    x = x ^ y;</span><br><span class="line">    y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x != <span class="number">0</span>)&#123;</span><br><span class="line">        y++;</span><br><span class="line">        x &amp;= x - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingDistance</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.bitCount(x ^ y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>同样用到Brian Kernighan算法：</p><blockquote><p>Lets say that the bit at index n is 1 and that the bits in indexes 0 up to <code>n-1</code> are all 0 (we’ll use little endianess - so index 0 is 1, index 1 is 2, index 2 is 4, index 3 is 8 and so on).</p></blockquote><blockquote><p><code>v-1</code> subtracts from index 0 - but it’s 0, so it converts it to 1 and subtracts from index 1 - but it’s also 0, so it converts it to 1 and subtracts from index 2 - and so on until we reach index n. Since index n is 1 it can subtract from it and turn it to 0 - and there it stops: <code>1101000 - 1 = 1100111</code></p></blockquote><blockquote><p>So, <code>v-1</code> is like <code>v</code> except there are <code>n</code> 0 that became 1 and one 1 that became 0. In <code>v &amp; v - 1</code> all the other bits remain as is, the <code>n</code> zeros that where turned to ones remain 0 (because <code>0 &amp; 1 == 0</code>), and the one 1 that was turned to 0 turns to 0(because <code>1 &amp; 0 == 0</code>). So overall - only a single bit was changed in the iteration, and this change was from 1 to 0: <code>1101000 &amp; 1100111 = 1100000</code></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;求两个整数的汉明距离 hamming distance&lt;br&gt;
     
     </summary>
     

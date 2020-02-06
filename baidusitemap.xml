@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shukebeta.me/application-table-OCR/</loc>
+    <lastmod>2020-02-06T09:00:10.551Z</lastmod>
+  </url>  <url>
     <loc>http://shukebeta.me/UoE-anlp/</loc>
-    <lastmod>2020-01-27T03:07:59.833Z</lastmod>
+    <lastmod>2020-01-27T03:35:46.357Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/UoE-st/</loc>
+    <lastmod>2020-01-27T03:33:20.451Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/UoE-sapm/</loc>
+    <lastmod>2020-01-27T03:33:18.041Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/UoE-ppls/</loc>
+    <lastmod>2020-01-27T03:33:15.297Z</lastmod>
+  </url>  <url>
+    <loc>http://shukebeta.me/UoE-nlu/</loc>
+    <lastmod>2020-01-27T03:33:12.808Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/bits-operations-04/</loc>
     <lastmod>2020-01-14T09:29:27.007Z</lastmod>
@@ -175,9 +190,6 @@
     <loc>http://shukebeta.me/Launch-editor-in-Gitbash/</loc>
     <lastmod>2018-12-29T11:35:59.173Z</lastmod>
   </url>  <url>
-    <loc>http://shukebeta.me/UoE-nlu/</loc>
-    <lastmod>2018-12-29T09:32:18.124Z</lastmod>
-  </url>  <url>
     <loc>http://shukebeta.me/NLP-07-data-compression-introduction/</loc>
     <lastmod>2018-12-17T13:06:31.923Z</lastmod>
   </url>  <url>
@@ -261,15 +273,6 @@
   </url>  <url>
     <loc>http://shukebeta.me/ai/</loc>
     <lastmod>2018-09-09T08:44:31.804Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/UoE-sapm/</loc>
-    <lastmod>2018-08-20T23:01:49.864Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/UoE-st/</loc>
-    <lastmod>2018-08-20T23:01:38.767Z</lastmod>
-  </url>  <url>
-    <loc>http://shukebeta.me/UoE-ppls/</loc>
-    <lastmod>2018-08-20T22:59:16.392Z</lastmod>
   </url>  <url>
     <loc>http://shukebeta.me/cs/</loc>
     <lastmod>2018-07-21T16:09:52.218Z</lastmod>
