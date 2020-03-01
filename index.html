@@ -1843,7 +1843,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  3,990
+                  4,906
                 </span>
               
 
@@ -1859,7 +1859,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  16 min
+                  20 min
                 </span>
               
             </div>
@@ -1881,8 +1881,10 @@
 
       
         
-          <h2 id="词性标注（Part-of-Speech-Tagging）"><a href="#词性标注（Part-of-Speech-Tagging）" class="headerlink" title="词性标注（Part-of-Speech-Tagging）"></a>词性标注（Part-of-Speech-Tagging）</h2><p>POS任务是指根据观察得到的序列, 推断出对应的词性标注, 比如<code>Bob drank coffee at Starbucks</code>, 标注可能为<code>Bob (NOUN) drank (VERB) coffee (NOUN) at (PREPOSITION) Starbucks (NOUN)</code>.</p>
-<p>除此之外, 还有命名实体识别, 以及其他涉及到需要根据观察序列推断隐含状态的问题, 都可以考虑用隐马尔可夫模型(Hidden Markov Model, HMM)或者条件随机场(conditional random fields, CRF)来处理.</p>
+          <h2 id="序列标注（Sequence-Labeling）"><a href="#序列标注（Sequence-Labeling）" class="headerlink" title="序列标注（Sequence Labeling）"></a>序列标注（Sequence Labeling）</h2><p>序列标注任务是指根据观察得到的序列（如一个句子）, 推断出序列每个元素（单词）对应的标注。</p>
+<p>具体的任务包括分词(Segmentation), 词性标注（Part-of-Speach tagging, POS）, 实体识别(Named Entity Recognition, NER), 等等. 所谓POS, 就是对于一个句子, 如<code>Bob drank coffee at Starbucks</code>, 标注可能为<code>Bob (NOUN) drank (VERB) coffee (NOUN) at (PREPOSITION) Starbucks (NOUN)</code>.</p>
+<p>除此之外, 还有其他涉及到需要根据观察序列推断隐含状态的问题, 这种问题的特点是每一个位置的标签都不是独立的, 而是和上下文相关依存的, 可以用序列标注的思路来处理. </p>
+<p>单个分类器仅能预测单个类变量，但是序列标注基于概率图模型, 图模型(Graphical Models)的真正功能在于它们能够对许多有相互依赖的变量进行建模。最简单的依赖关系可以描述为一种线性链(Linear Chain), 也就是后续介绍到的隐马尔可夫模型(Hidden Markov Model, HMM)用到的假设.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NLP-HMM-CRF/#more" rel="contents">
