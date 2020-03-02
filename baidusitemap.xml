@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://congchan.github.io/java-hashcode-equals/</loc>
+    <lastmod>2020-03-02T06:33:31.068Z</lastmod>
+  </url>  <url>
     <loc>https://congchan.github.io/NLP-HMM-CRF/</loc>
     <lastmod>2020-03-01T08:19:10.564Z</lastmod>
   </url>  <url>
@@ -114,9 +117,6 @@
   </url>  <url>
     <loc>https://congchan.github.io/java-HashMap-LinkedHashMap-LRU/</loc>
     <lastmod>2019-12-23T09:03:04.044Z</lastmod>
-  </url>  <url>
-    <loc>https://congchan.github.io/java-hashcode-equals/</loc>
-    <lastmod>2019-12-23T09:02:57.253Z</lastmod>
   </url>  <url>
     <loc>https://congchan.github.io/java-generics/</loc>
     <lastmod>2019-12-23T09:02:52.509Z</lastmod>
