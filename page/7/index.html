@@ -2068,7 +2068,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-hashcode-equals/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-abstract-class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -2087,7 +2087,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-hashcode-equals/" itemprop="url">Java Hash @Override equals() hashcode()</a></h1>
+                <a class="post-title-link" href="/java-abstract-class/" itemprop="url">Java 抽象类</a></h1>
         
 
         <div class="post-meta">
@@ -2099,8 +2099,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-27T00:00:00+08:00">
-                2017-02-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">
+                2017-02-26
               </time>
             
 
@@ -2140,9 +2140,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/java-hashcode-equals/#comments" itemprop="discussionUrl">
+                <a href="/java-abstract-class/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="java-hashcode-equals/" itemprop="commentCount"></span>
+                        data-disqus-identifier="java-abstract-class/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2150,7 +2150,7 @@
 
           
           
-             <span id="/java-hashcode-equals/" class="leancloud_visitors" data-flag-title="Java Hash @Override equals() hashcode()">
+             <span id="/java-abstract-class/" class="leancloud_visitors" data-flag-title="Java 抽象类">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2175,7 +2175,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,026
+                  1,377
                 </span>
               
 
@@ -2191,7 +2191,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  8 min
+                  5 min
                 </span>
               
             </div>
@@ -2213,16 +2213,10 @@
 
       
         
-          <p>主要介绍：</p>
-<ol>
-<li>Hashcode（哈希码）与 equals（判断相等）的关系</li>
-<li>Hashcode 方法的底层实现原理</li>
-<li>开发中需要掌握的原则和方法</li>
-</ol>
-<h2 id="HashSet-HashMap-HashTable"><a href="#HashSet-HashMap-HashTable" class="headerlink" title="HashSet, HashMap, HashTable"></a>HashSet, HashMap, HashTable</h2><p>HashSet底层是调用HashMap. HashMap 使用hashCode和equals来进行对象比较。<br>
+          <h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>有些情况下，有些父类在实际应用中只有被继承的和产生多态的意义，而没有实例化的意义（比如抽象的<code>Animal</code>, <code>Canine</code>等，实例化这些抽象概念没有实际意义），所以不希望这种父类会被初始化。通过标记类为抽象类，编译器就知道该类不能创建实例(不能作为new实例, 但可以用于声明类型).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Canine</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Canine c = <span class="keyword">new</span> Dog;</span><br><span class="line"><span class="comment">// Canine c = new Canine(); 无法编译</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java-hashcode-equals/#more" rel="contents">
+            <a class="btn" href="/java-abstract-class/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
