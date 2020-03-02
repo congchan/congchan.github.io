@@ -501,7 +501,7 @@
 <p><code>(car), (truck), (flower)} --&gt; {(1.3452 * car + 0.2828 * truck), (flower)}</code></p>
 <h3 id="Probabilistic-Latent-Semantic-Analysis-PLSA"><a href="#Probabilistic-Latent-Semantic-Analysis-PLSA" class="headerlink" title="Probabilistic Latent Semantic Analysis (PLSA)"></a>Probabilistic Latent Semantic Analysis (PLSA)</h3><p>也称之为aspect model, 尝试从统计学的角度改进LSA. 将文档中的每个单词建模为混合模型中的样本. 其中这个混合模型混合的成分是multinomial随机变量，可以视为“主题”的表示形式。因此，每个单词都是由单个主题生成的，每一个文档中的不同单词可能从不同的主题生成。每个文档都表示为这些混合成分根据不同比例混合的列表，从而简化为固定主题集的概率分布.</p>
 <p>把潜在的topics视作 Latent variable 隐变量z, 而文本Documents和词汇Words就是观察变量 observed variables. 共现(co‐occurrence)的数据都关联有隐含的话题类别, 做出条件独立假设, D和W是基于隐变量z的条件独立变量,<br>$$ P(w|d) = \sum_{z\in Z} P(w|z)P(z|d)$$</p>
-<p>$$ P(d, w) = P(d)P(w|d) = P(d) \sum_{z\in Z} P(w|z)P(z|d) \\<br>           = \sum_{z\in Z} P(d) P(w|z)P(z|d) \\<br>           = \sum_{z\in Z} P(z) P(w|z)P(d|z)<br>$$</p>
+<p>$$ P(d, w) = P(d)P(w|d) = P(d) \sum_{z\in Z} P(w|z)P(z|d) \\\<br>           = \sum_{z\in Z} P(d) P(w|z)P(z|d) \\\<br>           = \sum_{z\in Z} P(z) P(w|z)P(d|z)<br>$$</p>
 <p><img src="/images/plsa_illustrations.png" alt="" title="https://people.cs.pitt.edu/~milos/courses/cs3750-Fall2007/lectures/plsa.pdf"></p>
 <p>利用隐变量可以解决稀疏性问题，也就是避免文档中未出现的word的概率为零, 可以理解为一种平滑.</p>
 <p>使用EM算法:<br>E-Step: 计算隐变量的posterior probabilities, </p>
