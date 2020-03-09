@@ -92,6 +92,7 @@
 <meta property="og:description" content="序列标注（Sequence Labeling）序列标注任务是指根据观察得到的序列（如一个句子）, 推断出序列每个元素（单词）对应的标注。 具体的任务包括分词(Segmentation), 词性标注（Part-of-Speach tagging, POS）, 实体识别(Named Entity Recognition, NER), 等等. 所谓POS, 就是对于一个句子, 如Bob drank co">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://congchan.github.io/images/probabilistic_graphical_models.png">
+<meta property="og:image" content="https://congchan.github.io/images/HMM-MEMM.png">
 <meta property="og:image" content="https://congchan.github.io/images/HMM-like-linear-chain-crf.png">
 <meta property="og:image" content="https://congchan.github.io/images/linear-chain-crf.png">
 <meta property="og:image" content="https://congchan.github.io/images/linear-chain-crf-depend-on-current-observation.png">
@@ -99,7 +100,7 @@
 <meta property="og:image" content="https://congchan.github.io/images/人名指界词.png">
 <meta property="og:image" content="https://congchan.github.io/images/人名识别特征原子模板.png">
 <meta property="og:image" content="https://congchan.github.io/images/relationship_nbs_hmm_lr_crf.png">
-<meta property="og:updated_time" content="2020-03-01T08:19:10.564Z">
+<meta property="og:updated_time" content="2020-03-09T09:53:08.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
 <meta name="twitter:description" content="序列标注（Sequence Labeling）序列标注任务是指根据观察得到的序列（如一个句子）, 推断出序列每个元素（单词）对应的标注。 具体的任务包括分词(Segmentation), 词性标注（Part-of-Speach tagging, POS）, 实体识别(Named Entity Recognition, NER), 等等. 所谓POS, 就是对于一个句子, 如Bob drank co">
@@ -396,7 +397,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  5,182
+                  7,099
                 </span>
               
 
@@ -412,7 +413,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  21 min
+                  29 min
                 </span>
               
             </div>
@@ -450,18 +451,43 @@
 <p>HMM参数$λ = (Y, X, π, A, B)$ ，其中Y是隐状态（输出变量）的集合，X是观察值（输入）集合，π是初始状态的概率，A是状态转移概率矩阵$p(y_i | y_{i-1})$，B是输出观察值概率矩阵$p(x_i | y_{i})$。在POS任务中, X就是观察到的句子, Y就是待推导的标注序列, 因为词性待求的, 所以人们称之为<strong>隐含状态</strong>.</p>
 <p>概括一下HMM设定的假设:</p>
 <ol>
-<li>假设每个状态仅依赖于其前一个状态, $p(y_t|y_{t−1})$</li>
-<li>假设每一个观察值x仅依赖于当前状态值y, $p(x_t|y_t)$</li>
+<li>Markov assumption：假设每个状态仅依赖于其前一个状态, $p(y_t|y_{t−1})$</li>
+<li>Stationarity assumption：状态的转换概率与转换发生的实际时间（实际输入）无关</li>
+<li>Output independence assumption: 假设每一个观察值x仅依赖于当前状态值y, $p(x_t|y_t)$, 而与前面的观察值无关。</li>
 </ol>
 <p>那么状态序列y和观察序列x的联合概率可以分解为<br>$$p(\mathbf{y}, \mathbf{x})=\prod_{t=1}^{\mathrm{T}} p\left(y_{t} | y_{t-1}\right) p\left(x_{t} | y_{t}\right)$$</p>
-<p>HMM的缺陷是其基于观察序列中的每个元素都相互条件独立的假设。即在任何时刻观察值仅仅与状态（即要标注的标签）有关。对于简单的数据集，这个假设有其合理之处。但大多数现实世界中的真实观察序列是由多个相互作用的特征和观察序列中较长范围内的元素之间的依赖而形成的。而<strong>条件随机场(conditional random fiel, CRF)</strong>恰恰就弥补了这个缺陷.</p>
+<p>总的来说, 隐马尔可夫模型（HMM）是具有随机状态转移和观测值的有限状态自动机（Rabiner，1989）。自动机对概率生成过程进行建模: 先从某个初始状态开始，发射(emit)该状态生成的观察值，再转移到下一个状态，再发射另一个观察值，以此类推，直到达到指定的最终状态，从而产生一系列观察值。</p>
+<p>HMM作为生成式的概率模型, 对观察特征的条件独立约束非常严格. 而且为了定义观察值序列和序列标记的联合概率，生成模型需要枚举所有可能的观察序列. 对于表示多个相互作用的特征或观测值的长距离相关性, 这种枚举是不切实际的，因为此类模型的inference很棘手。但很多任务往往受益于这种相互作用、相互交叉重叠的特征，比如除了传统的单词自身外，还有大小写，单词结尾，词性，格式，在页面上的位置以及WordNet中的节点成员身份等等。</p>
+<p>除此之外, 大部分文本任务是根据给定的观察序列（如纯文本）来预测对应的状态序列，也就是判别问题。换句话说，HMM不恰当地用了生成联合概率的模型去判别问题。</p>
+<h3 id="隐马尔可夫模型到最大熵马尔可夫模型"><a href="#隐马尔可夫模型到最大熵马尔可夫模型" class="headerlink" title="隐马尔可夫模型到最大熵马尔可夫模型"></a>隐马尔可夫模型到最大熵马尔可夫模型</h3><p>最大熵马尔可夫模型(Maximum Entropy Markov Models, MEMM)跟HMM的生成式概率图不同，MEMM对当前状态的判断依赖于前一时间步的状态和当前观察值的状态。<img src="/images/HMM-MEMM.png" alt="" title="image from McCallum, A. (1909)"></p>
+<p>首先所谓”熵”就是信息论中的概念:</p>
+<blockquote>
+<p>Entropy: the uncertainty of a distribution.</p>
+</blockquote>
+<p>量化Entropy: surprise.<br>Entropy = expected surprise</p>
+<p>Event $x$,<br>Probability $p_x$,<br>“Surprise” $log(1/p_x)$,<br>Entropy:<br>$$<br>\begin{aligned}<br>&amp;H(p)=E_{p}\left[\log \frac{1}{p_{x}}\right]\\<br>&amp;\mathrm{H}(p)=-\sum_{x} p_{x} \log p_{x}<br>\end{aligned}<br>$$</p>
+<p>熵最大的分布就是均匀分布，也就是每一个选项都一样，等于什么信息都没给。如果给了额外的信息，如约束，特征之后，熵就可以降低。</p>
+<p>“最大熵”是指遵循最大熵原则：</p>
+<blockquote>
+<p>model all that is known and assume nothing about that which is unknown.</p>
+</blockquote>
+<p>也就说, 如果给定了一组事实，我们最好选择一个符合这些事实的模型，剩余情况则尽可能地一视同仁不做任何区别对待。最佳的模型是符合训练数据衍生的约束条件的模型，同时尽可能少地做假设，也就是少做承诺，也就避免过拟合。</p>
+<p>MEMM 把HMM中的转移概率和发射概率替换为一个概率：当前状态$s$依赖于前一个状态$s^{\prime}$和当前观察值$o$, $\mathrm{P}\left(s | s^{\prime}, o\right)$</p>
+<p>MEMM的训练思路是这样: 对每个状态$s^{\prime}$, 将训练数据分为<code>&lt;观察-目标状态&gt;对</code> $&lt;o, s&gt;$, 也就是把 $\mathrm{P}\left(s | s^{\prime}, o\right)$ 分成 $|S|$ 个分别训练的exponential model $\mathrm{P}_{s^{\prime}}(s | o)=\mathrm{P}\left(s | s^{\prime}, o\right)$, 再通过最大化熵来训练exponential models, 换种说法叫<code>logistic regression classifier</code>.</p>
+<p>用的约束条件是学习分布中每个特征$a$的期望值与训练数据的观测序列上每个特征的期望值相同. 满足这些约束的最大熵分布（Della Pietra，Della Pietra和Lafferty，1997）是唯一的，与最大似然分布一致，对每一个位置的状态$s^{\prime}$, 具有指数形式：<br>$$<br>\mathrm{P}_{s^{\prime}}(s | o)=\frac{1}{Z\left(o, s^{\prime}\right)} \exp \left(\sum_{a} \lambda_{a} f_{a}(o, s)\right)<br>$$<br>其中$\lambda_{a}$是待估计的参数, $Z\left(o, s^{\prime}\right)$是归一化因子<br>$$<br>Z\left(o, s^{\prime}\right)=\sum_{s \in S} P\left(s | s^{\prime}, o\right)<br>$$<br>$S$是标签集.</p>
+<p>如果把问题简化为线性的相邻依赖, 那么每一个状态$s_{i}$仅依赖于前一个状态$s_{i-1}$. 用$Y$表达标签序列, 用$X$表达观察序列, 那么<br>$$P\left(y_{1}, y_{2}, \ldots, y_{n} | \boldsymbol{x}\right)=P\left(y_{1} | \boldsymbol{x}\right) P\left(y_{2} | \boldsymbol{x}, y_{1}\right) P\left(y_{3} | \boldsymbol{x}, y_{2}\right) \ldots P\left(y_{n} | \boldsymbol{x}, y_{n-1}\right)$$<br>其中<br>$$P\left(y_{1} | \boldsymbol{x}\right)=\frac{e^{f\left(y_{1} ; \boldsymbol{x}\right)}}{\sum_{y_{1} \in S} e^{f\left(y_{k} ; \boldsymbol{x}\right)}}, \quad P\left(y_{k} | \boldsymbol{x}, y_{k-1}\right)=\frac{e^{g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)}}{\sum_{y_{k} \in S} e^{g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)}}$$<br>则<br>$$P(\boldsymbol{y} | \boldsymbol{x})=\frac{e^{f\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+f\left(y_{2} ; \boldsymbol{x}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right)}}{\left(\sum_{y_{1} \in S} e^{f\left(y_{1} ; \boldsymbol{x}\right)}\right)\left(\sum_{y_{2} \in S} e^{g\left(y_{1}, y_{2}\right)+f\left(y_{2} ; \boldsymbol{x}\right)}\right) \cdots\left(\sum_{y_{n} \in S} e^{g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right)}\right)}$$<br>MEMM将整体的概率分布分解为每一个时间步的分布之积，所以算loss只需要把每一步的交叉熵求和。只需要每一步单独执行softmax，所以MEMM是完全可以并行的，速度跟直接逐步Softmax基本一样。</p>
+<p>虽然MEMM能克服HMM的很多弱点, 但是MEMM自身也有一个 <strong>label bias</strong> 问题, 就是标签偏差, 离开给定状态的转移仅相互对比，而不是与全局所有其他转移对比。转移分数是分别对每个状态的归一化, 这意味到达一个状态的所有质量必须在可能的后续状态之间分配。观察值可以影响哪个目标状态获得质量，但无法影响多少质量可以被传递。这会导致模型偏向输出选择较少的状态, 比如极端情况下, 在训练集中某个状态$s_a$只发现了有一种可能的转移$s_b$, 那么状态$s_a$别无选择，只能将所有质量传递给它的唯一transition output $s_b$。那么后续在预测时, 。</p>
+<h3 id="MEMM到CRF"><a href="#MEMM到CRF" class="headerlink" title="MEMM到CRF"></a>MEMM到CRF</h3><p>CRF再拥有MEMM的优点的同时, 克服了MEMM的缺点. CRF和MEMM的关键区别在于，MEMM使用每个状态的指数模型来确定给定当前状态的下一状态的条件概率，而CRF则使用一个指数模型来表示整个标签序列的联合概率, 这个概率条件依赖于给定的完整观察序列。因此，在不同状态下，不同特征的权重可以相互抵消。也就是说CRF是一个以观测序列$X$为全局条件的随机场.</p>
+<p>如果把问题简化为线性链, CRF把y看成一个整体，截至每一个时间步$n$, 通过统计所有特征可以得一个总分<br>$$\begin{aligned}<br>f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right) &amp;=f\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right) \\<br>&amp;=f\left(y_{1} ; \boldsymbol{x}\right)+\sum_{k=2}^{n}\left(g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)\right)<br>\end{aligned}$$<br>其中$g\left(y_{k-1}, y_{k}\right)$是转移矩阵</p>
+<p>可以得到对应得概率是<br>$$P(\boldsymbol{y} | \boldsymbol{x})=\frac{e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}{\sum_{y_{1}, y_{2}, \ldots, y_{n} \in S^n} e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}$$<br>CRF的计算困难之处在于上式的分母项包含了所有可能路径$S^n$的求和，搜索空间非常庞大.</p>
+<p>线性链CRF和线性链MEMM比较, 区别仅在于分母（也就是归一化因子）的计算方式不同，CRF的是全局归一化的，而MEMM的是局部归一化的.</p>
 <h3 id="隐马尔可夫模型到CRF"><a href="#隐马尔可夫模型到CRF" class="headerlink" title="隐马尔可夫模型到CRF"></a>隐马尔可夫模型到CRF</h3><p>HMM和CRF的对应关系类似于Naive-Bayes和Logistics regression, 都是生成式和判别式的对比. HMM则采用生成式方法进行标签生成, CRF将各种特征组合在一起判断标签. HMM可以推演出特定形式的CRF. 把上式的HMM改写成如下形式:</p>
 <p>$$<br>\begin{aligned}<br>    p(\mathbf{y}, \mathbf{x})=&amp; \frac{1}{Z} \prod_{t=1}^T \exp \left( \sum_{i, j \in S} \theta_{i j} \mathbf{1}_{\{y_t=i\}} \mathbf{1}_{\{y_{t-1}=j\}} \right. \\\<br>    &amp;\left.+ \sum_{i \in S} \sum_{o \in O} \mu_{o i} \mathbf{1}_{\{y_{t}=i\}} \mathbf{1}_{\{x_{t}=o\}} \right)<br>\end{aligned}<br>$$<br>其中$\theta=\{\theta_{i j}, \mu_{o i}\}$是分布的实参数, $Z$是常数正则项.<br>$$<br>\begin{aligned}<br>    \theta_{i j} &amp;=\log p\left(y^{\prime}=i | y=j\right) \\\\<br>    \mu_{o i} &amp;=\log p(x=o | y=i) \\\\<br>    Z &amp;=1<br>\end{aligned}<br>$$</p>
 <p>HMM是生成式的, 借鉴Naive Bayes 到 logistics regression的方式, 通过引入特征函数这个概念, $f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)$, 对于每一个$(i, j)$跳转, 加入特征函数$f_{i j}\left(y, y^{\prime}, x\right)=\mathbf{1}_{\{y=i\}} \mathbf{1}_{\{y^{\prime}=j\}}$, 对于每一个<code>状态-观察值</code>对$(i,o)$, 加入特征函数$f_{i o}\left(y, y^{\prime}, x\right)=1_{\{y=i\}} \mathbf{1}_{\{x=o\}}$. 以上特征函数统一表示为$f_k$, 那么可以进一步把HMM写成:</p>
 <p>$$p(\mathbf{y}, \mathbf{x})=\frac{1}{Z} \prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)\right)$$</p>
 <p>可以得出条件概率$p(y|x)$</p>
 <p>$$p(\mathbf{y} | \mathbf{x})=\frac{p(\mathbf{y}, \mathbf{x})}{\sum_{\mathbf{y}^{\prime}} p\left(\mathbf{y}^{\prime}, \mathbf{x}\right)}=\frac{\prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)\right)}{\sum_{\mathbf{y}^{\prime}} \prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}^{\prime}, y_{t-1}^{\prime}, x_{t}\right)\right)}$$</p>
-<p>所以当联合概率$p(y,x)$以HMM的形式因式分解, 则关联的条件分布$p(y|x)$就是一种特定形式的linear-chain CRF. <img src="/images/HMM-like-linear-chain-crf.png" alt="" title="Graphical model of the HMM-like linear-chain CRF. by Sutton, C. 2010"></p>
+<p>所以当联合概率$p(y,x)$以HMM的形式因式分解, 则关联的条件分布$p(y|x)$就是一种特定形式的linear-chain CRF，即一种仅使用当前单词自身作为特征的CRF. <img src="/images/HMM-like-linear-chain-crf.png" alt="" title="Graphical model of the HMM-like linear-chain CRF. by Sutton, C. 2010"></p>
 <h2 id="Linear-Chain-CRF"><a href="#Linear-Chain-CRF" class="headerlink" title="Linear Chain CRF"></a>Linear Chain CRF</h2><p>随机场, 可以看成是一组随机变量的集合（这组随机变量对应同一个样本空间）。当给每一个位置按照某种分布随机赋予一个值之后，其全体就叫做随机场。这些随机变量之间可能有依赖关系，一般来说，也只有当这些变量之间有依赖关系的时候，我们将其单独拿出来看成一个随机场才有实际意义。</p>
 <p>如果给定的MRF中每个随机变量下面还有观察值，我们要确定的是给定观察集合下，这个MRF的分布，也就是<strong>条件分布</strong>，那么这个MRF就称为 Conditional random fields (CRF)。它的条件分布形式完全类似于MRF的分布形式，只不过多了一个观察集合X。所以, CRF本质上是给定了条件(观察值observations)集合的MRF.</p>
 <p>1.特征函数的选择: 特征函数的选取直接关系模型的性能。<br>2.参数估计: 从已经标注好的训练数据集学习条件随机场模型的参数，即各特征函数的权重向量λ。<br>3.模型推断: 在给定条件随机场模型参数λ下，预测出最可能的状态序列。</p>
@@ -523,7 +549,12 @@
 </ul>
 <p>原则上，任何类型的模型都可以使用贝叶斯规则转换为另一种类型，但实际上这些方法是不同的. 生成模型和判别模型都描述了$p(y, x)$的概率分布，但努力的方向不同。生成模型，例如朴素贝叶斯分类器和HMM，是一类可以因式分解为$p(y, x) = p(y)p(x|y)$的联合分布, 也就是说，它们描述了如何为给定标签的特征采样或“生成”值。生成式模型从统计的角度表示数据的分布情况，能够反映同类数据本身的相似度，不关心判别边界。生成式模型的优点是:<br>• 实际上带的信息要比判别模型丰富， 研究单类问题比判别模型灵活性强<br>• 能更充分的利用先验知识<br>• 模型可以通过增量学习得到<br>缺点也很明显: • 学习过程比较复杂; • 在目标分类问题中准确度不高</p>
 <p>而判别式模型, 比如 LR, 是一系列条件分布$p(y | x)$. 也就是说，分类规则是直接建模的。原则上，判别模型也可通过为输入提供边际分布$p(x)$来获得联合分布$p(y, x)$，但很少需要这样。条件分布$p(y | x)$不包括$p(x)$的信息，在分类任务中其实无论如何也用不到。其次，对$p(x)$建模的困难之处在于它通常包含很多建模难度较高的有高度依赖性的特征。判别式模型寻找不同类别之间的最优分类面，反映的是异类数据之间的差异。优点是:<br>• 分类边界更灵活，比使用纯概率方法或生产模型得到的更高级。<br>• 能清晰的分辨出多类或某一类与其他类之间的差异特征<br>• 在聚类、viewpoint changes, partial occlusion and scale variations中的效果较好<br>•适用于较多类别的识别<br>缺点是：• 不能反映训练数据本身的特性。• 能力有限，可以分类, 但无法把整个场景描述出来。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/" target="_blank" rel="noopener">http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/</a><br>Classical probabilistic models and conditional random fields<br><a href="http://homepages.inf.ed.ac.uk/csutton/publications/crftut-fnt.pdf" target="_blank" rel="noopener">An Introduction to Conditional Random Fields</a>, by Charles Sutton and Andrew McCallum</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://homepages.inf.ed.ac.uk/csutton/publications/crftut-fnt.pdf" target="_blank" rel="noopener">An Introduction to Conditional Random Fields</a>, Sutton, C., &amp; McCallum, A. (2011)</li>
+<li><a href="http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/" target="_blank" rel="noopener">http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/</a></li>
+<li>Classical probabilistic models and conditional random fields</li>
+<li>McCallum, A. (1909). Maximum Entropy Markov Models for Information Extraction and Segmentation. Berichte Der Deutschen Chemischen Gesellschaft, 42(1), 310–317. <a href="https://doi.org/10.1002/cber.19090420146" target="_blank" rel="noopener">https://doi.org/10.1002/cber.19090420146</a></li>
+</ol>
 
       
     </div>
@@ -734,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序列标注（Sequence-Labeling）"><span class="nav-number">1.</span> <span class="nav-text">序列标注（Sequence Labeling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率图模型"><span class="nav-number">2.</span> <span class="nav-text">概率图模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#朴素贝叶斯分类器与隐马尔可夫模型"><span class="nav-number">2.1.</span> <span class="nav-text">朴素贝叶斯分类器与隐马尔可夫模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐马尔可夫模型到CRF"><span class="nav-number">2.2.</span> <span class="nav-text">隐马尔可夫模型到CRF</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Chain-CRF"><span class="nav-number">3.</span> <span class="nav-text">Linear Chain CRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与HMM"><span class="nav-number">3.1.</span> <span class="nav-text">CRF与HMM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与Logistic-Regression"><span class="nav-number">3.2.</span> <span class="nav-text">CRF与Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF模型训练"><span class="nav-number">3.3.</span> <span class="nav-text">CRF模型训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF中文命名实体识别"><span class="nav-number">3.4.</span> <span class="nav-text">CRF中文命名实体识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谈谈生成式模型和判别式模型"><span class="nav-number">3.5.</span> <span class="nav-text">谈谈生成式模型和判别式模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序列标注（Sequence-Labeling）"><span class="nav-number">1.</span> <span class="nav-text">序列标注（Sequence Labeling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率图模型"><span class="nav-number">2.</span> <span class="nav-text">概率图模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#朴素贝叶斯分类器与隐马尔可夫模型"><span class="nav-number">2.1.</span> <span class="nav-text">朴素贝叶斯分类器与隐马尔可夫模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐马尔可夫模型到最大熵马尔可夫模型"><span class="nav-number">2.2.</span> <span class="nav-text">隐马尔可夫模型到最大熵马尔可夫模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MEMM到CRF"><span class="nav-number">2.3.</span> <span class="nav-text">MEMM到CRF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐马尔可夫模型到CRF"><span class="nav-number">2.4.</span> <span class="nav-text">隐马尔可夫模型到CRF</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Chain-CRF"><span class="nav-number">3.</span> <span class="nav-text">Linear Chain CRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与HMM"><span class="nav-number">3.1.</span> <span class="nav-text">CRF与HMM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF与Logistic-Regression"><span class="nav-number">3.2.</span> <span class="nav-text">CRF与Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF模型训练"><span class="nav-number">3.3.</span> <span class="nav-text">CRF模型训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF中文命名实体识别"><span class="nav-number">3.4.</span> <span class="nav-text">CRF中文命名实体识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谈谈生成式模型和判别式模型"><span class="nav-number">3.5.</span> <span class="nav-text">谈谈生成式模型和判别式模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
