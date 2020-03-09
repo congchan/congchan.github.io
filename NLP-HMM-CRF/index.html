@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://congchan.github.io/images/人名指界词.png">
 <meta property="og:image" content="https://congchan.github.io/images/人名识别特征原子模板.png">
 <meta property="og:image" content="https://congchan.github.io/images/relationship_nbs_hmm_lr_crf.png">
-<meta property="og:updated_time" content="2020-03-09T11:04:49.003Z">
+<meta property="og:updated_time" content="2020-03-09T11:31:13.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
 <meta name="twitter:description" content="序列标注（Sequence Labeling）序列标注任务是指根据观察得到的序列（如一个句子）, 推断出序列每个元素（单词）对应的标注。 具体的任务包括分词(Segmentation), 词性标注（Part-of-Speach tagging, POS）, 实体识别(Named Entity Recognition, NER), 等等. 所谓POS, 就是对于一个句子, 如Bob drank co">
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  7,423
+                  7,141
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  30 min
+                  29 min
                 </span>
               
             </div>
@@ -476,7 +476,7 @@
 <p>MEMM的训练思路是这样: 对每个状态$s^{\prime}$, 将训练数据分为<code>&lt;观察-目标状态&gt;对</code> $&lt;o, s&gt;$, 也就是把 $\mathrm{P}\left(s | s^{\prime}, o\right)$ 分成 $|S|$ 个分别训练的exponential model $\mathrm{P}_{s^{\prime}}(s | o)=\mathrm{P}\left(s | s^{\prime}, o\right)$, 再通过最大化熵来训练exponential models, 换种说法叫<code>logistic regression classifier</code>.</p>
 <p>用的约束条件是学习分布中每个特征$a$的期望值与训练数据的观测序列上每个特征的期望值相同. 满足这些约束的最大熵分布（Della Pietra，Della Pietra和Lafferty，1997）是唯一的，与最大似然分布一致，对每一个位置的状态$s^{\prime}$, 具有指数形式：<br>$$<br>\mathrm{P}_{s^{\prime}}(s | o)=\frac{1}{Z\left(o, s^{\prime}\right)} \exp \left(\sum_{a} \lambda_{a} f_{a}(o, s)\right)<br>$$<br>其中$\lambda_{a}$是待估计的参数, $Z\left(o, s^{\prime}\right)$是归一化因子<br>$$<br>Z\left(o, s^{\prime}\right)=\sum_{s \in S} P\left(s | s^{\prime}, o\right)<br>$$<br>$S$是标签集.</p>
 <p>如果把问题简化为线性的相邻依赖, 那么每一个状态$s_{i}$仅依赖于前一个状态$s_{i-1}$. 用$Y$表达标签序列, 用$X$表达观察序列, 那么<br>$$P\left(y_{1}, y_{2}, \ldots, y_{n} | \boldsymbol{x}\right)=P\left(y_{1} | \boldsymbol{x}\right) P\left(y_{2} | \boldsymbol{x}, y_{1}\right) P\left(y_{3} | \boldsymbol{x}, y_{2}\right) \ldots P\left(y_{n} | \boldsymbol{x}, y_{n-1}\right)$$<br>其中<br>$$P\left(y_{1} | \boldsymbol{x}\right)=\frac{e^{f\left(y_{1} ; \boldsymbol{x}\right)}}{\sum_{y_{1} \in S} e^{f\left(y_{k} ; \boldsymbol{x}\right)}}, \quad P\left(y_{k} | \boldsymbol{x}, y_{k-1}\right)=\frac{e^{g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)}}{\sum_{y_{k} \in S} e^{g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)}}$$<br>则<br>$$P(\boldsymbol{y} | \boldsymbol{x})=\frac{e^{f\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+f\left(y_{2} ; \boldsymbol{x}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right)}}{\left(\sum_{y_{1} \in S} e^{f\left(y_{1} ; \boldsymbol{x}\right)}\right)\left(\sum_{y_{2} \in S} e^{g\left(y_{1}, y_{2}\right)+f\left(y_{2} ; \boldsymbol{x}\right)}\right) \cdots\left(\sum_{y_{n} \in S} e^{g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right)}\right)}$$<br>MEMM将整体的概率分布分解为每一个时间步的分布之积，所以算loss只需要把每一步的交叉熵求和。只需要每一步单独执行softmax，所以MEMM是完全可以并行的，速度跟直接逐步Softmax基本一样。</p>
-<p>虽然MEMM能克服HMM的很多弱点, 但是MEMM自身也有一个 <strong>label bias</strong> 问题, 就是标签偏差, 离开给定状态的转移仅相互对比，而不是与全局所有其他转移对比。转移分数是分别对每个状态的归一化, 这意味到达一个状态的所有质量必须在可能的后续状态之间分配。观察值可以影响哪个目标状态获得质量，但无法影响多少质量可以被传递。这会导致模型偏向输出选择较少的状态, 比如极端情况下, 在训练集中某个状态$s_a$只发现了有一种可能的转移$s_b$, 那么状态$s_a$别无选择，只能将所有质量传递给它的唯一transition output $s_b$。那么后续在预测时, 。</p>
+<p>虽然MEMM能克服HMM的很多弱点, 但是MEMM自身也有一个 <strong>label bias</strong> 问题, 就是标签偏差, 离开给定状态的转移仅相互对比，而不是与全局所有其他转移对比。转移分数是分别对每个状态的归一化, 这意味到达一个状态的所有质量必须在可能的后续状态之间分配。观察值可以影响哪个目标状态获得质量，但无法影响多少质量可以被传递。这会导致模型偏向输出选择较少的状态, 比如极端情况下, 在训练集中某个状态$s_a$只发现了有一种可能的转移$s_b$, 那么状态$s_a$别无选择，只能将所有质量传递给它的唯一的 transition output $s_b$。</p>
 <h3 id="MEMM和CRF"><a href="#MEMM和CRF" class="headerlink" title="MEMM和CRF"></a>MEMM和CRF</h3><p>CRF再拥有MEMM的优点的同时, 克服了MEMM的缺点. CRF和MEMM的关键区别在于，MEMM使用每个状态的指数模型来确定给定当前状态的下一状态的条件概率，而CRF则使用一个指数模型来表示整个标签序列的联合概率, 这个概率条件依赖于给定的完整观察序列。因此，在不同状态下，不同特征的权重可以相互抵消。也就是说CRF是一个以观测序列$X$为全局条件的随机场.</p>
 <p>如果把问题简化为线性链, CRF把$Y$看成一个整体，截至每一个时间步$n$, 通过统计所有特征可以得一个总分<br>$$\begin{aligned}<br>f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right) &amp;=f\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right) \\<br>&amp;=f\left(y_{1} ; \boldsymbol{x}\right)+\sum_{k=2}^{n}\left(g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)\right)<br>\end{aligned}$$<br>其中$g\left(y_{k-1}, y_{k}\right)$是转移矩阵</p>
 <p>可以得到对应得概率是<br>$$P(\boldsymbol{y} | \boldsymbol{x})=\frac{e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}{\sum_{y_{1}, y_{2}, \ldots, y_{n} \in S^n} e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}$$<br>CRF的计算困难之处在于上式的分母项包含了所有可能路径$S^n$的求和，搜索空间非常庞大.</p>
@@ -488,12 +488,6 @@
 <p>可以得出条件概率$p(y|x)$</p>
 <p>$$p(\mathbf{y} | \mathbf{x})=\frac{p(\mathbf{y}, \mathbf{x})}{\sum_{\mathbf{y}^{\prime}} p\left(\mathbf{y}^{\prime}, \mathbf{x}\right)}=\frac{\prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)\right)}{\sum_{\mathbf{y}^{\prime}} \prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}^{\prime}, y_{t-1}^{\prime}, x_{t}\right)\right)}$$</p>
 <p>所以当联合概率$p(y,x)$以HMM的形式因式分解, 则关联的条件分布$p(y|x)$就是一种特定形式的linear-chain CRF，即一种仅使用当前单词自身作为特征的CRF. <img src="/images/HMM-like-linear-chain-crf.png" alt="" title="Graphical model of the HMM-like linear-chain CRF. by Sutton, C. 2010"></p>
-<p>CRF比HMM更强大, 更广泛</p>
-<ol>
-<li>CRF可以定义更广泛的特征函数：HMM受限于相邻位置的状态转换（二元转换）和发射概率函数，迫使每个单词仅依赖于当前标签，并且每个标签仅依赖于前一个标签。而CRF可以使用更多样的全局特征。例如，如果句子的结尾包含问号，则可以给给CRF模型增加一个特征函数，记录此时将句子的第一个单词标记为VERB的概率。这使得CRF可以使用长距离依赖的特征。</li>
-<li>CRF可以有任意的权重值：HMM的概率值必须满足特定的约束， $0 &lt;= p(w_i | l_i) &lt;= 1, \sum_w p(w_i = w | l_1) = 1)$, 而CRF的权重值是不受限制的。</li>
-</ol>
-<p>CRF既具有判别式模型的优点，又考虑到长距离上下文标记间的转移概率，以序列化形式进行全局参数优化和解码的特点，解决了其他判别式模型(如MEMM)难以避免的标记偏见问题。</p>
 <h3 id="Linear-Chain-CRF"><a href="#Linear-Chain-CRF" class="headerlink" title="Linear Chain CRF"></a>Linear Chain CRF</h3><p>随机场, 可以看成是一组随机变量的集合（这组随机变量对应同一个样本空间）。当给每一个位置按照某种分布随机赋予一个值之后，其全体就叫做随机场。这些随机变量之间可能有依赖关系，一般来说，也只有当这些变量之间有依赖关系的时候，我们将其单独拿出来看成一个随机场才有实际意义。</p>
 <p>如果给定的MRF中每个随机变量下面还有观察值，我们要确定的是给定观察集合下，这个MRF的分布，也就是<strong>条件分布</strong>，那么这个MRF就称为 Conditional random fields (CRF)。它的条件分布形式完全类似于MRF的分布形式，只不过多了一个观察集合X。所以, CRF本质上是给定了条件(观察值observations)集合的MRF.</p>
 <p>1.特征函数的选择: 特征函数的选取直接关系模型的性能。<br>2.参数估计: 从已经标注好的训练数据集学习条件随机场模型的参数，即各特征函数的权重向量λ。<br>3.模型推断: 在给定条件随机场模型参数λ下，预测出最可能的状态序列。</p>
@@ -517,7 +511,7 @@
 <li>单词的标签$y_{i-1, i}$</li>
 </ol>
 <p>需要指出的是在线性链CRF的定义中每个feature的依赖值并不仅限于当前和上一时间步的观察值. 事实上, 因为CRF并不表达变量之间的依赖关系, 我们可以让因子$\Psi_{t}$依赖于整个观察向量$x$并保持线性图结构, 这时候的特征函数就是$f_{k}\left(y_{t}, y_{t-1}, \mathbf{x}\right)$, 可以自由检视所有输入变量$x$, <img src="/images/linear-chain-crf-depend-on-all-observations.png" alt="" title="from: An Introduction to Conditional Random Fields, by Charles Sutton and Andrew McCallum"> 这个特性可以拓展到所有CRFs而不仅限于线性链CRF.</p>
-<p>CRF比HMM更强大, 更广泛</p>
+<p>CRF比HMM更强大, 更泛用</p>
 <ol>
 <li>CRF可以定义更广泛的特征函数：HMM受限于相邻位置的状态转换（二元转换）和发射概率函数，迫使每个单词仅依赖于当前标签，并且每个标签仅依赖于前一个标签。而CRF可以使用更多样的全局特征。例如，如果句子的结尾包含问号，则可以给给CRF模型增加一个特征函数，记录此时将句子的第一个单词标记为VERB的概率。这使得CRF可以使用长距离依赖的特征。</li>
 <li>CRF可以有任意的权重值：HMM的概率值必须满足特定的约束， $0 &lt;= p(o_i | s_i) &lt;= 1, \sum_o p(o_i = x | y_1) = 1)$, 而CRF的权重值是不受限制的。</li>
