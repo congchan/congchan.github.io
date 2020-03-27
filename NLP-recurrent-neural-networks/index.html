@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png">
 <meta property="og:image" content="https://congchan.github.io/images/gru.vs.lstm.png">
 <meta property="og:image" content="https://congchan.github.io/images/bidirectional_rnn.png">
-<meta property="og:updated_time" content="2019-01-01T06:46:51.583Z">
+<meta property="og:updated_time" content="2020-03-27T03:14:26.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="循环神经网络">
 <meta name="twitter:description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,404
+                  2,649
                 </span>
               
 
@@ -466,13 +466,13 @@
 <p>输入门和遗忘门一起，控制每一步的信息存储和改写, 将遗忘信息和候选信息组合在一起作为<strong>更新信息</strong>，作为当前时间步的新记忆单元，$C_{t}$.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
 <p>3, 最后，用一个<strong>输出门</strong> Output gate (a sigmoid layer) 来控制多少记忆单元作为当前步的工作隐含状态$h_t$。先通过一个tanh激活层把当前记忆单元$C_t$推送为<code>[-1, 1]</code>之间的值, 再乘以输出门.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
 <p>总的来说, LSTM有遗忘门, 输入门和输出门这<strong>三个门</strong>. 加上其中的更新信息, 形式上LSTM有<strong>四个神经网络</strong>, 输入都是上一步隐含状态和当前步的输入向量的.</p>
-<h3 id="GRUs"><a href="#GRUs" class="headerlink" title="GRUs"></a>GRUs</h3><p>LSTMs有两种隐含状态, 但GRUs (<a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="noopener">Cho, et al. (2014)</a>)抛弃了这种设计, 只用一种隐含状态$h$. 这导致了一系列的变化.</p>
-<p>GRUs首先根据当前的输入词向量和隐含状态计算<strong>更新门</strong>$z_t$和一个<strong>重置门</strong>$r_t$。重置门用于协助计算隐含层的更新信息$\widetilde{h}_t$. 输出的隐含状态$h_t$是由更新门$z_t$来控制.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<h3 id="GRUs"><a href="#GRUs" class="headerlink" title="GRUs"></a>GRUs</h3><p>LSTMs分别使用记忆单元和隐含状态来控制信息流, 其中最新的隐含状态需要用到最新的记忆单元来计算，每一步输出只用到隐含状态的信息，也就说记忆单元本质上是为隐含状态的更新服务的。而记忆单元自身就用到了三个神经网络来计算，而且可以看到记忆单元和隐含状态的计算似乎有一些冗余。比如LSTM的遗忘门和更新门，更新和遗忘本身就是相伴相随的，对于一个记忆单元来说，本身的容量是固定的，需要更新多少信息，自然也意味着需要遗忘多少信息，也就是可以用一个神经网络来控制。随着数据量的增大和神经网络增大，是否可以把一些门合并简化？</p>
+<p>GRUs (<a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="noopener">Cho, et al. (2014)</a>)就抛弃了记忆单元的设定, 只用隐含状态 $h$ 来表达信息流. GRUs首先根据当前的输入词向量和隐含状态计算<strong>更新门</strong>$z_t$和一个<strong>重置门</strong>$r_t$。核心是更新门$z_t$，用于控制更新多少新的候选信息$\widetilde{h}_t$, 同时意味着只保留$(1 - z_t)$的旧信息$h_{t-1}$. 隐含状态的候选信息$\widetilde{h}_t$用重置门$r_t$计算.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
 <p>LSTMs的遗忘门和输入门的合作核心是<strong>更新信息</strong>. 而GRUs将LSTMs的遗忘门和输入门合并成一个更新门, 抛弃了输出门的概念, 让更新门负责计算新的隐含状态. 这样GRUs内部总共只有两个门, 三个神经网络, 某种程度上简化了LSTMs模型。</p>
 <p>GRU intuition</p>
 <ul>
 <li>重置门赋予了模型丢弃与未来无关的信息的能力。若重置门接近于0，则忽略之前的记忆，仅储存新加入的信息.</li>
-<li>更新门控制过去的状态对现在的影响程度（即决定更新多少），如果接近于1，则 $h_t=z_t\cdot h_{t-1}$, 等同于把过去的信息完整复制到未来，相应地缓解梯度衰减。</li>
+<li>更新门控制过去的状态对现在的影响程度（即决定更新多少），如果接近于$1$，则 $h_t=z_t\cdot h_{t-1}$, 等同于把过去的信息完整复制到未来，相应地缓解梯度衰减。</li>
 <li>短距离依赖的单元，过去的信息仅保留很短的时间，重置门一般很活跃，也就是数值在0和1之间频繁变动。</li>
 <li>长距离依赖的单元，重置门较稳定（保留过去的记忆较长时间），而更新门较活跃。</li>
 </ul>
@@ -638,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">92</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
