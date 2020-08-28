@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://congchan.github.io/algorithms-dynamic-programming-01/</loc>
+    <lastmod>2020-08-28T09:49:13.834Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/String-substring-search-Rabin-Karp-fingerprint/</loc>
+    <lastmod>2020-08-26T06:13:58.729Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/String-substring-search-Boyer-Moore/</loc>
+    <lastmod>2020-08-15T08:55:19.936Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/String-substring-search-KMP/</loc>
+    <lastmod>2020-08-11T08:21:29.143Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/String-string-symbol-table-Trie/</loc>
+    <lastmod>2020-07-24T08:28:40.010Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/String-string-symbol-table-other-Trie/</loc>
+    <lastmod>2020-07-24T08:28:35.060Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/String-string-match-algorithm-Trie/</loc>
+    <lastmod>2020-07-24T08:28:30.191Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/String-string-match-algorithm-ac-automaton/</loc>
+    <lastmod>2020-07-24T08:28:24.910Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/data-compression-huffman-compression/</loc>
+    <lastmod>2020-07-24T08:21:06.498Z</lastmod>
+  </url>  <url>
+    <loc>https://congchan.github.io/data-compression-introduction/</loc>
+    <lastmod>2020-07-24T08:21:01.975Z</lastmod>
+  </url>  <url>
     <loc>https://congchan.github.io/NLP-recurrent-neural-networks/</loc>
     <lastmod>2020-03-27T03:14:26.057Z</lastmod>
   </url>  <url>
@@ -169,9 +199,6 @@
     <loc>https://congchan.github.io/algorithms-applications-03-pattern-recognition/</loc>
     <lastmod>2019-07-30T09:45:16.498Z</lastmod>
   </url>  <url>
-    <loc>https://congchan.github.io/NLP-04-string-match-algorithm-ac-automaton/</loc>
-    <lastmod>2019-07-30T09:36:47.023Z</lastmod>
-  </url>  <url>
     <loc>https://congchan.github.io/word2vec/</loc>
     <lastmod>2019-07-29T13:11:08.220Z</lastmod>
   </url>  <url>
@@ -192,12 +219,6 @@
   </url>  <url>
     <loc>https://congchan.github.io/Launch-editor-in-Gitbash/</loc>
     <lastmod>2018-12-29T11:35:59.173Z</lastmod>
-  </url>  <url>
-    <loc>https://congchan.github.io/NLP-07-data-compression-introduction/</loc>
-    <lastmod>2018-12-17T13:06:31.923Z</lastmod>
-  </url>  <url>
-    <loc>https://congchan.github.io/NLP-08-data-compression-huffman-compression/</loc>
-    <lastmod>2018-12-17T13:06:05.733Z</lastmod>
   </url>  <url>
     <loc>https://congchan.github.io/csapp/</loc>
     <lastmod>2018-11-07T12:20:10.729Z</lastmod>
@@ -232,9 +253,6 @@
     <loc>https://congchan.github.io/algorithms-dynamic-programming-04/</loc>
     <lastmod>2018-10-15T09:25:41.950Z</lastmod>
   </url>  <url>
-    <loc>https://congchan.github.io/algorithms-dynamic-programming-01/</loc>
-    <lastmod>2018-10-15T09:25:10.252Z</lastmod>
-  </url>  <url>
     <loc>https://congchan.github.io/algorithms-01-asymptotic-analysis/</loc>
     <lastmod>2018-10-14T15:27:10.693Z</lastmod>
   </url>  <url>
@@ -250,23 +268,8 @@
     <loc>https://congchan.github.io/bits-operations-06/</loc>
     <lastmod>2018-10-10T03:26:37.010Z</lastmod>
   </url>  <url>
-    <loc>https://congchan.github.io/NLP-06-string-symbol-table-other-Trie/</loc>
-    <lastmod>2018-10-09T15:20:32.671Z</lastmod>
-  </url>  <url>
-    <loc>https://congchan.github.io/NLP-01-string-searching-algorithm-01-kmp/</loc>
-    <lastmod>2018-10-07T07:57:01.029Z</lastmod>
-  </url>  <url>
-    <loc>https://congchan.github.io/NLP-02-string-searching-algorithm-02-bm-rk/</loc>
-    <lastmod>2018-10-07T07:44:44.008Z</lastmod>
-  </url>  <url>
     <loc>https://congchan.github.io/bits-operations-02/</loc>
     <lastmod>2018-09-30T09:03:10.193Z</lastmod>
-  </url>  <url>
-    <loc>https://congchan.github.io/NLP-03-string-match-algorithm-Trie/</loc>
-    <lastmod>2018-09-30T09:02:24.563Z</lastmod>
-  </url>  <url>
-    <loc>https://congchan.github.io/NLP-05-string-symbol-table-Trie/</loc>
-    <lastmod>2018-09-30T09:02:12.262Z</lastmod>
   </url>  <url>
     <loc>https://congchan.github.io/machine-learning/</loc>
     <lastmod>2018-09-09T08:46:46.311Z</lastmod>

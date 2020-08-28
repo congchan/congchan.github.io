@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="NLP,Algorithm,KMP,Aho–Corasick algorithm,Trie," />
+  <meta name="keywords" content="Algorithm,Trie,Information Retrieval,Symbol table,String," />
 
 
 
@@ -83,26 +83,24 @@
 
 
 
-<meta name="description" content="In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also">
-<meta name="keywords" content="NLP,Algorithm,KMP,Aho–Corasick algorithm,Trie">
+<meta name="description" content="各种树的变种为了适应不同的应用场景, 人们使用不同的树结构来实现符号表. 九宫格输入法对于手机的九宫格输入法, 简单的实现方式是多次敲击: 通过反复按键输入一个字母，直到出现所需的字母。">
+<meta name="keywords" content="Algorithm,Trie,Information Retrieval,Symbol table,String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP">
-<meta property="og:url" content="https://congchan.github.io/NLP-01-string-searching-algorithm-01-kmp/index.html">
+<meta property="og:title" content="不同树结构的字符串符号表">
+<meta property="og:url" content="https://congchan.github.io/String-string-symbol-table-other-Trie/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also">
+<meta property="og:description" content="各种树的变种为了适应不同的应用场景, 人们使用不同的树结构来实现符号表. 九宫格输入法对于手机的九宫格输入法, 简单的实现方式是多次敲击: 通过反复按键输入一个字母，直到出现所需的字母。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://congchan.github.io/images/kmp1.png">
-<meta property="og:image" content="https://congchan.github.io/images/kmp2.png">
-<meta property="og:image" content="https://congchan.github.io/images/kmp_dfa.png">
-<meta property="og:image" content="https://congchan.github.io/images/build_dfa.png">
-<meta property="og:image" content="https://img-blog.csdn.net/20140812223633281">
-<meta property="og:image" content="http://hi.csdn.net/attachment/201106/14/8394323_13080758591kyV.jpg">
-<meta property="og:image" content="https://img-blog.csdn.net/20150812214857858">
-<meta property="og:updated_time" content="2018-10-07T07:57:01.029Z">
+<meta property="og:image" content="https://congchan.github.io/images/t9.png">
+<meta property="og:image" content="https://congchan.github.io/images/tst.png">
+<meta property="og:image" content="https://congchan.github.io/images/radix_trie.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Suffix_tree_BANANA.svg/250px-Suffix_tree_BANANA.svg.png">
+<meta property="og:image" content="https://congchan.github.io/images/string_symbol_table_cost_sum.png">
+<meta property="og:updated_time" content="2020-07-24T08:28:35.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP">
-<meta name="twitter:description" content="In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also">
-<meta name="twitter:image" content="https://congchan.github.io/images/kmp1.png">
+<meta name="twitter:title" content="不同树结构的字符串符号表">
+<meta name="twitter:description" content="各种树的变种为了适应不同的应用场景, 人们使用不同的树结构来实现符号表. 九宫格输入法对于手机的九宫格输入法, 简单的实现方式是多次敲击: 通过反复按键输入一个字母，直到出现所需的字母。">
+<meta name="twitter:image" content="https://congchan.github.io/images/t9.png">
 
 
 
@@ -132,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://congchan.github.io/NLP-01-string-searching-algorithm-01-kmp/"/>
+  <link rel="canonical" href="https://congchan.github.io/String-string-symbol-table-other-Trie/"/>
 
 
 
 
 
-  <title>NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>不同树结构的字符串符号表 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -279,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-01-string-searching-algorithm-01-kmp/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/String-string-symbol-table-other-Trie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -296,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP</h1>
+          <h1 class="post-title" itemprop="name headline">不同树结构的字符串符号表</h1>
         
 
         <div class="post-meta">
@@ -308,8 +306,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-26T00:00:00+08:00">
-                2018-09-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-01T00:00:00+08:00">
+                2018-10-01
               </time>
             
 
@@ -331,19 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
                   </a>
                 </span>
 
@@ -360,9 +347,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/NLP-01-string-searching-algorithm-01-kmp/#comments" itemprop="discussionUrl">
+                <a href="/String-string-symbol-table-other-Trie/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="NLP-01-string-searching-algorithm-01-kmp/" itemprop="commentCount"></span>
+                        data-disqus-identifier="String-string-symbol-table-other-Trie/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -370,7 +357,7 @@
 
           
           
-             <span id="/NLP-01-string-searching-algorithm-01-kmp/" class="leancloud_visitors" data-flag-title="NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP">
+             <span id="/String-string-symbol-table-other-Trie/" class="leancloud_visitors" data-flag-title="不同树结构的字符串符号表">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -395,7 +382,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  2,065
+                  803
                 </span>
               
 
@@ -411,7 +398,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  9 min
+                  4 min
                 </span>
               
             </div>
@@ -432,56 +419,22 @@
       
 
       
-        <blockquote>
-<p>In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also called patterns) are found within a larger string or text.</p>
-</blockquote>
-<p>字符串搜索/匹配算法在大规模文本应用中有非常重要的作用，比如文章敏感词搜索，多关键词过滤搜索等。如果使用暴力搜索，则时间复杂度很高（若 m 为关键字的长度， n 为要待搜索的字符串长度， k为关键字数量，则复杂度为$O(n \times m \times k)$。而好的算法可以让这些问题的时间复杂度大大降低。</p>
-<p>常用的算法有Knuth–Morris–Pratt(KMP), Boyer-Moore(BM), Rabin-Karp(RK), Trie, Trie图, AC自动机等.<br><a id="more"></a></p>
-<h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><p>Knuth–Morris–Pratt 算法在每次搜索匹配前，预处理模式字符串，记录模式字符串自身重复的情况，即包含左临界的子字符串和包含右临界的子字符串的重复长度，以此来作为后续匹配的参考。当实际去匹配带搜索字符串时，想象是我们拿着模式字符串从左到右匹配过去。任何时候，如果发现匹配不上的时，不是简单地右移一位继续重新匹配，而是在已匹配部分的范围内，直接跳过k个字符，右移到与模式开头部分重复的位置，并接着重复部分后面继续开始匹配（重复的部分证明已经匹配过）。</p>
-<p>一个很好解释<a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">参考</a><br><img src="/images/kmp1.png" alt=""><img src="/images/kmp2.png" alt="" title="https://blog.csdn.net/v_july_v/article/details/7041827"><br>KMP算法的理论基础基于确定性有限状态自动机 DFA（Deterministic finite state automaton）。DFA可以理解为抽象的字符搜索机：</p>
-<ul>
-<li>有限数量的<strong>状态</strong>（包括开始和停止）。</li>
-<li>字母表每个字符对应一个状态转换。</li>
-<li>只接受能通往停止状态的转换序列。</li>
-</ul>
-<p><img src="/images/kmp_dfa.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"><br>如<code>ABCAABABABAB</code>对应<code>0→1→2→0→1→1→2→3→4→5→4→5→4</code></p>
-<p>可以看出KMP算法的几个要点:</p>
-<ul>
-<li>状态State: 表示模式中已匹配的字符数。<code>pattern[]</code>最长前缀(同时是<code>txt[0..i]</code>的后缀)的长度.</li>
-<li>需要预先从<code>pattern</code>中计算<code>dfa[][]</code></li>
-<li>字符串遍历指针只会前进不会后退</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String txt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, N = txt.length();</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; N &amp;&amp; j &lt; M; i++)</span><br><span class="line">		j = dfa[txt.charAt(i)][j];</span><br><span class="line">	<span class="keyword">if</span> (j == M) <span class="keyword">return</span> i - M;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> N;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Running time: at most N character accesses to Simulate DFA on text.</p>
-<h3 id="使用DFA"><a href="#使用DFA" class="headerlink" title="使用DFA"></a>使用DFA</h3><p>用状态<code>state j</code>表示模式<code>pat</code>的前<code>j</code>个字符已经匹配. 用<code>dfa[c][j]</code>表示在状态<code>state j</code>时, 遇到下一个字符<code>c</code>, 应该转移到什么状态.</p>
-<p>在状态<code>state j</code>：<br>· 如果匹配成功，<code>char c == pat.charAt(j)</code>，则转移到<code>state j+1</code>: <code>dfa[pat.charAt(j)][j] = j+1</code>.<br>· 如果失败，则从<code>pat[1..j-1]</code>对应的DFA状态<code>X</code>，向着<code>c</code>方向转移：<code>copy dfa[][X] to dfa[][j]</code>.<br>・Update <code>X</code>.<br><img src="/images/build_dfa.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">KMP</span><span class="params">(String pat)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.pat = pat;</span><br><span class="line">	M = pat.length();</span><br><span class="line">	dfa = <span class="keyword">new</span> <span class="keyword">int</span>[R][M];</span><br><span class="line">	dfa[pat.charAt(<span class="number">0</span>)][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> X = <span class="number">0</span>, j = <span class="number">1</span>; j &lt; M; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt; R; c++)</span><br><span class="line">			dfa[c][j] = dfa[c][X]; <span class="comment">// copy mismatch cases</span></span><br><span class="line">		dfa[pat.charAt(j)][j] = j+<span class="number">1</span>;</span><br><span class="line">		X = dfa[pat.charAt(j)][X];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Running time. M character accesses (but space/time proportional to R M).</p>
-<h3 id="NEXT数组"><a href="#NEXT数组" class="headerlink" title="NEXT数组"></a>NEXT数组</h3><p>假设现在文本串<code>S</code>匹配到<code>i</code>位置，模式串<code>P</code>匹配到<code>j</code>位置:<br><img src="https://img-blog.csdn.net/20140812223633281" alt="" title="image from: https://blog.csdn.net/v_july_v/article/details/7041827"><br>首先第一位NEXT值<code>next[0]</code>一定是<code>-1</code>, 后面的第<code>j+1</code>个值<code>next[j]</code>代表<code>[0, j-1]</code>部分有多少重复前后缀. 可以根据前一位的<code>next[j-1]</code>值<code>k</code>推断:</p>
-<ul>
-<li>如果<code>P[j] == P[k]</code>, 则意味着重复前后缀长度<code>+1</code>, 那么<code>next[j] = next[j-1] + 1 = k + 1</code>.</li>
-<li>如果<code>P[j] != P[k]</code>, 则意味着前面重复前后缀无法继续下去. 此时不能简单地判定<code>next[j] = 0</code>, 需要继续往前看是否有更短小的重复前后缀. 又因为重复前后缀意味着前后端相同, 因此可以直接匹配<code>P[j] ?= P[k&#39;], k&#39; = next[k]</code>, 以此循环下去直到<code>k&#39; = -1</code>为止.</li>
-</ul>
-<p>以上算法还可以进一步优化: 当<code>P[j] != S[i]</code>时，下次必然匹配<code>P[next [j]] ?= S[i]</code>，此时如果<code>P[j] == P[next[j]]</code>，则意味着匹配必然失败. 这样就出现了冗余匹配。所以如果出现<code>P[j] == P[next[j]]</code>，则令<code>next[j] = next[next[j]] = next[next[j-1] + 1] = next[k + 1]</code>.<img src="http://hi.csdn.net/attachment/201106/14/8394323_13080758591kyV.jpg" alt="" title="image from: https://blog.csdn.net/v_july_v/article/details/7041827"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetNext</span><span class="params">(<span class="keyword">char</span>[] p, <span class="keyword">int</span>[] next)</span> </span>&#123;</span><br><span class="line">	next[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> k = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> j = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (j &lt; p.length - <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="comment">//p[k]表示前缀，p[j]表示后缀</span></span><br><span class="line">		<span class="keyword">if</span> (k == -<span class="number">1</span> || p[j] == p[k]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p[++j] != p[++k])</span><br><span class="line">                next[j] = k;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">				next[j] = next[k];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			k = next[k];		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="各种树的变种"><a href="#各种树的变种" class="headerlink" title="各种树的变种"></a>各种树的变种</h2><p>为了适应不同的应用场景, 人们使用不同的树结构来实现符号表.</p>
+<h3 id="九宫格输入法"><a href="#九宫格输入法" class="headerlink" title="九宫格输入法"></a>九宫格输入法</h3><p>对于手机的九宫格输入法, 简单的实现方式是多次敲击: 通过反复按键输入一个字母，直到出现所需的字母。<br><a id="more"></a><br>但 <a href="http://www.t9.com/" target="_blank" rel="noopener">http://www.t9.com/</a> 的 T9 texting 支持更高效的输入方法:<br>・Find all words that correspond to given sequence of numbers.<br>・Press 0 to see all completion options.<br><img src="/images/t9.png" alt=""><br>Ex. hello<br>・多次敲击: 4 4 3 3 5 5 5 5 5 5 6 6 6<br>・T9: 4 3 5 5 6</p>
+<p>可以使用 8-way trie 来实现.</p>
+<h3 id="三元搜索Trie"><a href="#三元搜索Trie" class="headerlink" title="三元搜索Trie"></a>三元搜索Trie</h3><p><code>R</code>较大的R-way trie的空间效率不高，读取比较大的文件往往导致内存不足。但弊端是开辟出的数组内存利用率其实不高。现在很多系统都使用Unicode，分支可高达<code>65,536</code>. 所以需要更高效的方法。</p>
+<p>Ternary search tries:<br>・Store characters and values in nodes (not keys).<br>・Each node has 3 children: smaller (left), equal (middle), larger (right).<br><img src="/images/tst.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"><br>Search in a TST: Follow links corresponding to each character in the key.<br>・If less, take left link; if greater, take right link.<br>・If equal, take the middle link and move to the next key character.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TST</span>&lt;<span class="title">Value</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Node root;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Value val;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">private</span> Node left, mid, right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, Value val)</span></span></span><br><span class="line"><span class="function">    </span>&#123; root = put(root, key, val, <span class="number">0</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node x, String key, Value val, <span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) &#123; x = <span class="keyword">new</span> Node(); x.c = c; &#125;</span><br><span class="line">        <span class="keyword">if</span> (c &lt; x.c) x.left = put(x.left, key, val, d);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c &gt; x.c) x.right = put(x.right, key, val, d);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (d &lt; key.length() - <span class="number">1</span>) x.mid = put(x.mid, key, val, d+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> x.val = val;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(String key)</span></span></span><br><span class="line"><span class="function">    </span>&#123; <span class="keyword">return</span> get(key) != <span class="keyword">null</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(String key)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Node x = get(root, key, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> x.val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">get</span><span class="params">(Node x, String key, <span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">         <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">         <span class="keyword">if</span> (c &lt; x.c) <span class="keyword">return</span> get(x.left, key, d);</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (c &gt; x.c) <span class="keyword">return</span> get(x.right, key, d);</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (d &lt; key.length() - <span class="number">1</span>) <span class="keyword">return</span> get(x.mid, key, d+<span class="number">1</span>);</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>TSTs比hashing更快（特别是对于搜索缺失键的情况）。</p>
+<h3 id="基数树"><a href="#基数树" class="headerlink" title="基数树"></a>基数树</h3><p>Radix Tree, 也叫 Patricia trie (Practical Algorithm to Retrieve Information Coded in Alphanumeric), crit-bit tree, 压缩前缀树:<br>・Remove one-way branching.<br>・Each node represents a sequence of characters.<br>・Implementation: one step beyond this course.<br><img src="/images/radix_trie.png" alt="" title="put(&quot;shells&quot;, 1); put(&quot;shellfish&quot;, 2); image from: https://algs4.cs.princeton.edu/"><br>对于基数树的每个节点，如果该节点是唯一的子树的话，就和父节点合并。</p>
+<p>Applications.<br>・Database search.<br>・P2P network search.<br>・IP routing tables: find longest prefix match.<br>・Compressed quad-tree for N-body simulation.<br>・Efficiently storing and querying XML documents.</p>
+<h3 id="后缀树"><a href="#后缀树" class="headerlink" title="后缀树"></a>后缀树</h3><p>后缀树（Suffix tree）指字符串后缀的基数树: 一个<code>String S</code>的后缀树是一个边（edge）被标记为字符串的树。因此每一个<code>S</code>的后缀都唯一对应一条从根节点到叶节点的路径。这样就形成了一个<code>S</code>的后缀的基数树。<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Suffix_tree_BANANA.svg/250px-Suffix_tree_BANANA.svg.png" alt="" title="image from: https://en.wikipedia.org/"></p>
+<p>Applications.<br>・Linear-time: longest repeated substring, longest common substring, longest palindromic substring, substring search, tandem repeats, ….<br>・Computational biology databases (BLAST, FASTA).</p>
+<h2 id="字符符号表总结"><a href="#字符符号表总结" class="headerlink" title="字符符号表总结"></a>字符符号表总结</h2><p>Red-black BST.<br>・Performance guarantee: log N key compares.<br>・Supports ordered symbol table API.</p>
+<p>Hash tables.<br>・Performance guarantee: constant number of probes.<br>・Requires good hash function for key type.</p>
+<p>Tries. R-way, TST.<br>・Performance guarantee: log N characters accessed.<br>・Supports character-based operations.<br><img src="/images/string_symbol_table_cost_sum.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"></p>
 <blockquote>
-<p>对于优化后的next数组可以发现一点：如果模式串的后缀跟前缀相同，那么它们的next值也是相同的，例如模式串abcabc，它的前缀后缀都是abc，其优化后的next数组为：-1 0 0 -1 0 0，前缀后缀abc的next值都为-1 0 0.</p>
+<p>You can get at anything by examining 50-100 bits</p>
 </blockquote>
-<h3 id="基于NEXT数组的KMP算法"><a href="#基于NEXT数组的KMP算法" class="headerlink" title="基于NEXT数组的KMP算法"></a>基于NEXT数组的KMP算法</h3><p>基于前面求出的NEXT数组, 可以根据以下步骤实现KMP算法:</p>
-<ul>
-<li>假设现在文本串<code>S</code>匹配到<code>i</code>位置，模式串<code>P</code>匹配到<code>j</code>位置<ul>
-<li>if <code>j = -1</code>, or <code>S[i] == P[j]</code>(当前字符匹配成功), then <code>i++, j++</code></li>
-<li>else, <code>j = next[j]</code>。当失配时，模式串<code>P</code>相对于文本串<code>S</code>向右移动<code>j - next[j]</code>位(大于等于1)。</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img-blog.csdn.net/20150812214857858" alt="" title="image from: https://img-blog.csdn.net/20150812214857858"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 返回模式串第一次在文本串中出现的位置 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">KmpSearch</span><span class="params">(<span class="keyword">char</span>[] s, <span class="keyword">char</span>[] p)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; s.length &amp;&amp; j &lt; p.length) &#123;</span><br><span class="line">		<span class="keyword">if</span> (j == -<span class="number">1</span> || s[i] == p[j]) &#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			j = next[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (j == p.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> i - j;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="KMP应用"><a href="#KMP应用" class="headerlink" title="KMP应用"></a>KMP应用</h3><p>判断一段文字（原串）里面是否存在敏感词（模式串）。原题地址 <a href="http://hihocoder.com/problemset/problem/1015?sid=1368409：" target="_blank" rel="noopener">http://hihocoder.com/problemset/problem/1015?sid=1368409：</a></p>
-<p>输入：第一行一个整数N，表示测试数据组数。接下来的N*2行，每两行表示一个测试数据。在每一个测试数据中，第一行为模式串，由不超过10^4个大写字母组成，第二行为原串，由不超过10^6个大写字母组成。其中N&lt;=20.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">HA</span><br><span class="line">HAHAHA</span><br><span class="line">WQN</span><br><span class="line">WQN</span><br><span class="line">ADA</span><br><span class="line">ADADADA</span><br><span class="line">BABABB</span><br><span class="line">BABABABABABABABABB</span><br><span class="line">DAD</span><br><span class="line">ADDAADAADDAAADAAD</span><br></pre></td></tr></table></figure></p>
-<p>输出: 对于每一个测试数据，按照它们在输入中出现的顺序输出一行Ans，表示模式串在原串中出现的次数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
-<p>这里是需要找出出现的次数，因此不仅仅是找到第一个，还要继续遍历原串统计剩余出现的次数，同时要考虑重叠的部分。关键的功能代码可以复制上面的，但是需要作出一些改动。</p>
-<p>首先，因为部分重叠情况也是要统计的，比如<code>ADADADA</code>这个原串, 包含3个<code>ADA</code>. 所以要考虑即使匹配成功后, 模式串的索引<code>j</code>能够跳回前面的重复前缀位置. 考虑使用未优化过的NEXT计算方法.</p>
-<p>除此之外, 通过额外计算多一位NEXT值, 记录完整的模式串的重复前后缀长度, 以协助索引.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">GetNext</span><span class="params">(<span class="keyword">char</span>[] p, <span class="keyword">int</span>[] next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> k = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; p.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k == -<span class="number">1</span> || p[j] == p[k]) &#123;</span><br><span class="line">            next[++j] = ++k;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            k = next[k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对于<code>ADA</code>, 原来未优化过的NEXT是<code>-1,0,0</code>, 现在是<code>-1,0,0,1</code>, 最后一位<code>1</code>表示<code>ADA</code>这个模式串的重复前后缀是长度为<code>1</code>的<code>A</code>.</p>
-<p>借助额外长度的NEXT, 只需要小小地改动KMP计算逻辑, 最重要的是当<code>j</code>到达<code>NEXT</code>的额外位置时, 通过<code>j = next[j];</code>把<code>j</code>后拨到重复前缀的位置, 以方便进行后面的搜索.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 返回模式串在原串中出现的次数 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">KmpSearch</span><span class="params">(<span class="keyword">char</span>[] s, <span class="keyword">char</span>[] p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] next = <span class="keyword">new</span> <span class="keyword">int</span>[p.length + <span class="number">1</span>]; <span class="comment">// 额外多计算一位</span></span><br><span class="line">    GetNext(p, next);</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">0</span>, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = s.length;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == -<span class="number">1</span> || s[i] == p[j]) &#123;</span><br><span class="line">            i++; j++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (j == p.length) &#123;</span><br><span class="line">            c++;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -499,15 +452,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
             <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           
-            <a href="/tags/KMP/" rel="tag"># KMP</a>
-          
-            <a href="/tags/Aho–Corasick-algorithm/" rel="tag"># Aho–Corasick algorithm</a>
-          
             <a href="/tags/Trie/" rel="tag"># Trie</a>
+          
+            <a href="/tags/Information-Retrieval/" rel="tag"># Information Retrieval</a>
+          
+            <a href="/tags/Symbol-table/" rel="tag"># Symbol table</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
           
         </div>
       
@@ -520,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/bits-operations-07/" rel="next" title="位操作 - 快速幂">
-                <i class="fa fa-chevron-left"></i> 位操作 - 快速幂
+              <a href="/String-string-symbol-table-Trie/" rel="next" title="字符串符号表和三元搜索Trie">
+                <i class="fa fa-chevron-left"></i> 字符串符号表和三元搜索Trie
               </a>
             
           </div>
@@ -530,8 +483,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/NLP-02-string-searching-algorithm-02-bm-rk/" rel="prev" title="NLP与信息处理 02 - 字符搜索匹配算法 02 - Boyer-Moore(BM) 和 Rabin-Karp(RK)">
-                NLP与信息处理 02 - 字符搜索匹配算法 02 - Boyer-Moore(BM) 和 Rabin-Karp(RK) <i class="fa fa-chevron-right"></i>
+              <a href="/algorithms-majority-element/" rel="prev" title="众数问题 - Boyer–Moore majority vote algorithm">
+                众数问题 - Boyer–Moore majority vote algorithm <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -629,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -651,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -700,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KMP"><span class="nav-number">1.</span> <span class="nav-text">KMP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用DFA"><span class="nav-number">1.1.</span> <span class="nav-text">使用DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NEXT数组"><span class="nav-number">1.2.</span> <span class="nav-text">NEXT数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于NEXT数组的KMP算法"><span class="nav-number">1.3.</span> <span class="nav-text">基于NEXT数组的KMP算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP应用"><span class="nav-number">1.4.</span> <span class="nav-text">KMP应用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#各种树的变种"><span class="nav-number">1.</span> <span class="nav-text">各种树的变种</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#九宫格输入法"><span class="nav-number">1.1.</span> <span class="nav-text">九宫格输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元搜索Trie"><span class="nav-number">1.2.</span> <span class="nav-text">三元搜索Trie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基数树"><span class="nav-number">1.3.</span> <span class="nav-text">基数树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后缀树"><span class="nav-number">1.4.</span> <span class="nav-text">后缀树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符符号表总结"><span class="nav-number">2.</span> <span class="nav-text">字符符号表总结</span></a></li></ol></div>
             
 
           </div>
@@ -870,9 +823,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/NLP-01-string-searching-algorithm-01-kmp/';
-          this.page.identifier = 'NLP-01-string-searching-algorithm-01-kmp/';
-          this.page.title = 'NLP与信息处理 01 - 字符搜索匹配算法 01 - KMP';
+          this.page.url = 'https://congchan.github.io/String-string-symbol-table-other-Trie/';
+          this.page.identifier = 'String-string-symbol-table-other-Trie/';
+          this.page.title = '不同树结构的字符串符号表';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';

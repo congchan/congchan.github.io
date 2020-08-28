@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Algorithm,Boyer-Moore,String,Horspool,Sunday," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Boyer-Moore算法在从头到尾对齐txt的字符时, 每一次对齐, BM算法反方向从尾到头检查patternP=BAABBAA和txt字符是否匹配。匹配过程中如果发现txt[i] != P[j], 也就说二者子串不相等, 如...XAA != ...BAA, 且字符txt[i] = X在P中不存在时，可以把P开头对齐到txt[i+7], 一次就跳过了7个位置.">
+<meta name="keywords" content="Algorithm,Boyer-Moore,String,Horspool,Sunday">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符搜索匹配算法 02 - Boyer-Moore(BM), Horspool, Sunday algorithms">
+<meta property="og:url" content="https://congchan.github.io/String-substring-search-Boyer-Moore/index.html">
+<meta property="og:site_name" content="Computer Science &amp; AI">
+<meta property="og:description" content="Boyer-Moore算法在从头到尾对齐txt的字符时, 每一次对齐, BM算法反方向从尾到头检查patternP=BAABBAA和txt字符是否匹配。匹配过程中如果发现txt[i] != P[j], 也就说二者子串不相等, 如...XAA != ...BAA, 且字符txt[i] = X在P中不存在时，可以把P开头对齐到txt[i+7], 一次就跳过了7个位置.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://congchan.github.io/images/bm.png">
+<meta property="og:image" content="https://congchan.github.io/images/boyer_moore_gsh_case1.gif">
+<meta property="og:image" content="https://congchan.github.io/images/boyer_moore_gsh_case2.gif">
+<meta property="og:updated_time" content="2020-08-15T08:55:19.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字符搜索匹配算法 02 - Boyer-Moore(BM), Horspool, Sunday algorithms">
+<meta name="twitter:description" content="Boyer-Moore算法在从头到尾对齐txt的字符时, 每一次对齐, BM算法反方向从尾到头检查patternP=BAABBAA和txt字符是否匹配。匹配过程中如果发现txt[i] != P[j], 也就说二者子串不相等, 如...XAA != ...BAA, 且字符txt[i] = X在P中不存在时，可以把P开头对齐到txt[i+7], 一次就跳过了7个位置.">
+<meta name="twitter:image" content="https://congchan.github.io/images/bm.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://congchan.github.io/String-substring-search-Boyer-Moore/"/>
+
+
+
+
+
+  <title>字符搜索匹配算法 02 - Boyer-Moore(BM), Horspool, Sunday algorithms | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Computer Science & AI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/String-substring-search-Boyer-Moore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">字符搜索匹配算法 02 - Boyer-Moore(BM), Horspool, Sunday algorithms</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-26T00:00:00+08:00">
+                2018-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/String-substring-search-Boyer-Moore/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="String-substring-search-Boyer-Moore/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/String-substring-search-Boyer-Moore/" class="leancloud_visitors" data-flag-title="字符搜索匹配算法 02 - Boyer-Moore(BM), Horspool, Sunday algorithms">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  2,894
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  14 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Boyer-Moore算法"><a href="#Boyer-Moore算法" class="headerlink" title="Boyer-Moore算法"></a>Boyer-Moore算法</h2><p>在从头到尾对齐txt的字符时, 每一次对齐, BM算法反方向<strong>从尾到头</strong>检查pattern<code>P=BAABBAA</code>和txt字符是否匹配。匹配过程中如果发现<code>txt[i] != P[j]</code>, 也就说二者子串不相等, 如<code>...XAA != ...BAA</code>, 且字符<code>txt[i] = X</code>在<code>P</code>中不存在时，可以把<code>P</code>开头对齐到<code>txt[i+7]</code>, 一次就跳过了<code>7</code>个位置. <img src="/images/bm.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"><br><a id="more"></a></p>
+<p>模式相较于文本一般较短, 所以模式中包含的字符种类相对也比较少, 那么这样的跳跃出现情况就很可观了, 可以大大加速匹配.</p>
+<p>不过一般来说, 可能txt的某些子串会和<code>P</code>的其他子串重合，不失一般性我们需要像Knuth-Morris-Pratt算法一样的重启位置数组。</p>
+<h3 id="Bad-Character-Heuristic-BCH"><a href="#Bad-Character-Heuristic-BCH" class="headerlink" title="Bad Character Heuristic(BCH)"></a>Bad Character Heuristic(BCH)</h3><p>重启点位: 预先计算各个字符<code>c</code>在Pattern的最rightmost的位置(若无则<code>-1</code>), 这些位置告诉我们如果是txt中的字符<code>c</code>导致不匹配, pattern可以右移的距离.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">badCharacterPreprocess(String pat)</span><br><span class="line">&#123;   <span class="comment">// Compute skip table.</span></span><br><span class="line">    <span class="keyword">this</span>.pat = pat;</span><br><span class="line">    <span class="keyword">int</span> M = pat.length();</span><br><span class="line">    <span class="keyword">int</span> R = <span class="number">256</span>;</span><br><span class="line">    right = <span class="keyword">new</span> <span class="keyword">int</span>[R];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt; R; c++)</span><br><span class="line">        right[c] = -<span class="number">1</span>;            <span class="comment">// -1 for chars not in pattern</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++)   <span class="comment">// rightmost position for</span></span><br><span class="line">        right[pat.charAt(j)] = j; <span class="comment">// chars in pattern</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>有了<code>right</code>数组后, 一个例子说明匹配过程:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     i   </span><br><span class="line">txt: ...TLE...</span><br><span class="line">P:   NEEDLE</span><br><span class="line">         NEEDLE</span><br><span class="line">        j</span><br></pre></td></tr></table></figure></p>
+<p>在匹配时如果发现字符不匹配<code>txt[i+j] != P[j]</code>，分三种情况考虑:</p>
+<ol>
+<li>Mismatch character <code>T</code> not in pattern: increment <code>i</code> one character beyond <code>T</code>, <code>i += j+1</code>.</li>
+<li>Mismatch character in pattern: mismatch character <code>N</code> in pattern, align text <code>N</code> with rightmost pattern <code>N</code>, <code>i += j - right[N]</code>, 此时不会导致回退.</li>
+<li>Mismatch character in pattern (but heuristic no help): mismatch character <code>E</code> in pattern, align text <code>E</code> with rightmost pattern <code>E</code> ? 此时会导致回退, 也就说<code>j - right[E] &lt; 0</code>, 这种情况就直接<code>i += 1</code>.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String txt)</span></span></span><br><span class="line"><span class="function"></span>&#123;   <span class="comment">// Search for pattern in txt.</span></span><br><span class="line">    <span class="keyword">int</span> N = txt.length();</span><br><span class="line">    <span class="keyword">int</span> M = pat.length();</span><br><span class="line">    <span class="keyword">int</span> skip;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N-M; i += skip)</span><br><span class="line">    &#123;   <span class="comment">// Does the pattern match the text at position i ?</span></span><br><span class="line">        skip = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = M-<span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (pat.charAt(j) != txt.charAt(i+j))</span><br><span class="line">            &#123;</span><br><span class="line">                skip = Math.max(<span class="number">1</span>, j - right[txt.charAt(i+j)]);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (skip == <span class="number">0</span>) <span class="keyword">return</span> i; <span class="comment">// found.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> N;                    <span class="comment">// not found.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>Substring search with the Boyer-Moore bad character heuristic takes about <code>~ N / M</code> character compares to search for a pattern of length <code>M</code> in a text of length <code>N</code>.<br>Worst-case can be as bad as <code>~ M N</code>.</p>
+</blockquote>
+<h3 id="Good-Suffix-Heuristics-GSH"><a href="#Good-Suffix-Heuristics-GSH" class="headerlink" title="Good Suffix Heuristics(GSH)"></a>Good Suffix Heuristics(GSH)</h3><p>通过类似KMP的Border特性来提高效率，可以将最坏情况改善为<code>O(~3N)</code>字符比较。只不过这里需要的映射关系是一个已经匹配的border对应(包含在)pattern哪一个后缀中, 用<code>shift[]</code>数组记录. 对于pattern的一个后缀<code>pat[j,...]</code>的border<code>pat[j,...k] = pat[l, ...]</code>, 当不匹配时, 根据已匹配的border<code>pat[l, ...]</code>, 可以偏移<code>l - k</code>位置以对齐到<code>pat[j,...k]</code>. 当完成一个完整匹配后, GSH方法可以基于<code>shift[]</code>决定下一次对齐偏移的距离. 除此之外, 在匹配中如果发现不匹配字符, pattern的偏移距离可以在GSH和BCH给出的建议距离中选择最大者.</p>
+<blockquote>
+<p>border: A border is a substring which is both proper suffix and proper prefix</p>
+</blockquote>
+<p>Case 1. <code>P</code>有子串和后缀<code>ab</code>重复, 对齐重复的子串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 ...</span><br><span class="line">a b a a b a b a c b a</span><br><span class="line">c a b a b</span><br><span class="line">    c a b a b</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/boyer_moore_gsh_case1.gif" alt="" title="image from: https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/bmen.htm"></p>
+<p>Case 2. <code>P</code>没有子串和后缀<code>bab</code>重叠, 但<code>P</code>的前缀<code>ab</code>与<code>t</code>的后缀<code>ab</code>匹配<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 ...</span><br><span class="line">a a b a b a b a c b a</span><br><span class="line">a b b a b      </span><br><span class="line">      a b b a b</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/boyer_moore_gsh_case2.gif" alt="" title="image from: https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/bmen.htm"></p>
+<p>Case 3. <code>P</code>没有重复子串, 可以跳过整个<code>P</code>的长度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 ...</span><br><span class="line">a b c a b a b a c b a</span><br><span class="line">c b a a b</span><br><span class="line">          c b a a b</span><br></pre></td></tr></table></figure></p>
+<p>对于Case 1, 预处理时使用一个保存border position的数组<code>bp</code>, 每个元素<code>bp[i]</code>都包含模式<code>P</code>中从索引<code>i</code>开始的后缀的最宽border起始位置, 所以<code>bp</code>元素永远指向其右边的某一个位置。与Knuth-Morris-Pratt预处理算法相似，每个border都是通过检查是否匹配来向左扩展已知的较短边界来计算的。</p>
+<p>当边界不能向左扩展时, 那就意味着在发生不匹配时, 可以把左边的border偏移过来。相应的偏移距离<code>j - i</code>保存在数组<code>shift[j]</code>中，前提是对应位置尚未被占用, 如果已经有占用(<code>shift[i] != 0</code>), 则意味着较短的后缀具有相同border的情况; 然后让border指针<code>j</code>跳转到<code>bp[j]</code>, 因为<code>bp[j]</code>存下来之前计算的<code>pat[j,...]</code>的border, 同时我们知道<code>pat[i] == pat[j]</code>, 这样保证了<code>pat[i...]</code>和<code>pat[j...]</code>有共同的前缀. 如此这般直到<code>j &gt; m</code>. <code>shift</code>数组的值仅由那些无法扩增的border决定, 因为如果可以扩增的话, 意味着<code>pat[i-1] = pat[j-1] != txt[k-1]</code>, 此时按照<code>j - i</code>来移位不过是继续出现不匹配.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i: 0 1 2 3 4 5 6 7</span><br><span class="line">p: a b b a b a b </span><br><span class="line">b: 5 6 4 5 6 7 7 8</span><br><span class="line">s: 0 0 0 0 2 0 4 1</span><br></pre></td></tr></table></figure>
+<p>如<code>bp[2] = 4</code>代表后缀<code>babab</code>的最宽border是以<code>4</code>起始的后缀<code>bab</code>. 因为<code>pat[4-1] != pat[2-1]</code>, <code>bab</code>作为<code>babab</code>的border无法通过<code>a</code>扩增为<code>b</code>+<code>babab</code>的border, 因此<code>shift[4] = 4 - 2</code>.</p>
+<p>注意到<code>babab</code>也有border<code>b</code>, 无法扩增, 所以<code>shift[6] = 6 - 2</code>. 匹配时, 如果在匹配了<code>pat[6...]</code>后, <code>pat[5]</code>不匹配, 那么就可以偏移<code>shift[6] = 4</code>, 把<code>pat[2]</code>对齐过去.</p>
+<p>匹配时在位置<code>j</code>发生任何不匹配时，就将模式对齐位置向右移动<code>shift[j + 1]</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">goodSuffixPreprocessCase1</span><span class="params">(String pat)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = pat.length();</span><br><span class="line">    <span class="keyword">int</span>[] shift = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span>[] bp = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> i = m;</span><br><span class="line">    <span class="keyword">int</span> j = m + <span class="number">1</span>;</span><br><span class="line">    bp[i] = j;</span><br><span class="line">    <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &lt;= m &amp;&amp; pat.charAt(i - <span class="number">1</span>) != pat.charAt(j - <span class="number">1</span>)) &#123;</span><br><span class="line">            <span class="comment">// could not extend border left forward</span></span><br><span class="line">            <span class="keyword">if</span> (shift[j] == <span class="number">0</span>) <span class="comment">// prevent modification of shift[j] from suffix having same border</span></span><br><span class="line">                shift[j] = j - i; <span class="comment">// shift to i position</span></span><br><span class="line">            j = bp[j]; <span class="comment">// back to last border</span></span><br><span class="line">        &#125;</span><br><span class="line">        i--; j--; <span class="comment">// pat[i-1] == pat[j-1], extend border</span></span><br><span class="line">        bp[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于case 2，部分匹配的前缀是属于整个pattern的其中一个border(不一定是最大的). 预处理阶段，就是要<strong>计算pattern的每个后缀所包含的最大border, 同时要求这个border也必须属于整个pattern的border(也就是必须是pattern的前缀)</strong>。</p>
+<p>因为case 1已经计算了pattern每个后缀的最大border，在这里考虑的是整个pattern, 其最大的border是<code>b[0]</code>. 首先把<code>b[0]</code>复制到<code>shift[]</code>的空位中(值等于<code>0</code>的位置); 然后对于长度比<code>b[0]</code>小的后缀<code>pat[j...]</code>, 其一定不会包含后缀<code>pat[b[0], ...]</code>, 所以需要替换为pattern下一个更小的border, <code>j = bp[j]</code>. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i: 0 1 2 3 4 5 6 7</span><br><span class="line">p: a b b a b a b</span><br><span class="line">b: 5 6 4 5 6 7 7 8</span><br><span class="line">s: 5 5 5 5 2 5 4 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">goodSuffixPreprocessingCase2</span><span class="params">(String pat, <span class="keyword">int</span>[] bp, <span class="keyword">int</span>[] shift)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j = bp[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (shift[i] == <span class="number">0</span>) </span><br><span class="line">            shift[i] = j; <span class="comment">// copy widest border</span></span><br><span class="line">        <span class="keyword">if</span> (i == j) <span class="comment">// suffix becomes shorter than bp[0]</span></span><br><span class="line">            j = bp[j]; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="预处理汇总"><a href="#预处理汇总" class="headerlink" title="预处理汇总"></a>预处理汇总</h3><p>以上三种预处理方式汇总在一起使用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bmPreprocess(String pat)</span><br><span class="line">&#123;</span><br><span class="line">    badCharacterPreprocess();</span><br><span class="line">    goodSuffixPreprocessingCase1();</span><br><span class="line">    goodSuffixPreprocessingCase2();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><p>从右到左比较pattern和txt的字符。</p>
+<ul>
+<li>如果不匹配，pattern在BCH和GSH的偏移距离中选择较大者进行偏移对齐</li>
+<li>如果完全匹配，pattern可以继续根据根据其最宽边框允许的数量移动。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bmSearch</span><span class="params">(String txt, String pat)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// shift of the pattern with respect to text</span></span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    <span class="keyword">int</span> m = pat.length(); </span><br><span class="line">    <span class="keyword">int</span> n = txt.length(); </span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n - m)</span><br><span class="line">    &#123;</span><br><span class="line">        j = m - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; pat.charAt(j) == txt.charAt(i+j))</span><br><span class="line">            j--; <span class="comment">// reduce index if match with shift i</span></span><br><span class="line">        <span class="keyword">if</span> (j &lt; <span class="number">0</span>) <span class="comment">// complete matched</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// return i; match </span></span><br><span class="line">            i += shift[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">// pat[i] != txt[i+j], shift shift[j+1]</span></span><br><span class="line">            i += Math.max(shift[j+<span class="number">1</span>], j - right[txt.charAt(i+j)]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Horspool-Algorithm"><a href="#Horspool-Algorithm" class="headerlink" title="Horspool Algorithm"></a>Horspool Algorithm</h2><p>BM算法使用BCH和GSH两种heuristics来决定shift距离. 不过GSH的实现非常复杂， 而且在实践中发现， 一般的字符集上的匹配性能主要依靠BCH。Horspool [Hor 1980] 提出了仅基于BCH的简化版BM方法: 不匹配时, 用当前查看的txt窗口的最右字符来确定shift距离。</p>
+<p>(a) Boyer-Moore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 ...</span><br><span class="line">a b c a b d a a c b a</span><br><span class="line">b c a a b</span><br><span class="line">  b c a a b</span><br></pre></td></tr></table></figure></p>
+<p>(b) Horspool<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 ...</span><br><span class="line">a b c a b d a a c b a</span><br><span class="line">b c a a b</span><br><span class="line">        b c a a b</span><br></pre></td></tr></table></figure></p>
+<p>Horspool使用当前txt窗口<code>txt[0, ... 4]</code>的最右边字符<code>b</code>作为判断, 把<code>pattern[..., m-1]</code>最右边的<code>b</code>(该字符在pattern最后位置的出现不计算在内)对齐到<code>txt[4]</code>。</p>
+<p>预处理阶段会跟BM算法的BCH不一样, 对每一个字符$\alpha \in alphabet$, $right(pattern, \alpha)$ 取α在<code>pattern[:-2]</code>最右出现位置(如果没有则-1). 不考虑<code>pattern[-1]</code>. 如<code>right[&#39;text&#39;, &#39;x&#39;] = 2</code>, <code>right[&#39;text&#39;, &#39;t&#39;] = 0</code>, <code>right[&#39;next&#39;, &#39;t&#39;] = -1</code>. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">BCHHorspool(String pat)</span><br><span class="line">&#123;   <span class="comment">// Compute skip table.</span></span><br><span class="line">    <span class="keyword">this</span>.pat = pat;</span><br><span class="line">    <span class="keyword">int</span> m = pat.length();</span><br><span class="line">    <span class="keyword">int</span> R = <span class="number">256</span>;</span><br><span class="line">    right = <span class="keyword">new</span> <span class="keyword">int</span>[R];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c &lt; R; c++)</span><br><span class="line">        right[c] = -<span class="number">1</span>;            <span class="comment">// -1 for chars not in pattern</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m - <span class="number">1</span>; j++)   <span class="comment">// rightmost position for</span></span><br><span class="line">        right[pat.charAt(j)] = j; <span class="comment">// chars in pattern</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>匹配的过程和BM算法差不多。在完全匹配后或者遇到不匹配时，pattern就根据<code>right[]</code>数组移位<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">horspoolSearch(String txt, String pat, <span class="keyword">int</span>[] right)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n - m)</span><br><span class="line">    &#123;</span><br><span class="line">        j = m - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; pat.charAt(j) == txt.charAt(i+j)) </span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">if</span> (j &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> i; <span class="comment">// match</span></span><br><span class="line">        i += m - <span class="number">1</span>; <span class="comment">// right most of txt window</span></span><br><span class="line">        i -= right[txt.charAt(i)];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Sunday-Algorithm"><a href="#Sunday-Algorithm" class="headerlink" title="Sunday Algorithm"></a>Sunday Algorithm</h2><p>BM算法利用当前位置是否匹配来判断移位. Horspool利用当前检查的文本窗口内的最右字符来判断移位. Daniel M.Sunday [Sun 90] 发现如果能利用当前文本窗口外右边的字符更好, 考虑到这些字符有可能属于下一次可能的匹配, 这种思路是可行的.</p>
+<p>(c) Sunday<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9 ...</span><br><span class="line">a b c a b d a a c b a</span><br><span class="line">b c a a b</span><br><span class="line">            b c a a b</span><br></pre></td></tr></table></figure></p>
+<p>不匹配时, Sunay算法利用当前文本窗口<code>txt[0, ... 4]</code>右边的字符, 也就是<code>txt[5] = d</code>来判断, <code>d</code>不再pattern中出现过, 因此直接跳过<code>txt[5]</code>.</p>
+<p>预处理阶段和BM的BCH一样.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sundaySearch(String txt, String pat, <span class="keyword">int</span>[] right)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n - m)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/** matching from right to left</span></span><br><span class="line"><span class="comment">         * ********************************* **/</span></span><br><span class="line">        j = m - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; pat.charAt(j) == txt.charAt(i+j)) </span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">if</span> (j &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> i; <span class="comment">// match</span></span><br><span class="line">        <span class="comment">/***********************************/</span></span><br><span class="line"></span><br><span class="line">        i += m; <span class="comment">// right next to txt window</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; n) i -= right[txt.charAt(i)];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为Sunday算法不限定一定要从右往左对比pattern和txt, 反方向也行, 在这里的实现选择跟随BM算法从右往左.</p>
+<p>Sunday 算法通常用作一般情况下实现最简单而且平均表现最好之一的实用算法，通常表现比 Horspool、BM 都要快一点。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li>Boyer, RS and Moore, JS. “A fast string searching algorithm.” Communications of the ACM 20.10 (1977): 762-772.</li>
+<li>R.N. Horspool: Practical Fast Searching in Strings. Software - Practice and Experience 10, 501-506 (1980)</li>
+<li>D.M. Sunday: A Very Fast Substring Search Algorithm. Communications of the ACM, 33, 8, 132-142 (1990)</li>
+<li><a href="https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/bmen.htm" target="_blank" rel="noopener">https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/bmen.htm</a></li>
+<li><a href="https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/horsen.htm" target="_blank" rel="noopener">https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/horsen.htm</a></li>
+<li><a href="https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/sundayen.htm" target="_blank" rel="noopener">https://www.inf.hs-flensburg.de/lang/algorithmen/pattern/sundayen.htm</a></li>
+<li><a href="http://www-igm.univ-mlv.fr/~lecroq/string/" target="_blank" rel="noopener">http://www-igm.univ-mlv.fr/~lecroq/string/</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Boyer-Moore/" rel="tag"># Boyer-Moore</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
+          
+            <a href="/tags/Horspool/" rel="tag"># Horspool</a>
+          
+            <a href="/tags/Sunday/" rel="tag"># Sunday</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bits-operations-06/" rel="next" title="位操作 - 汉明距离">
+                <i class="fa fa-chevron-left"></i> 位操作 - 汉明距离
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bits-operations-07/" rel="prev" title="位操作 - 快速幂">
+                位操作 - 快速幂 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Cong" />
+            
+              <p class="site-author-name" itemprop="name">Cong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">94</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Boyer-Moore算法"><span class="nav-number">1.</span> <span class="nav-text">Boyer-Moore算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bad-Character-Heuristic-BCH"><span class="nav-number">1.1.</span> <span class="nav-text">Bad Character Heuristic(BCH)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Good-Suffix-Heuristics-GSH"><span class="nav-number">1.2.</span> <span class="nav-text">Good Suffix Heuristics(GSH)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理汇总"><span class="nav-number">1.3.</span> <span class="nav-text">预处理汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配"><span class="nav-number">1.4.</span> <span class="nav-text">匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Horspool-Algorithm"><span class="nav-number">2.</span> <span class="nav-text">Horspool Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sunday-Algorithm"><span class="nav-number">3.</span> <span class="nav-text">Sunday Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://congchan.github.io/String-substring-search-Boyer-Moore/';
+          this.page.identifier = 'String-substring-search-Boyer-Moore/';
+          this.page.title = '字符搜索匹配算法 02 - Boyer-Moore(BM), Horspool, Sunday algorithms';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shootingspace.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="NLP,Algorithm,Information Retrieval,Data Compression," />
+  <meta name="keywords" content="Algorithm,Trie,Information Retrieval,Symbol table,String," />
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="数据压缩压缩数据以节省储存空间，节省传输时间。同时很多文件都有很多冗余信息，这为压缩提供了很多可能性。">
-<meta name="keywords" content="NLP,Algorithm,Information Retrieval,Data Compression">
+<meta name="description" content="符号表 在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。常用哈希表来实现.  符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致">
+<meta name="keywords" content="Algorithm,Trie,Information Retrieval,Symbol table,String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NLP与信息处理 07 - 数据压缩">
-<meta property="og:url" content="https://congchan.github.io/NLP-07-data-compression-introduction/index.html">
+<meta property="og:title" content="字符串符号表和三元搜索Trie">
+<meta property="og:url" content="https://congchan.github.io/String-string-symbol-table-Trie/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="数据压缩压缩数据以节省储存空间，节省传输时间。同时很多文件都有很多冗余信息，这为压缩提供了很多可能性。">
+<meta property="og:description" content="符号表 在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。常用哈希表来实现.  符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-17T13:06:31.923Z">
+<meta property="og:updated_time" content="2020-07-24T08:28:40.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NLP与信息处理 07 - 数据压缩">
-<meta name="twitter:description" content="数据压缩压缩数据以节省储存空间，节省传输时间。同时很多文件都有很多冗余信息，这为压缩提供了很多可能性。">
+<meta name="twitter:title" content="字符串符号表和三元搜索Trie">
+<meta name="twitter:description" content="符号表 在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。常用哈希表来实现.  符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://congchan.github.io/NLP-07-data-compression-introduction/"/>
+  <link rel="canonical" href="https://congchan.github.io/String-string-symbol-table-Trie/"/>
 
 
 
 
 
-  <title>NLP与信息处理 07 - 数据压缩 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>字符串符号表和三元搜索Trie | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -271,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-07-data-compression-introduction/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/String-string-symbol-table-Trie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cong">
@@ -288,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NLP与信息处理 07 - 数据压缩</h1>
+          <h1 class="post-title" itemprop="name headline">字符串符号表和三元搜索Trie</h1>
         
 
         <div class="post-meta">
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-10T00:00:00+08:00">
-                2018-10-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-30T00:00:00+08:00">
+                2018-09-30
               </time>
             
 
@@ -323,19 +323,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
                   </a>
                 </span>
 
@@ -352,9 +341,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/NLP-07-data-compression-introduction/#comments" itemprop="discussionUrl">
+                <a href="/String-string-symbol-table-Trie/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="NLP-07-data-compression-introduction/" itemprop="commentCount"></span>
+                        data-disqus-identifier="String-string-symbol-table-Trie/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,7 +351,7 @@
 
           
           
-             <span id="/NLP-07-data-compression-introduction/" class="leancloud_visitors" data-flag-title="NLP与信息处理 07 - 数据压缩">
+             <span id="/String-string-symbol-table-Trie/" class="leancloud_visitors" data-flag-title="字符串符号表和三元搜索Trie">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -387,7 +376,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  736
+                  811
                 </span>
               
 
@@ -424,21 +413,16 @@
       
 
       
-        <h2 id="数据压缩"><a href="#数据压缩" class="headerlink" title="数据压缩"></a>数据压缩</h2><p>压缩数据以节省储存空间，节省传输时间。同时很多文件都有很多冗余信息，这为压缩提供了很多可能性。<br><a id="more"></a><br>通用文件压缩<br>·文件：GZIP，BZIP，7z<br>·Archivers：PKZIP<br>·文件系统：NTFS，HFS +，ZFS</p>
-<p>多媒体<br>·图像：GIF，JPEG<br>·声音：MP3<br>·视频：MPEG，DivX™，HDTV</p>
-<p>通讯<br>·ITU-T T4 Group 3 Fax<br>·V.42bis调制解调器<br>·Skype</p>
-<p>数据库</p>
-<h3 id="压缩率"><a href="#压缩率" class="headerlink" title="压缩率"></a>压缩率</h3><p><code>Compression ratio = Bits in Compressed B / bits in B</code>.</p>
-<blockquote>
-<p>自然语言的压缩率为50-75％或更高.</p>
+        <h2 id="符号表"><a href="#符号表" class="headerlink" title="符号表"></a>符号表</h2><blockquote>
+<p>在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。<br>常用哈希表来实现.</p>
 </blockquote>
-<h3 id="读写二进制"><a href="#读写二进制" class="headerlink" title="读写二进制"></a>读写二进制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class BinaryStdIn &#123;</span><br><span class="line">    boolean readBoolean() // read 1 bit of data and return as a boolean value</span><br><span class="line">    char readChar() // read 8 bits of data and return as a char value</span><br><span class="line">    char readChar(int r) // read r bits of data and return as a char value</span><br><span class="line">    // similar methods for byte (8 bits); short (16 bits); int (32 bits); long and double (64 bits)</span><br><span class="line">    boolean isEmpty() // is the bitstream empty?</span><br><span class="line">    void close() // close the bitstream</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class BinaryStdOut &#123;</span><br><span class="line">    void write(boolean b) // write the specified bit</span><br><span class="line">    void write(char c) // write the specified 8-bit char</span><br><span class="line">    void write(char c, int r) // write the r least significant bits of the specified char</span><br><span class="line">    // similar methods for byte (8 bits); short (16 bits); int (32 bits); long and double (64 bits)</span><br><span class="line">    void close() // close the bitstream</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>比如使用三种方法表达<code>12/31/1999</code><br>1, A character stream (StdOut),<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StdOut.print(month + <span class="string">"/"</span> + day + <span class="string">"/"</span> + year);</span><br></pre></td></tr></table></figure></p>
-<p><code>00110001</code> 1<br><code>00110010</code> 2<br><code>00101111</code> /<br><code>00110111</code> 3<br><code>00110001</code> 1<br><code>00101111</code> /<br><code>00110001</code> 1<br><code>00111001</code> 9<br><code>00111001</code> 9<br><code>00111001</code> 1<br>共 80bits<br>2, Three ints (BinaryStdOut)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BinaryStdOut.write(month);</span><br><span class="line">BinaryStdOut.write(day);</span><br><span class="line">BinaryStdOut.write(year);</span><br></pre></td></tr></table></figure></p>
-<p><code>00000000 00000000 00000000 00001100</code> 12<br><code>00000000 00000000 00000000 00011111</code> 31<br><code>00000000 00000000 00000111 11001111</code> 1999<br>共96bits<br>3，A 4-bit field, a 5-bit field, and a 12-bit field (BinaryStdOut)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BinaryStdOut.write(month, <span class="number">4</span>);</span><br><span class="line">BinaryStdOut.write(day, <span class="number">5</span>);</span><br><span class="line">BinaryStdOut.write(year, <span class="number">12</span>);</span><br></pre></td></tr></table></figure></p>
-<p><code>1100</code> 12<br><code>11111</code> 13<br><code>0111110 01111</code> 1999<br>共21bits</p>
-<h3 id="通用数据压缩算法？"><a href="#通用数据压缩算法？" class="headerlink" title="通用数据压缩算法？"></a>通用数据压缩算法？</h3><p>不存在的，因为假如真的存在一种可以压缩所有比特串的算法，那么该算法就可以继续压缩已经被它压缩过的数据，那意味着所有比特串可以被压缩为0比特.</p>
-<h2 id="Run-length-encoding"><a href="#Run-length-encoding" class="headerlink" title="Run-length encoding"></a>Run-length encoding</h2><p>Simple type of redundancy in a bitstream. Long runs of repeated bits：<br><code>0000000000000001111111000000011111111111</code><br>Compression, 4-bit counts to represent alternating runs of 0s and 1s: 15 0s, then 7 1s, then 7 0s, then 11 1s.<br><code>1111 0111 0111 1011</code><br><!-- more --><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunLength</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// maximum run-length count</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> R    = <span class="number">256</span>;</span><br><span class="line">   <span class="comment">// number of bits per count</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> LG_R = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Reads a sequence of bits from standard input; compresses</span></span><br><span class="line"><span class="comment">     * them using run-length coding with 8-bit run lengths; and writes the</span></span><br><span class="line"><span class="comment">     * results to standard output.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compress</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> run = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> old = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (!BinaryStdIn.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> b = BinaryStdIn.readBoolean();</span><br><span class="line">            <span class="keyword">if</span> (b != old) &#123;</span><br><span class="line">                BinaryStdOut.write(run, LG_R);</span><br><span class="line">                run = <span class="number">1</span>;</span><br><span class="line">                old = !old;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123; <span class="comment">// 如果长度超过最大值, 写入0</span></span><br><span class="line">                <span class="keyword">if</span> (run == R-<span class="number">1</span>) &#123;</span><br><span class="line">                    BinaryStdOut.write(run, LG_R);</span><br><span class="line">                    run = <span class="number">0</span>;</span><br><span class="line">                    BinaryStdOut.write(run, LG_R);</span><br><span class="line">                &#125;</span><br><span class="line">                run++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        BinaryStdOut.write(run, LG_R);</span><br><span class="line">        BinaryStdOut.close();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Reads a sequence of bits from standard input (that are encoded</span></span><br><span class="line"><span class="comment">     * using run-length encoding with 8-bit run lengths); decodes them;</span></span><br><span class="line"><span class="comment">     * and writes the results to standard output.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">expand</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="keyword">boolean</span> bit = <span class="keyword">false</span>;</span><br><span class="line">      <span class="keyword">while</span> (!BinaryStdIn.isEmpty())</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">int</span> run = BinaryStdIn.readInt(lgR);</span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; run; i++)</span><br><span class="line">            BinaryStdOut.write(bit);</span><br><span class="line">         bit = !bit;</span><br><span class="line">      &#125;</span><br><span class="line">      BinaryStdOut.close();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致性查询(concordance queries)等操作.</p>
+<p>字符符号表就是专门针对字符操作的符号表, API:<br>Prefix match - Keys with prefix <code>sh</code>: <code>she</code>, <code>shells</code>, and <code>shore</code>.<br>Wildcard match - Keys that match <code>.he</code>: <code>she</code> and <code>the</code>.<br>Longest prefix - Key that is the longest prefix of <code>shellsort</code>: <code>shells</code>.<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StringST</span>&lt;<span class="title">Value</span>&gt; </span>&#123;</span><br><span class="line">    StringST(); create a symbol table with string keys</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, Value val)</span></span>; put key-value pair into the symbol table</span><br><span class="line">    <span class="function">Value <span class="title">get</span><span class="params">(String key)</span></span>; value paired with key</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(String key)</span></span>; delete key and corresponding value</span><br><span class="line">    <span class="function">Iterable&lt;String&gt; <span class="title">keys</span><span class="params">()</span></span>; all keys</span><br><span class="line">    <span class="function">Iterable&lt;String&gt; <span class="title">keysWithPrefix</span><span class="params">(String s)</span></span>; keys having s as a prefix</span><br><span class="line">    <span class="function">Iterable&lt;String&gt; <span class="title">keysThatMatch</span><span class="params">(String s)</span></span>; <span class="function">keys that match <span class="title">s</span> <span class="params">(where . is a wildcard)</span></span></span><br><span class="line"><span class="function">    String <span class="title">longestPrefixOf</span><span class="params">(String s)</span></span>; longest key that is a prefix of s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="以Trie为基础的字符符号表"><a href="#以Trie为基础的字符符号表" class="headerlink" title="以Trie为基础的字符符号表"></a>以Trie为基础的字符符号表</h3><p>algs4中提供了用 R-way trie 来实现符号表(symbol table)例子:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrieST</span>&lt;<span class="title">Value</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> R = <span class="number">256</span>; <span class="comment">// extended ASCII</span></span><br><span class="line">    <span class="keyword">private</span> Node root = <span class="keyword">new</span> Node();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Object value;</span><br><span class="line">        <span class="keyword">private</span> Node[] next = <span class="keyword">new</span> Node[R];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key, Value val)</span> </span>&#123;</span><br><span class="line">        root = put(root, key, val, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node x, String key, Value val, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) x = <span class="keyword">new</span> Node();</span><br><span class="line">        <span class="keyword">if</span> (d == key.length()) &#123; x.value = val; <span class="keyword">return</span> x; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">        x.next[c] = put(x.next[c], key, val, d+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(String key)</span> </span>&#123; <span class="keyword">return</span> get(key) != <span class="keyword">null</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        Node x = get(root, key, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> (Value) x.val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">get</span><span class="params">(Node x, String key, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (d == key.length()) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">char</span> c = key.charAt(d);</span><br><span class="line">        <span class="keyword">return</span> get(x.next[c], key, d+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>按顺序迭代所有键：<br>·中序遍历trie，找到的键添加到队列中<br>·维护从根到当前节点路径的字符序列<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterable&lt;String&gt; <span class="title">keys</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Queue&lt;String&gt; queue = <span class="keyword">new</span> Queue&lt;String&gt;();</span><br><span class="line">    collect(root, <span class="string">""</span>, queue);</span><br><span class="line">    <span class="keyword">return</span> queue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">collect</span><span class="params">(Node x, String prefix, Queue&lt;String&gt; q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (x.val != <span class="keyword">null</span>) q.enqueue(prefix);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c = <span class="number">0</span>; c &lt; R; c++)</span><br><span class="line">        collect(x.next[c], prefix + c, q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="前缀匹配"><a href="#前缀匹配" class="headerlink" title="前缀匹配"></a>前缀匹配</h3><p>Find all keys in a symbol table starting with a given prefix.<br>Ex. Autocomplete in a cell phone, search bar, text editor, or shell.<br>・User types characters one at a time.<br>・System reports all matching strings.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterable&lt;String&gt; <span class="title">keysWithPrefix</span><span class="params">(String prefix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Queue&lt;String&gt; queue = <span class="keyword">new</span> Queue&lt;String&gt;();</span><br><span class="line">    Node x = get(root, prefix, <span class="number">0</span>);</span><br><span class="line">    collect(x, prefix, queue);</span><br><span class="line">    <span class="keyword">return</span> queue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="最长前缀"><a href="#最长前缀" class="headerlink" title="最长前缀"></a>最长前缀</h3><p>Find longest key in symbol table that is a prefix of query string.<br>Ex. To send packet toward destination IP address, router chooses IP address in routing table that is longest prefix match.</p>
+<p>・Search for query string.<br>・Keep track of longest key encountered.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">longestPrefixOf</span><span class="params">(String query)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = search(root, query, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> query.substring(<span class="number">0</span>, length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(Node x, String query, <span class="keyword">int</span> d, <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> length;</span><br><span class="line">    <span class="keyword">if</span> (x.val != <span class="keyword">null</span>) length = d;</span><br><span class="line">    <span class="keyword">if</span> (d == query.length()) <span class="keyword">return</span> length;</span><br><span class="line">    <span class="keyword">char</span> c = query.charAt(d);</span><br><span class="line">    <span class="keyword">return</span> search(x.next[c], query, d+<span class="number">1</span>, length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -456,13 +440,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
             <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Trie/" rel="tag"># Trie</a>
           
             <a href="/tags/Information-Retrieval/" rel="tag"># Information Retrieval</a>
           
-            <a href="/tags/Data-Compression/" rel="tag"># Data Compression</a>
+            <a href="/tags/Symbol-table/" rel="tag"># Symbol table</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
           
         </div>
       
@@ -475,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/algorithms-majority-element/" rel="next" title="众数问题 - Boyer–Moore majority vote algorithm">
-                <i class="fa fa-chevron-left"></i> 众数问题 - Boyer–Moore majority vote algorithm
+              <a href="/String-string-match-algorithm-ac-automaton/" rel="next" title="“和谐” - 多模式匹配算法 - AC自动机">
+                <i class="fa fa-chevron-left"></i> “和谐” - 多模式匹配算法 - AC自动机
               </a>
             
           </div>
@@ -485,8 +471,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/NLP-08-data-compression-huffman-compression/" rel="prev" title="NLP与信息处理 08 - 数据压缩 - 哈夫曼编码">
-                NLP与信息处理 08 - 数据压缩 - 哈夫曼编码 <i class="fa fa-chevron-right"></i>
+              <a href="/String-string-symbol-table-other-Trie/" rel="prev" title="不同树结构的字符串符号表">
+                不同树结构的字符串符号表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -584,7 +570,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -606,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -655,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据压缩"><span class="nav-number">1.</span> <span class="nav-text">数据压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩率"><span class="nav-number">1.1.</span> <span class="nav-text">压缩率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写二进制"><span class="nav-number">1.2.</span> <span class="nav-text">读写二进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用数据压缩算法？"><span class="nav-number">1.3.</span> <span class="nav-text">通用数据压缩算法？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-length-encoding"><span class="nav-number">2.</span> <span class="nav-text">Run-length encoding</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#符号表"><span class="nav-number">1.</span> <span class="nav-text">符号表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以Trie为基础的字符符号表"><span class="nav-number">1.1.</span> <span class="nav-text">以Trie为基础的字符符号表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前缀匹配"><span class="nav-number">1.2.</span> <span class="nav-text">前缀匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最长前缀"><span class="nav-number">1.3.</span> <span class="nav-text">最长前缀</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -825,9 +811,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/NLP-07-data-compression-introduction/';
-          this.page.identifier = 'NLP-07-data-compression-introduction/';
-          this.page.title = 'NLP与信息处理 07 - 数据压缩';
+          this.page.url = 'https://congchan.github.io/String-string-symbol-table-Trie/';
+          this.page.identifier = 'String-string-symbol-table-Trie/';
+          this.page.title = '字符串符号表和三元搜索Trie';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shootingspace.disqus.com/embed.js';

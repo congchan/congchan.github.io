@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, World" />
+  <meta name="keywords" content="NLP,Algorithm,Information Retrieval,Data Compression,Huffman Compression," />
 
 
 
@@ -83,13 +83,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Computer Science &amp; AI">
-<meta property="og:url" content="https://congchan.github.io/categories/AI/page/3/index.html">
+<meta name="description" content="避免歧义的编码在构建压缩编码的对应关系时，我们使用不同的数量的位来编码不同的字符.">
+<meta name="keywords" content="NLP,Algorithm,Information Retrieval,Data Compression,Huffman Compression">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NLP与信息处理 08 - 数据压缩 - 哈夫曼编码">
+<meta property="og:url" content="https://congchan.github.io/data-compression-huffman-compression/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
+<meta property="og:description" content="避免歧义的编码在构建压缩编码的对应关系时，我们使用不同的数量的位来编码不同的字符.">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://congchan.github.io/images/Morse_Code.png">
+<meta property="og:image" content="https://congchan.github.io/images/huffman_trie.png">
+<meta property="og:image" content="https://congchan.github.io/images/preorder_traversal_trie.png">
+<meta property="og:updated_time" content="2020-07-24T08:21:06.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Computer Science &amp; AI">
+<meta name="twitter:title" content="NLP与信息处理 08 - 数据压缩 - 哈夫曼编码">
+<meta name="twitter:description" content="避免歧义的编码在构建压缩编码的对应关系时，我们使用不同的数量的位来编码不同的字符.">
+<meta name="twitter:image" content="https://congchan.github.io/images/Morse_Code.png">
 
 
 
@@ -119,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://congchan.github.io/categories/AI/page/3/"/>
+  <link rel="canonical" href="https://congchan.github.io/data-compression-huffman-compression/"/>
 
 
 
 
 
-  <title>Category: AI | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>NLP与信息处理 08 - 数据压缩 - 哈夫曼编码 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -144,7 +153,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,171 +261,287 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>AI<small>Category</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/data-compression-huffman-compression/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/machine-learning/" itemprop="url">
-              
-                <span itemprop="name">Machine Learning Note - cs229 - Stanford</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">NLP与信息处理 08 - 数据压缩 - 哈夫曼编码</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-05T00:00:00+08:00"
-              content="2017-12-05" >
-          12-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T00:00:00+08:00">
+                2018-10-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/data-compression-huffman-compression/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="data-compression-huffman-compression/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/data-compression-huffman-compression/" class="leancloud_visitors" data-flag-title="NLP与信息处理 08 - 数据压缩 - 哈夫曼编码">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words&#58;</span>
+                
+                <span title="Words">
+                  1,228
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Estimated &asymp;</span>
+                
+                <span title="Estimated">
+                  5 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/machine-learning-with-sklearn/" itemprop="url">
-              
-                <span itemprop="name">Machine Learning with Scikit-learn (Sklearn) 机器学习实践</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-01T00:00:00+08:00"
-              content="2017-12-01" >
-          12-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/UoE-nlu/" itemprop="url">
-              
-                <span itemprop="name">Natural Language Understanding</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-01T00:00:00+08:00"
-              content="2017-10-01" >
-          10-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/UoE-anlp/" itemprop="url">
-              
-                <span itemprop="name">Accelerated Natural Language Processing</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-01T00:00:00+08:00"
-              content="2017-10-01" >
-          10-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/ai/" itemprop="url">
-              
-                <span itemprop="name">Learn AI Step by Step</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-31T00:00:00+08:00"
-              content="2016-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="避免歧义的编码"><a href="#避免歧义的编码" class="headerlink" title="避免歧义的编码"></a>避免歧义的编码</h2><p>在构建压缩编码的对应关系时，我们使用不同的数量的位来编码不同的字符.<br><a id="more"></a><br>比如摩斯密码<img src="/images/Morse_Code.png" alt="" title="Chart of the Morse code letters and numerals.">. 如果单纯使用这种对应关系，会出现一些问题， 如<code>•••−−−•••</code>会产生歧义: <code>SOS</code>? <code>V7</code>? <code>IAMIE</code>? <code>EEWNI</code>? 所以在实际使用中, 密码使用一些间隔来分隔代码字。</p>
+<p>那么对于不同的压缩编码, 有什么常用方法来避免歧义？<br>方法是确保没有一个编码是另一个编码的前缀。比如</p>
+<ul>
+<li>使用固定长度编码。</li>
+<li>为每个编码添加特殊的stop char。</li>
+<li><strong>使用一种具备广泛使用性的prefix-free编码</strong>。</li>
+</ul>
+<p>用什么数据结构来设计prefix-free编码?</p>
+<h3 id="用Trie构造编码"><a href="#用Trie构造编码" class="headerlink" title="用Trie构造编码"></a>用Trie构造编码</h3><p>一个二叉(<code>0, 1</code>)Trie: 叶节点是字符, 根节点到叶节点的路径就是编码.<img src="/images/huffman_trie.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"></p>
+<p>压缩:<br>方法1：从叶开始; 按照路径到达根; 反向打印bits。<br>方法2：创建<code>键-值</code>对的符号表。</p>
+<p>解压:</p>
+<ol>
+<li>从根节点开始, 根据位值是0还是1在Trie图上游走, 直到走到叶节点，则解压出一个字符</li>
+<li>返回根节点, 继续第一步, 直到跑完所有编码.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Node</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> ch;   <span class="comment">// used only for leaf nodes</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> freq;  <span class="comment">// used only for compress</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Node left, right;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">char</span> ch, <span class="keyword">int</span> freq, Node left, Node right)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.ch    = ch;</span><br><span class="line">      <span class="keyword">this</span>.freq  = freq;</span><br><span class="line">      <span class="keyword">this</span>.left  = left;</span><br><span class="line">      <span class="keyword">this</span>.right = right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isLeaf</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;  <span class="keyword">return</span> left == <span class="keyword">null</span> &amp;&amp; right == <span class="keyword">null</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// compare Nodes by frequency</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Node that)</span></span></span><br><span class="line"><span class="function">    </span>&#123;  <span class="keyword">return</span> <span class="keyword">this</span>.freq - that.freq;  &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Runtime - Linear in input size N</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">expand</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       Node root = readTrie(); <span class="comment">// read in encoding trie</span></span><br><span class="line">       <span class="keyword">int</span> N = BinaryStdIn.readInt(); <span class="comment">// read in number of chars</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">       &#123;</span><br><span class="line">          Node x = root;</span><br><span class="line">          <span class="keyword">while</span> (!x.isLeaf())</span><br><span class="line">          &#123;</span><br><span class="line">             <span class="keyword">if</span> (!BinaryStdIn.readBoolean())</span><br><span class="line">                x = x.left;</span><br><span class="line">             <span class="keyword">else</span></span><br><span class="line">                x = x.right;</span><br><span class="line">          &#125;</span><br><span class="line">          BinaryStdOut.write(x.ch, <span class="number">8</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       BinaryStdOut.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如何读取一个Trie：根据Trie的前序遍历序列重构.<img src="/images/preorder_traversal_trie.png" alt="" title="image from: https://www.coursera.org/learn/algorithms-part2/"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Node <span class="title">readTrie</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (BinaryStdIn.readBoolean())</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">char</span> c = BinaryStdIn.readChar(<span class="number">8</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Node(c, <span class="number">0</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   Node x = readTrie();</span><br><span class="line">   Node y = readTrie();</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">new</span> Node(<span class="string">'\0'</span>, <span class="number">0</span>, x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如何把Trie写为序列：以前序遍历的方式写Trie；额外用一个位标记是否叶节点。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeTrie</span><span class="params">(Node x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (x.isLeaf())</span><br><span class="line">   &#123;</span><br><span class="line">      BinaryStdOut.write(<span class="keyword">true</span>);</span><br><span class="line">      BinaryStdOut.write(x.ch, <span class="number">8</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   BinaryStdOut.write(<span class="keyword">false</span>);</span><br><span class="line">   writeTrie(x.left);</span><br><span class="line">   writeTrie(x.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="用哈夫曼算法构建最优编码"><a href="#用哈夫曼算法构建最优编码" class="headerlink" title="用哈夫曼算法构建最优编码"></a>用哈夫曼算法构建最优编码</h3><p>就是用Huffman算法. Huffman算法是把最短的编码赋给出现频率最高的字符, 把最长的编码留给出现频率较低的字符. 在Trie上的效果就变成频率最高的字符路径最短, 长路径都留给频率低的字符. 这样总的效果就是使用了更少的数据位来表达同样的信息.</p>
+<ol>
+<li>统计输入的各个字符的频率<code>freq[i]</code>。</li>
+<li>为每个<code>char i</code>构建一个具有权重<code>freq[i]</code>的Trie(子节点为null), 从此节点开始</li>
+<li>重复以下过程直到融合为一个trie(根节点)：<ul>
+<li>选择当前权重最小的两Tries, <code>freq[i]</code>和<code>freq[j]</code>, 其中<code>i &lt;= j, freq[i] &lt;= freq[j]</code></li>
+<li>给它们创建父节点, 权重为<code>freq[i] + freq[j]</code>, 两个子Trie和其父节点合并为一个Trie, 而且路径0(左边)总是指向较小的子Trie, 路径1(右边)指向较大的.</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Node <span class="title">buildTrie</span><span class="params">(<span class="keyword">int</span>[] freq)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MinPQ&lt;Node&gt; pq = <span class="keyword">new</span> MinPQ&lt;Node&gt;();</span><br><span class="line">    <span class="comment">// initialize PQ with singleton tries</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> i = <span class="number">0</span>; i &lt; R; i++)</span><br><span class="line">       <span class="keyword">if</span> (freq[i] &gt; <span class="number">0</span>)</span><br><span class="line">          pq.insert(<span class="keyword">new</span> Node(i, freq[i], <span class="keyword">null</span>, <span class="keyword">null</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (pq.size() &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;  <span class="comment">// merge two smallest tries</span></span><br><span class="line">       Node x = pq.delMin();</span><br><span class="line">       Node y = pq.delMin();</span><br><span class="line">       Node parent = <span class="keyword">new</span> Node(<span class="string">'\0'</span>, x.freq + y.freq, x, y);</span><br><span class="line">       pq.insert(parent);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pq.delMin();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这个算法, 可以保证频率最高(权重最大)的字符的叶节点就是最左叶节点, 一般编码为<code>0</code>, 其他依次类推. 可以证明Huffman算法生成的最优prefix-free编码.</p>
+<p><a href="https://algs4.cs.princeton.edu/55compression/Huffman.java.html" target="_blank" rel="noopener">完整代码见</a></p>
+<p>Implementation.<br>・Pass 1:  tabulate char frequencies and build trie.<br>・Pass 2:  encode file by traversing trie or lookup table</p>
+<p>Running time. Using a binary heap ⇒ <code>N + R log R</code>. N input size, R alphabet size.</p>
+<p>对于具有n个叶子节点的哈夫曼树，一共需要<code>2*n-1</code>个节点: 二叉树有三种类型节点，即子节点数为2的节点，为1的节点和为0的叶节点。而哈夫曼树的非叶子节点是由两个节点生成的，因此不能出现只有单子节点的节点，如果叶子节点个数为n, 那么非叶子节点的个数为<code>n-1</code>.</p>
+<p>哈夫曼编码广泛应用于jpeg, pdf, MP3, MP4等文件编码中.</p>
+<p>在神经网络中, 哈夫曼树也被用于构建层级Softmax.</p>
+<p>一个使用Huffman Encoding的实例：<br><a href="https://github.com/congchan/cs106b-programming-abstraction/tree/master/HW6_Huffman%20Encoding/Huffman/src" target="_blank" rel="noopener">https://github.com/congchan/cs106b-programming-abstraction/tree/master/HW6_Huffman%20Encoding/Huffman/src</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Information-Retrieval/" rel="tag"># Information Retrieval</a>
+          
+            <a href="/tags/Data-Compression/" rel="tag"># Data Compression</a>
+          
+            <a href="/tags/Huffman-Compression/" rel="tag"># Huffman Compression</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/data-compression-introduction/" rel="next" title="NLP与信息处理 07 - 数据压缩">
+                <i class="fa fa-chevron-left"></i> NLP与信息处理 07 - 数据压缩
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NLP-language-model/" rel="prev" title="语言模型">
+                语言模型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/AI/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/categories/AI/">1</a><a class="page-number" href="/categories/AI/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -424,6 +549,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -444,8 +583,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -464,7 +612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -486,7 +634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -525,6 +673,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#避免歧义的编码"><span class="nav-number">1.</span> <span class="nav-text">避免歧义的编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用Trie构造编码"><span class="nav-number">1.1.</span> <span class="nav-text">用Trie构造编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用哈夫曼算法构建最优编码"><span class="nav-number">1.2.</span> <span class="nav-text">用哈夫曼算法构建最优编码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -665,6 +829,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -682,6 +850,18 @@
       <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://congchan.github.io/data-compression-huffman-compression/';
+          this.page.identifier = 'data-compression-huffman-compression/';
+          this.page.title = 'NLP与信息处理 08 - 数据压缩 - 哈夫曼编码';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shootingspace.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

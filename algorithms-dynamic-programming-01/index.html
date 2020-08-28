@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="在解决问题中，有很多经典的方法，如 divide-and-conquer, graph exploration, and greedy。这些方法虽然很有效，但尤其自身的局限性。某些问题（Advanced problem: the knapsack problem, sequence alignment, and optimal binary search trees）需要其他思路解决，如 Dyna">
+<meta name="description" content="我们已经看到了一些优雅的设计原则，例如分而治之，图探索和贪婪的选择，它们为各种重要的计算任务提供了确定的算法。这些工具的缺点是只能用于非常特定类型的问题。现在我们来谈谈算法工艺的两个大锤，即动态编程和线性编程，这两种适用性非常广泛的技术可以在更专门的方法失败时调用。可以预见的是，这种普遍性通常会带来效率上的损失。 很多经典的方法，如 divide-and-conquer, graph explor">
 <meta name="keywords" content="Java,Algorithms,Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dynamic Programming 01 - 理解动态规划">
 <meta property="og:url" content="https://congchan.github.io/algorithms-dynamic-programming-01/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="在解决问题中，有很多经典的方法，如 divide-and-conquer, graph exploration, and greedy。这些方法虽然很有效，但尤其自身的局限性。某些问题（Advanced problem: the knapsack problem, sequence alignment, and optimal binary search trees）需要其他思路解决，如 Dyna">
+<meta property="og:description" content="我们已经看到了一些优雅的设计原则，例如分而治之，图探索和贪婪的选择，它们为各种重要的计算任务提供了确定的算法。这些工具的缺点是只能用于非常特定类型的问题。现在我们来谈谈算法工艺的两个大锤，即动态编程和线性编程，这两种适用性非常广泛的技术可以在更专门的方法失败时调用。可以预见的是，这种普遍性通常会带来效率上的损失。 很多经典的方法，如 divide-and-conquer, graph explor">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-15T09:25:10.252Z">
+<meta property="og:updated_time" content="2020-08-28T09:49:13.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dynamic Programming 01 - 理解动态规划">
-<meta name="twitter:description" content="在解决问题中，有很多经典的方法，如 divide-and-conquer, graph exploration, and greedy。这些方法虽然很有效，但尤其自身的局限性。某些问题（Advanced problem: the knapsack problem, sequence alignment, and optimal binary search trees）需要其他思路解决，如 Dyna">
+<meta name="twitter:description" content="我们已经看到了一些优雅的设计原则，例如分而治之，图探索和贪婪的选择，它们为各种重要的计算任务提供了确定的算法。这些工具的缺点是只能用于非常特定类型的问题。现在我们来谈谈算法工艺的两个大锤，即动态编程和线性编程，这两种适用性非常广泛的技术可以在更专门的方法失败时调用。可以预见的是，这种普遍性通常会带来效率上的损失。 很多经典的方法，如 divide-and-conquer, graph explor">
 
 
 
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">Words&#58;</span>
                 
                 <span title="Words">
-                  1,331
+                  1,616
                 </span>
               
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">Estimated &asymp;</span>
                 
                 <span title="Estimated">
-                  6 min
+                  7 min
                 </span>
               
             </div>
@@ -413,35 +413,48 @@
       
 
       
-        <p>在解决问题中，有很多经典的方法，如 divide-and-conquer, graph exploration, and greedy。这些方法虽然很有效，但尤其自身的局限性。某些问题（Advanced problem: the knapsack problem, sequence alignment, and optimal binary search trees）需要其他思路解决，如 Dynamic programing 和 linear programming。</p>
-<p>参考：<a href="https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf" target="_blank" rel="noopener">https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf</a><br><a id="more"></a></p>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>动态规划作为一种编程范例，可以从一个例子着手理解：求数列的 weighted independent sets (WIS, 最大非连续非相邻子集)和, 对于<code>a = [1, 4, 5, 4]</code>, 其WIS为<code>{a[1], a[3]} = 8</code>.</p>
+        <p>我们已经看到了一些优雅的设计原则，例如分而治之，图探索和贪婪的选择，它们为各种重要的计算任务提供了确定的算法。这些工具的缺点是只能用于非常特定类型的问题。现在我们来谈谈算法工艺的两个大锤，即动态编程和线性编程，这两种适用性非常广泛的技术可以在更专门的方法失败时调用。可以预见的是，这种普遍性通常会带来效率上的损失。</p>
+<p>很多经典的方法，如 divide-and-conquer, graph exploration, and greedy等, 为各种重要的计算任务提供了确定性的解法。但是这些算法只能用于特定类型的问题。</p>
+<p>这里介绍两个算法大杀器: <strong>Dynamic programing</strong> 和 <strong>linear programming</strong>.</p>
+<p>这两种适用性非常广的算法可以在黔驴技穷时考虑调用（如 the knapsack problem, sequence alignment, and optimal binary search trees）。当然，普遍性往往会带来效率上的损失。</p>
+<a id="more"></a>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>动态规划作为一种编程范例，可以从一个例子着手理解：求数列的 maximum-weighted independent sets (MIS, 最大非连续非相邻子集)和, 对于<code>a = [1, 4, 5, 4]</code>, 其MIS为<code>{a[1], a[3]} = 8</code>.</p>
 <p>如果使用贪心法, 每次都在可选范围内取最大值, 那么就会得到<code>{a[2], a[0]} = 6</code>.</p>
-<p>如果使用分而治之法, 把数组分为两半<code>a1 = [1, 4], a2 = [5, 4]</code>, 则分别得到WIS<code>{a1[1]}, {a2[0]}</code>, 合并后发现是相邻的, 与要求相悖.</p>
+<p>如果使用分而治之法, 把数组分为两半<code>a1 = [1, 4], a2 = [5, 4]</code>, 则分别得到MIS<code>{a1[1]}, {a2[0]}</code>, 合并后发现是相邻的, 与要求相悖.</p>
 <p>要解决这个问题，关键的步骤是找到<strong>基于子问题最优解的最优解</strong>：想办法把缩小最优解备选方案的数量，在这个较小的空间中可以直接采取暴力搜索寻找最优解。</p>
-<p>对于<code>a = [1, 4, 5, 4]</code>, 假设其MSI为<code>S</code>, 假如从最右边的元素开始考虑, <code>a[3] = 4</code>只有属于<code>S</code>和不属于<code>S</code>两种情况</p>
+<p>对于<code>a = [1, 4, 5, 4]</code>, 假设其MIS为<code>S</code>, 假如从最右边的元素开始考虑, <code>a[3] = 4</code>只有属于<code>S</code>和不属于<code>S</code>两种情况</p>
 <ul>
-<li>若<code>a[3] = 4</code>属于<code>S</code>: 那么<code>a[2] = 5</code>就肯定不属于<code>S</code>, 则<code>S1 = MSI([1, 4]) + MSI([4])</code></li>
-<li>若<code>a[3]</code>不属于<code>S</code>: 那么<code>S</code>只能存在于<code>[1, 4, 5]</code>中, 问题就变成<code>S2 = MSI([1, 4, 5])</code></li>
+<li>若<code>a[3] = 4</code>属于<code>S</code>: 那么<code>a[2] = 5</code>就肯定不属于<code>S</code>, 则<code>S1 = MIS([1, 4]) + MIS([4])</code></li>
+<li>若<code>a[3]</code>不属于<code>S</code>: 那么<code>S</code>只能存在于<code>[1, 4, 5]</code>中, 问题就变成<code>S2 = MIS([1, 4, 5])</code></li>
 </ul>
-<p>所以归纳出<code>S = max(S1, S2) = max(MSI([1, 4]) + MSI([4]), MSI([1, 4, 5])) = ...</code>。 对于只剩下一个元素的去情况, <code>MSI([4]) = max(4) = 4</code>, 即<code>MSI([i]) = i</code></p>
+<p>所以归纳出<code>S = max(S1, S2) = max(MIS([1, 4]) + MIS([4]), MIS([1, 4, 5])) = ...</code>。 对于只剩下一个元素的去情况, <code>MIS([4]) = max(4) = 4</code>, 即<code>MIS([i]) = i</code></p>
 <p>这就是一个递归的调用: 也就是从右往左, 每一个元素都要考虑一遍是否属于<code>S</code>, 每次会分裂出两种情况, 所以递归的复杂度是$Θ(2^n)$.</p>
-<p>这个算法效率不高, 需要优化. 我们考虑这个问题到底有多少不同的子问题? 因为我们是从右往左扫描每一个元素, 对于每一个元素<code>i</code>, 不管其属于或不属于<code>S</code>, 待解决的递归子问题只有一个, 就是求其左边的所有元素(前缀)的MSI, 所以理论上有$Θ(n)$个不同的子问题.</p>
-<p>所以虽然递归的调用是$Θ(2^n)$, 但需要解决的子问题只有$Θ(n)$, 那么就存在优化的空间. 办法就是通过<strong>记忆</strong>已经解决了的子问题的答案, 来避免重复的计算. 因为右边的元素的子问题答案需要用到其左边的子问题的答案, 所以计算时, 要从左往右计算， 所以这个算法成为forward算法. 在定义初始值时, <code>MSI(i)</code>表示<code>a[i]</code>的前缀<code>a[0 : i]</code>的MSI,</p>
+<p>这个算法效率不高, 需要优化. 我们考虑这个问题到底有多少不同的子问题? 因为我们是从右往左扫描每一个元素, 对于每一个元素<code>i</code>, 不管其属于或不属于<code>S</code>, 待解决的递归子问题只有一个, 就是求其左边的所有元素(前缀)的MIS, 所以理论上有$Θ(n)$个不同的子问题.</p>
+<p>所以虽然递归的调用是$Θ(2^n)$, 但需要解决的子问题只有$Θ(n)$, 那么就存在优化的空间. 办法就是通过<strong>记忆</strong>已经解决了的子问题的答案, 来避免重复的计算. 因为右边的元素的子问题答案需要用到其左边的子问题的答案, 所以计算时, 要从左往右计算. </p>
+<p>定义子问题: 用<code>MIS(i)</code>表示<code>a[i]</code>的前缀<code>a[: i]</code>的MIS(不包括<code>a[i]</code>),</p>
 <ol>
-<li><code>MSI(0) = 0</code>, 因为<code>a[0]</code>左边没有任何元素.</li>
-<li><code>MSI(1) = max(a[0:1]) = a[0]</code></li>
-<li>对于<code>i &gt; 1</code>, <code>MSI(i) = max(MSI(i - 1), MSI(i - 2) + a[i - 1])</code></li>
+<li><code>MIS(0) = 0</code>, 因为<code>a[0]</code>左边没有任何元素.</li>
+<li><code>MIS(1) = max(a[0:1]) = a[0]</code></li>
+<li>对于<code>i &gt; 1</code>, <code>MIS(i)</code>只有两种情况, 取二者中较大者:<ol>
+<li>包括<code>a[i - 1]</code>, <code>MIS(i) = MIS(i - 2) + a[i - 1]</code></li>
+<li>不包括, <code>MIS(i) = MIS(i - 1)</code></li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] forwardMSI(<span class="keyword">int</span>[] a) &#123;</span><br><span class="line">    <span class="keyword">int</span>[] msi = <span class="keyword">new</span> <span class="keyword">int</span>[a.length + <span class="number">1</span>];</span><br><span class="line">    msi[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    msi[<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; msi.length; i++) &#123;</span><br><span class="line">        msi[i] = Math.max(msi[i - <span class="number">1</span>], msi[i - <span class="number">2</span>] + a[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> msi;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但以上算法并没有记录MSI具体包含哪些子集，虽然可以通过修改<code>msi</code>数据结构来额外存储每个值对应的MSI点集, 但这样会影响效率而且浪费内存空间.</p>
-<p>回忆前面从右往左的分析, 每个元素都会考量是否属于MSI<code>S</code>, 所以我们可以把<code>forwardMSI</code>中算好的<code>msi</code>数组从右往左依次判断一遍, 已决定是否把<code>a</code>对应位置的元素加入到<code>S</code>中.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Integer&gt; <span class="title">backwardMSI</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; s = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> i = msi.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (msi[i - <span class="number">1</span>] &gt;= msi[i - <span class="number">2</span>] + a[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            s.add(a[i - <span class="number">1</span>]);</span><br><span class="line">            i -= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>进一步优化，我们可以用类似<code>backward</code>的算法一次过(<code>O(n)</code>)计算出MSI的集合和MSI的值, 对<code>backward</code>算法稍作改动, 在<code>a</code>表开头插入<code>0</code>（或者让<code>a[-1] = 0</code>）, 然后从右往左依次判断一遍, 直接用<code>a</code>表自身的值来判断, 得到一个Backward算法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Integer&gt; <span class="title">backwardMSII</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; s = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> i = a.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> x = get(a, i);</span><br><span class="line">        <span class="keyword">if</span> (get(a, i - <span class="number">1</span>) &gt;= get(a, i - <span class="number">2</span>) + x) &#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            s.add(x);</span><br><span class="line">            sum += x;</span><br><span class="line">            i -= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a[index];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<p>从开头开始考虑(计算), 每一步<code>i</code>都记住对应子问题的最优解<code>MIS(i)</code>, 计算到最后一个子问题<code>MIS(N)</code>, 就得出了考虑了所有子问题之后的最大值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] forwardMIS(<span class="keyword">int</span>[] a) &#123;</span><br><span class="line">    <span class="keyword">int</span>[] mis = <span class="keyword">new</span> <span class="keyword">int</span>[a.length + <span class="number">1</span>];</span><br><span class="line">    mis[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    mis[<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; mis.length; i++) &#123;</span><br><span class="line">        mis[i] = Math.max(mis[i - <span class="number">1</span>], mis[i - <span class="number">2</span>] + a[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但以上算法并没有记录MIS具体包含哪些子集，虽然可以通过修改<code>mis</code>数据结构来额外存储每个值对应的MIS点集, 但这样会影响效率而且浪费内存空间.</p>
+<p>回忆前面从右往左的分析, 每个元素都会考量是否属于MIS<code>S</code>, 所以我们可以把<code>forwardMIS</code>中算好的<code>mis</code>数组从右往左依次判断一遍, 已决定是否把<code>a</code>对应位置的元素加入到<code>S</code>中.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Integer&gt; <span class="title">backwardMIS</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; s = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> i = mis.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mis[i - <span class="number">1</span>] &gt;= mis[i - <span class="number">2</span>] + a[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            s.add(a[i - <span class="number">1</span>]);</span><br><span class="line">            i -= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>进一步优化，我们可以用类似<code>backward</code>的算法一次过(<code>O(n)</code>)计算出MIS的集合和MIS的值, 对<code>backward</code>算法稍作改动, 在<code>a</code>表末尾延申一个<code>0</code>元素, 然后从右往左依次判断一遍, 直接用<code>a</code>表自身的值来判断, 得到一个Backward算法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Integer&gt; <span class="title">backwardMISI</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; s = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> i = a.length - <span class="number">2</span>; <span class="comment">// assume a = [a, 0]</span></span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> x = get(a, i);</span><br><span class="line">        <span class="keyword">if</span> (get(a, i + <span class="number">1</span>) &gt;= get(a, i + <span class="number">2</span>) + x) &#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            s.add(x);</span><br><span class="line">            sum += x;</span><br><span class="line">            i -= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt; a.length -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a[index];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>总结动态规划的解法：</p>
 <ul>
 <li>定义合适的子问题集合: 这些子问题应该尽可能小，数量尽可能少。因为即使在最好的情况下，也要花费 constant time 来解决每个子问题，因此子问题的数量和大小就是整个算法运行时间的下限。</li>
 <li>归纳转移方程：系统地解决从最小的子问题开始的所有子问题后，如何转向越来越大的子问题。</li>
 <li>通过<strong>记忆</strong>减少重复的递归调用计算: 要求前面子问题的解决方案能够用来快速计算当前子问题。</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf" target="_blank" rel="noopener">https://people.eecs.berkeley.edu/~vazirani/algorithms/chap6.pdf</a></li>
+<li><a href="http://cs.yazd.ac.ir/farshi/Teaching/DP3901/" target="_blank" rel="noopener">http://cs.yazd.ac.ir/farshi/Teaching/DP3901/</a></li>
 </ul>
 
       
@@ -586,7 +599,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -608,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -657,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.1.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>

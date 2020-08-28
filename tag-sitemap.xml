@@ -30,50 +30,8 @@
     </url>
 
     <url>
-        <loc>https://congchan.github.io/tags/Boyer-Moore/</loc>
-        <lastmod>2018-10-07T07:44:44.008Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/KMP/</loc>
-        <lastmod>2018-10-07T07:57:01.029Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Aho%E2%80%93Corasick-algorithm/</loc>
-        <lastmod>2018-10-07T07:57:01.029Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Trie/</loc>
-        <lastmod>2018-10-09T15:20:32.671Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Symbol-table/</loc>
-        <lastmod>2018-10-09T15:20:32.671Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://congchan.github.io/tags/algs4/</loc>
         <lastmod>2018-10-22T15:44:16.350Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Dynamic-Programming/</loc>
-        <lastmod>2018-10-30T12:32:05.413Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -88,20 +46,6 @@
     <url>
         <loc>https://congchan.github.io/tags/C/</loc>
         <lastmod>2018-11-07T12:20:10.729Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Huffman-Compression/</loc>
-        <lastmod>2018-12-17T13:06:05.733Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Data-Compression/</loc>
-        <lastmod>2018-12-17T13:06:31.923Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -142,27 +86,6 @@
     </url>
 
     <url>
-        <loc>https://congchan.github.io/tags/Algorithm/</loc>
-        <lastmod>2019-07-30T09:36:47.023Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Trie%E5%9B%BE/</loc>
-        <lastmod>2019-07-30T09:36:47.023Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
-        <lastmod>2019-07-30T09:36:47.023Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://congchan.github.io/tags/Sorting/</loc>
         <lastmod>2019-07-30T09:45:16.498Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -198,20 +121,6 @@
     </url>
 
     <url>
-        <loc>https://congchan.github.io/tags/Information-Retrieval/</loc>
-        <lastmod>2020-01-02T10:00:53.240Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://congchan.github.io/tags/Algorithms/</loc>
-        <lastmod>2020-01-14T09:29:27.007Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://congchan.github.io/tags/Computer-Science/</loc>
         <lastmod>2020-01-14T09:29:27.007Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -240,13 +149,6 @@
     </url>
 
     <url>
-        <loc>https://congchan.github.io/tags/Java/</loc>
-        <lastmod>2020-03-02T07:06:57.981Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://congchan.github.io/tags/Software-Engineer/</loc>
         <lastmod>2020-03-02T07:06:57.981Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -255,7 +157,133 @@
 
     <url>
         <loc>https://congchan.github.io/tags/NLP/</loc>
-        <lastmod>2020-03-27T03:14:26.057Z</lastmod>
+        <lastmod>2020-07-24T08:21:06.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Data-Compression/</loc>
+        <lastmod>2020-07-24T08:21:06.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Huffman-Compression/</loc>
+        <lastmod>2020-07-24T08:21:06.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Trie%E5%9B%BE/</loc>
+        <lastmod>2020-07-24T08:28:24.910Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
+        <lastmod>2020-07-24T08:28:24.910Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Information-Retrieval/</loc>
+        <lastmod>2020-07-24T08:28:40.010Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Symbol-table/</loc>
+        <lastmod>2020-07-24T08:28:40.010Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/KMP/</loc>
+        <lastmod>2020-08-11T08:21:29.143Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Aho%E2%80%93Corasick-algorithm/</loc>
+        <lastmod>2020-08-11T08:21:29.143Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Trie/</loc>
+        <lastmod>2020-08-11T08:21:29.143Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Boyer-Moore/</loc>
+        <lastmod>2020-08-15T08:55:19.936Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Horspool/</loc>
+        <lastmod>2020-08-15T08:55:19.936Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Sunday/</loc>
+        <lastmod>2020-08-15T08:55:19.936Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Algorithm/</loc>
+        <lastmod>2020-08-26T06:13:58.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/String/</loc>
+        <lastmod>2020-08-26T06:13:58.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Rabin-Karp/</loc>
+        <lastmod>2020-08-26T06:13:58.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Java/</loc>
+        <lastmod>2020-08-28T09:49:13.834Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Algorithms/</loc>
+        <lastmod>2020-08-28T09:49:13.834Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://congchan.github.io/tags/Dynamic-Programming/</loc>
+        <lastmod>2020-08-28T09:49:13.834Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
