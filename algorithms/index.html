@@ -1,96 +1,36 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
-
-
-
-
-
-
-
-
-  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Java,algs4,Software Engineer,Algorithms," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="Algorithms, Part I, https://online.princeton.edu/course/algorithms-part-i Algorithms, Part II, https://online.princeton.edu/course/algorithms-part-ii Algorithms, 4th Edition by Robert Sedgewick and K">
-<meta name="keywords" content="Java,algs4,Software Engineer,Algorithms">
+  <meta name="description" content="Algorithms, Part I, https:&#x2F;&#x2F;online.princeton.edu&#x2F;course&#x2F;algorithms-part-i Algorithms, Part II, https:&#x2F;&#x2F;online.princeton.edu&#x2F;course&#x2F;algorithms-part-ii Algorithms, 4th Edition by Robert Sedgewick and K">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithms - Princeton">
 <meta property="og:url" content="https://congchan.github.io/algorithms/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Algorithms, Part I, https://online.princeton.edu/course/algorithms-part-i Algorithms, Part II, https://online.princeton.edu/course/algorithms-part-ii Algorithms, 4th Edition by Robert Sedgewick and K">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="Algorithms, Part I, https:&#x2F;&#x2F;online.princeton.edu&#x2F;course&#x2F;algorithms-part-i Algorithms, Part II, https:&#x2F;&#x2F;online.princeton.edu&#x2F;course&#x2F;algorithms-part-ii Algorithms, 4th Edition by Robert Sedgewick and K">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://algs4.cs.princeton.edu/15uf/images/quick-find-overview.png">
 <meta property="og:image" content="https://algs4.cs.princeton.edu/15uf/images/quick-union-overview.png">
 <meta property="og:image" content="https://algs4.cs.princeton.edu/15uf/images/weighted-quick-union-overview.png">
@@ -103,47 +43,31 @@
 <meta property="og:image" content="https://congchan.github.io/images/priorityqueue.png">
 <meta property="og:image" content="https://congchan.github.io/images/sorting_summary.png">
 <meta property="og:image" content="https://congchan.github.io/images/pidgeonholesort_countingsort.png">
-<meta property="og:updated_time" content="2018-10-22T15:44:16.350Z">
+<meta property="article:published_time" content="2018-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-10-22T15:44:16.350Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="algs4">
+<meta property="article:tag" content="Software Engineer">
+<meta property="article:tag" content="Algorithms">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Algorithms - Princeton">
-<meta name="twitter:description" content="Algorithms, Part I, https://online.princeton.edu/course/algorithms-part-i Algorithms, Part II, https://online.princeton.edu/course/algorithms-part-ii Algorithms, 4th Edition by Robert Sedgewick and K">
 <meta name="twitter:image" content="https://algs4.cs.princeton.edu/15uf/images/quick-find-overview.png">
 
 
+<link rel="canonical" href="https://congchan.github.io/algorithms/">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-
-
-  <link rel="canonical" href="https://congchan.github.io/algorithms/"/>
-
-
-
-
-
-  <title>Algorithms - Princeton | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Algorithms - Princeton | Computer Science & AI</title>
   
 
 
@@ -151,145 +75,222 @@
 
 
 
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Computer Science & AI</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Computer Science & AI</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Union%E2%88%92Find"><span class="nav-number">1.</span> <span class="nav-text">Union−Find</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-Sort"><span class="nav-number">2.</span> <span class="nav-text">Element Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-Sort"><span class="nav-number">2.1.</span> <span class="nav-text">Selection Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-Sort"><span class="nav-number">2.2.</span> <span class="nav-text">Insertion Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shellsort"><span class="nav-number">2.3.</span> <span class="nav-text">Shellsort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">3.</span> <span class="nav-text">Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mergesort-Practical-improvements"><span class="nav-number">3.1.</span> <span class="nav-text">Mergesort: Practical improvements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-down-mergesort"><span class="nav-number">3.2.</span> <span class="nav-text">Top-down mergesort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-up-mergesort"><span class="nav-number">3.3.</span> <span class="nav-text">Bottom-up mergesort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mergesort-Applications"><span class="nav-number">3.4.</span> <span class="nav-text">Mergesort Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Sort"><span class="nav-number">4.</span> <span class="nav-text">Quick Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort-practical-improvements"><span class="nav-number">4.1.</span> <span class="nav-text">Quicksort: practical improvements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort-with-duplicate-keys"><span class="nav-number">4.2.</span> <span class="nav-text">Quicksort with duplicate keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort-Applications"><span class="nav-number">4.3.</span> <span class="nav-text">Quicksort Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Priority-Queues"><span class="nav-number">5.</span> <span class="nav-text">Priority Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Heap"><span class="nav-number">5.1.</span> <span class="nav-text">Binary Heap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heap-Sort"><span class="nav-number">5.2.</span> <span class="nav-text">Heap Sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB%E6%AF%94%E8%BE%83"><span class="nav-number">6.</span> <span class="nav-text">排序算法汇总比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pigeonhole-sort"><span class="nav-number">7.</span> <span class="nav-text">Pigeonhole sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bucket-sort"><span class="nav-number">8.</span> <span class="nav-text">Bucket sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph"><span class="nav-number">9.</span> <span class="nav-text">Graph</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/Ginntonic" title="你乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;Ginntonic" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>你乎</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-  
-  
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/algorithms/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -297,139 +298,75 @@
     </span>
 
     
+    
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Algorithms - Princeton
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Algorithms - Princeton</h1>
-        
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-01T00:00:00+08:00">
-                2018-07-01
-              </time>
-            
+      <time title="创建时间：2018-07-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-01T00:00:00+08:00">2018-07-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2018-10-22 23:44:16" itemprop="dateModified" datetime="2018-10-22T23:44:16+08:00">2018-10-22</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/algorithms/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="algorithms/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/algorithms/" class="leancloud_visitors" data-flag-title="Algorithms - Princeton">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  4,547
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  26 min
-                </span>
-              
-            </div>
-          
-
-          
+  
+    <span id="/algorithms/" class="post-meta-item leancloud_visitors" data-flag-title="Algorithms - Princeton" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/algorithms/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/algorithms/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
         <ul>
-<li>Algorithms, Part I, <a href="https://online.princeton.edu/course/algorithms-part-i" target="_blank" rel="noopener">https://online.princeton.edu/course/algorithms-part-i</a></li>
-<li>Algorithms, Part II, <a href="https://online.princeton.edu/course/algorithms-part-ii" target="_blank" rel="noopener">https://online.princeton.edu/course/algorithms-part-ii</a></li>
-<li>Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne <a href="https://algs4.cs.princeton.edu/" target="_blank" rel="noopener">https://algs4.cs.princeton.edu/</a><a id="more"></a>
+<li>Algorithms, Part I, <a target="_blank" rel="noopener" href="https://online.princeton.edu/course/algorithms-part-i">https://online.princeton.edu/course/algorithms-part-i</a></li>
+<li>Algorithms, Part II, <a target="_blank" rel="noopener" href="https://online.princeton.edu/course/algorithms-part-ii">https://online.princeton.edu/course/algorithms-part-ii</a></li>
+<li>Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne <a target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/">https://algs4.cs.princeton.edu/</a><a id="more"></a>
+
 </li>
 </ul>
 <h2 id="Union−Find"><a href="#Union−Find" class="headerlink" title="Union−Find"></a>Union−Find</h2><p>Considering the dynamic connectivity problem, modeling of multiple objects connected in a space/network.</p>
@@ -444,23 +381,23 @@
 <p>Modeling the connections:<br>Maximal set of objects that are mutually connected - Connected components.</p>
 <p>Data structure:</p>
 <ol>
-<li><p>Quick find<br>Integer array <code>id[]</code> of length N, two objects are connected iff they have the same id.<br><img src="https://algs4.cs.princeton.edu/15uf/images/quick-find-overview.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br>Defect: <code>union</code> too expensive, $\in \Theta(N^2)$.</p>
+<li><p>Quick find<br>Integer array <code>id[]</code> of length N, two objects are connected iff they have the same id.<br><img src="https://algs4.cs.princeton.edu/15uf/images/quick-find-overview.png" title="image from: https://algs4.cs.princeton.edu/"><br>Defect: <code>union</code> too expensive, $\in \Theta(N^2)$.</p>
 </li>
-<li><p>Quick-union<br>Integer array <code>id[]</code> of length N, <code>id[i]</code> is parent of i, root of i is <code>id[id[id[...id[i]...]]]</code> (until it doesn’t change).<br><img src="https://algs4.cs.princeton.edu/15uf/images/quick-union-overview.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br>The <code>find</code> is recursive.</p>
+<li><p>Quick-union<br>Integer array <code>id[]</code> of length N, <code>id[i]</code> is parent of i, root of i is <code>id[id[id[...id[i]...]]]</code> (until it doesn’t change).<br><img src="https://algs4.cs.princeton.edu/15uf/images/quick-union-overview.png" title="image from: https://algs4.cs.princeton.edu/"><br>The <code>find</code> is recursive.</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** chase parent pointers until reach root</span></span><br><span class="line"><span class="comment"> * (depth of i array accesses) */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i != id[i]) i = id[i];</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> Defect: Trees can get tall, <code>find</code> too expensive, $\in \Theta(N)$.</p>
 </li>
-<li><p>Weighted quick-union<br>Modify quick-union to avoid tall trees. Balance by linking root of smaller tree to root of larger tree. Maintain extra array <code>sz[i]</code> to keep track of size of each tree (number of objects).<br><img src="https://algs4.cs.princeton.edu/15uf/images/weighted-quick-union-overview.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br><code>find</code>: time proportional to depth of p and q, the depth of any node x is at most $\log N$,</p>
+<li><p>Weighted quick-union<br>Modify quick-union to avoid tall trees. Balance by linking root of smaller tree to root of larger tree. Maintain extra array <code>sz[i]</code> to keep track of size of each tree (number of objects).<br><img src="https://algs4.cs.princeton.edu/15uf/images/weighted-quick-union-overview.png" title="image from: https://algs4.cs.princeton.edu/"><br><code>find</code>: time proportional to depth of p and q, the depth of any node x is at most $\log N$,</p>
 </li>
 <li><p>Weighted quick-union with path compression<br>Making all the nodes that examined directly link to its root. Keeps tree almost completely flat.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Make every other node in path point to its grandparent</span></span><br><span class="line"><span class="comment">* (thereby halving path length). */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i != id[i]) &#123;</span><br><span class="line">        id[i] = id[id[i]];</span><br><span class="line">        i = id[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> Amortized analysis: <code>[Hopcroft-Ulman, Tarjan]</code> Starting from an empty data structure, any sequence of M union-find ops on N objects makes $≤ c ( N + M \lg \ast N )$ array accesses. $\lg \ast N$ is <a href="https://en.wikipedia.org/wiki/Iterated_logarithm" target="_blank" rel="noopener">Iterated logarithm</a>, for $N = 2^{65536}$, $\lg \ast N = 5$. In theory, WQUPC is not quite linear. In practice, WQUPC is linear.</p>
+<p> Amortized analysis: <code>[Hopcroft-Ulman, Tarjan]</code> Starting from an empty data structure, any sequence of M union-find ops on N objects makes $≤ c ( N + M \lg \ast N )$ array accesses. $\lg \ast N$ is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Iterated_logarithm">Iterated logarithm</a>, for $N = 2^{65536}$, $\lg \ast N = 5$. In theory, WQUPC is not quite linear. In practice, WQUPC is linear.</p>
 </li>
 </ol>
 <blockquote>
 <p>Amazing fact. <code>[Fredman-Saks]</code> No linear-time algorithm exists.</p>
 </blockquote>
-<p><img src="https://algs4.cs.princeton.edu/15uf/images/uf-performance.png" alt="" title="Summary. image from: https://algs4.cs.princeton.edu/"></p>
+<p><img src="https://algs4.cs.princeton.edu/15uf/images/uf-performance.png" title="Summary. image from: https://algs4.cs.princeton.edu/"></p>
 <h2 id="Element-Sort"><a href="#Element-Sort" class="headerlink" title="Element Sort"></a>Element Sort</h2><p>Two elementary sorting methods: selection sort and insertion sort. Shellsort is a variation of one of them.</p>
 <blockquote>
 <p>The objective is to rearrange the items such that their keys are in ascending order.</p>
@@ -476,10 +413,10 @@
 <ol>
 <li>Find the smallest item in the array, and exchange it with the first entry.</li>
 <li>Find the next smallest item and exchange it with the second entry.</li>
-<li>Continue until the entire array is sorted.<br><img src="https://algs4.cs.princeton.edu/21elementary/images/selection.png" alt="" title="image from: https://algs4.cs.princeton.edu/"></li>
+<li>Continue until the entire array is sorted.<br><img src="https://algs4.cs.princeton.edu/21elementary/images/selection.png" title="image from: https://algs4.cs.princeton.edu/"></li>
 </ol>
 <p>Selection sort uses ~$n^2/2$ compares and n exchanges to sort an array of length n.</p>
-<h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3><p>Works like people sort Pokers: consider the cards one at a time, inserting each into its proper place among those already considered (keeping them sorted).<br><img src="https://algs4.cs.princeton.edu/21elementary/images/insertion.png" alt="" title="image from: https://algs4.cs.princeton.edu/"><br>In a computer implementation, we need to make space for the current item by moving larger items one position to the right, before inserting the current item into the vacated position.</p>
+<h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3><p>Works like people sort Pokers: consider the cards one at a time, inserting each into its proper place among those already considered (keeping them sorted).<br><img src="https://algs4.cs.princeton.edu/21elementary/images/insertion.png" title="image from: https://algs4.cs.princeton.edu/"><br>In a computer implementation, we need to make space for the current item by moving larger items one position to the right, before inserting the current item into the vacated position.</p>
 <blockquote>
 <p>For randomly ordered arrays of length N with distinct keys, insertion sort uses ~$N^2/4$ compares and ~$N^2/4$ exchanges on the average. The worst case is ~ $N^2/2$ compares and ~ $N^2/2$ exchanges and the best case is $N-1$ compares and 0 exchanges.</p>
 </blockquote>
@@ -487,24 +424,28 @@
 <p>Insertion sort works well for certain types of nonrandom arrays that often arise in practice, even if they are huge. An inversion is a pair of keys that are out of order in the array. For instance, E X A M P L E has 11 inversions: E-A, X-A, X-M, X-P, X-L, X-E, M-L, M-E, P-L, P-E, and L-E. If the number of inversions in an array is less than a constant multiple of the array size, we say that the array is partially sorted.</p>
 </blockquote>
 <h3 id="Shellsort"><a href="#Shellsort" class="headerlink" title="Shellsort"></a>Shellsort</h3><p>Shellsort gains speed by allowing exchanges of entries that are far apart, to produce partially sorted arrays that can be efficiently sorted, eventually by insertion sort.</p>
-<p>The idea is to rearrange the array to give it the property that taking every $h_{th}$ entry (starting anywhere) yields a sorted sequence. Such an array is said to be h-sorted.<img src="https://algs4.cs.princeton.edu/21elementary/images/h-sorted.png" alt="" title="image from: https://algs4.cs.princeton.edu/">By h-sorting for some large values of h, we can move entries in the array long distances and thus make it easier to h-sort for smaller values of h. Using such a procedure for any increment sequence of values of h that ends in 1 will produce a sorted array:<img src="https://algs4.cs.princeton.edu/21elementary/images/shell.png" alt="" title="image from: https://algs4.cs.princeton.edu/"></p>
+<p>The idea is to rearrange the array to give it the property that taking every $h_{th}$ entry (starting anywhere) yields a sorted sequence. Such an array is said to be h-sorted.<img src="https://algs4.cs.princeton.edu/21elementary/images/h-sorted.png" title="image from: https://algs4.cs.princeton.edu/">By h-sorting for some large values of h, we can move entries in the array long distances and thus make it easier to h-sort for smaller values of h. Using such a procedure for any increment sequence of values of h that ends in 1 will produce a sorted array:<img src="https://algs4.cs.princeton.edu/21elementary/images/shell.png" title="image from: https://algs4.cs.princeton.edu/"></p>
 <blockquote>
 <p>The number of compares used by shellsort with the increments 1, 4, 13, 40, 121, 364, … is O(N^{3/2}).</p>
 </blockquote>
 <h2 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h2><p>Merging means combining two ordered arrays to make one larger ordered array. Merge sort is an utility of divide and conquer paradigm.</p>
 <p>Mergesort guarantees to sort an array of N items in time proportional to $N \log N$, no matter what the input. But it uses extra space proportional to N. Specifically, mergesort uses between $1/2 N \lg N$ and $N \lg N$ compares and at most $6 N \lg N$ array accesses to sort any array of length N.</p>
 <blockquote>
-<p><strong>Abstract in-place merge</strong>: The method <code>merge(a, lo, mid, hi)</code> in <a href="https://algs4.cs.princeton.edu/22mergesort/Merge.java.html" target="_blank" rel="noopener">Merge.java</a> puts the results of merging the subarrays <code>a[lo..mid]</code> with <code>a[mid+1..hi]</code> into a single ordered array, leaving the result in <code>a[lo..hi]</code>. While it would be desirable to implement this method without using a significant amount of extra space, such solutions are remarkably complicated.</p>
+<p><strong>Abstract in-place merge</strong>: The method <code>merge(a, lo, mid, hi)</code> in <a target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/22mergesort/Merge.java.html">Merge.java</a> puts the results of merging the subarrays <code>a[lo..mid]</code> with <code>a[mid+1..hi]</code> into a single ordered array, leaving the result in <code>a[lo..hi]</code>. While it would be desirable to implement this method without using a significant amount of extra space, such solutions are remarkably complicated.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Merge</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> mid, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">assert</span> <span class="title">isSorted</span><span class="params">(a, lo, mid)</span></span>;   <span class="comment">// precondition: a[lo..mid]   sorted</span></span><br><span class="line">       <span class="function"><span class="keyword">assert</span> <span class="title">isSorted</span><span class="params">(a, mid+<span class="number">1</span>, hi)</span></span>; <span class="comment">// precondition: a[mid+1..hi] sorted</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++) <span class="comment">// copy</span></span><br><span class="line">          aux[k] = a[k];</span><br><span class="line"></span><br><span class="line">       <span class="keyword">int</span> i = lo, j = mid+<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++) <span class="comment">// merge</span></span><br><span class="line">       &#123;</span><br><span class="line">          <span class="keyword">if</span>      (i &gt; mid)              a[k] = aux[j++];</span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; hi)               a[k] = aux[i++];</span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">if</span> (less(aux[j], aux[i])) a[k] = aux[j++];</span><br><span class="line">          <span class="keyword">else</span>                           a[k] = aux[i++];</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">assert</span> <span class="title">isSorted</span><span class="params">(a, lo, hi)</span></span>;     <span class="comment">// postcondition: a[lo..hi] sorted</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line">       <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">       sort(a, aux, lo, mid);</span><br><span class="line">       sort(a, aux, mid+<span class="number">1</span>, hi);</span><br><span class="line">       merge(a, aux, lo, mid, hi);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       aux = <span class="keyword">new</span> Comparable[a.length];</span><br><span class="line">       sort(a, aux, <span class="number">0</span>, a.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Proposition.  Mergesort uses at most $N lg N$ compares and $6 N lg N$ array accesses to sort any array of size N. Mergesort uses extra space proportional to N</p>
 </blockquote>
 <p>A sorting algorithm is in-place if it uses $≤ c \log N$ extra memory. Ex. Insertion sort, selection sort, shellsort.</p>
-<h3 id="Mergesort-Practical-improvements"><a href="#Mergesort-Practical-improvements" class="headerlink" title="Mergesort: Practical improvements"></a>Mergesort: Practical improvements</h3><p>Use insertion sort for small subarrays (7).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo + CUTOFF - <span class="number">1</span>)</span><br><span class="line">   &#123;</span><br><span class="line">      Insertion.sort(a, lo, hi);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">   sort (a, aux, lo, mid);</span><br><span class="line">   sort (a, aux, mid+<span class="number">1</span>, hi);</span><br><span class="line">   merge(a, aux, lo, mid, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Stop if already sorted: Is biggest item in first half ≤ smallest item in second half?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line">   <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">   sort (a, aux, lo, mid);</span><br><span class="line">   sort (a, aux, mid+<span class="number">1</span>, hi);</span><br><span class="line">   <span class="keyword">if</span> (!less(a[mid+<span class="number">1</span>], a[mid])) <span class="keyword">return</span>;</span><br><span class="line">   merge(a, aux, lo, mid, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Eliminate the copy to the auxiliary array. Save time (but not space) by switching the role of the input and auxiliary array in each recursive call.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> mid, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> i = lo, j = mid+<span class="number">1</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++) <span class="comment">// merge from a[] to aux[]</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">if</span>      (i &gt; mid)          aux[k] = a[j++];</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; hi)           aux[k] = a[i++];</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (less(a[j], a[i])) aux[k] = a[j++];</span><br><span class="line">      <span class="keyword">else</span>                       aux[k] = a[i++];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line">   <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">   <span class="comment">// switch roles of aux[] and a[]</span></span><br><span class="line">   sort (aux, a, lo, mid);</span><br><span class="line">   sort (aux, a, mid+<span class="number">1</span>, hi);</span><br><span class="line">   merge(a, aux, lo, mid, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Top-down-mergesort"><a href="#Top-down-mergesort" class="headerlink" title="Top-down mergesort"></a>Top-down mergesort</h3><p>A recursive mergesort implementation based on this abstract in-place merge.<br><img src="https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD.png" alt="" title="image from: https://algs4.cs.princeton.edu/"></p>
+<h3 id="Mergesort-Practical-improvements"><a href="#Mergesort-Practical-improvements" class="headerlink" title="Mergesort: Practical improvements"></a>Mergesort: Practical improvements</h3><p>Use insertion sort for small subarrays (7).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo + CUTOFF - <span class="number">1</span>)</span><br><span class="line">   &#123;</span><br><span class="line">      Insertion.sort(a, lo, hi);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">   sort (a, aux, lo, mid);</span><br><span class="line">   sort (a, aux, mid+<span class="number">1</span>, hi);</span><br><span class="line">   merge(a, aux, lo, mid, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Stop if already sorted: Is biggest item in first half ≤ smallest item in second half?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line">   <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">   sort (a, aux, lo, mid);</span><br><span class="line">   sort (a, aux, mid+<span class="number">1</span>, hi);</span><br><span class="line">   <span class="keyword">if</span> (!less(a[mid+<span class="number">1</span>], a[mid])) <span class="keyword">return</span>;</span><br><span class="line">   merge(a, aux, lo, mid, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Eliminate the copy to the auxiliary array. Save time (but not space) by switching the role of the input and auxiliary array in each recursive call.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> mid, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> i = lo, j = mid+<span class="number">1</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++) <span class="comment">// merge from a[] to aux[]</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">if</span>      (i &gt; mid)          aux[k] = a[j++];</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; hi)           aux[k] = a[i++];</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (less(a[j], a[i])) aux[k] = a[j++];</span><br><span class="line">      <span class="keyword">else</span>                       aux[k] = a[i++];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, Comparable[] aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line">   <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">   <span class="comment">// switch roles of aux[] and a[]</span></span><br><span class="line">   sort (aux, a, lo, mid);</span><br><span class="line">   sort (aux, a, mid+<span class="number">1</span>, hi);</span><br><span class="line">   merge(a, aux, lo, mid, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top-down-mergesort"><a href="#Top-down-mergesort" class="headerlink" title="Top-down mergesort"></a>Top-down mergesort</h3><p>A recursive mergesort implementation based on this abstract in-place merge.<br><img src="https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD.png" title="image from: https://algs4.cs.princeton.edu/"></p>
 <h3 id="Bottom-up-mergesort"><a href="#Bottom-up-mergesort" class="headerlink" title="Bottom-up mergesort"></a>Bottom-up mergesort</h3><p>Do all the merges of tiny arrays on one pass, then do a second pass to merge those arrays in pairs, and so forth, continuing until we do a merge that encompasses the whole array.</p>
 <ol>
 <li>We start by doing a pass of 1-by-1 merges</li>
@@ -518,7 +459,8 @@
 <p>About 10% slower than recursive, top-down mergesort on typical systems</p>
 <h3 id="Mergesort-Applications"><a href="#Mergesort-Applications" class="headerlink" title="Mergesort Applications"></a>Mergesort Applications</h3><p>Java sort for objects. Perl, C++ stable sort, Python stable sort, Firefox JavaScript, …</p>
 <p>Counting inversions: An inversion in an array <code>a[]</code> is a pair of entries <code>a[i]</code> and <code>a[j]</code> such that <code>i &lt; j</code> but <code>a[i] &gt; a[j]</code>. Given an array, design a linearithmic algorithm to count the number of inversion.</p>
-<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">InversePairs</span><span class="params">(<span class="keyword">int</span> [] array)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = array.length;</span><br><span class="line">    <span class="keyword">int</span>[] aux = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; len; k++) <span class="comment">// copy</span></span><br><span class="line">        aux[k] = array[k];</span><br><span class="line">    <span class="keyword">return</span> InversePairsSort(array, aux, <span class="number">0</span>, len - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">InversePairsSort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b, <span class="keyword">int</span> s, <span class="keyword">int</span> e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e &lt;= s) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = (e + s) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> n1 = InversePairsSort(b, a, s, mid) % <span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">int</span> n2 = InversePairsSort(b, a, mid + <span class="number">1</span>, e) % <span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">return</span> (n1 + n2 + InversePairsMerge(a, b, s, mid, e)) % <span class="number">1000000007</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">InversePairsMerge</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b, <span class="keyword">int</span> s, <span class="keyword">int</span> mid, <span class="keyword">int</span> e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = mid, j = e, n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = e; k &gt;= s; k--)</span><br><span class="line">    &#123;<span class="comment">// merge from a to b</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; s)           b[k] = a[j--];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j &lt;= mid)   b[k] = a[i--];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a[i] &gt; a[j])</span><br><span class="line">        &#123;</span><br><span class="line">                             n += j - mid;</span><br><span class="line">                             <span class="keyword">if</span>(n &gt;= <span class="number">1000000007</span>)<span class="comment">//数值过大求余</span></span><br><span class="line">                                 n %= <span class="number">1000000007</span>;</span><br><span class="line">                             b[k] = a[i--];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>                 b[k] = a[j--];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">InversePairs</span><span class="params">(<span class="keyword">int</span> [] array)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = array.length;</span><br><span class="line">    <span class="keyword">int</span>[] aux = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; len; k++) <span class="comment">// copy</span></span><br><span class="line">        aux[k] = array[k];</span><br><span class="line">    <span class="keyword">return</span> InversePairsSort(array, aux, <span class="number">0</span>, len - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">InversePairsSort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b, <span class="keyword">int</span> s, <span class="keyword">int</span> e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e &lt;= s) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = (e + s) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> n1 = InversePairsSort(b, a, s, mid) % <span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">int</span> n2 = InversePairsSort(b, a, mid + <span class="number">1</span>, e) % <span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">return</span> (n1 + n2 + InversePairsMerge(a, b, s, mid, e)) % <span class="number">1000000007</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">InversePairsMerge</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b, <span class="keyword">int</span> s, <span class="keyword">int</span> mid, <span class="keyword">int</span> e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = mid, j = e, n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = e; k &gt;= s; k--)</span><br><span class="line">    &#123;<span class="comment">// merge from a to b</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; s)           b[k] = a[j--];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j &lt;= mid)   b[k] = a[i--];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a[i] &gt; a[j])</span><br><span class="line">        &#123;</span><br><span class="line">                             n += j - mid;</span><br><span class="line">                             <span class="keyword">if</span>(n &gt;= <span class="number">1000000007</span>)<span class="comment">//数值过大求余</span></span><br><span class="line">                                 n %= <span class="number">1000000007</span>;</span><br><span class="line">                             b[k] = a[i--];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>                 b[k] = a[j--];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>count while mergesorting.</p>
 <p>Shuffling a linked list: Given a singly-linked list containing n items, rearrange the items uniformly at random. Your algorithm should consume a logarithmic (or constant) amount of extra memory and run in time proportional to $n \log n$ in the worst case:</p>
 <blockquote>
@@ -546,9 +488,13 @@
 <li>When pointers cross. Exchange <code>a[lo]</code> with <code>a[j]</code></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Quick</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// return index of item now known to be in place</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> i = lo, j = hi+<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">while</span> (<span class="keyword">true</span>)</span><br><span class="line">       &#123;</span><br><span class="line">          <span class="keyword">while</span> (less(a[++i], a[lo])) <span class="comment">// find item on left to swap</span></span><br><span class="line">             <span class="keyword">if</span> (i == hi) <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">while</span> (less(a[lo], a[--j])) <span class="comment">// find item on right to swap</span></span><br><span class="line">             <span class="keyword">if</span> (j == lo) <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">if</span> (i &gt;= j) <span class="keyword">break</span>;          <span class="comment">// check if pointers cross</span></span><br><span class="line">          exch(a, i, j);</span><br><span class="line">       &#125;</span><br><span class="line">       exch(a, lo, j);                <span class="comment">// swap with partitioning item</span></span><br><span class="line">       <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line">       <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">       sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">       sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       StdRandom.shuffle(a);</span><br><span class="line">       sort(a, <span class="number">0</span>, a.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Best case.  Number of compares is ~ $N \lg N$<br>Worst case.  Number of compares is ~ $½N^2$<br>Average case.  Number of compares is ~ $1.39 N \lg N$, 39% more compares than mergesort. But <strong>faster</strong> than mergesort in practice because of <strong>less data movement</strong>.</p>
-<h3 id="Quicksort-practical-improvements"><a href="#Quicksort-practical-improvements" class="headerlink" title="Quicksort: practical improvements"></a>Quicksort: practical improvements</h3><p>Insertion sort small subarrays (10 items), could delay insertion sort until one pass at end.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo + CUTOFF - <span class="number">1</span>)</span><br><span class="line">   &#123;</span><br><span class="line">      Insertion.sort(a, lo, hi);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">   sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">   sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Median of sample:<br>Best choice of pivot item = median. Estimate true median by taking median of sample. Median-of-3 (random) items<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> m = medianOf3(a, lo, lo + (hi - lo)/<span class="number">2</span>, hi);</span><br><span class="line">   swap(a, lo, m);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">   sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">   sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Quicksort-practical-improvements"><a href="#Quicksort-practical-improvements" class="headerlink" title="Quicksort: practical improvements"></a>Quicksort: practical improvements</h3><p>Insertion sort small subarrays (10 items), could delay insertion sort until one pass at end.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo + CUTOFF - <span class="number">1</span>)</span><br><span class="line">   &#123;</span><br><span class="line">      Insertion.sort(a, lo, hi);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">   sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">   sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Median of sample:<br>Best choice of pivot item = median. Estimate true median by taking median of sample. Median-of-3 (random) items</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> m = medianOf3(a, lo, lo + (hi - lo)/<span class="number">2</span>, hi);</span><br><span class="line">   swap(a, lo, m);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">   sort(a, lo, j-<span class="number">1</span>);</span><br><span class="line">   sort(a, j+<span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="Quicksort-with-duplicate-keys"><a href="#Quicksort-with-duplicate-keys" class="headerlink" title="Quicksort with duplicate keys"></a>Quicksort with duplicate keys</h3><p>・Algorithm goes quadratic unless partitioning stops on equal keys!<br>・1990s C user found this defect in qsort()<br>Mistake. Put all items equal to the partitioning item on one side.<br>Consequence.   ~ $½N^2$ compares when all keys equal.<br>Recommended.  Stop scans on items equal to the partitioning item.<br>Consequence.  ~ $N \lg N$ compares when all keys equal.</p>
 <p>3-way partitioning: Dutch national flag problem.<br>Partition array into 3 parts so that:<br>・Entries between lt and gt equal to partition item v.<br>・No larger entries to left of lt.<br>・No smaller entries to right of gt.</p>
 <ul>
@@ -561,6 +507,7 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</span><br><span class="line">   <span class="keyword">int</span> lt = lo, gt = hi;</span><br><span class="line">   Comparable v = a[lo];</span><br><span class="line">   <span class="keyword">int</span> i = lo;</span><br><span class="line">   <span class="keyword">while</span> (i &lt;= gt)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">int</span> cmp = a[i].compareTo(v);</span><br><span class="line">      <span class="keyword">if</span>      (cmp &lt; <span class="number">0</span>) exch(a, lt++, i++);</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>) exch(a, i, gt--);</span><br><span class="line">      <span class="keyword">else</span>              i++;</span><br><span class="line">   &#125;</span><br><span class="line">   sort(a, lo, lt - <span class="number">1</span>);</span><br><span class="line">   sort(a, gt + <span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="Quicksort-Applications"><a href="#Quicksort-Applications" class="headerlink" title="Quicksort Applications"></a>Quicksort Applications</h3><p>Java sort for primitive types. C qsort, Unix, Visual C++, Python, Matlab, Chrome JavaScript, …</p>
 <p>Selection: Order statistics, Find the “top k.”<br>Given an array of N items, find a $k^{th}$ smallest item. Ex. Min(k = 0), max(k = N - 1), median(k = N/2).</p>
 <p>Quick-select</p>
@@ -575,7 +522,8 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Comparable <span class="title">select</span><span class="params">(Comparable[] a, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    StdRandom.shuffle(a);</span><br><span class="line">    <span class="keyword">int</span> lo = <span class="number">0</span>, hi = a.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (hi &gt; lo)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j = partition(a, lo, hi);</span><br><span class="line">        <span class="keyword">if</span>      (j &lt; k) lo = j + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; k) hi = j - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span>            <span class="keyword">return</span> a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a[k];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Quick-select takes linear time on average.</p>
-<h2 id="Priority-Queues"><a href="#Priority-Queues" class="headerlink" title="Priority Queues"></a>Priority Queues</h2><p>优先队列可用于快速地（O(1)）返回最大或者最小的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MaxPQ&lt;Key extends Comparable&lt;Key&gt;&gt;</span><br><span class="line">&#123;</span><br><span class="line">    MaxPQ() create an empty priority queue</span><br><span class="line">    MaxPQ(Key[] a) create a priority queue with given keys</span><br><span class="line">    void insert(Key v) insert a key into the priority queue</span><br><span class="line">    Key delMax() return and remove the largest key</span><br><span class="line">    boolean isEmpty() is the priority queue empty?</span><br><span class="line">    Key max() return the largest key</span><br><span class="line">    int size() number of entries in the priority queue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Priority-Queues"><a href="#Priority-Queues" class="headerlink" title="Priority Queues"></a>Priority Queues</h2><p>优先队列可用于快速地（O(1)）返回最大或者最小的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MaxPQ&lt;Key extends Comparable&lt;Key&gt;&gt;</span><br><span class="line">&#123;</span><br><span class="line">    MaxPQ() create an empty priority queue</span><br><span class="line">    MaxPQ(Key[] a) create a priority queue with given keys</span><br><span class="line">    void insert(Key v) insert a key into the priority queue</span><br><span class="line">    Key delMax() return and remove the largest key</span><br><span class="line">    boolean isEmpty() is the priority queue empty?</span><br><span class="line">    Key max() return the largest key</span><br><span class="line">    int size() number of entries in the priority queue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>应用:<br>・Event-driven simulation. [customers in a line, colliding particles]<br>・Numerical computation. [reducing roundoff error]<br>・Data compression. [Huffman codes]<br>・Graph searching. [Dijkstra’s algorithm, Prim’s algorithm]<br>・Number theory. [sum of powers]<br>・Artificial intelligence.  [A* search]<br>・Statistics. [maintain largest M values in a sequence]<br>・Operating systems.     [load balancing, interrupt handling]<br>・Discrete optimization. [bin packing, scheduling]<br>・Spam filtering. [Bayesian spam filter]</p>
 <p>比如对于数据流, 需要用优先队列保存最大的M个值, 因为内存不足以储存数据流全部数据.</p>
 <h3 id="Binary-Heap"><a href="#Binary-Heap" class="headerlink" title="Binary Heap"></a>Binary Heap</h3><p>Heap-ordered binary tree: 父节点比其所有子节点都大（或都小）。根节点为最大值的binary heap称之为最大堆, 根节点为最小值的称之为最小堆.</p>
@@ -589,12 +537,20 @@
 </ul>
 </li>
 </ul>
-<p>当子节点的值比父节点大时, 需要不断调换二者的值, 直到不再有子节点比父节点大的情况存在:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">while</span> (k &gt; <span class="number">1</span> &amp;&amp; less(k/<span class="number">2</span>, k))</span><br><span class="line">   &#123;</span><br><span class="line">      exch(k, k/<span class="number">2</span>);</span><br><span class="line">      k = k/<span class="number">2</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>反之当父节点比子节点小时:不断把父节点和较大的子节点调换, 直到恢复 heap order:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">while</span> (<span class="number">2</span>*k &lt;= N)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">int</span> j = <span class="number">2</span>*k;</span><br><span class="line">      <span class="keyword">if</span> (j &lt; N &amp;&amp; less(j, j+<span class="number">1</span>)) j++;</span><br><span class="line">      <span class="keyword">if</span> (!less(k, j)) <span class="keyword">break</span>;</span><br><span class="line">      exch(k, j);</span><br><span class="line">      k = j;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>插入操作, 需要先把新节点放在末端, 然后<code>swim</code>. 至多<code>1 + lgN</code>比较:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   pq[++N] = x;</span><br><span class="line">   swim(N);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>删除操作, 需要把根节点和尾节点调换, 然后<code>sink</code>, 至多<code>2lgN</code>比较<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Key <span class="title">delMax</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   Key max = pq[<span class="number">1</span>];</span><br><span class="line">   exch(<span class="number">1</span>, N--);</span><br><span class="line">   sink(<span class="number">1</span>);</span><br><span class="line">   pq[N+<span class="number">1</span>] = <span class="keyword">null</span>;</span><br><span class="line">   <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当子节点的值比父节点大时, 需要不断调换二者的值, 直到不再有子节点比父节点大的情况存在:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">while</span> (k &gt; <span class="number">1</span> &amp;&amp; less(k/<span class="number">2</span>, k))</span><br><span class="line">   &#123;</span><br><span class="line">      exch(k, k/<span class="number">2</span>);</span><br><span class="line">      k = k/<span class="number">2</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反之当父节点比子节点小时:不断把父节点和较大的子节点调换, 直到恢复 heap order:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">while</span> (<span class="number">2</span>*k &lt;= N)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">int</span> j = <span class="number">2</span>*k;</span><br><span class="line">      <span class="keyword">if</span> (j &lt; N &amp;&amp; less(j, j+<span class="number">1</span>)) j++;</span><br><span class="line">      <span class="keyword">if</span> (!less(k, j)) <span class="keyword">break</span>;</span><br><span class="line">      exch(k, j);</span><br><span class="line">      k = j;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>插入操作, 需要先把新节点放在末端, 然后<code>swim</code>. 至多<code>1 + lgN</code>比较:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   pq[++N] = x;</span><br><span class="line">   swim(N);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>删除操作, 需要把根节点和尾节点调换, 然后<code>sink</code>, 至多<code>2lgN</code>比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Key <span class="title">delMax</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   Key max = pq[<span class="number">1</span>];</span><br><span class="line">   exch(<span class="number">1</span>, N--);</span><br><span class="line">   sink(<span class="number">1</span>);</span><br><span class="line">   pq[N+<span class="number">1</span>] = <span class="keyword">null</span>;</span><br><span class="line">   <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxPQ</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Key</span>&gt;&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Key[] pq;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> N;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MaxPQ</span><span class="params">(<span class="keyword">int</span> capacity)</span></span></span><br><span class="line"><span class="function">    </span>&#123;  pq = (Key[]) <span class="keyword">new</span> Comparable[capacity+<span class="number">1</span>];  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;   <span class="keyword">return</span> N == <span class="number">0</span>;   &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key key)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> Key <span class="title">delMax</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;   <span class="comment">/* see previous code */</span>  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;   <span class="comment">/* see previous code */</span>  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;   <span class="keyword">return</span> pq[i].compareTo(pq[j]) &lt; <span class="number">0</span>;  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;   Key t = pq[i]; pq[i] = pq[j]; pq[j] = t;  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果要实现最小堆, 那么就用<code>greater()</code>替代<code>less()</code><br><img src="/images/priorityqueue.png" alt="" title="不同数据结构实现的优先队列有不同的时间复杂度操作. image from: https://algs4.cs.princeton.edu/"></p>
+<p>如果要实现最小堆, 那么就用<code>greater()</code>替代<code>less()</code><br><img src="/images/priorityqueue.png" title="不同数据结构实现的优先队列有不同的时间复杂度操作. image from: https://algs4.cs.princeton.edu/"></p>
 <h3 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a>Heap Sort</h3><p>可以使用heap数据结构来排序一个数组，核心步骤是两个</p>
 <ol>
 <li>创建一个最大堆</li>
@@ -604,7 +560,7 @@
 <blockquote>
 <p>In-place sorting algorithm with N log N worst-case, but not stable</p>
 </blockquote>
-<h2 id="排序算法汇总比较"><a href="#排序算法汇总比较" class="headerlink" title="排序算法汇总比较"></a>排序算法汇总比较</h2><p><img src="/images/sorting_summary.png" alt="" title="image from: https://algs4.cs.princeton.edu/"></p>
+<h2 id="排序算法汇总比较"><a href="#排序算法汇总比较" class="headerlink" title="排序算法汇总比较"></a>排序算法汇总比较</h2><p><img src="/images/sorting_summary.png" title="image from: https://algs4.cs.princeton.edu/"></p>
 <h2 id="Pigeonhole-sort"><a href="#Pigeonhole-sort" class="headerlink" title="Pigeonhole sort"></a>Pigeonhole sort</h2><p>鸽巢排序(基数分类)</p>
 <blockquote>
 <p>Pigeonhole sorting is a sorting algorithm that is suitable for sorting lists of elements where the number of elements (n) and the length of the range of possible key values (N) are approximately the same. It requires O(n + N) time.</p>
@@ -614,8 +570,8 @@
 <li>遍历原始数组，将每个值放入与其键对应的鸽笼中，这样每个鸽笼最终都包含该键的所有值的列表。</li>
 <li>按顺序迭代鸽笼数组，并将非空鸽笼中的元素依次放回原始数组中。</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Java program to implement Pigeonhole Sort */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GFG</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pigeonhole_sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> max = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> range, i, j, index;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> a=<span class="number">0</span>; a&lt;n; a++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[a] &gt; max)</span><br><span class="line">                max = arr[a];</span><br><span class="line">            <span class="keyword">if</span>(arr[a] &lt; min)</span><br><span class="line">                min = arr[a];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        range = max - min + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] phole = <span class="keyword">new</span> <span class="keyword">int</span>[range];</span><br><span class="line">        <span class="comment">//Arrays.fill(phole, 0);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            phole[arr[i] - min]++;</span><br><span class="line"></span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; range; j++)</span><br><span class="line">            <span class="keyword">while</span>(phole[j] &gt; <span class="number">0</span>)</span><br><span class="line">                arr[index++] = j + min;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        GFG sort = <span class="keyword">new</span> GFG();</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">8</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>&#125;;</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">"Sorted order is : "</span>);</span><br><span class="line"></span><br><span class="line">        sort.pigeonhole_sort(arr,arr.length);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ; i&lt;arr.length ; i++)</span><br><span class="line">            System.out.print(arr[i] + <span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>类似于counting sort<img src="/images/pidgeonholesort_countingsort.png" alt="" title="image from https://www.geeksforgeeks.org/pigeonhole-sort/"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Java program to implement Pigeonhole Sort */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GFG</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pigeonhole_sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> max = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> range, i, j, index;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> a=<span class="number">0</span>; a&lt;n; a++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[a] &gt; max)</span><br><span class="line">                max = arr[a];</span><br><span class="line">            <span class="keyword">if</span>(arr[a] &lt; min)</span><br><span class="line">                min = arr[a];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        range = max - min + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] phole = <span class="keyword">new</span> <span class="keyword">int</span>[range];</span><br><span class="line">        <span class="comment">//Arrays.fill(phole, 0);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            phole[arr[i] - min]++;</span><br><span class="line"></span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; range; j++)</span><br><span class="line">            <span class="keyword">while</span>(phole[j] &gt; <span class="number">0</span>)</span><br><span class="line">                arr[index++] = j + min;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        GFG sort = <span class="keyword">new</span> GFG();</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">8</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>&#125;;</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">&quot;Sorted order is : &quot;</span>);</span><br><span class="line"></span><br><span class="line">        sort.pigeonhole_sort(arr,arr.length);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ; i&lt;arr.length ; i++)</span><br><span class="line">            System.out.print(arr[i] + <span class="string">&quot; &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类似于counting sort<img src="/images/pidgeonholesort_countingsort.png" title="image from https://www.geeksforgeeks.org/pigeonhole-sort/"></p>
 <h2 id="Bucket-sort"><a href="#Bucket-sort" class="headerlink" title="Bucket sort"></a>Bucket sort</h2><p>桶排序(箱排序 bin sort)主要用于均匀分布区间值的排序，如浮点数排序，</p>
 <blockquote>
 <p>distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm. It is a distribution sort, a generalization of pigeonhole sort, and is a cousin of radix sort in the most-to-least significant digit flavor. Bucket sort can be implemented with comparisons and therefore can also be considered a comparison sort algorithm. The computational complexity estimates involve the number of buckets.</p>
@@ -630,926 +586,282 @@
 <h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><p>图：由边连接的成对的顶点集。</p>
 <p>无向图，有向图</p>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
+      
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/algs4/" rel="tag"># algs4</a>
-          
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/algorithms-03-memory/" rel="next" title="Algorithms 03 - Memory 内存">
-                <i class="fa fa-chevron-left"></i> Algorithms 03 - Memory 内存
-              </a>
-            
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/algs4/" rel="tag"># algs4</a>
+              <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
+              <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/algorithms-applications-01-percolation/" rel="prev" title="Percolations problem">
-                Percolations problem <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Cong" />
-            
-              <p class="site-author-name" itemprop="name">Cong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">94</span>
-                  <span class="site-state-item-name">posts</span>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/algorithms-03-memory/" rel="prev" title="Algorithms 03 - Memory 内存">
+                  <i class="fa fa-chevron-left"></i> Algorithms 03 - Memory 内存
                 </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
             </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Union−Find"><span class="nav-number">1.</span> <span class="nav-text">Union−Find</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-Sort"><span class="nav-number">2.</span> <span class="nav-text">Element Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-Sort"><span class="nav-number">2.1.</span> <span class="nav-text">Selection Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-Sort"><span class="nav-number">2.2.</span> <span class="nav-text">Insertion Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shellsort"><span class="nav-number">2.3.</span> <span class="nav-text">Shellsort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">3.</span> <span class="nav-text">Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mergesort-Practical-improvements"><span class="nav-number">3.1.</span> <span class="nav-text">Mergesort: Practical improvements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-down-mergesort"><span class="nav-number">3.2.</span> <span class="nav-text">Top-down mergesort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-up-mergesort"><span class="nav-number">3.3.</span> <span class="nav-text">Bottom-up mergesort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mergesort-Applications"><span class="nav-number">3.4.</span> <span class="nav-text">Mergesort Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Sort"><span class="nav-number">4.</span> <span class="nav-text">Quick Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort-practical-improvements"><span class="nav-number">4.1.</span> <span class="nav-text">Quicksort: practical improvements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort-with-duplicate-keys"><span class="nav-number">4.2.</span> <span class="nav-text">Quicksort with duplicate keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort-Applications"><span class="nav-number">4.3.</span> <span class="nav-text">Quicksort Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Priority-Queues"><span class="nav-number">5.</span> <span class="nav-text">Priority Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Heap"><span class="nav-number">5.1.</span> <span class="nav-text">Binary Heap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heap-Sort"><span class="nav-number">5.2.</span> <span class="nav-text">Heap Sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序算法汇总比较"><span class="nav-number">6.</span> <span class="nav-text">排序算法汇总比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pigeonhole-sort"><span class="nav-number">7.</span> <span class="nav-text">Pigeonhole sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bucket-sort"><span class="nav-number">8.</span> <span class="nav-text">Bucket sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph"><span class="nav-number">9.</span> <span class="nav-text">Graph</span></a></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/algorithms-applications-01-percolation/" rel="next" title="Percolations problem">
+                  Percolations problem <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Cong</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+    </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
+      
 
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
 
-
-
-
+    </div>
+  </footer>
 
   
-
-
-
-
-
-
-
-
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/algorithms/';
-          this.page.identifier = 'algorithms/';
-          this.page.title = 'Algorithms - Princeton';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
 
 
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
     }
 
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
           if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
     }
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
 
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/algorithms/",
+    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
 </script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
 
 </body>
 </html>

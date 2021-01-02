@@ -1,97 +1,36 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
-
-
-
-
-
-
-
-
-  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="NLP," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
-<meta name="keywords" content="NLP">
+  <meta name="description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="循环神经网络">
 <meta property="og:url" content="https://congchan.github.io/NLP-recurrent-neural-networks/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg">
 <meta property="og:image" content="http://karpathy.github.io/assets/rnn/diags.jpeg">
 <meta property="og:image" content="https://congchan.github.io/images/vanish_gradient.png">
@@ -102,47 +41,28 @@
 <meta property="og:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png">
 <meta property="og:image" content="https://congchan.github.io/images/gru.vs.lstm.png">
 <meta property="og:image" content="https://congchan.github.io/images/bidirectional_rnn.png">
-<meta property="og:updated_time" content="2020-03-27T03:14:26.057Z">
+<meta property="article:published_time" content="2018-12-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-27T03:14:26.057Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="循环神经网络">
-<meta name="twitter:description" content="循环神经网络当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。">
-<meta name="twitter:image" content="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">
+<meta name="twitter:image" content="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg">
 
 
+<link rel="canonical" href="https://congchan.github.io/NLP-recurrent-neural-networks/">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-
-
-  <link rel="canonical" href="https://congchan.github.io/NLP-recurrent-neural-networks/"/>
-
-
-
-
-
-  <title>循环神经网络 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>循环神经网络 | Computer Science & AI</title>
   
 
 
@@ -150,145 +70,222 @@
 
 
 
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Computer Science & AI</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Computer Science & AI</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">1.</span> <span class="nav-text">循环神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RNNs-Backpropagation"><span class="nav-number">1.1.</span> <span class="nav-text">RNNs Backpropagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E7%88%86%E7%82%B8"><span class="nav-number">1.2.</span> <span class="nav-text">梯度消失与爆炸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%A8%E6%8E%A7%E5%BE%AA%E7%8E%AF%E7%BD%91%E7%BB%9C"><span class="nav-number">2.</span> <span class="nav-text">门控循环网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GRUs"><span class="nav-number">2.1.</span> <span class="nav-text">GRUs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8CRNNs%E5%8F%98%E7%A7%8D%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">2.2.</span> <span class="nav-text">不同RNNs变种的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%A8%E6%8E%A7%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E8%AE%AD%E7%BB%83"><span class="nav-number">2.3.</span> <span class="nav-text">门控循环神经网络的训练</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bidirectional-RNNs"><span class="nav-number">3.</span> <span class="nav-text">Bidirectional RNNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/Ginntonic" title="你乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;Ginntonic" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>你乎</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-  
-  
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-recurrent-neural-networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -296,178 +293,108 @@
     </span>
 
     
+    
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          循环神经网络
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">循环神经网络</h1>
-        
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-15T00:00:00+08:00">
-                2018-12-15
-              </time>
-            
+      <time title="创建时间：2018-12-15 00:00:00" itemprop="dateCreated datePublished" datetime="2018-12-15T00:00:00+08:00">2018-12-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-03-27 11:14:26" itemprop="dateModified" datetime="2020-03-27T11:14:26+08:00">2020-03-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/NLP-recurrent-neural-networks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="NLP-recurrent-neural-networks/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/NLP-recurrent-neural-networks/" class="leancloud_visitors" data-flag-title="循环神经网络">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  2,649
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  10 min
-                </span>
-              
-            </div>
-          
-
-          
+  
+    <span id="/NLP-recurrent-neural-networks/" class="post-meta-item leancloud_visitors" data-flag-title="循环神经网络" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/NLP-recurrent-neural-networks/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/NLP-recurrent-neural-networks/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
+        <h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><p>当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。</p>
+<a id="more"></a>
 
-      
-      
-
-      
-        <h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><p>当人类阅读时，会根据对之前单词的理解和记忆来辅助理解当前看到的每个单词。也就是人能够很好地处理语言的长距离依赖特性（long-term dependency）。在自然语言处理任务中，很多传统的模型无法做到这一点，比如前馈神经网络；而传统的n-gram模型固然可以通过把把n系数增大来捕捉长距离依赖，但带来的非常巨大的内存消耗。<br><a id="more"></a></p>
-<p>循环神经网络（Recurrent Neural Networks, RNNs)可以看做是多个<strong>共享参数</strong>的前馈神经网络不断叠加的结果<br><img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png" alt="" title="A recurrent neural network and the unfolding in time of the computation involved in its forward computation. &quot;image from: http://colah.github.io"></p>
+<p>循环神经网络（Recurrent Neural Networks, RNNs)可以看做是多个<strong>共享参数</strong>的前馈神经网络不断叠加的结果<br>![](<a target="_blank" rel="noopener" href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png</a> “A recurrent neural network and the unfolding in time of the computation involved in its forward computation. “image from: <a target="_blank" rel="noopener" href="http://colah.github.io&quot;/">http://colah.github.io&quot;</a>)</p>
 <p>这里的核心是想办法解码历史信息, 即通过递归方程$s_i = R(x_i, s_{i−1})$让$s_i$解码序列$x_{1:n}$. 比如把所有历史信息累加就是一种非常简单粗暴的方式, 这样得到的是连续词袋模型(continuous-bag-of-words model)$s_i = R_{CBOW}(x_i, s_{i-1}) = x_i + s_{i−1}$, 虽然简单，但这种RNN其实忽略了数据的时序性质。</p>
 <p>一般意义上的RNN是指Elman Network or Simple-RNN (S-RNN)(<code>Elman [1990]</code>), $s_i = R_{SRNN}(x_i, s_{i-1}) = g(x_iW^x + s_{i−1}W^s + b)$, 也就是把历史信息先进行线性变换(乘以矩阵), 再和bias加起来, 再通过一个非线性激活函数(tanh或ReLU). 添加了线性变换再进行非线性激活, 使网络对输入的顺序变得敏感。</p>
-<p><img src="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" alt="" title="image from: Nature"><br>在使用时, 给定输入序列（单词序列或语音）得出输出序列的过程如下：</p>
+<p><img src="http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/09/rnn.jpg" title="image from: Nature"><br>在使用时, 给定输入序列（单词序列或语音）得出输出序列的过程如下：</p>
 <ul>
 <li>把每个词$x_{t}$(以向量表示)逐个输入RNN</li>
 <li>每一时间步$t$都有对应的隐含状态$s_t$，用于解码历史信息: $s_t = g(Ux_t + Ws_{t-1} + b)$.</li>
 <li>每一时间步都可以有一个输出（虽然大部分应用只用到最后一时间步）$o(t)$： 例如，语言模型想要预测下一个单词，那么输出就是在词汇表上的概率分布向量，$o_t = softmax(Vs_t)$.</li>
 <li>其中，各个时间步共享几个参数矩阵（$U, V, W$）</li>
 </ul>
-<p>In addition to the above normal many to many structure RNNs, there are other non-sequence input or output: Many to one, e.g. when predicting the sentiment of a sentence we may only care about the final output, not the sentiment after each word. One to many: Music generation.<br><img src="http://karpathy.github.io/assets/rnn/diags.jpeg" alt="" title="source from http://karpathy.github.io/2015/05/21/rnn-effectiveness/"></p>
+<p>In addition to the above normal many to many structure RNNs, there are other non-sequence input or output: Many to one, e.g. when predicting the sentiment of a sentence we may only care about the final output, not the sentiment after each word. One to many: Music generation.<br><img src="http://karpathy.github.io/assets/rnn/diags.jpeg" title="source from http://karpathy.github.io/2015/05/21/rnn-effectiveness/"></p>
 <p>除了应用于语言模型, RNNs 还可以应用于<br>· tagging, e.g. part-of-speech tagging, named entity recognition (many to many RNNs)<br>· sentence classification, e.g. sentiment classification (many to one RNNs)<br>· generate text, e.g. speech recognition, machine translation, summarization</p>
 <h3 id="RNNs-Backpropagation"><a href="#RNNs-Backpropagation" class="headerlink" title="RNNs Backpropagation"></a>RNNs Backpropagation</h3><p>Backpropagation Through Time (BPTT): Because the parameters are shared by all time steps in the network, the gradient at each output depends not only on the calculations of the current time step, but also the previous time steps.</p>
 <p>RNNs trained with BPTT have difficulties learning long-term dependencies (e.g. dependencies between steps that are far apart) due to what is called the vanishing/exploding gradient problem.</p>
 <h3 id="梯度消失与爆炸"><a href="#梯度消失与爆炸" class="headerlink" title="梯度消失与爆炸"></a>梯度消失与爆炸</h3><p>The Vanishing/Exploding Gradient problem。</p>
-<p>RNNs shares the same matrix (w, u, etc.) at each time step during forward prop and backprop. 求导数时, 根据链式法则, loss对各参数的导数会转换为loss对输出y的导数, 乘以y对隐含层的导数, 乘以隐含层相对隐含层之间的导数, 再乘以隐含层对参数的导数.<img src="/images/vanish_gradient.png" alt=""></p>
+<p>RNNs shares the same matrix (w, u, etc.) at each time step during forward prop and backprop. 求导数时, 根据链式法则, loss对各参数的导数会转换为loss对输出y的导数, 乘以y对隐含层的导数, 乘以隐含层相对隐含层之间的导数, 再乘以隐含层对参数的导数.<img src="/images/vanish_gradient.png"></p>
 <p>不同隐含层（举例如$h_t$和$h_k$）之间如果相隔太远, $h_t$对$h_k$的导数就变成多个jacobian矩阵的相乘， 对各个jacobian范数（norms）进行分析后，发现$h_t$对$h_k$的导数值在训练过程中会很快变得很极端（非常小或者非常大）。</p>
 <p>Gradient作为传导误差以帮助系统纠正参数的关键角色，如果本身变得接近于<code>0</code>或者<code>nan</code>，那么我们就无法判断t和t+n的数据的依赖性（是没有依赖？还是因为vanish of gradient？还是因为参数设置错误？）。梯度衰减会直接降低模型学习长距离依赖关系的能力，给定一个时间序列，例如文本序列，循环神经网络较难捕捉两个时刻距离较大的文本元素（字或词）之间的依赖关系。</p>
-<p>在使用RNN学习language model的时候，非常容易出现梯度爆炸，解决办法是使用 gradient clipping 梯度裁剪，就是通过把梯度映射到另一个大小的空间，以限制梯度范数的最大值<a href="https://arxiv.org/abs/1211.5063" target="_blank" rel="noopener">On the difficulty of training Recurrent Neural Networks</a>。</p>
-<p>虽然梯度裁剪可以应对梯度爆炸，但无法解决梯度衰减的问题。一个缓解梯度衰减的方案是使用更好的参数初始化方案和激活函数（ReLUs）<a href="https://arxiv.org/abs/1504.00941" target="_blank" rel="noopener">A Simple Way to Initialize Recurrent Networks of Rectified Linear Units</a>.</p>
-<p>不过更主流的解决梯度衰减的方案是使用更复杂的rnn隐含单元: Gated Recurrent Units (GRU) introduced by <a href="https://arxiv.org/abs/1406.1078" target="_blank" rel="noopener">Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation</a> and LSTMs.</p>
+<p>在使用RNN学习language model的时候，非常容易出现梯度爆炸，解决办法是使用 gradient clipping 梯度裁剪，就是通过把梯度映射到另一个大小的空间，以限制梯度范数的最大值<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1211.5063">On the difficulty of training Recurrent Neural Networks</a>。</p>
+<p>虽然梯度裁剪可以应对梯度爆炸，但无法解决梯度衰减的问题。一个缓解梯度衰减的方案是使用更好的参数初始化方案和激活函数（ReLUs）<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1504.00941">A Simple Way to Initialize Recurrent Networks of Rectified Linear Units</a>.</p>
+<p>不过更主流的解决梯度衰减的方案是使用更复杂的rnn隐含单元: Gated Recurrent Units (GRU) introduced by <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1406.1078">Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation</a> and LSTMs.</p>
 <h2 id="门控循环网络"><a href="#门控循环网络" class="headerlink" title="门控循环网络"></a>门控循环网络</h2><p>因为梯度消失的问题，RNN的解码能力是很有限的。S-RNN架构的一个明显缺陷是对历史信息的记忆是不受控制，在每一时间步的计算，读写整个记忆状态$s_t$。而门控循环网络，比如Long Short-Term Memory（LSTMs），Gated Recurring Unit（GRUs），使用<strong>门</strong>的概念，让网络拥有控制哪些信息需要记录, 哪些需要丢弃的能力。如何实现这种门呢? 考虑一种介于<code>[0, 1]</code>中间的因子, 让这种因子与各种状态信息相乘, 可以为每个状态信息独自训练一个因子, 也就是由简单的神经网络(非线性激活函数Sigmoid)来控制.</p>
 <p>是否允许信息通过（打开）或不通过（关闭）取决于其门控单元内部Sigmoid激活层的点乘运算。Sigmoid函数值介于0和1之间，可用于描述允许通过单元格的信息量。</p>
 <p>LSTM架构将状态向量$s_i$分成两半，其中一半被视为“记忆单元”$C$, 而另一半被视为一般的工作存储单元-隐含状态$h$。</p>
-<p>1, LSTM用<strong>遗忘门</strong>来决定从前一时间步的记忆单元中丢弃哪些信息，控制当前记忆单元应该忘记多少来自前一步状态$h_{t-1}$的信息量，标记为<strong>遗忘信息</strong>。遗忘门由一个sigmoid层学习而来 <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
-<p>2, 用<strong>输入门</strong> Input gate (a sigmoid hidden layer) 来决定有多少新信息是值得储存的（当前时间步$t$）。输入门控制哪些信息需要更新. 再通过一个隐含层(tanh/relu)生成新的<strong>候选信息</strong>向量$\widetilde{C}_t$. <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
-<p>输入门和遗忘门一起，控制每一步的信息存储和改写, 将遗忘信息和候选信息组合在一起作为<strong>更新信息</strong>，作为当前时间步的新记忆单元，$C_{t}$.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
-<p>3, 最后，用一个<strong>输出门</strong> Output gate (a sigmoid layer) 来控制多少记忆单元作为当前步的工作隐含状态$h_t$。先通过一个tanh激活层把当前记忆单元$C_t$推送为<code>[-1, 1]</code>之间的值, 再乘以输出门.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>1, LSTM用<strong>遗忘门</strong>来决定从前一时间步的记忆单元中丢弃哪些信息，控制当前记忆单元应该忘记多少来自前一步状态$h_{t-1}$的信息量，标记为<strong>遗忘信息</strong>。遗忘门由一个sigmoid层学习而来 <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>2, 用<strong>输入门</strong> Input gate (a sigmoid hidden layer) 来决定有多少新信息是值得储存的（当前时间步$t$）。输入门控制哪些信息需要更新. 再通过一个隐含层(tanh/relu)生成新的<strong>候选信息</strong>向量$\widetilde{C}_t$. <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>输入门和遗忘门一起，控制每一步的信息存储和改写, 将遗忘信息和候选信息组合在一起作为<strong>更新信息</strong>，作为当前时间步的新记忆单元，$C_{t}$.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>3, 最后，用一个<strong>输出门</strong> Output gate (a sigmoid layer) 来控制多少记忆单元作为当前步的工作隐含状态$h_t$。先通过一个tanh激活层把当前记忆单元$C_t$推送为<code>[-1, 1]</code>之间的值, 再乘以输出门.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
 <p>总的来说, LSTM有遗忘门, 输入门和输出门这<strong>三个门</strong>. 加上其中的更新信息, 形式上LSTM有<strong>四个神经网络</strong>, 输入都是上一步隐含状态和当前步的输入向量的.</p>
 <h3 id="GRUs"><a href="#GRUs" class="headerlink" title="GRUs"></a>GRUs</h3><p>LSTMs分别使用记忆单元和隐含状态来控制信息流, 其中最新的隐含状态需要用到最新的记忆单元来计算，每一步输出只用到隐含状态的信息，也就说记忆单元本质上是为隐含状态的更新服务的。而记忆单元自身就用到了三个神经网络来计算，而且可以看到记忆单元和隐含状态的计算似乎有一些冗余。比如LSTM的遗忘门和更新门，更新和遗忘本身就是相伴相随的，对于一个记忆单元来说，本身的容量是固定的，需要更新多少信息，自然也意味着需要遗忘多少信息，也就是可以用一个神经网络来控制。随着数据量的增大和神经网络增大，是否可以把一些门合并简化？</p>
-<p>GRUs (<a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="noopener">Cho, et al. (2014)</a>)就抛弃了记忆单元的设定, 只用隐含状态 $h$ 来表达信息流. GRUs首先根据当前的输入词向量和隐含状态计算<strong>更新门</strong>$z_t$和一个<strong>重置门</strong>$r_t$。核心是更新门$z_t$，用于控制更新多少新的候选信息$\widetilde{h}_t$, 同时意味着只保留$(1 - z_t)$的旧信息$h_{t-1}$. 隐含状态的候选信息$\widetilde{h}_t$用重置门$r_t$计算.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" alt="" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
+<p>GRUs (<a target="_blank" rel="noopener" href="http://arxiv.org/pdf/1406.1078v3.pdf">Cho, et al. (2014)</a>)就抛弃了记忆单元的设定, 只用隐含状态 $h$ 来表达信息流. GRUs首先根据当前的输入词向量和隐含状态计算<strong>更新门</strong>$z_t$和一个<strong>重置门</strong>$r_t$。核心是更新门$z_t$，用于控制更新多少新的候选信息$\widetilde{h}_t$, 同时意味着只保留$(1 - z_t)$的旧信息$h_{t-1}$. 隐含状态的候选信息$\widetilde{h}_t$用重置门$r_t$计算.<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-var-GRU.png" title="image from: http://colah.github.io/posts/2015-08-Understanding-LSTMs/"></p>
 <p>LSTMs的遗忘门和输入门的合作核心是<strong>更新信息</strong>. 而GRUs将LSTMs的遗忘门和输入门合并成一个更新门, 抛弃了输出门的概念, 让更新门负责计算新的隐含状态. 这样GRUs内部总共只有两个门, 三个神经网络, 某种程度上简化了LSTMs模型。</p>
 <p>GRU intuition</p>
 <ul>
@@ -488,932 +415,291 @@
 <li>Select a writable subset</li>
 <li>Update the subset</li>
 </ol>
-<p><img src="/images/gru.vs.lstm.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"></p>
+<p><img src="/images/gru.vs.lstm.png" title="image from: http://web.stanford.edu/class/cs224n"></p>
 <h3 id="门控循环神经网络的训练"><a href="#门控循环神经网络的训练" class="headerlink" title="门控循环神经网络的训练"></a>门控循环神经网络的训练</h3><ol>
 <li>把参数矩阵初始化为正交</li>
 <li>把遗忘门的bias初始化为1，默认不遗忘</li>
 <li>别忘了梯度裁剪</li>
 <li>注意dropout在RNNs中的应用不同于DNN和CNN</li>
 </ol>
-<h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>Bidirectional RNNs are based on the idea that the output at time t may not only depend on the previous elements in the sequence, but also future elements. They are just two RNNs stacked on top of each other. The output is then computed based on the hidden state of both RNNs.<br><img src="/images/bidirectional_rnn.png" alt="" title="image from: http://web.stanford.edu/class/cs224n"></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>斯坦福cs224n <a href="http://web.stanford.edu/class/cs224n" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224n</a></p>
-<p><a href="http://colah.github.io" target="_blank" rel="noopener">http://colah.github.io</a></p>
+<h2 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h2><p>Bidirectional RNNs are based on the idea that the output at time t may not only depend on the previous elements in the sequence, but also future elements. They are just two RNNs stacked on top of each other. The output is then computed based on the hidden state of both RNNs.<br><img src="/images/bidirectional_rnn.png" title="image from: http://web.stanford.edu/class/cs224n"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>斯坦福cs224n <a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs224n">http://web.stanford.edu/class/cs224n</a></p>
+<p><a target="_blank" rel="noopener" href="http://colah.github.io/">http://colah.github.io</a></p>
 <p>Neural Network Methods in Natural Language Processing, by Yoav Goldberg</p>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
+      
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/NLP-language-model/" rel="next" title="语言模型">
-                <i class="fa fa-chevron-left"></i> 语言模型
-              </a>
-            
+          <div class="post-tags">
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/NLP-HMM-CRF/" rel="prev" title="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
-                概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Cong" />
-            
-              <p class="site-author-name" itemprop="name">Cong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">94</span>
-                  <span class="site-state-item-name">posts</span>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/NLP-language-model/" rel="prev" title="语言模型">
+                  <i class="fa fa-chevron-left"></i> 语言模型
                 </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
             </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环神经网络"><span class="nav-number">1.</span> <span class="nav-text">循环神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RNNs-Backpropagation"><span class="nav-number">1.1.</span> <span class="nav-text">RNNs Backpropagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度消失与爆炸"><span class="nav-number">1.2.</span> <span class="nav-text">梯度消失与爆炸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#门控循环网络"><span class="nav-number">2.</span> <span class="nav-text">门控循环网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GRUs"><span class="nav-number">2.1.</span> <span class="nav-text">GRUs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同RNNs变种的比较"><span class="nav-number">2.2.</span> <span class="nav-text">不同RNNs变种的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#门控循环神经网络的训练"><span class="nav-number">2.3.</span> <span class="nav-text">门控循环神经网络的训练</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bidirectional-RNNs"><span class="nav-number">3.</span> <span class="nav-text">Bidirectional RNNs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/NLP-HMM-CRF/" rel="next" title="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
+                  概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Cong</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+    </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
+      
 
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
 
-
-
-
+    </div>
+  </footer>
 
   
-
-
-
-
-
-
-
-
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/NLP-recurrent-neural-networks/';
-          this.page.identifier = 'NLP-recurrent-neural-networks/';
-          this.page.title = '循环神经网络';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
 
 
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
     }
 
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
           if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
     }
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
 
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/NLP-recurrent-neural-networks/",
+    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
 </script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
 
 </body>
 </html>

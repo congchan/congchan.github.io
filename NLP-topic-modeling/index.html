@@ -1,142 +1,63 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
-
-
-
-
-
-
-
-
-  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="NLP," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="本篇介绍 topic modeling, 以及一个经典的算法Latent Dirichlet allocation, 文本挖掘与语义理解的集大成者(至少在深度学习统治之前). 当然LDA不仅仅局限于文本, 还可应用于涉及大量数据集的各种问题，包括协同过滤，基于内容的图像检索和生物信息学等领域的数据。">
-<meta name="keywords" content="NLP">
+  <meta name="description" content="本篇介绍 topic modeling, 以及一个经典的算法Latent Dirichlet allocation, 文本挖掘与语义理解的集大成者(至少在深度学习统治之前). 当然LDA不仅仅局限于文本, 还可应用于涉及大量数据集的各种问题，包括协同过滤，基于内容的图像检索和生物信息学等领域的数据。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Topic Modelling - 主题建模以及隐变量模型">
 <meta property="og:url" content="https://congchan.github.io/NLP-topic-modeling/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="本篇介绍 topic modeling, 以及一个经典的算法Latent Dirichlet allocation, 文本挖掘与语义理解的集大成者(至少在深度学习统治之前). 当然LDA不仅仅局限于文本, 还可应用于涉及大量数据集的各种问题，包括协同过滤，基于内容的图像检索和生物信息学等领域的数据。">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://congchan.github.io/images/document_term.png">
 <meta property="og:image" content="https://congchan.github.io/images/ducument_topic_term.png">
 <meta property="og:image" content="https://congchan.github.io/images/lsa_process.png">
 <meta property="og:image" content="https://congchan.github.io/images/plsa_illustrations.png">
 <meta property="og:image" content="https://congchan.github.io/images/topic_models_geometric_interpretation.png">
-<meta property="og:updated_time" content="2019-12-31T09:41:01.112Z">
+<meta property="article:published_time" content="2018-12-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-31T09:41:01.112Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Topic Modelling - 主题建模以及隐变量模型">
-<meta name="twitter:description" content="本篇介绍 topic modeling, 以及一个经典的算法Latent Dirichlet allocation, 文本挖掘与语义理解的集大成者(至少在深度学习统治之前). 当然LDA不仅仅局限于文本, 还可应用于涉及大量数据集的各种问题，包括协同过滤，基于内容的图像检索和生物信息学等领域的数据。">
 <meta name="twitter:image" content="https://congchan.github.io/images/document_term.png">
 
 
+<link rel="canonical" href="https://congchan.github.io/NLP-topic-modeling/">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-
-
-  <link rel="canonical" href="https://congchan.github.io/NLP-topic-modeling/"/>
-
-
-
-
-
-  <title>Topic Modelling - 主题建模以及隐变量模型 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Topic Modelling - 主题建模以及隐变量模型 | Computer Science & AI</title>
   
 
 
@@ -144,145 +65,222 @@
 
 
 
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Computer Science & AI</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Computer Science & AI</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-Modelling"><span class="nav-number">1.</span> <span class="nav-text">Topic Modelling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Latent-Semantic-Analysis-LSA"><span class="nav-number">1.1.</span> <span class="nav-text">Latent Semantic Analysis (LSA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Probabilistic-Latent-Semantic-Analysis-PLSA"><span class="nav-number">1.2.</span> <span class="nav-text">Probabilistic Latent Semantic Analysis (PLSA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Latent-Dirichlet-allocation-LDA"><span class="nav-number">1.3.</span> <span class="nav-text">Latent Dirichlet allocation(LDA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LDA%E6%8E%A8%E7%90%86%E5%92%8C%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1"><span class="nav-number">1.4.</span> <span class="nav-text">LDA推理和参数估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LDA%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">LDA的实际应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/Ginntonic" title="你乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;Ginntonic" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>你乎</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-  
-  
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-topic-modeling/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -290,147 +288,77 @@
     </span>
 
     
+    
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Topic Modelling - 主题建模以及隐变量模型
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Topic Modelling - 主题建模以及隐变量模型</h1>
-        
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-23T00:00:00+08:00">
-                2018-12-23
-              </time>
-            
+      <time title="创建时间：2018-12-23 00:00:00" itemprop="dateCreated datePublished" datetime="2018-12-23T00:00:00+08:00">2018-12-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2019-12-31 17:41:01" itemprop="dateModified" datetime="2019-12-31T17:41:01+08:00">2019-12-31</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/NLP-topic-modeling/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="NLP-topic-modeling/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/NLP-topic-modeling/" class="leancloud_visitors" data-flag-title="Topic Modelling - 主题建模以及隐变量模型">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  3,991
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  16 min
-                </span>
-              
-            </div>
-          
-
-          
+  
+    <span id="/NLP-topic-modeling/" class="post-meta-item leancloud_visitors" data-flag-title="Topic Modelling - 主题建模以及隐变量模型" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/NLP-topic-modeling/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/NLP-topic-modeling/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
+        <p>本篇介绍 topic modeling, 以及一个经典的算法Latent Dirichlet allocation, 文本挖掘与语义理解的集大成者(至少在深度学习统治之前). 当然LDA不仅仅局限于文本, 还可应用于涉及大量数据集的各种问题，包括协同过滤，基于内容的图像检索和生物信息学等领域的数据。</p>
+<a id="more"></a>
 
-      
-      
-
-      
-        <p>本篇介绍 topic modeling, 以及一个经典的算法Latent Dirichlet allocation, 文本挖掘与语义理解的集大成者(至少在深度学习统治之前). 当然LDA不仅仅局限于文本, 还可应用于涉及大量数据集的各种问题，包括协同过滤，基于内容的图像检索和生物信息学等领域的数据。<br><a id="more"></a></p>
 <h2 id="Topic-Modelling"><a href="#Topic-Modelling" class="headerlink" title="Topic Modelling"></a>Topic Modelling</h2><p>大规模文本挖掘的核心问题, 就是用数学模型代替人力来理解文本语义，目标是找到对集合成员（如一堆文本）的数学/统计描述，以便能够对这些大型集合进行高效处理，同时保留对基本任务（如分类，检测，摘要以及相似性和相关性判断）有用的基本统计关系。</p>
 <p>在这方面的研究方法很多，特别是信息检索(IR)领域. 一个基本方法是将语料库中的每个文档向量化，向量中的每个实数代表计数率。比如经典的tf-idf方法，用<strong>Document-Term Matrix</strong>来表达不同词在不同文档出现的情况差异, 一般term就是word作为features, 所以在这里我们表示document-word matrix(DWM), 就是<code>DWM[i][j] = The number of occurrences of word_j in document_i</code>.<br>Doc 1: I have a fluffy cat.<br>Doc 2: I see a fluffy dog. </p>
 <table>
@@ -446,8 +374,7 @@
 <th>dog</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>doc1</td>
 <td>1</td>
 <td>1</td>
@@ -467,15 +394,14 @@
 <td>1</td>
 <td>1</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>然后进行normalization, 去和 inverse document frequency count(IDF)进行比较. IDF统计每个词在整个文档集合中出现的总次数, 通常转化为log scale, 并进行适当的normalization. </p>
-<p><img src="/images/document_term.png" alt="" title="image from https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158"></p>
+<p><img src="/images/document_term.png" title="image from https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158"></p>
 <p>这个矩阵把文档表示为向量，使得不同文档之间可以从几何上衡量相似性，根据相似性<strong>聚类文本</strong>.</p>
 <p>虽然tf-idf有很多很好的特性, 但是它的降维程度非常有限, 而且无法揭示文档间或文档内的统计结构.</p>
 <p>比如我们需要知道文本包含什么<strong>信息</strong>, 却又不清楚什么信息是重要的, 所以我们希望能把信息也归纳成几类。我们称这种信息为<strong>主题</strong>, 一种粗粒度的信息. 那么就有了一个很重要的任务, 就是挖掘出这一堆文本包含的主题都有哪几大类. 每个文本都可能包含多种不同主题, 而且包含的侧重也不一样, 所以进一步的, 我们希望能够挖掘出每个文本的主题分布, 也就是主题类别在各个文本中的权重. 这种对文本信息的挖掘和理解方法, 称之为<strong>主题建模(Topic Modelling)</strong>.</p>
 <p>此时主题数量就是一个超参数, 通过主题建模，构建了单词的clusters而不是文本的clusters。因此，文本被表达为多个主题的混合，每个主题都有一定的权重。</p>
-<p>因为主题建模不再是用词频来表达, 而是用主题权重<code>{Topic_i: weight(Topic_i, T) for Topic_i in Topics}</code>, 所以主题建模也是一种 Dimensionality Reduction. </p>
+<p>因为主题建模不再是用词频来表达, 而是用主题权重<code>&#123;Topic_i: weight(Topic_i, T) for Topic_i in Topics&#125;</code>, 所以主题建模也是一种 Dimensionality Reduction. </p>
 <p>主题建模也可以理解为文本主题的tagging任务, 只是无监督罢了.</p>
 <h3 id="Latent-Semantic-Analysis-LSA"><a href="#Latent-Semantic-Analysis-LSA" class="headerlink" title="Latent Semantic Analysis (LSA)"></a>Latent Semantic Analysis (LSA)</h3><p>通过引入Latent的概念，把主题表达为隐藏的信息, 也就是假设主题已经存在, 只是我们看不到. LSA使用DWM矩阵的SVD奇异值分解来确定tf-idf特征空间中的线性子空间，该子空间捕获了集合中的大部分variance。</p>
 <ol>
@@ -483,26 +409,26 @@
 <li>与其将文本表示为单词的t维空间中的向量，不如将相似词有效地组合在一起的”概念”(topic), 作为维度, 将文本（以及词本身）表示为低维空间中的向量. 这些低维的轴就是通过PCA得出的Principal Components</li>
 <li>然后就可以在 latent semantic 空间中为下游任务服务, 如计算文本相似度(通过内积等cosine相似度计算).</li>
 </ol>
-<p><img src="/images/ducument_topic_term.png" alt="" title="image from https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158"></p>
+<p><img src="/images/ducument_topic_term.png" title="image from https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158"></p>
 <p>把DWM矩阵表达为 DTM(Document Topic Matrix) 和 TWM(Topic Word Matrix) 两个矩阵, 它们维度更小，相乘的结果应该尽可能近似原始的DWM矩阵。</p>
-<p>假设词汇$V$有$1024$个, 文档$W$有$64$篇, 用 $DWM = W \times V$来表达Document-Word Matrix, 需要$64 \times 1024 = 65,536$的参数量. 假如我们设定topic参数为$8$, 那么就可以用$DWM = DTM \times TWM $来近似表达Document-Term Matrix, 参数量减少为$64 \times 8 + 8 \times 1024 = 8,704$, 缩减了将近$90\%$</p>
+<p>假设词汇$V$有$1024$个, 文档$W$有$64$篇, 用 $DWM = W \times V$来表达Document-Word Matrix, 需要$64 \times 1024 = 65,536$的参数量. 假如我们设定topic参数为$8$, 那么就可以用$DWM = DTM \times TWM $来近似表达Document-Term Matrix, 参数量减少为$64 \times 8 + 8 \times 1024 = 8,704$, 缩减了将近$90%$</p>
 <p>所以LSA核心思想是构造 Document-Term Matrix 的低阶近似.</p>
 <ol>
 <li>用 tf-idf 计算加权DWM. tf-idf(term frequency–inverse document frequency)是DWM矩阵的一种经典加权表达。</li>
 <li>然后对DWM矩阵进行 Singular Value Decomposition (SVD).</li>
 </ol>
-<p><img src="/images/lsa_process.png" alt="" title="https://people.cs.pitt.edu/~milos/courses/cs3750-Fall2007/lectures/plsa.pdf"></p>
+<p><img src="/images/lsa_process.png" title="https://people.cs.pitt.edu/~milos/courses/cs3750-Fall2007/lectures/plsa.pdf"></p>
 <p>降维的意义不仅仅是减少下游任务的计算负担：</p>
 <ol>
 <li>tf-idf向量一般很长很庞大。因此降维操作对于聚类或分类等进一步计算是能节省很多资源。</li>
 <li>原始DTM矩阵被认为是有噪声的：近似矩阵被解释为去噪矩阵（比原始矩阵更好的矩阵）。</li>
 <li>假定原始的DTM矩阵相对于“真实的”DTM矩阵过于稀疏，降维也可以看作一种泛化。也就是说，原始矩阵仅列出每个文档中实际的单词，而我们可能会对与每个文档相关的所有单词感兴趣-如同义词等。</li>
 </ol>
-<p><code>(car), (truck), (flower)} --&gt; {(1.3452 * car + 0.2828 * truck), (flower)}</code></p>
+<p><code>(car), (truck), (flower)&#125; --&gt; &#123;(1.3452 * car + 0.2828 * truck), (flower)&#125;</code></p>
 <h3 id="Probabilistic-Latent-Semantic-Analysis-PLSA"><a href="#Probabilistic-Latent-Semantic-Analysis-PLSA" class="headerlink" title="Probabilistic Latent Semantic Analysis (PLSA)"></a>Probabilistic Latent Semantic Analysis (PLSA)</h3><p>也称之为aspect model, 尝试从统计学的角度改进LSA. 将文档中的每个单词建模为混合模型中的样本. 其中这个混合模型混合的成分是multinomial随机变量，可以视为“主题”的表示形式。因此，每个单词都是由单个主题生成的，每一个文档中的不同单词可能从不同的主题生成。每个文档都表示为这些混合成分根据不同比例混合的列表，从而简化为固定主题集的概率分布.</p>
 <p>把潜在的topics视作 Latent variable 隐变量z, 而文本Documents和词汇Words就是观察变量 observed variables. 共现(co‐occurrence)的数据都关联有隐含的话题类别, 做出条件独立假设, D和W是基于隐变量z的条件独立变量,<br>$$ P(w|d) = \sum_{z\in Z} P(w|z)P(z|d)$$</p>
-<p>$$ P(d, w) = P(d)P(w|d) = P(d) \sum_{z\in Z} P(w|z)P(z|d) \\\<br>           = \sum_{z\in Z} P(d) P(w|z)P(z|d) \\\<br>           = \sum_{z\in Z} P(z) P(w|z)P(d|z)<br>$$</p>
-<p><img src="/images/plsa_illustrations.png" alt="" title="https://people.cs.pitt.edu/~milos/courses/cs3750-Fall2007/lectures/plsa.pdf"></p>
+<p>$$ P(d, w) = P(d)P(w|d) = P(d) \sum_{z\in Z} P(w|z)P(z|d) \<br>           = \sum_{z\in Z} P(d) P(w|z)P(z|d) \<br>           = \sum_{z\in Z} P(z) P(w|z)P(d|z)<br>$$</p>
+<p><img src="/images/plsa_illustrations.png" title="https://people.cs.pitt.edu/~milos/courses/cs3750-Fall2007/lectures/plsa.pdf"></p>
 <p>利用隐变量可以解决稀疏性问题，也就是避免文档中未出现的word的概率为零, 可以理解为一种平滑.</p>
 <p>使用EM算法:<br>E-Step: 计算隐变量的posterior probabilities, </p>
 <ul>
@@ -519,7 +445,7 @@
 <p>虽然PPCA也是概率模型, 但是PPCA假设了正态分布(normal distribution), 局限性很大. PLSA将每个共现的概率建模为条件独立的多项式分布(multinomial distributions)的混合. 多项式分布在此领域是更好的选择。</p>
 <p>因为有了$p(z|d)$充当特定文档的主题混合权重, pLSA可以捕获文档包含多个主题的可能性. 但是, $d$是训练集文档列表的虚拟索引, 因此$d$是一个多项式随机变量，其值可能与训练文档一样多, 这样pLSA仅针对训练集的文档学习主题混合$p(z|d)$, 对于训练集之外的document而言, 不知道如何分配概率. 等于说pLSA并不是一个定义明确的文档级别的概率生成模型。</p>
 <p>除此之外, 因为使用训练集文档索引的分布，另一个困难就是需要估计的参数数量随着训练集数量增加而线性增加. 具体地说, 一个k-topic pLSA的参数是$k$个latent topic上大小为$V$的多项式分布, 以及$M$个mixtures, 参数量是$kV + kM$，随着$M$线性增长。所以pLSA容易过拟合(虽然可以用Tempered EM算法来稍微缓解). </p>
-<h3 id="Latent-Dirichlet-allocation-LDA"><a href="#Latent-Dirichlet-allocation-LDA" class="headerlink" title="Latent Dirichlet allocation(LDA)"></a>Latent Dirichlet allocation(LDA)</h3><p>回顾LSA和pLSA, 都基于“词袋”的假设。从概率论的角度来说，是对文档中单词有exchangeability的假设（Aldous，1985）。此外，尽管很少正式地陈述这些方法，但这些方法还假定文档是可交换的。语料库中文档的特定顺序也可以忽略。Finetti（1990）提出的经典表示定理认为任何可交换随机变量的集合都具有表示为混合分布的形式 - 通常是无限混合。因此，如果我们希望考虑文档和单词的可交换表示形式，则需要考虑能够同时捕获单词和文档的可交换性的混合模型。这就是<a href="http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf" target="_blank" rel="noopener">Latent Dirichlet allocation. David Blei, Andrew Ng, and Michael Jordan. 2003.</a>这篇文章的动机.</p>
+<h3 id="Latent-Dirichlet-allocation-LDA"><a href="#Latent-Dirichlet-allocation-LDA" class="headerlink" title="Latent Dirichlet allocation(LDA)"></a>Latent Dirichlet allocation(LDA)</h3><p>回顾LSA和pLSA, 都基于“词袋”的假设。从概率论的角度来说，是对文档中单词有exchangeability的假设（Aldous，1985）。此外，尽管很少正式地陈述这些方法，但这些方法还假定文档是可交换的。语料库中文档的特定顺序也可以忽略。Finetti（1990）提出的经典表示定理认为任何可交换随机变量的集合都具有表示为混合分布的形式 - 通常是无限混合。因此，如果我们希望考虑文档和单词的可交换表示形式，则需要考虑能够同时捕获单词和文档的可交换性的混合模型。这就是<a target="_blank" rel="noopener" href="http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf">Latent Dirichlet allocation. David Blei, Andrew Ng, and Michael Jordan. 2003.</a>这篇文章的动机.</p>
 <p>LDA对主题分布的基本设定是, 每个文档被表达为latent variables(topics)的随机混合, 其中各个topics可以由单词的概率分布来描述.</p>
 <p>对于语料库$D$中的每个文档$\boldsymbol{w}$, LDA假设如下的生成过程:</p>
 <ol>
@@ -537,7 +463,7 @@
 <p>最后，取各个文档的marginal distribution的乘积，得到整个语料库(corpus)的概率 $$ p(D|α,β)  = \prod\limits^M_{d=1} p(\boldsymbol{w}|α,β) $$</p>
 <p>参数$\alpha$和$\beta$是语料库级别的参数，假定在生成语料库的过程中只采样一次。$\theta_d$是文档级别的变量, 每个文档采样一次. $z_{dn}$和$w_{dn}$是词级别的变量, 每个文档的每个词采样一次.</p>
 <p>LDA通过将主题混合权重视为k-parameter隐随机变量，而不是与训练集显式关联的一大套参数, 解决pLSA的缺陷。而且k-topic的LDA模型参数量是$k + kV$, 不会随着训练语料库的增加而增长.</p>
-<p>如果在几何上比较和理解pLSA和LDA, 模型都可以视为在words的分布空间上操作, 每个这样的分布都可以看作<code>(V-1)-simplex</code>(称之为word simplex)上的一个点. 如图, 假设有<code>3</code>个单词, 假设选择<code>k=3</code>的topic simplex包含在三个单词的word simplex中。word simplex的三个角对应于三个特殊的分布(<code>[1, 0, 0], [0, 1, 0], [0, 0, 1]</code>)，即其中各有一个单词的概率为<code>1</code>。topic simplex的三个点对应于三个不同的单词分布(比如类似<code>[0.7, 0.2, 0.1], [0.05, 0.9, 0.05], [0.3, 0.05, 0.65]</code>)。<img src="/images/topic_models_geometric_interpretation.png" alt="" title="image from Blei 2003"></p>
+<p>如果在几何上比较和理解pLSA和LDA, 模型都可以视为在words的分布空间上操作, 每个这样的分布都可以看作<code>(V-1)-simplex</code>(称之为word simplex)上的一个点. 如图, 假设有<code>3</code>个单词, 假设选择<code>k=3</code>的topic simplex包含在三个单词的word simplex中。word simplex的三个角对应于三个特殊的分布(<code>[1, 0, 0], [0, 1, 0], [0, 0, 1]</code>)，即其中各有一个单词的概率为<code>1</code>。topic simplex的三个点对应于三个不同的单词分布(比如类似<code>[0.7, 0.2, 0.1], [0.05, 0.9, 0.05], [0.3, 0.05, 0.65]</code>)。<img src="/images/topic_models_geometric_interpretation.png" title="image from Blei 2003"></p>
 <p>最简单的unigram模型在word simplex上找到一个点，并假设语料库中的所有单词都来自相应的分布。而隐变量模型考虑(选择)word simplex上的<code>k</code>个点(在图中是<code>k=3</code>个)，并基于这些点形成sub-simplex，即topic simplex。</p>
 <ul>
 <li>pLSA模型假定训练集文档的每个单词各来自一个随机选择的主题。主题本身来自document-specific的主题分布，即topic simplex上的一个个点<code>x</code>。每个文档都有一个这样的分布；因此，文档训练集定义了关于topic simplex的经验分布。</li>
@@ -559,7 +485,7 @@
 </ol>
 </li>
 </ul>
-<h3 id="LDA的实际应用"><a href="#LDA的实际应用" class="headerlink" title="LDA的实际应用"></a>LDA的实际应用</h3><p><a href="https://github.com/congchan/Chinese-nlp/blob/master/latent-dirichlet-allocation-topic-model.ipynb" target="_blank" rel="noopener">LDA模型实战案例</a></p>
+<h3 id="LDA的实际应用"><a href="#LDA的实际应用" class="headerlink" title="LDA的实际应用"></a>LDA的实际应用</h3><p><a target="_blank" rel="noopener" href="https://github.com/congchan/Chinese-nlp/blob/master/latent-dirichlet-allocation-topic-model.ipynb">LDA模型实战案例</a></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>主题建模的算法:</p>
 <ol>
 <li>(p)LSA: (Probabilistic) Latent Semantic Analysis – Uses Singular Value Decomposition (SVD) on the Document-Term Matrix. Based on Linear Algebra. SVD假设了Gaussian distributed. </li>
@@ -571,926 +497,285 @@
 <li>Generalized matrix decomposition 实际上是 collaborative filtering 的 generalization，是用户行为分析和文本语义理解的共同基础.</li>
 </ol>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://nlpforhackers.io/topic-Modelling/" target="_blank" rel="noopener">https://nlpforhackers.io/topic-Modelling/</a></li>
-<li><a href="http://cocosci.berkeley.edu/tom/papers/SteyversGriffiths.pdf" target="_blank" rel="noopener">Steyvers and Griffiths (2007)</a>. Probabilistic topic models. Distributional semantic models and topic models have been extensively investigated not just in NLP, but also as models of human cognition. This paper provides a brief introduction to topic models as cognitive models. A much more thorough investigation can be found in Griffiths, Steyvers, and Tenenbaum (2007).</li>
-<li><a href="http://mccormickml.com/2016/03/25/lsa-for-text-classification-tutorial/" target="_blank" rel="noopener">Latent Semantic Analysis (LSA) for Text Classification Tutorial</a></li>
-<li><a href="https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158" target="_blank" rel="noopener">Intuitive Guide to Latent Dirichlet Allocation</a></li>
+<li><a target="_blank" rel="noopener" href="https://nlpforhackers.io/topic-Modelling/">https://nlpforhackers.io/topic-Modelling/</a></li>
+<li><a target="_blank" rel="noopener" href="http://cocosci.berkeley.edu/tom/papers/SteyversGriffiths.pdf">Steyvers and Griffiths (2007)</a>. Probabilistic topic models. Distributional semantic models and topic models have been extensively investigated not just in NLP, but also as models of human cognition. This paper provides a brief introduction to topic models as cognitive models. A much more thorough investigation can be found in Griffiths, Steyvers, and Tenenbaum (2007).</li>
+<li><a target="_blank" rel="noopener" href="http://mccormickml.com/2016/03/25/lsa-for-text-classification-tutorial/">Latent Semantic Analysis (LSA) for Text Classification Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158">Intuitive Guide to Latent Dirichlet Allocation</a></li>
 </ul>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
+      
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/NLP-HMM-CRF/" rel="next" title="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
-                <i class="fa fa-chevron-left"></i> 概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归
-              </a>
-            
+          <div class="post-tags">
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/word2vec/" rel="prev" title="深入理解word2vec细节以及TensorFlow实现">
-                深入理解word2vec细节以及TensorFlow实现 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Cong" />
-            
-              <p class="site-author-name" itemprop="name">Cong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">94</span>
-                  <span class="site-state-item-name">posts</span>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/NLP-HMM-CRF/" rel="prev" title="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
+                  <i class="fa fa-chevron-left"></i> 概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归
                 </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
             </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-Modelling"><span class="nav-number">1.</span> <span class="nav-text">Topic Modelling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Latent-Semantic-Analysis-LSA"><span class="nav-number">1.1.</span> <span class="nav-text">Latent Semantic Analysis (LSA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Probabilistic-Latent-Semantic-Analysis-PLSA"><span class="nav-number">1.2.</span> <span class="nav-text">Probabilistic Latent Semantic Analysis (PLSA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Latent-Dirichlet-allocation-LDA"><span class="nav-number">1.3.</span> <span class="nav-text">Latent Dirichlet allocation(LDA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LDA推理和参数估计"><span class="nav-number">1.4.</span> <span class="nav-text">LDA推理和参数估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LDA的实际应用"><span class="nav-number">1.5.</span> <span class="nav-text">LDA的实际应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/word2vec/" rel="next" title="深入理解word2vec细节以及TensorFlow实现">
+                  深入理解word2vec细节以及TensorFlow实现 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Cong</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+    </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
+      
 
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
 
-
-
-
+    </div>
+  </footer>
 
   
-
-
-
-
-
-
-
-
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/NLP-topic-modeling/';
-          this.page.identifier = 'NLP-topic-modeling/';
-          this.page.title = 'Topic Modelling - 主题建模以及隐变量模型';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
 
 
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
     }
 
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
           if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
     }
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
 
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/NLP-topic-modeling/",
+    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
 </script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
 
 </body>
 </html>

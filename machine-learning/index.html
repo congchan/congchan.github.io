@@ -1,96 +1,36 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
-
-
-
-
-
-
-
-
-  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Machine Learning," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="参考CS229: Machine Learning, Stanford 什么是机器学习？目前有两个定义。 亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。 汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：E：经验，即历史的数据集。T：某类任务。P：任务的绩效衡量。若该计算机程序通过利用经验E在任务T上获">
-<meta name="keywords" content="Machine Learning">
+  <meta name="description" content="参考CS229: Machine Learning, Stanford 什么是机器学习？目前有两个定义。 亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。 汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：E：经验，即历史的数据集。T：某类任务。P：任务的绩效衡量。若该计算机程序通过利用经验E在任务T上获">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning Note - cs229 - Stanford">
 <meta property="og:url" content="https://congchan.github.io/machine-learning/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="参考CS229: Machine Learning, Stanford 什么是机器学习？目前有两个定义。 亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。 汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：E：经验，即历史的数据集。T：某类任务。P：任务的绩效衡量。若该计算机程序通过利用经验E在任务T上获">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/linearR_cost.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/lr.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/sigmoid.png">
@@ -114,47 +54,28 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/km&em.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/pca_norm.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/roc.png">
-<meta property="og:updated_time" content="2018-09-09T08:46:46.311Z">
+<meta property="article:published_time" content="2017-12-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-09-09T08:46:46.311Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Note - cs229 - Stanford">
-<meta name="twitter:description" content="参考CS229: Machine Learning, Stanford 什么是机器学习？目前有两个定义。 亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。 汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：E：经验，即历史的数据集。T：某类任务。P：任务的绩效衡量。若该计算机程序通过利用经验E在任务T上获">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/linearR_cost.png">
 
 
+<link rel="canonical" href="https://congchan.github.io/machine-learning/">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-
-
-  <link rel="canonical" href="https://congchan.github.io/machine-learning/"/>
-
-
-
-
-
-  <title>Machine Learning Note - cs229 - Stanford | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Machine Learning Note - cs229 - Stanford | Computer Science & AI</title>
   
 
 
@@ -162,145 +83,222 @@
 
 
 
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Computer Science & AI</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Computer Science & AI</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.</span> <span class="nav-text">Supervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression"><span class="nav-number">1.1.</span> <span class="nav-text">Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LMS-least-mean-squares-algorithm"><span class="nav-number">1.1.1.</span> <span class="nav-text">LMS(least mean squares) algorithm:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-normal-equations"><span class="nav-number">1.1.2.</span> <span class="nav-text">The normal equations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probabilistic-interpretation"><span class="nav-number">1.1.3.</span> <span class="nav-text">Probabilistic interpretation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Locally-weighted-linear-regression-LWR-algorithm"><span class="nav-number">1.1.4.</span> <span class="nav-text">Locally weighted linear regression (LWR) algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-and-logistic-regression"><span class="nav-number">1.2.</span> <span class="nav-text">Classification and logistic regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Logistic-regression"><span class="nav-number">1.2.1.</span> <span class="nav-text">Logistic regression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generalized-Linear-Models"><span class="nav-number">1.3.</span> <span class="nav-text">Generalized Linear Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-exponential-family"><span class="nav-number">1.3.1.</span> <span class="nav-text">The exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructing-GLMs"><span class="nav-number">1.3.2.</span> <span class="nav-text">Constructing GLMs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Softmax-Regression"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">Softmax Regression</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-classification-%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="nav-number">1.4.</span> <span class="nav-text">Naive Bayes classification 朴素贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian-Naive-Bayes"><span class="nav-number">1.4.1.</span> <span class="nav-text">Gaussian Naive Bayes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Missing-data-instances-in-NB"><span class="nav-number">1.4.2.</span> <span class="nav-text">Missing data instances in NB</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generative-and-Discriminative-Algorithm"><span class="nav-number">1.5.</span> <span class="nav-text">Generative and Discriminative Algorithm:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decision-trees-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">1.6.</span> <span class="nav-text">Decision trees 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ID3-algorithm"><span class="nav-number">1.6.1.</span> <span class="nav-text">ID3 algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Entropy"><span class="nav-number">1.6.2.</span> <span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting-in-Decision-Trees"><span class="nav-number">1.6.3.</span> <span class="nav-text">Overfitting in Decision Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decision-boundary"><span class="nav-number">1.6.4.</span> <span class="nav-text">Decision boundary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-Decision-forest"><span class="nav-number">1.6.5.</span> <span class="nav-text">Random Decision forest</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-number">1.7.</span> <span class="nav-text">SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Kernels"><span class="nav-number">1.7.1.</span> <span class="nav-text">Kernels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM-vs-Logistic-regression"><span class="nav-number">1.7.2.</span> <span class="nav-text">SVM vs. Logistic regression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Nearest-Neighbour"><span class="nav-number">1.8.</span> <span class="nav-text">K Nearest Neighbour</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-D-Trees"><span class="nav-number">1.8.1.</span> <span class="nav-text">K-D Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inverted-lists"><span class="nav-number">1.8.2.</span> <span class="nav-text">Inverted lists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Locality-sensitive-hashing"><span class="nav-number">1.8.3.</span> <span class="nav-text">Locality-sensitive hashing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-learning-%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.</span> <span class="nav-text">Unsupervised learning 无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Clustering"><span class="nav-number">2.1.</span> <span class="nav-text">Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means"><span class="nav-number">2.1.1.</span> <span class="nav-text">K-means</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hierarchical-K-means"><span class="nav-number">2.1.2.</span> <span class="nav-text">Hierarchical K-means</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Agglomerative-Clustering"><span class="nav-number">2.1.3.</span> <span class="nav-text">Agglomerative Clustering</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian-Mixtures"><span class="nav-number">2.1.4.</span> <span class="nav-text">Gaussian Mixtures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EM-algorithm"><span class="nav-number">2.1.5.</span> <span class="nav-text">EM algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means-vs-EM"><span class="nav-number">2.1.6.</span> <span class="nav-text">K-means vs. EM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">2.2.</span> <span class="nav-text">Dimensionality Reduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Factor-analysis"><span class="nav-number">2.2.1.</span> <span class="nav-text">Factor analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Principal-Components-Analysis"><span class="nav-number">2.2.2.</span> <span class="nav-text">Principal Components Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Discriminant-Analysis"><span class="nav-number">2.2.3.</span> <span class="nav-text">Linear Discriminant Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Singular-Value-Decomposition"><span class="nav-number">2.2.4.</span> <span class="nav-text">Singular Value Decomposition</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-and-evaluation"><span class="nav-number">3.</span> <span class="nav-text">Generalization and evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Receiver-Operating-Characteristic"><span class="nav-number">3.1.</span> <span class="nav-text">Receiver Operating Characteristic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Confidence-interval"><span class="nav-number">3.2.</span> <span class="nav-text">Confidence interval</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/Ginntonic" title="你乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;Ginntonic" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>你乎</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-  
-  
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/machine-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -308,154 +306,84 @@
     </span>
 
     
+    
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning Note - cs229 - Stanford
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Machine Learning Note - cs229 - Stanford</h1>
-        
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-05T00:00:00+08:00">
-                2017-12-05
-              </time>
-            
+      <time title="创建时间：2017-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-05T00:00:00+08:00">2017-12-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2018-09-09 16:46:46" itemprop="dateModified" datetime="2018-09-09T16:46:46+08:00">2018-09-09</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/machine-learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="machine-learning/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/machine-learning/" class="leancloud_visitors" data-flag-title="Machine Learning Note - cs229 - Stanford">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  4,377
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  26 min
-                </span>
-              
-            </div>
-          
-
-          
+  
+    <span id="/machine-learning/" class="post-meta-item leancloud_visitors" data-flag-title="Machine Learning Note - cs229 - Stanford" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/machine-learning/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/machine-learning/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>参考<br><a href="http://cs229.stanford.edu/notes" target="_blank" rel="noopener">CS229: Machine Learning, Stanford</a></p>
+        <p>参考<br><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes">CS229: Machine Learning, Stanford</a></p>
 <p>什么是机器学习？目前有两个定义。</p>
 <p>亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。</p>
-<p>汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：<br>E：经验，即历史的数据集。<br>T：某类任务。<br>P：任务的绩效衡量。<br>若该计算机程序通过利用经验E在任务T上获得了性能P的改善，则称该程序对E进行了学习<br>“如果计算机程序能够利用经验E，提升实现任务T的成绩P，则可以认为这个计算机程序能够从经验E中学习任务T”。<br>例如：玩跳棋。E =玩许多棋子游戏的经验，T = 玩跳棋的任务。P = 程序将赢得下一场比赛的概率。<br><a id="more"></a></p>
-<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a><a href="http://cs229.stanford.edu/notes/cs229-notes1.pdf" target="_blank" rel="noopener">Supervised Learning</a></h2><h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><ul>
+<p>汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：<br>E：经验，即历史的数据集。<br>T：某类任务。<br>P：任务的绩效衡量。<br>若该计算机程序通过利用经验E在任务T上获得了性能P的改善，则称该程序对E进行了学习<br>“如果计算机程序能够利用经验E，提升实现任务T的成绩P，则可以认为这个计算机程序能够从经验E中学习任务T”。<br>例如：玩跳棋。E =玩许多棋子游戏的经验，T = 玩跳棋的任务。P = 程序将赢得下一场比赛的概率。</p>
+<a id="more"></a>
+
+<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes/cs229-notes1.pdf">Supervised Learning</a></h2><h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><ul>
 <li>Weights(parameters) θ: parameterizing the space of linear functions mapping from X to Y</li>
 <li>Intercept term: to simplify notation, introduce the convention of letting x<sub>0</sub> = 1</li>
-<li>Cost function J(θ): <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/linearR_cost.png" alt="">  a function that measures, for each value of the θ’s, how close the h(x<sup>(i)</sup>)’s are to the corresponding y<sup>(i)</sup>’s</li>
+<li>Cost function J(θ): <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/linearR_cost.png">  a function that measures, for each value of the θ’s, how close the h(x<sup>(i)</sup>)’s are to the corresponding y<sup>(i)</sup>’s</li>
 <li>Purpose: to choose θ so as to minimize J(θ).</li>
 <li>Implementation: By using a search algorithm that starts with some “initial guess” for θ, and that repeatedly changes θ to make J(θ) smaller, until hopefully we converge to a value of θ that minimizes J(θ).</li>
 </ul>
@@ -496,20 +424,17 @@
 <li>Here, the w<sup>(i)</sup>’s are non-negative valued <strong>weights</strong></li>
 <li>Intuitively, if w<sup>(i)</sup> is large for a particular value of i, then in picking θ, we’ll try hard to make (y<sup>(i)</sup> − θ<sup>T</sup>x<sup>(i)</sup>)<sup>2</sup> small. If w<sup>(i)</sup> is small, then the error term will be pretty much ignored in the fit.</li>
 <li>A fairly standard choice for the weights is w<sup>(i)</sup> = exp(-(x<sup>(i)</sup>-x)<sup>2</sup> / 2τ<sup>2</sup> )</li>
-<li>if |x<sup>(i)</sup>-x| is small, then w<sup>(i)</sup> ≈ 1; if large, then w<sup>(i)</sup> is small. Hence, θ is chosen giving a much higher “weight” to the (errors on) training examples close to the query point x.</li>
+<li>if |x<sup>(i)</sup>-x| is small, then w<sup>(i)</sup> ≈ 1; if large, then w<sup>(i)</sup> is small. Hence, θ is chosen giving a much higher “weight” to the (errors on) training examples close to the query point x.</li>
 <li>The parameter τ controls how quickly the weight of a training example falls off with distance of its x<sup>(i)</sup>, from the query point x; τ is called the <strong>bandwidth</strong> parameter</li>
 </ul>
 <h3 id="Classification-and-logistic-regression"><a href="#Classification-and-logistic-regression" class="headerlink" title="Classification and logistic regression"></a>Classification and logistic regression</h3><h4 id="Logistic-regression"><a href="#Logistic-regression" class="headerlink" title="Logistic regression"></a>Logistic regression</h4><ul>
-<li>logistic function or the <strong>sigmoid function</strong>: g(z) = (1 + e<sup>−z</sup>)<sup>-1</sup>. <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/lr.png" alt=""><br>g(z) tends towards 1 as z → ∞, and g(z) tends towards 0 as z → −∞. <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/sigmoid.png" alt=""></li>
+<li>logistic function or the <strong>sigmoid function</strong>: g(z) = (1 + e<sup>−z</sup>)<sup>-1</sup>. <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/lr.png"><br>g(z) tends towards 1 as z → ∞, and g(z) tends towards 0 as z → −∞. <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/sigmoid.png"></li>
 <li>derivative of the sigmoid function:  g(z)<sup>‘</sup> = g(z)(1 - g(z))</li>
 <li>endow our classification model with a set of probabilistic assumptions, and then fit the parameters via maximum likelihood:<ul>
 <li>Similar to our derivation in the case of linear regression, we can use gradient ascent to maximize the likelihood.</li>
 <li>updates will therefore be given by θ := θ + α∇<sub>θ</sub>ℓ(θ). (Note the positive rather than negative sign in the update formula, since we’re maximizing,rather than minimizing, a function now.)</li>
 <li>This therefore gives us the stochastic gradient ascent rule: θ<sub>j</sub> := θ<sub>j</sub> + α(y<sup>(i)</sup>− h<sub>θ</sub>(x<sup>(i)</sup>))x<sup>(i)</sup><sub>j</sub></li>
-<li>If we compare this to the LMS update rule, we see that it looks identical; but this is not the same algorithm, because h<sub>θ</sub>(x<sup>(i)</sup>) is now defined as a non-linear function of θ<sup>T</sup>x<sup>(i)</sup>.<ul>
-<li>Nonetheless, it’s a little surprising that we end up with the same update rule for a rather different algorithm and learning problem. Is this coincidence, or is there a deeper reason behind this? Check <a href="#generalized-linear-models">GLM models</a>.  </li>
-</ul>
-</li>
+<li>If we compare this to the LMS update rule, we see that it looks identical; but this is not the same algorithm, because h<sub>θ</sub>(x<sup>(i)</sup>) is now defined as a non-linear function of θ<sup>T</sup>x<sup>(i)</sup>.<br>     * Nonetheless, it’s a little surprising that we end up with the same update rule for a rather different algorithm and learning problem. Is this coincidence, or is there a deeper reason behind this? Check <a href="#generalized-linear-models">GLM models</a>.  </li>
 </ul>
 </li>
 </ul>
@@ -528,12 +453,8 @@
 <h5 id="Softmax-Regression"><a href="#Softmax-Regression" class="headerlink" title="Softmax Regression"></a>Softmax Regression</h5><p>Consider a classification problem in which the response variable y can take on any one of k values, so y ∈ {1, 2, . . . , k}. We will thus model it as distributed according to a multinomial distribution.</p>
 <ul>
 <li>parameterize the multinomial with only k − 1 parameters, φ<sub>1</sub>, . . . , φ<sub>k−1</sub>, where φ<sub>i</sub> = p(y = i; φ), and p(y = k; φ) = 1 − Σ<sup>k</sup><sub>i=1</sub>φ<sub>i</sub>.</li>
-<li>To express the multinomial as an exponential family distribution, we will definee T(y) ∈ R<sup>k-1</sup>：<br><img src="/image/cs229-notes1-pic01.png" alt="T(y)"><ul>
-<li>η = [log(φ<sub>1</sub>/φ<sub>k</sub>),…,log(φ<sub>k-1</sub>/φ<sub>k</sub>)], the η<sub>i</sub>’s are linearly related to the x’s.</li>
-<li>softmax function: a mapping from the η’s to the φ’s: φ<sub>i</sub> = e<sup>ηi</sup> / Σ<sup>k</sup><sub>j=1</sub>e<sup>ηi</sup></li>
-</ul>
-</li>
-<li>softmax regression:  the model, which applies to classification problems where y ∈ {1, . . . , k}: p(y = i|x; θ) = φ<sub>i</sub> = e<sup>θ<sup>T</sup><sub>i</sub> x</sup> / Σ<sup>k</sup><sub>j=1</sub>e<sup>θ<sup>T</sup><sub>i</sub> x</sup>  </li>
+<li>To express the multinomial as an exponential family distribution, we will definee T(y) ∈ R<sup>k-1</sup>：<br><img src="/image/cs229-notes1-pic01.png" alt="T(y)"><br>  * η = [log(φ<sub>1</sub>/φ<sub>k</sub>),…,log(φ<sub>k-1</sub>/φ<sub>k</sub>)], the η<sub>i</sub>’s are linearly related to the x’s.<br>  * softmax function: a mapping from the η’s to the φ’s: φ<sub>i</sub> = e<sup>ηi</sup> / Σ<sup>k</sup><sub>j=1</sub>e<sup>ηi</sup></li>
+<li>softmax regression:  the model, which applies to classification problems where y ∈ {1, . . . , k}: p(y = i|x; θ) = φ<sub>i</sub> = e<sup>θ<sup>T</sup><sub>i</sub> x</sup> / Σ<sup>k</sup><sub>j=1</sub>e<sup>θ<sup>T</sup><sub>i</sub> x</sup>  </li>
 <li>This hypothesis will output the estimated probability that p(y = i|x; θ), for every value of i = 1, . . . , k.</li>
 <li>parameter fitting: obtain the maximum likelihood estimate of the parameters by maximizing ℓ(θ) in terms of θ, using a method such as gradient ascent or Newton’s method.</li>
 </ul>
@@ -541,19 +462,15 @@
 <ul>
 <li>Why naïve: 忽略了事件发生的顺序, 故称之为”朴素”</li>
 <li>Strength and Weakness: 高效, 快速, 但对于组合性的短语词组, 当这些短语与其组成成分的字的意思不同时, NB的效果就不好了</li>
-<li>详见<a href="https://github.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/blob/master/%E5%8A%A0%E9%80%9F%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86.md#naive-bayes-classifier" target="_blank" rel="noopener">加速自然语言处理-朴素贝叶斯</a></li>
+<li>详见<a target="_blank" rel="noopener" href="https://github.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/blob/master/%E5%8A%A0%E9%80%9F%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86.md#naive-bayes-classifier">加速自然语言处理-朴素贝叶斯</a></li>
 <li>Problem: how to deal with continuous values features? Use Gaussian Naive Bayes.</li>
 </ul>
 <h4 id="Gaussian-Naive-Bayes"><a href="#Gaussian-Naive-Bayes" class="headerlink" title="Gaussian Naive Bayes"></a>Gaussian Naive Bayes</h4><p>With real-valued inputs, we can calculate the mean and standard deviation of input values (x) for each class to summarize the distribution. This means that in addition to the probabilities for each class, we also store the mean μ and standard deviations σ of each feature for each class.</p>
 <ul>
-<li>The class conditional probability P(x|c) is estimated by probability density of the normal distribution <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/probability_density.png" alt="">:</li>
-<li><p>Algorithm – continuous Xi (but still discrete Y)</p>
-<ul>
-<li><p>Train Naïve Bayes (examples)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for each class value yk:</span><br><span class="line">    estimate P(Yk)</span><br><span class="line">    for each attribute Xi:</span><br><span class="line">        estimate class conditional mean, variance</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Classify(xnew): <code>Ynew &lt;- argmax(k) ∏P(xi|Yk)P(Yk)</code></p>
-</li>
+<li>The class conditional probability P(x|c) is estimated by probability density of the normal distribution <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/probability_density.png">:</li>
+<li>Algorithm – continuous Xi (but still discrete Y)<ul>
+<li>Train Naïve Bayes (examples)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for each class value yk:</span><br><span class="line">    estimate P(Yk)</span><br><span class="line">    for each attribute Xi:</span><br><span class="line">        estimate class conditional mean, variance</span><br></pre></td></tr></table></figure></li>
+<li>Classify(xnew): <code> Ynew &lt;- argmax(k) ∏P(xi|Yk)P(Yk)</code></li>
 </ul>
 </li>
 <li>Short: classes with the same distribution</li>
@@ -578,24 +495,17 @@
 <li>Algorithm: ID3 algorithm</li>
 <li>Decision trees with continuous attributes: Create split based on threshold</li>
 </ul>
-<h4 id="ID3-algorithm"><a href="#ID3-algorithm" class="headerlink" title="ID3 algorithm"></a>ID3 algorithm</h4><p>Recursive Split( node, {examples} ):</p>
-<pre><code>1. A &lt;- the best attribute for splitting the {examples}
-2. For each value of A, create new child node
-3. Split training {examples} to child nodes
-4. For each child node, subset:
- * If subset is pure - stop
- * Else: split(child_node, {subset} )
-</code></pre><p>How to decide which attribute is the best to split on: Entropy</p>
+<h4 id="ID3-algorithm"><a href="#ID3-algorithm" class="headerlink" title="ID3 algorithm"></a>ID3 algorithm</h4><p>Recursive Split( node, {examples} ):<br>    1. A &lt;- the best attribute for splitting the {examples}<br>    2. For each value of A, create new child node<br>    3. Split training {examples} to child nodes<br>    4. For each child node, subset:<br>     * If subset is pure - stop<br>     * Else: split(child_node, {subset} )<br>How to decide which attribute is the best to split on: Entropy</p>
 <h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><ul>
-<li><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/entropy.png" alt=""></li>
+<li><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/entropy.png"></li>
 <li>Use log2 here is to represent concepts of information - on average how many bits needed to tell X split purity<ul>
 <li>To represent two classes, need one bit “0, 1”, to represent 4 classes, need 2 bits “00, 01, 10, 11”</li>
 <li>If x is pure(one class only), entropy is 0.</li>
 </ul>
 </li>
-<li>Information Gain: Expected drop in entropy after split, Gain( P, C) = Entropy(parent) - Σw*Entropy(children), w is weighted average matrix.<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/infogain.png" alt="">, A is the split attribute<ul>
+<li>Information Gain: Expected drop in entropy after split, Gain( P, C) = Entropy(parent) - Σw*Entropy(children), w is weighted average matrix.<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/infogain.png">, A is the split attribute<ul>
 <li>Problems: tend to pick attributes with lots of values, could not generalize well on new data.</li>
-<li>use GainRation: for attribute A with many different values V, the SplitEntropy will be large, <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/SplitEntropy.png" alt=""></li>
+<li>use GainRation: for attribute A with many different values V, the SplitEntropy will be large, <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/SplitEntropy.png"></li>
 </ul>
 </li>
 </ul>
@@ -641,10 +551,10 @@
 <li>If ||w|| = 1, then the functional margin equals the geometric margin</li>
 </ul>
 </li>
-<li>The optimal margin classifier: Given a training set, a natural desideratum is to try to find a decision boundary that maximizes the minimum (geometric) margin, i.e want min(γi) as large as possible. Via some <a href="http://cs229.stanford.edu/notes/cs229-notes3.pdf" target="_blank" rel="noopener">transformation</a>, the object turns to minimize ||w||<sup>2</sup>, subject to y(i)·(w<sup>T</sup>xi+b) ≥ 1,</li>
-<li><a href="http://cs229.stanford.edu/notes/cs229-notes3.pdf" target="_blank" rel="noopener">Lagrange duality</a>: solving constrained optimization problems. w = Σαiyixi, αi is Lagrange multipliers.</li>
+<li>The optimal margin classifier: Given a training set, a natural desideratum is to try to find a decision boundary that maximizes the minimum (geometric) margin, i.e want min(γi) as large as possible. Via some <a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes/cs229-notes3.pdf">transformation</a>, the object turns to minimize ||w||<sup>2</sup>, subject to y(i)·(w<sup>T</sup>xi+b) ≥ 1,</li>
+<li><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes/cs229-notes3.pdf">Lagrange duality</a>: solving constrained optimization problems. w = Σαiyixi, αi is Lagrange multipliers.</li>
 <li>Support vector: The points with the smallest margins. The number of support vectors can be much smaller than the size the training set</li>
-<li>Training: fit our model’s parameters to a training set, and now wish to make a prediction at a new point input x. We would then calculate w<sup>T</sup>x + b, and predict y = 1 if and only if this quantity is bigger than zero. <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/svm.png" alt="">.<ul>
+<li>Training: fit our model’s parameters to a training set, and now wish to make a prediction at a new point input x. We would then calculate w<sup>T</sup>x + b, and predict y = 1 if and only if this quantity is bigger than zero. <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/svm.png">.<ul>
 <li>In order to make a prediction, we have to calculate it which depends only on the inner product between x and the points in the training set.</li>
 <li>Moreover, αi’s will all be zero except for the support vectors. Thus, many of the terms in the sum above will be zero, and we need to find only the inner products between x and the support vectors (of which there is often only a small number) in order to make our prediction.</li>
 <li>The inner product &lt;xi,x&gt; could be replaced by kernel k(xi,x)</li>
@@ -656,8 +566,8 @@
 <li>φ denote the feature mapping, which maps from the attributes to the features. E.g. φ(x) = [x, x^2, x^3]</li>
 <li>given a feature mapping φ, we define the corresponding Kernel to be K(x, z) = φ(x)<sup>T</sup>φ(z)</li>
 <li>Often, φ(x) itself may be very expensive to calculate (perhaps because it is an extremely high dimensional vector, require memory), K(x, z) may be very inexpensive to calculate.</li>
-<li>We can get SVMs to learn in the high dimensional feature space given by φ, but without ever having to explicitly find or represent vectors φ(x). E.g.<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/kernel1.png" alt=""> <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/kernel2.png" alt=""></li>
-<li>Based on <a href="https://people.eecs.berkeley.edu/~jordan/courses/281B-spring04/lectures/lec3.pdf" target="_blank" rel="noopener">Mercer’s Theorem</a>, you can either explicitly map the data with a φ and take the dot product, or you can take any kernel and use it right away, without knowing nor caring what φ looks like</li>
+<li>We can get SVMs to learn in the high dimensional feature space given by φ, but without ever having to explicitly find or represent vectors φ(x). E.g.<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/kernel1.png"> <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/kernel2.png"></li>
+<li>Based on <a target="_blank" rel="noopener" href="https://people.eecs.berkeley.edu/~jordan/courses/281B-spring04/lectures/lec3.pdf">Mercer’s Theorem</a>, you can either explicitly map the data with a φ and take the dot product, or you can take any kernel and use it right away, without knowing nor caring what φ looks like</li>
 <li>Keep in mind however that the idea of kernels has significantly broader applicability than SVMs. Specifically, if you have any learning algorithm that you can write in terms of only inner products &lt;x, z&gt; between input attribute vectors, then by replacing this with K(x, z) where K is a kernel, you can allow your algorithm to work efficiently in the high dimensional feature space corresponding to K.</li>
 </ul>
 <h4 id="SVM-vs-Logistic-regression"><a href="#SVM-vs-Logistic-regression" class="headerlink" title="SVM vs. Logistic regression"></a>SVM vs. Logistic regression</h4><ul>
@@ -709,7 +619,7 @@
 <li>Need to handle missing data: fill-in or create a special distance</li>
 <li>Sensitive to outliers</li>
 <li>Sensitve to lots of irrelevant aeributes (affect distance)</li>
-<li>Computationally expensive: need to compute distance to all examples O(nd) - <a href="http://cs229.stanford.edu/section/vec_demo/Vectorization_Section.pdf" target="_blank" rel="noopener">Vectorization</a> <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/knn.png" alt=""></li>
+<li>Computationally expensive: need to compute distance to all examples O(nd) - <a target="_blank" rel="noopener" href="http://cs229.stanford.edu/section/vec_demo/Vectorization_Section.pdf">Vectorization</a> <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/knn.png"></li>
 </ul>
 </li>
 <li>Faster knn: K-D Trees, Inverted lists, Locality-sensitive hashing</li>
@@ -733,15 +643,15 @@
 <h4 id="Locality-sensitive-hashing"><a href="#Locality-sensitive-hashing" class="headerlink" title="Locality-sensitive hashing"></a>Locality-sensitive hashing</h4><p>high-d, discrete or real-valued</p>
 <h2 id="Unsupervised-learning-无监督学习"><a href="#Unsupervised-learning-无监督学习" class="headerlink" title="Unsupervised learning 无监督学习"></a>Unsupervised learning 无监督学习</h2><h3 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h3><h4 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h4><p>split data into a specified number of populations</p>
 <ul>
-<li>Input: <ul>
+<li>Input: <ul>
 <li>K (number of clusters in the data)</li>
-<li>Training set {x1, x2, x3 …, xn) </li>
+<li>Training set {x1, x2, x3 …, xn) </li>
 </ul>
 </li>
 <li>Algorithm:<ul>
-<li>Randomly initialize K cluster centroids as {μ1, μ2, μ3 … μK}, now centroid could represent cluster.</li>
+<li>Randomly initialize K cluster centroids as {μ1, μ2, μ3 … μK}, now centroid could represent cluster.</li>
 <li>Repeat until converge:<ul>
-<li>Inner loop 1: repeatedly sets the c(i) variable to be the index of the closes variable of cluster centroid closes to xi, i.e. take ith example, measure squared distance to each cluster centroid, assign c(i)to the  closest cluster(centroid)</li>
+<li>Inner loop 1: repeatedly sets the c(i) variable to be the index of the closes variable of cluster centroid closes to xi, i.e. take ith example, measure squared distance to each cluster centroid, assign c(i)to the  closest cluster(centroid)</li>
 <li>Inner loop 2: For each cluster j, new centroid c(j) = average mean of all the points assigned to the cluster j in previous step.</li>
 </ul>
 </li>
@@ -749,7 +659,7 @@
 </li>
 <li>Target (Distortion) function: J(c,μ)=Σ|| xi-μi ||^2, coordinate ascent, decrease monotonically, thus guarantee to converge.</li>
 <li>What if there’s a centroid with no data:<ul>
-<li>Remove that centroid, so end up with K-1 classes,</li>
+<li>Remove that centroid, so end up with K-1 classes,</li>
 <li>Or, randomly reinitialize it, not sure when though…</li>
 </ul>
 </li>
@@ -767,29 +677,30 @@
 </ul>
 </li>
 </ul>
-<h4 id="Agglomerative-Clustering"><a href="#Agglomerative-Clustering" class="headerlink" title="Agglomerative Clustering"></a>Agglomerative Clustering</h4><p>A bottom up algorithm:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. starts with a collections of singleton clusters</span><br><span class="line">2. repeat until only one cluster is left:</span><br><span class="line">    1. Find a pair of clusters that is closest</span><br><span class="line">    2. Merge the pair of clusters into one new cluster</span><br><span class="line">    3. Remove the old pair of clusters</span><br></pre></td></tr></table></figure></p>
+<h4 id="Agglomerative-Clustering"><a href="#Agglomerative-Clustering" class="headerlink" title="Agglomerative Clustering"></a>Agglomerative Clustering</h4><p>A bottom up algorithm:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. starts with a collections of singleton clusters</span><br><span class="line">2. repeat until only one cluster is left:</span><br><span class="line">    1. Find a pair of clusters that is closest</span><br><span class="line">    2. Merge the pair of clusters into one new cluster</span><br><span class="line">    3. Remove the old pair of clusters</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Need to define a distance metric over clusters<br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/cluster_dist.png" alt=""></li>
-<li>Produce a dendrogram: Hierarchical tree of clusters<br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Dendrogram.png" alt=""></li>
+<li>Need to define a distance metric over clusters<br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/cluster_dist.png"></li>
+<li>Produce a dendrogram: Hierarchical tree of clusters<br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Dendrogram.png"></li>
 <li>slow</li>
 </ul>
 <h4 id="Gaussian-Mixtures"><a href="#Gaussian-Mixtures" class="headerlink" title="Gaussian Mixtures"></a>Gaussian Mixtures</h4><p>For non-Gaussian distribution data, assume it is a mixture of several(k) Gaussians.</p>
 <ul>
 <li>Algorithm: EM</li>
 </ul>
-<h4 id="EM-algorithm"><a href="#EM-algorithm" class="headerlink" title="EM algorithm"></a>EM algorithm</h4><p>strategy will be to repeatedly construct a lower-bound on ℓ(E-step) based on <a href="http://cs229.stanford.edu/notes/cs229-notes8.pdf" target="_blank" rel="noopener">Jensen’s inequality</a>, and then optimize that lower-bound(M-step).</p>
+<h4 id="EM-algorithm"><a href="#EM-algorithm" class="headerlink" title="EM algorithm"></a>EM algorithm</h4><p>strategy will be to repeatedly construct a lower-bound on ℓ(E-step) based on <a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes/cs229-notes8.pdf">Jensen’s inequality</a>, and then optimize that lower-bound(M-step).</p>
 <ul>
-<li>E step: For each i, let Qi be some distribution over the z’s (Σ<sub>z</sub>Qi(z) = 1, Qi(z) ≥ 0). z(i) indicating which of the k Gaussians each x(i) had come from, get P(Z)=φ, then compute the conditional probability wj as P(x|Z) via <a href="#gaussian-naive-bayes">Gaussian Naive Bayes</a>: <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Estep.png" alt=""></li>
-<li>M step: maximize, with respect to our parameters φ, µ, Σ, the quantity<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Mstep1.png" alt="">,<br>  by updating parameter(φ, µ, σ) <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Mstep2.png" alt=""></li>
+<li>E step: For each i, let Qi be some distribution over the z’s (Σ<sub>z</sub>Qi(z) = 1, Qi(z) ≥ 0). z(i) indicating which of the k Gaussians each x(i) had come from, get P(Z)=φ, then compute the conditional probability wj as P(x|Z) via <a href="#gaussian-naive-bayes">Gaussian Naive Bayes</a>: <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Estep.png"></li>
+<li>M step: maximize, with respect to our parameters φ, µ, Σ, the quantity<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Mstep1.png">,<br>  by updating parameter(φ, µ, σ) <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/Mstep2.png"></li>
 <li>举例：start with two randomly placed Gaussians (μa, σa), (μb, σb), assume a uniform prior (P(a)=P(b)=0.5), iterate until convergence:<ul>
-<li>E-step: for each point: P(b|xi), P(a|xi)=1-P(b|xi) <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/EM_e.png" alt="">, does it look like it came from b or a?</li>
-<li>M-step: adjust (μa, σa) and (μb, σb) to fit points <strong>soft</strong> assigned to them, <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/EM_m1.png" alt=""><br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/EM_m2.png" alt=""></li>
+<li>E-step: for each point: P(b|xi), P(a|xi)=1-P(b|xi) <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/EM_e.png">, does it look like it came from b or a?</li>
+<li>M-step: adjust (μa, σa) and (μb, σb) to fit points <strong>soft</strong> assigned to them, <img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/EM_m1.png"><br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/EM_m2.png"></li>
 </ul>
 </li>
 <li>The EM-algorithm is also reminiscent of the K-means clustering algorithm, except that instead of the “hard” cluster assignments c, we instead have the “soft” assignments w. Similar to K-means, it is also susceptible to local optima, so reinitializing at several different initial parameters may be a good idea.</li>
 <li>How to pick k: cannot discover K, likelihood keeps growing with K</li>
 </ul>
-<h4 id="K-means-vs-EM"><a href="#K-means-vs-EM" class="headerlink" title="K-means vs. EM"></a>K-means vs. EM</h4><p><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/km&amp;em.jpg" alt=""></p>
+<h4 id="K-means-vs-EM"><a href="#K-means-vs-EM" class="headerlink" title="K-means vs. EM"></a>K-means vs. EM</h4><p><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/km&em.jpg"></p>
 <h3 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h3><ul>
 <li>Pros:<ul>
 <li>reflects human intuitions about the data</li>
@@ -804,11 +715,11 @@
 </ul>
 </li>
 </ul>
-<h4 id="Factor-analysis"><a href="#Factor-analysis" class="headerlink" title="Factor analysis"></a>Factor analysis</h4><p>If the features n ≫ m, or n≈m, in such a problem, it might be difficult to model the data even with a single Gaussian, 更别提高斯混合了. Because the variance matrix Σ becomes singular - <a href="http://cs229.stanford.edu/notes/cs229-notes9.pdf" target="_blank" rel="noopener">non invertable</a>.</p>
+<h4 id="Factor-analysis"><a href="#Factor-analysis" class="headerlink" title="Factor analysis"></a>Factor analysis</h4><p>If the features n ≫ m, or n≈m, in such a problem, it might be difficult to model the data even with a single Gaussian, 更别提高斯混合了. Because the variance matrix Σ becomes singular - <a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes/cs229-notes9.pdf">non invertable</a>.</p>
 <h4 id="Principal-Components-Analysis"><a href="#Principal-Components-Analysis" class="headerlink" title="Principal Components Analysis"></a>Principal Components Analysis</h4><p>PCA, automatically detect and reduce data to lower dimension k, k &lt;&lt; n, preserve dimenson that affects class separability most.</p>
 <ul>
 <li>Algorithm:<ul>
-<li>Pre-process: data normalization to 0 mean and unit variance<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/pca_norm.png" alt="">,<br>Steps (3-4) may be omitted if we had apriori knowledge that the different attributes are all on the same scale</li>
+<li>Pre-process: data normalization to 0 mean and unit variance<img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/pca_norm.png">,<br>Steps (3-4) may be omitted if we had apriori knowledge that the different attributes are all on the same scale</li>
 <li>to project data into a k-dimensional subspace (k &lt; n), we should choose e1,… ek to be the top k eigenvectors of Σ. The e’s now form a new, orthogonal basis for the data.</li>
 <li>To represent a training data point x with d dimension into this basis (k dimension), e1<sup>T</sup>x,…ek<sup>T</sup>x</li>
 </ul>
@@ -836,7 +747,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Singular-Value-Decomposition"><a href="#Singular-Value-Decomposition" class="headerlink" title="Singular Value Decomposition"></a>Singular Value Decomposition</h4><h2 id="Generalization-and-evaluation"><a href="#Generalization-and-evaluation" class="headerlink" title="Generalization and evaluation"></a>Generalization and evaluation</h2><h3 id="Receiver-Operating-Characteristic"><a href="#Receiver-Operating-Characteristic" class="headerlink" title="Receiver Operating Characteristic"></a>Receiver Operating Characteristic</h3><p>ROC, plot TPR(Sensitivity) vs. FPR(Specificity) as t varies from ∞ to -∞, shows performance of system across all possible thresholds<br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/roc.png" alt=""></p>
+<h4 id="Singular-Value-Decomposition"><a href="#Singular-Value-Decomposition" class="headerlink" title="Singular Value Decomposition"></a>Singular Value Decomposition</h4><h2 id="Generalization-and-evaluation"><a href="#Generalization-and-evaluation" class="headerlink" title="Generalization and evaluation"></a>Generalization and evaluation</h2><h3 id="Receiver-Operating-Characteristic"><a href="#Receiver-Operating-Characteristic" class="headerlink" title="Receiver Operating Characteristic"></a>Receiver Operating Characteristic</h3><p>ROC, plot TPR(Sensitivity) vs. FPR(Specificity) as t varies from ∞ to -∞, shows performance of system across all possible thresholds<br><img src="https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/roc.png"></p>
 <ul>
 <li>A test with perfect discrimination (no overlap in the two distributions) has a ROC curve that passes through the upper left corner. Therefore the closer the ROC curve is to the upper left corner, the higher the overall accuracy of the test</li>
 <li>AUC: area under ROC curve, popular alternative to Accuracy</li>
@@ -849,920 +760,235 @@
 </ul>
 <p>.</p>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
+      
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/machine-learning-with-sklearn/" rel="next" title="Machine Learning with Scikit-learn (Sklearn) 机器学习实践">
-                <i class="fa fa-chevron-left"></i> Machine Learning with Scikit-learn (Sklearn) 机器学习实践
-              </a>
-            
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Launch-editor-in-Gitbash/" rel="prev" title="Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件">
-                Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Cong" />
-            
-              <p class="site-author-name" itemprop="name">Cong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">94</span>
-                  <span class="site-state-item-name">posts</span>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/machine-learning-with-sklearn/" rel="prev" title="Machine Learning with Scikit-learn (Sklearn) 机器学习实践">
+                  <i class="fa fa-chevron-left"></i> Machine Learning with Scikit-learn (Sklearn) 机器学习实践
                 </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
             </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.</span> <span class="nav-text">Supervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression"><span class="nav-number">1.1.</span> <span class="nav-text">Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LMS-least-mean-squares-algorithm"><span class="nav-number">1.1.1.</span> <span class="nav-text">LMS(least mean squares) algorithm:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-normal-equations"><span class="nav-number">1.1.2.</span> <span class="nav-text">The normal equations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probabilistic-interpretation"><span class="nav-number">1.1.3.</span> <span class="nav-text">Probabilistic interpretation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Locally-weighted-linear-regression-LWR-algorithm"><span class="nav-number">1.1.4.</span> <span class="nav-text">Locally weighted linear regression (LWR) algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-and-logistic-regression"><span class="nav-number">1.2.</span> <span class="nav-text">Classification and logistic regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Logistic-regression"><span class="nav-number">1.2.1.</span> <span class="nav-text">Logistic regression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generalized-Linear-Models"><span class="nav-number">1.3.</span> <span class="nav-text">Generalized Linear Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-exponential-family"><span class="nav-number">1.3.1.</span> <span class="nav-text">The exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructing-GLMs"><span class="nav-number">1.3.2.</span> <span class="nav-text">Constructing GLMs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Softmax-Regression"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">Softmax Regression</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes-classification-朴素贝叶斯"><span class="nav-number">1.4.</span> <span class="nav-text">Naive Bayes classification 朴素贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian-Naive-Bayes"><span class="nav-number">1.4.1.</span> <span class="nav-text">Gaussian Naive Bayes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Missing-data-instances-in-NB"><span class="nav-number">1.4.2.</span> <span class="nav-text">Missing data instances in NB</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generative-and-Discriminative-Algorithm"><span class="nav-number">1.5.</span> <span class="nav-text">Generative and Discriminative Algorithm:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decision-trees-决策树"><span class="nav-number">1.6.</span> <span class="nav-text">Decision trees 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ID3-algorithm"><span class="nav-number">1.6.1.</span> <span class="nav-text">ID3 algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Entropy"><span class="nav-number">1.6.2.</span> <span class="nav-text">Entropy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting-in-Decision-Trees"><span class="nav-number">1.6.3.</span> <span class="nav-text">Overfitting in Decision Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decision-boundary"><span class="nav-number">1.6.4.</span> <span class="nav-text">Decision boundary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-Decision-forest"><span class="nav-number">1.6.5.</span> <span class="nav-text">Random Decision forest</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-number">1.7.</span> <span class="nav-text">SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Kernels"><span class="nav-number">1.7.1.</span> <span class="nav-text">Kernels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM-vs-Logistic-regression"><span class="nav-number">1.7.2.</span> <span class="nav-text">SVM vs. Logistic regression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Nearest-Neighbour"><span class="nav-number">1.8.</span> <span class="nav-text">K Nearest Neighbour</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-D-Trees"><span class="nav-number">1.8.1.</span> <span class="nav-text">K-D Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inverted-lists"><span class="nav-number">1.8.2.</span> <span class="nav-text">Inverted lists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Locality-sensitive-hashing"><span class="nav-number">1.8.3.</span> <span class="nav-text">Locality-sensitive hashing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-learning-无监督学习"><span class="nav-number">2.</span> <span class="nav-text">Unsupervised learning 无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Clustering"><span class="nav-number">2.1.</span> <span class="nav-text">Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means"><span class="nav-number">2.1.1.</span> <span class="nav-text">K-means</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hierarchical-K-means"><span class="nav-number">2.1.2.</span> <span class="nav-text">Hierarchical K-means</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Agglomerative-Clustering"><span class="nav-number">2.1.3.</span> <span class="nav-text">Agglomerative Clustering</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian-Mixtures"><span class="nav-number">2.1.4.</span> <span class="nav-text">Gaussian Mixtures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EM-algorithm"><span class="nav-number">2.1.5.</span> <span class="nav-text">EM algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means-vs-EM"><span class="nav-number">2.1.6.</span> <span class="nav-text">K-means vs. EM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">2.2.</span> <span class="nav-text">Dimensionality Reduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Factor-analysis"><span class="nav-number">2.2.1.</span> <span class="nav-text">Factor analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Principal-Components-Analysis"><span class="nav-number">2.2.2.</span> <span class="nav-text">Principal Components Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Discriminant-Analysis"><span class="nav-number">2.2.3.</span> <span class="nav-text">Linear Discriminant Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Singular-Value-Decomposition"><span class="nav-number">2.2.4.</span> <span class="nav-text">Singular Value Decomposition</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-and-evaluation"><span class="nav-number">3.</span> <span class="nav-text">Generalization and evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Receiver-Operating-Characteristic"><span class="nav-number">3.1.</span> <span class="nav-text">Receiver Operating Characteristic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Confidence-interval"><span class="nav-number">3.2.</span> <span class="nav-text">Confidence interval</span></a></li></ol></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/Launch-editor-in-Gitbash/" rel="next" title="Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件">
+                  Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Cong</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+    </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
+      
 
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
 
-
-
-
+    </div>
+  </footer>
 
   
-
-
-
-
-
-
-
-
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/machine-learning/';
-          this.page.identifier = 'machine-learning/';
-          this.page.title = 'Machine Learning Note - cs229 - Stanford';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
 
 
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
     }
 
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
           if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
     }
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
+
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
+  
 
   
 
   
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/machine-learning/",
+    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
 </script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
 
 </body>
 </html>

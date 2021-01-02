@@ -1,138 +1,62 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
-
-
-
-
-
-
-
-
-  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="编程,Java,Software Engineer,C++," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="Stanford CS106B Programming Abstractions 和 CS106A 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 https://github.com/ShootingSpace/cs106b-programming-abstraction Topics:A: Intro (by Java)B: Recursion, algorithms">
-<meta name="keywords" content="编程,Java,Software Engineer,C++">
+  <meta name="description" content="Stanford CS106B Programming Abstractions 和 CS106A 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 https:&#x2F;&#x2F;github.com&#x2F;ShootingSpace&#x2F;cs106b-programming-abstraction Topics:A: Intro (by Java)B: Recursion, algorithms">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stanford CS106A&#x2F;B Programming Intro 斯坦福大学编程入门课">
 <meta property="og:url" content="https://congchan.github.io/stanford-cs106ab/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="Stanford CS106B Programming Abstractions 和 CS106A 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 https://github.com/ShootingSpace/cs106b-programming-abstraction Topics:A: Intro (by Java)B: Recursion, algorithms">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="Stanford CS106B Programming Abstractions 和 CS106A 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 https:&#x2F;&#x2F;github.com&#x2F;ShootingSpace&#x2F;cs106b-programming-abstraction Topics:A: Intro (by Java)B: Recursion, algorithms">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algs4.cs.princeton.edu/33balanced/images/redblack-1-1.png">
-<meta property="og:updated_time" content="2019-07-19T13:16:01.122Z">
+<meta property="article:published_time" content="2017-06-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-07-19T13:16:01.122Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Software Engineer">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stanford CS106A&#x2F;B Programming Intro 斯坦福大学编程入门课">
-<meta name="twitter:description" content="Stanford CS106B Programming Abstractions 和 CS106A 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 https://github.com/ShootingSpace/cs106b-programming-abstraction Topics:A: Intro (by Java)B: Recursion, algorithms">
 <meta name="twitter:image" content="http://algs4.cs.princeton.edu/33balanced/images/redblack-1-1.png">
 
 
+<link rel="canonical" href="https://congchan.github.io/stanford-cs106ab/">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-
-
-  <link rel="canonical" href="https://congchan.github.io/stanford-cs106ab/"/>
-
-
-
-
-
-  <title>Stanford CS106A/B Programming Intro 斯坦福大学编程入门课 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Stanford CS106A/B Programming Intro 斯坦福大学编程入门课 | Computer Science & AI</title>
   
 
 
@@ -140,145 +64,222 @@
 
 
 
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Computer Science & AI</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Computer Science & AI</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics"><span class="nav-number">1.</span> <span class="nav-text">Topics:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Purposes"><span class="nav-number">2.</span> <span class="nav-text">Purposes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding-style"><span class="nav-number">4.</span> <span class="nav-text">Coding style</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-write-clean-well-structured-code"><span class="nav-number">4.1.</span> <span class="nav-text">How to write clean, well-structured code?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comments"><span class="nav-number">4.2.</span> <span class="nav-text">Comments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADT"><span class="nav-number">5.</span> <span class="nav-text">ADT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterators"><span class="nav-number">5.1.</span> <span class="nav-text">Iterators</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion"><span class="nav-number">6.</span> <span class="nav-text">Recursion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exhaustive-recursion"><span class="nav-number">6.1.</span> <span class="nav-text">Exhaustive recursion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Backtracking"><span class="nav-number">6.2.</span> <span class="nav-text">Recursive Backtracking</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pointer"><span class="nav-number">7.</span> <span class="nav-text">Pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-of-pointer"><span class="nav-number">7.1.</span> <span class="nav-text">Use of pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-allocation"><span class="nav-number">7.2.</span> <span class="nav-text">Dynamic allocation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree"><span class="nav-number">8.</span> <span class="nav-text">Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-tree"><span class="nav-number">8.1.</span> <span class="nav-text">Binary tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operating-on-trees"><span class="nav-number">8.2.</span> <span class="nav-text">Operating on trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Balanced-Search-Trees"><span class="nav-number">8.3.</span> <span class="nav-text">Balanced Search Trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL-tree"><span class="nav-number">8.4.</span> <span class="nav-text">AVL tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-trees"><span class="nav-number">8.5.</span> <span class="nav-text">2-3 trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Heap"><span class="nav-number">8.6.</span> <span class="nav-text">Binary Heap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Priority-Queues"><span class="nav-number">9.</span> <span class="nav-text">Priority Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-Analysis"><span class="nav-number">10.</span> <span class="nav-text">Algorithm Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">10.1.</span> <span class="nav-text">Big-O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Space-time"><span class="nav-number">10.2.</span> <span class="nav-text">Space&#x2F;time</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorting"><span class="nav-number">11.</span> <span class="nav-text">Sorting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-sort"><span class="nav-number">11.1.</span> <span class="nav-text">Selection sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-sort"><span class="nav-number">11.2.</span> <span class="nav-text">Insertion sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heapsort"><span class="nav-number">11.3.</span> <span class="nav-text">Heapsort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-sort"><span class="nav-number">11.4.</span> <span class="nav-text">Merge sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort"><span class="nav-number">11.5.</span> <span class="nav-text">Quicksort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Quicksort-strategy"><span class="nav-number">11.5.1.</span> <span class="nav-text">Quicksort strategy</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-Strategy"><span class="nav-number">12.</span> <span class="nav-text">Design Strategy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Programming"><span class="nav-number">13.</span> <span class="nav-text">Dynamic Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Greedy-Algorithms"><span class="nav-number">14.</span> <span class="nav-text">Greedy Algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Divide-and-Conquer"><span class="nav-number">15.</span> <span class="nav-text">Divide and Conquer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backtracking-Algorithms"><span class="nav-number">16.</span> <span class="nav-text">Backtracking Algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-evaluate-compare-alternatives"><span class="nav-number">17.</span> <span class="nav-text">How to evaluate&#x2F;compare alternatives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-editor-case-study"><span class="nav-number">18.</span> <span class="nav-text">Text editor case study</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">19.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hashing"><span class="nav-number">20.</span> <span class="nav-text">Hashing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Big-Five"><span class="nav-number">21.</span> <span class="nav-text">The Big-Five</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Destructor"><span class="nav-number">21.1.</span> <span class="nav-text">Destructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructor"><span class="nav-number">21.2.</span> <span class="nav-text">Constructor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Template"><span class="nav-number">22.</span> <span class="nav-text">Template</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-independent"><span class="nav-number">22.1.</span> <span class="nav-text">Type-independent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-template"><span class="nav-number">22.2.</span> <span class="nav-text">Function template</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-template"><span class="nav-number">22.3.</span> <span class="nav-text">Class template</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-Algorithms"><span class="nav-number">23.</span> <span class="nav-text">Graph Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Topological-Sort"><span class="nav-number">23.1.</span> <span class="nav-text">Topological Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shortest-Path-Algorithms"><span class="nav-number">23.2.</span> <span class="nav-text">Shortest-Path Algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-Data-Structures"><span class="nav-number">24.</span> <span class="nav-text">Advanced Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Red-Black-Trees"><span class="nav-number">24.1.</span> <span class="nav-text">Red-Black Trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Assignments"><span class="nav-number">24.2.</span> <span class="nav-text">Assignments</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/Ginntonic" title="你乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;Ginntonic" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>你乎</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-  
-  
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/stanford-cs106ab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -286,137 +287,74 @@
     </span>
 
     
+    
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Stanford CS106A/B Programming Intro 斯坦福大学编程入门课
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Stanford CS106A/B Programming Intro 斯坦福大学编程入门课</h1>
-        
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-23T00:00:00+08:00">
-                2017-06-23
-              </time>
-            
+      <time title="创建时间：2017-06-23 00:00:00" itemprop="dateCreated datePublished" datetime="2017-06-23T00:00:00+08:00">2017-06-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2019-07-19 21:16:01" itemprop="dateModified" datetime="2019-07-19T21:16:01+08:00">2019-07-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/stanford-cs106ab/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="stanford-cs106ab/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/stanford-cs106ab/" class="leancloud_visitors" data-flag-title="Stanford CS106A/B Programming Intro 斯坦福大学编程入门课">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  8,323
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  52 min
-                </span>
-              
-            </div>
-          
-
-          
+  
+    <span id="/stanford-cs106ab/" class="post-meta-item leancloud_visitors" data-flag-title="Stanford CS106A/B Programming Intro 斯坦福大学编程入门课" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/stanford-cs106ab/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/stanford-cs106ab/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://see.stanford.edu/Course/CS106B">Stanford CS106B Programming Abstractions</a> 和 <a target="_blank" rel="noopener" href="https://see.stanford.edu/Course/CS106A">CS106A</a> 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 <a target="_blank" rel="noopener" href="https://github.com/ShootingSpace/cs106b-programming-abstraction">https://github.com/ShootingSpace/cs106b-programming-abstraction</a></p>
+<h2 id="Topics"><a href="#Topics" class="headerlink" title="Topics:"></a>Topics:</h2><p>A: Intro (by Java)<br>B: Recursion, algorithms analysis (sort/search/hash), dynamic data structures (lists, trees, heaps), data abstraction (stacks, queues, maps), implementation strategies/tradeoffs</p>
+<a id="more"></a>
 
-      
-      
-
-      
-        <p><a href="https://see.stanford.edu/Course/CS106B" target="_blank" rel="noopener">Stanford CS106B Programming Abstractions</a> 和 <a href="https://see.stanford.edu/Course/CS106A" target="_blank" rel="noopener">CS106A</a> 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 <a href="https://github.com/ShootingSpace/cs106b-programming-abstraction" target="_blank" rel="noopener">https://github.com/ShootingSpace/cs106b-programming-abstraction</a></p>
-<h2 id="Topics"><a href="#Topics" class="headerlink" title="Topics:"></a>Topics:</h2><p>A: Intro (by Java)<br>B: Recursion, algorithms analysis (sort/search/hash), dynamic data structures (lists, trees, heaps), data abstraction (stacks, queues, maps), implementation strategies/tradeoffs<br><a id="more"></a></p>
 <h2 id="Purposes"><a href="#Purposes" class="headerlink" title="Purposes"></a>Purposes</h2><ol>
 <li>become acquainted with the C++ programming language</li>
 <li>learn more advanced programming techniques</li>
@@ -424,10 +362,10 @@
 <li>and apply these tools to solving complex problems</li>
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
-<li>Text Book: <a href="https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html" target="_blank" rel="noopener">Data Structures &amp; Algorithm Analysis in C++, 4th ed, by Mark A. Weiss</a></li>
-<li>Text Book: <a href="https://www.pearson.com/us/higher-education/program/Roberts-Programming-Abstractions-in-C/PGM80147.html" target="_blank" rel="noopener">Programming Abstractions in C++ 1st Edition by Eric Roberts</a></li>
-<li>Text Book: <a href="http://algs4.cs.princeton.edu/home/" target="_blank" rel="noopener">Algorithms, 4th Edition</a></li>
-<li>Blog: <a href="http://www.redblobgames.com/pathfinding/a-star/introduction.html" target="_blank" rel="noopener">Red Blob Games</a>, <a href="http://theory.stanford.edu/~amitp/GameProgramming/" target="_blank" rel="noopener">Amit’s A* Pages</a></li>
+<li>Text Book: <a target="_blank" rel="noopener" href="https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html">Data Structures &amp; Algorithm Analysis in C++, 4th ed, by Mark A. Weiss</a></li>
+<li>Text Book: <a target="_blank" rel="noopener" href="https://www.pearson.com/us/higher-education/program/Roberts-Programming-Abstractions-in-C/PGM80147.html">Programming Abstractions in C++ 1st Edition by Eric Roberts</a></li>
+<li>Text Book: <a target="_blank" rel="noopener" href="http://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition</a></li>
+<li>Blog: <a target="_blank" rel="noopener" href="http://www.redblobgames.com/pathfinding/a-star/introduction.html">Red Blob Games</a>, <a target="_blank" rel="noopener" href="http://theory.stanford.edu/~amitp/GameProgramming/">Amit’s A* Pages</a></li>
 </ol>
 <hr>
 <h2 id="Coding-style"><a href="#Coding-style" class="headerlink" title="Coding style"></a>Coding style</h2><p>Why writing clean, well-structured code</p>
@@ -518,22 +456,16 @@
 <li><code>iterator begin( )</code> returns an appropriate iterator representing the first item in the container.</li>
 <li><code>iterator end( )</code> returns an appropriate iterator representing the endmarker in the container (i.e., the position after the last item in the container).</li>
 </ul>
-<p>Iterator Methods</p>
-<pre><code>* `itr++` and `++itr` advances the iterator itr to the next location. Both the prefix and postfix forms are allowable.
-* `itr` returns a reference to the object stored at iterator itr’s location. The reference returned may or may not be modifiable (we discuss these details shortly).
-* `itr1==itr2` / `itr1!=itr2`,  returns true if iterators itr1 and itr2 refer to the same / different location and false otherwise.
-</code></pre><p>Container Operations that require Iterators. The three most popular methods that require iterators are those that add or remove from the list (either a vector or list) at a specified position:</p>
+<p>Iterator Methods<br>    * <code>itr++</code> and <code>++itr</code> advances the iterator itr to the next location. Both the prefix and postfix forms are allowable.<br>    * <code>itr</code> returns a reference to the object stored at iterator itr’s location. The reference returned may or may not be modifiable (we discuss these details shortly).<br>    * <code>itr1==itr2</code> / <code>itr1!=itr2</code>,  returns true if iterators itr1 and itr2 refer to the same / different location and false otherwise.</p>
+<p>Container Operations that require Iterators. The three most popular methods that require iterators are those that add or remove from the list (either a vector or list) at a specified position:</p>
 <ul>
 <li><code>iterator insert( iterator pos, const Object &amp; x )</code>: adds <code>x</code> into the list, prior to the position given by the <code>iterator pos</code>. This is a constant-time operation for list, but not for vector. The return value is an iterator representing the position of the inserted item.</li>
 <li><code>iterator erase( iterator pos )</code>: removes the object at the position given by the iterator. This is a constant-time operation for list, but not for vector. The return value is the position of the element that followed pos prior to the call. This operation invalidates pos, which is now stale, since the container item it was viewing has been removed.</li>
 <li>iterator erase( iterator start, iterator end ): removes all items beginning at position start, up to, but not including end. Observe that the entire list can be erased by the call c.erase( c.begin( ), c.end( ) )</li>
-<li><p>Range for loop: C++11 also allows the use of the reserved word auto to signify that the compiler will automatically infer the appropriate type,</p>
-<ul>
-<li><p>for simple data type:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">auto</span> x : squares )</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt; x;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>for complicate data type like map: Each element of the container is a <code>map&lt;K, V&gt;::value_type</code>, which is a typedef for <code>std::pair&lt;const K, V&gt;</code>. Consequently, you’d write this as</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span>&amp; kv : myMap) &#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; kv.first &lt;&lt; <span class="string">" has value "</span> &lt;&lt; kv.second &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>Range for loop: C++11 also allows the use of the reserved word auto to signify that the compiler will automatically infer the appropriate type,<ul>
+<li>for simple data type:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">auto</span> x : squares )</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt; x;</span><br></pre></td></tr></table></figure></li>
+<li>for complicate data type like map: Each element of the container is a <code>map&lt;K, V&gt;::value_type</code>, which is a typedef for <code>std::pair&lt;const K, V&gt;</code>. Consequently, you’d write this as<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span>&amp; kv : myMap) &#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; kv.first &lt;&lt; <span class="string">&quot; has value &quot;</span> &lt;&lt; kv.second &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 </li>
@@ -558,7 +490,9 @@
 <li>One great tip for writing a backtracking function is to abstract away the details of managing the configuration (what choices are available, making a choice, checking for success, etc.) into other helper functions so that the body of the recursion itself is as clean as can be. This helps to make sure you have the heart of the algorithm correct and allows the other pieces to be developed, test, and debugged independently.</li>
 </ul>
 <h2 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h2><p>lvalue: In C++, any expression that refers to an internal memory location capable of storing data is called an lvalue (pronounced “ell-value”). <code>x = 1.0;</code></p>
-<p>Declaring pointer variables<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">     --------------------------------------------------</span><br><span class="line">     // Declaration, in the stack</span><br><span class="line">     // Not yet initialized!</span><br><span class="line">     int num;</span><br><span class="line">     int *p, *q;</span><br><span class="line">     // If cout &lt;&lt; num &lt;&lt; p &lt;&lt; q &lt;&lt; endl;</span><br><span class="line">     // There will be junk number, junk address.</span><br><span class="line">     // If now *p=10, it may blow up, because what *p point to is an address points to somewhere around that could be invalid.</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line">     // new operator allocate memory from the heap, returns address</span><br><span class="line">     p = new int;     // P -----&gt; [ int ] （heep 1000）</span><br><span class="line">     *p = 10;           // P -----&gt; [ 10 ] （heep 1000）</span><br><span class="line">     q = new int;    // P -----&gt; [ int ] （heep 1004）</span><br><span class="line">     *q = *p;           // q -----&gt; [ 10 ]  （heep 1004）</span><br><span class="line">     q = p;              // q -----&gt; [ 10 ] （heep 1000）</span><br><span class="line">     // [ 10 ] （heep 1004） became orphan, and could not be reclaim back</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line">     delete p;          // [ 10 ] （heep 1000）memory was reclaimed and free,</span><br><span class="line">                             // and available for others as [  ]（heep 1000）,</span><br><span class="line">                             // but p still hold the address</span><br><span class="line">     delete q;          // bad idea,  [ 10 ]（heep 1000） already been reclaimed!</span><br><span class="line">     q = NULL;         // NULL is zero pointer, means the pointer does not hold any address,</span><br><span class="line">                              // used as sentinel value, sometimes better than delete.</span><br><span class="line">     // Accessing &quot;deleted&quot; memory has unpredictable consequences</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line"></span><br><span class="line">     // int *p  declaration reserves only a single word, which is large enough to hold a machine address.</span><br><span class="line">     // ≠</span><br><span class="line">     // int *p = NULL declare pointer p as nullptr</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line">     (*newOne).name = name // &quot;.&quot; &gt; &quot;*&quot;</span><br><span class="line">     newOne-&gt;name = name</span><br></pre></td></tr></table></figure></p>
+<p>Declaring pointer variables</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">     --------------------------------------------------</span><br><span class="line">     &#x2F;&#x2F; Declaration, in the stack</span><br><span class="line">     &#x2F;&#x2F; Not yet initialized!</span><br><span class="line">     int num;</span><br><span class="line">     int *p, *q;</span><br><span class="line">     &#x2F;&#x2F; If cout &lt;&lt; num &lt;&lt; p &lt;&lt; q &lt;&lt; endl;</span><br><span class="line">     &#x2F;&#x2F; There will be junk number, junk address.</span><br><span class="line">     &#x2F;&#x2F; If now *p&#x3D;10, it may blow up, because what *p point to is an address points to somewhere around that could be invalid.</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line">     &#x2F;&#x2F; new operator allocate memory from the heap, returns address</span><br><span class="line">     p &#x3D; new int;     &#x2F;&#x2F; P -----&gt; [ int ] （heep 1000）</span><br><span class="line">     *p &#x3D; 10;           &#x2F;&#x2F; P -----&gt; [ 10 ] （heep 1000）</span><br><span class="line">     q &#x3D; new int;    &#x2F;&#x2F; P -----&gt; [ int ] （heep 1004）</span><br><span class="line">     *q &#x3D; *p;           &#x2F;&#x2F; q -----&gt; [ 10 ]  （heep 1004）</span><br><span class="line">     q &#x3D; p;              &#x2F;&#x2F; q -----&gt; [ 10 ] （heep 1000）</span><br><span class="line">     &#x2F;&#x2F; [ 10 ] （heep 1004） became orphan, and could not be reclaim back</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line">     delete p;          &#x2F;&#x2F; [ 10 ] （heep 1000）memory was reclaimed and free,</span><br><span class="line">                             &#x2F;&#x2F; and available for others as [  ]（heep 1000）,</span><br><span class="line">                             &#x2F;&#x2F; but p still hold the address</span><br><span class="line">     delete q;          &#x2F;&#x2F; bad idea,  [ 10 ]（heep 1000） already been reclaimed!</span><br><span class="line">     q &#x3D; NULL;         &#x2F;&#x2F; NULL is zero pointer, means the pointer does not hold any address,</span><br><span class="line">                              &#x2F;&#x2F; used as sentinel value, sometimes better than delete.</span><br><span class="line">     &#x2F;&#x2F; Accessing &quot;deleted&quot; memory has unpredictable consequences</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line"></span><br><span class="line">     &#x2F;&#x2F; int *p  declaration reserves only a single word, which is large enough to hold a machine address.</span><br><span class="line">     &#x2F;&#x2F; ≠</span><br><span class="line">     &#x2F;&#x2F; int *p &#x3D; NULL declare pointer p as nullptr</span><br><span class="line">     ---------------------------------------------------</span><br><span class="line">     (*newOne).name &#x3D; name &#x2F;&#x2F; &quot;.&quot; &gt; &quot;*&quot;</span><br><span class="line">     newOne-&gt;name &#x3D; name</span><br></pre></td></tr></table></figure>
+
 <h3 id="Use-of-pointer"><a href="#Use-of-pointer" class="headerlink" title="Use of pointer"></a>Use of pointer</h3><p>Big program that contains a certain amout of classes and objects that are share some relationship. Instead of copying data from each other, using pointer to point to specific data is better:</p>
 <ul>
 <li>Saves space by not repeating the same information.</li>
@@ -596,7 +530,7 @@
 <li>Post: left, right, cur</li>
 <li>Others: level-by-level, reverse orders, etc</li>
 </ul>
-<h3 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a><a href="http://algs4.cs.princeton.edu/33balanced/" target="_blank" rel="noopener">Balanced Search Trees</a></h3><p>Binary search tree have poor worst-case performance.</p>
+<h3 id="Balanced-Search-Trees"><a href="#Balanced-Search-Trees" class="headerlink" title="Balanced Search Trees"></a><a target="_blank" rel="noopener" href="http://algs4.cs.princeton.edu/33balanced/">Balanced Search Trees</a></h3><p>Binary search tree have poor worst-case performance.</p>
 <p>To make costs are guaranteed to be logarithmic, no matter what sequence of keys is used to construct them, the ideal is to keep binary search trees perfectly balanced. Unfortunately, maintaining perfect balance for dynamic insertions is too expensive. So consider data structure that slightly relaxes the perfect balance requirement to provide guaranteed logarithmic performance not just for the insert and search operations, but also for all of the ordered operations (except range search).</p>
 <h3 id="AVL-tree"><a href="#AVL-tree" class="headerlink" title="AVL tree"></a>AVL tree</h3><p>Adelson-Velskii and Landis tree is a binary search tree with a <strong>balance condition</strong>.</p>
 <ul>
@@ -607,7 +541,7 @@
 <li>Local rearrangement around specific node</li>
 <li>When finished, node has 0 balance factor</li>
 <li>Single rotation: one time rotation between new insert node and its parent node</li>
-<li>Double rotation: two single rotation of the new insert node  </li>
+<li>Double rotation: two single rotation of the new insert node  </li>
 </ul>
 </li>
 </ul>
@@ -631,14 +565,9 @@
 </ul>
 <p>Basic Heap Operation</p>
 <ul>
-<li><p><code>insert</code>: To insert an element X into the heap, create a hole in the next available location. Then <strong>Percolate up</strong> - swap X with its parent index (i/2) so long as X has a higher priority than its parent. Continue this process until X has no more lower priority parent.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Percolate up</span></span><br><span class="line"><span class="keyword">int</span> hole = ++size;</span><br><span class="line">binaryQueue[<span class="number">0</span>]=<span class="built_in">std</span>::move(*newOne);</span><br><span class="line"><span class="keyword">for</span> ( ; (priority &lt; binaryQueue[hole/<span class="number">2</span>].priority || (priority == binaryQueue[hole/<span class="number">2</span>].priority &amp;&amp; name &lt; binaryQueue[hole/<span class="number">2</span>].name) ); hole/=<span class="number">2</span>) &#123;</span><br><span class="line">		binaryQueue[hole] = <span class="built_in">std</span>::move(binaryQueue[hole/<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br><span class="line">binaryQueue[hole] = <span class="built_in">std</span>::move(binaryQueue[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>deleteMin</code>: When the minimum is removed, a hole is created at the root. Move the last element X in the heap to place in the root hole. Then <strong>Percolate down</strong> - swapp X with its more urgent-priority child [index (i<em>2 or i</em>2+1)] so long as it has a lower priority than its child. Repeat this step until X has no more higher priority child.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Percolate down</span></span><br><span class="line"><span class="keyword">int</span> child;</span><br><span class="line"><span class="keyword">for</span> (; hole*<span class="number">2</span>&lt;=size;hole=child) &#123;</span><br><span class="line">	child = hole*<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span> ( child!=size &amp;&amp; (binaryQueue[child+<span class="number">1</span>].priority&lt;binaryQueue[child].priority || (binaryQueue[child+<span class="number">1</span>].priority==binaryQueue[child].priority &amp;&amp; binaryQueue[child+<span class="number">1</span>].name&lt;binaryQueue[child].name)) )</span><br><span class="line">	    ++child;</span><br><span class="line">	<span class="keyword">if</span> ( binaryQueue[child].priority&lt;priority_tobePerD || (binaryQueue[child].priority==priority_tobePerD &amp;&amp; binaryQueue[child].name&lt;name_tobePerD) ) &#123;</span><br><span class="line">	    binaryQueue[hole] = <span class="built_in">std</span>::move(binaryQueue[child]);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Use integer division to avoid even odd index.</p>
-</li>
+<li><code>insert</code>: To insert an element X into the heap, create a hole in the next available location. Then <strong>Percolate up</strong> - swap X with its parent index (i/2) so long as X has a higher priority than its parent. Continue this process until X has no more lower priority parent.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Percolate up</span></span><br><span class="line"><span class="keyword">int</span> hole = ++size;</span><br><span class="line">binaryQueue[<span class="number">0</span>]=<span class="built_in">std</span>::move(*newOne);</span><br><span class="line"><span class="keyword">for</span> ( ; (priority &lt; binaryQueue[hole/<span class="number">2</span>].priority || (priority == binaryQueue[hole/<span class="number">2</span>].priority &amp;&amp; name &lt; binaryQueue[hole/<span class="number">2</span>].name) ); hole/=<span class="number">2</span>) &#123;</span><br><span class="line">		binaryQueue[hole] = <span class="built_in">std</span>::move(binaryQueue[hole/<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br><span class="line">binaryQueue[hole] = <span class="built_in">std</span>::move(binaryQueue[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure></li>
+<li><code>deleteMin</code>: When the minimum is removed, a hole is created at the root. Move the last element X in the heap to place in the root hole. Then <strong>Percolate down</strong> - swapp X with its more urgent-priority child [index (i<em>2 or i</em>2+1)] so long as it has a lower priority than its child. Repeat this step until X has no more higher priority child.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Percolate down</span></span><br><span class="line"><span class="keyword">int</span> child;</span><br><span class="line"><span class="keyword">for</span> (; hole*<span class="number">2</span>&lt;=size;hole=child) &#123;</span><br><span class="line">	child = hole*<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span> ( child!=size &amp;&amp; (binaryQueue[child+<span class="number">1</span>].priority&lt;binaryQueue[child].priority || (binaryQueue[child+<span class="number">1</span>].priority==binaryQueue[child].priority &amp;&amp; binaryQueue[child+<span class="number">1</span>].name&lt;binaryQueue[child].name)) )</span><br><span class="line">	    ++child;</span><br><span class="line">	<span class="keyword">if</span> ( binaryQueue[child].priority&lt;priority_tobePerD || (binaryQueue[child].priority==priority_tobePerD &amp;&amp; binaryQueue[child].name&lt;name_tobePerD) ) &#123;</span><br><span class="line">	    binaryQueue[hole] = <span class="built_in">std</span>::move(binaryQueue[child]);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Use integer division to avoid even odd index.</li>
 </ul>
 <h2 id="Priority-Queues"><a href="#Priority-Queues" class="headerlink" title="Priority Queues"></a>Priority Queues</h2><p>A priority queue is a data structure that allows at least the following two operations: <strong>insert</strong>, and <strong>deleteMin</strong>, which finds, returns, and removes the minimum element in the priority queue.</p>
 <h2 id="Algorithm-Analysis"><a href="#Algorithm-Analysis" class="headerlink" title="Algorithm Analysis"></a>Algorithm Analysis</h2><p>Space/time, big-O, scalability</p>
@@ -664,7 +593,9 @@
 <li>It also possible to apply complexity analysis to the amount of memory space required. Nowadays the memory is cheap, but it still matters when designing extreamly big programs, or APPs on small memory device, such as phones and wearable devices.</li>
 </ul>
 <h2 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h2><p>There are lots of different sorting algoritms, from the simple to very complex. Some optimized for certain situations (lots of duplicates, almost sorted, etc.). So why do we need multiple algorithms?</p>
-<h3 id="Selection-sort"><a href="#Selection-sort" class="headerlink" title="Selection sort"></a>Selection sort</h3><p>Select smallest and swap to front/backend<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size()<span class="number">-1</span>; i++) &#123;</span><br><span class="line">	 <span class="keyword">int</span> minIndex = i;</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; arr.size(); j++) &#123;</span><br><span class="line">		 <span class="keyword">if</span> (arr[j] &lt; arr[minIndex])</span><br><span class="line">		 minIndex = j;</span><br><span class="line">	 &#125;</span><br><span class="line">	 Swap(arr[i], arr[minIndex]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Selection-sort"><a href="#Selection-sort" class="headerlink" title="Selection sort"></a>Selection sort</h3><p>Select smallest and swap to front/backend</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size()<span class="number">-1</span>; i++) &#123;</span><br><span class="line">	 <span class="keyword">int</span> minIndex = i;</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; arr.size(); j++) &#123;</span><br><span class="line">		 <span class="keyword">if</span> (arr[j] &lt; arr[minIndex])</span><br><span class="line">		 minIndex = j;</span><br><span class="line">	 &#125;</span><br><span class="line">	 Swap(arr[i], arr[minIndex]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Count work inside loops:</p>
 <ul>
 <li>First iteration does N-1 compares, second does N-2, and so on.</li>
@@ -679,6 +610,7 @@
 <li>Slide elements over to make space during insert</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; v.size(); i++) &#123;</span><br><span class="line"> <span class="keyword">int</span> cur = v[i]; <span class="comment">// slide cur down into position to left</span></span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> j=i<span class="number">-1</span>; j &gt;= <span class="number">0</span> &amp;&amp; v[j] &gt; cur; j--)</span><br><span class="line"> v[j+<span class="number">1</span>] = v[j];</span><br><span class="line"> v[j+<span class="number">1</span>] = cur;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Because of the nested loops, each of which can take N iterations, insertion sort is O(N<sup>2</sup>).</p>
 <h3 id="Heapsort"><a href="#Heapsort" class="headerlink" title="Heapsort"></a>Heapsort</h3><p><a href="#priority-queues">Priority queues</a> can be used to sort in O(N log N) time. The algorithm based on this idea is known as heapsort.</p>
 <p>The building of the heap, uses less than 2N comparisons. In the second phase, the ith <code>deleteMax</code> uses at most less than <code>2\*log (N − i + 1)</code> comparisons, for a total of at most <code>2N log N − O(N)</code> comparisons (assuming N ≥ 2). Consequently, in the worst case, at most <code>2N log N − O(N)</code> comparisons are used by heapsort.</p>
@@ -694,7 +626,9 @@
 <li>No complex decision about which goes where, just divide in middle</li>
 <li>Merge step preserves ordering from each half</li>
 </ul>
-<p>Merge depends on the fact that the first element in the complete ordering must be either the first element in v1 or the first element in v2, whichever is smaller.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (v.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> <span class="keyword">int</span> n1 = v.size()/<span class="number">2</span>;</span><br><span class="line"> <span class="keyword">int</span> n2 = v.size() - n1;</span><br><span class="line"> Vector&lt;<span class="keyword">int</span>&gt; left = Copy(v, <span class="number">0</span>, n1);</span><br><span class="line"> Vector&lt;<span class="keyword">int</span>&gt; right = Copy(v, n1, n2);</span><br><span class="line"> MergeSort(left);</span><br><span class="line"> MergeSort(right);</span><br><span class="line"> v.clear();</span><br><span class="line"> Merge(v, left, right);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;v,Vector&lt;<span class="keyword">int</span>&gt; &amp;left,Vector&lt;<span class="keyword">int</span>&gt; &amp;right)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l=<span class="number">0</span>, r=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;left.size() &amp;&amp; r&lt;right.size()) &#123;</span><br><span class="line">		<span class="keyword">if</span> (left[l]&lt;right[r])</span><br><span class="line">			v.add(left[l++]);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			v.add(right[r++]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;left.size()) v.add(left[l++]);</span><br><span class="line">	<span class="keyword">while</span>(r&lt;right.size()) v.add(right[r++]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Merge depends on the fact that the first element in the complete ordering must be either the first element in v1 or the first element in v2, whichever is smaller.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (v.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line"> <span class="keyword">int</span> n1 = v.size()/<span class="number">2</span>;</span><br><span class="line"> <span class="keyword">int</span> n2 = v.size() - n1;</span><br><span class="line"> Vector&lt;<span class="keyword">int</span>&gt; left = Copy(v, <span class="number">0</span>, n1);</span><br><span class="line"> Vector&lt;<span class="keyword">int</span>&gt; right = Copy(v, n1, n2);</span><br><span class="line"> MergeSort(left);</span><br><span class="line"> MergeSort(right);</span><br><span class="line"> v.clear();</span><br><span class="line"> Merge(v, left, right);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;v,Vector&lt;<span class="keyword">int</span>&gt; &amp;left,Vector&lt;<span class="keyword">int</span>&gt; &amp;right)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l=<span class="number">0</span>, r=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;left.size() &amp;&amp; r&lt;right.size()) &#123;</span><br><span class="line">		<span class="keyword">if</span> (left[l]&lt;right[r])</span><br><span class="line">			v.add(left[l++]);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			v.add(right[r++]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;left.size()) v.add(left[l++]);</span><br><span class="line">	<span class="keyword">while</span>(r&lt;right.size()) v.add(right[r++]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>The time to mergesort N numbers is equal to the time to do two recursive mergesorts of size N/2, plus the time to merge, which is linear. <code>T(N) = N + 2T(N/2)</code>. <code>log N levels * N per level= O(NlogN)</code>. Mergesort uses the lowest number of comparisons of all the popular sorting algorithms.</p>
 <p>Theoretical result show that no general sort algorithm could be better than NlogN.</p>
 <p>But there is still better in practice:</p>
@@ -711,6 +645,7 @@
 <li>Sort the elements in each of the partial vectors.</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quicksort</span><span class="params">(Vector&lt;<span class="keyword">int</span>&gt; &amp;v, <span class="keyword">int</span> start, <span class="keyword">int</span> stop)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (stop &gt; start) &#123;</span><br><span class="line"> <span class="keyword">int</span> pivot = Partition(v, start, stop);</span><br><span class="line"> Quicksort(v, start, pivot<span class="number">-1</span>);</span><br><span class="line"> Quicksort(v, pivot+<span class="number">1</span>, stop);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>The running time of quicksort is equal to the running time of the two recursive calls plus the linear time spent in the partition (the pivot selection takes only constant time). T(N) = T(i) + T(N − i − 1) + cN, where i = |S1| is the number of elements in S1.</p>
 <p>There are thre cases</p>
 <ul>
@@ -769,7 +704,7 @@
 </li>
 </ul>
 <h2 id="Greedy-Algorithms"><a href="#Greedy-Algorithms" class="headerlink" title="Greedy Algorithms"></a>Greedy Algorithms</h2><p>Greedy algorithms work in phases. In each phase, a decision is made in a locally optimal manner, without regard for future consequences. When the algorithm terminates, we hope that the local optimum is equal to the global optimum. If this is the case, then the algorithm is correct; otherwise, the algorithm has produced a suboptimal solution.</p>
-<p><a href="https://en.wikipedia.org/wiki/Huffman_coding" target="_blank" rel="noopener">Huffman Codes</a></p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman Codes</a></p>
 <ul>
 <li>A Huffman code is a particular type of optimal prefix code that is commonly used for lossless data compression.</li>
 <li>The reason that this is a greedy algorithm is that at each stage we perform a merge without regard to global considerations. We merely select the two smallest trees.</li>
@@ -786,7 +721,8 @@
 <li>Should also consider ease of developing, verifying, maintaining code</li>
 </ul>
 <h2 id="Text-editor-case-study"><a href="#Text-editor-case-study" class="headerlink" title="Text editor case study"></a>Text editor case study</h2><ol>
-<li>Buffer requirements<ul>
+<li><p>Buffer requirements</p>
+<ul>
 <li>Sequence of characters + cursor position</li>
 <li>Operations to match commands above</li>
 </ul>
@@ -798,8 +734,7 @@
 </ul>
 </li>
 <li><p>Buffer class interface</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Buffer</span> &#123;</span></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> Buffer();</span><br><span class="line"> ~Buffer();</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorForward</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorBackward</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorToStart</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorToEnd</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">insertCharacter</span><span class="params">(<span class="keyword">char</span> ch)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">deleteCharacter</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line"> <span class="comment">// TBD!</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Buffer</span> &#123;</span></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> Buffer();</span><br><span class="line"> ~Buffer();</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorForward</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorBackward</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorToStart</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">moveCursorToEnd</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">insertCharacter</span><span class="params">(<span class="keyword">char</span> ch)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">deleteCharacter</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line"> <span class="comment">// TBD!</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 <li><p>Buffer layered on Vector</p>
 <ul>
 <li>Need character data + cursor<ul>
@@ -808,11 +743,8 @@
 <li>Minor detail – is index before/after cursor?</li>
 </ul>
 </li>
-<li><p>Buffer contains: AB|CDE</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for Buffer class</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> Vector&lt;<span class="keyword">char</span>&gt; chars;</span><br><span class="line"><span class="keyword">int</span> cursor;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Performance</p>
-<ul>
+<li>Buffer contains: AB|CDE<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for Buffer class</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> Vector&lt;<span class="keyword">char</span>&gt; chars;</span><br><span class="line"><span class="keyword">int</span> cursor;</span><br></pre></td></tr></table></figure></li>
+<li>Performance<ul>
 <li>insertCharacter() and deleteCharacter() is linear, other operation is just O(1)</li>
 <li>Space used ~1 byte per char</li>
 </ul>
@@ -828,11 +760,8 @@
 <li>How is cursor represented?</li>
 </ul>
 </li>
-<li><p>Buffer contains:AB|CDE<br>There is no explicit cursor representation, instead using two stack to represent a whole data structure being seperated by the implicit cursor.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for Buffer class</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> Stack&lt;<span class="keyword">char</span>&gt; before, after;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Performance</p>
-<ul>
+<li>Buffer contains:AB|CDE<br>There is no explicit cursor representation, instead using two stack to represent a whole data structure being seperated by the implicit cursor.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for Buffer class</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> Stack&lt;<span class="keyword">char</span>&gt; before, after;</span><br></pre></td></tr></table></figure></li>
+<li>Performance<ul>
 <li>moveCursorToStart(), moveCursorToEnd() operation is linear, other operation is just O(1)</li>
 <li>Space used ~2 byte per char</li>
 </ul>
@@ -847,11 +776,8 @@
 <li>Add prev link to speed up moving backwards</li>
 </ul>
 </li>
-<li><p>Buffer contains:AB|CDE</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for Buffer class</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">cellT</span> &#123;</span></span><br><span class="line"> <span class="keyword">char</span> ch;</span><br><span class="line"> cellT *prev, *next;</span><br><span class="line"> &#125;;</span><br><span class="line"> cellT *head, *tail, *cursor;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Cursor design</p>
-<ul>
+<li>Buffer contains:AB|CDE<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for Buffer class</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">cellT</span> &#123;</span></span><br><span class="line"> <span class="keyword">char</span> ch;</span><br><span class="line"> cellT *prev, *next;</span><br><span class="line"> &#125;;</span><br><span class="line"> cellT *head, *tail, *cursor;</span><br></pre></td></tr></table></figure></li>
+<li>Cursor design<ul>
 <li>To cell before or after?</li>
 <li>5 letters, 6 cursor positions…</li>
 <li>Add “dummy cell” to front of list</li>
@@ -883,78 +809,76 @@ table th:nth-of-type(3) {
 <thead>
 <tr>
 <th>Operation</th>
-<th style="text-align:center">Vector</th>
-<th style="text-align:center">Stack</th>
-<th style="text-align:center">Single linked list</th>
-<th style="text-align:center">Double linked list</th>
+<th align="center">Vector</th>
+<th align="center">Stack</th>
+<th align="center">Single linked list</th>
+<th align="center">Double linked list</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Buffer()</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
 </tr>
 <tr>
 <td>~Buffer()</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(N)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(N)</td>
+<td align="center">O(N)</td>
 </tr>
 <tr>
 <td>moveCursorForward()</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
 </tr>
 <tr>
 <td>moveCursorBackward()</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(N)</td>
+<td align="center">O(1)</td>
 </tr>
 <tr>
 <td>moveCursorToStart()</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(N)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
 </tr>
 <tr>
 <td>moveCursorToEnd()</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(N)</td>
+<td align="center">O(N)</td>
+<td align="center">O(1)</td>
 </tr>
 <tr>
 <td>insertCharacter()</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
+<td align="center">O(N)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
 </tr>
 <tr>
 <td>deleteCharacter()</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(1)</td>
+<td align="center">O(N)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
 </tr>
 <tr>
 <td>Space used</td>
-<td style="text-align:center">1N</td>
-<td style="text-align:center">2N</td>
-<td style="text-align:center">5N</td>
-<td style="text-align:center">9N</td>
+<td align="center">1N</td>
+<td align="center">2N</td>
+<td align="center">5N</td>
+<td align="center">9N</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ol start="9">
 <li>Space-time tradeoff<ul>
 <li>Doubly-linked list is O(1) on all six operations<ul>
@@ -992,8 +916,7 @@ table th:nth-of-type(3) {
 </li>
 </ul>
 </li>
-<li><p>Implementing Map as tree</p>
-<ul>
+<li>Implementing Map as tree<ul>
 <li>Implementatation<ul>
 <li>Each Map entry adds node to tree, node contains: string key, client-type value, pointers to left/right subtrees</li>
 <li>Tree organized for binary search, Key is used as search field</li>
@@ -1001,11 +924,8 @@ table th:nth-of-type(3) {
 <li>add: Searches tree, comparing keys, overwrites existing or adds new node</li>
 </ul>
 </li>
-<li><p>Private members for Map</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValType&gt;</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Map</span></span></span><br><span class="line"><span class="class"> &#123;</span></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="comment">// as before</span></span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line"> <span class="built_in">string</span> key;</span><br><span class="line"> ValType value;</span><br><span class="line"> node *left, *right;</span><br><span class="line"> &#125;;</span><br><span class="line"> node *root;</span><br><span class="line"></span><br><span class="line"> <span class="function">node *<span class="title">treeSearch</span><span class="params">(node * t, <span class="built_in">string</span> key)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">treeEnter</span><span class="params">(node *&amp;t, <span class="built_in">string</span> key, ValType val)</span></span>;</span><br><span class="line"> DISALLOW_COPYING(Map)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Evaluate Map as tree</p>
-<ul>
+<li>Private members for Map<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValType&gt;</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Map</span></span></span><br><span class="line"><span class="class"> &#123;</span></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="comment">// as before</span></span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line"> <span class="built_in">string</span> key;</span><br><span class="line"> ValType value;</span><br><span class="line"> node *left, *right;</span><br><span class="line"> &#125;;</span><br><span class="line"> node *root;</span><br><span class="line"></span><br><span class="line"> <span class="function">node *<span class="title">treeSearch</span><span class="params">(node * t, <span class="built_in">string</span> key)</span></span>;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">treeEnter</span><span class="params">(node *&amp;t, <span class="built_in">string</span> key, ValType val)</span></span>;</span><br><span class="line"> DISALLOW_COPYING(Map)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>Evaluate Map as tree<ul>
 <li>Space used: Overhead of two pointers per entry (typically 8 bytes total)</li>
 <li>Runtime performance: Add/getValue take time proportional to tree height(expected to be O(logN))</li>
 </ul>
@@ -1025,32 +945,30 @@ table th:nth-of-type(3) {
 <thead>
 <tr>
 <th>Operation</th>
-<th style="text-align:center">Vector</th>
-<th style="text-align:center">BST</th>
-<th style="text-align:center">Sorted Vector</th>
+<th align="center">Vector</th>
+<th align="center">BST</th>
+<th align="center">Sorted Vector</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>getValue</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(lgN)</td>
-<td style="text-align:center">O(lgN)</td>
+<td align="center">O(N)</td>
+<td align="center">O(lgN)</td>
+<td align="center">O(lgN)</td>
 </tr>
 <tr>
 <td>add</td>
-<td style="text-align:center">O(N)</td>
-<td style="text-align:center">O(lgN)</td>
-<td style="text-align:center">O(N)</td>
+<td align="center">O(N)</td>
+<td align="center">O(lgN)</td>
+<td align="center">O(N)</td>
 </tr>
 <tr>
 <td>Space used</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">9N</td>
-<td style="text-align:center">N</td>
+<td align="center">N</td>
+<td align="center">9N</td>
+<td align="center">N</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="Hashing"><a href="#Hashing" class="headerlink" title="Hashing"></a>Hashing</h2><ul>
 <li>Hash table ADT<ul>
 <li>Hash table data structure: A list of keys and TableSize</li>
@@ -1068,24 +986,26 @@ table th:nth-of-type(3) {
 </li>
 <li><p>Copy Assignment and Move Assignment (operator=)<br>By Defaults, if a class consists of data members that are exclusively primitive types and objects for which the defaults make sense, the class defaults will usually make sense.<br>The main problem occurs in a class that contains a data member that is a pointer.</p>
 <ul>
-<li>The default destructor does nothing to data members that are pointers (for good reason—recall that we must delete ourselves).</li>
-<li>Furthermore, the copy constructor and copy assignment operator both copy the value of the pointer rather than the objects being pointed at. Thus, we will have two class instances that contain pointers that point to the same object. This is a so-called <strong>shallow copy</strong> (contrast to deep copy).  </li>
+<li><p>The default destructor does nothing to data members that are pointers (for good reason—recall that we must delete ourselves).</p>
+</li>
+<li><p>Furthermore, the copy constructor and copy assignment operator both copy the value of the pointer rather than the objects being pointed at. Thus, we will have two class instances that contain pointers that point to the same object. This is a so-called <strong>shallow copy</strong> (contrast to deep copy).  </p>
+</li>
 <li><p>To avoid shallow copy, ban the copy funtionality by calling <code>DISALLOW_COPYING(ClassType)</code>.</p>
 <p>As a result, when a class contains pointers as data members, and deep semantics are important, we typically must implement the destructor, copy assignment, and copy constructors ourselves.</p>
 </li>
 </ul>
 </li>
 <li><p>Explicit constructor:<br>All one-parameter constructors should be made explicit to avoid behind-the-scenes type conversions. Otherwise, there are somewhat lenient rules that will allow type conversions without explicit casting operations. Usually, this is unwanted behavior that destroys strong typing and can lead to hard-to-find bugs.<br>The use of explicit means that a one-parameter constructor cannot be used to generate an implicit temporary</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntCell</span>  &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">( <span class="keyword">int</span> initialValue = <span class="number">0</span> )</span></span></span><br><span class="line">	 : storedValue&#123; initialValue &#125; &#123; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">( )</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">	 </span>&#123; <span class="keyword">return</span> storedValue; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> storedValue;</span><br><span class="line"> &#125;;</span><br><span class="line">IntCell obj; <span class="comment">// obj is an IntCell</span></span><br><span class="line">obj = <span class="number">37</span>; <span class="comment">// Should not compile: type mismatch</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntCell</span>  &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">( <span class="keyword">int</span> initialValue = <span class="number">0</span> )</span></span></span><br><span class="line"><span class="function">	 : storedValue</span>&#123; initialValue &#125; &#123; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">( )</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">	 </span>&#123; <span class="keyword">return</span> storedValue; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> storedValue;</span><br><span class="line"> &#125;;</span><br><span class="line">IntCell obj; <span class="comment">// obj is an IntCell</span></span><br><span class="line">obj = <span class="number">37</span>; <span class="comment">// Should not compile: type mismatch</span></span><br></pre></td></tr></table></figure>
+<p>Since <code>IntCell</code> constructor is declared explicit, the compiler will correctly complain that there is a type mismatch</p>
 </li>
 </ul>
-<p>Since <code>IntCell</code> constructor is declared explicit, the compiler will correctly complain that there is a type mismatch</p>
 <h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><h3 id="Type-independent"><a href="#Type-independent" class="headerlink" title="Type-independent"></a>Type-independent</h3><p>When we write C++ code for a type-independent algorithm or data structure, we would prefer to write the code once rather than recode it for each different type</p>
 <h3 id="Function-template"><a href="#Function-template" class="headerlink" title="Function template"></a>Function template</h3><ul>
 <li>A function template is not an actual function, but instead is a pattern for what could become a function.</li>
 <li>An expansion for each new type generates additional code; this is known as <strong>code bloat</strong> when it occurs in large projects.</li>
 </ul>
-<h3 id="Class-template"><a href="#Class-template" class="headerlink" title="Class template"></a>Class template</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemoryCell</span> &#123;</span></span><br><span class="line">     <span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="keyword">explicit</span> <span class="title">MemoryCell</span><span class="params">( <span class="keyword">const</span> Object &amp; initialValue = Object&#123; &#125; )</span></span></span><br><span class="line">     : storedValue&#123; initialValue &#125; &#123; &#125;</span><br><span class="line">     <span class="keyword">private</span>:</span><br><span class="line">     Object storedValue;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Class-template"><a href="#Class-template" class="headerlink" title="Class template"></a>Class template</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemoryCell</span> &#123;</span></span><br><span class="line">     <span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="keyword">explicit</span> <span class="title">MemoryCell</span><span class="params">( <span class="keyword">const</span> Object &amp; initialValue = Object&#123; &#125; )</span></span></span><br><span class="line"><span class="function">     : storedValue</span>&#123; initialValue &#125; &#123; &#125;</span><br><span class="line">     <span class="keyword">private</span>:</span><br><span class="line">     Object storedValue;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>MemoryCell</code> is not a class, it is only a class template. It will be a class if specify the Object type. <code>MemoryCell&lt;int&gt;</code> and <code>MemoryCell&lt;string&gt;</code> are the actual classes.</p>
 <h2 id="Graph-Algorithms"><a href="#Graph-Algorithms" class="headerlink" title="Graph Algorithms"></a>Graph Algorithms</h2><p>Definitions: vertices, edges, arcs, directed arcs = digraphs, weight/cost, path, length, acyclic(no cycles)</p>
 <h3 id="Topological-Sort"><a href="#Topological-Sort" class="headerlink" title="Topological Sort"></a>Topological Sort</h3><ul>
@@ -1094,14 +1014,14 @@ table th:nth-of-type(3) {
 <li>To find a topological ordering, define the indegree of a vertex v as the number of edges (u, v), then use a queue or stack to keep the present 0 indegree vertexes. At each stage, as long as the queue is not empty, dequeue a 0 indegree vertexes in the queue, enqueue each new generated 0 indegree vertexes into the queue.</li>
 </ul>
 <h3 id="Shortest-Path-Algorithms"><a href="#Shortest-Path-Algorithms" class="headerlink" title="Shortest-Path Algorithms"></a>Shortest-Path Algorithms</h3><ul>
-<li><p><a href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#breadth-first-search" target="_blank" rel="noopener">Breadth-first search</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#breadth-first-search">Breadth-first search</a></p>
 <ul>
 <li>Explores equally in all directions</li>
 <li>To find unweighted shortest paths</li>
 <li>Operates by processing vertices in layers: The vertices closest to the start are evaluated first, and the most distant vertices are evaluated last.</li>
 </ul>
 </li>
-<li><p><a href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#dijkstra" target="_blank" rel="noopener">Dijkstra’s Algorithm</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#dijkstra">Dijkstra’s Algorithm</a></p>
 <ul>
 <li>Also called Uniform Cost Search, cost matters</li>
 <li>Instead of exploring all possible paths equally, it favors lower cost paths.</li>
@@ -1120,23 +1040,19 @@ table th:nth-of-type(3) {
 </li>
 </ul>
 </li>
-<li><p><a href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#greedy-best-first" target="_blank" rel="noopener">Greedy Best First Search(Heuristic search)</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#greedy-best-first">Greedy Best First Search(Heuristic search)</a></p>
 <ul>
 <li>With Breadth First Search and Dijkstra’s Algorithm, the frontier expands in all directions. This is a reasonable choice if you’re trying to find a path to all locations or to many locations. However, a common case is to find a path to only one location.</li>
 <li>A modification of Dijkstra’s Algorithm, optimized for a single destination. It prioritizes paths that seem to be leading closer to the goal.</li>
-<li><p>To make the frontier expand towards the goal more than it expands in other directions.</p>
-<ul>
-<li><p>First, define a <em>heuristic</em> function that tells us how close we are to the goal, design a heuristic for each type of graph</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def heuristic(a, b):</span><br><span class="line"> 		    # Manhattan distance on a square grid</span><br><span class="line"> 		    <span class="keyword">return</span> <span class="built_in">abs</span>(a.x - b.x) + <span class="built_in">abs</span>(a.y - b.y)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Use the estimated distance to the goal for the priority queue ordering. The location closest to the goal will be explored first.</p>
-</li>
+<li>To make the frontier expand towards the goal more than it expands in other directions.<ul>
+<li>First, define a <em>heuristic</em> function that tells us how close we are to the goal, design a heuristic for each type of graph<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">heuristic</span><span class="params">(a, b)</span>:</span></span><br><span class="line"> 		    # Manhattan distance on a square grid</span><br><span class="line"> 		    <span class="keyword">return</span> <span class="built_in">abs</span>(a.x - b.x) + <span class="built_in">abs</span>(a.y - b.y)</span><br></pre></td></tr></table></figure></li>
+<li>Use the estimated distance to the goal for the priority queue ordering. The location closest to the goal will be explored first.</li>
 </ul>
 </li>
 <li>This algorithm runs faster when there aren’t a lot of obstacles, but the paths aren’t as good(not always the shortest).</li>
 </ul>
 </li>
-<li><p><a href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#astar" target="_blank" rel="noopener">A* Algorithm</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.redblobgames.com/pathfinding/a-star/introduction.html#astar">A* Algorithm</a></p>
 <ul>
 <li>Dijkstra’s Algorithm works well to find the shortest path, but it wastes time exploring in directions that aren’t promising. Greedy Best First Search explores in promising directions but it may not find the shortest path.</li>
 <li>The A* algorithm uses both the actual distance from the start and the estimated distance to the goal.</li>
@@ -1147,12 +1063,12 @@ table th:nth-of-type(3) {
 <li><p>Conclusion: Which algorithm should you use for finding paths on a map?</p>
 <ul>
 <li>If you want to find paths from or to all all locations, use Breadth First Search or Dijkstra’s Algorithm. Use Breadth First Search if movement costs are all the same; use Dijkstra’s Algorithm if movement costs vary.</li>
-<li>If you want to find paths to one location, use Greedy Best First Search or A*. Prefer A<em> in most cases. When you’re tempted to use Greedy Best First Search, consider using A</em> with an “inadmissible” heuristic.</li>
-<li>If you want the optimal paths, Breadth First Search and Dijkstra’s Algorithm are guaranteed to find the shortest path given the input graph. Greedy Best First Search is not. A* is guaranteed to find the shortest path if the heuristic is never larger than the true distance. (As the heuristic becomes smaller, A<em> turns into Dijkstra’s Algorithm. As the heuristic becomes larger, A</em> turns into Greedy Best First Search.)</li>
+<li>If you want to find paths to one location, use Greedy Best First Search or A*. Prefer A* in most cases. When you’re tempted to use Greedy Best First Search, consider using A* with an “inadmissible” heuristic.</li>
+<li>If you want the optimal paths, Breadth First Search and Dijkstra’s Algorithm are guaranteed to find the shortest path given the input graph. Greedy Best First Search is not. A* is guaranteed to find the shortest path if the heuristic is never larger than the true distance. (As the heuristic becomes smaller, A* turns into Dijkstra’s Algorithm. As the heuristic becomes larger, A* turns into Greedy Best First Search.)</li>
 </ul>
 </li>
 </ul>
-<h2 id="Advanced-Data-Structures"><a href="#Advanced-Data-Structures" class="headerlink" title="Advanced Data Structures"></a>Advanced Data Structures</h2><h3 id="Red-Black-Trees"><a href="#Red-Black-Trees" class="headerlink" title="Red-Black Trees"></a><a href="http://algs4.cs.princeton.edu/33balanced/" target="_blank" rel="noopener">Red-Black Trees</a></h3><p>Red-black tree leads to a natural implementation of the insertion algorithm for <a href="#2-3-trees">2-3 trees</a></p>
+<h2 id="Advanced-Data-Structures"><a href="#Advanced-Data-Structures" class="headerlink" title="Advanced Data Structures"></a>Advanced Data Structures</h2><h3 id="Red-Black-Trees"><a href="#Red-Black-Trees" class="headerlink" title="Red-Black Trees"></a><a target="_blank" rel="noopener" href="http://algs4.cs.princeton.edu/33balanced/">Red-Black Trees</a></h3><p>Red-black tree leads to a natural implementation of the insertion algorithm for <a href="#2-3-trees">2-3 trees</a></p>
 <ul>
 <li><p>RBT definition</p>
 <ul>
@@ -1195,937 +1111,249 @@ table th:nth-of-type(3) {
 </li>
 </ul>
 <hr>
-<h3 id="Assignments"><a href="#Assignments" class="headerlink" title="Assignments"></a><a href="https://github.com/ShootingSpace/CS106B_assignments" target="_blank" rel="noopener">Assignments</a></h3><ol start="0">
+<h3 id="Assignments"><a href="#Assignments" class="headerlink" title="Assignments"></a><a target="_blank" rel="noopener" href="https://github.com/ShootingSpace/CS106B_assignments">Assignments</a></h3><ol start="0">
 <li>Name Hash</li>
 <li>Game of Life</li>
 <li>Serafini</li>
 <li>Recursion</li>
 <li>Boggle!</li>
-<li><a href="http://web.stanford.edu/class/cs106b/assn/patient-queue.html" target="_blank" rel="noopener">Patient Queue</a></li>
-<li><a href="http://web.stanford.edu/class/cs106b/assn/huffman.html" target="_blank" rel="noopener">Huffman Encoding</a></li>
-<li><a href="http://web.stanford.edu/class/cs106b/assn/trailblazer.html" target="_blank" rel="noopener">Trailblazer</a></li>
+<li><a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs106b/assn/patient-queue.html">Patient Queue</a></li>
+<li><a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs106b/assn/huffman.html">Huffman Encoding</a></li>
+<li><a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs106b/assn/trailblazer.html">Trailblazer</a></li>
 </ol>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
+      
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/编程/" rel="tag"># 编程</a>
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
-          
-            <a href="/tags/C/" rel="tag"># C++</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/java-HashMap/" rel="next" title="Java HashMap">
-                <i class="fa fa-chevron-left"></i> Java HashMap
-              </a>
-            
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"># 编程</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Software-Engineer/" rel="tag"># Software Engineer</a>
+              <a href="/tags/C/" rel="tag"># C++</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/UoE-st/" rel="prev" title="Software Testing">
-                Software Testing <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Cong" />
-            
-              <p class="site-author-name" itemprop="name">Cong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">94</span>
-                  <span class="site-state-item-name">posts</span>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/java-HashMap-LinkedHashMap/" rel="prev" title="Java LinkedHashMap">
+                  <i class="fa fa-chevron-left"></i> Java LinkedHashMap
                 </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
             </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics"><span class="nav-number">1.</span> <span class="nav-text">Topics:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Purposes"><span class="nav-number">2.</span> <span class="nav-text">Purposes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding-style"><span class="nav-number">4.</span> <span class="nav-text">Coding style</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-write-clean-well-structured-code"><span class="nav-number">4.1.</span> <span class="nav-text">How to write clean, well-structured code?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comments"><span class="nav-number">4.2.</span> <span class="nav-text">Comments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADT"><span class="nav-number">5.</span> <span class="nav-text">ADT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterators"><span class="nav-number">5.1.</span> <span class="nav-text">Iterators</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion"><span class="nav-number">6.</span> <span class="nav-text">Recursion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exhaustive-recursion"><span class="nav-number">6.1.</span> <span class="nav-text">Exhaustive recursion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Backtracking"><span class="nav-number">6.2.</span> <span class="nav-text">Recursive Backtracking</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pointer"><span class="nav-number">7.</span> <span class="nav-text">Pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-of-pointer"><span class="nav-number">7.1.</span> <span class="nav-text">Use of pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-allocation"><span class="nav-number">7.2.</span> <span class="nav-text">Dynamic allocation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree"><span class="nav-number">8.</span> <span class="nav-text">Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-tree"><span class="nav-number">8.1.</span> <span class="nav-text">Binary tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operating-on-trees"><span class="nav-number">8.2.</span> <span class="nav-text">Operating on trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Balanced-Search-Trees"><span class="nav-number">8.3.</span> <span class="nav-text">Balanced Search Trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL-tree"><span class="nav-number">8.4.</span> <span class="nav-text">AVL tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-trees"><span class="nav-number">8.5.</span> <span class="nav-text">2-3 trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Heap"><span class="nav-number">8.6.</span> <span class="nav-text">Binary Heap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Priority-Queues"><span class="nav-number">9.</span> <span class="nav-text">Priority Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-Analysis"><span class="nav-number">10.</span> <span class="nav-text">Algorithm Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-O"><span class="nav-number">10.1.</span> <span class="nav-text">Big-O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Space-time"><span class="nav-number">10.2.</span> <span class="nav-text">Space/time</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorting"><span class="nav-number">11.</span> <span class="nav-text">Sorting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-sort"><span class="nav-number">11.1.</span> <span class="nav-text">Selection sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-sort"><span class="nav-number">11.2.</span> <span class="nav-text">Insertion sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heapsort"><span class="nav-number">11.3.</span> <span class="nav-text">Heapsort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-sort"><span class="nav-number">11.4.</span> <span class="nav-text">Merge sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quicksort"><span class="nav-number">11.5.</span> <span class="nav-text">Quicksort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Quicksort-strategy"><span class="nav-number">11.5.1.</span> <span class="nav-text">Quicksort strategy</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-Strategy"><span class="nav-number">12.</span> <span class="nav-text">Design Strategy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Programming"><span class="nav-number">13.</span> <span class="nav-text">Dynamic Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Greedy-Algorithms"><span class="nav-number">14.</span> <span class="nav-text">Greedy Algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Divide-and-Conquer"><span class="nav-number">15.</span> <span class="nav-text">Divide and Conquer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backtracking-Algorithms"><span class="nav-number">16.</span> <span class="nav-text">Backtracking Algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-evaluate-compare-alternatives"><span class="nav-number">17.</span> <span class="nav-text">How to evaluate/compare alternatives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-editor-case-study"><span class="nav-number">18.</span> <span class="nav-text">Text editor case study</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">19.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hashing"><span class="nav-number">20.</span> <span class="nav-text">Hashing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Big-Five"><span class="nav-number">21.</span> <span class="nav-text">The Big-Five</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Destructor"><span class="nav-number">21.1.</span> <span class="nav-text">Destructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructor"><span class="nav-number">21.2.</span> <span class="nav-text">Constructor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Template"><span class="nav-number">22.</span> <span class="nav-text">Template</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-independent"><span class="nav-number">22.1.</span> <span class="nav-text">Type-independent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-template"><span class="nav-number">22.2.</span> <span class="nav-text">Function template</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-template"><span class="nav-number">22.3.</span> <span class="nav-text">Class template</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-Algorithms"><span class="nav-number">23.</span> <span class="nav-text">Graph Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Topological-Sort"><span class="nav-number">23.1.</span> <span class="nav-text">Topological Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shortest-Path-Algorithms"><span class="nav-number">23.2.</span> <span class="nav-text">Shortest-Path Algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-Data-Structures"><span class="nav-number">24.</span> <span class="nav-text">Advanced Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Red-Black-Trees"><span class="nav-number">24.1.</span> <span class="nav-text">Red-Black Trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Assignments"><span class="nav-number">24.2.</span> <span class="nav-text">Assignments</span></a></li></ol></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/UoE-ppls/" rel="next" title="Parallel Programming Language and Systems">
+                  Parallel Programming Language and Systems <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Cong</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+    </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
+      
 
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
 
-
-
-
+    </div>
+  </footer>
 
   
-
-
-
-
-
-
-
-
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/stanford-cs106ab/';
-          this.page.identifier = 'stanford-cs106ab/';
-          this.page.title = 'Stanford CS106A/B Programming Intro 斯坦福大学编程入门课';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
 
 
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
     }
 
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
           if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
     }
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
+
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
+  
 
   
 
   
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/stanford-cs106ab/",
+    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
 </script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
 
 </body>
 </html>

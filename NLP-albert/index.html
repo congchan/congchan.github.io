@@ -1,138 +1,59 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
-
-
-
-
-
-
-
-
-  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="NLP," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="A Lite BERTBERT(Devlin et al., 2019)的参数很多, 模型很大, 内存消耗很大, 在分布式计算中的通信开销很大. 但是BERT的高内存消耗边际收益并不高, 如果继续增大BERT-large这种大模型的隐含层大小, 模型效果不升反降. 针对这些问题, 启发于mobilenet, Alert使用了两种减少参数的方法来降低模型大小和提高训练速度, 分别是Factorize">
-<meta name="keywords" content="NLP">
+  <meta name="description" content="A Lite BERTBERT(Devlin et al., 2019)的参数很多, 模型很大, 内存消耗很大, 在分布式计算中的通信开销很大. 但是BERT的高内存消耗边际收益并不高, 如果继续增大BERT-large这种大模型的隐含层大小, 模型效果不升反降. 针对这些问题, 启发于mobilenet, Alert使用了两种减少参数的方法来降低模型大小和提高训练速度, 分别是Factorize">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A Lite BERT(AlBERT) 原理和源码解析">
 <meta property="og:url" content="https://congchan.github.io/NLP-albert/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:description" content="A Lite BERTBERT(Devlin et al., 2019)的参数很多, 模型很大, 内存消耗很大, 在分布式计算中的通信开销很大. 但是BERT的高内存消耗边际收益并不高, 如果继续增大BERT-large这种大模型的隐含层大小, 模型效果不升反降. 针对这些问题, 启发于mobilenet, Alert使用了两种减少参数的方法来降低模型大小和提高训练速度, 分别是Factorize">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://congchan.github.io/images/transformer_encoder.png">
-<meta property="og:updated_time" content="2020-01-11T02:58:51.256Z">
+<meta property="article:published_time" content="2020-01-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-11T02:58:51.256Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A Lite BERT(AlBERT) 原理和源码解析">
-<meta name="twitter:description" content="A Lite BERTBERT(Devlin et al., 2019)的参数很多, 模型很大, 内存消耗很大, 在分布式计算中的通信开销很大. 但是BERT的高内存消耗边际收益并不高, 如果继续增大BERT-large这种大模型的隐含层大小, 模型效果不升反降. 针对这些问题, 启发于mobilenet, Alert使用了两种减少参数的方法来降低模型大小和提高训练速度, 分别是Factorize">
 <meta name="twitter:image" content="https://congchan.github.io/images/transformer_encoder.png">
 
 
+<link rel="canonical" href="https://congchan.github.io/NLP-albert/">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-
-
-  <link rel="canonical" href="https://congchan.github.io/NLP-albert/"/>
-
-
-
-
-
-  <title>A Lite BERT(AlBERT) 原理和源码解析 | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>A Lite BERT(AlBERT) 原理和源码解析 | Computer Science & AI</title>
   
 
 
@@ -140,145 +61,222 @@
 
 
 
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Computer Science & AI</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Computer Science & AI</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Lite-BERT"><span class="nav-number">1.</span> <span class="nav-text">A Lite BERT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Factorized-embedding-parameterization"><span class="nav-number">2.</span> <span class="nav-text">Factorized embedding parameterization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-layer-parameter-sharing"><span class="nav-number">3.</span> <span class="nav-text">Cross-layer parameter sharing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-Dropout"><span class="nav-number">4.</span> <span class="nav-text">No Dropout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-order-Prediction-SOP"><span class="nav-number">5.</span> <span class="nav-text">Sentence-order Prediction (SOP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.</span> <span class="nav-text">Transformer实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Factorized-Embedding%E5%AE%9E%E7%8E%B0"><span class="nav-number">7.</span> <span class="nav-text">Factorized Embedding实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALBERT%E6%A8%A1%E5%9E%8B%E6%90%AD%E5%BB%BA"><span class="nav-number">8.</span> <span class="nav-text">ALBERT模型搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/Ginntonic" title="你乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;Ginntonic" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>你乎</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-  
-  
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-albert/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -286,150 +284,74 @@
     </span>
 
     
+    
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          A Lite BERT(AlBERT) 原理和源码解析
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">A Lite BERT(AlBERT) 原理和源码解析</h1>
-        
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-11T00:00:00+08:00">
-                2020-01-11
-              </time>
-            
+      <time title="创建时间：2020-01-11 00:00:00 / 修改时间：10:58:51" itemprop="dateCreated datePublished" datetime="2020-01-11T00:00:00+08:00">2020-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/NLP-albert/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="NLP-albert/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/NLP-albert/" class="leancloud_visitors" data-flag-title="A Lite BERT(AlBERT) 原理和源码解析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  3,035
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  16 min
-                </span>
-              
-            </div>
-          
-
-          
+  
+    <span id="/NLP-albert/" class="post-meta-item leancloud_visitors" data-flag-title="A Lite BERT(AlBERT) 原理和源码解析" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/NLP-albert/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/NLP-albert/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
         <h3 id="A-Lite-BERT"><a href="#A-Lite-BERT" class="headerlink" title="A Lite BERT"></a>A Lite BERT</h3><p>BERT(Devlin et al., 2019)的参数很多, 模型很大, 内存消耗很大, 在分布式计算中的通信开销很大.</p>
 <p>但是BERT的高内存消耗边际收益并不高, 如果继续增大BERT-large这种大模型的隐含层大小, 模型效果不升反降.</p>
 <p>针对这些问题, 启发于mobilenet, Alert使用了两种减少参数的方法来降低模型大小和提高训练速度, 分别是Factorized embedding parameterization和Cross-layer parameter sharing. 这些设计让ALBERT增加参数大小的边界收益远远大于BERT.</p>
-<p>除此之外, 在句子关系任务上抛弃了bert的<code>nsp</code>任务, 改为<code>sop</code>任务.<br><a id="more"></a></p>
+<p>除此之外, 在句子关系任务上抛弃了bert的<code>nsp</code>任务, 改为<code>sop</code>任务.</p>
+<a id="more"></a>
+
 <p>整体而言, ALBERT是当前众多BERT系列模型的集大成者, 其思路值得学习, 代码也写得很清楚. 下面仔细过一遍.</p>
 <h3 id="Factorized-embedding-parameterization"><a href="#Factorized-embedding-parameterization" class="headerlink" title="Factorized embedding parameterization"></a>Factorized embedding parameterization</h3><p>BERT以及后续的XLNet(Yang et al., 2019), RoBERTa(Liu et al., 2019)等, WordPiece embedding的维度<code>E</code>是和隐层维度<code>H</code>绑定的. WordPiece embedding本意是学习context-independent的表达，而hidden-layer旨在学习context-dependent的表达。将WordPiece embedding大小<code>E</code>与隐层大小<code>H</code>解绑，可以更有效地利用建模所需的总模型参数.</p>
 <p>从实用性的角度看, 这样可以减少词汇量对模型大小的影响. 在NLP中词汇量一般都很大, 所以这个解绑收益是很明显的.</p>
@@ -441,933 +363,308 @@
 <p>而ALBERT推测, NSP任务对下游任务提升不稳定的原因在于NSP任务学习难度不够高(相对于MLM任务)。NSP本质是融合了topic prediction主题预测和coherence prediction两个任务。Coherence prediction是核心的任务, 可以学习inter-sentence信息. 主题预测, 也就是学习两个句子是否来自同一段原文, 则相对容易得多，并且与使用MLM损失学习的内容重叠更多。</p>
 <p>所以我们需要一个更专注于coherence prediction的sentence level任务, 比如ALBERT中用到的SOP. </p>
 <p>SOP的正样本采样方法和BERT一样, 但负样本改为倒置顺序的两句话, 这迫使模型学习关于discourse-level coherence properties的细粒度区别。</p>
-<h3 id="Transformer实现"><a href="#Transformer实现" class="headerlink" title="Transformer实现"></a>Transformer实现</h3><p>Bert和Albert的核心模型架构都是Transformer encoder, 包括用于编码context的<code>Multi-headed self attention</code>层, 用于计算非线性层间特征的<code>Feed-forward layers</code>, 和用于加深网络深度, 降低训练难度的<code>Layer norm and residuals</code>. 除此之外, 还有<code>Positional embeddings</code>用来编码相对位置信息.<img src="/images/transformer_encoder.png" alt="" title="A Transformer encoder."></p>
-<p>Transformer由一个个结构相同的blocks堆叠而成, 每一个block可以简单理解为一个注意力层+全连接层+残差网络, API是这样:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">attention_ffn_block</span><span class="params">(layer_input,</span></span></span><br><span class="line"><span class="function"><span class="params">                        hidden_size=<span class="number">768</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        attention_mask=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                        num_attention_heads=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        attention_head_size=<span class="number">64</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        attention_probs_dropout_prob=<span class="number">0.0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        intermediate_size=<span class="number">3072</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        intermediate_act_fn=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                        initializer_range=<span class="number">0.02</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        hidden_dropout_prob=<span class="number">0.0</span>)</span>:</span></span><br><span class="line">  <span class="string">"""A network with attention-ffn as sub-block.</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    layer_input: float Tensor of shape [batch_size, from_seq_length,</span></span><br><span class="line"><span class="string">      from_width].</span></span><br><span class="line"><span class="string">    hidden_size: (optional) int, size of hidden layer.</span></span><br><span class="line"><span class="string">    attention_mask: (optional) int32 Tensor of shape [batch_size,</span></span><br><span class="line"><span class="string">      from_seq_length, to_seq_length]. The values should be 1 or 0. The</span></span><br><span class="line"><span class="string">      attention scores will effectively be set to -infinity for any positions in</span></span><br><span class="line"><span class="string">      the mask that are 0, and will be unchanged for positions that are 1.</span></span><br><span class="line"><span class="string">    num_attention_heads: int. Number of attention heads.</span></span><br><span class="line"><span class="string">    attention_head_size: int. Size of attention head.</span></span><br><span class="line"><span class="string">    attention_probs_dropout_prob: float. dropout probability for attention_layer</span></span><br><span class="line"><span class="string">    intermediate_size: int. Size of intermediate hidden layer.</span></span><br><span class="line"><span class="string">    intermediate_act_fn: (optional) Activation function for the intermediate</span></span><br><span class="line"><span class="string">      layer.</span></span><br><span class="line"><span class="string">    initializer_range: float. Range of the weight initializer.</span></span><br><span class="line"><span class="string">    hidden_dropout_prob: (optional) float. Dropout probability of the hidden</span></span><br><span class="line"><span class="string">      layer.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    layer output</span></span><br><span class="line"><span class="string">  """</span></span><br></pre></td></tr></table></figure></p>
-<p>其中最开始是注意力层, 并在输出后面接残差, 最后正则化:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">"attention_1"</span>):</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">"self"</span>):</span><br><span class="line">    attention_output = attention_layer(</span><br><span class="line">        from_tensor=layer_input,</span><br><span class="line">        to_tensor=layer_input,</span><br><span class="line">        attention_mask=attention_mask,</span><br><span class="line">        num_attention_heads=num_attention_heads,</span><br><span class="line">        attention_probs_dropout_prob=attention_probs_dropout_prob,</span><br><span class="line">        initializer_range=initializer_range)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Run a linear projection of `hidden_size` then add a residual</span></span><br><span class="line">  <span class="comment"># with `layer_input`.</span></span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">"output"</span>):</span><br><span class="line">    attention_output = dense_layer_3d_proj(</span><br><span class="line">        attention_output,</span><br><span class="line">        hidden_size,</span><br><span class="line">        attention_head_size,</span><br><span class="line">        create_initializer(initializer_range),</span><br><span class="line">        <span class="keyword">None</span>,</span><br><span class="line">        name=<span class="string">"dense"</span>)</span><br><span class="line">    attention_output = dropout(attention_output, hidden_dropout_prob)</span><br><span class="line">attention_output = layer_norm(attention_output + layer_input)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Transformer实现"><a href="#Transformer实现" class="headerlink" title="Transformer实现"></a>Transformer实现</h3><p>Bert和Albert的核心模型架构都是Transformer encoder, 包括用于编码context的<code>Multi-headed self attention</code>层, 用于计算非线性层间特征的<code>Feed-forward layers</code>, 和用于加深网络深度, 降低训练难度的<code>Layer norm and residuals</code>. 除此之外, 还有<code>Positional embeddings</code>用来编码相对位置信息.<img src="/images/transformer_encoder.png" title="A Transformer encoder."></p>
+<p>Transformer由一个个结构相同的blocks堆叠而成, 每一个block可以简单理解为一个注意力层+全连接层+残差网络, API是这样:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">attention_ffn_block</span>(<span class="params">layer_input,</span></span></span><br><span class="line"><span class="function"><span class="params">                        hidden_size=<span class="number">768</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        attention_mask=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                        num_attention_heads=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        attention_head_size=<span class="number">64</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        attention_probs_dropout_prob=<span class="number">0.0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        intermediate_size=<span class="number">3072</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        intermediate_act_fn=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                        initializer_range=<span class="number">0.02</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        hidden_dropout_prob=<span class="number">0.0</span></span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;A network with attention-ffn as sub-block.</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    layer_input: float Tensor of shape [batch_size, from_seq_length,</span></span><br><span class="line"><span class="string">      from_width].</span></span><br><span class="line"><span class="string">    hidden_size: (optional) int, size of hidden layer.</span></span><br><span class="line"><span class="string">    attention_mask: (optional) int32 Tensor of shape [batch_size,</span></span><br><span class="line"><span class="string">      from_seq_length, to_seq_length]. The values should be 1 or 0. The</span></span><br><span class="line"><span class="string">      attention scores will effectively be set to -infinity for any positions in</span></span><br><span class="line"><span class="string">      the mask that are 0, and will be unchanged for positions that are 1.</span></span><br><span class="line"><span class="string">    num_attention_heads: int. Number of attention heads.</span></span><br><span class="line"><span class="string">    attention_head_size: int. Size of attention head.</span></span><br><span class="line"><span class="string">    attention_probs_dropout_prob: float. dropout probability for attention_layer</span></span><br><span class="line"><span class="string">    intermediate_size: int. Size of intermediate hidden layer.</span></span><br><span class="line"><span class="string">    intermediate_act_fn: (optional) Activation function for the intermediate</span></span><br><span class="line"><span class="string">      layer.</span></span><br><span class="line"><span class="string">    initializer_range: float. Range of the weight initializer.</span></span><br><span class="line"><span class="string">    hidden_dropout_prob: (optional) float. Dropout probability of the hidden</span></span><br><span class="line"><span class="string">      layer.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    layer output</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中最开始是注意力层, 并在输出后面接残差, 最后正则化:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;attention_1&quot;</span>):</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;self&quot;</span>):</span><br><span class="line">    attention_output = attention_layer(</span><br><span class="line">        from_tensor=layer_input,</span><br><span class="line">        to_tensor=layer_input,</span><br><span class="line">        attention_mask=attention_mask,</span><br><span class="line">        num_attention_heads=num_attention_heads,</span><br><span class="line">        attention_probs_dropout_prob=attention_probs_dropout_prob,</span><br><span class="line">        initializer_range=initializer_range)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Run a linear projection of `hidden_size` then add a residual</span></span><br><span class="line">  <span class="comment"># with `layer_input`.</span></span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;output&quot;</span>):</span><br><span class="line">    attention_output = dense_layer_3d_proj(</span><br><span class="line">        attention_output,</span><br><span class="line">        hidden_size,</span><br><span class="line">        attention_head_size,</span><br><span class="line">        create_initializer(initializer_range),</span><br><span class="line">        <span class="literal">None</span>,</span><br><span class="line">        name=<span class="string">&quot;dense&quot;</span>)</span><br><span class="line">    attention_output = dropout(attention_output, hidden_dropout_prob)</span><br><span class="line">attention_output = layer_norm(attention_output + layer_input)</span><br></pre></td></tr></table></figure>
 <p>其中用到的点乘注意力和多头注意力直接使用上一篇<a href="/NLP-attention-03-self-attention#Multi-head-Attention">Transformer &amp; Self-Attention (多头)自注意力编码</a>中的方法.</p>
-<p>然后就是feed forward layer, 在输出层之前加入了一个升维的中间层<code>intermediate</code>, 并应用激活函数(在这里是<code>gelu</code>), 末尾的输出网络没有激活函数, 只负责把输出映射回<code>transformer</code>的隐含层维度大小, 最后同样加上残差和正则化. 这种<strong>扩张-变换-压缩</strong>的范式, 是借鉴了mobilenet中的思路, 在需要使用<code>ReLU</code>的卷积层中，将channel数扩张到足够大，再进行激活，被认为可以降低激活层的信息损失。:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">"ffn_1"</span>):</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">"intermediate"</span>):</span><br><span class="line">    intermediate_output = dense_layer_2d(</span><br><span class="line">        attention_output,</span><br><span class="line">        intermediate_size,</span><br><span class="line">        create_initializer(initializer_range),</span><br><span class="line">        intermediate_act_fn,</span><br><span class="line">        num_attention_heads=num_attention_heads,</span><br><span class="line">        name=<span class="string">"dense"</span>)</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">"output"</span>):</span><br><span class="line">      ffn_output = dense_layer_2d(</span><br><span class="line">          intermediate_output,</span><br><span class="line">          hidden_size,</span><br><span class="line">          create_initializer(initializer_range),</span><br><span class="line">          <span class="keyword">None</span>,</span><br><span class="line">          num_attention_heads=num_attention_heads,</span><br><span class="line">          name=<span class="string">"dense"</span>)</span><br><span class="line">    ffn_output = dropout(ffn_output, hidden_dropout_prob)</span><br><span class="line">ffn_output = layer_norm(ffn_output + attention_output)</span><br><span class="line"><span class="keyword">return</span> ffn_output</span><br></pre></td></tr></table></figure></p>
-<p>其中用到的<code>dense_layer_2d</code>就是一个基本的神经网络$y=f(Wx+b)$, 其中$f()$是激活函数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dense_layer_2d</span><span class="params">(input_tensor,</span></span></span><br><span class="line"><span class="function"><span class="params">                   output_size,</span></span></span><br><span class="line"><span class="function"><span class="params">                   initializer,</span></span></span><br><span class="line"><span class="function"><span class="params">                   activation,</span></span></span><br><span class="line"><span class="function"><span class="params">                   num_attention_heads=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                   name=None)</span>:</span></span><br><span class="line">  <span class="string">"""A dense layer with 2D kernel.</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    input_tensor: Float tensor with rank 3.</span></span><br><span class="line"><span class="string">    output_size: The size of output dimension.</span></span><br><span class="line"><span class="string">    initializer: Kernel initializer.</span></span><br><span class="line"><span class="string">    activation: Activation function.</span></span><br><span class="line"><span class="string">    num_attention_heads: number of attention head in attention layer.</span></span><br><span class="line"><span class="string">    name: The name scope of this layer.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    float logits Tensor.</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line">  <span class="keyword">del</span> num_attention_heads  <span class="comment"># unused</span></span><br><span class="line">  input_shape = get_shape_list(input_tensor)</span><br><span class="line">  hidden_size = input_shape[<span class="number">2</span>]</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(name):</span><br><span class="line">    w = tf.get_variable(</span><br><span class="line">        name=<span class="string">"kernel"</span>,</span><br><span class="line">        shape=[hidden_size, output_size],</span><br><span class="line">        initializer=initializer)</span><br><span class="line">    b = tf.get_variable(</span><br><span class="line">        name=<span class="string">"bias"</span>, shape=[output_size], initializer=tf.zeros_initializer)</span><br><span class="line">    ret = tf.einsum(<span class="string">"BFH,HO-&gt;BFO"</span>, input_tensor, w)</span><br><span class="line">    ret += b</span><br><span class="line">  <span class="keyword">if</span> activation <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">    <span class="keyword">return</span> activation(ret)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure></p>
-<p>一个完整的transformer模块, 核心是由多个attention_ffn_block堆叠而成, 同时注意设定<code>reuse=tf.AUTO_REUSE</code>来实现Cross-layer parameter sharing, 设定<code>num_hidden_groups=1</code>就可以让所有层都共享参数.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transformer_model</span><span class="params">(input_tensor,</span></span></span><br><span class="line"><span class="function"><span class="params">                      attention_mask=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                      hidden_size=<span class="number">768</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      num_hidden_layers=<span class="number">12</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      num_hidden_groups=<span class="number">12</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      num_attention_heads=<span class="number">12</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      intermediate_size=<span class="number">3072</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      inner_group_num=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      intermediate_act_fn=<span class="string">"gelu"</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      hidden_dropout_prob=<span class="number">0.1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      attention_probs_dropout_prob=<span class="number">0.1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      initializer_range=<span class="number">0.02</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      do_return_all_layers=False)</span>:</span></span><br><span class="line">  <span class="string">"""Multi-headed, multi-layer Transformer from "Attention is All You Need".</span></span><br><span class="line"><span class="string">  This is almost an exact implementation of the original Transformer encoder.</span></span><br><span class="line"><span class="string">  See the original paper:</span></span><br><span class="line"><span class="string">  https://arxiv.org/abs/1706.03762</span></span><br><span class="line"><span class="string">  Also see:</span></span><br><span class="line"><span class="string">  https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/transformer.py</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    input_tensor: float Tensor of shape [batch_size, seq_length, hidden_size].</span></span><br><span class="line"><span class="string">    attention_mask: (optional) int32 Tensor of shape [batch_size, seq_length,</span></span><br><span class="line"><span class="string">      seq_length], with 1 for positions that can be attended to and 0 in</span></span><br><span class="line"><span class="string">      positions that should not be.</span></span><br><span class="line"><span class="string">    hidden_size: int. Hidden size of the Transformer.</span></span><br><span class="line"><span class="string">    num_hidden_layers: int. Number of layers (blocks) in the Transformer.</span></span><br><span class="line"><span class="string">    num_hidden_groups: int. Number of group for the hidden layers, parameters</span></span><br><span class="line"><span class="string">      in the same group are shared.</span></span><br><span class="line"><span class="string">    num_attention_heads: int. Number of attention heads in the Transformer.</span></span><br><span class="line"><span class="string">    intermediate_size: int. The size of the "intermediate" (a.k.a., feed</span></span><br><span class="line"><span class="string">      forward) layer.</span></span><br><span class="line"><span class="string">    inner_group_num: int, number of inner repetition of attention and ffn.</span></span><br><span class="line"><span class="string">    intermediate_act_fn: function. The non-linear activation function to apply</span></span><br><span class="line"><span class="string">      to the output of the intermediate/feed-forward layer.</span></span><br><span class="line"><span class="string">    hidden_dropout_prob: float. Dropout probability for the hidden layers.</span></span><br><span class="line"><span class="string">    attention_probs_dropout_prob: float. Dropout probability of the attention</span></span><br><span class="line"><span class="string">      probabilities.</span></span><br><span class="line"><span class="string">    initializer_range: float. Range of the initializer (stddev of truncated</span></span><br><span class="line"><span class="string">      normal).</span></span><br><span class="line"><span class="string">    do_return_all_layers: Whether to also return all layers or just the final</span></span><br><span class="line"><span class="string">      layer.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    float Tensor of shape [batch_size, seq_length, hidden_size], the final</span></span><br><span class="line"><span class="string">    hidden layer of the Transformer.</span></span><br><span class="line"><span class="string">  Raises:</span></span><br><span class="line"><span class="string">    ValueError: A Tensor shape or parameter is invalid.</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line">  <span class="keyword">if</span> hidden_size % num_attention_heads != <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(</span><br><span class="line">        <span class="string">"The hidden size (%d) is not a multiple of the number of attention "</span></span><br><span class="line">        <span class="string">"heads (%d)"</span> % (hidden_size, num_attention_heads))</span><br><span class="line"></span><br><span class="line">  attention_head_size = hidden_size // num_attention_heads</span><br><span class="line">  input_shape = get_shape_list(input_tensor, expected_rank=<span class="number">3</span>)</span><br><span class="line">  input_width = input_shape[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">  all_layer_outputs = []</span><br><span class="line">  <span class="keyword">if</span> input_width != hidden_size:</span><br><span class="line">    prev_output = dense_layer_2d(</span><br><span class="line">        input_tensor, hidden_size, create_initializer(initializer_range),</span><br><span class="line">        <span class="keyword">None</span>, name=<span class="string">"embedding_hidden_mapping_in"</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    prev_output = input_tensor</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">"transformer"</span>, reuse=tf.AUTO_REUSE):</span><br><span class="line">    <span class="keyword">for</span> layer_idx <span class="keyword">in</span> range(num_hidden_layers):</span><br><span class="line">      group_idx = int(layer_idx / num_hidden_layers * num_hidden_groups)</span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">"group_%d"</span> % group_idx):</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">"layer_%d"</span> % layer_idx):</span><br><span class="line">          layer_output = prev_output</span><br><span class="line">          <span class="keyword">for</span> inner_group_idx <span class="keyword">in</span> range(inner_group_num):</span><br><span class="line">            <span class="keyword">with</span> tf.variable_scope(<span class="string">"inner_group_%d"</span> % inner_group_idx):</span><br><span class="line">              layer_output = attention_ffn_block(</span><br><span class="line">                  layer_output, hidden_size, attention_mask,</span><br><span class="line">                  num_attention_heads, attention_head_size,</span><br><span class="line">                  attention_probs_dropout_prob, intermediate_size,</span><br><span class="line">                  intermediate_act_fn, initializer_range, hidden_dropout_prob)</span><br><span class="line">              prev_output = layer_output</span><br><span class="line">              all_layer_outputs.append(layer_output)</span><br><span class="line">  <span class="keyword">if</span> do_return_all_layers:</span><br><span class="line">    <span class="keyword">return</span> all_layer_outputs</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> all_layer_outputs[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure></p>
-<h3 id="Factorized-Embedding实现"><a href="#Factorized-Embedding实现" class="headerlink" title="Factorized Embedding实现"></a>Factorized Embedding实现</h3><p>首先是需要embedding的因式分解, <code>embedding_lookup</code>输出的是<code>V x E matrix</code>, 其中<code>E</code>就是<code>embedding_size</code>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">embedding_lookup</span><span class="params">(input_ids,</span></span></span><br><span class="line"><span class="function"><span class="params">                     vocab_size,</span></span></span><br><span class="line"><span class="function"><span class="params">                     embedding_size=<span class="number">128</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                     initializer_range=<span class="number">0.02</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                     word_embedding_name=<span class="string">"word_embeddings"</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                     use_one_hot_embeddings=False)</span>:</span></span><br><span class="line">  <span class="string">"""Looks up words embeddings for id tensor.</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    input_ids: int32 Tensor of shape [batch_size, seq_length] containing word</span></span><br><span class="line"><span class="string">      ids.</span></span><br><span class="line"><span class="string">    vocab_size: int. Size of the embedding vocabulary.</span></span><br><span class="line"><span class="string">    embedding_size: int. Width of the word embeddings.</span></span><br><span class="line"><span class="string">    initializer_range: float. Embedding initialization range.</span></span><br><span class="line"><span class="string">    word_embedding_name: string. Name of the embedding table.</span></span><br><span class="line"><span class="string">    use_one_hot_embeddings: bool. If True, use one-hot method for word</span></span><br><span class="line"><span class="string">      embeddings. If False, use `tf.nn.embedding_lookup()`.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    float Tensor of shape [batch_size, seq_length, embedding_size].</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line">  <span class="comment"># This function assumes that the input is of shape [batch_size, seq_length,</span></span><br><span class="line">  <span class="comment"># num_inputs].</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># If the input is a 2D tensor of shape [batch_size, seq_length], we</span></span><br><span class="line">  <span class="comment"># reshape to [batch_size, seq_length, 1].</span></span><br><span class="line">  <span class="keyword">if</span> input_ids.shape.ndims == <span class="number">2</span>:</span><br><span class="line">    input_ids = tf.expand_dims(input_ids, axis=[<span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line">  embedding_table = tf.get_variable(</span><br><span class="line">      name=word_embedding_name,</span><br><span class="line">      shape=[vocab_size, embedding_size],</span><br><span class="line">      initializer=create_initializer(initializer_range))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> use_one_hot_embeddings:</span><br><span class="line">    flat_input_ids = tf.reshape(input_ids, [<span class="number">-1</span>])</span><br><span class="line">    one_hot_input_ids = tf.one_hot(flat_input_ids, depth=vocab_size)</span><br><span class="line">    output = tf.matmul(one_hot_input_ids, embedding_table)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    output = tf.nn.embedding_lookup(embedding_table, input_ids)</span><br><span class="line"></span><br><span class="line">  input_shape = get_shape_list(input_ids)</span><br><span class="line"></span><br><span class="line">  output = tf.reshape(output,</span><br><span class="line">                      input_shape[<span class="number">0</span>:<span class="number">-1</span>] + [input_shape[<span class="number">-1</span>] * embedding_size])</span><br><span class="line">  <span class="keyword">return</span> (output, embedding_table)</span><br></pre></td></tr></table></figure></p>
-<p>把embedding映射回隐层大小<code>E x H</code>, 依靠的是上面定义的<code>transformer_model</code>中的<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> input_width != hidden_size:</span><br><span class="line">    prev_output = dense_layer_2d(</span><br><span class="line">        input_tensor, hidden_size, create_initializer(initializer_range),</span><br><span class="line">        <span class="keyword">None</span>, name=<span class="string">"embedding_hidden_mapping_in"</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="ALBERT模型搭建"><a href="#ALBERT模型搭建" class="headerlink" title="ALBERT模型搭建"></a>ALBERT模型搭建</h3><p>大体框架就是<code>embeddings</code>+<code>encoder</code>+<code>pooler output</code>, 其中<code>encoder</code>就是<code>transformer</code>blocks的堆叠:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AlbertModel</span><span class="params">(object)</span>:</span></span><br><span class="line">  <span class="string">"""BERT model ("Bidirectional Encoder Representations from Transformers").</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,</span></span></span><br><span class="line"><span class="function"><span class="params">               config,</span></span></span><br><span class="line"><span class="function"><span class="params">               is_training,</span></span></span><br><span class="line"><span class="function"><span class="params">               input_ids,</span></span></span><br><span class="line"><span class="function"><span class="params">               input_mask=None,</span></span></span><br><span class="line"><span class="function"><span class="params">               token_type_ids=None,</span></span></span><br><span class="line"><span class="function"><span class="params">               use_one_hot_embeddings=False,</span></span></span><br><span class="line"><span class="function"><span class="params">               scope=None)</span>:</span></span><br><span class="line">    <span class="string">"""Constructor for AlbertModel.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      config: `AlbertConfig` instance.</span></span><br><span class="line"><span class="string">      is_training: bool. true for training model, false for eval model. Controls</span></span><br><span class="line"><span class="string">        whether dropout will be applied.</span></span><br><span class="line"><span class="string">      input_ids: int32 Tensor of shape [batch_size, seq_length].</span></span><br><span class="line"><span class="string">      input_mask: (optional) int32 Tensor of shape [batch_size, seq_length].</span></span><br><span class="line"><span class="string">      token_type_ids: (optional) int32 Tensor of shape [batch_size, seq_length].</span></span><br><span class="line"><span class="string">      use_one_hot_embeddings: (optional) bool. Whether to use one-hot word</span></span><br><span class="line"><span class="string">        embeddings or tf.embedding_lookup() for the word embeddings.</span></span><br><span class="line"><span class="string">      scope: (optional) variable scope. Defaults to "bert".</span></span><br><span class="line"><span class="string">    Raises:</span></span><br><span class="line"><span class="string">      ValueError: The config is invalid or one of the input tensor shapes</span></span><br><span class="line"><span class="string">        is invalid.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    config = copy.deepcopy(config)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> is_training:</span><br><span class="line">      config.hidden_dropout_prob = <span class="number">0.0</span></span><br><span class="line">      config.attention_probs_dropout_prob = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">    input_shape = get_shape_list(input_ids, expected_rank=<span class="number">2</span>)</span><br><span class="line">    batch_size = input_shape[<span class="number">0</span>]</span><br><span class="line">    seq_length = input_shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> input_mask <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">      input_mask = tf.ones(shape=[batch_size, seq_length], dtype=tf.int32)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> token_type_ids <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">      token_type_ids = tf.zeros(shape=[batch_size, seq_length], dtype=tf.int32)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(scope, default_name=<span class="string">"bert"</span>):</span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">"embeddings"</span>):</span><br><span class="line">        <span class="comment"># Perform embedding lookup on the word ids.</span></span><br><span class="line">        (self.word_embedding_output,</span><br><span class="line">         self.output_embedding_table) = embedding_lookup(</span><br><span class="line">            input_ids=input_ids,</span><br><span class="line">            vocab_size=config.vocab_size,</span><br><span class="line">            embedding_size=config.embedding_size,</span><br><span class="line">            initializer_range=config.initializer_range,</span><br><span class="line">            word_embedding_name=<span class="string">"word_embeddings"</span>,</span><br><span class="line">            use_one_hot_embeddings=use_one_hot_embeddings)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Add positional embeddings and token type embeddings, then layer</span></span><br><span class="line">        <span class="comment"># normalize and perform dropout.</span></span><br><span class="line">        self.embedding_output = embedding_postprocessor(</span><br><span class="line">            input_tensor=self.word_embedding_output,</span><br><span class="line">            use_token_type=<span class="keyword">True</span>,</span><br><span class="line">            token_type_ids=token_type_ids,</span><br><span class="line">            token_type_vocab_size=config.type_vocab_size,</span><br><span class="line">            token_type_embedding_name=<span class="string">"token_type_embeddings"</span>,</span><br><span class="line">            use_position_embeddings=<span class="keyword">True</span>,</span><br><span class="line">            position_embedding_name=<span class="string">"position_embeddings"</span>,</span><br><span class="line">            initializer_range=config.initializer_range,</span><br><span class="line">            max_position_embeddings=config.max_position_embeddings,</span><br><span class="line">            dropout_prob=config.hidden_dropout_prob)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">"encoder"</span>):</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Run the stacked transformer.</span></span><br><span class="line">        <span class="comment"># `sequence_output` shape = [batch_size, seq_length, hidden_size].</span></span><br><span class="line">        self.all_encoder_layers = transformer_model(</span><br><span class="line">            input_tensor=self.embedding_output,</span><br><span class="line">            attention_mask=input_mask,</span><br><span class="line">            hidden_size=config.hidden_size,</span><br><span class="line">            num_hidden_layers=config.num_hidden_layers,</span><br><span class="line">            num_hidden_groups=config.num_hidden_groups,</span><br><span class="line">            num_attention_heads=config.num_attention_heads,</span><br><span class="line">            intermediate_size=config.intermediate_size,</span><br><span class="line">            inner_group_num=config.inner_group_num,</span><br><span class="line">            intermediate_act_fn=get_activation(config.hidden_act),</span><br><span class="line">            hidden_dropout_prob=config.hidden_dropout_prob,</span><br><span class="line">            attention_probs_dropout_prob=config.attention_probs_dropout_prob,</span><br><span class="line">            initializer_range=config.initializer_range,</span><br><span class="line">            do_return_all_layers=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">      self.sequence_output = self.all_encoder_layers[<span class="number">-1</span>]</span><br><span class="line">      <span class="comment"># The "pooler" converts the encoded sequence tensor of shape</span></span><br><span class="line">      <span class="comment"># [batch_size, seq_length, hidden_size] to a tensor of shape</span></span><br><span class="line">      <span class="comment"># [batch_size, hidden_size]. This is necessary for segment-level</span></span><br><span class="line">      <span class="comment"># (or segment-pair-level) classification tasks where we need a fixed</span></span><br><span class="line">      <span class="comment"># dimensional representation of the segment.</span></span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">"pooler"</span>):</span><br><span class="line">        <span class="comment"># We "pool" the model by simply taking the hidden state corresponding</span></span><br><span class="line">        <span class="comment"># to the first token. We assume that this has been pre-trained</span></span><br><span class="line">        first_token_tensor = tf.squeeze(self.sequence_output[:, <span class="number">0</span>:<span class="number">1</span>, :], axis=<span class="number">1</span>)</span><br><span class="line">        self.pooled_output = tf.layers.dense(</span><br><span class="line">            first_token_tensor,</span><br><span class="line">            config.hidden_size,</span><br><span class="line">            activation=tf.tanh,</span><br><span class="line">            kernel_initializer=create_initializer(config.initializer_range))</span><br></pre></td></tr></table></figure></p>
-<p>再附上官网的API介绍：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Already been converted from strings into ids</span></span><br><span class="line">input_ids = tf.constant([[<span class="number">31</span>, <span class="number">51</span>, <span class="number">99</span>], [<span class="number">15</span>, <span class="number">5</span>, <span class="number">0</span>]])</span><br><span class="line">input_mask = tf.constant([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line">token_type_ids = tf.constant([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>]])</span><br><span class="line">config = modeling.AlbertConfig(vocab_size=<span class="number">32000</span>, hidden_size=<span class="number">512</span>,</span><br><span class="line">num_hidden_layers=<span class="number">8</span>, num_attention_heads=<span class="number">6</span>, intermediate_size=<span class="number">1024</span>)</span><br><span class="line">model = modeling.AlbertModel(config=config, is_training=<span class="keyword">True</span>,</span><br><span class="line">input_ids=input_ids, input_mask=input_mask, token_type_ids=token_type_ids)</span><br><span class="line">label_embeddings = tf.get_variable(...)</span><br><span class="line">pooled_output = model.get_pooled_output()</span><br><span class="line">logits = tf.matmul(pooled_output, label_embeddings)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://github.com/google-research/ALBERT" target="_blank" rel="noopener">https://github.com/google-research/ALBERT</a></p>
+<p>然后就是feed forward layer, 在输出层之前加入了一个升维的中间层<code>intermediate</code>, 并应用激活函数(在这里是<code>gelu</code>), 末尾的输出网络没有激活函数, 只负责把输出映射回<code>transformer</code>的隐含层维度大小, 最后同样加上残差和正则化. 这种<strong>扩张-变换-压缩</strong>的范式, 是借鉴了mobilenet中的思路, 在需要使用<code>ReLU</code>的卷积层中，将channel数扩张到足够大，再进行激活，被认为可以降低激活层的信息损失。:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;ffn_1&quot;</span>):</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;intermediate&quot;</span>):</span><br><span class="line">    intermediate_output = dense_layer_2d(</span><br><span class="line">        attention_output,</span><br><span class="line">        intermediate_size,</span><br><span class="line">        create_initializer(initializer_range),</span><br><span class="line">        intermediate_act_fn,</span><br><span class="line">        num_attention_heads=num_attention_heads,</span><br><span class="line">        name=<span class="string">&quot;dense&quot;</span>)</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;output&quot;</span>):</span><br><span class="line">      ffn_output = dense_layer_2d(</span><br><span class="line">          intermediate_output,</span><br><span class="line">          hidden_size,</span><br><span class="line">          create_initializer(initializer_range),</span><br><span class="line">          <span class="literal">None</span>,</span><br><span class="line">          num_attention_heads=num_attention_heads,</span><br><span class="line">          name=<span class="string">&quot;dense&quot;</span>)</span><br><span class="line">    ffn_output = dropout(ffn_output, hidden_dropout_prob)</span><br><span class="line">ffn_output = layer_norm(ffn_output + attention_output)</span><br><span class="line"><span class="keyword">return</span> ffn_output</span><br></pre></td></tr></table></figure>
+<p>其中用到的<code>dense_layer_2d</code>就是一个基本的神经网络$y=f(Wx+b)$, 其中$f()$是激活函数:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dense_layer_2d</span>(<span class="params">input_tensor,</span></span></span><br><span class="line"><span class="function"><span class="params">                   output_size,</span></span></span><br><span class="line"><span class="function"><span class="params">                   initializer,</span></span></span><br><span class="line"><span class="function"><span class="params">                   activation,</span></span></span><br><span class="line"><span class="function"><span class="params">                   num_attention_heads=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                   name=None</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;A dense layer with 2D kernel.</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    input_tensor: Float tensor with rank 3.</span></span><br><span class="line"><span class="string">    output_size: The size of output dimension.</span></span><br><span class="line"><span class="string">    initializer: Kernel initializer.</span></span><br><span class="line"><span class="string">    activation: Activation function.</span></span><br><span class="line"><span class="string">    num_attention_heads: number of attention head in attention layer.</span></span><br><span class="line"><span class="string">    name: The name scope of this layer.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    float logits Tensor.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line">  <span class="keyword">del</span> num_attention_heads  <span class="comment"># unused</span></span><br><span class="line">  input_shape = get_shape_list(input_tensor)</span><br><span class="line">  hidden_size = input_shape[<span class="number">2</span>]</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(name):</span><br><span class="line">    w = tf.get_variable(</span><br><span class="line">        name=<span class="string">&quot;kernel&quot;</span>,</span><br><span class="line">        shape=[hidden_size, output_size],</span><br><span class="line">        initializer=initializer)</span><br><span class="line">    b = tf.get_variable(</span><br><span class="line">        name=<span class="string">&quot;bias&quot;</span>, shape=[output_size], initializer=tf.zeros_initializer)</span><br><span class="line">    ret = tf.einsum(<span class="string">&quot;BFH,HO-&gt;BFO&quot;</span>, input_tensor, w)</span><br><span class="line">    ret += b</span><br><span class="line">  <span class="keyword">if</span> activation <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">return</span> activation(ret)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
 
-      
+<p>一个完整的transformer模块, 核心是由多个attention_ffn_block堆叠而成, 同时注意设定<code>reuse=tf.AUTO_REUSE</code>来实现Cross-layer parameter sharing, 设定<code>num_hidden_groups=1</code>就可以让所有层都共享参数.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transformer_model</span>(<span class="params">input_tensor,</span></span></span><br><span class="line"><span class="function"><span class="params">                      attention_mask=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                      hidden_size=<span class="number">768</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      num_hidden_layers=<span class="number">12</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      num_hidden_groups=<span class="number">12</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      num_attention_heads=<span class="number">12</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      intermediate_size=<span class="number">3072</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      inner_group_num=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      intermediate_act_fn=<span class="string">&quot;gelu&quot;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      hidden_dropout_prob=<span class="number">0.1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      attention_probs_dropout_prob=<span class="number">0.1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      initializer_range=<span class="number">0.02</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      do_return_all_layers=False</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;Multi-headed, multi-layer Transformer from &quot;Attention is All You Need&quot;.</span></span><br><span class="line"><span class="string">  This is almost an exact implementation of the original Transformer encoder.</span></span><br><span class="line"><span class="string">  See the original paper:</span></span><br><span class="line"><span class="string">  https://arxiv.org/abs/1706.03762</span></span><br><span class="line"><span class="string">  Also see:</span></span><br><span class="line"><span class="string">  https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/transformer.py</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    input_tensor: float Tensor of shape [batch_size, seq_length, hidden_size].</span></span><br><span class="line"><span class="string">    attention_mask: (optional) int32 Tensor of shape [batch_size, seq_length,</span></span><br><span class="line"><span class="string">      seq_length], with 1 for positions that can be attended to and 0 in</span></span><br><span class="line"><span class="string">      positions that should not be.</span></span><br><span class="line"><span class="string">    hidden_size: int. Hidden size of the Transformer.</span></span><br><span class="line"><span class="string">    num_hidden_layers: int. Number of layers (blocks) in the Transformer.</span></span><br><span class="line"><span class="string">    num_hidden_groups: int. Number of group for the hidden layers, parameters</span></span><br><span class="line"><span class="string">      in the same group are shared.</span></span><br><span class="line"><span class="string">    num_attention_heads: int. Number of attention heads in the Transformer.</span></span><br><span class="line"><span class="string">    intermediate_size: int. The size of the &quot;intermediate&quot; (a.k.a., feed</span></span><br><span class="line"><span class="string">      forward) layer.</span></span><br><span class="line"><span class="string">    inner_group_num: int, number of inner repetition of attention and ffn.</span></span><br><span class="line"><span class="string">    intermediate_act_fn: function. The non-linear activation function to apply</span></span><br><span class="line"><span class="string">      to the output of the intermediate/feed-forward layer.</span></span><br><span class="line"><span class="string">    hidden_dropout_prob: float. Dropout probability for the hidden layers.</span></span><br><span class="line"><span class="string">    attention_probs_dropout_prob: float. Dropout probability of the attention</span></span><br><span class="line"><span class="string">      probabilities.</span></span><br><span class="line"><span class="string">    initializer_range: float. Range of the initializer (stddev of truncated</span></span><br><span class="line"><span class="string">      normal).</span></span><br><span class="line"><span class="string">    do_return_all_layers: Whether to also return all layers or just the final</span></span><br><span class="line"><span class="string">      layer.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    float Tensor of shape [batch_size, seq_length, hidden_size], the final</span></span><br><span class="line"><span class="string">    hidden layer of the Transformer.</span></span><br><span class="line"><span class="string">  Raises:</span></span><br><span class="line"><span class="string">    ValueError: A Tensor shape or parameter is invalid.</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line">  <span class="keyword">if</span> hidden_size % num_attention_heads != <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(</span><br><span class="line">        <span class="string">&quot;The hidden size (%d) is not a multiple of the number of attention &quot;</span></span><br><span class="line">        <span class="string">&quot;heads (%d)&quot;</span> % (hidden_size, num_attention_heads))</span><br><span class="line"></span><br><span class="line">  attention_head_size = hidden_size // num_attention_heads</span><br><span class="line">  input_shape = get_shape_list(input_tensor, expected_rank=<span class="number">3</span>)</span><br><span class="line">  input_width = input_shape[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">  all_layer_outputs = []</span><br><span class="line">  <span class="keyword">if</span> input_width != hidden_size:</span><br><span class="line">    prev_output = dense_layer_2d(</span><br><span class="line">        input_tensor, hidden_size, create_initializer(initializer_range),</span><br><span class="line">        <span class="literal">None</span>, name=<span class="string">&quot;embedding_hidden_mapping_in&quot;</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    prev_output = input_tensor</span><br><span class="line">  <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;transformer&quot;</span>, reuse=tf.AUTO_REUSE):</span><br><span class="line">    <span class="keyword">for</span> layer_idx <span class="keyword">in</span> range(num_hidden_layers):</span><br><span class="line">      group_idx = int(layer_idx / num_hidden_layers * num_hidden_groups)</span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;group_%d&quot;</span> % group_idx):</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&quot;layer_%d&quot;</span> % layer_idx):</span><br><span class="line">          layer_output = prev_output</span><br><span class="line">          <span class="keyword">for</span> inner_group_idx <span class="keyword">in</span> range(inner_group_num):</span><br><span class="line">            <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;inner_group_%d&quot;</span> % inner_group_idx):</span><br><span class="line">              layer_output = attention_ffn_block(</span><br><span class="line">                  layer_output, hidden_size, attention_mask,</span><br><span class="line">                  num_attention_heads, attention_head_size,</span><br><span class="line">                  attention_probs_dropout_prob, intermediate_size,</span><br><span class="line">                  intermediate_act_fn, initializer_range, hidden_dropout_prob)</span><br><span class="line">              prev_output = layer_output</span><br><span class="line">              all_layer_outputs.append(layer_output)</span><br><span class="line">  <span class="keyword">if</span> do_return_all_layers:</span><br><span class="line">    <span class="keyword">return</span> all_layer_outputs</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> all_layer_outputs[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Factorized-Embedding实现"><a href="#Factorized-Embedding实现" class="headerlink" title="Factorized Embedding实现"></a>Factorized Embedding实现</h3><p>首先是需要embedding的因式分解, <code>embedding_lookup</code>输出的是<code>V x E matrix</code>, 其中<code>E</code>就是<code>embedding_size</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">embedding_lookup</span>(<span class="params">input_ids,</span></span></span><br><span class="line"><span class="function"><span class="params">                     vocab_size,</span></span></span><br><span class="line"><span class="function"><span class="params">                     embedding_size=<span class="number">128</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                     initializer_range=<span class="number">0.02</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                     word_embedding_name=<span class="string">&quot;word_embeddings&quot;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                     use_one_hot_embeddings=False</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;Looks up words embeddings for id tensor.</span></span><br><span class="line"><span class="string">  Args:</span></span><br><span class="line"><span class="string">    input_ids: int32 Tensor of shape [batch_size, seq_length] containing word</span></span><br><span class="line"><span class="string">      ids.</span></span><br><span class="line"><span class="string">    vocab_size: int. Size of the embedding vocabulary.</span></span><br><span class="line"><span class="string">    embedding_size: int. Width of the word embeddings.</span></span><br><span class="line"><span class="string">    initializer_range: float. Embedding initialization range.</span></span><br><span class="line"><span class="string">    word_embedding_name: string. Name of the embedding table.</span></span><br><span class="line"><span class="string">    use_one_hot_embeddings: bool. If True, use one-hot method for word</span></span><br><span class="line"><span class="string">      embeddings. If False, use `tf.nn.embedding_lookup()`.</span></span><br><span class="line"><span class="string">  Returns:</span></span><br><span class="line"><span class="string">    float Tensor of shape [batch_size, seq_length, embedding_size].</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line">  <span class="comment"># This function assumes that the input is of shape [batch_size, seq_length,</span></span><br><span class="line">  <span class="comment"># num_inputs].</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># If the input is a 2D tensor of shape [batch_size, seq_length], we</span></span><br><span class="line">  <span class="comment"># reshape to [batch_size, seq_length, 1].</span></span><br><span class="line">  <span class="keyword">if</span> input_ids.shape.ndims == <span class="number">2</span>:</span><br><span class="line">    input_ids = tf.expand_dims(input_ids, axis=[<span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line">  embedding_table = tf.get_variable(</span><br><span class="line">      name=word_embedding_name,</span><br><span class="line">      shape=[vocab_size, embedding_size],</span><br><span class="line">      initializer=create_initializer(initializer_range))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> use_one_hot_embeddings:</span><br><span class="line">    flat_input_ids = tf.reshape(input_ids, [<span class="number">-1</span>])</span><br><span class="line">    one_hot_input_ids = tf.one_hot(flat_input_ids, depth=vocab_size)</span><br><span class="line">    output = tf.matmul(one_hot_input_ids, embedding_table)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    output = tf.nn.embedding_lookup(embedding_table, input_ids)</span><br><span class="line"></span><br><span class="line">  input_shape = get_shape_list(input_ids)</span><br><span class="line"></span><br><span class="line">  output = tf.reshape(output,</span><br><span class="line">                      input_shape[<span class="number">0</span>:<span class="number">-1</span>] + [input_shape[<span class="number">-1</span>] * embedding_size])</span><br><span class="line">  <span class="keyword">return</span> (output, embedding_table)</span><br></pre></td></tr></table></figure>
+<p>把embedding映射回隐层大小<code>E x H</code>, 依靠的是上面定义的<code>transformer_model</code>中的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> input_width != hidden_size:</span><br><span class="line">    prev_output = dense_layer_2d(</span><br><span class="line">        input_tensor, hidden_size, create_initializer(initializer_range),</span><br><span class="line">        <span class="literal">None</span>, name=<span class="string">&quot;embedding_hidden_mapping_in&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="ALBERT模型搭建"><a href="#ALBERT模型搭建" class="headerlink" title="ALBERT模型搭建"></a>ALBERT模型搭建</h3><p>大体框架就是<code>embeddings</code>+<code>encoder</code>+<code>pooler output</code>, 其中<code>encoder</code>就是<code>transformer</code>blocks的堆叠:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AlbertModel</span>(<span class="params">object</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;BERT model (&quot;Bidirectional Encoder Representations from Transformers&quot;).</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,</span></span></span><br><span class="line"><span class="function"><span class="params">               config,</span></span></span><br><span class="line"><span class="function"><span class="params">               is_training,</span></span></span><br><span class="line"><span class="function"><span class="params">               input_ids,</span></span></span><br><span class="line"><span class="function"><span class="params">               input_mask=None,</span></span></span><br><span class="line"><span class="function"><span class="params">               token_type_ids=None,</span></span></span><br><span class="line"><span class="function"><span class="params">               use_one_hot_embeddings=False,</span></span></span><br><span class="line"><span class="function"><span class="params">               scope=None</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Constructor for AlbertModel.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      config: `AlbertConfig` instance.</span></span><br><span class="line"><span class="string">      is_training: bool. true for training model, false for eval model. Controls</span></span><br><span class="line"><span class="string">        whether dropout will be applied.</span></span><br><span class="line"><span class="string">      input_ids: int32 Tensor of shape [batch_size, seq_length].</span></span><br><span class="line"><span class="string">      input_mask: (optional) int32 Tensor of shape [batch_size, seq_length].</span></span><br><span class="line"><span class="string">      token_type_ids: (optional) int32 Tensor of shape [batch_size, seq_length].</span></span><br><span class="line"><span class="string">      use_one_hot_embeddings: (optional) bool. Whether to use one-hot word</span></span><br><span class="line"><span class="string">        embeddings or tf.embedding_lookup() for the word embeddings.</span></span><br><span class="line"><span class="string">      scope: (optional) variable scope. Defaults to &quot;bert&quot;.</span></span><br><span class="line"><span class="string">    Raises:</span></span><br><span class="line"><span class="string">      ValueError: The config is invalid or one of the input tensor shapes</span></span><br><span class="line"><span class="string">        is invalid.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    config = copy.deepcopy(config)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> is_training:</span><br><span class="line">      config.hidden_dropout_prob = <span class="number">0.0</span></span><br><span class="line">      config.attention_probs_dropout_prob = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">    input_shape = get_shape_list(input_ids, expected_rank=<span class="number">2</span>)</span><br><span class="line">    batch_size = input_shape[<span class="number">0</span>]</span><br><span class="line">    seq_length = input_shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> input_mask <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">      input_mask = tf.ones(shape=[batch_size, seq_length], dtype=tf.int32)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> token_type_ids <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">      token_type_ids = tf.zeros(shape=[batch_size, seq_length], dtype=tf.int32)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(scope, default_name=<span class="string">&quot;bert&quot;</span>):</span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;embeddings&quot;</span>):</span><br><span class="line">        <span class="comment"># Perform embedding lookup on the word ids.</span></span><br><span class="line">        (self.word_embedding_output,</span><br><span class="line">         self.output_embedding_table) = embedding_lookup(</span><br><span class="line">            input_ids=input_ids,</span><br><span class="line">            vocab_size=config.vocab_size,</span><br><span class="line">            embedding_size=config.embedding_size,</span><br><span class="line">            initializer_range=config.initializer_range,</span><br><span class="line">            word_embedding_name=<span class="string">&quot;word_embeddings&quot;</span>,</span><br><span class="line">            use_one_hot_embeddings=use_one_hot_embeddings)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Add positional embeddings and token type embeddings, then layer</span></span><br><span class="line">        <span class="comment"># normalize and perform dropout.</span></span><br><span class="line">        self.embedding_output = embedding_postprocessor(</span><br><span class="line">            input_tensor=self.word_embedding_output,</span><br><span class="line">            use_token_type=<span class="literal">True</span>,</span><br><span class="line">            token_type_ids=token_type_ids,</span><br><span class="line">            token_type_vocab_size=config.type_vocab_size,</span><br><span class="line">            token_type_embedding_name=<span class="string">&quot;token_type_embeddings&quot;</span>,</span><br><span class="line">            use_position_embeddings=<span class="literal">True</span>,</span><br><span class="line">            position_embedding_name=<span class="string">&quot;position_embeddings&quot;</span>,</span><br><span class="line">            initializer_range=config.initializer_range,</span><br><span class="line">            max_position_embeddings=config.max_position_embeddings,</span><br><span class="line">            dropout_prob=config.hidden_dropout_prob)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;encoder&quot;</span>):</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Run the stacked transformer.</span></span><br><span class="line">        <span class="comment"># `sequence_output` shape = [batch_size, seq_length, hidden_size].</span></span><br><span class="line">        self.all_encoder_layers = transformer_model(</span><br><span class="line">            input_tensor=self.embedding_output,</span><br><span class="line">            attention_mask=input_mask,</span><br><span class="line">            hidden_size=config.hidden_size,</span><br><span class="line">            num_hidden_layers=config.num_hidden_layers,</span><br><span class="line">            num_hidden_groups=config.num_hidden_groups,</span><br><span class="line">            num_attention_heads=config.num_attention_heads,</span><br><span class="line">            intermediate_size=config.intermediate_size,</span><br><span class="line">            inner_group_num=config.inner_group_num,</span><br><span class="line">            intermediate_act_fn=get_activation(config.hidden_act),</span><br><span class="line">            hidden_dropout_prob=config.hidden_dropout_prob,</span><br><span class="line">            attention_probs_dropout_prob=config.attention_probs_dropout_prob,</span><br><span class="line">            initializer_range=config.initializer_range,</span><br><span class="line">            do_return_all_layers=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">      self.sequence_output = self.all_encoder_layers[<span class="number">-1</span>]</span><br><span class="line">      <span class="comment"># The &quot;pooler&quot; converts the encoded sequence tensor of shape</span></span><br><span class="line">      <span class="comment"># [batch_size, seq_length, hidden_size] to a tensor of shape</span></span><br><span class="line">      <span class="comment"># [batch_size, hidden_size]. This is necessary for segment-level</span></span><br><span class="line">      <span class="comment"># (or segment-pair-level) classification tasks where we need a fixed</span></span><br><span class="line">      <span class="comment"># dimensional representation of the segment.</span></span><br><span class="line">      <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;pooler&quot;</span>):</span><br><span class="line">        <span class="comment"># We &quot;pool&quot; the model by simply taking the hidden state corresponding</span></span><br><span class="line">        <span class="comment"># to the first token. We assume that this has been pre-trained</span></span><br><span class="line">        first_token_tensor = tf.squeeze(self.sequence_output[:, <span class="number">0</span>:<span class="number">1</span>, :], axis=<span class="number">1</span>)</span><br><span class="line">        self.pooled_output = tf.layers.dense(</span><br><span class="line">            first_token_tensor,</span><br><span class="line">            config.hidden_size,</span><br><span class="line">            activation=tf.tanh,</span><br><span class="line">            kernel_initializer=create_initializer(config.initializer_range))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>再附上官网的API介绍：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Already been converted from strings into ids</span></span><br><span class="line">input_ids = tf.constant([[<span class="number">31</span>, <span class="number">51</span>, <span class="number">99</span>], [<span class="number">15</span>, <span class="number">5</span>, <span class="number">0</span>]])</span><br><span class="line">input_mask = tf.constant([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line">token_type_ids = tf.constant([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>]])</span><br><span class="line">config = modeling.AlbertConfig(vocab_size=<span class="number">32000</span>, hidden_size=<span class="number">512</span>,</span><br><span class="line">num_hidden_layers=<span class="number">8</span>, num_attention_heads=<span class="number">6</span>, intermediate_size=<span class="number">1024</span>)</span><br><span class="line">model = modeling.AlbertModel(config=config, is_training=<span class="literal">True</span>,</span><br><span class="line">input_ids=input_ids, input_mask=input_mask, token_type_ids=token_type_ids)</span><br><span class="line">label_embeddings = tf.get_variable(...)</span><br><span class="line">pooled_output = model.get_pooled_output()</span><br><span class="line">logits = tf.matmul(pooled_output, label_embeddings)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://github.com/google-research/ALBERT">https://github.com/google-research/ALBERT</a></p>
+
     </div>
-    
-    
-    
 
     
-
     
-
     
+      
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/NLP-attention-03-self-attention/" rel="next" title="Transformer & Self-Attention (多头)自注意力编码">
-                <i class="fa fa-chevron-left"></i> Transformer & Self-Attention (多头)自注意力编码
-              </a>
-            
+          <div class="post-tags">
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/application-table-OCR/" rel="prev" title="利用腾讯优图OCR把纸质登记表电子化归档">
-                利用腾讯优图OCR把纸质登记表电子化归档 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Cong" />
-            
-              <p class="site-author-name" itemprop="name">Cong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">94</span>
-                  <span class="site-state-item-name">posts</span>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/NLP-attention-03-self-attention/" rel="prev" title="Transformer & Self-Attention (多头)自注意力编码">
+                  <i class="fa fa-chevron-left"></i> Transformer & Self-Attention (多头)自注意力编码
                 </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
             </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Lite-BERT"><span class="nav-number">1.</span> <span class="nav-text">A Lite BERT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Factorized-embedding-parameterization"><span class="nav-number">2.</span> <span class="nav-text">Factorized embedding parameterization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-layer-parameter-sharing"><span class="nav-number">3.</span> <span class="nav-text">Cross-layer parameter sharing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-Dropout"><span class="nav-number">4.</span> <span class="nav-text">No Dropout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-order-Prediction-SOP"><span class="nav-number">5.</span> <span class="nav-text">Sentence-order Prediction (SOP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer实现"><span class="nav-number">6.</span> <span class="nav-text">Transformer实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Factorized-Embedding实现"><span class="nav-number">7.</span> <span class="nav-text">Factorized Embedding实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALBERT模型搭建"><span class="nav-number">8.</span> <span class="nav-text">ALBERT模型搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/application-table-OCR/" rel="next" title="利用腾讯优图OCR把纸质登记表电子化归档">
+                  利用腾讯优图OCR把纸质登记表电子化归档 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Cong</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+    </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
+      
 
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
 
-
-
-
+    </div>
+  </footer>
 
   
-
-
-
-
-
-
-
-
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/NLP-albert/';
-          this.page.identifier = 'NLP-albert/';
-          this.page.title = 'A Lite BERT(AlBERT) 原理和源码解析';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
 
 
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
     }
 
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
           if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
     }
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
 
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/NLP-albert/",
+    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
 </script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
 
 </body>
 </html>

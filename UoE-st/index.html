@@ -1,100 +1,40 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="google-site-verification" content="0p5a0VOKCc8etsdDimlaZoAC96x8VeV9Ab5HWs5NcVw" />
-
-
-
-
-
-
-
-
-  <meta name="baidu-site-verification" content="EbMAKHjVzF" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, World" />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh Reference:http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.htmlPezze and Young, Software Testing and Analysis: Process, Pr">
+  <meta name="description" content="爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh Reference:http:&#x2F;&#x2F;www.inf.ed.ac.uk&#x2F;teaching&#x2F;courses&#x2F;st&#x2F;2017-18&#x2F;index.htmlPezze and Young, Software Testing and Analysis: Process, Pr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Software Testing">
 <meta property="og:url" content="https://congchan.github.io/UoE-st/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh Reference:http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.htmlPezze and Young, Software Testing and Analysis: Process, Pr">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://congchan.github.io/images/VandVtoolbox.jpg">
+<meta property="og:description" content="爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh Reference:http:&#x2F;&#x2F;www.inf.ed.ac.uk&#x2F;teaching&#x2F;courses&#x2F;st&#x2F;2017-18&#x2F;index.htmlPezze and Young, Software Testing and Analysis: Process, Pr">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://congchan.github.io/images/cfg.jpg">
 <meta property="og:image" content="https://congchan.github.io/images/call_graphs_contex.jpg">
 <meta property="og:image" content="https://congchan.github.io/images/FSM_state_transition_table.png">
-<meta property="og:image" content="https://congchan.github.io/images/Structural_testin_答案.png">
+<meta property="og:image" content="https://congchan.github.io/images/Structural_testin_%E7%AD%94%E6%A1%88.png">
 <meta property="og:image" content="https://congchan.github.io/images/MC_DC.png">
 <meta property="og:image" content="https://congchan.github.io/images/Boundary_interior_adequacy.png">
 <meta property="og:image" content="https://congchan.github.io/images/subsumption_relation.png">
@@ -110,47 +50,27 @@
 <meta property="og:image" content="https://congchan.github.io/images/Boehm_Spiral_Model.png">
 <meta property="og:image" content="https://congchan.github.io/images/Extreme_Programming.png">
 <meta property="og:image" content="https://congchan.github.io/images/Strategies_vs_Plans.png">
-<meta property="og:updated_time" content="2020-01-27T03:33:20.451Z">
+<meta property="article:published_time" content="2017-09-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-27T03:33:20.451Z">
+<meta property="article:author" content="Cong">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Software Testing">
-<meta name="twitter:description" content="爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh Reference:http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.htmlPezze and Young, Software Testing and Analysis: Process, Pr">
-<meta name="twitter:image" content="https://congchan.github.io/images/VandVtoolbox.jpg">
+<meta name="twitter:image" content="https://congchan.github.io/images/cfg.jpg">
 
 
+<link rel="canonical" href="https://congchan.github.io/UoE-st/">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-
-
-  <link rel="canonical" href="https://congchan.github.io/UoE-st/"/>
-
-
-
-
-
-  <title>Software Testing | Computer Science & AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Software Testing | Computer Science & AI</title>
   
 
 
@@ -158,145 +78,222 @@
 
 
 
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Computer Science & AI</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Computer Science & AI</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Software-Testing"><span class="nav-number">1.</span> <span class="nav-text">Why Software Testing?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JUnits"><span class="nav-number">2.</span> <span class="nav-text">JUnits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">软件测试的核心问题和解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Case-Selection-and-Adequacy-Criteria"><span class="nav-number">3.1.</span> <span class="nav-text">Test Case Selection and Adequacy Criteria</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfiability"><span class="nav-number">3.2.</span> <span class="nav-text">Satisfiability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subsumption-relation"><span class="nav-number">3.3.</span> <span class="nav-text">Subsumption relation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Functional-Testing"><span class="nav-number">4.</span> <span class="nav-text">Functional Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partition-Strategies"><span class="nav-number">4.1.</span> <span class="nav-text">Partition Strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combinatorial-approaches"><span class="nav-number">4.2.</span> <span class="nav-text">Combinatorial approaches</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Category-partition"><span class="nav-number">4.2.1.</span> <span class="nav-text">Category-partition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pairwise-combination-testing"><span class="nav-number">4.2.2.</span> <span class="nav-text">Pairwise combination testing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Befinits-of-functional-testing"><span class="nav-number">4.3.</span> <span class="nav-text">Befinits of functional testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finite-Models"><span class="nav-number">5.</span> <span class="nav-text">Finite Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controal-flow-graph"><span class="nav-number">5.1.</span> <span class="nav-text">Controal flow graph</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-Graphs"><span class="nav-number">5.2.</span> <span class="nav-text">Call Graphs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finite-state-machines"><span class="nav-number">5.3.</span> <span class="nav-text">Finite state machines</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structural-Testing"><span class="nav-number">6.</span> <span class="nav-text">Structural Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Control-flow-Adequacy-expression-coverage"><span class="nav-number">6.1.</span> <span class="nav-text">Control-flow Adequacy (expression coverage)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement-testing"><span class="nav-number">6.2.</span> <span class="nav-text">Statement testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch-testing"><span class="nav-number">6.3.</span> <span class="nav-text">Branch testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Condition-testing"><span class="nav-number">6.4.</span> <span class="nav-text">Condition testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modified-condition-decision-adequacy-criterion-MC-DC"><span class="nav-number">6.5.</span> <span class="nav-text">Modified condition&#x2F;decision adequacy criterion (MC&#x2F;DC)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Testing"><span class="nav-number">6.6.</span> <span class="nav-text">Path Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Boundary-Interior-Coverage"><span class="nav-number">6.6.1.</span> <span class="nav-text">Boundary Interior Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loop-Boundary-Coverage"><span class="nav-number">6.6.2.</span> <span class="nav-text">Loop Boundary Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Code-Sequences-and-Jumps"><span class="nav-number">6.6.3.</span> <span class="nav-text">Linear Code Sequences and Jumps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cyclomatic-adequacy-Complexity-coverage"><span class="nav-number">6.6.4.</span> <span class="nav-text">Cyclomatic adequacy (Complexity coverage)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Procedure-call-coverage"><span class="nav-number">6.7.</span> <span class="nav-text">Procedure call coverage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfying-structural-criteria"><span class="nav-number">6.8.</span> <span class="nav-text">Satisfying structural criteria</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependence-and-Data-Flow-Models"><span class="nav-number">7.</span> <span class="nav-text">Dependence and Data Flow Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Use-Pairs-Def-Use-Pairs"><span class="nav-number">7.1.</span> <span class="nav-text">Definition-Use Pairs (Def-Use Pairs)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Reaching-definition"><span class="nav-number">7.2.</span> <span class="nav-text">Analyses: Reaching definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Live-and-Avail"><span class="nav-number">7.3.</span> <span class="nav-text">Analyses: Live and Avail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-Solution-of-Dataflow-Equations"><span class="nav-number">7.4.</span> <span class="nav-text">Iterative Solution of Dataflow Equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#From-Execution-to-Conservative-Flow-Analysis"><span class="nav-number">7.5.</span> <span class="nav-text">From Execution to Conservative Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-analysis-with-arrays-and-pointers"><span class="nav-number">7.6.</span> <span class="nav-text">Data flow analysis with arrays and pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-of-Data-Flow-Analysis"><span class="nav-number">7.7.</span> <span class="nav-text">Scope of Data Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-of-Data-flow-models"><span class="nav-number">7.8.</span> <span class="nav-text">Summary of Data flow models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Flow-Testing"><span class="nav-number">8.</span> <span class="nav-text">Data Flow Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-coverage-with-complex-structures"><span class="nav-number">8.1.</span> <span class="nav-text">Data flow coverage with complex structures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mutation-testing"><span class="nav-number">9.</span> <span class="nav-text">Mutation testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-based-testing"><span class="nav-number">10.</span> <span class="nav-text">Model based testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-Object-Oriented-Software"><span class="nav-number">11.</span> <span class="nav-text">Testing Object Oriented Software</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-State-Machine-Testing"><span class="nav-number">11.1.</span> <span class="nav-text">Intraclass State Machine Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-data-flow-testing"><span class="nav-number">11.2.</span> <span class="nav-text">Intraclass data flow testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-Testing"><span class="nav-number">11.3.</span> <span class="nav-text">Interclass Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-structural-testing"><span class="nav-number">11.4.</span> <span class="nav-text">Interclass structural testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Polymorphism-and-dynamic-binding"><span class="nav-number">11.5.</span> <span class="nav-text">Polymorphism and dynamic binding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">11.6.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testing-exception-handling"><span class="nav-number">11.7.</span> <span class="nav-text">Testing exception handling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integration-Testing"><span class="nav-number">12.</span> <span class="nav-text">Integration Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-based-software-testing"><span class="nav-number">13.</span> <span class="nav-text">Component-based software testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Acceptance-and-Regression-Testing"><span class="nav-number">14.</span> <span class="nav-text">System, Acceptance, and Regression Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Testing"><span class="nav-number">15.</span> <span class="nav-text">System Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stress-Testing"><span class="nav-number">15.1.</span> <span class="nav-text">Stress Testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acceptance-testing"><span class="nav-number">16.</span> <span class="nav-text">Acceptance testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Reliability"><span class="nav-number">16.1.</span> <span class="nav-text">System Reliability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-based-Measures"><span class="nav-number">16.2.</span> <span class="nav-text">Process-based Measures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Testing"><span class="nav-number">17.</span> <span class="nav-text">Regression Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regression-Test-Selection"><span class="nav-number">17.1.</span> <span class="nav-text">Regression Test Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Minimization"><span class="nav-number">17.2.</span> <span class="nav-text">Test Set Minimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Prioritisation"><span class="nav-number">17.3.</span> <span class="nav-text">Test Set Prioritisation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-Driven-Development-TDD"><span class="nav-number">18.</span> <span class="nav-text">Test-Driven Development (TDD)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Automating-Test-Execution"><span class="nav-number">19.</span> <span class="nav-text">Automating Test Execution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scaffolding"><span class="nav-number">19.1.</span> <span class="nav-text">Scaffolding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Testing"><span class="nav-number">20.</span> <span class="nav-text">Security Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penetration-testing"><span class="nav-number">20.1.</span> <span class="nav-text">Penetration testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fuzz-testing"><span class="nav-number">20.2.</span> <span class="nav-text">Fuzz testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concolic-testing"><span class="nav-number">20.3.</span> <span class="nav-text">Concolic testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Software-Process-Models-Software-Development"><span class="nav-number">21.</span> <span class="nav-text">Software Process Models - Software Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Planning-and-Monitoring-the-Process"><span class="nav-number">22.</span> <span class="nav-text">Planning and Monitoring the Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Strategies-vs-Plans"><span class="nav-number">22.1.</span> <span class="nav-text">Strategies vs. Plans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedule-Risk"><span class="nav-number">22.2.</span> <span class="nav-text">Schedule Risk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Risk-Planning"><span class="nav-number">22.3.</span> <span class="nav-text">Risk Planning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contingency-Plan"><span class="nav-number">22.4.</span> <span class="nav-text">Contingency Plan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Monitoring"><span class="nav-number">22.5.</span> <span class="nav-text">Process Monitoring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Improvement"><span class="nav-number">22.6.</span> <span class="nav-text">Process Improvement</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/Ginntonic" title="你乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;Ginntonic" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>你乎</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-  
-  
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/UoE-st/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Cong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -304,137 +301,73 @@
     </span>
 
     
+    
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Software Testing
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Software Testing</h1>
-        
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-01T00:00:00+08:00">
-                2017-10-01
-              </time>
-            
+      <time title="创建时间：2017-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-01T00:00:00+08:00">2017-10-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-01-27 11:33:20" itemprop="dateModified" datetime="2020-01-27T11:33:20+08:00">2020-01-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/UoE-st/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="UoE-st/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/UoE-st/" class="leancloud_visitors" data-flag-title="Software Testing">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words&#58;</span>
-                
-                <span title="Words">
-                  12,007
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Estimated &asymp;</span>
-                
-                <span title="Estimated">
-                  70 min
-                </span>
-              
-            </div>
-          
-
-          
+  
+    <span id="/UoE-st/" class="post-meta-item leancloud_visitors" data-flag-title="Software Testing" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/UoE-st/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/UoE-st/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
         <p>爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh</p>
-<p>Reference:<br><a href="http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html" target="_blank" rel="noopener">http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html</a><br>Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007.<br><a id="more"></a></p>
+<p>Reference:<br><a target="_blank" rel="noopener" href="http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html">http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html</a><br>Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007.</p>
+<a id="more"></a>
 <h2 id="Why-Software-Testing"><a href="#Why-Software-Testing" class="headerlink" title="Why Software Testing?"></a>Why Software Testing?</h2><p><strong>1, 软件的漏洞, 错误和失效 Software Faults, Errors &amp; Failures</strong><br>The problem start with Faults,</p>
 <blockquote>
 <p>Fault(BUG): latent error, mistakes in programming.</p>
@@ -455,7 +388,7 @@
 <p>Validation: 是否符合预期的目的，是否满足用户实际需求？</p>
 <p>Verification: meets the specification?</p>
 <p>Verification and Validation （V&amp;V） start at the beginning or even before we decide to build a software product. V&amp;V last far beyond the product delivery as long as the software is in use, to cope with evolution and adaptations to new conditions.</p>
-<p>The distinction between the two terms is largely to do with the role of specifications. Validation is the process of checking whether the specification captures the customer’s needs, while verification is the process of checking that the software meets the specification.<br><img src="/images/VandVtoolbox.jpg" alt="" title="V＆V包含的技术细节。 &quot;modeling&quot; 和 &quot;model checking&quot;指建立和分析软件行为的抽象模型。image from: http://www.easterbrook.ca/steve/2010/11/the-difference-between-verification-and-validation/"></p>
+<p>The distinction between the two terms is largely to do with the role of specifications. Validation is the process of checking whether the specification captures the customer’s needs, while verification is the process of checking that the software meets the specification.<br>![](/images/VandVtoolbox.jpg “V＆V包含的技术细节。 “modeling” 和 “model checking”指建立和分析软件行为的抽象模型。image from: <a target="_blank" rel="noopener" href="http://www.easterbrook.ca/steve/2010/11/the-difference-between-verification-and-validation/&quot;">http://www.easterbrook.ca/steve/2010/11/the-difference-between-verification-and-validation/&quot;</a>)</p>
 <p><strong>3, 软件工程的可靠性 Dependability</strong></p>
 <blockquote>
 <p>In software engineering, dependability is the ability to provide services that can defensibly be trusted within a time-period</p>
@@ -549,14 +482,16 @@
 <p>模型的表达：使用有向图描述程序模型。通常我们将它们绘制为”方框和箭头”图，由一组节点N的组成的集合和它们间的关系E（即ordered pairs的集合），edges。节点表示某种类型的实体，例如源代码的步骤，类或区域。边表示实体之间的某种关系。</p>
 <p>模拟程序执行的模型，是该程序状态空间的抽象。通过抽象函数，程序运行状态空间中的状态与程序运行的finite state 模型中的状态相关联。但抽象函数无法完美呈现程序运行的所有细节，将实际的无限可能的状态折叠成有限必然需要省略一些信息，这就引入了不确定性nondeterminism。</p>
 <p>有什么软件模型的基本概念，又有哪些可以应用于测试和分析的模型？</p>
-<h3 id="Controal-flow-graph"><a href="#Controal-flow-graph" class="headerlink" title="Controal flow graph"></a>Controal flow graph</h3><p>程序中的单个步骤或方法的 Control flow 可以用 <strong>过程内流程图 intraprocedural control flow graph (CFG)</strong> 来表示. CFG 模拟通过<strong>单个过程或方法</strong>的可能运行路径, 是一个有向图，nodes 表示源代码的一个个区域，有向边 directed edges 表示程序可以在哪些代码区域间流转.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">collapseNewlines</span><span class="params">(String argStr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> last = argStr.charAt(<span class="number">0</span>);</span><br><span class="line">    StringBuffer argBuf = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> cIdx = <span class="number">0</span> ; cIdx &lt; argStr.length(); cIdx++) &#123;</span><br><span class="line">        <span class="keyword">char</span> ch = argStr.charAt(cIdx);</span><br><span class="line">        <span class="keyword">if</span> (ch != <span class="string">'\n'</span> || last != <span class="string">'\n'</span>) &#123;</span><br><span class="line">            argBuf.append(ch);</span><br><span class="line">            last = ch;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> argBuf.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>左边是上面代码对应的CFG，右边的表格是Linear Code Sequence and Jump (LCSJ)，表示从一个分支到另一个分支的控制流程图的子路径<br><img src="/images/cfg.jpg" alt="" title="Derive from code, not specifications. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch05.pdf"></p>
+<h3 id="Controal-flow-graph"><a href="#Controal-flow-graph" class="headerlink" title="Controal flow graph"></a>Controal flow graph</h3><p>程序中的单个步骤或方法的 Control flow 可以用 <strong>过程内流程图 intraprocedural control flow graph (CFG)</strong> 来表示. CFG 模拟通过<strong>单个过程或方法</strong>的可能运行路径, 是一个有向图，nodes 表示源代码的一个个区域，有向边 directed edges 表示程序可以在哪些代码区域间流转.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">collapseNewlines</span><span class="params">(String argStr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> last = argStr.charAt(<span class="number">0</span>);</span><br><span class="line">    StringBuffer argBuf = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> cIdx = <span class="number">0</span> ; cIdx &lt; argStr.length(); cIdx++) &#123;</span><br><span class="line">        <span class="keyword">char</span> ch = argStr.charAt(cIdx);</span><br><span class="line">        <span class="keyword">if</span> (ch != <span class="string">&#x27;\n&#x27;</span> || last != <span class="string">&#x27;\n&#x27;</span>) &#123;</span><br><span class="line">            argBuf.append(ch);</span><br><span class="line">            last = ch;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> argBuf.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>左边是上面代码对应的CFG，右边的表格是Linear Code Sequence and Jump (LCSJ)，表示从一个分支到另一个分支的控制流程图的子路径<br><img src="/images/cfg.jpg" title="Derive from code, not specifications. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch05.pdf"></p>
 <p>Nodes = regions of source code (basic blocks)<br>• Basic block = maximal program region with a single entry and single exit point<br>• Often statements are grouped in single regions to get a compact model<br>• Sometime single statements are broken into more than one node to model control flow within the statement<br>Directed edges = possibility that program execution proceeds from the end of one region directly to the beginning of another</p>
 <p>为了便于分析，控制流程图通常会通过其他信息进一步加持。例如，后面介绍的数据流模型 data flow models 就是基于加持了有关变量被程序各个语句访问和修改的信息的CFG模型构建的.</p>
 <h3 id="Call-Graphs"><a href="#Call-Graphs" class="headerlink" title="Call Graphs"></a>Call Graphs</h3><p>过程间流程 Interprocedural control flow 也可以表示为有向图。最基本的模型是调用图 call graphs, nodes represent procedures (methods, C functions, etc.) and edges represent the “calls” relation.</p>
 <p>相较于CFG，调用图比有更多设计问题和权衡妥协， 因此基本调用图的表达方式是不固定的，特别是在面向对象的语言中，methods跟对象动态绑定。<br>调用图存在Overapproximation现象，比如尽管方法<code>A.check()</code>永远不会实际调用<code>C.foo()</code>，但是一个典型的调用图会认为这个调用是可能的。</p>
-<p><strong>Context-sensitive call graph</strong>：调用图模型根据过程被调用的具体位置来表示不同行为。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Context c = <span class="keyword">new</span> Context();</span><br><span class="line">        c.foo(<span class="number">3</span>);</span><br><span class="line">        c.bar(<span class="number">17</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] myArray = <span class="keyword">new</span> <span class="keyword">int</span>[ n ];</span><br><span class="line">        depends( myArray, <span class="number">2</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">bar</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] myArray = <span class="keyword">new</span> <span class="keyword">int</span>[ n ];</span><br><span class="line">        depends( myArray, <span class="number">16</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">depends</span><span class="params">( <span class="keyword">int</span>[] a, <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">        a[n] = <span class="number">42</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/call_graphs_contex.jpg" alt="" title="Contex Insensitive vs. Sensitive Call graphs"></p>
+<p><strong>Context-sensitive call graph</strong>：调用图模型根据过程被调用的具体位置来表示不同行为。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Context c = <span class="keyword">new</span> Context();</span><br><span class="line">        c.foo(<span class="number">3</span>);</span><br><span class="line">        c.bar(<span class="number">17</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] myArray = <span class="keyword">new</span> <span class="keyword">int</span>[ n ];</span><br><span class="line">        depends( myArray, <span class="number">2</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">bar</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] myArray = <span class="keyword">new</span> <span class="keyword">int</span>[ n ];</span><br><span class="line">        depends( myArray, <span class="number">16</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">depends</span><span class="params">( <span class="keyword">int</span>[] a, <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">        a[n] = <span class="number">42</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/call_graphs_contex.jpg" title="Contex Insensitive vs. Sensitive Call graphs"></p>
 <p>Context sensitive analyses can be more precise than Context-insensitive analyses when the model includes some additional information that is shared or passed among procedures. But sensitive call graphs size grows exponentially, not fit for large program.</p>
 <h3 id="Finite-state-machines"><a href="#Finite-state-machines" class="headerlink" title="Finite state machines"></a>Finite state machines</h3><p>前面介绍的模型都是都是基于源代码抽象出来的。不过，模型的构建也常常先于或者独立于源代码，有限状态机 finite state machines 就是这种模型。</p>
 <blockquote>
@@ -567,7 +502,7 @@
 <blockquote>
 <p>In the theory of computation, a <strong>Mealy machine</strong> is a finite-state machine whose output values are determined both by its current state and the current inputs. (This is in contrast to a <strong>Moore machine</strong>, whose output values are determined solely by its current state.)</p>
 </blockquote>
-<p>An alternative representation of finite state machines, including Mealy machines, is the state transition table:<br><img src="/images/FSM_state_transition_table.png" alt="" title="Could be constructed from features. image from: Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007."><br>There is one row in the transition table for each state node and one column for each event or input. If the FSM is complete and deterministic, there should be exactly one transition in each table entry. Since this table is for a Mealy machine, the transition in each table entry indicates both the next state and the response (e.g., d / emit means “emit and then proceed to state d”).</p>
+<p>An alternative representation of finite state machines, including Mealy machines, is the state transition table:<br><img src="/images/FSM_state_transition_table.png" title="Could be constructed from features. image from: Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007."><br>There is one row in the transition table for each state node and one column for each event or input. If the FSM is complete and deterministic, there should be exactly one transition in each table entry. Since this table is for a Mealy machine, the transition in each table entry indicates both the next state and the response (e.g., d / emit means “emit and then proceed to state d”).</p>
 <h2 id="Structural-Testing"><a href="#Structural-Testing" class="headerlink" title="Structural Testing"></a>Structural Testing</h2><p>Judging test suite thoroughness based on the structure of the program itself, it is still testing product functionality against its specification, but the measure of thoroughness has changed to <strong>structural criteria</strong>. Also known as “white-box”, “glass-box”, or “codebased” testing.</p>
 <p>Motivation:<br>1, If part of a program is not executed by any test case in the suite, faults in that part cannot be exposed. The <strong>part</strong> is a control flow element or combination, statements (or CFG nodes), branches (or CFG edges), fragments and combinations, conditions paths.<br>2, Complements functional testing, another way to recognize cases that are treated differently<br>3, Executing all control flow elements does not guarantee finding all faults: Execution of a faulty statement may not always result in a failure<br>• The state may not be corrupted when the statement is executed with some data values<br>• Corrupt state may not propagate through execution to eventually lead to failure<br>4, Structural coverage: Increases confidence in thoroughness of testing, removes some obvious inadequacies</p>
 <p>Steps:</p>
@@ -600,19 +535,20 @@
 <p>Branch and basic condition are not comparable. Basic condition adequacy criterion can be satisfied without satisfying branch coverage</p>
 <p>Branch and condition adequacy: cover all conditions and all decisions</p>
 <p><strong>Compound condition adequacy</strong>:<br>• Cover all possible evaluations of compound conditions - A compound condition is either an atomic condition or some boolean formula of atomic conditions. For example, in the overall condition “<code>A || (B &amp;&amp; C)</code>“ the set of compound conditions are “A”, “B”, “<code>C&quot;, &quot;B &amp;&amp; C</code>“, “<code>A || (B &amp;&amp; C)</code>“.<br>• Cover all branches of a decision tree.<br>• Number of test cases grows exponentially with the number of basic conditions in a decision ($2^N$).</p>
-<p>练习 - Write tests that provide statement, branch, and basic condition coverage over the following code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(string A[], <span class="keyword">int</span> N, string what)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> ((N == <span class="number">1</span>) &amp;&amp; (A[<span class="number">0</span>] == what))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (N == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (N &gt; <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span>(index &lt; N)&#123;</span><br><span class="line">            <span class="keyword">if</span> (A[index] == what) <span class="keyword">return</span> index;</span><br><span class="line">            <span class="keyword">else</span> index++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>先画出 CFG 图，再遍历：<img src="/images/Structural_testin_答案.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Activity.pdf"></p>
+<p>练习 - Write tests that provide statement, branch, and basic condition coverage over the following code:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(string A[], <span class="keyword">int</span> N, string what)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> ((N == <span class="number">1</span>) &amp;&amp; (A[<span class="number">0</span>] == what))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (N == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (N &gt; <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span>(index &lt; N)&#123;</span><br><span class="line">            <span class="keyword">if</span> (A[index] == what) <span class="keyword">return</span> index;</span><br><span class="line">            <span class="keyword">else</span> index++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先画出 CFG 图，再遍历：<img src="/images/Structural_testin_%E7%AD%94%E6%A1%88.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Activity.pdf"></p>
 <h3 id="Modified-condition-decision-adequacy-criterion-MC-DC"><a href="#Modified-condition-decision-adequacy-criterion-MC-DC" class="headerlink" title="Modified condition/decision adequacy criterion (MC/DC)"></a>Modified condition/decision adequacy criterion (MC/DC)</h3><p>Motivation: Effectively test <strong>important combinations</strong> of conditions, without exponential blow up in test suite size. (<strong>Important combinations</strong>: Each basic condition shown to independently affect the outcome of each decision)</p>
 <p>假如这些组合表明每一个条件都可以独立影响结果，那么就不要穷尽各种条件组合了，对于那些不影响结果的条件组合，测了也没有意义。</p>
 <p>Requires:<br>• For each basic condition $C_i$, two test cases<br>• 控制变量，只改变 $C_i$：values of all evaluated conditions except $C_i$ are the same<br>• Compound condition as a whole evaluates to <code>True</code> for one and <code>False</code> for the other，结果的改变表明 $C_i$ 可以独立影响结果</p>
-<p><img src="/images/MC_DC.png" alt="" title="每一个条件的下划线组合表明该条件独立地影响结果。 image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch12.pdf."></p>
+<p><img src="/images/MC_DC.png" title="每一个条件的下划线组合表明该条件独立地影响结果。 image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch12.pdf."></p>
 <p>MC/DC:<br>• basic condition coverage (C)<br>• branch coverage (DC)<br>• plus one additional condition (M): every condition must independently affect the decision’s output</p>
 <p>It is subsumed by compound conditions and subsumes all other criteria discussed so far - stronger than statement and branch coverage. A good balance of thoroughness and test size (and therefore widely used).</p>
 <h3 id="Path-Testing"><a href="#Path-Testing" class="headerlink" title="Path Testing"></a>Path Testing</h3><p>Sometimes, a fault is revealed only through exercise of some sequence of decisions (i.e., a particular path through the program).</p>
 <p>Path coverage requires that all paths through the CFG are covered. In theory, path coverage is the ultimate coverage metric. But in practice, it is impractical if there is loop involed.</p>
 <p>Adequacy criterion: each path must be executed at least once:<br>Coverage = #(Paths Covered) / #(Total Paths)</p>
 <p>Practical path coverage criteria:<br>• The number of paths in a program with loops is unbounded - the simple criterion is usually impossible to satisfy<br>• For a feasible criterion: Partition infinite set of paths into a finite number of classes<br>• Useful criteria can be obtained by limiting<br>•• the number of traversals of loops<br>•• the length of the paths to be traversed<br>•• the dependencies among selected paths</p>
-<h4 id="Boundary-Interior-Coverage"><a href="#Boundary-Interior-Coverage" class="headerlink" title="Boundary Interior Coverage"></a>Boundary Interior Coverage</h4><p>Groups paths that differ only in the subpath they follow when repeating the body of a loop.<br>• Follow each path in the control flow graph up to the first repeated node<br>• The set of paths from the root of the tree to each leaf is the required set of subpaths for boundary/interior coverage<br><img src="/images/Boundary_interior_adequacy.png" alt="" title="Deriving a tree from a CFG to derive subpaths for boundary/interior testing. Part (i) is the CFG of the C function cgi decode, Part (ii) is a tree derived from part (i) by following each path in the control flow graph up to the first repeated node. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch12.pdf."><br>把分支拆分为每一条可能的 path.</p>
+<h4 id="Boundary-Interior-Coverage"><a href="#Boundary-Interior-Coverage" class="headerlink" title="Boundary Interior Coverage"></a>Boundary Interior Coverage</h4><p>Groups paths that differ only in the subpath they follow when repeating the body of a loop.<br>• Follow each path in the control flow graph up to the first repeated node<br>• The set of paths from the root of the tree to each leaf is the required set of subpaths for boundary/interior coverage<br><img src="/images/Boundary_interior_adequacy.png" title="Deriving a tree from a CFG to derive subpaths for boundary/interior testing. Part (i) is the CFG of the C function cgi decode, Part (ii) is a tree derived from part (i) by following each path in the control flow graph up to the first repeated node. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch12.pdf."><br>把分支拆分为每一条可能的 path.</p>
 <p>Limitations:<br>1, The number of paths through non-loop branches (conditions) can still be exponential ($2^N$).<br>2, Choosing input data to force execution of one particular path may be very difficult, or even impossible if the conditions are not independent.</p>
 <h4 id="Loop-Boundary-Coverage"><a href="#Loop-Boundary-Coverage" class="headerlink" title="Loop Boundary Coverage"></a>Loop Boundary Coverage</h4><p>Since coverage of non-looping paths is expensive, we can consider a variant of the boundary/interior criterion that treats loop boundaries similarly but is less stringent with respect to other differences among paths.</p>
 <p>Criterion: A test suite satisfies the loop boundary adequacy criterion iff for every loop:<br>• In at least one test case, the loop body is iterated zero times<br>• In at least one test case, the loop body is iterated once<br>• In at least one test case, the loop body is iterated more than once</p>
@@ -659,7 +595,7 @@
 <p>Choose a coverage granularity commensurate with the granularity of testing - if unit testing has been effective, then faults that<br>remain to be found in integration testing will be primarily interface faults, and testing effort should focus on interfaces between units rather than their internal details.</p>
 <p><strong>Procedure Entry and Exit Testing</strong> - A single procedure may have several entry and exit points.<br>• In languages with goto statements, labels allow multiple entry points.<br>• Multiple returns mean multiple exit points.</p>
 <p><strong>Call coverage</strong>: The same entry point may be called from many points. Call coverage requires that a test suite executes all possible method calls.</p>
-<h3 id="Satisfying-structural-criteria"><a href="#Satisfying-structural-criteria" class="headerlink" title="Satisfying structural criteria"></a>Satisfying structural criteria</h3><p><img src="/images/subsumption_relation.png" alt="" title="Subsumption relation. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch12.pdf"><br>The criterion requires execution of</p>
+<h3 id="Satisfying-structural-criteria"><a href="#Satisfying-structural-criteria" class="headerlink" title="Satisfying structural criteria"></a>Satisfying structural criteria</h3><p><img src="/images/subsumption_relation.png" title="Subsumption relation. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch12.pdf"><br>The criterion requires execution of</p>
 <ul>
 <li><strong>statements</strong> that cannot be executed as a result of:<ul>
 <li>defensive programming</li>
@@ -677,7 +613,7 @@
 <h3 id="Definition-Use-Pairs-Def-Use-Pairs"><a href="#Definition-Use-Pairs-Def-Use-Pairs" class="headerlink" title="Definition-Use Pairs (Def-Use Pairs)"></a>Definition-Use Pairs (Def-Use Pairs)</h3><blockquote>
 <p>The most fundamental class of data flow model associates the point in a program where a value is produced (called a “definition”) with the points at which the value may be accessed (called a “use”).</p>
 </blockquote>
-<p><strong>Definitions</strong> - Variable declaration (often the special value “uninitialized”), Variable initialization, Assignment, Values received by a parameter.<br><strong>Use</strong> - Expressions, Conditional statements, Parameter passing, Returns.<br><img src="/images/Def_Use_path.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch06.pdf"></p>
+<p><strong>Definitions</strong> - Variable declaration (often the special value “uninitialized”), Variable initialization, Assignment, Values received by a parameter.<br><strong>Use</strong> - Expressions, Conditional statements, Parameter passing, Returns.<br><img src="/images/Def_Use_path.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch06.pdf"></p>
 <p>A <strong>Definition-Use pair</strong> is formed if and only if there is a <strong>definition-clear path</strong> between the Definition and the Use. A definition-clear path is a path along the CFG path from a definition to a use of the same variable without another definition of the variable in between.</p>
 <p><code>&lt;D,U&gt;</code> pairs coverage: #(pairs covered)/ #(total number of pairs)<br>If instead another definition is present on the path, then the latter definition kills the former.</p>
 <p>Definition-use pairs record direct data dependence, which can be represented in the form of a graph - <strong>(Direct) Data Dependence Graph</strong>, with a directed edge for each definition-use pair.</p>
@@ -686,23 +622,24 @@
 <p>Practical algorithms do not search every individual path. Instead, they <strong>summarize the reaching definitions</strong> at a node over all the paths reaching that node.</p>
 <p>An algorithm for <strong>computing reaching definitions</strong> is based on the way reaching definitions at one node are related to reaching definitions at an adjacent node.</p>
 <p>Suppose we are calculating the reaching definitions of node n, and there is an edge $(p,n)$ from an immediate predecessor node $p$.<br>We observe:<br>• If the predecessor node $p$ can assign a value to variable $v$, then the definition $v_p$ reaches $n$. We say the definition $v_p$ is generated at $p$.<br>• If a definition $v_d$ of variable $v$ reaches a predecessor node $p$, and if $v$ is not redefined at that node, then the definition is propagated on from $p$ to $n$.</p>
-<p>These observations can be stated in the form of an equation describing sets of reaching definitions.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Euclid's algorithm */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCD</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp;              <span class="comment">// A: def x, y, tmp</span></span><br><span class="line">        <span class="keyword">while</span> (y != <span class="number">0</span>) &#123;      <span class="comment">// B: use y</span></span><br><span class="line">            tmp = x % y;      <span class="comment">// C: def tmp; use x, y</span></span><br><span class="line">            x = y;            <span class="comment">// D: def x; use y</span></span><br><span class="line">            y = tmp;          <span class="comment">// E: def y; use tmp</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x;             <span class="comment">// F: use x</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/data_dependence_graph.png" alt="" title="Nodes: as in the control flow graph (CFG); Each edge represents a direct data dependence, labelled with the variable name. image from: Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007."></p>
-<p>Reaching definitions at node E are those at node D, except that D adds a definition of x and replaces (kills) an earlier definition of x:<br>$$<br>\begin{equation}<br>\begin{split}<br>    Reach(E) &amp;= ReachOut(D) \\\\<br>    ReachOut(D) &amp;= (Reach(D) \backslash {x_A}) \cup {x_D}<br>\end{split}<br>\end{equation}<br>$$<br>Equations at the head of the while loop - node B, where values may be transmitted both from the beginning of the procedure - node A and through the end of the body of the loop - node E. The beginning of the procedure (node A) is treated as an initial definition of parameters and local variables:<br>$$<br>\begin{equation}<br>\begin{split}<br>    Reach(B) &amp;= ReachOut(A) \cup ReachOut(E) \\\\<br>    ReachOut(A) &amp;= gen(A) = {x_A, y_A, tmp_A } \\\\<br>    ReachOut(E) &amp;= (Reach(E) \backslash {y_A}) \cup {y_D}<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>These observations can be stated in the form of an equation describing sets of reaching definitions.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Euclid&#x27;s algorithm */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCD</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp;              <span class="comment">// A: def x, y, tmp</span></span><br><span class="line">        <span class="keyword">while</span> (y != <span class="number">0</span>) &#123;      <span class="comment">// B: use y</span></span><br><span class="line">            tmp = x % y;      <span class="comment">// C: def tmp; use x, y</span></span><br><span class="line">            x = y;            <span class="comment">// D: def x; use y</span></span><br><span class="line">            y = tmp;          <span class="comment">// E: def y; use tmp</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x;             <span class="comment">// F: use x</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/data_dependence_graph.png" title="Nodes: as in the control flow graph (CFG); Each edge represents a direct data dependence, labelled with the variable name. image from: Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007."></p>
+<p>Reaching definitions at node E are those at node D, except that D adds a definition of x and replaces (kills) an earlier definition of x:<br>$$<br>\begin{equation}<br>\begin{split}<br>    Reach(E) &amp;= ReachOut(D) \\<br>    ReachOut(D) &amp;= (Reach(D) \backslash {x_A}) \cup {x_D}<br>\end{split}<br>\end{equation}<br>$$<br>Equations at the head of the while loop - node B, where values may be transmitted both from the beginning of the procedure - node A and through the end of the body of the loop - node E. The beginning of the procedure (node A) is treated as an initial definition of parameters and local variables:<br>$$<br>\begin{equation}<br>\begin{split}<br>    Reach(B) &amp;= ReachOut(A) \cup ReachOut(E) \\<br>    ReachOut(A) &amp;= gen(A) = {x_A, y_A, tmp_A } \\<br>    ReachOut(E) &amp;= (Reach(E) \backslash {y_A}) \cup {y_D}<br>\end{split}<br>\end{equation}<br>$$</p>
 <p>(If a local variable is declared but not initialized, it is treated as a definition to the special value “<strong>uninitialized</strong>.”)</p>
-<p>General equations for Reach analysis:<br>$$\begin{equation} \begin{split}<br>Reach(n) &amp;= \mathop{\cup} \limits_{m \in pred(n)} ReachOut(m) \\\\<br>ReachOut(n) &amp;=(Reach(n) \backslash kill(n)) \cup gen(n) \\\\<br>\end{split} \end{equation}$$<br>$gen(n) = v_n$, $v$ is defined or modified at $n$;<br>$kill(n) = v_x$, $v$ is defined or modified at $x, x \ne n$.</p>
+<p>General equations for Reach analysis:<br>$$\begin{equation} \begin{split}<br>Reach(n) &amp;= \mathop{\cup} \limits_{m \in pred(n)} ReachOut(m) \\<br>ReachOut(n) &amp;=(Reach(n) \backslash kill(n)) \cup gen(n) \\<br>\end{split} \end{equation}$$<br>$gen(n) = v_n$, $v$ is defined or modified at $n$;<br>$kill(n) = v_x$, $v$ is defined or modified at $x, x \ne n$.</p>
 <p>Reaching definitions calculation: first initializing the reaching definitions at each node in the control flow graph to the empty set, and then applying these equations repeatedly until the results stabilize.</p>
 <h3 id="Analyses-Live-and-Avail"><a href="#Analyses-Live-and-Avail" class="headerlink" title="Analyses: Live and Avail"></a>Analyses: Live and Avail</h3><p><strong>Available expressions</strong> is another classical data flow analysis, used in compiler construction to determine <strong>when</strong> the value of a subexpression can be saved and reused rather than recomputed.</p>
 <blockquote>
 <p>An expression is available at a point if, for all paths through the control flow graph from procedure entry to that point, the expression has been computed and not subsequently modified.</p>
 </blockquote>
 <p>An expression is generated (becomes available) where it is computed and is killed (ceases to be available) when the value of any part of it changes (e.g., when a new value is assigned to a variable in the expression).</p>
-<p>The expressions propagation to a node from its predecessors is described by a pair of set equations:<br>$$\begin{equation} \begin{split}<br>Avail(n) &amp;= \mathop{\cap} \limits_{m \in pred(n)} AvailOut(m) \\\\<br>AvailOut(n) &amp;=(Avail(n) \backslash kill(n)) \cup gen(n) \\\\<br>\end{split} \end{equation}$$<br>$gen(n)$, available, computed at $n$;<br>$kill(n)$, has variables assigned at $n$.</p>
+<p>The expressions propagation to a node from its predecessors is described by a pair of set equations:<br>$$\begin{equation} \begin{split}<br>Avail(n) &amp;= \mathop{\cap} \limits_{m \in pred(n)} AvailOut(m) \\<br>AvailOut(n) &amp;=(Avail(n) \backslash kill(n)) \cup gen(n) \\<br>\end{split} \end{equation}$$<br>$gen(n)$, available, computed at $n$;<br>$kill(n)$, has variables assigned at $n$.</p>
 <p>Reaching definitions combines propagated sets using set union, since a definition can reach a use along any execution path. Available expressions combines propagated sets using set intersection, since an expression is considered available at a node only if it reaches that node along all possible execution paths.</p>
 <p>Reaching definitions is a <strong>forward, any-path analysis</strong>; Available expressions is a <strong>forward, all-paths analysis</strong>.</p>
 <p><strong>Live variables</strong> is a <strong>backward, any-path analysis</strong> that determines whether the value held in a variable may be subsequently used. Backward analyses are useful for determining what happens after an event of interest.</p>
 <p>A variable is live at a point in the control flow graph if, on some execution path, its current value may be used before it is changed, i.e. there is any possible execution path on which it is used.</p>
-<p>$$\begin{equation} \begin{split}<br>Live(n) &amp;= \mathop{\cup} \limits_{m \in succ(n)} LiveOut(m) \\\\<br>LiveOut(n) &amp;=(Live(n) \backslash kill(n)) \cup gen(n) \\<br>\end{split} \end{equation}$$<br>$gen(n)$, $v$ is used at $n$;<br>$kill(n)$, $v$ is modified at $n$.</p>
+<p>$$\begin{equation} \begin{split}<br>Live(n) &amp;= \mathop{\cup} \limits_{m \in succ(n)} LiveOut(m) \\<br>LiveOut(n) &amp;=(Live(n) \backslash kill(n)) \cup gen(n) \<br>\end{split} \end{equation}$$<br>$gen(n)$, $v$ is used at $n$;<br>$kill(n)$, $v$ is modified at $n$.</p>
 <p>One application of live variables analysis is to recognize useless definitions, that is, assigning a value that can never be used.</p>
 <h3 id="Iterative-Solution-of-Dataflow-Equations"><a href="#Iterative-Solution-of-Dataflow-Equations" class="headerlink" title="Iterative Solution of Dataflow Equations"></a>Iterative Solution of Dataflow Equations</h3><p>Initialize values (first estimate of answer)<br>• For “any path” problems, first guess is “nothing”(empty set) at each node<br>• For “all paths” problems, first guess is “everything” (set of all possible values = union of all “gen” sets)</p>
 <p>Repeat until nothing changes<br>• Pick some node and recalculate (new estimate)</p>
@@ -771,7 +708,7 @@
 <h2 id="Testing-Object-Oriented-Software"><a href="#Testing-Object-Oriented-Software" class="headerlink" title="Testing Object Oriented Software"></a>Testing Object Oriented Software</h2><p>Typical OO software <strong>characteristics</strong> that impact testing<br>• State dependent behavior<br>• Encapsulation<br>• Inheritance<br>• 多态性 Polymorphism and dynamic binding<br>• Abstract and generic classes<br>• Exception handling</p>
 <p><strong>Procedural software</strong>, unit = single program, function, or procedure, more often: a unit of work that may correspond to one or more intertwined functions or programs.</p>
 <p><strong>Object oriented software</strong>:<br>• unit = class or (small) cluster of strongly related classes (e.g., sets of Java classes that correspond to exceptions)<br>• unit testing = 类内测试 intra-class testing<br>• integration testing = 类之间测试 inter-class testing (cluster of classes)<br>• dealing with single methods separately is usually too expensive (complex scaffolding), so methods are usually tested in the context of the class they belong to.</p>
-<p>Basic approach is <strong>orthogonal</strong>: Techniques for each major issue (e.g., exception handling, generics, inheritance ) can be applied incrementally and independently. <img src="/images/orthogonal_approach.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch14-15.pdf."></p>
+<p>Basic approach is <strong>orthogonal</strong>: Techniques for each major issue (e.g., exception handling, generics, inheritance ) can be applied incrementally and independently. <img src="/images/orthogonal_approach.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch14-15.pdf."></p>
 <h3 id="Intraclass-State-Machine-Testing"><a href="#Intraclass-State-Machine-Testing" class="headerlink" title="Intraclass State Machine Testing"></a>Intraclass State Machine Testing</h3><p>Basic idea:<br>• The state of an object is modified by operations<br>• Methods can be modeled as state transitions<br>• Test cases are sequences of method calls that traverse the state machine model</p>
 <p>State machine model can be derived from specification (functional testing), code (structural testing), or both.</p>
 <p>Testing with State Diagrams:<br>• A statechart (called a “state diagram” in UML) may be produced as part of a specification or design - May also be implied by a set of message sequence charts (interaction diagrams), or other modeling formalisms.<br>• Two options:<br>1, Convert (“flatten”) into standard finite-state machine, then derive test cases<br>2, Use state diagram model directly</p>
@@ -779,7 +716,7 @@
 <p>The intraclass control flow graph - control flow through sequences of method calls:<br>• Control flow for each method<br>• node for class<br>• edges: from node class to the start nodes of the methods; from the end nodes of the methods to node class.</p>
 <h3 id="Interclass-Testing"><a href="#Interclass-Testing" class="headerlink" title="Interclass Testing"></a>Interclass Testing</h3><p>The first level of integration testing for object-oriented software - Focus on interactions between classes</p>
 <p>Bottom-up integration according to <strong>“depends”</strong> relation - A depends on B - Build and test B, then A</p>
-<p>Start from <strong>use/include</strong> hierarchy - Implementation-level parallel to logical “depends” relation<br>• Class A makes method calls on class B<br>• Class A objects include references to class B methods - but only if reference means “is part of”<br><img src="/images/class_diagram_BankAccount.png" alt="" title="A class with three compartments"></p>
+<p>Start from <strong>use/include</strong> hierarchy - Implementation-level parallel to logical “depends” relation<br>• Class A makes method calls on class B<br>• Class A objects include references to class B methods - but only if reference means “is part of”<br><img src="/images/class_diagram_BankAccount.png" title="A class with three compartments"></p>
 <blockquote>
 <p>In software engineering, a class diagram in the Unified Modeling Language (UML) is a type of static structure diagram that describes the structure of a system by showing the system’s <strong>classes, their attributes, operations (or methods)</strong>, and the relationships among objects.</p>
 </blockquote>
@@ -828,7 +765,7 @@
 <p>So we separate testing exceptions, and ignore program error exceptions (test to prevent them, not to handle them)</p>
 <p>What we do test: Each exception handler, and each explicit throw or re-throw of an exception.</p>
 <h2 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h2><p>Unit (module) testing is a foundation, unit level has maximum controllability and visibility.</p>
-<p>Integration testing may serve as a process check<br>• If module faults are revealed in integration testing, they signal inadequate unit testing<br>• If integration faults occur in interfaces between correctly implemented modules, the errors can be traced to module breakdown and interface specifications.<br><img src="/images/module_integration_system_test.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch21.pdf"><br>Integration test plan drives and is driven by the project “build plan”</p>
+<p>Integration testing may serve as a process check<br>• If module faults are revealed in integration testing, they signal inadequate unit testing<br>• If integration faults occur in interfaces between correctly implemented modules, the errors can be traced to module breakdown and interface specifications.<br><img src="/images/module_integration_system_test.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch21.pdf"><br>Integration test plan drives and is driven by the project “build plan”</p>
 <p>Structural orientation: Modules constructed, integrated and tested based on a hierarchical project structure - Top-down, Bottom-up, Sandwich, Backbone</p>
 <p>Functional orientation: Modules integrated according to application characteristics or features - Threads, Critical module.</p>
 <blockquote>
@@ -841,7 +778,7 @@
 <p><strong>Component Interface Contracts</strong><br>• Application programming interface (API) is distinct from implementation<br>• Interface includes everything that must be known to use the component: More than just method signatures, exceptions, etc; May include non-functional characteristics like performance, capacity, security; May include dependence on other components.</p>
 <p>Testing a Component: Producer View<br>• Thorough unit and subsystem testing<br>• Thorough acceptance testing: Includes stress and capacity testing</p>
 <p>Testing a Component: User View<br>• Major question: Is the component suitable for this application?<br>• Reducing risk: Trial integration early</p>
-<h2 id="System-Acceptance-and-Regression-Testing"><a href="#System-Acceptance-and-Regression-Testing" class="headerlink" title="System, Acceptance, and Regression Testing"></a>System, Acceptance, and Regression Testing</h2><p><img src="/images/System_Acceptance_and_Regression.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/system-acceptance.pdf."></p>
+<h2 id="System-Acceptance-and-Regression-Testing"><a href="#System-Acceptance-and-Regression-Testing" class="headerlink" title="System, Acceptance, and Regression Testing"></a>System, Acceptance, and Regression Testing</h2><p><img src="/images/System_Acceptance_and_Regression.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/system-acceptance.pdf."></p>
 <h2 id="System-Testing"><a href="#System-Testing" class="headerlink" title="System Testing"></a>System Testing</h2><p>Characteristics:<br>• Comprehensive (the whole system, the whole spec)<br>• Based on specification of observable behavior: Verification against a requirements specification, not validation, and not opinions<br>• Independent of design and implementation</p>
 <p>Independence: Avoid repeating software design errors in system test design.</p>
 <p>Maximizing independence:<br>• Independent V&amp;V: System (and acceptance) test performed by a different organization.<br>• Independence without changing staff: Develop system test cases early</p>
@@ -872,7 +809,7 @@
 <p><strong>Control-flow and Data-flow Regression Test Selection</strong>: Re-run test cases only if they include changed <strong>elements</strong> – elements may be modified control flow nodes and edges, or definition-use (DU) pairs in data flow. To automate selection:<br>• Tools record changed elements touched by each test case - stored in database of regression test cases<br>• Tools note changes in program<br>• Check test-case database for overlap</p>
 <p><strong>Specification-based Regression Test Selection</strong>:<br>• Specification-based prioritization: <strong>Execute all test cases</strong>, but start with those that related to changed and added <strong>features</strong>.</p>
 <h3 id="Test-Set-Minimization"><a href="#Test-Set-Minimization" class="headerlink" title="Test Set Minimization"></a>Test Set Minimization</h3><p>Identify test cases that are redundant and remove them from the test suite to reduce its size.<br>• Maximize coverage with minimum number of test cases.<br>• Stop after a pre-defined number of iterations<br>• Obtain an approximate solution by using a greedy heuristic</p>
-<h3 id="Test-Set-Prioritisation"><a href="#Test-Set-Prioritisation" class="headerlink" title="Test Set Prioritisation"></a>Test Set Prioritisation</h3><p>• Sort test cases in order of increasing cost per additional coverage<br>• Select the first test case<br>• Repeat the above two steps until k test cases are selected or max cost is reached (whichever is first).<br><img src="/images/Cost_per_additional_coverage.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/RegTesting.pdf."></p>
+<h3 id="Test-Set-Prioritisation"><a href="#Test-Set-Prioritisation" class="headerlink" title="Test Set Prioritisation"></a>Test Set Prioritisation</h3><p>• Sort test cases in order of increasing cost per additional coverage<br>• Select the first test case<br>• Repeat the above two steps until k test cases are selected or max cost is reached (whichever is first).<br><img src="/images/Cost_per_additional_coverage.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/RegTesting.pdf."></p>
 <p><strong>Prioritized Rotating Selection</strong>: Execute some sooner than others, eventually execute all test cases. Possible priority schemes:<br>• Round robin: Priority to least-recently-run test cases<br>• Track record: Priority to test cases that have detected faults before - They probably execute code with a high fault density<br>• Structural: Priority for executing elements that have not been recently executed - Can be coarse-grained: Features, methods, files.</p>
 <h2 id="Test-Driven-Development-TDD"><a href="#Test-Driven-Development-TDD" class="headerlink" title="Test-Driven Development (TDD)"></a>Test-Driven Development (TDD)</h2><p>Test-Driven Development (or test driven design) is a methodology.</p>
 <p>• Short development iterations.<br>• Based on requirement and pre-written test cases.<br>• Produces code necessary to pass that iteration’s test.<br>• Refactor both code and tests.<br>• The goal is to produce working clean code that fulfills requirements.</p>
@@ -901,9 +838,9 @@
 <p><strong>White-box testing</strong> method.<br>• Input generated from control-structure of code to systematically explore different paths of the program.<br>• Generational search (“whitebox fuzzing”): Performs concolic testing, but prioritizes paths based on how much they improve coverage.</p>
 <p><strong>Greybox fuzzing</strong><br>▪ Coverage-guided semi-random input generation.<br>▪ High speed sometimes beats e.g. concolic testing, but shares some limitations with mutation-based fuzzing (e.g. magic constants, checksums).</p>
 <h2 id="Software-Process-Models-Software-Development"><a href="#Software-Process-Models-Software-Development" class="headerlink" title="Software Process Models - Software Development"></a>Software Process Models - Software Development</h2><p><strong>Waterfall model</strong>: Sequential, no feedback<br>1, Requirements<br>2, Design<br>3, Implementation<br>4, Testing<br>5, Release and maintenance</p>
-<p><strong>V-model</strong>: modified version of the waterfall model<br><img src="/images/V_model.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/02_dev_process.pdf."><br>• Tests are created at the point the activity they validate is being carried out. So, for example, the acceptance test is created when the systems analysis is carried out.<br>• Failure to meet the test requires a further <strong>iteration</strong> beginning with the activity that has failed the validation</p>
-<p><strong>Boehm’s Spiral Model</strong>: focuse on controlling project risk and attempting formally to address project risk throughout the lifecycle.<br><img src="/images/Boehm_Spiral_Model.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/02_dev_process.pdf."><br>• V&amp;V activity is spread through the lifecycle with more explicit validation of the preliminary specification and the early stages of design. The goal here is to subject the early stages of design to V&amp;V activity.<br>• At the early stages there may be no code available so we are working with models of the system and environment and verifying that the model exhibits the required behaviours.</p>
-<p><strong>Extreme Programming (XP)</strong>: one of [Agile Processes]<br><img src="/images/Extreme_Programming.png" alt="" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/02_dev_process.pdf."><br>• Advocates working directly with code almost all the time.<br>• The 12 principles of XP summarise the approach.</p>
+<p><strong>V-model</strong>: modified version of the waterfall model<br><img src="/images/V_model.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/02_dev_process.pdf."><br>• Tests are created at the point the activity they validate is being carried out. So, for example, the acceptance test is created when the systems analysis is carried out.<br>• Failure to meet the test requires a further <strong>iteration</strong> beginning with the activity that has failed the validation</p>
+<p><strong>Boehm’s Spiral Model</strong>: focuse on controlling project risk and attempting formally to address project risk throughout the lifecycle.<br><img src="/images/Boehm_Spiral_Model.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/02_dev_process.pdf."><br>• V&amp;V activity is spread through the lifecycle with more explicit validation of the preliminary specification and the early stages of design. The goal here is to subject the early stages of design to V&amp;V activity.<br>• At the early stages there may be no code available so we are working with models of the system and environment and verifying that the model exhibits the required behaviours.</p>
+<p><strong>Extreme Programming (XP)</strong>: one of [Agile Processes]<br><img src="/images/Extreme_Programming.png" title="image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/02_dev_process.pdf."><br>• Advocates working directly with code almost all the time.<br>• The 12 principles of XP summarise the approach.</p>
 <blockquote>
 <p>1, Test-driven development; 2, The planning game; 3, On-site customer; 4, Pair programming; 5, Continuous integration; 6, Refactoring; 7, Small releases; 8, Simple design; 9, System metaphor; 10, Collective code ownership; 11, Coding standards; 12, 40-hour work week;</p>
 </blockquote>
@@ -914,7 +851,7 @@
 </blockquote>
 <h2 id="Planning-and-Monitoring-the-Process"><a href="#Planning-and-Monitoring-the-Process" class="headerlink" title="Planning and Monitoring the Process"></a>Planning and Monitoring the Process</h2><p>Monitoring: Judging progress against the plan.</p>
 <p><strong>Quality process</strong>: Set of <strong>activities and responsibilities</strong>. Follows the overall software process in which it is embedded.<br>• Example: waterfall software process ––&gt; “V model”: unit testing starts with implementation and finishes before integration<br>• Example: XP and agile methods ––&gt; emphasis on unit testing and rapid iteration for acceptance testing by customers.</p>
-<h3 id="Strategies-vs-Plans"><a href="#Strategies-vs-Plans" class="headerlink" title="Strategies vs. Plans"></a>Strategies vs. Plans</h3><p><img src="/images/Strategies_vs_Plans.png" alt="" title="Strategies vs. Plans. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch20.pdf."><br>Test and Analysis Strategy:<br>• Lessons of past experience: an organizational asset built and refined over time<br>• Body of explicit knowledge: amenable to improvement, reduces vulnerability to organizational change (e.g., loss of key individuals)</p>
+<h3 id="Strategies-vs-Plans"><a href="#Strategies-vs-Plans" class="headerlink" title="Strategies vs. Plans"></a>Strategies vs. Plans</h3><p><img src="/images/Strategies_vs_Plans.png" title="Strategies vs. Plans. image from: http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/Ch20.pdf."><br>Test and Analysis Strategy:<br>• Lessons of past experience: an organizational asset built and refined over time<br>• Body of explicit knowledge: amenable to improvement, reduces vulnerability to organizational change (e.g., loss of key individuals)</p>
 <p>Elements of a Strategy:<br>• Common quality requirements that apply to all or most products - unambiguous definition and measures<br>• Set of documents normally produced during the quality process - contents and relationships<br>• Activities prescribed by the overall process - standard tools and practices<br>• Guidelines for project staffing and assignment of roles and responsibilities</p>
 <p>Main Elements of a Plan:<br>• Items and features to be verified - Scope and target of the plan<br>• Activities and resources - Constraints imposed by resources on activities<br>• Approaches to be followed - Methods and tools<br>• Criteria for evaluating results</p>
 <h3 id="Schedule-Risk"><a href="#Schedule-Risk" class="headerlink" title="Schedule Risk"></a>Schedule Risk</h3><p>• Critical path = chain of activities that must be completed in sequence and that have maximum overall duration<br>• Critical dependence = task on a critical path scheduled immediately after some other task on the critical path</p>
@@ -924,914 +861,276 @@
 <h3 id="Process-Improvement"><a href="#Process-Improvement" class="headerlink" title="Process Improvement"></a>Process Improvement</h3><p>Orthogonal Defect Classification (ODC)<br>• Accurate classification schema: for very large projects, to distill an unmanageable amount of detailed information<br>• Two main steps<br>1, Fault classification: when faults are detected, when faults are fixed.<br>2, Fault analysis</p>
 <p>Root Cause Analysis (RCA)<br>• Technique for identifying and eliminating process faults<br>• Four main steps<br>1, What are the faults?<br>2, When did faults occur? When, and when were they found?<br>3, Why did faults occur?<br>4, How could faults be prevented?</p>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
+      
 
     <footer class="post-footer">
-      
 
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/stanford-cs106ab/" rel="next" title="Stanford CS106A/B Programming Intro 斯坦福大学编程入门课">
-                <i class="fa fa-chevron-left"></i> Stanford CS106A/B Programming Intro 斯坦福大学编程入门课
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/UoE-ppls/" rel="prev" title="Parallel Programming Language and Systems">
-                Parallel Programming Language and Systems <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async = "async" ></script>
-</div>
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Cong" />
-            
-              <p class="site-author-name" itemprop="name">Cong</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">94</span>
-                  <span class="site-state-item-name">posts</span>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/UoE-ppls/" rel="prev" title="Parallel Programming Language and Systems">
+                  <i class="fa fa-chevron-left"></i> Parallel Programming Language and Systems
                 </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/congchan/" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shooterbeta@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
             </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Software-Testing"><span class="nav-number">1.</span> <span class="nav-text">Why Software Testing?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JUnits"><span class="nav-number">2.</span> <span class="nav-text">JUnits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件测试的核心问题和解决思路"><span class="nav-number">3.</span> <span class="nav-text">软件测试的核心问题和解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Case-Selection-and-Adequacy-Criteria"><span class="nav-number">3.1.</span> <span class="nav-text">Test Case Selection and Adequacy Criteria</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfiability"><span class="nav-number">3.2.</span> <span class="nav-text">Satisfiability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subsumption-relation"><span class="nav-number">3.3.</span> <span class="nav-text">Subsumption relation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Functional-Testing"><span class="nav-number">4.</span> <span class="nav-text">Functional Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partition-Strategies"><span class="nav-number">4.1.</span> <span class="nav-text">Partition Strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combinatorial-approaches"><span class="nav-number">4.2.</span> <span class="nav-text">Combinatorial approaches</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Category-partition"><span class="nav-number">4.2.1.</span> <span class="nav-text">Category-partition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pairwise-combination-testing"><span class="nav-number">4.2.2.</span> <span class="nav-text">Pairwise combination testing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Befinits-of-functional-testing"><span class="nav-number">4.3.</span> <span class="nav-text">Befinits of functional testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finite-Models"><span class="nav-number">5.</span> <span class="nav-text">Finite Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controal-flow-graph"><span class="nav-number">5.1.</span> <span class="nav-text">Controal flow graph</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-Graphs"><span class="nav-number">5.2.</span> <span class="nav-text">Call Graphs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finite-state-machines"><span class="nav-number">5.3.</span> <span class="nav-text">Finite state machines</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structural-Testing"><span class="nav-number">6.</span> <span class="nav-text">Structural Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Control-flow-Adequacy-expression-coverage"><span class="nav-number">6.1.</span> <span class="nav-text">Control-flow Adequacy (expression coverage)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement-testing"><span class="nav-number">6.2.</span> <span class="nav-text">Statement testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch-testing"><span class="nav-number">6.3.</span> <span class="nav-text">Branch testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Condition-testing"><span class="nav-number">6.4.</span> <span class="nav-text">Condition testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modified-condition-decision-adequacy-criterion-MC-DC"><span class="nav-number">6.5.</span> <span class="nav-text">Modified condition/decision adequacy criterion (MC/DC)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Testing"><span class="nav-number">6.6.</span> <span class="nav-text">Path Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Boundary-Interior-Coverage"><span class="nav-number">6.6.1.</span> <span class="nav-text">Boundary Interior Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loop-Boundary-Coverage"><span class="nav-number">6.6.2.</span> <span class="nav-text">Loop Boundary Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Code-Sequences-and-Jumps"><span class="nav-number">6.6.3.</span> <span class="nav-text">Linear Code Sequences and Jumps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cyclomatic-adequacy-Complexity-coverage"><span class="nav-number">6.6.4.</span> <span class="nav-text">Cyclomatic adequacy (Complexity coverage)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Procedure-call-coverage"><span class="nav-number">6.7.</span> <span class="nav-text">Procedure call coverage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfying-structural-criteria"><span class="nav-number">6.8.</span> <span class="nav-text">Satisfying structural criteria</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependence-and-Data-Flow-Models"><span class="nav-number">7.</span> <span class="nav-text">Dependence and Data Flow Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Use-Pairs-Def-Use-Pairs"><span class="nav-number">7.1.</span> <span class="nav-text">Definition-Use Pairs (Def-Use Pairs)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Reaching-definition"><span class="nav-number">7.2.</span> <span class="nav-text">Analyses: Reaching definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Live-and-Avail"><span class="nav-number">7.3.</span> <span class="nav-text">Analyses: Live and Avail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-Solution-of-Dataflow-Equations"><span class="nav-number">7.4.</span> <span class="nav-text">Iterative Solution of Dataflow Equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#From-Execution-to-Conservative-Flow-Analysis"><span class="nav-number">7.5.</span> <span class="nav-text">From Execution to Conservative Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-analysis-with-arrays-and-pointers"><span class="nav-number">7.6.</span> <span class="nav-text">Data flow analysis with arrays and pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-of-Data-Flow-Analysis"><span class="nav-number">7.7.</span> <span class="nav-text">Scope of Data Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-of-Data-flow-models"><span class="nav-number">7.8.</span> <span class="nav-text">Summary of Data flow models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Flow-Testing"><span class="nav-number">8.</span> <span class="nav-text">Data Flow Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-coverage-with-complex-structures"><span class="nav-number">8.1.</span> <span class="nav-text">Data flow coverage with complex structures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mutation-testing"><span class="nav-number">9.</span> <span class="nav-text">Mutation testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-based-testing"><span class="nav-number">10.</span> <span class="nav-text">Model based testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-Object-Oriented-Software"><span class="nav-number">11.</span> <span class="nav-text">Testing Object Oriented Software</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-State-Machine-Testing"><span class="nav-number">11.1.</span> <span class="nav-text">Intraclass State Machine Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-data-flow-testing"><span class="nav-number">11.2.</span> <span class="nav-text">Intraclass data flow testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-Testing"><span class="nav-number">11.3.</span> <span class="nav-text">Interclass Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-structural-testing"><span class="nav-number">11.4.</span> <span class="nav-text">Interclass structural testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Polymorphism-and-dynamic-binding"><span class="nav-number">11.5.</span> <span class="nav-text">Polymorphism and dynamic binding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">11.6.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testing-exception-handling"><span class="nav-number">11.7.</span> <span class="nav-text">Testing exception handling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integration-Testing"><span class="nav-number">12.</span> <span class="nav-text">Integration Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-based-software-testing"><span class="nav-number">13.</span> <span class="nav-text">Component-based software testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Acceptance-and-Regression-Testing"><span class="nav-number">14.</span> <span class="nav-text">System, Acceptance, and Regression Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Testing"><span class="nav-number">15.</span> <span class="nav-text">System Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stress-Testing"><span class="nav-number">15.1.</span> <span class="nav-text">Stress Testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acceptance-testing"><span class="nav-number">16.</span> <span class="nav-text">Acceptance testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Reliability"><span class="nav-number">16.1.</span> <span class="nav-text">System Reliability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-based-Measures"><span class="nav-number">16.2.</span> <span class="nav-text">Process-based Measures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Testing"><span class="nav-number">17.</span> <span class="nav-text">Regression Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regression-Test-Selection"><span class="nav-number">17.1.</span> <span class="nav-text">Regression Test Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Minimization"><span class="nav-number">17.2.</span> <span class="nav-text">Test Set Minimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Prioritisation"><span class="nav-number">17.3.</span> <span class="nav-text">Test Set Prioritisation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-Driven-Development-TDD"><span class="nav-number">18.</span> <span class="nav-text">Test-Driven Development (TDD)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Automating-Test-Execution"><span class="nav-number">19.</span> <span class="nav-text">Automating Test Execution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scaffolding"><span class="nav-number">19.1.</span> <span class="nav-text">Scaffolding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Testing"><span class="nav-number">20.</span> <span class="nav-text">Security Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penetration-testing"><span class="nav-number">20.1.</span> <span class="nav-text">Penetration testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fuzz-testing"><span class="nav-number">20.2.</span> <span class="nav-text">Fuzz testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concolic-testing"><span class="nav-number">20.3.</span> <span class="nav-text">Concolic testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Software-Process-Models-Software-Development"><span class="nav-number">21.</span> <span class="nav-text">Software Process Models - Software Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Planning-and-Monitoring-the-Process"><span class="nav-number">22.</span> <span class="nav-text">Planning and Monitoring the Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Strategies-vs-Plans"><span class="nav-number">22.1.</span> <span class="nav-text">Strategies vs. Plans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedule-Risk"><span class="nav-number">22.2.</span> <span class="nav-text">Schedule Risk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Risk-Planning"><span class="nav-number">22.3.</span> <span class="nav-text">Risk Planning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contingency-Plan"><span class="nav-number">22.4.</span> <span class="nav-text">Contingency Plan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Monitoring"><span class="nav-number">22.5.</span> <span class="nav-text">Process Monitoring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Improvement"><span class="nav-number">22.6.</span> <span class="nav-text">Process Improvement</span></a></li></ol></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/UoE-sapm/" rel="next" title="Software Architecture, Process, and Management">
+                  Software Architecture, Process, and Management <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Cong</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+    </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
+      
 
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
 
-
-
-
+    </div>
+  </footer>
 
   
-
-
-
-
-
-
-
-
-
-
-
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://shootingspace.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://congchan.github.io/UoE-st/';
-          this.page.identifier = 'UoE-st/';
-          this.page.title = 'Software Testing';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://shootingspace.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
 
 
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz", "gm1RJIiLJ5g6f6lmDxkpWzVG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
     }
 
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
           if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
     }
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
       }
-    });
-  </script>
+    }
 
+    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/UoE-st/",
+    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
 </script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
 
 </body>
 </html>
