@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,15 +18,14 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta property="og:type" content="website">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Computer Science &amp; AI">
 <meta property="og:url" content="https://congchan.github.io/page/8/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
@@ -45,11 +46,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>Computer Science & AI</title>
+<title>Computer Science & AI</title>
   
-
-
 
 
 
@@ -98,7 +96,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -125,16 +123,8 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -145,8 +135,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -155,7 +144,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -171,7 +160,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -189,17 +178,18 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Cong</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -220,7 +210,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -231,7 +221,8 @@
 
 
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -240,7 +231,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -255,13 +246,15 @@
 
 
     <div class="main-inner index posts-expand">
-      
 
-      
-      
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-iteration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -273,13 +266,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-iteration/" class="post-title-link" itemprop="url">Java 迭代 Iteration</a>
+          <a href="/java-iteration/" class="post-title-link" itemprop="url">Java 迭代 Iteration</a>
         </h2>
 
         <div class="post-meta-container">
@@ -292,13 +281,6 @@
 
       <time title="创建时间：2017-05-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-29T00:00:00+08:00">2017-05-29</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:03:34" itemprop="dateModified" datetime="2019-12-23T17:03:34+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -323,10 +305,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-iteration/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-iteration/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-iteration/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-iteration/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -363,14 +345,19 @@
       
     </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-stack-heap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -382,13 +369,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-stack-heap/" class="post-title-link" itemprop="url">Java 堆栈</a>
+          <a href="/java-stack-heap/" class="post-title-link" itemprop="url">Java 堆栈</a>
         </h2>
 
         <div class="post-meta-container">
@@ -401,13 +384,6 @@
 
       <time title="创建时间：2017-05-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-29T00:00:00+08:00">2017-05-29</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:03:52" itemprop="dateModified" datetime="2019-12-23T17:03:52+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -432,10 +408,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-stack-heap/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-stack-heap/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-stack-heap/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-stack-heap/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -471,14 +447,19 @@
       
     </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-abstract-class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -490,13 +471,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-abstract-class/" class="post-title-link" itemprop="url">Java 抽象类</a>
+          <a href="/java-abstract-class/" class="post-title-link" itemprop="url">Java 抽象类</a>
         </h2>
 
         <div class="post-meta-container">
@@ -509,13 +486,6 @@
 
       <time title="创建时间：2017-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">2017-02-26</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:01:58" itemprop="dateModified" datetime="2019-12-23T17:01:58+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -540,10 +510,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-abstract-class/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-abstract-class/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-abstract-class/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-abstract-class/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -579,14 +549,19 @@
       
     </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-hashcode-equals/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -598,13 +573,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-hashcode-equals/" class="post-title-link" itemprop="url">Java Hash @Override equals() hashcode()</a>
+          <a href="/java-hashcode-equals/" class="post-title-link" itemprop="url">Java Hash @Override equals() hashcode()</a>
         </h2>
 
         <div class="post-meta-container">
@@ -617,13 +588,6 @@
 
       <time title="创建时间：2017-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">2017-02-26</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-03-02 15:06:57" itemprop="dateModified" datetime="2020-03-02T15:06:57+08:00">2020-03-02</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -648,10 +612,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-hashcode-equals/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-hashcode-equals/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-hashcode-equals/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-hashcode-equals/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -692,121 +656,19 @@
       
     </footer>
   </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-multithreading/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-multithreading/" class="post-title-link" itemprop="url">Java 多线程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">2017-02-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:03:40" itemprop="dateModified" datetime="2019-12-23T17:03:40+08:00">2019-12-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/java-multithreading/" class="post-meta-item leancloud_visitors" data-flag-title="Java 多线程" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java-multithreading/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-multithreading/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 </div>
 
-        </div>
-      </header>
+
+
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>线程是独立的执行空间，Java语言内置多线程功能，用类<code>Thread</code>来表达。每个Java应用程序会启动一个主线程 – 将<code>main()</code>放在自己的执行空间的最开始处. JVM会负责主线程的启动(以及其他比如GC的系统线程). 程序员负责启动自己的建立的线程.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/java-multithreading/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
-    
-    
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-socket/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -818,13 +680,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-socket/" class="post-title-link" itemprop="url">Java 套接字Socket</a>
+          <a href="/java-socket/" class="post-title-link" itemprop="url">Java 套接字Socket</a>
         </h2>
 
         <div class="post-meta-container">
@@ -837,13 +695,6 @@
 
       <time title="创建时间：2017-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">2017-02-26</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:03:46" itemprop="dateModified" datetime="2019-12-23T17:03:46+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -868,10 +719,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-socket/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-socket/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-socket/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-socket/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -906,14 +757,120 @@
       
     </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-multithreading/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Computer Science & AI">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/java-multithreading/" class="post-title-link" itemprop="url">Java 多线程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">2017-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/java-multithreading/" class="post-meta-item leancloud_visitors" data-flag-title="Java 多线程" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/java-multithreading/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-multithreading/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>线程是独立的执行空间，Java语言内置多线程功能，用类<code>Thread</code>来表达。每个Java应用程序会启动一个主线程 – 将<code>main()</code>放在自己的执行空间的最开始处. JVM会负责主线程的启动(以及其他比如GC的系统线程). 程序员负责启动自己的建立的线程.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/java-multithreading/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-extends-class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -925,13 +882,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-extends-class/" class="post-title-link" itemprop="url">Java 类的继承扩展 Extends</a>
+          <a href="/java-extends-class/" class="post-title-link" itemprop="url">Java 类的继承扩展 Extends</a>
         </h2>
 
         <div class="post-meta-container">
@@ -944,13 +897,6 @@
 
       <time title="创建时间：2017-02-25 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-25T00:00:00+08:00">2017-02-25</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:02:34" itemprop="dateModified" datetime="2019-12-23T17:02:34+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -975,10 +921,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-extends-class/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-extends-class/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-extends-class/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-extends-class/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1013,14 +959,19 @@
       
     </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-13-implementation-inheritance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1032,13 +983,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-13-implementation-inheritance/" class="post-title-link" itemprop="url">Java 13 | 接口默认方法</a>
+          <a href="/java-13-implementation-inheritance/" class="post-title-link" itemprop="url">Java 13 | 接口默认方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1051,13 +998,6 @@
 
       <time title="创建时间：2017-02-24 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-24T00:00:00+08:00">2017-02-24</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:04:17" itemprop="dateModified" datetime="2019-12-23T17:04:17+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1082,10 +1022,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-13-implementation-inheritance/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-13-implementation-inheritance/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-13-implementation-inheritance/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-13-implementation-inheritance/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1120,14 +1060,19 @@
       
     </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-12-interface/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1139,13 +1084,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java-12-interface/" class="post-title-link" itemprop="url">Java 12 | 接口 Interface</a>
+          <a href="/java-12-interface/" class="post-title-link" itemprop="url">Java 12 | 接口 Interface</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1158,13 +1099,6 @@
 
       <time title="创建时间：2017-02-23 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-23T00:00:00+08:00">2017-02-23</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:04:22" itemprop="dateModified" datetime="2019-12-23T17:04:22+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1189,10 +1123,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-12-interface/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-12-interface/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-12-interface/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-12-interface/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1227,14 +1161,19 @@
       
     </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/python-digest-cn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1246,13 +1185,9 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/python-digest-cn/" class="post-title-link" itemprop="url">Python之奇技淫巧</a>
+          <a href="/python-digest-cn/" class="post-title-link" itemprop="url">Python之奇技淫巧</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1265,13 +1200,6 @@
 
       <time title="创建时间：2017-02-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-22T00:00:00+08:00">2017-02-22</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:00:48" itemprop="dateModified" datetime="2019-12-23T17:00:48+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1296,10 +1224,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/python-digest-cn/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/python-digest-cn/" itemprop="commentCount"></span>
+    <a title="disqus" href="/python-digest-cn/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="python-digest-cn/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1334,19 +1262,15 @@
       
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
-
-
-      
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1369,18 +1293,14 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -1398,31 +1318,12 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -1430,10 +1331,6 @@
 
 
   
-
-
-
-
 
 
 <script>
@@ -1509,7 +1406,7 @@
       }
     }
 
-    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
 
     if (api_server) {
       fetchData(api_server);
@@ -1526,19 +1423,16 @@
 
   
 
-  
 
-  
 <script>
-NexT.utils.loadComments('#valine-comments', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
-    new Valine(Object.assign({
-      el  : '#valine-comments',
-      path: "/page/8/",
-    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
-    ));
-  }, window.Valine);
-});
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
 </script>
 
 </body>

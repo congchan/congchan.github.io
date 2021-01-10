@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,15 +18,14 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="序列标注（Sequence Labeling）序列标注任务是指根据观察得到的序列（如一个句子）, 推断出序列每个元素（单词）对应的标注。 具体的任务包括分词(Segmentation), 词性标注（Part-of-Speach tagging, POS）, 实体识别(Named Entity Recognition, NER), 等等. 所谓POS, 就是对于一个句子, 如Bob drank co">
+<meta name="description" content="序列标注（Sequence Labeling）序列标注任务是指根据观察得到的序列（如一个句子）, 推断出序列每个元素（单词）对应的标注。 具体的任务包括分词(Segmentation), 词性标注（Part-of-Speach tagging, POS）, 实体识别(Named Entity Recognition, NER), 等等. 所谓POS, 就是对于一个句子, 如Bob drank co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归">
 <meta property="og:url" content="https://congchan.github.io/NLP-HMM-CRF/index.html">
@@ -41,7 +42,7 @@
 <meta property="og:image" content="https://congchan.github.io/images/%E4%BA%BA%E5%90%8D%E8%AF%86%E5%88%AB%E7%89%B9%E5%BE%81%E5%8E%9F%E5%AD%90%E6%A8%A1%E6%9D%BF.png">
 <meta property="og:image" content="https://congchan.github.io/images/relationship_nbs_hmm_lr_crf.png">
 <meta property="article:published_time" content="2018-12-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-09T11:31:13.664Z">
+<meta property="article:modified_time" content="2018-12-15T16:00:00.000Z">
 <meta property="article:author" content="Cong">
 <meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
@@ -60,11 +61,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归 | Computer Science & AI</title>
+<title>概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归 | Computer Science & AI</title>
   
-
-
 
 
 
@@ -113,7 +111,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -140,16 +138,8 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -160,8 +150,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -170,7 +159,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -186,7 +175,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -204,18 +193,19 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8%EF%BC%88Sequence-Labeling%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">序列标注（Sequence Labeling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">概率图模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8%E4%B8%8E%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">朴素贝叶斯分类器与隐马尔可夫模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%9C%80%E5%A4%A7%E7%86%B5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">隐马尔可夫模型与最大熵马尔可夫模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MEMM%E5%92%8CCRF"><span class="nav-number">2.3.</span> <span class="nav-text">MEMM和CRF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B%E5%88%B0CRF"><span class="nav-number">2.4.</span> <span class="nav-text">隐马尔可夫模型到CRF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Chain-CRF"><span class="nav-number">2.5.</span> <span class="nav-text">Linear Chain CRF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF%E4%B8%8ELogistic-Regression"><span class="nav-number">2.6.</span> <span class="nav-text">CRF与Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="nav-number">2.7.</span> <span class="nav-text">CRF模型训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB"><span class="nav-number">2.8.</span> <span class="nav-text">CRF中文命名实体识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.9.</span> <span class="nav-text">谈谈生成式模型和判别式模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8%EF%BC%88Sequence-Labeling%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">序列标注（Sequence Labeling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">概率图模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8%E4%B8%8E%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">朴素贝叶斯分类器与隐马尔可夫模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%9C%80%E5%A4%A7%E7%86%B5%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">隐马尔可夫模型与最大熵马尔可夫模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MEMM%E5%92%8CCRF"><span class="nav-number">2.3.</span> <span class="nav-text">MEMM和CRF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B%E5%88%B0CRF"><span class="nav-number">2.4.</span> <span class="nav-text">隐马尔可夫模型到CRF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Chain-CRF"><span class="nav-number">2.5.</span> <span class="nav-text">Linear Chain CRF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF%E4%B8%8ELogistic-Regression"><span class="nav-number">2.6.</span> <span class="nav-text">CRF与Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="nav-number">2.7.</span> <span class="nav-text">CRF模型训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRF%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB"><span class="nav-number">2.8.</span> <span class="nav-text">CRF中文命名实体识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.9.</span> <span class="nav-text">谈谈生成式模型和判别式模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Cong</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -236,7 +226,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -247,7 +237,8 @@
 
 
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -256,7 +247,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -271,14 +262,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-HMM-CRF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -290,9 +283,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归
@@ -308,13 +298,6 @@
 
       <time title="创建时间：2018-12-16 00:00:00" itemprop="dateCreated datePublished" datetime="2018-12-16T00:00:00+08:00">2018-12-16</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-03-09 19:31:13" itemprop="dateModified" datetime="2020-03-09T19:31:13+08:00">2020-03-09</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -343,10 +326,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/NLP-HMM-CRF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/NLP-HMM-CRF/" itemprop="commentCount"></span>
+    <a title="disqus" href="/NLP-HMM-CRF/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="NLP-HMM-CRF/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -488,7 +471,6 @@
     
     
     
-      
 
     <footer class="post-footer">
           <div class="post-tags">
@@ -511,14 +493,18 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="valine-comments"></div>
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -541,18 +527,14 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -570,31 +552,12 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -602,10 +565,6 @@
 
 
   
-
-
-
-
 
 
 <script>
@@ -681,7 +640,7 @@
       }
     }
 
-    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
 
     if (api_server) {
       fetchData(api_server);
@@ -696,29 +655,15 @@
 </script>
 
 
-  
-
-  
-      <script>
+  <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
       tex: {
         inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
+        tags: 'none'
       },
       options: {
         renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
           insertedScript: [200, () => {
             document.querySelectorAll('mjx-container').forEach(node => {
               const target = node.parentNode;
@@ -731,7 +676,7 @@
       }
     };
     const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
     script.defer = true;
     document.head.appendChild(script);
   } else {
@@ -742,19 +687,37 @@
   }
 </script>
 
-    
 
-  
+
 <script>
-NexT.utils.loadComments('#valine-comments', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
-    new Valine(Object.assign({
-      el  : '#valine-comments',
-      path: "/NLP-HMM-CRF/",
-    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
-    ));
-  }, window.Valine);
-});
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/NLP-HMM-CRF/";
+    this.page.identifier = "NLP-HMM-CRF/";
+    this.page.title = "概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

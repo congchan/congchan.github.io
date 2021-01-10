@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,15 +18,14 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="爱丁堡大学信息学院课程笔记 Natural Language Understanding, Informatics, University of Edinburgh References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from th">
+<meta name="description" content="爱丁堡大学信息学院课程笔记 Natural Language Understanding, Informatics, University of Edinburgh References:Natural language understandingCS224n: Natural Language Processing with Deep LearningLecture Slides from th">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Natural Language Understanding">
 <meta property="og:url" content="https://congchan.github.io/UoE-nlu/index.html">
@@ -68,7 +69,7 @@
 <meta property="og:image" content="https://congchan.github.io/images/BHMM_Dirichlet_Distribution_.png">
 <meta property="og:image" content="https://congchan.github.io/images/Gender_subspace.png">
 <meta property="article:published_time" content="2017-09-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-01-27T03:33:12.808Z">
+<meta property="article:modified_time" content="2017-09-30T16:00:00.000Z">
 <meta property="article:author" content="Cong">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://congchan.github.io/images/word2vec_window.png">
@@ -86,11 +87,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>Natural Language Understanding | Computer Science & AI</title>
+<title>Natural Language Understanding | Computer Science & AI</title>
   
-
-
 
 
 
@@ -139,7 +137,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -166,16 +164,8 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -186,8 +176,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -196,7 +185,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -212,7 +201,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -230,18 +219,19 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Meaning-representations"><span class="nav-number">1.</span> <span class="nav-text">Meaning representations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Four-kinds-of-vector-models"><span class="nav-number">1.1.</span> <span class="nav-text">Four kinds of vector models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-representation-and-Word2vec"><span class="nav-number">1.2.</span> <span class="nav-text">Word representation and Word2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">目标函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E9%A2%91%E8%AF%8D%E4%BA%8C%E6%AC%A1%E9%87%87%E6%A0%B7"><span class="nav-number">1.2.2.</span> <span class="nav-text">高频词二次采样</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Negative-sampling"><span class="nav-number">1.2.3.</span> <span class="nav-text">Negative sampling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E7%9A%84NLP%E6%96%B9%E6%B3%95%E6%AF%94%E8%BE%83"><span class="nav-number">1.2.4.</span> <span class="nav-text">与传统的NLP方法比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TODO-Glove"><span class="nav-number">1.2.5.</span> <span class="nav-text">TODO(Glove)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Morphological-Recursive-Neural-Network-morphoRNN"><span class="nav-number">1.3.</span> <span class="nav-text">Morphological Recursive Neural Network (morphoRNN)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compositional-character-representations"><span class="nav-number">1.4.</span> <span class="nav-text">Compositional character representations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%AA%E7%A7%8D%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BA-subword-representations-%E6%AF%94%E8%BE%83%E5%A5%BD%EF%BC%9F"><span class="nav-number">1.4.1.</span> <span class="nav-text">哪种方式构建 subword representations 比较好？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-word-language-representations"><span class="nav-number">1.5.</span> <span class="nav-text">Multi-word language representations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">神经网络语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">循环神经网络语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%83%BD%E5%8A%9B"><span class="nav-number">4.</span> <span class="nav-text">神经网络语言模型的学习能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-parsing"><span class="nav-number">5.</span> <span class="nav-text">Dependency parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-based-dependency-parsing"><span class="nav-number">5.1.</span> <span class="nav-text">Graph-based dependency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition-based-dependency-parsing"><span class="nav-number">5.2.</span> <span class="nav-text">Transition-based dependency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparing-MST-and-transition-based-parsers"><span class="nav-number">5.3.</span> <span class="nav-text">Comparing MST and transition-based parsers:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recurrent-neural-network-grammars-RNNGs"><span class="nav-number">6.</span> <span class="nav-text">Recurrent neural network grammars (RNNGs)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-Composition"><span class="nav-number">6.1.</span> <span class="nav-text">Syntactic Composition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implement-RNNGs"><span class="nav-number">6.2.</span> <span class="nav-text">Implement RNNGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter-Estimation"><span class="nav-number">6.3.</span> <span class="nav-text">Parameter Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inference-problems-of-RNNGs"><span class="nav-number">6.4.</span> <span class="nav-text">Inference problems of RNNGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#importance-sampling"><span class="nav-number">6.5.</span> <span class="nav-text">importance sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%8F%A5%E5%AD%90%E5%88%B0%E8%AF%AD%E6%B3%95%E6%A0%91%E7%9A%84seq2seq%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.6.</span> <span class="nav-text">从句子到语法树的seq2seq模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parsing"><span class="nav-number">7.</span> <span class="nav-text">Parsing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semantic-role-labeling-SRL"><span class="nav-number">8.</span> <span class="nav-text">Semantic role labeling (SRL)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frame-Semantics"><span class="nav-number">8.1.</span> <span class="nav-text">Frame Semantics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposition-Bank"><span class="nav-number">8.2.</span> <span class="nav-text">Proposition Bank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#End-to-end-SRL-system"><span class="nav-number">8.3.</span> <span class="nav-text">End-to-end SRL system</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semantic-Parsing"><span class="nav-number">9.</span> <span class="nav-text">Semantic Parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract-meaning-representation-AMR"><span class="nav-number">9.1.</span> <span class="nav-text">Abstract meaning representation (AMR)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO-%E6%8C%87%E4%BB%A3%E6%B6%88%E8%A7%A3-Coreference-Resolution"><span class="nav-number">10.</span> <span class="nav-text">TODO(指代消解 Coreference Resolution)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Part-of-Speech-Tagging"><span class="nav-number">11.</span> <span class="nav-text">Unsupervised Part-of-Speech Tagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hidden-Markov-Models"><span class="nav-number">11.1.</span> <span class="nav-text">Hidden Markov Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bayesian-HMM"><span class="nav-number">11.2.</span> <span class="nav-text">Bayesian HMM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias-in-NLP"><span class="nav-number">12.</span> <span class="nav-text">Bias in NLP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-social-impact-of-NLP"><span class="nav-number">12.1.</span> <span class="nav-text">The social impact of NLP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-embeddings-contain-human-like-biases"><span class="nav-number">12.2.</span> <span class="nav-text">Word embeddings contain human-like biases</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debiasing-word-embeddings"><span class="nav-number">12.3.</span> <span class="nav-text">Debiasing word embeddings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E2%80%94%E8%A7%A3%E7%A0%81%E5%99%A8-Sequence-to-sequence-%E5%92%8C%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">13.</span> <span class="nav-text">编码器—解码器 Sequence-to-sequence 和注意力机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E2%80%94%E8%A7%A3%E7%A0%81%E5%99%A8-Sequence-to-sequence%EF%BC%88seq2seq%EF%BC%89"><span class="nav-number">13.1.</span> <span class="nav-text">编码器—解码器 Sequence-to-sequence（seq2seq）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="nav-number">13.2.</span> <span class="nav-text">注意力</span></a></li></ol></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Meaning-representations"><span class="nav-number">1.</span> <span class="nav-text">Meaning representations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Four-kinds-of-vector-models"><span class="nav-number">1.1.</span> <span class="nav-text">Four kinds of vector models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-representation-and-Word2vec"><span class="nav-number">1.2.</span> <span class="nav-text">Word representation and Word2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">目标函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E9%A2%91%E8%AF%8D%E4%BA%8C%E6%AC%A1%E9%87%87%E6%A0%B7"><span class="nav-number">1.2.2.</span> <span class="nav-text">高频词二次采样</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Negative-sampling"><span class="nav-number">1.2.3.</span> <span class="nav-text">Negative sampling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E7%9A%84NLP%E6%96%B9%E6%B3%95%E6%AF%94%E8%BE%83"><span class="nav-number">1.2.4.</span> <span class="nav-text">与传统的NLP方法比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TODO-Glove"><span class="nav-number">1.2.5.</span> <span class="nav-text">TODO(Glove)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Morphological-Recursive-Neural-Network-morphoRNN"><span class="nav-number">1.3.</span> <span class="nav-text">Morphological Recursive Neural Network (morphoRNN)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compositional-character-representations"><span class="nav-number">1.4.</span> <span class="nav-text">Compositional character representations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%AA%E7%A7%8D%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BA-subword-representations-%E6%AF%94%E8%BE%83%E5%A5%BD%EF%BC%9F"><span class="nav-number">1.4.1.</span> <span class="nav-text">哪种方式构建 subword representations 比较好？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-word-language-representations"><span class="nav-number">1.5.</span> <span class="nav-text">Multi-word language representations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">神经网络语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">循环神经网络语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%83%BD%E5%8A%9B"><span class="nav-number">4.</span> <span class="nav-text">神经网络语言模型的学习能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependency-parsing"><span class="nav-number">5.</span> <span class="nav-text">Dependency parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-based-dependency-parsing"><span class="nav-number">5.1.</span> <span class="nav-text">Graph-based dependency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transition-based-dependency-parsing"><span class="nav-number">5.2.</span> <span class="nav-text">Transition-based dependency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparing-MST-and-transition-based-parsers"><span class="nav-number">5.3.</span> <span class="nav-text">Comparing MST and transition-based parsers:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recurrent-neural-network-grammars-RNNGs"><span class="nav-number">6.</span> <span class="nav-text">Recurrent neural network grammars (RNNGs)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-Composition"><span class="nav-number">6.1.</span> <span class="nav-text">Syntactic Composition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implement-RNNGs"><span class="nav-number">6.2.</span> <span class="nav-text">Implement RNNGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter-Estimation"><span class="nav-number">6.3.</span> <span class="nav-text">Parameter Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inference-problems-of-RNNGs"><span class="nav-number">6.4.</span> <span class="nav-text">Inference problems of RNNGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#importance-sampling"><span class="nav-number">6.5.</span> <span class="nav-text">importance sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%8F%A5%E5%AD%90%E5%88%B0%E8%AF%AD%E6%B3%95%E6%A0%91%E7%9A%84seq2seq%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.6.</span> <span class="nav-text">从句子到语法树的seq2seq模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parsing"><span class="nav-number">7.</span> <span class="nav-text">Parsing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semantic-role-labeling-SRL"><span class="nav-number">8.</span> <span class="nav-text">Semantic role labeling (SRL)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frame-Semantics"><span class="nav-number">8.1.</span> <span class="nav-text">Frame Semantics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposition-Bank"><span class="nav-number">8.2.</span> <span class="nav-text">Proposition Bank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#End-to-end-SRL-system"><span class="nav-number">8.3.</span> <span class="nav-text">End-to-end SRL system</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semantic-Parsing"><span class="nav-number">9.</span> <span class="nav-text">Semantic Parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract-meaning-representation-AMR"><span class="nav-number">9.1.</span> <span class="nav-text">Abstract meaning representation (AMR)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO-%E6%8C%87%E4%BB%A3%E6%B6%88%E8%A7%A3-Coreference-Resolution"><span class="nav-number">10.</span> <span class="nav-text">TODO(指代消解 Coreference Resolution)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Part-of-Speech-Tagging"><span class="nav-number">11.</span> <span class="nav-text">Unsupervised Part-of-Speech Tagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hidden-Markov-Models"><span class="nav-number">11.1.</span> <span class="nav-text">Hidden Markov Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bayesian-HMM"><span class="nav-number">11.2.</span> <span class="nav-text">Bayesian HMM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias-in-NLP"><span class="nav-number">12.</span> <span class="nav-text">Bias in NLP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-social-impact-of-NLP"><span class="nav-number">12.1.</span> <span class="nav-text">The social impact of NLP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-embeddings-contain-human-like-biases"><span class="nav-number">12.2.</span> <span class="nav-text">Word embeddings contain human-like biases</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debiasing-word-embeddings"><span class="nav-number">12.3.</span> <span class="nav-text">Debiasing word embeddings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E2%80%94%E8%A7%A3%E7%A0%81%E5%99%A8-Sequence-to-sequence-%E5%92%8C%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">13.</span> <span class="nav-text">编码器—解码器 Sequence-to-sequence 和注意力机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E2%80%94%E8%A7%A3%E7%A0%81%E5%99%A8-Sequence-to-sequence%EF%BC%88seq2seq%EF%BC%89"><span class="nav-number">13.1.</span> <span class="nav-text">编码器—解码器 Sequence-to-sequence（seq2seq）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="nav-number">13.2.</span> <span class="nav-text">注意力</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Cong</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -262,7 +252,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -273,7 +263,8 @@
 
 
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -282,7 +273,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -297,14 +288,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/UoE-nlu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -316,9 +309,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           Natural Language Understanding
@@ -334,13 +324,6 @@
 
       <time title="创建时间：2017-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-01T00:00:00+08:00">2017-10-01</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-01-27 11:33:12" itemprop="dateModified" datetime="2020-01-27T11:33:12+08:00">2020-01-27</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -369,10 +352,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/UoE-nlu/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/UoE-nlu/" itemprop="commentCount"></span>
+    <a title="disqus" href="/UoE-nlu/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="UoE-nlu/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -731,7 +714,6 @@
     
     
     
-      
 
     <footer class="post-footer">
 
@@ -751,14 +733,18 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="valine-comments"></div>
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -781,18 +767,14 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -810,31 +792,12 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -842,10 +805,6 @@
 
 
   
-
-
-
-
 
 
 <script>
@@ -921,7 +880,7 @@
       }
     }
 
-    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
 
     if (api_server) {
       fetchData(api_server);
@@ -936,29 +895,15 @@
 </script>
 
 
-  
-
-  
-      <script>
+  <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
       tex: {
         inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
+        tags: 'none'
       },
       options: {
         renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
           insertedScript: [200, () => {
             document.querySelectorAll('mjx-container').forEach(node => {
               const target = node.parentNode;
@@ -971,7 +916,7 @@
       }
     };
     const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
     script.defer = true;
     document.head.appendChild(script);
   } else {
@@ -982,19 +927,37 @@
   }
 </script>
 
-    
 
-  
+
 <script>
-NexT.utils.loadComments('#valine-comments', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
-    new Valine(Object.assign({
-      el  : '#valine-comments',
-      path: "/UoE-nlu/",
-    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
-    ));
-  }, window.Valine);
-});
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/UoE-nlu/";
+    this.page.identifier = "UoE-nlu/";
+    this.page.title = "Natural Language Understanding";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

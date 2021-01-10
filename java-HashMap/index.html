@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,15 +18,14 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="HashMapHashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。此类不保证映射的顺序，特别是它不保证该顺序不是stable的。">
+<meta name="description" content="HashMapHashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。此类不保证映射的顺序，特别是它不保证该顺序不是stable的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java HashMap">
 <meta property="og:url" content="https://congchan.github.io/java-HashMap/index.html">
@@ -36,7 +37,7 @@
 <meta property="og:image" content="https://congchan.github.io/images/HashMap_dead_lock02.png">
 <meta property="og:image" content="http://wiki.jikexueyuan.com/project/java-collection/hashmap.html">
 <meta property="article:published_time" content="2017-06-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-12-23T09:03:14.501Z">
+<meta property="article:modified_time" content="2017-06-18T16:00:00.000Z">
 <meta property="article:author" content="Cong">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -55,11 +56,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>Java HashMap | Computer Science & AI</title>
+<title>Java HashMap | Computer Science & AI</title>
   
-
-
 
 
 
@@ -108,7 +106,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -135,16 +133,8 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -155,8 +145,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -165,7 +154,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -181,7 +170,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -199,18 +188,19 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">1.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5-%E6%9B%B4%E6%96%B0"><span class="nav-number">1.1.</span> <span class="nav-text">插入&#x2F;更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%95%88%E8%AE%A1%E7%AE%97%E7%B4%A2%E5%BC%95"><span class="nav-number">1.2.</span> <span class="nav-text">高效计算索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96"><span class="nav-number">1.3.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize"><span class="nav-number">1.4.</span> <span class="nav-text">resize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E7%9A%84%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="nav-number">1.5.</span> <span class="nav-text">扩容的线程不安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap%E6%80%A7%E8%83%BD%E5%8F%82%E6%95%B0"><span class="nav-number">1.6.</span> <span class="nav-text">HashMap性能参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="nav-number">1.7.</span> <span class="nav-text">迭代中的线程不安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88wrapper%E7%B1%BB%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BA%E9%94%AE"><span class="nav-number">1.8.</span> <span class="nav-text">什么wrapper类适合作为键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap%E5%92%8CHashTable%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.9.</span> <span class="nav-text">HashMap和HashTable的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E7%88%B6%E7%B1%BB%E4%B8%8D%E4%B8%80%E6%A0%B7"><span class="nav-number">1.9.1.</span> <span class="nav-text">继承的父类不一样</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E5%A4%96%E6%8F%90%E4%BE%9B%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.2.</span> <span class="nav-text">对外提供的接口不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9Null%E7%9A%84%E6%94%AF%E6%8C%81%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.3.</span> <span class="nav-text">对Null的支持不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.4.</span> <span class="nav-text">线程安全性不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%AE%B9%E9%87%8F%E5%92%8C%E6%89%A9%E5%AE%B9%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.5.</span> <span class="nav-text">初始容量和扩容不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97hash%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.6.</span> <span class="nav-text">计算hash的方法不同</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.10.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">1.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5-%E6%9B%B4%E6%96%B0"><span class="nav-number">1.1.</span> <span class="nav-text">插入&#x2F;更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%95%88%E8%AE%A1%E7%AE%97%E7%B4%A2%E5%BC%95"><span class="nav-number">1.2.</span> <span class="nav-text">高效计算索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96"><span class="nav-number">1.3.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize"><span class="nav-number">1.4.</span> <span class="nav-text">resize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E7%9A%84%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="nav-number">1.5.</span> <span class="nav-text">扩容的线程不安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap%E6%80%A7%E8%83%BD%E5%8F%82%E6%95%B0"><span class="nav-number">1.6.</span> <span class="nav-text">HashMap性能参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="nav-number">1.7.</span> <span class="nav-text">迭代中的线程不安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88wrapper%E7%B1%BB%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BA%E9%94%AE"><span class="nav-number">1.8.</span> <span class="nav-text">什么wrapper类适合作为键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap%E5%92%8CHashTable%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.9.</span> <span class="nav-text">HashMap和HashTable的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E7%88%B6%E7%B1%BB%E4%B8%8D%E4%B8%80%E6%A0%B7"><span class="nav-number">1.9.1.</span> <span class="nav-text">继承的父类不一样</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E5%A4%96%E6%8F%90%E4%BE%9B%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.2.</span> <span class="nav-text">对外提供的接口不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9Null%E7%9A%84%E6%94%AF%E6%8C%81%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.3.</span> <span class="nav-text">对Null的支持不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.4.</span> <span class="nav-text">线程安全性不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%AE%B9%E9%87%8F%E5%92%8C%E6%89%A9%E5%AE%B9%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.5.</span> <span class="nav-text">初始容量和扩容不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97hash%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%8D%E5%90%8C"><span class="nav-number">1.9.6.</span> <span class="nav-text">计算hash的方法不同</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.10.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Cong</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -231,7 +221,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -242,7 +232,8 @@
 
 
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -251,7 +242,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -266,14 +257,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-HashMap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -285,9 +278,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           Java HashMap
@@ -303,13 +293,6 @@
 
       <time title="创建时间：2017-06-19 00:00:00" itemprop="dateCreated datePublished" datetime="2017-06-19T00:00:00+08:00">2017-06-19</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2019-12-23 17:03:14" itemprop="dateModified" datetime="2019-12-23T17:03:14+08:00">2019-12-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -334,10 +317,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/java-HashMap/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java-HashMap/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-HashMap/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-HashMap/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -439,7 +422,6 @@
     
     
     
-      
 
     <footer class="post-footer">
           <div class="post-tags">
@@ -462,14 +444,18 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="valine-comments"></div>
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -492,18 +478,14 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -521,31 +503,12 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -553,10 +516,6 @@
 
 
   
-
-
-
-
 
 
 <script>
@@ -632,7 +591,7 @@
       }
     }
 
-    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
 
     if (api_server) {
       fetchData(api_server);
@@ -649,19 +608,36 @@
 
   
 
-  
 
-  
 <script>
-NexT.utils.loadComments('#valine-comments', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
-    new Valine(Object.assign({
-      el  : '#valine-comments',
-      path: "/java-HashMap/",
-    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
-    ));
-  }, window.Valine);
-});
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/java-HashMap/";
+    this.page.identifier = "java-HashMap/";
+    this.page.title = "Java HashMap";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

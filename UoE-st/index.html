@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,15 +18,14 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh Reference:http:&#x2F;&#x2F;www.inf.ed.ac.uk&#x2F;teaching&#x2F;courses&#x2F;st&#x2F;2017-18&#x2F;index.htmlPezze and Young, Software Testing and Analysis: Process, Pr">
+<meta name="description" content="爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh Reference:http:&#x2F;&#x2F;www.inf.ed.ac.uk&#x2F;teaching&#x2F;courses&#x2F;st&#x2F;2017-18&#x2F;index.htmlPezze and Young, Software Testing and Analysis: Process, Pr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Software Testing">
 <meta property="og:url" content="https://congchan.github.io/UoE-st/index.html">
@@ -51,7 +52,7 @@
 <meta property="og:image" content="https://congchan.github.io/images/Extreme_Programming.png">
 <meta property="og:image" content="https://congchan.github.io/images/Strategies_vs_Plans.png">
 <meta property="article:published_time" content="2017-09-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-01-27T03:33:20.451Z">
+<meta property="article:modified_time" content="2017-09-30T16:00:00.000Z">
 <meta property="article:author" content="Cong">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://congchan.github.io/images/cfg.jpg">
@@ -69,11 +70,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>Software Testing | Computer Science & AI</title>
+<title>Software Testing | Computer Science & AI</title>
   
-
-
 
 
 
@@ -122,7 +120,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -149,16 +147,8 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -169,8 +159,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -179,7 +168,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -195,7 +184,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -213,18 +202,19 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Software-Testing"><span class="nav-number">1.</span> <span class="nav-text">Why Software Testing?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JUnits"><span class="nav-number">2.</span> <span class="nav-text">JUnits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">软件测试的核心问题和解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Case-Selection-and-Adequacy-Criteria"><span class="nav-number">3.1.</span> <span class="nav-text">Test Case Selection and Adequacy Criteria</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfiability"><span class="nav-number">3.2.</span> <span class="nav-text">Satisfiability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subsumption-relation"><span class="nav-number">3.3.</span> <span class="nav-text">Subsumption relation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Functional-Testing"><span class="nav-number">4.</span> <span class="nav-text">Functional Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partition-Strategies"><span class="nav-number">4.1.</span> <span class="nav-text">Partition Strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combinatorial-approaches"><span class="nav-number">4.2.</span> <span class="nav-text">Combinatorial approaches</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Category-partition"><span class="nav-number">4.2.1.</span> <span class="nav-text">Category-partition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pairwise-combination-testing"><span class="nav-number">4.2.2.</span> <span class="nav-text">Pairwise combination testing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Befinits-of-functional-testing"><span class="nav-number">4.3.</span> <span class="nav-text">Befinits of functional testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finite-Models"><span class="nav-number">5.</span> <span class="nav-text">Finite Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controal-flow-graph"><span class="nav-number">5.1.</span> <span class="nav-text">Controal flow graph</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-Graphs"><span class="nav-number">5.2.</span> <span class="nav-text">Call Graphs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finite-state-machines"><span class="nav-number">5.3.</span> <span class="nav-text">Finite state machines</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structural-Testing"><span class="nav-number">6.</span> <span class="nav-text">Structural Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Control-flow-Adequacy-expression-coverage"><span class="nav-number">6.1.</span> <span class="nav-text">Control-flow Adequacy (expression coverage)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement-testing"><span class="nav-number">6.2.</span> <span class="nav-text">Statement testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch-testing"><span class="nav-number">6.3.</span> <span class="nav-text">Branch testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Condition-testing"><span class="nav-number">6.4.</span> <span class="nav-text">Condition testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modified-condition-decision-adequacy-criterion-MC-DC"><span class="nav-number">6.5.</span> <span class="nav-text">Modified condition&#x2F;decision adequacy criterion (MC&#x2F;DC)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Testing"><span class="nav-number">6.6.</span> <span class="nav-text">Path Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Boundary-Interior-Coverage"><span class="nav-number">6.6.1.</span> <span class="nav-text">Boundary Interior Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loop-Boundary-Coverage"><span class="nav-number">6.6.2.</span> <span class="nav-text">Loop Boundary Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Code-Sequences-and-Jumps"><span class="nav-number">6.6.3.</span> <span class="nav-text">Linear Code Sequences and Jumps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cyclomatic-adequacy-Complexity-coverage"><span class="nav-number">6.6.4.</span> <span class="nav-text">Cyclomatic adequacy (Complexity coverage)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Procedure-call-coverage"><span class="nav-number">6.7.</span> <span class="nav-text">Procedure call coverage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfying-structural-criteria"><span class="nav-number">6.8.</span> <span class="nav-text">Satisfying structural criteria</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependence-and-Data-Flow-Models"><span class="nav-number">7.</span> <span class="nav-text">Dependence and Data Flow Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Use-Pairs-Def-Use-Pairs"><span class="nav-number">7.1.</span> <span class="nav-text">Definition-Use Pairs (Def-Use Pairs)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Reaching-definition"><span class="nav-number">7.2.</span> <span class="nav-text">Analyses: Reaching definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Live-and-Avail"><span class="nav-number">7.3.</span> <span class="nav-text">Analyses: Live and Avail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-Solution-of-Dataflow-Equations"><span class="nav-number">7.4.</span> <span class="nav-text">Iterative Solution of Dataflow Equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#From-Execution-to-Conservative-Flow-Analysis"><span class="nav-number">7.5.</span> <span class="nav-text">From Execution to Conservative Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-analysis-with-arrays-and-pointers"><span class="nav-number">7.6.</span> <span class="nav-text">Data flow analysis with arrays and pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-of-Data-Flow-Analysis"><span class="nav-number">7.7.</span> <span class="nav-text">Scope of Data Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-of-Data-flow-models"><span class="nav-number">7.8.</span> <span class="nav-text">Summary of Data flow models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Flow-Testing"><span class="nav-number">8.</span> <span class="nav-text">Data Flow Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-coverage-with-complex-structures"><span class="nav-number">8.1.</span> <span class="nav-text">Data flow coverage with complex structures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mutation-testing"><span class="nav-number">9.</span> <span class="nav-text">Mutation testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-based-testing"><span class="nav-number">10.</span> <span class="nav-text">Model based testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-Object-Oriented-Software"><span class="nav-number">11.</span> <span class="nav-text">Testing Object Oriented Software</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-State-Machine-Testing"><span class="nav-number">11.1.</span> <span class="nav-text">Intraclass State Machine Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-data-flow-testing"><span class="nav-number">11.2.</span> <span class="nav-text">Intraclass data flow testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-Testing"><span class="nav-number">11.3.</span> <span class="nav-text">Interclass Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-structural-testing"><span class="nav-number">11.4.</span> <span class="nav-text">Interclass structural testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Polymorphism-and-dynamic-binding"><span class="nav-number">11.5.</span> <span class="nav-text">Polymorphism and dynamic binding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">11.6.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testing-exception-handling"><span class="nav-number">11.7.</span> <span class="nav-text">Testing exception handling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integration-Testing"><span class="nav-number">12.</span> <span class="nav-text">Integration Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-based-software-testing"><span class="nav-number">13.</span> <span class="nav-text">Component-based software testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Acceptance-and-Regression-Testing"><span class="nav-number">14.</span> <span class="nav-text">System, Acceptance, and Regression Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Testing"><span class="nav-number">15.</span> <span class="nav-text">System Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stress-Testing"><span class="nav-number">15.1.</span> <span class="nav-text">Stress Testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acceptance-testing"><span class="nav-number">16.</span> <span class="nav-text">Acceptance testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Reliability"><span class="nav-number">16.1.</span> <span class="nav-text">System Reliability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-based-Measures"><span class="nav-number">16.2.</span> <span class="nav-text">Process-based Measures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Testing"><span class="nav-number">17.</span> <span class="nav-text">Regression Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regression-Test-Selection"><span class="nav-number">17.1.</span> <span class="nav-text">Regression Test Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Minimization"><span class="nav-number">17.2.</span> <span class="nav-text">Test Set Minimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Prioritisation"><span class="nav-number">17.3.</span> <span class="nav-text">Test Set Prioritisation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-Driven-Development-TDD"><span class="nav-number">18.</span> <span class="nav-text">Test-Driven Development (TDD)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Automating-Test-Execution"><span class="nav-number">19.</span> <span class="nav-text">Automating Test Execution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scaffolding"><span class="nav-number">19.1.</span> <span class="nav-text">Scaffolding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Testing"><span class="nav-number">20.</span> <span class="nav-text">Security Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penetration-testing"><span class="nav-number">20.1.</span> <span class="nav-text">Penetration testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fuzz-testing"><span class="nav-number">20.2.</span> <span class="nav-text">Fuzz testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concolic-testing"><span class="nav-number">20.3.</span> <span class="nav-text">Concolic testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Software-Process-Models-Software-Development"><span class="nav-number">21.</span> <span class="nav-text">Software Process Models - Software Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Planning-and-Monitoring-the-Process"><span class="nav-number">22.</span> <span class="nav-text">Planning and Monitoring the Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Strategies-vs-Plans"><span class="nav-number">22.1.</span> <span class="nav-text">Strategies vs. Plans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedule-Risk"><span class="nav-number">22.2.</span> <span class="nav-text">Schedule Risk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Risk-Planning"><span class="nav-number">22.3.</span> <span class="nav-text">Risk Planning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contingency-Plan"><span class="nav-number">22.4.</span> <span class="nav-text">Contingency Plan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Monitoring"><span class="nav-number">22.5.</span> <span class="nav-text">Process Monitoring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Improvement"><span class="nav-number">22.6.</span> <span class="nav-text">Process Improvement</span></a></li></ol></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Software-Testing"><span class="nav-number">1.</span> <span class="nav-text">Why Software Testing?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JUnits"><span class="nav-number">2.</span> <span class="nav-text">JUnits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">软件测试的核心问题和解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Case-Selection-and-Adequacy-Criteria"><span class="nav-number">3.1.</span> <span class="nav-text">Test Case Selection and Adequacy Criteria</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfiability"><span class="nav-number">3.2.</span> <span class="nav-text">Satisfiability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subsumption-relation"><span class="nav-number">3.3.</span> <span class="nav-text">Subsumption relation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Functional-Testing"><span class="nav-number">4.</span> <span class="nav-text">Functional Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partition-Strategies"><span class="nav-number">4.1.</span> <span class="nav-text">Partition Strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combinatorial-approaches"><span class="nav-number">4.2.</span> <span class="nav-text">Combinatorial approaches</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Category-partition"><span class="nav-number">4.2.1.</span> <span class="nav-text">Category-partition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pairwise-combination-testing"><span class="nav-number">4.2.2.</span> <span class="nav-text">Pairwise combination testing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Befinits-of-functional-testing"><span class="nav-number">4.3.</span> <span class="nav-text">Befinits of functional testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finite-Models"><span class="nav-number">5.</span> <span class="nav-text">Finite Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controal-flow-graph"><span class="nav-number">5.1.</span> <span class="nav-text">Controal flow graph</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-Graphs"><span class="nav-number">5.2.</span> <span class="nav-text">Call Graphs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finite-state-machines"><span class="nav-number">5.3.</span> <span class="nav-text">Finite state machines</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structural-Testing"><span class="nav-number">6.</span> <span class="nav-text">Structural Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Control-flow-Adequacy-expression-coverage"><span class="nav-number">6.1.</span> <span class="nav-text">Control-flow Adequacy (expression coverage)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement-testing"><span class="nav-number">6.2.</span> <span class="nav-text">Statement testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch-testing"><span class="nav-number">6.3.</span> <span class="nav-text">Branch testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Condition-testing"><span class="nav-number">6.4.</span> <span class="nav-text">Condition testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modified-condition-decision-adequacy-criterion-MC-DC"><span class="nav-number">6.5.</span> <span class="nav-text">Modified condition&#x2F;decision adequacy criterion (MC&#x2F;DC)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Testing"><span class="nav-number">6.6.</span> <span class="nav-text">Path Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Boundary-Interior-Coverage"><span class="nav-number">6.6.1.</span> <span class="nav-text">Boundary Interior Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loop-Boundary-Coverage"><span class="nav-number">6.6.2.</span> <span class="nav-text">Loop Boundary Coverage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Code-Sequences-and-Jumps"><span class="nav-number">6.6.3.</span> <span class="nav-text">Linear Code Sequences and Jumps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cyclomatic-adequacy-Complexity-coverage"><span class="nav-number">6.6.4.</span> <span class="nav-text">Cyclomatic adequacy (Complexity coverage)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Procedure-call-coverage"><span class="nav-number">6.7.</span> <span class="nav-text">Procedure call coverage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Satisfying-structural-criteria"><span class="nav-number">6.8.</span> <span class="nav-text">Satisfying structural criteria</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dependence-and-Data-Flow-Models"><span class="nav-number">7.</span> <span class="nav-text">Dependence and Data Flow Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Use-Pairs-Def-Use-Pairs"><span class="nav-number">7.1.</span> <span class="nav-text">Definition-Use Pairs (Def-Use Pairs)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Reaching-definition"><span class="nav-number">7.2.</span> <span class="nav-text">Analyses: Reaching definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyses-Live-and-Avail"><span class="nav-number">7.3.</span> <span class="nav-text">Analyses: Live and Avail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-Solution-of-Dataflow-Equations"><span class="nav-number">7.4.</span> <span class="nav-text">Iterative Solution of Dataflow Equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#From-Execution-to-Conservative-Flow-Analysis"><span class="nav-number">7.5.</span> <span class="nav-text">From Execution to Conservative Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-analysis-with-arrays-and-pointers"><span class="nav-number">7.6.</span> <span class="nav-text">Data flow analysis with arrays and pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-of-Data-Flow-Analysis"><span class="nav-number">7.7.</span> <span class="nav-text">Scope of Data Flow Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-of-Data-flow-models"><span class="nav-number">7.8.</span> <span class="nav-text">Summary of Data flow models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Flow-Testing"><span class="nav-number">8.</span> <span class="nav-text">Data Flow Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-flow-coverage-with-complex-structures"><span class="nav-number">8.1.</span> <span class="nav-text">Data flow coverage with complex structures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mutation-testing"><span class="nav-number">9.</span> <span class="nav-text">Mutation testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-based-testing"><span class="nav-number">10.</span> <span class="nav-text">Model based testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-Object-Oriented-Software"><span class="nav-number">11.</span> <span class="nav-text">Testing Object Oriented Software</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-State-Machine-Testing"><span class="nav-number">11.1.</span> <span class="nav-text">Intraclass State Machine Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intraclass-data-flow-testing"><span class="nav-number">11.2.</span> <span class="nav-text">Intraclass data flow testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-Testing"><span class="nav-number">11.3.</span> <span class="nav-text">Interclass Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interclass-structural-testing"><span class="nav-number">11.4.</span> <span class="nav-text">Interclass structural testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Polymorphism-and-dynamic-binding"><span class="nav-number">11.5.</span> <span class="nav-text">Polymorphism and dynamic binding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">11.6.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testing-exception-handling"><span class="nav-number">11.7.</span> <span class="nav-text">Testing exception handling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integration-Testing"><span class="nav-number">12.</span> <span class="nav-text">Integration Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-based-software-testing"><span class="nav-number">13.</span> <span class="nav-text">Component-based software testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Acceptance-and-Regression-Testing"><span class="nav-number">14.</span> <span class="nav-text">System, Acceptance, and Regression Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Testing"><span class="nav-number">15.</span> <span class="nav-text">System Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stress-Testing"><span class="nav-number">15.1.</span> <span class="nav-text">Stress Testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acceptance-testing"><span class="nav-number">16.</span> <span class="nav-text">Acceptance testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Reliability"><span class="nav-number">16.1.</span> <span class="nav-text">System Reliability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-based-Measures"><span class="nav-number">16.2.</span> <span class="nav-text">Process-based Measures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-Testing"><span class="nav-number">17.</span> <span class="nav-text">Regression Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regression-Test-Selection"><span class="nav-number">17.1.</span> <span class="nav-text">Regression Test Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Minimization"><span class="nav-number">17.2.</span> <span class="nav-text">Test Set Minimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Set-Prioritisation"><span class="nav-number">17.3.</span> <span class="nav-text">Test Set Prioritisation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-Driven-Development-TDD"><span class="nav-number">18.</span> <span class="nav-text">Test-Driven Development (TDD)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Automating-Test-Execution"><span class="nav-number">19.</span> <span class="nav-text">Automating Test Execution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scaffolding"><span class="nav-number">19.1.</span> <span class="nav-text">Scaffolding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Testing"><span class="nav-number">20.</span> <span class="nav-text">Security Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penetration-testing"><span class="nav-number">20.1.</span> <span class="nav-text">Penetration testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fuzz-testing"><span class="nav-number">20.2.</span> <span class="nav-text">Fuzz testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concolic-testing"><span class="nav-number">20.3.</span> <span class="nav-text">Concolic testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Software-Process-Models-Software-Development"><span class="nav-number">21.</span> <span class="nav-text">Software Process Models - Software Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Planning-and-Monitoring-the-Process"><span class="nav-number">22.</span> <span class="nav-text">Planning and Monitoring the Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Strategies-vs-Plans"><span class="nav-number">22.1.</span> <span class="nav-text">Strategies vs. Plans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedule-Risk"><span class="nav-number">22.2.</span> <span class="nav-text">Schedule Risk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Risk-Planning"><span class="nav-number">22.3.</span> <span class="nav-text">Risk Planning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contingency-Plan"><span class="nav-number">22.4.</span> <span class="nav-text">Contingency Plan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Monitoring"><span class="nav-number">22.5.</span> <span class="nav-text">Process Monitoring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Improvement"><span class="nav-number">22.6.</span> <span class="nav-text">Process Improvement</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Cong</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -245,7 +235,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -256,7 +246,8 @@
 
 
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -265,7 +256,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -280,14 +271,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/UoE-st/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -299,9 +292,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Computer Science & AI">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           Software Testing
@@ -317,13 +307,6 @@
 
       <time title="创建时间：2017-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-01T00:00:00+08:00">2017-10-01</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-01-27 11:33:20" itemprop="dateModified" datetime="2020-01-27T11:33:20+08:00">2020-01-27</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -348,10 +331,10 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Valine：</span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="valine" href="/UoE-st/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/UoE-st/" itemprop="commentCount"></span>
+    <a title="disqus" href="/UoE-st/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="UoE-st/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -866,7 +849,6 @@
     
     
     
-      
 
     <footer class="post-footer">
 
@@ -886,14 +868,18 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="valine-comments"></div>
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -916,18 +902,14 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -945,31 +927,12 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -977,10 +940,6 @@
 
 
   
-
-
-
-
 
 
 <script>
@@ -1056,7 +1015,7 @@
       }
     }
 
-    const api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
 
     if (api_server) {
       fetchData(api_server);
@@ -1071,29 +1030,15 @@
 </script>
 
 
-  
-
-  
-      <script>
+  <script>
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
       tex: {
         inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
+        tags: 'none'
       },
       options: {
         renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
           insertedScript: [200, () => {
             document.querySelectorAll('mjx-container').forEach(node => {
               const target = node.parentNode;
@@ -1106,7 +1051,7 @@
       }
     };
     const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
     script.defer = true;
     document.head.appendChild(script);
   } else {
@@ -1117,19 +1062,37 @@
   }
 </script>
 
-    
 
-  
+
 <script>
-NexT.utils.loadComments('#valine-comments', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
-    new Valine(Object.assign({
-      el  : '#valine-comments',
-      path: "/UoE-st/",
-    }, {"enable":true,"appId":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","appKey":"gm1RJIiLJ5g6f6lmDxkpWzVG","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
-    ));
-  }, window.Valine);
-});
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/UoE-st/";
+    this.page.identifier = "UoE-st/";
+    this.page.title = "Software Testing";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
