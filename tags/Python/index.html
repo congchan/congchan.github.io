@@ -27,14 +27,14 @@
   </script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Computer Science &amp; AI">
-<meta property="og:url" content="https://congchan.github.io/tags/python/index.html">
+<meta property="og:url" content="https://congchan.github.io/tags/Python/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Cong">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://congchan.github.io/tags/python/">
+<link rel="canonical" href="https://congchan.github.io/tags/Python/">
 
 
 <script class="page-configurations">
@@ -46,7 +46,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>标签: python | Computer Science & AI</title>
+<title>标签: Python | Computer Science & AI</title>
   
 
 
@@ -194,7 +194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -205,7 +205,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -254,12 +254,58 @@
   <div class="post-block">
     <div class="post-content">
       <div class="collection-title">
-        <h2 class="collection-header">python
+        <h2 class="collection-header">Python
           <small>标签</small>
         </h2>
       </div>
 
       
+    <div class="collection-year">
+      <span class="collection-header">2019</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2019-07-22T00:00:00+08:00"
+              content="2019-07-22">
+          07-22
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/word2vec/" itemprop="url">
+            <span itemprop="name">深入理解word2vec细节以及TensorFlow实现</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+    <div class="collection-year">
+      <span class="collection-header">2018</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2018-05-08T00:00:00+08:00"
+              content="2018-05-08">
+          05-08
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/python-digest/" itemprop="url">
+            <span itemprop="name">Python Digest</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
     <div class="collection-year">
       <span class="collection-header">2017</span>
     </div>
@@ -268,15 +314,35 @@
     <header class="post-header">
       <div class="post-meta-container">
         <time itemprop="dateCreated"
-              datetime="2017-12-01T00:00:00+08:00"
-              content="2017-12-01">
-          12-01
+              datetime="2017-10-01T00:00:00+08:00"
+              content="2017-10-01">
+          10-01
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/machine-learning-with-sklearn/" itemprop="url">
-            <span itemprop="name">Machine Learning with Scikit-learn (Sklearn) 机器学习实践</span>
+          <a class="post-title-link" href="/UoE-anlp/" itemprop="url">
+            <span itemprop="name">Accelerated Natural Language Processing</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2017-02-22T00:00:00+08:00"
+              content="2017-02-22">
+          02-22
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/python-digest-cn/" itemprop="url">
+            <span itemprop="name">Python之奇技淫巧</span>
           </a>
       </div>
 
@@ -387,76 +453,6 @@
 
     function showTime(Counter) {
       const visitors = document.querySelectorAll('.leancloud_visitors');
-      const entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            const target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
-    function fetchData(api_server) {
-      const Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
-  
-
-
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://shootingspace.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-
-</body>
-</html>
-                                                                                                                                                                                                                             onst visitors = document.querySelectorAll('.leancloud_visitors');
       const entries = [...visitors].map(element => {
         return decodeURI(element.id);
       });

@@ -25,22 +25,16 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。 朋友公司最近就收到上海周边一个地方政府的请求，能否把高铁站的纸质登记表格电子化归档,方便查询。临时受托帮朋友写了个程序。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="利用腾讯优图OCR把纸质登记表电子化归档">
-<meta property="og:url" content="https://congchan.github.io/application-table-OCR/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Computer Science &amp; AI">
+<meta property="og:url" content="https://congchan.github.io/archives/2019/01/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。 朋友公司最近就收到上海周边一个地方政府的请求，能否把高铁站的纸质登记表格电子化归档,方便查询。临时受托帮朋友写了个程序。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-06T16:00:00.000Z">
 <meta property="article:author" content="Cong">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="OCR">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://congchan.github.io/application-table-OCR/">
+<link rel="canonical" href="https://congchan.github.io/archives/2019/01/">
 
 
 <script class="page-configurations">
@@ -48,11 +42,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
-<title>利用腾讯优图OCR把纸质登记表电子化归档 | Computer Science & AI</title>
+<title>归档 | Computer Science & AI</title>
   
 
 
@@ -174,7 +168,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -187,7 +181,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">解决思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,7 +205,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -252,142 +245,51 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner archive posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        
+        <span class="collection-header">很好! 目前共计 93 篇日志。 继续努力。</span>
+      </div>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/application-table-OCR/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Computer Science & AI">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          利用腾讯优图OCR把纸质登记表电子化归档
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-07 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-07T00:00:00+08:00">2020-02-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/application-table-OCR/" class="post-meta-item leancloud_visitors" data-flag-title="利用腾讯优图OCR把纸质登记表电子化归档" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/application-table-OCR/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="application-table-OCR/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>最近因为新冠肺炎，各地的交通出入口都需要加强人流管理，但是各地各级政府的信息化水平参差不齐，很多都是人工手工纸质登记记录。</p>
-<p>朋友公司最近就收到上海周边一个地方政府的请求，能否把高铁站的纸质登记表格电子化归档,方便查询。临时受托帮朋友写了个程序。</p>
-<a id="more"></a>
-
-<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ol>
-<li>分析场景：拿到朋友给的图片，手写很潦草，而且身份证等长数字都超出边界挤在边边角角里面。</li>
-<li>确定目标：优先保证表格结构，不然错乱的的文字没有意义。其次保证文本准确识别。</li>
-<li>寻找现在市面上的开源方案：看到优图实验室的OCR，有两个接口，一个是针对表格的，一个是针对手写的。</li>
-<li>分析方案：我们的情况是表格+手写的结合。在demo页面试用了一下，觉得手写接口对字的识别较好，但是表格接口更好地兼顾了表格结构。因此最后决定使用表格OCR接口。</li>
-</ol>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>程序基本的思路是</p>
-<ol>
-<li>图片预处理</li>
-<li>优图OCR接口处理 </li>
-<li>接口输出解码到本地excel</li>
-</ol>
-<p>开源地址：<br><a target="_blank" rel="noopener" href="https://github.com/congchan/OCR-For-Table">https://github.com/congchan/OCR-For-Table</a></p>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2019</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2019-01-24T00:00:00+08:00"
+              content="2019-01-24">
+          01-24
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/OCR/" rel="tag"># OCR</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/NLP-word-lattice/" itemprop="url">
+            <span itemprop="name">Word Lattice</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/NLP-albert/" rel="prev" title="A Lite BERT(AlBERT) 原理和源码解析">
-                  <i class="fa fa-chevron-left"></i> A Lite BERT(AlBERT) 原理和源码解析
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/NLP-fuzzy-match/" rel="next" title="文本模糊匹配">
-                  文本模糊匹配 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
 
-
-
-
-
-    
-  <div class="comments" id="disqus_thread">
-    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
   </div>
   
+  
+  
+
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -550,26 +452,6 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://congchan.github.io/application-table-OCR/";
-    this.page.identifier = "application-table-OCR/";
-    this.page.title = "利用腾讯优图OCR把纸质登记表电子化归档";
-    };
-  NexT.utils.loadComments('#disqus_thread', () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: disqus_config
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://shootingspace.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
-    }
-  });
 </script>
 
 </body>

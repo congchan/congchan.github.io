@@ -25,23 +25,24 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="一般的编码器+CRF的分词模型，因为实体标签的定义不同，词汇不同，语料不同等等原因，普遍无法适应垂直领域的问题。如果要适配，需要走一遍数据准备和模型训练验证的流程。 所以实践中一般都需要词典来匹配。词典匹配方法直接针对文本进行匹配从而获得成分识别候选集合，再基于词频（基于各种工程经验统计获得）筛选输出最终结果。这种策略比较简陋，对词库准确度和覆盖度要求极高，所以存在以下几个问题：  未登录词，易引">
+<meta name="description" content="What is Word Lattices?  A word lattice is a directed acyclic graph with a single start point and edges labeled with a word and weight. Unlike confusion networks which additionally impose the requireme">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NER工程实践-融合词典和分词结果">
-<meta property="og:url" content="https://congchan.github.io/NLP-ner-segmentation/index.html">
+<meta property="og:title" content="Word Lattice">
+<meta property="og:url" content="https://congchan.github.io/NLP-word-lattice/index.html">
 <meta property="og:site_name" content="Computer Science &amp; AI">
-<meta property="og:description" content="一般的编码器+CRF的分词模型，因为实体标签的定义不同，词汇不同，语料不同等等原因，普遍无法适应垂直领域的问题。如果要适配，需要走一遍数据准备和模型训练验证的流程。 所以实践中一般都需要词典来匹配。词典匹配方法直接针对文本进行匹配从而获得成分识别候选集合，再基于词频（基于各种工程经验统计获得）筛选输出最终结果。这种策略比较简陋，对词库准确度和覆盖度要求极高，所以存在以下几个问题：  未登录词，易引">
+<meta property="og:description" content="What is Word Lattices?  A word lattice is a directed acyclic graph with a single start point and edges labeled with a word and weight. Unlike confusion networks which additionally impose the requireme">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://congchan.github.io/images/lattice.png">
 <meta property="og:image" content="https://congchan.github.io/images/segDAG.png">
-<meta property="article:published_time" content="2020-09-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-23T16:00:00.000Z">
+<meta property="article:published_time" content="2019-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-01-23T16:00:00.000Z">
 <meta property="article:author" content="Cong">
 <meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://congchan.github.io/images/segDAG.png">
+<meta name="twitter:image" content="https://congchan.github.io/images/lattice.png">
 
 
-<link rel="canonical" href="https://congchan.github.io/NLP-ner-segmentation/">
+<link rel="canonical" href="https://congchan.github.io/NLP-word-lattice/">
 
 
 <script class="page-configurations">
@@ -53,7 +54,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>NER工程实践-融合词典和分词结果 | Computer Science & AI</title>
+<title>Word Lattice | Computer Science & AI</title>
   
 
 
@@ -202,7 +203,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -213,7 +214,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -264,7 +265,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-ner-segmentation/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-word-lattice/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -277,7 +278,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          NER工程实践-融合词典和分词结果
+          Word Lattice
         </h1>
 
         <div class="post-meta-container">
@@ -288,7 +289,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-09-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-24T00:00:00+08:00">2020-09-24</time>
+      <time title="创建时间：2019-01-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-24T00:00:00+08:00">2019-01-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -305,7 +306,7 @@
     </span>
 
   
-    <span id="/NLP-ner-segmentation/" class="post-meta-item leancloud_visitors" data-flag-title="NER工程实践-融合词典和分词结果" title="阅读次数">
+    <span id="/NLP-word-lattice/" class="post-meta-item leancloud_visitors" data-flag-title="Word Lattice" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -320,8 +321,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/NLP-ner-segmentation/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="NLP-ner-segmentation/" itemprop="commentCount"></span>
+    <a title="disqus" href="/NLP-word-lattice/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="NLP-word-lattice/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -335,14 +336,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>一般的编码器+CRF的分词模型，因为实体标签的定义不同，词汇不同，语料不同等等原因，普遍无法适应垂直领域的问题。如果要适配，需要走一遍数据准备和模型训练验证的流程。</p>
+        <p>What is <a target="_blank" rel="noopener" href="http://www.statmt.org/moses/?n=Moses.WordLattices#:~:text=A%20word%20lattice%20is%20a%20directed%20acyclic%20graph,and%20edges%20labeled%20with%20a%20word%20and%20weight.">Word Lattices</a>?</p>
+<blockquote>
+<p>A word lattice is a directed acyclic graph with a single start point and edges labeled with a word and weight. Unlike confusion networks which additionally impose the requirement that every path must pass through every node, word lattices can represent any finite set of strings (although this generality makes word lattices slightly less space-efficient than confusion networks)</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="/images/lattice.png"></p>
+<p>语音识别结果的最优路径不一定与实际字序列匹配，所以人们一般希望能够得到得分最靠前的<code>k-best</code>条候选路径。为了紧凑地保存候选路径，防止占用过多内存空间，可以采用词格（Word Lattice）来保存识别的候选序列。</p>
+<p>在序列标注任务中，一般的编码器+CRF的分词模型，因为实体标签的定义不同，词汇不同，语料不同等等原因，普遍无法适应垂直领域的问题。如果要适配，需要走一遍数据准备和模型训练验证的流程。</p>
 <p>所以实践中一般都需要词典来匹配。词典匹配方法直接针对文本进行匹配从而获得成分识别候选集合，再基于词频（基于各种工程经验统计获得）筛选输出最终结果。这种策略比较简陋，对词库准确度和覆盖度要求极高，所以存在以下几个问题：</p>
 <ol>
 <li>未登录词，易引起切分错误</li>
 <li>粒度不可控</li>
 <li>节点权重如何设定, 比如<code>每夜总会加班</code>涉及<code>每夜</code>和<code>夜总会</code></li>
 </ol>
-<a id="more"></a>
 <p>因此我们需要把词典匹配方法和神经网络NER模型结合使用. 需要结合CRF模型的实体(term-标签)和基于领域字典匹配的Term(可以加上pos标签)，求解文本的分词+NER划分的最优解。最优解的评判标准就是概率模型, 如果把一句话当作各个term序列, 那么文本序列标签最优解就是序列的最大联合概率<br>$$<br>\begin{aligned}<br>\arg \max \prod_i P(w_i)  &amp;  = \arg  \max \log \prod_i P(w_i)\\<br>&amp; = \arg \max \sum_i \log P(w_i)<br>\end{aligned}<br>$$<br>这里$w_i$指文本的每个term.</p>
 <p>因为一句话中, NER模型和词典匹配的结果可能粒度不同或者互相交叉, 所以我们需要在所有组合中找出一个联合概率最大的组合.</p>
 <h3 id="利用分词工具的词典匹配功能"><a href="#利用分词工具的词典匹配功能" class="headerlink" title="利用分词工具的词典匹配功能"></a>利用分词工具的词典匹配功能</h3><p>词典匹配的方法很多, 比如使用Trie树匹配. 这里为了简便直接使用Jieba分词来模拟词典匹配, 因为其底层实现也是一种词典匹配. 为了检索词典中的词，jieba一开始采取的思路是构建前缀Trie树以缩短查询时间。Jieba用了两个<code>dict</code>，<code>trie dict</code>用于保存trie树，<code>lfreq dict</code>用于存储<code>词 -&gt; 词频</code>. 后来<a target="_blank" rel="noopener" href="https://github.com/fxsjy/jieba/pull/187">Pull request 187</a>提出把前缀信息也放到<code>lfreq</code>, 解决纯Python中Trie空间效率低下的问题. 引用部分说明如下:</p>
@@ -390,11 +397,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/NLP-fuzzy-match/" rel="prev" title="文本模糊匹配">
-                  <i class="fa fa-chevron-left"></i> 文本模糊匹配
+                <a href="/NLP-topic-modeling/" rel="prev" title="Topic Modelling - 主题建模以及隐变量模型">
+                  <i class="fa fa-chevron-left"></i> Topic Modelling - 主题建模以及隐变量模型
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/word2vec/" rel="next" title="深入理解word2vec细节以及TensorFlow实现">
+                  深入理解word2vec细节以及TensorFlow实现 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -607,9 +617,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://congchan.github.io/NLP-ner-segmentation/";
-    this.page.identifier = "NLP-ner-segmentation/";
-    this.page.title = "NER工程实践-融合词典和分词结果";
+    this.page.url = "https://congchan.github.io/NLP-word-lattice/";
+    this.page.identifier = "NLP-word-lattice/";
+    this.page.title = "Word Lattice";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
     if (window.DISQUS) {
