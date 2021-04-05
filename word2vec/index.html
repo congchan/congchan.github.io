@@ -338,9 +338,9 @@
 <p>Word2vec 是一种计算特别高效的predictive model, 用于从文本中学习word embeddings。它有两种方案, Continuous Bag-of-Words model (CBOW) 和 Skip-Gram model (Section 3.1 and 3.2 in <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a>).</p>
 <p>从算法上讲, 两种方案是相似的, 只不过 CBOW 会从source context-words (<code>&#39;the cat sits on the&#39;</code>)预测目标单词(例如<code>&quot;mat&quot;</code>); 而skip-gram则相反, 预测目标单词的source context-words。Skip-gram这种做法可能看起来有点随意. 但从统计上看, CBOW 会平滑大量分布信息(通过将整个上下文视为一个观测值), 在大多数情况下, 这对较小的数据集是很有用的。但是, Skip-gram将每个context-target pair视为新的观测值, 当数据集较大时, 这往往带来更好的效果。</p>
 <h3 id="优化目标函数"><a href="#优化目标函数" class="headerlink" title="优化目标函数"></a>优化目标函数</h3><p>NNLM 的训练是利用 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Maximum_likelihood">最大似然 maximum likelihood</a> (ML) 原则来最大化给定上文单词\(h\) (for “history”) 预测下一个词的概率 \(w_t\) (for “target”)。</p>
-<p>$$<br>\begin{align}<br>P(w_t | h) &amp;= \text{softmax}(\text{score}(w_t, h)) \<br>           &amp;= \frac{\exp { \text{score}(w_t, h) } }<br>             {\sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } }<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br>P(w_t | h) &amp;= \text{softmax}(\text{score}(w_t, h)) \\<br>           &amp;= \frac{\exp { \text{score}(w_t, h) } }<br>             {\sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } }<br>\end{align}<br>$$</p>
 <p>其中 \(\text{score}(w_t, h)\) 计算 word \(w_t\) 和 context \(h\) 的相关性 (一般用点乘). 训练时，最大化</p>
-<p>$$<br>\begin{align}<br> J_\text{ML} &amp;= \log P(w_t | h) \<br>  &amp;= \text{score}(w_t, h) -<br>     \log \left( \sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } \right).<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br> J_\text{ML} &amp;= \log P(w_t | h) \\<br>  &amp;= \text{score}(w_t, h) -<br>     \log \left( \sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } \right).<br>\end{align}<br>$$</p>
 <p>这么计算成本很高， 因为在每一训练步，需要为词汇表 \(V\) 中的每一个词汇 \(w’\) 计算在当前上下文 \(h\) 的分数概率。</p>
 <p><img src="https://tensorflow.google.cn/images/softmax-nplm.png"></p>
 <h3 id="Negative-sampling"><a href="#Negative-sampling" class="headerlink" title="Negative sampling"></a>Negative sampling</h3><p>但是，word2vec的目的是特征学习，而不是学习完整的概率语言模型。所以word2vec（CBOW和Skip gram一样）的训练目标函数其实是一个二分类模型(<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>)，给定一个上下文，在 \(k\) 个噪声词（根据算法选出）和一个真正的目标词汇\(w_t\)中识别出目标词\(w_t\)。如下图(以CBOW为例, Skip gram方向反过来)</p>
@@ -584,7 +584,38 @@
 </script>
 
 
-  
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
 
 
 <script>

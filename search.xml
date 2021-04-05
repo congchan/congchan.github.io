@@ -4028,9 +4028,9 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <p>Word2vec 是一种计算特别高效的predictive model, 用于从文本中学习word embeddings。它有两种方案, Continuous Bag-of-Words model (CBOW) 和 Skip-Gram model (Section 3.1 and 3.2 in <a href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a>).</p>
 <p>从算法上讲, 两种方案是相似的, 只不过 CBOW 会从source context-words (<code>&#39;the cat sits on the&#39;</code>)预测目标单词(例如<code>&quot;mat&quot;</code>); 而skip-gram则相反, 预测目标单词的source context-words。Skip-gram这种做法可能看起来有点随意. 但从统计上看, CBOW 会平滑大量分布信息(通过将整个上下文视为一个观测值), 在大多数情况下, 这对较小的数据集是很有用的。但是, Skip-gram将每个context-target pair视为新的观测值, 当数据集较大时, 这往往带来更好的效果。</p>
 <h3 id="优化目标函数"><a href="#优化目标函数" class="headerlink" title="优化目标函数"></a>优化目标函数</h3><p>NNLM 的训练是利用 <a href="https://en.wikipedia.org/wiki/Maximum_likelihood">最大似然 maximum likelihood</a> (ML) 原则来最大化给定上文单词\(h\) (for “history”) 预测下一个词的概率 \(w_t\) (for “target”)。</p>
-<p>$$<br>\begin{align}<br>P(w_t | h) &amp;= \text{softmax}(\text{score}(w_t, h)) \<br>           &amp;= \frac{\exp { \text{score}(w_t, h) } }<br>             {\sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } }<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br>P(w_t | h) &amp;= \text{softmax}(\text{score}(w_t, h)) \\<br>           &amp;= \frac{\exp { \text{score}(w_t, h) } }<br>             {\sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } }<br>\end{align}<br>$$</p>
 <p>其中 \(\text{score}(w_t, h)\) 计算 word \(w_t\) 和 context \(h\) 的相关性 (一般用点乘). 训练时，最大化</p>
-<p>$$<br>\begin{align}<br> J_\text{ML} &amp;= \log P(w_t | h) \<br>  &amp;= \text{score}(w_t, h) -<br>     \log \left( \sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } \right).<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br> J_\text{ML} &amp;= \log P(w_t | h) \\<br>  &amp;= \text{score}(w_t, h) -<br>     \log \left( \sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } \right).<br>\end{align}<br>$$</p>
 <p>这么计算成本很高， 因为在每一训练步，需要为词汇表 \(V\) 中的每一个词汇 \(w’\) 计算在当前上下文 \(h\) 的分数概率。</p>
 <p><img src="https://tensorflow.google.cn/images/softmax-nplm.png"></p>
 <h3 id="Negative-sampling"><a href="#Negative-sampling" class="headerlink" title="Negative sampling"></a>Negative sampling</h3><p>但是，word2vec的目的是特征学习，而不是学习完整的概率语言模型。所以word2vec（CBOW和Skip gram一样）的训练目标函数其实是一个二分类模型(<a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>)，给定一个上下文，在 \(k\) 个噪声词（根据算法选出）和一个真正的目标词汇\(w_t\)中识别出目标词\(w_t\)。如下图(以CBOW为例, Skip gram方向反过来)</p>
@@ -4136,62 +4136,74 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <p>也就说, 如果给定了一组事实，我们最好选择一个符合这些事实的模型，剩余情况则尽可能地一视同仁不做任何区别对待。最佳的模型是符合训练数据衍生的约束条件的模型，同时尽可能少地做假设，也就是少做承诺，也就避免过拟合。</p>
 <p>MEMM 把HMM中的转移概率和发射概率替换为一个概率：当前状态$s$依赖于前一个状态$s^{\prime}$和当前观察值$o$, $\mathrm{P}\left(s | s^{\prime}, o\right)$</p>
 <p>MEMM的训练思路是这样: 对每个状态$s^{\prime}$, 将训练数据分为<code>&lt;观察-目标状态&gt;对</code> $&lt;o, s&gt;$, 也就是把 $\mathrm{P}\left(s | s^{\prime}, o\right)$ 分成 $|S|$ 个分别训练的exponential model $\mathrm{P}_{s^{\prime}}(s | o)=\mathrm{P}\left(s | s^{\prime}, o\right)$, 再通过最大化熵来训练exponential models, 换种说法叫<code>logistic regression classifier</code>.</p>
-<p>用的约束条件是学习分布中每个特征$a$的期望值与训练数据的观测序列上每个特征的期望值相同. 满足这些约束的最大熵分布（Della Pietra，Della Pietra和Lafferty，1997）是唯一的，与最大似然分布一致，对每一个位置的状态$s^{\prime}$, 具有指数形式：<br>$$<br>\mathrm{P}<em>{s^{\prime}}(s | o)=\frac{1}{Z\left(o, s^{\prime}\right)} \exp \left(\sum</em>{a} \lambda_{a} f_{a}(o, s)\right)<br>$$<br>其中$\lambda_{a}$是待估计的参数, $Z\left(o, s^{\prime}\right)$是归一化因子<br>$$<br>Z\left(o, s^{\prime}\right)=\sum_{s \in S} P\left(s | s^{\prime}, o\right)<br>$$<br>$S$是标签集.</p>
+<p>用的约束条件是学习分布中每个特征$a$的期望值与训练数据的观测序列上每个特征的期望值相同. 满足这些约束的最大熵分布（Della Pietra，Della Pietra和Lafferty，1997）是唯一的，与最大似然分布一致，对每一个位置的状态$s^{\prime}$, 具有指数形式：<br>$$<br>P_{s^{\prime}}(s | o)=\frac{1}{Z\left(o, s^{\prime}\right)} \exp \left(\sum_{a} \lambda_{a} f_{a}(o, s)\right)<br>$$</p>
+<p>其中$\lambda_{a}$是待估计的参数, $Z\left(o, s^{\prime}\right)$是归一化因子<br>$$<br>Z\left(o, s^{\prime}\right)=\sum_{s \in S} P\left(s | s^{\prime}, o\right)<br>$$<br>$S$是标签集.</p>
 <p>如果把问题简化为线性的相邻依赖, 那么每一个状态$s_{i}$仅依赖于前一个状态$s_{i-1}$. 用$Y$表达标签序列, 用$X$表达观察序列, 那么<br>$$P\left(y_{1}, y_{2}, \ldots, y_{n} | \boldsymbol{x}\right)=P\left(y_{1} | \boldsymbol{x}\right) P\left(y_{2} | \boldsymbol{x}, y_{1}\right) P\left(y_{3} | \boldsymbol{x}, y_{2}\right) \ldots P\left(y_{n} | \boldsymbol{x}, y_{n-1}\right)$$<br>其中<br>$$P\left(y_{1} | \boldsymbol{x}\right)=\frac{e^{f\left(y_{1} ; \boldsymbol{x}\right)}}{\sum_{y_{1} \in S} e^{f\left(y_{k} ; \boldsymbol{x}\right)}}, \quad P\left(y_{k} | \boldsymbol{x}, y_{k-1}\right)=\frac{e^{g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)}}{\sum_{y_{k} \in S} e^{g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)}}$$<br>则<br>$$P(\boldsymbol{y} | \boldsymbol{x})=\frac{e^{f\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+f\left(y_{2} ; \boldsymbol{x}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right)}}{\left(\sum_{y_{1} \in S} e^{f\left(y_{1} ; \boldsymbol{x}\right)}\right)\left(\sum_{y_{2} \in S} e^{g\left(y_{1}, y_{2}\right)+f\left(y_{2} ; \boldsymbol{x}\right)}\right) \cdots\left(\sum_{y_{n} \in S} e^{g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right)}\right)}$$<br>MEMM将整体的概率分布分解为每一个时间步的分布之积，所以算loss只需要把每一步的交叉熵求和。只需要每一步单独执行softmax，所以MEMM是完全可以并行的，速度跟直接逐步Softmax基本一样。</p>
 <p>虽然MEMM能克服HMM的很多弱点, 但是MEMM自身也有一个 <strong>label bias</strong> 问题, 就是标签偏差, 离开给定状态的转移仅相互对比，而不是与全局所有其他转移对比。转移分数是分别对每个状态的归一化, 这意味到达一个状态的所有质量必须在可能的后续状态之间分配。观察值可以影响哪个目标状态获得质量，但无法影响多少质量可以被传递。这会导致模型偏向输出选择较少的状态, 比如极端情况下, 在训练集中某个状态$s_a$只发现了有一种可能的转移$s_b$, 那么状态$s_a$别无选择，只能将所有质量传递给它的唯一的 transition output $s_b$。</p>
-<h3 id="MEMM和CRF"><a href="#MEMM和CRF" class="headerlink" title="MEMM和CRF"></a>MEMM和CRF</h3><p>CRF再拥有MEMM的优点的同时, 克服了MEMM的缺点. CRF和MEMM的关键区别在于，MEMM使用每个状态的指数模型来确定给定当前状态的下一状态的条件概率，而CRF则使用一个指数模型来表示整个标签序列的联合概率, 这个概率条件依赖于给定的完整观察序列。因此，在不同状态下，不同特征的权重可以相互抵消。也就是说CRF是一个以观测序列$X$为全局条件的随机场.</p>
-<p>如果把问题简化为线性链, CRF把$Y$看成一个整体，截至每一个时间步$n$, 通过统计所有特征可以得一个总分<br>$$\begin{aligned}<br>f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right) &amp;=f\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right) \<br>&amp;=f\left(y_{1} ; \boldsymbol{x}\right)+\sum_{k=2}^{n}\left(g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)\right)<br>\end{aligned}$$<br>其中$g\left(y_{k-1}, y_{k}\right)$是转移矩阵</p>
-<p>可以得到对应得概率是<br>$$P(\boldsymbol{y} | \boldsymbol{x})=\frac{e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}{\sum_{y_{1}, y_{2}, \ldots, y_{n} \in S^n} e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}$$<br>CRF的计算困难之处在于上式的分母项包含了所有可能路径$S^n$的求和，搜索空间非常庞大.</p>
-<p>线性链CRF和线性链MEMM比较, 区别仅在于分母（也就是归一化因子）的计算方式不同，CRF的是全局归一化的，而MEMM的是局部归一化的.</p>
-<h3 id="隐马尔可夫模型到CRF"><a href="#隐马尔可夫模型到CRF" class="headerlink" title="隐马尔可夫模型到CRF"></a>隐马尔可夫模型到CRF</h3><p>HMM和CRF的对应关系类似于Naive-Bayes和Logistics regression, 都是生成式和判别式的对比. HMM则采用生成式方法进行标签生成, CRF将各种特征组合在一起判断标签. HMM可以推演出特定形式的CRF. 把上式的HMM改写成如下形式:</p>
-<p>$$<br>\begin{aligned}<br>    p(\mathbf{y}, \mathbf{x})=&amp; \frac{1}{Z} \prod_{t=1}^T \exp \left( \sum_{i, j \in S} \theta_{i j} \mathbf{1}<em>{\{y_t=i\}} \mathbf{1}_{\{y_{t-1}=j\}} \right. \<br>    &amp;\left.+ \sum_{i \in S} \sum</em>{o \in O} \mu_{o i} \mathbf{1}<em>{\{y</em>{t}=i\}} \mathbf{1}<em>{\{x</em>{t}=o\}} \right)<br>\end{aligned}<br>$$<br>其中$\theta=\{\theta_{i j}, \mu_{o i}\}$是分布的实参数, $Z$是常数正则项.<br>$$<br>\begin{aligned}<br>    \theta_{i j} &amp;=\log p\left(y^{\prime}=i | y=j\right) \\<br>    \mu_{o i} &amp;=\log p(x=o | y=i) \\<br>    Z &amp;=1<br>\end{aligned}<br>$$</p>
-<p>HMM是生成式的, 借鉴Naive Bayes 到 logistics regression的方式, 通过引入特征函数这个概念, $f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)$, 对于每一个$(i, j)$跳转, 加入特征函数$f_{i j}\left(y, y^{\prime}, x\right)=\mathbf{1}<em>{\{y=i\}} \mathbf{1}</em>{\{y^{\prime}=j\}}$, 对于每一个<code>状态-观察值</code>对$(i,o)$, 加入特征函数$f_{i o}\left(y, y^{\prime}, x\right)=1_{\{y=i\}} \mathbf{1}_{\{x=o\}}$. 以上特征函数统一表示为$f_k$, 那么可以进一步把HMM写成:</p>
-<p>$$p(\mathbf{y}, \mathbf{x})=\frac{1}{Z} \prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)\right)$$</p>
-<p>可以得出条件概率$p(y|x)$</p>
-<p>$$p(\mathbf{y} | \mathbf{x})=\frac{p(\mathbf{y}, \mathbf{x})}{\sum_{\mathbf{y}^{\prime}} p\left(\mathbf{y}^{\prime}, \mathbf{x}\right)}=\frac{\prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)\right)}{\sum_{\mathbf{y}^{\prime}} \prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}^{\prime}, y_{t-1}^{\prime}, x_{t}\right)\right)}$$</p>
-<p>所以当联合概率$p(y,x)$以HMM的形式因式分解, 则关联的条件分布$p(y|x)$就是一种特定形式的linear-chain CRF，即一种仅使用当前单词自身作为特征的CRF. <img src="/images/HMM-like-linear-chain-crf.png" title="Graphical model of the HMM-like linear-chain CRF. by Sutton, C. 2010"></p>
-<h3 id="Linear-Chain-CRF"><a href="#Linear-Chain-CRF" class="headerlink" title="Linear Chain CRF"></a>Linear Chain CRF</h3><p>随机场, 可以看成是一组随机变量的集合（这组随机变量对应同一个样本空间）。当给每一个位置按照某种分布随机赋予一个值之后，其全体就叫做随机场。这些随机变量之间可能有依赖关系，一般来说，也只有当这些变量之间有依赖关系的时候，我们将其单独拿出来看成一个随机场才有实际意义。</p>
+<h2 id="随机场"><a href="#随机场" class="headerlink" title="随机场"></a>随机场</h2><p>随机场, 可以看成是一组随机变量的集合（这组随机变量对应同一个样本空间）。当给每一个位置按照某种分布随机赋予一个值之后，其全体就叫做随机场。这些随机变量之间可能有依赖关系，一般来说，也只有当这些变量之间有依赖关系的时候，我们将其单独拿出来看成一个随机场才有实际意义。</p>
 <p>如果给定的MRF中每个随机变量下面还有观察值，我们要确定的是给定观察集合下，这个MRF的分布，也就是<strong>条件分布</strong>，那么这个MRF就称为 Conditional random fields (CRF)。它的条件分布形式完全类似于MRF的分布形式，只不过多了一个观察集合X。所以, CRF本质上是给定了条件(观察值observations)集合的MRF.</p>
 <p>1.特征函数的选择: 特征函数的选取直接关系模型的性能。<br>2.参数估计: 从已经标注好的训练数据集学习条件随机场模型的参数，即各特征函数的权重向量λ。<br>3.模型推断: 在给定条件随机场模型参数λ下，预测出最可能的状态序列。</p>
-<p>HMM的生成式概率模型是$p(y,x)$, 它的条件概率$p(y|x)$本质上就是选取了特定特征函数的CRF. 直接引用(Sutton, C. 2010)的定义:<br><img src="/images/linear-chain-crf.png" title="from: An Introduction to Conditional Random Fields, by Charles Sutton and Andrew McCallum"></p>
-<p>在这里仅讨论Linear-Chain CRF, 不讨论General CRFs(太抽象,我也没完全搞懂)</p>
+<h3 id="MEMM和CRF"><a href="#MEMM和CRF" class="headerlink" title="MEMM和CRF"></a>MEMM和CRF</h3><p>在CRF的序列标注问题中，我们要计算的是条件概率<br>$$<br>P\left(y_{1}, \ldots, y_{n} \mid \boldsymbol{x}\right), \quad \boldsymbol{x}=\left(x_{1}, \ldots, x_{n}\right)<br>$$</p>
+<p>CRF和MEMM的关键区别在于，MEMM使用每个状态的指数模型来确定给定当前状态的下一状态的条件概率，而CRF则使用<strong>一个指数模型</strong>来表示整个标签序列的联合概率, 这个概率条件依赖于给定的完整观察序列。二者区别仅在于分母（也就是归一化因子）的计算方式不同，CRF的是全局归一化的，而MEMM的是局部归一化的. 也就是说CRF是一个以观测序列$X$为全局条件的随机场. 存在函数$f(y_1,\dots,y_n;\boldsymbol{x})$，使得<br>$$<br>P(y_1,\dots,y_n|\boldsymbol{x})=\frac{1}{Z(\boldsymbol{x})}\exp\Big(f(y_1,\dots,y_n;\boldsymbol{x})\Big)<br>$$</p>
+<p>可以得到对应得概率是<br>$$P(\boldsymbol{y} | \boldsymbol{x})=\frac{e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}{\sum_{y_{1}, y_{2}, \ldots, y_{n} \in S^n} e^{f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right)}}$$<br>CRF的计算困难之处在于上式的分母项包含了所有可能路径$S^n$的求和，搜索空间非常庞大.</p>
+<p>因此做出一些简化，假设输出之间的关联仅发生在相邻位置，并且关联是指数加性的:</p>
+<p>$$\begin{aligned}<br>f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right) &amp;=f\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+f\left(y_{n} ; \boldsymbol{x}\right) \\<br>&amp;=f\left(y_{1} ; \boldsymbol{x}\right)+\sum_{k=2}^{n}\left(g\left(y_{k-1}, y_{k}\right)+f\left(y_{k} ; \boldsymbol{x}\right)\right)<br>\end{aligned}\tag{1}$$</p>
+<p>只需要对每一个标签和每一个相邻标签对分别打分，然后将所有打分结果求和得到总分。</p>
+<h3 id="Linear-Chain-CRF"><a href="#Linear-Chain-CRF" class="headerlink" title="Linear Chain CRF"></a>Linear Chain CRF</h3><p>尽管CRF已经做了一些简化假设，但一般来说，(1)式所表示的概率模型还是过于复杂，难以求解。于是考虑到当前深度学习模型中，RNN或者层叠CNN等模型已经能够比较充分捕捉各个$y$与输入$x$的联系，因此，我们不妨考虑函数$g$跟$x$无关，那么<br>$$\begin{aligned}<br>f\left(y_{1}, y_{2}, \ldots, y_{n} ; \boldsymbol{x}\right) &amp;=h\left(y_{1} ; \boldsymbol{x}\right)+g\left(y_{1}, y_{2}\right)+\cdots+g\left(y_{n-1}, y_{n}\right)+h\left(y_{n} ; \boldsymbol{x}\right) \\<br>&amp;=h\left(y_{1} ; \boldsymbol{x}\right)+\sum_{k=2}^{n}\left(g\left(y_{k-1}, y_{k}\right)+h\left(y_{k} ; \boldsymbol{x}\right)\right)<br>\end{aligned}$$<br>其中$g\left(y_{k-1}, y_{k}\right)$是一个有限的、待训练的参数矩阵，而单标签的打分函数$h(y_i;\boldsymbol{x})$我们可以通过RNN或者CNN来建模。因此，该模型是可以建立的，其中概率分布变为<br>$$<br>P(y_1,\dots,y_n|\boldsymbol{x})=\frac{1}{Z(\boldsymbol{x})}\exp\left(h(y_1;\boldsymbol{x})+\sum_{k=1}^{n-1}\Big[g(y_k,y_{k+1})+h(y_{k+1};\boldsymbol{x})\Big]\right)\tag{2}<br>$$</p>
+<p>直接引用(Sutton, C. 2010)的定义:<br><img src="/images/linear-chain-crf.png" title="from: An Introduction to Conditional Random Fields, by Charles Sutton and Andrew McCallum"></p>
 <p>在CRF中，首先需要定义特征函数. </p>
 <p>然后为每个特征函数$f_{j}$分配权重$\lambda_j$, 权重是从数据中学习而来. 对$j$个特征方程求和, 对序列每个位置$i$求和:</p>
 <p>$$ score(y | x) = \sum_{j = 1}^m \sum_{i = 1}^n \lambda_j f_j(s, i, y_i, y_{i-1})$$</p>
 <p>CRF的每个特征函数都是一个输入的函数, 对应的输出是一个实数值（只是0或1）。例如, 选择特征函数$f_1(x, i, y_i, y_{i-1}) = 1$, 当且仅当$y_i = ADVERB$, 且第i个单词以“<code>-ly</code>”结尾; 否则为0. 如果与此特征相关的权重$\lambda_j$很大且为正，那么这个特征等同于说模型倾向于把以<code>-ly</code>结尾的单词标记为ADVERB。</p>
 <p>通过指数化和归一化把这些得分转换为概率值:<br>$$p(y | x) = \frac{exp\left(score(y|x)\right)}{\sum_{y^\prime} exp\left(score(y^\prime|x)\right)} = \frac{exp\left(\sum_{j = 1}^m \sum_{i = 1}^n \lambda_j f_j(x, i, y_i, y_{i-1})\right)}{\sum_{y^{\prime}} exp\left(\sum_{j = 1}^m \sum_{i = 1}^n \lambda_j f_j(x, i, y^\prime_i, l^\prime_{i-1})\right)} $$</p>
-<p>通过恰当地设置特征函数, 就可以从CRF中构建出一个HMM. 在CRF的对数线性形式中, 设置权重为对应HMM(取对数后)的二元转换和发射概率: $\log p(s,o) = \log p(s_0) + \sum_i \log p(s_i | s_{i-1}) + \sum_i \log p(o_i | s_i)$</p>
-<ul>
-<li>对于每个状态pair$\left(y_{i-1}, y_i\right)$, 对应HMM的每个状态转换概率$p(s_i = y_i | s_{i-1} = y_{i-1})$, CRF定义一组特征函数为$f_{y_{i-1},y_i}(o, i, s_i, s_{i-1}) = 1$ 如果 $s_i = y_i$ 且 $s_{i-1} = y_{i-1}$, 为这些特征赋予权重$g_{y_{i-1},y_i} = \log p(s_i = y_i | s_{i-1} = y_{i-1})$</li>
-<li>对于每个状态-观察值pair, 对应HMM的每个发射概率$p(o_i = x | s_{i} = y_i)$, CRF定义一组特征函数为$f_{x,y}(o, i, s_i, s_{i-1}) = 1$ 如果 $o_i = x$ 且 $s_i = y_i$, 赋予权重$w_{x,y} = \log p(o_i = x | s_i = y)$.</li>
-</ul>
-<p>如此, CRF计算的似然$p(y|x)$就精确地正比于对应的HMM, 也就是说, 任意的HMM都可以由CRF表达出来.</p>
-<p>Linear-Chain CRF特征函数的定义非常灵活, 不同的形式用于不同的功能. 比如对于HMM而言, 不管输入怎么变, 状态转换$transition(i, j)$的分值是一样的$\log p (y_t = j | y_{t−1} = i)$; 那么此时在CRF中, 我们通过增加这样一个特征$\mathbf{1}<em>{\{y</em>{t}=j\}} \mathbf{1}<em>{\{y</em>{t-1}=1\}} \mathbf{1}<em>{\{x</em>{t}=o\}}$, 使$transition(i, j)$分值依赖于当前的观察序列:<img src="/images/linear-chain-crf-depend-on-current-observation.png" title="from: An Introduction to Conditional Random Fields, by Charles Sutton and Andrew McCallum"></p>
+<p>Linear-Chain CRF特征函数的定义非常灵活, 不同的形式用于不同的功能. 比如对于HMM而言, 不管输入怎么变, 状态转换$transition(i, j)$的分值是一样的$\log p (y_t = j | y_{t−1} = i)$; 那么此时在CRF中, 我们通过增加这样一个特征$1_{\{y_{t}=j\}} 1_{\{y_{t-1}=1\}} 1_{\{x_{t}=o\}}$, 使$transition(i, j)$分值依赖于当前的观察序列:<img src="/images/linear-chain-crf-depend-on-current-observation.png" title="from: An Introduction to Conditional Random Fields, by Charles Sutton and Andrew McCallum"></p>
 <p>这种特征常常用于文本处理中, 比如:</p>
 <ol>
 <li>一个句子提供观察值$x_{i-1, i}$</li>
 <li>单词的标签$y_{i-1, i}$</li>
 </ol>
 <p>需要指出的是在线性链CRF的定义中每个feature的依赖值并不仅限于当前和上一时间步的观察值. 事实上, 因为CRF并不表达变量之间的依赖关系, 我们可以让因子$\Psi_{t}$依赖于整个观察向量$x$并保持线性图结构, 这时候的特征函数就是$f_{k}\left(y_{t}, y_{t-1}, \mathbf{x}\right)$, 可以自由检视所有输入变量$x$, <img src="/images/linear-chain-crf-depend-on-all-observations.png" title="from: An Introduction to Conditional Random Fields, by Charles Sutton and Andrew McCallum"> 这个特性可以拓展到所有CRFs而不仅限于线性链CRF.</p>
+<p>CRF既具有判别式模型的优点，又考虑到长距离上下文标记间的转移概率，以序列化形式进行全局参数优化和解码的特点，解决了其他判别式模型(如MEMM)难以避免的标记偏见问题。</p>
+<h3 id="隐马尔可夫模型和Linear-Chain-CRF的联系"><a href="#隐马尔可夫模型和Linear-Chain-CRF的联系" class="headerlink" title="隐马尔可夫模型和Linear-Chain CRF的联系"></a>隐马尔可夫模型和Linear-Chain CRF的联系</h3><p>HMM的生成式概率模型是$p(y,x)$, 它的条件概率$p(y|x)$本质上就是选取了特定特征函数的CRF. HMM和CRF的对应关系类似于Naive-Bayes和Logistics regression, 都是生成式和判别式的对比. HMM则采用生成式方法进行标签生成, CRF将各种特征组合在一起判断标签. HMM可以推演出特定形式的CRF. 把上式的HMM改写成如下形式:</p>
+<!-- /images/hmm2crf.png) -->
+<p>$$<br>\begin{aligned}<br>p(y, x)=&amp; \frac{1}{Z} \prod_{t=1}^T \exp \left( \sum_{i, j \in S} \theta_{i j} 1_{\{y_t=i\}} 1_{\{y_{t-1}=j\}} \right. \\<br>    &amp;\left.+ \sum_{i \in S} \sum_{o \in O} \mu_{o i} 1_{\{y_{t}=i\}} 1_{\{x_{t}=o\}} \right)<br>\end{aligned}<br>$$</p>
+<p>其中$\theta=\{\theta_{i j}, \mu_{o i}\}$是分布的实参数, $Z$是常数正则项.<br>$$<br>\begin{aligned}<br>    \theta_{i j} &amp;=\log p\left(y^{\prime}=i | y=j\right) \\<br>    \mu_{o i} &amp;=\log p(x=o | y=i) \\<br>    Z &amp;=1<br>\end{aligned}<br>$$</p>
+<p>HMM是生成式的, 借鉴Naive Bayes 到 logistics regression的方式, 通过引入特征函数这个概念, $f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)$, 对于每一个$(i, j)$跳转, 加入特征函数$f_{i j}\left(y, y^{\prime}, x\right)=1_{\{y=i\}} 1_{\{y^{\prime}=j\}}$, 对于每一个<code>状态-观察值</code>对$(i,o)$, 加入特征函数$f_{i o}\left(y, y^{\prime}, x\right)=1_{\{y=i\}} \mathbf{1}_{\{x=o\}}$. 以上特征函数统一表示为$f_k$, 那么可以进一步把HMM写成:</p>
+<p>$$p(\mathbf{y}, \mathbf{x})=\frac{1}{Z} \prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)\right)$$</p>
+<p>可以得出条件概率$p(y|x)$</p>
+<p>$$p(\mathbf{y} | \mathbf{x})=\frac{p(\mathbf{y}, \mathbf{x})}{\sum_{\mathbf{y}^{\prime}} p\left(\mathbf{y}^{\prime}, \mathbf{x}\right)}=\frac{\prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}, y_{t-1}, x_{t}\right)\right)}{\sum_{\mathbf{y}^{\prime}} \prod_{t=1}^{T} \exp \left(\sum_{k=1}^{K} \theta_{k} f_{k}\left(y_{t}^{\prime}, y_{t-1}^{\prime}, x_{t}\right)\right)}$$</p>
+<p>所以当联合概率$p(y,x)$以HMM的形式因式分解, 则关联的条件分布$p(y|x)$就是一种特定形式的linear-chain CRF，即一种仅使用当前单词自身作为特征的CRF. <img src="/images/HMM-like-linear-chain-crf.png" title="Graphical model of the HMM-like linear-chain CRF. by Sutton, C. 2010"></p>
+<p>通过恰当地设置特征函数, 可以从CRF中构建出一个HMM. 在CRF的对数线性形式中, 设置权重为对应HMM(取对数后)的二元转换和发射概率: $\log p(s,o) = \log p(s_0) + \sum_i \log p(s_i | s_{i-1}) + \sum_i \log p(o_i | s_i)$</p>
+<ul>
+<li>对于每个状态pair$\left(y_{i-1}, y_i\right)$, 对应HMM的每个状态转换概率$p(s_i = y_i | s_{i-1} = y_{i-1})$, CRF定义一组特征函数为$f_{y_{i-1},y_i}(o, i, s_i, s_{i-1}) = 1$ 如果 $s_i = y_i$ 且 $s_{i-1} = y_{i-1}$, 为这些特征赋予权重$g_{y_{i-1},y_i} = \log p(s_i = y_i | s_{i-1} = y_{i-1})$</li>
+<li>对于每个状态-观察值pair, 对应HMM的每个发射概率$p(o_i = x | s_{i} = y_i)$, CRF定义一组特征函数为$f_{x,y}(o, i, s_i, s_{i-1}) = 1$ 如果 $o_i = x$ 且 $s_i = y_i$, 赋予权重$w_{x,y} = \log p(o_i = x | s_i = y)$.</li>
+</ul>
+<p>如此, CRF计算的似然$p(y|x)$就精确地正比于对应的HMM, 也就是说, 任意的HMM都可以由CRF表达出来.</p>
 <p>CRF比HMM更强大, 更泛用</p>
 <ol>
 <li>CRF可以定义更广泛的特征函数：HMM受限于相邻位置的状态转换（二元转换）和发射概率函数，迫使每个单词仅依赖于当前标签，并且每个标签仅依赖于前一个标签。而CRF可以使用更多样的全局特征。例如，如果句子的结尾包含问号，则可以给给CRF模型增加一个特征函数，记录此时将句子的第一个单词标记为VERB的概率。这使得CRF可以使用长距离依赖的特征。</li>
 <li>CRF可以有任意的权重值：HMM的概率值必须满足特定的约束， $0 &lt;= p(o_i | s_i) &lt;= 1, \sum_o p(o_i = x | y_1) = 1)$, 而CRF的权重值是不受限制的。</li>
 </ol>
-<p>CRF既具有判别式模型的优点，又考虑到长距离上下文标记间的转移概率，以序列化形式进行全局参数优化和解码的特点，解决了其他判别式模型(如MEMM)难以避免的标记偏见问题。</p>
 <h3 id="CRF与Logistic-Regression"><a href="#CRF与Logistic-Regression" class="headerlink" title="CRF与Logistic Regression"></a>CRF与Logistic Regression</h3><p>CRF的概率计算与Logistic Regression (LR)的形式类似，<br>$$CRF: p(l | s) = \frac{exp \left(\sum_{j = 1}^m \sum_{i = 1}^n \lambda_j f_j(s, i, l_i, l_{i-1})\right)}{\sum_{l’} exp\left(\sum_{j = 1}^m \sum_{i = 1}^n \lambda_j f_j(s, i, l^\prime_i, l^\prime_{i-1})\right)}$$</p>
 <p>$$LR: P(y|x) = \frac{\exp \bigg( \sum\limits_{i=1}^{N} w_{i} \cdot f_{i}(x,y) \bigg)} {\sum\limits_{y’ \in Y} \exp \bigg( \sum\limits_{i=1}^{N} w_{i} \cdot f_{i}(x,y’) \bigg)}$$<br>在LR中, $f_i(y, x)$是一个特征，$w_i$是与该特征相关的权重。提取的特征是二元特征，取值0或1，通常称为指示函数。这些特征中的每一个都由与输入$x$和分类$y$相关联的函数计算。</p>
 <p>实际上，CRF基本上就是逻辑回归的序列化：与逻辑回归是用于分类的对数线性模型不同，CRF是标签序列的对数线性模型。</p>
 <h3 id="CRF模型训练"><a href="#CRF模型训练" class="headerlink" title="CRF模型训练"></a>CRF模型训练</h3><p>如何通过数据训练CRF模型, 估计特征函数的权重? 利用极大似然估计（Maximum Likelihood Estimation，MLE)和梯度优化(gradient descent).</p>
-<p>$\log p(l | s)$相对于参数$λ<em>i$的梯度为:$$\frac{\partial}{\partial w_j} \log p(l | s) = \sum_{j = 1}^m f_i(s, j, l_j, l</em>{j-1}) - \sum_{l’} p(l’ | s) \sum_{j = 1}^m f_i(s, j, l^\prime_j, l^\prime_{j-1})$$<br>导数的第一项是真实标签下的特征$f_i$的贡献，第二项是当前模型下特征$f_i$的期望贡献。</p>
+<p>$\log p(l | s)$相对于参数$λ_i$的梯度为:</p>
+<p>$$\frac{\partial}{\partial w_j} \log p(l | s) = \sum_{j = 1}^m f_i(s, j, l_j, l_{j-1}) - \sum_{l’} p(l’ | s) \sum_{j = 1}^m f_i(s, j, l^\prime_j, l^\prime_{j-1})$$</p>
+<p>导数的第一项是真实标签下的特征$f_i$的贡献，第二项是当前模型下特征$f_i$的期望贡献。</p>
 <p>对于一堆训练样例（句子和相关的词性标签）。随机初始化CRF模型的权重。要将这些随机初始化的权重转移到正确的权重，对于每个训练示例:</p>
 <ul>
 <li>遍历每个特征函数$f_i$，计算训练示例相对于$λ_i$的对数概率的梯度</li>
-<li>以learning rate $\alpha$的速率沿梯度方向不断修正$λ<em>i$: $\lambda_i = \lambda_i + \alpha [\sum</em>{j = 1}^m f_i(s, j, l_j, l_{j-1}) - \sum_{l’} p(l’ | s) \sum_{j = 1}^m f_i(s, j, l^\prime_j, l^\prime_{j-1})]$</li>
+<li>以learning rate $\alpha$的速率沿梯度方向不断修正$λ_i$: </li>
+</ul>
+<p>$$\lambda_i = \lambda_i + \alpha [\sum_{j = 1}^m f_i(s, j, l_j, l_{j-1}) - \sum_{l’} p(l’ | s) \sum_{j = 1}^m f_i(s, j, l^\prime_j, l^\prime_{j-1})]$$</p>
+<ul>
 <li>重复这些训练步骤，直到满足停止条件（例如，更新低于某个阈值）。</li>
 </ul>
 <p>CRF的缺点是模型训练时收敛速度比较慢.</p>
 <p>训练后的CRF模型, 可以用于预测一个未标记序列的最大可能标记. 我们需要每个标记的概率$p(l | s)$, 对于大小为k的标签集和长度为m的句子, 需要比较的$p(l | s)$组合有$k^m$种. 但是计算时, 可以利用动态规划的方法, 原理类似于Viterbi算法.</p>
+<p>Tensorflow实现的CRF就是线性链CRF<br>$$\begin{aligned}&amp;P_Q(a_1,a_2,\dots,a_n)\<br>=&amp;\frac{1}{Z} \exp \Big[f(a_1;Q)+g(a_1, a_2;Q) + f(a_2;Q) +\dots + g(a_{n-1}, a_n;Q) + f(a_n;Q)\Big]<br>\end{aligned}$$<br>所谓线性链，就是直接认为函数$g$实际上跟$Q$没关系，即对于任何的输入文本，$g(a_{k-1},a_k)$是个常数矩阵。剩下的则跟逐标签softmax的情形差不多了，认为$f(a_k;Q)\equiv f(a_k;q_k)$. 相对于逐标签softmax，CRF只是换了一个loss，多了一个转移矩阵，并且解码的时候需要用到viterbi算法。按照极大似然的思想，loss应该取为：<br>$$\begin{aligned} &amp;-\log P_Q(a_1,a_2,\dots,a_n)\<br>=&amp; - \sum_{k=1}^n f(a_k;q_k) - \sum_{k=2}^n g(a_{k-1},a_k) + \log Z<br>\end{aligned}$$</p>
+<p>如果前面模型用BERT或者BiLSTM来得到特征$q_k$，那么就得到了序列标注任务中的Encoder-CRF了。</p>
 <h3 id="CRF中文命名实体识别"><a href="#CRF中文命名实体识别" class="headerlink" title="CRF中文命名实体识别"></a>CRF中文命名实体识别</h3><p>比如中文命名实体识别任务, 假如需要判断人名、地名、组织名三类命名实体.</p>
 <p>对于人名, 通过一些模板来筛选特征。模板是对上下文的特定位置和特定信息的考虑, 适用于人名的特征模板:</p>
 <ul>
@@ -4215,6 +4227,7 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <li><a href="http://homepages.inf.ed.ac.uk/csutton/publications/crftut-fnt.pdf">An Introduction to Conditional Random Fields</a>, Sutton, C., &amp; McCallum, A. (2011)</li>
 <li><a href="http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/">http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/</a></li>
 <li>Classical probabilistic models and conditional random fields</li>
+<li><a href="https://kexue.fm/archives/5542">https://kexue.fm/archives/5542</a></li>
 <li>McCallum, A. (1909). Maximum Entropy Markov Models for Information Extraction and Segmentation. Berichte Der Deutschen Chemischen Gesellschaft, 42(1), 310–317. <a href="https://doi.org/10.1002/cber.19090420146">https://doi.org/10.1002/cber.19090420146</a></li>
 </ol>
 ]]></content>
