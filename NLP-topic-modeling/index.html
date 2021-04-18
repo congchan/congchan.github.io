@@ -379,9 +379,9 @@
 <p><img src="/images/document_term.png" title="image from https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158"></p>
 <p>这个矩阵把文档表示为向量，使得不同文档之间可以从几何上衡量相似性，根据相似性<strong>聚类文本</strong>.</p>
 <p>虽然tf-idf有很多很好的特性, 但是它的降维程度非常有限, 而且无法揭示文档间或文档内的统计结构.</p>
-<p>比如我们需要知道文本包含什么<strong>信息</strong>, 却又不清楚什么信息是重要的, 所以我们希望能把信息也归纳成几类。我们称这种信息为<strong>主题</strong>, 一种粗粒度的信息. 那么就有了一个很重要的任务, 就是挖掘出这一堆文本包含的主题都有哪几大类. 每个文本都可能包含多种不同主题, 而且包含的侧重也不一样, 所以进一步的, 我们希望能够挖掘出每个文本的主题分布, 也就是主题类别在各个文本中的权重. 这种对文本信息的挖掘和理解方法, 称之为<strong>主题建模(Topic Modelling)</strong>.</p>
-<p>此时主题数量就是一个超参数, 通过主题建模，构建了单词的clusters而不是文本的clusters。因此，文本被表达为多个主题的混合，每个主题都有一定的权重。</p>
-<p>因为主题建模不再是用词频来表达, 而是用主题权重<code>&#123;Topic_i: weight(Topic_i, T) for Topic_i in Topics&#125;</code>, 所以主题建模也是一种 Dimensionality Reduction. </p>
+<p>比如我们需要知道文本包含什么<strong>信息</strong>, 却又不清楚什么信息是重要的, 所以我们希望能把信息也归纳成几类。我们称这种信息为<strong>主题</strong>, 一种粗粒度的信息. 那么就有了一个很重要的任务, 就是挖掘出这一堆文本包含的主题都有哪几大类. 每个文本都可能包含多种不同主题, 而且包含的侧重也不一样, 所以进一步的, 我们希望能够挖掘出每个文本的主题分布, 也就是主题类别在各个文本中的权重. 这种对文本信息的挖掘和理解方法, 称之为<strong>主题建模(Topic Modelling)</strong>. 其核心思想是认为词不是由文档直接生成，而是由文档先生成主题，主题再生成词。</p>
+<p>因为主题建模不再是用词频来表达, 而是用主题权重<code>&#123;Topic_i: weight(Topic_i, T) for Topic_i in Topics&#125;</code>来表达文档在K个主题上的分布。用K维的向量来表征文档，本质上是降维。</p>
+<p>此时主题数量就是一个超参数, 通过主题建模，构建了单词的clusters而不是文本的clusters。因此，文本被表达为多个主题的混合，每个主题都有一定的权重。这种做法在机器学习的框架中可称之为隐变量模型，因为它引入了一个观测数据中不存在的变量，也就是主题这个变量。它首先假设存在这样一个隐变量，并假设了隐变量和观测变量之间的关系，然后通过模型训练得到隐变量和观测变量之间的具体关系，最终模型的产出包括隐变量的分布本身，以及更重要的，隐变量和观测变量之间的关系。</p>
 <p>主题建模也可以理解为文本主题的tagging任务, 只是无监督罢了.</p>
 <h3 id="Latent-Semantic-Analysis-LSA"><a href="#Latent-Semantic-Analysis-LSA" class="headerlink" title="Latent Semantic Analysis (LSA)"></a>Latent Semantic Analysis (LSA)</h3><p>通过引入Latent的概念，把主题表达为隐藏的信息, 也就是假设主题已经存在, 只是我们看不到. LSA使用DWM矩阵的SVD奇异值分解来确定tf-idf特征空间中的线性子空间，该子空间捕获了集合中的大部分variance。</p>
 <ol>
@@ -425,7 +425,7 @@
 <p>虽然PPCA也是概率模型, 但是PPCA假设了正态分布(normal distribution), 局限性很大. PLSA将每个共现的概率建模为条件独立的多项式分布(multinomial distributions)的混合. 多项式分布在此领域是更好的选择。</p>
 <p>因为有了$p(z|d)$充当特定文档的主题混合权重, pLSA可以捕获文档包含多个主题的可能性. 但是, $d$是训练集文档列表的虚拟索引, 因此$d$是一个多项式随机变量，其值可能与训练文档一样多, 这样pLSA仅针对训练集的文档学习主题混合$p(z|d)$, 对于训练集之外的document而言, 不知道如何分配概率. 等于说pLSA并不是一个定义明确的文档级别的概率生成模型。</p>
 <p>除此之外, 因为使用训练集文档索引的分布，另一个困难就是需要估计的参数数量随着训练集数量增加而线性增加. 具体地说, 一个k-topic pLSA的参数是$k$个latent topic上大小为$V$的多项式分布, 以及$M$个mixtures, 参数量是$kV + kM$，随着$M$线性增长。所以pLSA容易过拟合(虽然可以用Tempered EM算法来稍微缓解). </p>
-<h3 id="Latent-Dirichlet-allocation-LDA"><a href="#Latent-Dirichlet-allocation-LDA" class="headerlink" title="Latent Dirichlet allocation(LDA)"></a>Latent Dirichlet allocation(LDA)</h3><p>回顾LSA和pLSA, 都基于“词袋”的假设。从概率论的角度来说，是对文档中单词有exchangeability的假设（Aldous，1985）。此外，尽管很少正式地陈述这些方法，但这些方法还假定文档是可交换的。语料库中文档的特定顺序也可以忽略。Finetti（1990）提出的经典表示定理认为任何可交换随机变量的集合都具有表示为混合分布的形式 - 通常是无限混合。因此，如果我们希望考虑文档和单词的可交换表示形式，则需要考虑能够同时捕获单词和文档的可交换性的混合模型。这就是<a target="_blank" rel="noopener" href="http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf">Latent Dirichlet allocation. David Blei, Andrew Ng, and Michael Jordan. 2003.</a>这篇文章的动机.</p>
+<h3 id="Latent-Dirichlet-allocation-LDA"><a href="#Latent-Dirichlet-allocation-LDA" class="headerlink" title="Latent Dirichlet allocation(LDA)"></a>Latent Dirichlet allocation(LDA)</h3><p>回顾LSA和pLSA, 都基于“词袋”的假设。从概率论的角度来说，是对文档中单词有exchangeability的假设（Aldous，1985）。此外，尽管很少正式地陈述这些方法，但这些方法还假定文档是可交换的。语料库中文档的特定顺序也可以忽略。Finetti（1990）提出的<strong>经典表示定理认为任何可交换随机变量的集合都具有表示为混合分布的形式 - 通常是无限混合</strong>。因此，如果我们希望考虑文档和单词的可交换表示形式，则需要考虑能够同时捕获单词和文档的可交换性的混合模型。这就是<a target="_blank" rel="noopener" href="http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf">Latent Dirichlet allocation. David Blei, Andrew Ng, and Michael Jordan. 2003.</a>这篇文章的动机.</p>
 <p>LDA对主题分布的基本设定是, 每个文档被表达为latent variables(topics)的随机混合, 其中各个topics可以由单词的概率分布来描述.</p>
 <p>对于语料库$D$中的每个文档$\boldsymbol{w}$, LDA假设如下的生成过程:</p>
 <ol>
@@ -465,7 +465,8 @@
 </ol>
 </li>
 </ul>
-<h3 id="LDA的实际应用"><a href="#LDA的实际应用" class="headerlink" title="LDA的实际应用"></a>LDA的实际应用</h3><p><a target="_blank" rel="noopener" href="https://github.com/congchan/Chinese-nlp/blob/master/latent-dirichlet-allocation-topic-model.ipynb">LDA模型实战案例</a></p>
+<h3 id="LDA的实际应用"><a href="#LDA的实际应用" class="headerlink" title="LDA的实际应用"></a>LDA的实际应用</h3><p>LDA聚类的结果经常被用来做聚类，典型的如文档的聚类，而其他表征学习学到的ID表征，同样可以用来做ID的聚类，例如用词向量做词的聚类等。能生成向量表示，并且能用来聚类，从这个角度来看，表征学习和LDA这类生成式模型的用途是一样。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/congchan/Chinese-nlp/blob/master/latent-dirichlet-allocation-topic-model.ipynb">LDA模型实战案例</a></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>主题建模的算法:</p>
 <ol>
 <li>(p)LSA: (Probabilistic) Latent Semantic Analysis – Uses Singular Value Decomposition (SVD) on the Document-Term Matrix. Based on Linear Algebra. SVD假设了Gaussian distributed. </li>

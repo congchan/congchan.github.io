@@ -4027,6 +4027,14 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <p>具体的区别详见<a href="http://clic.cimec.unitn.it/marco/publications/acl2014/baroni-etal-countpredict-acl2014.pdf">Baroni et al.</a>. 但总的来说，Count-based methods 统计词汇间的共现频率，然后把co-occurs matrix 映射到向量空间中；而Predictive models直接通过上下文预测单词的方式来学习向量空间（也就是模型参数空间）。</p>
 <p>Word2vec 是一种计算特别高效的predictive model, 用于从文本中学习word embeddings。它有两种方案, Continuous Bag-of-Words model (CBOW) 和 Skip-Gram model (Section 3.1 and 3.2 in <a href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a>).</p>
 <p>从算法上讲, 两种方案是相似的, 只不过 CBOW 会从source context-words (<code>&#39;the cat sits on the&#39;</code>)预测目标单词(例如<code>&quot;mat&quot;</code>); 而skip-gram则相反, 预测目标单词的source context-words。Skip-gram这种做法可能看起来有点随意. 但从统计上看, CBOW 会平滑大量分布信息(通过将整个上下文视为一个观测值), 在大多数情况下, 这对较小的数据集是很有用的。但是, Skip-gram将每个context-target pair视为新的观测值, 当数据集较大时, 这往往带来更好的效果。</p>
+<p>Word2vec的算法流程是：</p>
+<ol>
+<li>Start with a sentence: “the quick brown fox jumps.”</li>
+<li>Use a sliding window across the sentence to create (context, target) pairs, where the target is the center word, and the context is the surrounding words:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">([the, brown], quick)</span><br><span class="line">([quick, fox], brown)</span><br><span class="line">([brown, jumps], fox)</span><br></pre></td></tr></table></figure></li>
+<li>Use a lookup embedding layer to convert the context words into vectors, and average them to get a single input vector that represents the full context.</li>
+<li>Using the context vector as input into a fully connected Neural Network layer with a Softmax transformation. This results in a probability for every word in your entire vocabulary for being the correct target given the current context.</li>
+<li>Minimize the cross-entropy loss where label = 1 for the correct target word, and label = 0 for all other words.</li>
+</ol>
 <h3 id="优化目标函数"><a href="#优化目标函数" class="headerlink" title="优化目标函数"></a>优化目标函数</h3><p>NNLM 的训练是利用 <a href="https://en.wikipedia.org/wiki/Maximum_likelihood">最大似然 maximum likelihood</a> (ML) 原则来最大化给定上文单词\(h\) (for “history”) 预测下一个词的概率 \(w_t\) (for “target”)。</p>
 <p>$$<br>\begin{align}<br>P(w_t | h) &amp;= \text{softmax}(\text{score}(w_t, h)) \\<br>           &amp;= \frac{\exp { \text{score}(w_t, h) } }<br>             {\sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } }<br>\end{align}<br>$$</p>
 <p>其中 \(\text{score}(w_t, h)\) 计算 word \(w_t\) 和 context \(h\) 的相关性 (一般用点乘). 训练时，最大化</p>
@@ -4043,6 +4051,7 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <li>训练速度不再受限于 vocabulary size</li>
 <li>能够并行实现</li>
 <li>模型的表现更好。因为负采样契合NLP的稀疏性质，大部分情况下，虽然语料库很大，但是每一个词只跟很小部分词由关联，大部分词之间是毫无关联的，从无关联的两个词之间也别指望能学到什么有用的信息，不如直接忽略。<br>模型的表现更好。因为负采样契合NLP的稀疏性质，大部分情况下，虽然语料库很大，但是每一个词只跟很小部分词由关联，大部分词之间是毫无关联的，从无关联的两个词之间也别指望能学到什么有用的信息，不如直接忽略。</li>
+<li>通过这种方式把学习P分布的无监督学习任务改造为监督学习。</li>
 </ol>
 <p>每个词由两个向量表示：</p>
 <ol>
@@ -4057,7 +4066,17 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <p>训练时，先选出一个中心词。在正、负样本训练的时候，这个中心词就保持不变 (Constant) 了。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># https://github.com/tensorflow/models/blob/8c7a0e752f9605d284b2f08a346fdc1d51935d75/tutorials/embedding/word2vec.py#L226</span></span><br><span class="line"><span class="comment"># Negative sampling.</span></span><br><span class="line">sampled_ids, _, _ = (tf.nn.fixed_unigram_candidate_sampler(</span><br><span class="line">    true_classes=labels_matrix,</span><br><span class="line">    num_true=<span class="number">1</span>,</span><br><span class="line">    num_sampled=opts.num_samples,</span><br><span class="line">    unique=<span class="literal">True</span>,</span><br><span class="line">    range_max=opts.vocab_size,</span><br><span class="line">    distortion=<span class="number">0.75</span>,</span><br><span class="line">    unigrams=opts.vocab_counts.tolist()))</span><br></pre></td></tr></table></figure>
 
-
+<h3 id="Noise-Contrastive-Estimation"><a href="#Noise-Contrastive-Estimation" class="headerlink" title="Noise Contrastive Estimation"></a>Noise Contrastive Estimation</h3><p>Noise Contrastive Estimation （NCE）是一种通过比较数据分布和定义的噪声分布来学习数据分布的方法。在实现上与负采样非常相似，但它增加了一些理论上的依据。NCE方法中的精髓在于把难以计算的高维Sofmax多分类损失函数转化成为了更容易计算的二分类损失函数。</p>
+<p>使用Logistic Regression (LogReg) model对输入来自一个类而不是另一类的log-odds赔率比率进行建模：<br>$$<br>logit=\log \left(\frac{p_{1}}{p_{2}}\right)=\log \left(\frac{p_{1}}{1-p_{1}}\right)<br>$$</p>
+<p>如果替换为正样例P和负样例Q，将试图学习的数据分布与噪声分布进行比较，这就是NCE<br>$$<br>\operatorname{logit}=\log \left(\frac{\mathrm{P}}{\mathrm{Q}}\right)=\log (\mathrm{P})-\log (\mathrm{Q})<br>$$<br>我们不知道真正的分布P，但我们可以自由地指定Q分布来生成负样本。例如，以相等的概率对所有词汇进行采样，或者以一种考虑到一个单词在训练数据中频率的方式进行采样。总之Q是由我们决定的，所以计算log(Q)部分是可以直接统计出来的。随机从我们指定的分布Q中抽取负样例。直接通过神经网络预测正样本为正，负样本为负的方式训练网络，仅计算正目标词的网络输出值以及我们从噪声分布中随机采样的单词，仅更新对应的权重。</p>
+<p>具体步骤前三步和上面一样 create the same (context, target) pairs, and average the embeddings of the context words to get a context vector.</p>
+<ol>
+<li>In Step 4, you do the same thing as in Negative Sampling: use the context embedding vector as input to the neural network, and then gather the output for the target word and a random sample of k negative samples from the noise distribution, Q.</li>
+<li>For the network output of each of the selected words, $z_i$, subtract $log(Q)$, $y_i = z_i - log(Q_i)$</li>
+<li>Instead of a Softmax transformation, apply a sigmoid transformation, as in Logistic Regression:<br>$$<br>\hat{p}_i=\sigma\left(y_i\right)=\frac{1}{1-e^{-y_i}}<br>$$</li>
+<li>Label the correct target word with <code>label=1</code> and the negative samples with <code>label=0</code>.</li>
+<li>Use these as training samples for a Logistic Regression, and minimize the Binary Cross Entropy Loss:<br>$$<br>BCE = \frac{1}{N} \sum_i^N l_i \log (\hat{p}_i)  + (1 - l_i)  \log (1 - \hat{p}_i)<br>$$<br>$N = k+1$ (number of negative samples plus the target word), $l_i$ are the labels for if it’s the target or a negative sample, and Equation are the outputs of the sigmoid as defined above.</li>
+</ol>
 <h2 id="用TensorFlow实现word2vec"><a href="#用TensorFlow实现word2vec" class="headerlink" title="用TensorFlow实现word2vec"></a>用TensorFlow实现word2vec</h2><p>Negative Sampling 可以利用原理近似的 <a href="https://papers.nips.cc/paper/5165-learning-word-embeddings-efficiently-with-noise-contrastive-estimation.pdf">noise-contrastive estimation (NCE) loss</a>, 已经在TF的<a href="https://tensorflow.google.cn/api_docs/python/tf/nn/nce_loss">tf.nn.nce_loss()</a>实现了.</p>
 <h3 id="Building-the-graph"><a href="#Building-the-graph" class="headerlink" title="Building the graph"></a>Building the graph</h3><p>初始化一个在<code>-1: 1</code>之间随机均匀分布的矩阵</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">embeddings = tf.Variable(</span><br><span class="line">    tf.random_uniform([vocabulary_size, embedding_size], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br></pre></td></tr></table></figure>
@@ -4082,6 +4101,10 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://tensorflow.google.cn/tutorials/representation/word2vec">https://tensorflow.google.cn/tutorials/representation/word2vec</a></li>
 <li><a href="https://papers.nips.cc/paper/5165-learning-word-embeddings-efficiently-with-noise-contrastive-estimation.pdf">Learning word embeddings efficiently with noise-contrastive estimation</a></li>
+<li>Learning word embeddings efficiently with noise-contrastive estimation</li>
+<li><a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/">http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/</a></li>
+<li><a href="http://mccormickml.com/2017/01/11/word2vec-tutorial-part-2-negative-sampling/">http://mccormickml.com/2017/01/11/word2vec-tutorial-part-2-negative-sampling/</a></li>
+<li><a href="https://www.kdnuggets.com/2019/07/introduction-noise-contrastive-estimation.html#:~:text=Noise%20Contrastive%20Estimation%20is%20a%20way%20of%20learning,unsupervised%20problem%20as%20a%20supervised%20logistic%20regression%20problem.">A Gentle Introduction to Noise Contrastive Estimation</a></li>
 </ol>
 ]]></content>
       <categories>
@@ -4531,9 +4554,9 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <p><img src="/images/document_term.png" title="image from https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-latent-dirichlet-allocation-437c81220158"></p>
 <p>这个矩阵把文档表示为向量，使得不同文档之间可以从几何上衡量相似性，根据相似性<strong>聚类文本</strong>.</p>
 <p>虽然tf-idf有很多很好的特性, 但是它的降维程度非常有限, 而且无法揭示文档间或文档内的统计结构.</p>
-<p>比如我们需要知道文本包含什么<strong>信息</strong>, 却又不清楚什么信息是重要的, 所以我们希望能把信息也归纳成几类。我们称这种信息为<strong>主题</strong>, 一种粗粒度的信息. 那么就有了一个很重要的任务, 就是挖掘出这一堆文本包含的主题都有哪几大类. 每个文本都可能包含多种不同主题, 而且包含的侧重也不一样, 所以进一步的, 我们希望能够挖掘出每个文本的主题分布, 也就是主题类别在各个文本中的权重. 这种对文本信息的挖掘和理解方法, 称之为<strong>主题建模(Topic Modelling)</strong>.</p>
-<p>此时主题数量就是一个超参数, 通过主题建模，构建了单词的clusters而不是文本的clusters。因此，文本被表达为多个主题的混合，每个主题都有一定的权重。</p>
-<p>因为主题建模不再是用词频来表达, 而是用主题权重<code>&#123;Topic_i: weight(Topic_i, T) for Topic_i in Topics&#125;</code>, 所以主题建模也是一种 Dimensionality Reduction. </p>
+<p>比如我们需要知道文本包含什么<strong>信息</strong>, 却又不清楚什么信息是重要的, 所以我们希望能把信息也归纳成几类。我们称这种信息为<strong>主题</strong>, 一种粗粒度的信息. 那么就有了一个很重要的任务, 就是挖掘出这一堆文本包含的主题都有哪几大类. 每个文本都可能包含多种不同主题, 而且包含的侧重也不一样, 所以进一步的, 我们希望能够挖掘出每个文本的主题分布, 也就是主题类别在各个文本中的权重. 这种对文本信息的挖掘和理解方法, 称之为<strong>主题建模(Topic Modelling)</strong>. 其核心思想是认为词不是由文档直接生成，而是由文档先生成主题，主题再生成词。</p>
+<p>因为主题建模不再是用词频来表达, 而是用主题权重<code>&#123;Topic_i: weight(Topic_i, T) for Topic_i in Topics&#125;</code>来表达文档在K个主题上的分布。用K维的向量来表征文档，本质上是降维。</p>
+<p>此时主题数量就是一个超参数, 通过主题建模，构建了单词的clusters而不是文本的clusters。因此，文本被表达为多个主题的混合，每个主题都有一定的权重。这种做法在机器学习的框架中可称之为隐变量模型，因为它引入了一个观测数据中不存在的变量，也就是主题这个变量。它首先假设存在这样一个隐变量，并假设了隐变量和观测变量之间的关系，然后通过模型训练得到隐变量和观测变量之间的具体关系，最终模型的产出包括隐变量的分布本身，以及更重要的，隐变量和观测变量之间的关系。</p>
 <p>主题建模也可以理解为文本主题的tagging任务, 只是无监督罢了.</p>
 <h3 id="Latent-Semantic-Analysis-LSA"><a href="#Latent-Semantic-Analysis-LSA" class="headerlink" title="Latent Semantic Analysis (LSA)"></a>Latent Semantic Analysis (LSA)</h3><p>通过引入Latent的概念，把主题表达为隐藏的信息, 也就是假设主题已经存在, 只是我们看不到. LSA使用DWM矩阵的SVD奇异值分解来确定tf-idf特征空间中的线性子空间，该子空间捕获了集合中的大部分variance。</p>
 <ol>
@@ -4577,7 +4600,7 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 <p>虽然PPCA也是概率模型, 但是PPCA假设了正态分布(normal distribution), 局限性很大. PLSA将每个共现的概率建模为条件独立的多项式分布(multinomial distributions)的混合. 多项式分布在此领域是更好的选择。</p>
 <p>因为有了$p(z|d)$充当特定文档的主题混合权重, pLSA可以捕获文档包含多个主题的可能性. 但是, $d$是训练集文档列表的虚拟索引, 因此$d$是一个多项式随机变量，其值可能与训练文档一样多, 这样pLSA仅针对训练集的文档学习主题混合$p(z|d)$, 对于训练集之外的document而言, 不知道如何分配概率. 等于说pLSA并不是一个定义明确的文档级别的概率生成模型。</p>
 <p>除此之外, 因为使用训练集文档索引的分布，另一个困难就是需要估计的参数数量随着训练集数量增加而线性增加. 具体地说, 一个k-topic pLSA的参数是$k$个latent topic上大小为$V$的多项式分布, 以及$M$个mixtures, 参数量是$kV + kM$，随着$M$线性增长。所以pLSA容易过拟合(虽然可以用Tempered EM算法来稍微缓解). </p>
-<h3 id="Latent-Dirichlet-allocation-LDA"><a href="#Latent-Dirichlet-allocation-LDA" class="headerlink" title="Latent Dirichlet allocation(LDA)"></a>Latent Dirichlet allocation(LDA)</h3><p>回顾LSA和pLSA, 都基于“词袋”的假设。从概率论的角度来说，是对文档中单词有exchangeability的假设（Aldous，1985）。此外，尽管很少正式地陈述这些方法，但这些方法还假定文档是可交换的。语料库中文档的特定顺序也可以忽略。Finetti（1990）提出的经典表示定理认为任何可交换随机变量的集合都具有表示为混合分布的形式 - 通常是无限混合。因此，如果我们希望考虑文档和单词的可交换表示形式，则需要考虑能够同时捕获单词和文档的可交换性的混合模型。这就是<a href="http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf">Latent Dirichlet allocation. David Blei, Andrew Ng, and Michael Jordan. 2003.</a>这篇文章的动机.</p>
+<h3 id="Latent-Dirichlet-allocation-LDA"><a href="#Latent-Dirichlet-allocation-LDA" class="headerlink" title="Latent Dirichlet allocation(LDA)"></a>Latent Dirichlet allocation(LDA)</h3><p>回顾LSA和pLSA, 都基于“词袋”的假设。从概率论的角度来说，是对文档中单词有exchangeability的假设（Aldous，1985）。此外，尽管很少正式地陈述这些方法，但这些方法还假定文档是可交换的。语料库中文档的特定顺序也可以忽略。Finetti（1990）提出的<strong>经典表示定理认为任何可交换随机变量的集合都具有表示为混合分布的形式 - 通常是无限混合</strong>。因此，如果我们希望考虑文档和单词的可交换表示形式，则需要考虑能够同时捕获单词和文档的可交换性的混合模型。这就是<a href="http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf">Latent Dirichlet allocation. David Blei, Andrew Ng, and Michael Jordan. 2003.</a>这篇文章的动机.</p>
 <p>LDA对主题分布的基本设定是, 每个文档被表达为latent variables(topics)的随机混合, 其中各个topics可以由单词的概率分布来描述.</p>
 <p>对于语料库$D$中的每个文档$\boldsymbol{w}$, LDA假设如下的生成过程:</p>
 <ol>
@@ -4617,7 +4640,8 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 </ol>
 </li>
 </ul>
-<h3 id="LDA的实际应用"><a href="#LDA的实际应用" class="headerlink" title="LDA的实际应用"></a>LDA的实际应用</h3><p><a href="https://github.com/congchan/Chinese-nlp/blob/master/latent-dirichlet-allocation-topic-model.ipynb">LDA模型实战案例</a></p>
+<h3 id="LDA的实际应用"><a href="#LDA的实际应用" class="headerlink" title="LDA的实际应用"></a>LDA的实际应用</h3><p>LDA聚类的结果经常被用来做聚类，典型的如文档的聚类，而其他表征学习学到的ID表征，同样可以用来做ID的聚类，例如用词向量做词的聚类等。能生成向量表示，并且能用来聚类，从这个角度来看，表征学习和LDA这类生成式模型的用途是一样。</p>
+<p><a href="https://github.com/congchan/Chinese-nlp/blob/master/latent-dirichlet-allocation-topic-model.ipynb">LDA模型实战案例</a></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>主题建模的算法:</p>
 <ol>
 <li>(p)LSA: (Probabilistic) Latent Semantic Analysis – Uses Singular Value Decomposition (SVD) on the Document-Term Matrix. Based on Linear Algebra. SVD假设了Gaussian distributed. </li>
