@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="Adam Weight Decay in BERT在看BERT(Devlin et al., 2019)的源码中优化器部分的实现时，发现有这么一段话 1234567# Just adding the square of the weights to the loss function is *not*# the correct way of using L2 regularization&#x2F;weig">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BERT的Adam Weight Decay">
+<meta property="og:url" content="https://congchan.github.io/ML-adam-weight-decay/index.html">
+<meta property="og:site_name" content="Fly Me to the Moon">
+<meta property="og:description" content="Adam Weight Decay in BERT在看BERT(Devlin et al., 2019)的源码中优化器部分的实现时，发现有这么一段话 1234567# Just adding the square of the weights to the loss function is *not*# the correct way of using L2 regularization&#x2F;weig">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://congchan.github.io/images/optimizers1.png">
+<meta property="og:image" content="https://congchan.github.io/images/optimizers.gif">
+<meta property="og:image" content="https://congchan.github.io/images/adam_with_l2.png">
+<meta property="article:published_time" content="2019-01-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-01-02T16:00:00.000Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://congchan.github.io/images/optimizers1.png">
+
+
+<link rel="canonical" href="https://congchan.github.io/ML-adam-weight-decay/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>BERT的Adam Weight Decay | Fly Me to the Moon</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Fly Me to the Moon</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Adam-Weight-Decay-in-BERT"><span class="nav-number">1.</span> <span class="nav-text">Adam Weight Decay in BERT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.1.</span> <span class="nav-text">优化器回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SGD%E5%92%8C%E5%8A%A8%E9%87%8F%E6%9B%B4%E6%96%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">SGD和动量更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AdaGrad-RMSprop%E5%92%8CAdam"><span class="nav-number">1.1.2.</span> <span class="nav-text">AdaGrad, RMSprop和Adam</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Adam-Weight-Decay-%E5%92%8C-L2%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">Adam Weight Decay 和 L2正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.0.1.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/ML-adam-weight-decay/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          BERT的Adam Weight Decay
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-01-03 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-03T00:00:00+08:00">2019-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/ML-adam-weight-decay/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="ML-adam-weight-decay/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Adam-Weight-Decay-in-BERT"><a href="#Adam-Weight-Decay-in-BERT" class="headerlink" title="Adam Weight Decay in BERT"></a>Adam Weight Decay in BERT</h1><p>在看BERT(<a href="#refer">Devlin et al., 2019</a>)的源码中优化器部分的实现时，发现有这么一段话</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Just adding the square of the weights to the loss function is *not*</span></span><br><span class="line"><span class="comment"># the correct way of using L2 regularization/weight decay with Adam,</span></span><br><span class="line"><span class="comment"># since that will interact with the m and v parameters in strange ways.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Instead we want ot decay the weights in a manner that doesn&#x27;t interact</span></span><br><span class="line"><span class="comment"># with the m/v parameters. This is equivalent to adding the square</span></span><br><span class="line"><span class="comment"># of the weights to the loss with plain (non-momentum) SGD.</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>其针对性地指出一些传统的Adam weight decay实现是错误的.</p>
+<h2 id="优化器回顾"><a href="#优化器回顾" class="headerlink" title="优化器回顾"></a>优化器回顾</h2><p>先回顾一下几个优化器.</p>
+<h3 id="SGD和动量更新"><a href="#SGD和动量更新" class="headerlink" title="SGD和动量更新"></a>SGD和动量更新</h3><p>SGD在所有参数上均采用全局且均等的学习率。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Vanilla update</span></span><br><span class="line">x += - learning_rate * dx</span><br></pre></td></tr></table></figure>
+<p>加入<strong>动量更新Momentum update</strong>一般都能得到更好的收敛速。动量更新可以从优化问题的物理角度出发来理解。损失函数可以解释为丘陵地形的高度（因此也可以解释为势能，<code>U = mgh</code> , 势能正比于高度）。</p>
+<p>随机数初始化参数等效于在某个位置将初始速度设置为零。优化过程就等同于模拟参数矢量（即粒子）在损失函数的丘陵地形上滚动的过程。</p>
+<p>由于作用在粒子上的力与势能的梯度有关（即$F = - \nabla U$），因此粒子所感受到的力正好是损失函数的（负）梯度。此外$F = ma$，因此（负）梯度在这个视角下和中与粒子的加速度成比例。因此梯度直接影响的是速度，由速度来影响位置.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Momentum update</span></span><br><span class="line">v = mu * v - learning_rate * dx <span class="comment"># integrate velocity</span></span><br><span class="line">x += v <span class="comment"># integrate position</span></span><br></pre></td></tr></table></figure>
+<p>动量<code>mu</code>（一般取0.9）虽然叫动量，但其物理意义更像是摩擦系数. 它会衰减速度并降低系统的动能，避免粒子一直在山底震荡无法停止. 也就是在梯度方向有所改变的维度上的衰减速度. 同时可以在梯度方向不变的维度上维持速度，这样就可以加快收敛并减小震荡。</p>
+<h3 id="AdaGrad-RMSprop和Adam"><a href="#AdaGrad-RMSprop和Adam" class="headerlink" title="AdaGrad, RMSprop和Adam"></a>AdaGrad, RMSprop和Adam</h3><p>我们希望优化器算法可以对每个参数自适应地调整学习率. AdaGrad(<a href="#refer">Duchi et al.</a>)独立地适应模型的每个参数: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Assume the gradient dx and parameter vector x</span></span><br><span class="line">cache += dx**<span class="number">2</span></span><br><span class="line">x += - learning_rate * dx / (np.sqrt(cache) + eps)</span><br></pre></td></tr></table></figure>
+<p>变量cache跟踪每个参数的梯度平方和。然后，将其用于element-wise地正则化参数更新。接收高梯度的权重将降低其有效学习率，而接收较小或不经常更新的权重将提高其有效学习率。<br>每个参数的学习率会缩放各参数反比于其历史梯度平方值总和的平方根.</p>
+<p>RMSprop(<a href="#refer">Tieleman &amp; Hinton, 2012</a>)优化器也是一种自适应学习率方法, 不过没发表, 都是引用 slide 29 of Lecture 6 of Geoff Hinton’s Coursera class. </p>
+<p>RMSProp对Adagrad进行如下调整:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cache = decay_rate * cache + (<span class="number">1</span> - decay_rate) * dx**<span class="number">2</span></span><br><span class="line">x += - learning_rate * dx / (np.sqrt(cache) + eps)</span><br></pre></td></tr></table></figure>
+<p>使用了梯度平方的移动平均值, 避免激进的单调递减的学习率。 <code>decay_rate</code>一般取<code>[0.9, 0.99, 0.999]</code>.</p>
+<p><a href="#refer">Adam (Kingma &amp; Ba, 2014)</a>可以看做动量法和RMSprop的结合, 结合了AdaGrad处理稀疏梯度的能力和RMSProp处理不平稳目标函数的能力。简化的实现:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m = beta1*m + (<span class="number">1</span>-beta1)*dx</span><br><span class="line">v = beta2*v + (<span class="number">1</span>-beta2)*(dx**<span class="number">2</span>)</span><br><span class="line">x += - learning_rate * m / (np.sqrt(v) + eps)</span><br></pre></td></tr></table></figure>
+<p>看起来与RMSProp更新完全相同，只是使用了渐变m的“平滑”版本而不是原始（且可能是嘈杂的）梯度dx。文章建议值为<code>eps = 1e-8, beta1 = 0.9, beta2 = 0.999</code></p>
+<p>在MNIST数据上做的简单对比实验:<br><img src="/images/optimizers1.png"></p>
+<p>引用<a href="#refer">cs231</a>的图:<br><img src="/images/optimizers.gif"></p>
+<h1 id="Adam-Weight-Decay-和-L2正则化"><a href="#Adam-Weight-Decay-和-L2正则化" class="headerlink" title="Adam Weight Decay 和 L2正则化"></a>Adam Weight Decay 和 L2正则化</h1><p>以前在训练语言模型时, 发现精调的SGD比Adam得到的最终效果更好. 可见Adam的优势并不如原来文章所言. 在2017年的论文《Fixing Weight Decay Regularization in Adam》(后来更新第三版为Decoupled Weight Decay Regularization, Loshchilov 2017)[#refer]中提出了Adam Weight Decay的方法用于修复Adam的权重衰减错误。问题在于目前大多数DL框架的L2 regularization实现用的是weight decay的方式，而weight decay在与Adam共同使用的时候有互相耦合。</p>
+<p>L2 regularization: 给参数加上一个L2惩罚<br>$$<br>f_{t}^{r e g}(\boldsymbol{\theta})=f_{t}(\boldsymbol{\theta})+\frac{\lambda^{\prime}}{2}|\boldsymbol{\theta}|_{2}^{2}<br>$$<br>用程序表达是:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_loss = loss + weight_decay_r * all_weights.pow(<span class="number">2</span>).sum() / <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="#refer">Hanson &amp; Pratt (1988)</a>的Weight decay让weight $\theta$以$\lambda$的速率指数衰减:<br>$$<br>\theta_{t+1}=(1-\lambda) \theta_{t}-\alpha \nabla f_{t}\left(\theta_{t}\right),<br>$$<br>在vanilla SGD中用程序表达是:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w = w - lr * w.grad - lr * weight_decay_r * w</span><br></pre></td></tr></table></figure>
+<p>大部分库都使用第一个实现。不过实际上几乎总是通过在梯度上添加 <code>weight_decay_r * w</code>来实现，而不是实际更改损失函数。）</p>
+<p>在标准SGD的情况下，通过对衰减系数做变换，令$\lambda^{\prime}=\frac{\lambda}{\alpha}$, L2正则则等价于Weight Decay. 但是其他情况下, 比如增加了momentum后, L2正则化和权重衰减并不等价。</p>
+<blockquote>
+<p>both mechanisms push weights closer to zero, <strong>at the same rate</strong></p>
+</blockquote>
+<p><a href="#refer">fast ai</a>的代码解释是, 在momentum SGD中使用L2正则就需要把<code>weight_decay_r * w</code>加到梯度中. 但是梯度不是直接在weights中减去, 而是要通过移动平均</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moving_avg = alpha * moving_avg + (<span class="number">1</span>-alpha) * (w.grad + weight_decay_r*w)</span><br></pre></td></tr></table></figure>
+<p>该移动平均值再乘以学习率，然后从weights中减去.</p>
+<p>而权重衰减则是:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moving_avg = alpha * moving_avg + (<span class="number">1</span>-alpha) * w.grad </span><br><span class="line">w = w - lr * moving_avg - lr * wd * w</span><br></pre></td></tr></table></figure>
+<p>很明显二者会不同的.</p>
+<p>在自适应优化器Adam中情况类似, 主要体现在以下二者:</p>
+<ol>
+<li>the sums of the gradient of the loss function</li>
+<li>the gradient of the regularizer (i.e., the L2 norm of the weights)</li>
+</ol>
+<p><img src="/images/adam_with_l2.png"></p>
+<p>红色是Adam+L2 regularization的方式，梯度$g_t$的移动平均 $m_t$ 与梯度平方的移动平均 $v_t$ 都加入了$\lambda \theta_{t- 1}$</p>
+<p>如何解释这种不同? 直接引用文章原文:</p>
+<blockquote>
+<p>with decoupled weight decay, <strong>only the gradients of the loss function are adapted</strong> (with the weight decay step separated from the adaptive gradient mechanism)</p>
+<p>With L2 regularization <strong>both types of gradients are normalized by their typical (summed) magnitudes</strong>, and therefore weights x with large typical gradient magnitude s are regularized by a smaller relative amount than other weights.</p>
+<p>decoupled weight decay regularizes all weights with the same rate λ, effectively regularizing weights x with large s more than standard L2 regularization</p>
+</blockquote>
+<p>BERT源码中的<code>apply_gradients</code>给出了修正方法:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">apply_gradients</span>(<span class="params">self, grads_and_vars, global_step=None, name=None</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;See base class.&quot;&quot;&quot;</span></span><br><span class="line">  assignments = []</span><br><span class="line">  <span class="keyword">for</span> (grad, param) <span class="keyword">in</span> grads_and_vars:</span><br><span class="line">    <span class="keyword">if</span> grad <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> param <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    param_name = self._get_variable_name(param.name)</span><br><span class="line"></span><br><span class="line">    m = tf.get_variable(</span><br><span class="line">        name=param_name + <span class="string">&quot;/adam_m&quot;</span>,</span><br><span class="line">        shape=param.shape.as_list(),</span><br><span class="line">        dtype=tf.float32,</span><br><span class="line">        trainable=<span class="literal">False</span>,</span><br><span class="line">        initializer=tf.zeros_initializer())</span><br><span class="line">    v = tf.get_variable(</span><br><span class="line">        name=param_name + <span class="string">&quot;/adam_v&quot;</span>,</span><br><span class="line">        shape=param.shape.as_list(),</span><br><span class="line">        dtype=tf.float32,</span><br><span class="line">        trainable=<span class="literal">False</span>,</span><br><span class="line">        initializer=tf.zeros_initializer())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Standard Adam update.</span></span><br><span class="line">    next_m = (</span><br><span class="line">        tf.multiply(self.beta_1, m) + tf.multiply(<span class="number">1.0</span> - self.beta_1, grad))</span><br><span class="line">    next_v = (</span><br><span class="line">        tf.multiply(self.beta_2, v) + tf.multiply(<span class="number">1.0</span> - self.beta_2,</span><br><span class="line">                                                  tf.square(grad)))</span><br><span class="line"></span><br><span class="line">    update = next_m / (tf.sqrt(next_v) + self.epsilon)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Just adding the square of the weights to the loss function is *not*</span></span><br><span class="line">    <span class="comment"># the correct way of using L2 regularization/weight decay with Adam,</span></span><br><span class="line">    <span class="comment"># since that will interact with the m and v parameters in strange ways.</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># Instead we want ot decay the weights in a manner that doesn&#x27;t interact</span></span><br><span class="line">    <span class="comment"># with the m/v parameters. This is equivalent to adding the square</span></span><br><span class="line">    <span class="comment"># of the weights to the loss with plain (non-momentum) SGD.</span></span><br><span class="line">    <span class="keyword">if</span> self._do_use_weight_decay(param_name):</span><br><span class="line">      update += self.weight_decay_rate * param</span><br><span class="line"></span><br><span class="line">    update_with_lr = self.learning_rate * update</span><br><span class="line"></span><br><span class="line">    next_param = param - update_with_lr</span><br><span class="line"></span><br><span class="line">    assignments.extend(</span><br><span class="line">        [param.assign(next_param),</span><br><span class="line">          m.assign(next_m),</span><br><span class="line">          v.assign(next_v)])</span><br><span class="line">  <span class="keyword">return</span> tf.group(*assignments, name=name)</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">tensorflow v1 加入了修正, 但是后续的tf2就是很混乱找不到了.</span><br><span class="line">```python</span><br><span class="line">AdamWOptimizer = tf.contrib.opt.extend_with_decoupled_weight_decay(tf.train.AdamOptimizer)</span><br><span class="line">optimizer = AdamWOptimizer(weight_decay=weight_decay, learning_rate=deep_learning_rate)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><div id="refer"></div>
+
+<ul>
+<li>Devlin et al., 2019: <a target="_blank" rel="noopener" href="https://github.com/google-research/BERT">https://github.com/google-research/BERT</a></li>
+<li>Duchi et al.: <a target="_blank" rel="noopener" href="http://jmlr.org/papers/v12/duchi11a.html">http://jmlr.org/papers/v12/duchi11a.html</a></li>
+<li>Tieleman &amp; Hinton, 2012: <a target="_blank" rel="noopener" href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">csc321</a></li>
+<li>Kingma &amp; Ba, 2014: <a target="_blank" rel="noopener" href="http://arxiv.org/abs/1412.6980">Adam: A Method for Stochastic Optimization</a></li>
+<li>cs231: <a target="_blank" rel="noopener" href="https://cs231n.github.io/neural-networks-3/#sgd">https://cs231n.github.io/neural-networks-3/#sgd</a></li>
+<li>Wilson et al. (2017): </li>
+<li>Loshchilov 2017: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.05101v3">Decoupled Weight Decay Regularization</a></li>
+<li>Hanson &amp; Pratt (1988): Comparing biases for minimal network construction with back-propagation</li>
+<li>fast ai: <a target="_blank" rel="noopener" href="https://www.fast.ai/2018/07/02/adam-weight-decay/">https://www.fast.ai/2018/07/02/adam-weight-decay/</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/NLP-transfer-learning-with-bert/" rel="prev" title="利用bert进行迁移学习">
+                  <i class="fa fa-chevron-left"></i> 利用bert进行迁移学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/NLP-word-lattice/" rel="next" title="Word Lattice">
+                  Word Lattice <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/ML-adam-weight-decay/";
+    this.page.identifier = "ML-adam-weight-decay/";
+    this.page.title = "BERT的Adam Weight Decay";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -742,9 +742,9 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">sundaySearch(String txt, String pat, <span class="keyword">int</span>[] right)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n - m)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/** matching from right to left</span></span><br><span class="line"><span class="comment">         * ********************************* **/</span></span><br><span class="line">        j = m - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; pat.charAt(j) == txt.charAt(i+j)) </span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">if</span> (j &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> i; <span class="comment">// match</span></span><br><span class="line">        <span class="comment">/***********************************/</span></span><br><span class="line"></span><br><span class="line">        i += m; <span class="comment">// right next to txt window</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; n) i -= right[txt.charAt(i)];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://leetcode-cn.com/problems/implement-strstr/">https://leetcode-cn.com/problems/implement-strstr/</a></p>
-<p>因为Sunday算法不限定一定要从右往左对比pattern和txt, 反方向也行, 在这里的实现选择跟随BM算法从右往左.</p>
+<p>因为Sunday算法不限定一定要从右往左对比pattern和txt, 反方向也行, 在这里的实现选择跟随Horspool算法从右往左.</p>
 <p>Sunday 算法通常用作一般情况下实现最简单而且平均表现最好之一的实用算法，通常表现比 Horspool、BM 都要快一点。</p>
+<p>可以在这里测试各种匹配算法的正确性和效率 <a href="https://leetcode-cn.com/problems/implement-strstr/">https://leetcode-cn.com/problems/implement-strstr/</a></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li>Boyer, RS and Moore, JS. “A fast string searching algorithm.” Communications of the ACM 20.10 (1977): 762-772.</li>
 <li>R.N. Horspool: Practical Fast Searching in Strings. Software - Practice and Experience 10, 501-506 (1980)</li>
@@ -9166,6 +9166,91 @@ table th:nth-of-type(3) {
       </categories>
       <tags>
         <tag>NLP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BERT的Adam Weight Decay</title>
+    <url>/ML-adam-weight-decay/</url>
+    <content><![CDATA[<h1 id="Adam-Weight-Decay-in-BERT"><a href="#Adam-Weight-Decay-in-BERT" class="headerlink" title="Adam Weight Decay in BERT"></a>Adam Weight Decay in BERT</h1><p>在看BERT(<a href="#refer">Devlin et al., 2019</a>)的源码中优化器部分的实现时，发现有这么一段话</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Just adding the square of the weights to the loss function is *not*</span></span><br><span class="line"><span class="comment"># the correct way of using L2 regularization/weight decay with Adam,</span></span><br><span class="line"><span class="comment"># since that will interact with the m and v parameters in strange ways.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Instead we want ot decay the weights in a manner that doesn&#x27;t interact</span></span><br><span class="line"><span class="comment"># with the m/v parameters. This is equivalent to adding the square</span></span><br><span class="line"><span class="comment"># of the weights to the loss with plain (non-momentum) SGD.</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>其针对性地指出一些传统的Adam weight decay实现是错误的.</p>
+<h2 id="优化器回顾"><a href="#优化器回顾" class="headerlink" title="优化器回顾"></a>优化器回顾</h2><p>先回顾一下几个优化器.</p>
+<h3 id="SGD和动量更新"><a href="#SGD和动量更新" class="headerlink" title="SGD和动量更新"></a>SGD和动量更新</h3><p>SGD在所有参数上均采用全局且均等的学习率。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Vanilla update</span></span><br><span class="line">x += - learning_rate * dx</span><br></pre></td></tr></table></figure>
+<p>加入<strong>动量更新Momentum update</strong>一般都能得到更好的收敛速。动量更新可以从优化问题的物理角度出发来理解。损失函数可以解释为丘陵地形的高度（因此也可以解释为势能，<code>U = mgh</code> , 势能正比于高度）。</p>
+<p>随机数初始化参数等效于在某个位置将初始速度设置为零。优化过程就等同于模拟参数矢量（即粒子）在损失函数的丘陵地形上滚动的过程。</p>
+<p>由于作用在粒子上的力与势能的梯度有关（即$F = - \nabla U$），因此粒子所感受到的力正好是损失函数的（负）梯度。此外$F = ma$，因此（负）梯度在这个视角下和中与粒子的加速度成比例。因此梯度直接影响的是速度，由速度来影响位置.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Momentum update</span></span><br><span class="line">v = mu * v - learning_rate * dx <span class="comment"># integrate velocity</span></span><br><span class="line">x += v <span class="comment"># integrate position</span></span><br></pre></td></tr></table></figure>
+<p>动量<code>mu</code>（一般取0.9）虽然叫动量，但其物理意义更像是摩擦系数. 它会衰减速度并降低系统的动能，避免粒子一直在山底震荡无法停止. 也就是在梯度方向有所改变的维度上的衰减速度. 同时可以在梯度方向不变的维度上维持速度，这样就可以加快收敛并减小震荡。</p>
+<h3 id="AdaGrad-RMSprop和Adam"><a href="#AdaGrad-RMSprop和Adam" class="headerlink" title="AdaGrad, RMSprop和Adam"></a>AdaGrad, RMSprop和Adam</h3><p>我们希望优化器算法可以对每个参数自适应地调整学习率. AdaGrad(<a href="#refer">Duchi et al.</a>)独立地适应模型的每个参数: </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Assume the gradient dx and parameter vector x</span></span><br><span class="line">cache += dx**<span class="number">2</span></span><br><span class="line">x += - learning_rate * dx / (np.sqrt(cache) + eps)</span><br></pre></td></tr></table></figure>
+<p>变量cache跟踪每个参数的梯度平方和。然后，将其用于element-wise地正则化参数更新。接收高梯度的权重将降低其有效学习率，而接收较小或不经常更新的权重将提高其有效学习率。<br>每个参数的学习率会缩放各参数反比于其历史梯度平方值总和的平方根.</p>
+<p>RMSprop(<a href="#refer">Tieleman &amp; Hinton, 2012</a>)优化器也是一种自适应学习率方法, 不过没发表, 都是引用 slide 29 of Lecture 6 of Geoff Hinton’s Coursera class. </p>
+<p>RMSProp对Adagrad进行如下调整:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cache = decay_rate * cache + (<span class="number">1</span> - decay_rate) * dx**<span class="number">2</span></span><br><span class="line">x += - learning_rate * dx / (np.sqrt(cache) + eps)</span><br></pre></td></tr></table></figure>
+<p>使用了梯度平方的移动平均值, 避免激进的单调递减的学习率。 <code>decay_rate</code>一般取<code>[0.9, 0.99, 0.999]</code>.</p>
+<p><a href="#refer">Adam (Kingma &amp; Ba, 2014)</a>可以看做动量法和RMSprop的结合, 结合了AdaGrad处理稀疏梯度的能力和RMSProp处理不平稳目标函数的能力。简化的实现:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">m = beta1*m + (<span class="number">1</span>-beta1)*dx</span><br><span class="line">v = beta2*v + (<span class="number">1</span>-beta2)*(dx**<span class="number">2</span>)</span><br><span class="line">x += - learning_rate * m / (np.sqrt(v) + eps)</span><br></pre></td></tr></table></figure>
+<p>看起来与RMSProp更新完全相同，只是使用了渐变m的“平滑”版本而不是原始（且可能是嘈杂的）梯度dx。文章建议值为<code>eps = 1e-8, beta1 = 0.9, beta2 = 0.999</code></p>
+<p>在MNIST数据上做的简单对比实验:<br><img src="/images/optimizers1.png"></p>
+<p>引用<a href="#refer">cs231</a>的图:<br><img src="/images/optimizers.gif"></p>
+<h1 id="Adam-Weight-Decay-和-L2正则化"><a href="#Adam-Weight-Decay-和-L2正则化" class="headerlink" title="Adam Weight Decay 和 L2正则化"></a>Adam Weight Decay 和 L2正则化</h1><p>以前在训练语言模型时, 发现精调的SGD比Adam得到的最终效果更好. 可见Adam的优势并不如原来文章所言. 在2017年的论文《Fixing Weight Decay Regularization in Adam》(后来更新第三版为Decoupled Weight Decay Regularization, Loshchilov 2017)[#refer]中提出了Adam Weight Decay的方法用于修复Adam的权重衰减错误。问题在于目前大多数DL框架的L2 regularization实现用的是weight decay的方式，而weight decay在与Adam共同使用的时候有互相耦合。</p>
+<p>L2 regularization: 给参数加上一个L2惩罚<br>$$<br>f_{t}^{r e g}(\boldsymbol{\theta})=f_{t}(\boldsymbol{\theta})+\frac{\lambda^{\prime}}{2}|\boldsymbol{\theta}|_{2}^{2}<br>$$<br>用程序表达是:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">final_loss = loss + weight_decay_r * all_weights.pow(<span class="number">2</span>).sum() / <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="#refer">Hanson &amp; Pratt (1988)</a>的Weight decay让weight $\theta$以$\lambda$的速率指数衰减:<br>$$<br>\theta_{t+1}=(1-\lambda) \theta_{t}-\alpha \nabla f_{t}\left(\theta_{t}\right),<br>$$<br>在vanilla SGD中用程序表达是:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">w = w - lr * w.grad - lr * weight_decay_r * w</span><br></pre></td></tr></table></figure>
+<p>大部分库都使用第一个实现。不过实际上几乎总是通过在梯度上添加 <code>weight_decay_r * w</code>来实现，而不是实际更改损失函数。）</p>
+<p>在标准SGD的情况下，通过对衰减系数做变换，令$\lambda^{\prime}=\frac{\lambda}{\alpha}$, L2正则则等价于Weight Decay. 但是其他情况下, 比如增加了momentum后, L2正则化和权重衰减并不等价。</p>
+<blockquote>
+<p>both mechanisms push weights closer to zero, <strong>at the same rate</strong></p>
+</blockquote>
+<p><a href="#refer">fast ai</a>的代码解释是, 在momentum SGD中使用L2正则就需要把<code>weight_decay_r * w</code>加到梯度中. 但是梯度不是直接在weights中减去, 而是要通过移动平均</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">moving_avg = alpha * moving_avg + (<span class="number">1</span>-alpha) * (w.grad + weight_decay_r*w)</span><br></pre></td></tr></table></figure>
+<p>该移动平均值再乘以学习率，然后从weights中减去.</p>
+<p>而权重衰减则是:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">moving_avg = alpha * moving_avg + (<span class="number">1</span>-alpha) * w.grad </span><br><span class="line">w = w - lr * moving_avg - lr * wd * w</span><br></pre></td></tr></table></figure>
+<p>很明显二者会不同的.</p>
+<p>在自适应优化器Adam中情况类似, 主要体现在以下二者:</p>
+<ol>
+<li>the sums of the gradient of the loss function</li>
+<li>the gradient of the regularizer (i.e., the L2 norm of the weights)</li>
+</ol>
+<p><img src="/images/adam_with_l2.png"></p>
+<p>红色是Adam+L2 regularization的方式，梯度$g_t$的移动平均 $m_t$ 与梯度平方的移动平均 $v_t$ 都加入了$\lambda \theta_{t- 1}$</p>
+<p>如何解释这种不同? 直接引用文章原文:</p>
+<blockquote>
+<p>with decoupled weight decay, <strong>only the gradients of the loss function are adapted</strong> (with the weight decay step separated from the adaptive gradient mechanism)</p>
+<p>With L2 regularization <strong>both types of gradients are normalized by their typical (summed) magnitudes</strong>, and therefore weights x with large typical gradient magnitude s are regularized by a smaller relative amount than other weights.</p>
+<p>decoupled weight decay regularizes all weights with the same rate λ, effectively regularizing weights x with large s more than standard L2 regularization</p>
+</blockquote>
+<p>BERT源码中的<code>apply_gradients</code>给出了修正方法:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">apply_gradients</span>(<span class="params">self, grads_and_vars, global_step=None, name=None</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;See base class.&quot;&quot;&quot;</span></span><br><span class="line">  assignments = []</span><br><span class="line">  <span class="keyword">for</span> (grad, param) <span class="keyword">in</span> grads_and_vars:</span><br><span class="line">    <span class="keyword">if</span> grad <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> param <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    param_name = self._get_variable_name(param.name)</span><br><span class="line"></span><br><span class="line">    m = tf.get_variable(</span><br><span class="line">        name=param_name + <span class="string">&quot;/adam_m&quot;</span>,</span><br><span class="line">        shape=param.shape.as_list(),</span><br><span class="line">        dtype=tf.float32,</span><br><span class="line">        trainable=<span class="literal">False</span>,</span><br><span class="line">        initializer=tf.zeros_initializer())</span><br><span class="line">    v = tf.get_variable(</span><br><span class="line">        name=param_name + <span class="string">&quot;/adam_v&quot;</span>,</span><br><span class="line">        shape=param.shape.as_list(),</span><br><span class="line">        dtype=tf.float32,</span><br><span class="line">        trainable=<span class="literal">False</span>,</span><br><span class="line">        initializer=tf.zeros_initializer())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Standard Adam update.</span></span><br><span class="line">    next_m = (</span><br><span class="line">        tf.multiply(self.beta_1, m) + tf.multiply(<span class="number">1.0</span> - self.beta_1, grad))</span><br><span class="line">    next_v = (</span><br><span class="line">        tf.multiply(self.beta_2, v) + tf.multiply(<span class="number">1.0</span> - self.beta_2,</span><br><span class="line">                                                  tf.square(grad)))</span><br><span class="line"></span><br><span class="line">    update = next_m / (tf.sqrt(next_v) + self.epsilon)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Just adding the square of the weights to the loss function is *not*</span></span><br><span class="line">    <span class="comment"># the correct way of using L2 regularization/weight decay with Adam,</span></span><br><span class="line">    <span class="comment"># since that will interact with the m and v parameters in strange ways.</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># Instead we want ot decay the weights in a manner that doesn&#x27;t interact</span></span><br><span class="line">    <span class="comment"># with the m/v parameters. This is equivalent to adding the square</span></span><br><span class="line">    <span class="comment"># of the weights to the loss with plain (non-momentum) SGD.</span></span><br><span class="line">    <span class="keyword">if</span> self._do_use_weight_decay(param_name):</span><br><span class="line">      update += self.weight_decay_rate * param</span><br><span class="line"></span><br><span class="line">    update_with_lr = self.learning_rate * update</span><br><span class="line"></span><br><span class="line">    next_param = param - update_with_lr</span><br><span class="line"></span><br><span class="line">    assignments.extend(</span><br><span class="line">        [param.assign(next_param),</span><br><span class="line">          m.assign(next_m),</span><br><span class="line">          v.assign(next_v)])</span><br><span class="line">  <span class="keyword">return</span> tf.group(*assignments, name=name)</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">tensorflow v1 加入了修正, 但是后续的tf2就是很混乱找不到了.</span><br><span class="line">```python</span><br><span class="line">AdamWOptimizer = tf.contrib.opt.extend_with_decoupled_weight_decay(tf.train.AdamOptimizer)</span><br><span class="line">optimizer = AdamWOptimizer(weight_decay=weight_decay, learning_rate=deep_learning_rate)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><div id="refer"></div>
+
+<ul>
+<li>Devlin et al., 2019: <a href="https://github.com/google-research/BERT">https://github.com/google-research/BERT</a></li>
+<li>Duchi et al.: <a href="http://jmlr.org/papers/v12/duchi11a.html">http://jmlr.org/papers/v12/duchi11a.html</a></li>
+<li>Tieleman &amp; Hinton, 2012: <a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">csc321</a></li>
+<li>Kingma &amp; Ba, 2014: <a href="http://arxiv.org/abs/1412.6980">Adam: A Method for Stochastic Optimization</a></li>
+<li>cs231: <a href="https://cs231n.github.io/neural-networks-3/#sgd">https://cs231n.github.io/neural-networks-3/#sgd</a></li>
+<li>Wilson et al. (2017): </li>
+<li>Loshchilov 2017: <a href="https://arxiv.org/abs/1711.05101v3">Decoupled Weight Decay Regularization</a></li>
+<li>Hanson &amp; Pratt (1988): Comparing biases for minimal network construction with back-propagation</li>
+<li>fast ai: <a href="https://www.fast.ai/2018/07/02/adam-weight-decay/">https://www.fast.ai/2018/07/02/adam-weight-decay/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
 </search>

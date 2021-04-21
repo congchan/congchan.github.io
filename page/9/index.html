@@ -194,7 +194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -252,6 +252,110 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-10-data-structures-which-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/java-10-data-structures-which-list/" class="post-title-link" itemprop="url">Java 10 | 数据结构 - LinkedList 还是 ArrayList</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-28 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-28T00:00:00+08:00">2017-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/java-10-data-structures-which-list/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-10-data-structures-which-list/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Java 提供了 <code>ArrayList</code>, <code>ArrayDeque</code> 和 <code>LinkedList</code> 几个API.</p>
+<p>队列 queue, 通俗的含义, 就是不能插队, 只能在末尾插入.</p>
+<blockquote>
+<p>双端队列 Double Ended Queue (Deque) 是具有动态大小的序列容器，可以在两端（前端或后端）扩展或收缩<br>–<a target="_blank" rel="noopener" href="http://www.cplusplus.com/reference/deque/deque/">http://www.cplusplus.com/reference/deque/deque/</a></p>
+</blockquote>
+<p>CS61b的<a target="_blank" rel="noopener" href="http://sp18.datastructur.es/materials/proj/proj1a/proj1a">project 1a</a>需要实现两种双端队列（array based 和 linkedklist based）.</p>
+<p>不同的API, 在考虑什么时候应该用哪个时, 我们需要考虑它们的性能差异:</p>
+<ul>
+<li><strong>搜索/定位</strong>：与<code>LinkedList</code>相比，<code>ArrayList</code>搜索更快。 <code>ArrayList</code>的<code>get(int index)</code>性能是<code>O(1)</code>的，而LinkedList的性能是<code>O(n)</code>。因为<code>ArrayList</code>基于<code>array</code>数据结构，可以直接用 array index 定位元素。</li>
+<li><strong>删除/插入</strong>：<code>LinkedList</code> 操作性能是<code>O(1)</code>，而<code>ArrayList</code>的性能从<code>O(n)</code>（删除/插入第一个元素）到<code>O(n)</code>（最后一个元素）都有可能。因为<code>LinkedList</code>的每个元素都包含两个指向其相邻前后元素的指针（地址），因此仅需要改变，被删节点的<code>prev</code>和<code>next</code>指针位置。而在<code>ArrayList</code>中，需要移动剩余元素，来重新填充<code>array</code>空间。</li>
+<li><strong>内存开销</strong>：<code>LinkedList</code>的每个元素都有更多的内存开销(额外的指针), 而<code>ArrayLists</code>没有这个开销。但是，<code>ArrayLists</code>需要占用初始容量。一般<code>ArrayList</code>的默认初始容量非常小（Java 1.4 - 1.8使用10）。但是，往<code>ArrayLists</code>添加元素时， 它可能会适当地增大容量，所以如果添加了很多元素，则必须不断调整数组的大小，那样也可能会导致元素频繁挪动位置。</li>
+</ul>
+<p>综上所述：</p>
+<ol>
+<li>如果在应用中需要<strong>频繁插入和删除</strong>，那么选择<code>LinkedList</code>。</li>
+<li>假如一开始，就知道后面要添加大量元素，那就使用较高的初始容量来构造<code>ArrayList</code>。</li>
+<li>大部分用例中, 相比LinkedList, 人们更偏爱ArrayList以及ArrayDeque。如果你不确定应该选哪个, 那么就直接考虑ArrayList吧(参考 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist">https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist</a>).</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-09-data-structures-doubly-linked-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -289,13 +393,6 @@
     </span>
 
   
-    <span id="/java-09-data-structures-doubly-linked-list/" class="post-meta-item leancloud_visitors" data-flag-title="Java 09 | 数据结构 - 双向链表 Doubly Linked List" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -391,13 +488,6 @@
     </span>
 
   
-    <span id="/java-08-data-structures-singly-linked-list/" class="post-meta-item leancloud_visitors" data-flag-title="Java 08 | 数据结构 - 单向链表 Singly Linked List" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -494,13 +584,6 @@
     </span>
 
   
-    <span id="/ai/" class="post-meta-item leancloud_visitors" data-flag-title="Learn AI Step by Step" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -596,13 +679,6 @@
     </span>
 
   
-    <span id="/cs/" class="post-meta-item leancloud_visitors" data-flag-title="Computer Science Step by Step" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -725,13 +801,6 @@
     </span>
 
   
-    <span id="/java-07-data-structures-array-based-list/" class="post-meta-item leancloud_visitors" data-flag-title="Java 07 | 数据结构 - 用数组构建数据列表 list" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -826,13 +895,6 @@
     </span>
 
   
-    <span id="/java-06-data-structures-array/" class="post-meta-item leancloud_visitors" data-flag-title="Java 06 | 数据结构 - array 数组" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -930,13 +992,6 @@
     </span>
 
   
-    <span id="/java-05-variable-types/" class="post-meta-item leancloud_visitors" data-flag-title="Java 05 | 数据类型" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -1031,13 +1086,6 @@
     </span>
 
   
-    <span id="/java-04-03-class-nested-class/" class="post-meta-item leancloud_visitors" data-flag-title="Java 04 | 类 class - 03 嵌套类" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -1132,13 +1180,6 @@
     </span>
 
   
-    <span id="/java-04-02-class-instance/" class="post-meta-item leancloud_visitors" data-flag-title="Java 04 | 类 class - 02 类与实例" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
   
   <span class="post-meta-item">
     
@@ -1171,129 +1212,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-04-01-class-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fly Me to the Moon">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/java-04-01-class-intro/" class="post-title-link" itemprop="url">Java 04 | 类 class - 01 变量和方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2016-12-23 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-23T00:00:00+08:00">2016-12-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/java-04-01-class-intro/" class="post-meta-item leancloud_visitors" data-flag-title="Java 04 | 类 class - 01 变量和方法" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/java-04-01-class-intro/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-04-01-class-intro/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>Java的语法是为了更容易地模拟真实世界而设计的. 比如用程序实现一只狗, 可以用定义一个类class来描述它.</p>
-<p>类class里面包括变量Variable，方法method（可以理解为Python的函数function）。变量可以储存数据，方法可以处理数据。变量必须在类中声明(即不能离开类独立存在)，不像Python或Matlab这样的语言可以在运行时添加新的变量。</p>
-<p>构造对象的过程:</p>
-<ol>
-<li>声明(declaration)引用变量: <code>Dog smalldog;</code></li>
-<li>创建对象：实例化 <code>new Dog(20)</code>, 如果没有把它作为值赋给一个类声明变量, 那么这个实例化的值会被垃圾回收.</li>
-<li>连接对象和引用：赋值对象给引用<code>Dog smalldog = new Dog(5)</code></li>
-</ol>
-<p>创建对象这一步，调用了<code>Dog()</code>, 不是普通的方法, 而是类的构造函数 Constructors.</p>
-<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数在初始化一个对象时执行, 构造函数与类名<strong>同名</strong>且没有返回类型, 而且可以带参数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 注意：构造函数与class类同名</span></span><br><span class="line"><span class="comment">    但没有返回类型  */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    weight = w;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后在<code>DogLauncher</code>里实例化一只狗时, 直接<code>Dog d = new Dog(20);</code>即可.</p>
-<p>在以上代码的基础上, 后续当我们想使用new和参数创建一只狗时，可以随时调用<code>public Dog(int w)</code>构造函数。对于熟悉Python的人来说，你可以理解java的构造函数为Python的<code>__init__</code>。</p>
-<p><strong>Java可以有与类同名的方法，只是要指明返回类型。</strong><br><strong>构造函数无法被继承</strong><br><strong>如果类有一个以上的构造函数，则参数一定要不一样，包括参数顺序和类型</strong></p>
-<h3 id="构造函数链"><a href="#构造函数链" class="headerlink" title="构造函数链"></a>构造函数链</h3><p>执行<code>new</code>指令会启动构造函数的连锁反应(Constructor Chaining), 首先会执行其父类的构造函数, 依此类推连锁反应到<code>Object</code>类为止. 就算是抽象类, 也会有构造函数, 虽然不能被直接实例化, 但也会被唤醒. 理论上，每个类的构造函数需要先调用其父类的构造函数<code>super()</code>，依次入栈</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">(<span class="keyword">int</span> newSize)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(); <span class="comment">// 调用父类构造函数, 且必须是在函数中的第一行</span></span><br><span class="line">        size = newSize;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果明确写了<code>super();</code>, 则必须位于构造函数第一行. 但很多构造函数没有写<code>super();</code>也可以编译通过, 甚至连自身的构造函数<code>public Duck(int newSize)</code>也不一定是必须的。</p>
-<ul>
-<li>如果没有<code>super()</code>, 编译器会帮我们加上.</li>
-<li>如果连自身的构造函数都没有, 编译器会自动为没有构造函数的类提供一个无参数的默认构造函数。这个默认构造函数将调用其超类的（可调用的）无参构造函数。<ul>
-<li>此时, 如果其<code>extends</code>的父类没有无参数构造函数，编译会出错。</li>
-<li>如果没有显式的超类，那么就调用隐式的超类<code>Object</code>的无参构造函数。</li>
-</ul>
-</li>
-</ul>
-<p>但如果在类中已经实现了带参数的构造函数，那么编译器不会再帮你构造无参数的构造函数，你需要自己编写。如果某个父类只有带参数的构造函数, 那么继承该父类的子类必须有构造函数, 且要有带参数的<code>super(args)</code>.</p>
-<p>如果存在不同重载版本的构造函数, 其中有某个构造函数可以负责大部分构造工作, 我们这个时候肯定希望能够让同类的其他构造函数先调用该构造函数, 完成大部分构造工作, 已达到代码重用的目的, 这样可以更好地维护代码.</p>
-<p><code>this()</code>就是用来从某个构造函数中调用同一个类的另外一个构造函数.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mini</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    Color color;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里无参数的构造函数使用默认颜色调用阵阵的构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Mini</span><span class="params">()</span> </span>&#123; <span class="keyword">this</span>(Color.Red); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Mini</span><span class="params">(Color c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">&quot;Mini&quot;</span>);</span><br><span class="line">        color = c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>this()</code>只能存在于构造函数中, 且必须要在第一行, 所以会跟<code>super()</code>冲突, 二者不能同时调用.</p>
-
       
     </div>
 
@@ -1377,92 +1295,6 @@
   
 
 
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      const visitors = document.querySelector('.leancloud_visitors');
-      const url = decodeURI(visitors.id);
-      const title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            const counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      const visitors = document.querySelectorAll('.leancloud_visitors');
-      const entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            const target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    const { app_id, app_key, server_url } = {"enable":true,"app_id":"KJ3aRNAv0BvPIe1SoKj9frht-gzGzoHsz","app_key":"gm1RJIiLJ5g6f6lmDxkpWzVG","server_url":null,"security":true};
-    function fetchData(api_server) {
-      const Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
 
 
   
