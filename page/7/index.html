@@ -1111,7 +1111,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-iteration/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-stack-heap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1124,7 +1124,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/java-iteration/" class="post-title-link" itemprop="url">Java 迭代 Iteration</a>
+          <a href="/java-stack-heap/" class="post-title-link" itemprop="url">Java 堆栈</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1156,8 +1156,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/java-iteration/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-iteration/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-stack-heap/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-stack-heap/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1171,12 +1171,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Java提供了 foreach (enhanced for) 的循环简写语法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ArrayMap&lt;String, Integer&gt; am = <span class="keyword">new</span> ArrayMap&lt;String, Integer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String s : am) &#123;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现的关键原理是使用<code>Iterable</code>接口使一个类变成可迭代的: 该接口包含一个<code>iterator()</code>方法用于返回一个<code>Iterator</code>对象。<code>Iterator</code>接口定义<code>Iterator</code>对象和<code>hasNext(), next()</code>方法来进行实际的迭代操作。</p>
+          <p>认识栈和堆的概念， 有助于了解变量的有效范围（scope），对象的建立，内存管理，线程（thread）和异常处理。</p>
+<p>对象生存在可垃圾回收的堆（heap）上面，方法调用（方法的参数，局部变量的引用）的生存空间（stack）。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/java-iteration/#more" rel="contents">
+              <a class="btn" href="/java-stack-heap/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
