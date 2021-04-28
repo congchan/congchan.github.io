@@ -407,7 +407,7 @@
       </tags>
   </entry>
   <entry>
-    <title>用于文本分类的神经网络开源工具</title>
+    <title>神经网络用于文本分类</title>
     <url>/NLP-text-classification/</url>
     <content><![CDATA[<h2 id="文本分类"><a href="#文本分类" class="headerlink" title="文本分类"></a>文本分类</h2><p>文本分类是很多业务问题中广泛使用到的NLP/监督机器学习（ML）。文本分类的目标是自动将文本/文档分类为一个或多个预定义类别。目前的成熟思路是用词向量解码文本，然后使用传统机器学习模型或者深度神经网络模型来做分类。</p>
 <p>文本分类是学术界和工业界非常活跃的研究领域。本文主要介绍用于文本分类的几种神经网络模型方法，并比较它们的性能，代码实现主要基于Keras。文中代码都在这个<a href="https://github.com/congchan/DeepText">DeepText</a>GitHub项目中.</p>
@@ -5685,7 +5685,8 @@ Delegation vs Extension: Extension 一般是基于对父类有比较清楚的了
 </ol>
 <h3 id="优化目标函数"><a href="#优化目标函数" class="headerlink" title="优化目标函数"></a>优化目标函数</h3><p>NNLM 的训练是利用 <a href="https://en.wikipedia.org/wiki/Maximum_likelihood">最大似然 maximum likelihood</a> (ML) 原则来最大化给定上文单词\(h\) (for “history”) 预测下一个词的概率 \(w_t\) (for “target”)。</p>
 <p>$$<br>\begin{align}<br>P(w_t | h) &amp;= \text{softmax}(\text{score}(w_t, h)) \\<br>           &amp;= \frac{\exp { \text{score}(w_t, h) } }<br>             {\sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } }<br>\end{align}<br>$$</p>
-<p>其中 \(\text{score}(w_t, h)\) 计算 word \(w_t\) 和 context \(h\) 的相关性 (一般用点乘). 训练时，最大化</p>
+<p>其中 \(\text{score}(w_t, h)\) 计算 word \(w_t\) 和 context \(h\) 的相关性 (一般用点乘). </p>
+<p>训练时，最大化</p>
 <p>$$<br>\begin{align}<br> J_\text{ML} &amp;= \log P(w_t | h) \\<br>  &amp;= \text{score}(w_t, h) -<br>     \log \left( \sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } \right).<br>\end{align}<br>$$</p>
 <p>这么计算成本很高， 因为在每一训练步，需要为词汇表 \(V\) 中的每一个词汇 \(w’\) 计算在当前上下文 \(h\) 的分数概率。</p>
 <p><img src="https://tensorflow.google.cn/images/softmax-nplm.png"></p>

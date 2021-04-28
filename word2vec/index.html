@@ -342,7 +342,8 @@
 </ol>
 <h3 id="优化目标函数"><a href="#优化目标函数" class="headerlink" title="优化目标函数"></a>优化目标函数</h3><p>NNLM 的训练是利用 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Maximum_likelihood">最大似然 maximum likelihood</a> (ML) 原则来最大化给定上文单词\(h\) (for “history”) 预测下一个词的概率 \(w_t\) (for “target”)。</p>
 <p>$$<br>\begin{align}<br>P(w_t | h) &amp;= \text{softmax}(\text{score}(w_t, h)) \\<br>           &amp;= \frac{\exp { \text{score}(w_t, h) } }<br>             {\sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } }<br>\end{align}<br>$$</p>
-<p>其中 \(\text{score}(w_t, h)\) 计算 word \(w_t\) 和 context \(h\) 的相关性 (一般用点乘). 训练时，最大化</p>
+<p>其中 \(\text{score}(w_t, h)\) 计算 word \(w_t\) 和 context \(h\) 的相关性 (一般用点乘). </p>
+<p>训练时，最大化</p>
 <p>$$<br>\begin{align}<br> J_\text{ML} &amp;= \log P(w_t | h) \\<br>  &amp;= \text{score}(w_t, h) -<br>     \log \left( \sum_\text{Word w’ in Vocab} \exp { \text{score}(w’, h) } \right).<br>\end{align}<br>$$</p>
 <p>这么计算成本很高， 因为在每一训练步，需要为词汇表 \(V\) 中的每一个词汇 \(w’\) 计算在当前上下文 \(h\) 的分数概率。</p>
 <p><img src="https://tensorflow.google.cn/images/softmax-nplm.png"></p>
@@ -456,13 +457,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/python-digest/" rel="prev" title="Python Digest">
-                  <i class="fa fa-chevron-left"></i> Python Digest
+                <a href="/NLP-recurrent-neural-networks/" rel="prev" title="循环神经网络">
+                  <i class="fa fa-chevron-left"></i> 循环神经网络
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/algorithms-01-asymptotic-analysis/" rel="next" title="Algorithms 01 - Asymptotic Analysis 渐进分析">
-                  Algorithms 01 - Asymptotic Analysis 渐进分析 <i class="fa fa-chevron-right"></i>
+                <a href="/algorithms-applications-01-percolation/" rel="next" title="Percolations problem">
+                  Percolations problem <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
