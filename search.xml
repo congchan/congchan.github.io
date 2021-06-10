@@ -9272,12 +9272,12 @@ table th:nth-of-type(3) {
 <p>sentence <code>x =(x1,..., xn)</code> with length <code>n</code>, </p>
 <p>Target list <code>T = &#123;t1,..., tm&#125;</code>： each target ti is annotated with its start, end position, and its sentiment polarity</p>
 <p><img src="/images/paper0.png" alt="/images/paper0.png"></p>
-<h2 id="Multi-Target-Extractor"><a href="#Multi-Target-Extractor" class="headerlink" title="Multi-Target Extractor"></a>Multi-Target Extractor</h2><p><img src="/images/paper001.png" alt="/images/paper001.png"></p>
-<p><img src="/images/paper002.png" alt="/images/paper002.png"></p>
+<h2 id="Multi-Target-Extractor"><a href="#Multi-Target-Extractor" class="headerlink" title="Multi-Target Extractor"></a>Multi-Target Extractor</h2><p><img src="/images/paper0-1.png" alt="/images/paper0-1.png"></p>
+<p><img src="/images/paper0-2.png" alt="/images/paper0-2.png"></p>
 <p>propose an heuristic multi-span decoding algorithm</p>
-<p><img src="/images/paper003.png" alt="/images/paper003.png"></p>
+<p><img src="/images/paper0-3.png" alt="/images/paper0-3.png"></p>
 <h2 id="3-3-Polarity-Classifier"><a href="#3-3-Polarity-Classifier" class="headerlink" title="3.3 Polarity Classifier"></a>3.3 Polarity Classifier</h2><p>given a target span r, we calculate a summarized vector v using the attention mechanism (Bahdanau et al., 2014) over tokens in its corresponding bound <code>(si, ej)</code></p>
-<p><img src="/images/paper004.png" alt="/images/paper004.png"></p>
+<p><img src="/images/paper0-4.png" alt="/images/paper0-4.png"></p>
 <h2 id="3-4-Model-Variants"><a href="#3-4-Model-Variants" class="headerlink" title="3.4 Model Variants"></a>3.4 Model Variants</h2><p>Pipeline model: </p>
 <ul>
 <li>build a multi-target extractor where <strong>a BERT encoder</strong> is exclusively used.</li>
@@ -9293,9 +9293,9 @@ table th:nth-of-type(3) {
 <h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><p>SemEval 2014 ABSA</p>
 <p>LAPTOP contains product reviews from the laptop domain in SemEval 2014 ABSA challenges</p>
 <p>REST is the union set of the restaurant domain from SemEval 2014, 2015 and 2016</p>
-<p><img src="/images/paper005.png" alt="/images/paper005.png"></p>
+<p><img src="/images/paper0-5.png" alt="/images/paper0-5.png"></p>
 <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>Metrices We adopt the precision (P), recall (R), and F1 score</p>
-<p><img src="/images/paper006.png" alt="/images/paper006.png"></p>
+<p><img src="/images/paper0-6.png" alt="/images/paper0-6.png"></p>
 ]]></content>
       <categories>
         <category>AI</category>
@@ -9307,6 +9307,621 @@ table th:nth-of-type(3) {
         <tag>2019</tag>
         <tag>ACL</tag>
         <tag>ABSA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cross-media Structured Common Space for Multimedia Event Extraction</title>
+    <url>/paper-Cross-media-Structured-Common-Space-for-Multimedia-Event-Extraction/</url>
+    <content><![CDATA[<p>2020, ACL<br>Task: MultiMedia Event Extraction</p>
+<a id="more"></a>
+
+<p>Introduce a new task, MultiMedia Event Extraction (M2E2), which aims to extract events and their arguments from multimedia documents. Construct the first benchmark and evaluation dataset for this task, which consists of 245 fully annotated news articles</p>
+<p>Propose a novel method, Weakly Aligned Structured Embedding (WASE), that encodes structured representations of semantic information from textual and visual data into a common embedding space. which takes advantage of annotated unimodal corpora to separately learn visual and textual event extraction, and uses an image-caption dataset to align the modalities</p>
+<h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><p>Each input document consists of:</p>
+<ul>
+<li>a set of images <code>M = &#123;m1,m2, . . . &#125;</code></li>
+<li>and a set of sentences <code>S = &#123;s1, s2, . . . &#125;</code></li>
+<li>a set of entities <code>T = &#123;t1, t2, . . . &#125;</code> extracted from the document text</li>
+</ul>
+<p><img src="/images/paper1-0.png" alt="/images/paper1-0.png"></p>
+<h2 id="The-tasks-of-M2E2"><a href="#The-tasks-of-M2E2" class="headerlink" title="The tasks of M2E2"></a>The tasks of M2E2</h2><ul>
+<li>Event Extraction: Given a multimedia document, extract a set of event mentions, where each event mention e has a type ye and is grounded on <strong>a text trigger word w</strong> or <strong>an image m</strong> or both $e = (y_e, {w,m})$.</li>
+<li>Argument Extraction: The second task is to extract a set of arguments of event mention e. Each argument a has an argument role type ya, and is grounded on <strong>a text entity t</strong> or <strong>an image object o</strong> (represented as a bounding box), $a = (y_a, {t, o})$</li>
+</ul>
+<p><img src="/images/paper1-1.png" alt="/images/paper1-1.png"></p>
+<p><img src="/images/paper1-2.png" alt="/images/paper1-2.png"></p>
+<p>Two types of bounding boxes: </p>
+<ul>
+<li>union bounding box: for each role, we annotate the smallest bounding box covering all constituents</li>
+<li>instance bounding box: for each role, we annotate a set of bounding boxes, where each box is the smallest region that covers an individual participant</li>
+</ul>
+<p><img src="/images/paper1-3.png" alt="/images/paper1-3.png"></p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>represent each image or sentence as a graph, where each node represents an event or entity and each edge represents an argument role.</p>
+<p>the training phase contains three tasks: </p>
+<h2 id="Text-event-extraction"><a href="#Text-event-extraction" class="headerlink" title="Text event extraction"></a>Text event extraction</h2><p>Text Structured Representation: run the CAMR parser (Wang et al., 2015b,a, 2016) to generate an <strong>AMR</strong> graph. based on the <strong>named entity recognition</strong> and <strong>part- of-speech (POS)</strong> tagging results from Stanford CoreNLP (Manning et al., 2014)</p>
+<ul>
+<li><p>Embedding: pre-trained GloVe word embedding (Pennington et al., 2014), POS embedding, entity type embed- ding and position embedding</p>
+</li>
+<li><p>Encode embedding: Bi-LSTM</p>
+</li>
+<li><p>Encode AMR: AMR graph as input to GCN:</p>
+<p>  <img src="/images/paper1-4.png" alt="/images/paper1-4.png"></p>
+</li>
+<li><p>For each entity t, we obtain its representation $t^C$ by averaging the embeddings of its tokens</p>
+</li>
+</ul>
+<p>Event and Argument Classifier</p>
+<ul>
+<li>use BIO tag schema to decide trigger word boundary, classify each word w into event types $y_e$</li>
+<li>classify entity t into argument role $y_a$</li>
+</ul>
+<p>训练时, 用Ground-true entity</p>
+<p>测试时, 用named entity extractor</p>
+<h2 id="Image-Event-Extraction-Section-3-3"><a href="#Image-Event-Extraction-Section-3-3" class="headerlink" title="Image Event Extraction (Section 3.3)"></a>Image Event Extraction (Section 3.3)</h2><p>Image Structured Representation: represent each image with a <strong>situation graph</strong>, t<strong>he central node is labeled as a verb v</strong> (e.g., destroying), and <strong>the neighbor nodes are arguments labeled as {(n, r)}</strong>, where <strong>n is a noun</strong> (e.g., ship) derived from <strong>WordNet synsets</strong> (Miller, 1995) to indicate the entity type, and <strong>r indicates the role</strong> (e.g., item) played by the entity in the event, based on <strong>FrameNet</strong> (Fillmore et al., 2003).</p>
+<p>two methods to construct situation graphs:</p>
+<ol>
+<li><p>Object-based Graph: <strong>object detection</strong>, and obtain the <strong>object bounding boxes</strong> detected by a <strong>Faster R-CNN</strong> (Ren et al., 2015) model trained on Open Images (Kuznetsova et al., 2018) with 600 object types (classes). employ a VGG-16 CNN (Si- monyan and Zisserman, 2014) to extract visual features of an image m and and another VGG-16 to encode <strong>the bounding boxes {oi}.</strong> apply a Multi-Layer Perceptron (MLP) to <strong>predict a verb embedding from m</strong> and another MLP to <strong>predict a noun embedding for each oi</strong></p>
+<p> <img src="/images/paper1-5.png" alt="/images/paper1-5.png"></p>
+<p> compare the predicted verb embedding to all verbs v in the imSitu taxonomy in order to classify the verb, and similarly compare each predicted noun embedding to all imSitu nouns n which re- sults in probability distributions. where v and n are word embeddings initialized with GloVE.</p>
+<p> use another MLP with one hidden layer followed by Softmax (σ) to classify role ri for each object oi</p>
+<p> define the situation loss</p>
+<p> <img src="/images/paper1-6.png" alt="/images/paper1-6.png"></p>
+</li>
+<li><p>Attention-based Graph</p>
+<p> Many salient objects such as bomb, stone and stretcher are not covered in these ontologies. Hence, propose an <strong>open-vocabulary</strong> alternative to the object-based graph construction model.</p>
+</li>
+</ol>
+<p>and cross- media alignment (Section 3.4)</p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>Compared to unimodal state-of-the-art methods, our approach achieves 4.0% and 9.8% absolute F-score gains on text event argument role labeling and visual event extraction.</p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>ACL</tag>
+        <tag>Multimodal</tag>
+        <tag>2020</tag>
+        <tag>Event Extraction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Improving Event Detection via Open-domain Trigger Knowledge</title>
+    <url>/paper-Improving-Event-Detection-via-Open-domain-Trigger-Knowledge/</url>
+    <content><![CDATA[<p>2020, ACL</p>
+<p>data: ACE 05</p>
+<p>task: Event Detection</p>
+<a id="more"></a>
+
+<p>Propose a novel Enrichment Knowledge Distillation (EKD) model to efficiently distill external open-domain trigger knowledge to reduce the in-built biases to frequent trigger words in annotations.</p>
+<ol>
+<li>leverage the wealth of the open-domain trigger knowledge to improve ED</li>
+<li>propose a novel teacher-student model (EKD) that can learn from both labeled and unlabeled data</li>
+</ol>
+<p><img src="/images/paper2.png" alt="/images/paper2.png"></p>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><p>只能对付普遍情况, 即一般性的触发词; 但触发词不是在任何语境下都是触发词.</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>empower the model with external knowledge called Open-Domain Trigger Knowledge, defined as a prior that specifies which words can trigger events without subject to pre-defined event types and the domain of texts.</p>
+<ol>
+<li><p>Knowledge Collection: apply a light-weight pipeline, called <strong>Trigger From WordNet (TFW)</strong>, to equipment unlabeled sentences with trigger knowledge from WordNet. $S^+ = TFW(S)$ we obtain a total of 733,848 annotated sentences from New York Times corpus in the first half of 2007. The total number of triggers is 2.65 million, with an average of 3.6 triggers per sentence.,</p>
+<ol>
+<li><p>disambiguate word into WordNet sense:  adopt <strong>IMS</strong> (Zhong and Ng, 2010) to disambiguate word into word sense in WordNet. obtain the input features by POS tagger and dependency parser in Stanford <strong>CoreNLP</strong></p>
+</li>
+<li><p>determine whether a sense triggers an event: adopt the simple dictionary-lookup approach proposed in (Araki and Mitamura, 2018)</p>
+</li>
+</ol>
+</li>
+<li><p>given the knowledge enhanced data as well as ED annotations, we train a teacher model for better performance</p>
+<ul>
+<li><p>Feature Extraction: adopt the sequence output of the last layer of BERT as the hidden representation for each word in S and S+</p>
+<p>  $\begin{aligned}<br>  H &amp;=B E R T(S) \\<br>  H_{+} &amp;=B E R T\left(S_{+}\right)<br>  \end{aligned}$</p>
+</li>
+<li><p>Event Prediction: adopt a full-connected layer to determine the event type Y for each word in sentence S. where $O_{ijc}$ represents the probability that the j-th word in Si belongs to the c-th event class. normalize O by the softmax function to obtain the conditional probability</p>
+<p>  <img src="/images/paper2-1.png" alt="/images/paper2-1.png"></p>
+<p>  Given the labeled corpus $L = \{S_i, Y_i \}|_{i=1}^{N_L}$,  optimization object is defined as</p>
+<p>  <img src="/images/paper2-2.png" alt="/images/paper2-2.png"></p>
+</li>
+</ul>
+</li>
+<li><p>a student model is trained to mimic teacher’s outputs using data without knowledge enhancement, which conforms to the distribution during inference</p>
+<p> <img src="/images/paper2-3.png" alt="/images/paper2-3.png"></p>
+<ul>
+<li><p>share the parameters of the teacher and student model</p>
+</li>
+<li><p>Knowledge-attending Sentences (S+): trigger $wi$ identified by open-domain trigger knowl edge, $S+ = {w1, w2, . . . ,B-TRI, wi, E-TRI, . . . , wn}$</p>
+<ul>
+<li>fine-tuning BERT with Mask LM on the annotation sentences S+ to address newly added symbols are lack of pre-trained embedding in BERT</li>
+</ul>
+</li>
+<li><p>Knowledge-absent Sentences (S−): 增加学生模型学习难度, disturb the input of student model by randomly <strong>masking out triggers</strong>, $S− = {w1, w2, . . . ,[MASK], . . . , wn}$</p>
+</li>
+<li><p>KL-divergence Loss: <strong>We move the added symbols to the end of the sentence to ensure strict alignment of words in S+ and S−</strong>, minimize the discrepancy between conditional probability p(Y|S−, θ) and p(Y|S+θ) with KL-divergence loss.</p>
+<p>  <img src="/images/paper2-4.png" alt="/images/paper2-4.png"></p>
+<p>  KL散度不对称, 这里使用无KG的预测来逼近有KG加成的预测的分布. 反过来则效果不好</p>
+</li>
+<li><p>Joint Training:  supervised loss from labeled dataset and KL- divergence loss from unlabeled dataset</p>
+<p>  <img src="/images/paper2-5.png" alt="/images/paper2-5.png"></p>
+<p>  stop the gradient descent of teacher model when calculating JT to ensure that the learning is from teacher to student</p>
+</li>
+<li><p>Training Signal Annealing (TSA): Linearly release the ‘training signals’ of the labeled examples as training progresses 避免模型overfit少量的有标签数据而underfit 大量的无标签样本</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/paper2-6.png" alt="/images/paper2-6.png"></p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>outperforms nine strong baselines, is especially effective for unseen/sparsely labeled trigger words.</p>
+<p><img src="/images/paper2-7.png" alt="/images/paper2-7.png"></p>
+<p><img src="/images/paper2-8.png" alt="/images/paper2-8.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>ACL</tag>
+        <tag>2020</tag>
+        <tag>Event Detection</tag>
+        <tag>Knowledge Distillation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Two are Better than One Joint Entity and Relation Extraction with Table-Sequence Encoders</title>
+    <url>/paper-Two-are-Better-than-One-Joint-Entity-and-Relation-Extraction-with-Table-Sequence-Encoders/</url>
+    <content><![CDATA[<p>2020, EMNLP</p>
+<p>data: ACE 04, ACE 05, ADE, CoNLL04</p>
+<p>links: <a href="https://github.com/LorrinWWW/two-are-better-than-one">https://github.com/LorrinWWW/two-are-better-than-one</a>.</p>
+<p>task: Entity and Relation Extraction</p>
+<a id="more"></a>
+
+
+<p>In this work, we propose the novel table-sequence encoders where two different encoders – a table encoder and a sequence encoder are designed to help each other in the representation learning process.</p>
+<p>这篇ACL 2020文章认为, 之前的Joint learning方法侧重于learning a single encoder (usually learning representation in the form of a table) to capture information required for both tasks within the same space. We argue that it can be beneficial to design two distinct encoders to capture such two different types of information in the learning process.</p>
+<ol>
+<li>First, these methods typically suffer from feature confusion as they use a single representation for the two tasks – NER and RE</li>
+<li>Second, these methods underutilize the table structure as they usually convert it to a sequence and then use a sequence labeling approach to fill the table</li>
+</ol>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<li>we focus on learning two types of representations, namely sequence representations and table representations, for NER and RE respectively.</li>
+<li>we design a mechanism to allow them to interact with each other, in order to take advantage of the inherent association underlying the NER and RE tasks</li>
+<li>use the attention weights of BERT for learning table representations.</li>
+</ol>
+<p>Regard NER as a sequence labeling problem, where the gold entity tags yNER are in the standard BIO</p>
+<p><img src="/images/paper3.png" alt="/images/paper3.png"></p>
+<p><img src="/images/paper3-1.png" alt="/images/paper3-1.png"></p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>The model consists of two types of interconnected encoders, a table encoder for table representation and a sequence encoder for sequence representation</p>
+<p><img src="/images/paper3-2.png" alt="/images/paper3-2.png"></p>
+<ul>
+<li>In each layer, the table encoder uses the sequence representation to construct the table representation;</li>
+<li>and then the sequence encoder uses the table representation to contextualize the sequence representation</li>
+</ul>
+<h3 id="Table-Encoder"><a href="#Table-Encoder" class="headerlink" title="Table Encoder"></a>Table Encoder</h3><ol>
+<li><p>first construct a non-contextualized table by concatenating every two vectors of the sequence representation followed by a fully-connected layer to halve the hidden size </p>
+<p> <img src="/images/paper3-3.png" alt="/images/paper3-3.png"></p>
+</li>
+<li><p>Next, we use the <strong>Multi-Dimensional Recurrent Neural Networks (MD-RNN)</strong> with Gated Recurrent Unit (GRU), iteratively compute the hidden states of each cell to form the contextualized table representation, to access the context from four directions for modeling 2D data</p>
+</li>
+</ol>
+<p><img src="/images/paper3-4.png" alt="/images/paper3-4.png"></p>
+<p>Empirically, we found the setting only considering cases (a) and (c) in Figure 4 achieves no worse performance than considering four cases altogether</p>
+<p><img src="/images/paper3-5.png" alt="/images/paper3-5.png"></p>
+<p><img src="/images/paper3-6.png" alt="/images/paper3-6.png"></p>
+<h3 id="Sequence-Encoder"><a href="#Sequence-Encoder" class="headerlink" title="Sequence Encoder"></a>Sequence Encoder</h3><p>we replace the scaled dot- product attention with our proposed table-guided attention.</p>
+<p><img src="/images/paper3-7.png" alt="/images/paper3-7.png"></p>
+<h2 id="4-4-Exploit-Pre-trained-Attention-Weights"><a href="#4-4-Exploit-Pre-trained-Attention-Weights" class="headerlink" title="4.4 Exploit Pre-trained Attention Weights"></a>4.4 Exploit Pre-trained Attention Weights</h2><p><img src="/images/paper3-8.png" alt="/images/paper3-8.png"></p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="/images/paper3-9.png" alt="/images/paper3-9.png"></p>
+<p><img src="/images/paper3-10.png" alt="/images/paper3-10.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>2020</tag>
+        <tag>EMNLP</tag>
+        <tag>Extraction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A Frustratingly Easy Approach for Joint Entity and Relation Extraction</title>
+    <url>/paper-A-Frustratingly-Easy-Approach-for-Joint-Entity-and-Relation-Extraction/</url>
+    <content><![CDATA[<p>2020, NAACL </p>
+<p>data: ACE 04, ACE 05, SciERC</p>
+<p>links: <a href="https://github.com/princeton-nlp/PURE">https://github.com/princeton-nlp/PURE</a></p>
+<p>task: Entity and Relation Extraction</p>
+<a id="more"></a>
+
+<p>提出了一种简单但是有效的pipeline方法:builds on two independent pre-trained encoders and merely uses the entity model to provide input features for the relation model.</p>
+<p>实验说明: validate the importance of </p>
+<ul>
+<li><strong>learning distinct contextual representations for entities and relations</strong>,</li>
+<li>fusing entity information at the input layer of the relation model,</li>
+<li>and incorporating global context.</li>
+</ul>
+<p>从效果上看, 似乎是因为cross sentence的context加成更大</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>Input: a sentence X consisting of n tokens <code>x1, . . . , xn</code>. Let <code>S = &#123;s1, . . . , sm&#125;</code> be all the possible spans in <code>X</code> of up to length <code>L</code> and <code>START(i)</code> and <code>END(i)</code> denote start and end indices of <code>si</code>.</p>
+<p><img src="/images/paper4.png" alt="/images/paper4.png"></p>
+<h2 id="Named-entity-recognition"><a href="#Named-entity-recognition" class="headerlink" title="Named entity recognition"></a>Named entity recognition</h2><p>a standard span-based model following prior work (Lee et al., 2017; Luan et al., 2018, 2019; Wadden et al., 2019), 加入span-width embedding</p>
+<p><img src="/images/paper4-1.png" alt="/images/paper4-1.png"></p>
+<h2 id="Relation-model"><a href="#Relation-model" class="headerlink" title="Relation model"></a>Relation model</h2><ol>
+<li>observe that span he(si), he(sj) representations only capture contextual information around each individual entity and might fail to capture the dependencies between a specific pair of spans. </li>
+<li>We also hypothesize that sharing the contextual representations for different pairs of spans may be suboptimal.</li>
+<li>instead processes each pair of spans independently and inserts typed markers at the input layer to highlight the subject and object and their types.</li>
+</ol>
+<p><img src="/images/paper4-2.png" alt="/images/paper4-2.png"></p>
+<p><img src="/images/paper4-3.png" alt="/images/paper4-3.png"></p>
+<h3 id="Cross-sentence-context"><a href="#Cross-sentence-context" class="headerlink" title="Cross-sentence context"></a>Cross-sentence context</h3><p>extending the sentence to a fixed window size <code>W</code> for both the entity and relation model. augment the input with <code>(W − n)/2</code> words from the left context and right context respectively (<code>W = 100</code> in our default model).</p>
+<h2 id="Training-amp-inference"><a href="#Training-amp-inference" class="headerlink" title="Training &amp; inference"></a>Training &amp; inference</h2><p><img src="/images/paper4-4.png" alt="/images/paper4-4.png"></p>
+<p><img src="/images/paper4-5.png" alt="/images/paper4-5.png"></p>
+<h2 id="3-3-Efficient-Batch-Computations"><a href="#3-3-Efficient-Batch-Computations" class="headerlink" title="3.3 Efficient Batch Computations"></a>3.3 Efficient Batch Computations</h2><p>目标是避免多次encode一个句子</p>
+<ol>
+<li>把所有实体的 marker tokens 放在序列尾部, </li>
+<li>The position embeddings of the markers: 直接复用实体span的 start and end tokens</li>
+<li>We enforce the text tokens to only attend to text tokens and not attend to the marker tokens while an entity marker token can attend to all the text tokens and all the 4 marker tokens associated with the same span pair.</li>
+</ol>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="/images/paper4-6.png" alt="/images/paper4-6.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>2020</tag>
+        <tag>Extraction</tag>
+        <tag>NAACL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Matching the Blanks - Distributional Similarity for Relation Learning</title>
+    <url>/paper-Matching-the-Blanks-Distributional-Similarity-for-Relation-Learning/</url>
+    <content><![CDATA[<p>2019, ACL </p>
+<p>data: KBP37, SemEval 2010 Task 8, TACRED</p>
+<p>task: Entity and Relation Extraction</p>
+<a id="more"></a>
+
+<p>Build task agnostic relation representations solely from entity-linked text.</p>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><p>文章认为网页中, 相同的的实体对一般指代相同的实体关系, 把实体不同的构建为负样本. 这个在单份文件中可能大概率是对的. </p>
+<p>但是实体不完全一直不代表这个两对实体的关系不同. 所以这个作为负样本是本质上映射的是实体识别而不是关系. </p>
+<p>比较好的方式是把实体不同但是关系一样的也考虑进来.</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="Define-Relation-Statement"><a href="#Define-Relation-Statement" class="headerlink" title="Define Relation Statement"></a>Define Relation Statement</h2><p>We define a relation statement to be a block of text containing two marked entities. From this, we create training data that contains relation statements in which the entities have been replaced with a special [BLANK]</p>
+<p><img src="/images/paper5.png" alt="/images/paper5.png"></p>
+<p>A relation statement is a triple <code>r = (x, s1, s2)</code>, <code>x = [x0 . . . xn]</code> be a sequence of tokens, where <code>x0 = [CLS]</code> and <code>xn = [SEP]</code> are special start and end markers. Let <code>s1 = (i, j)</code> and <code>s2 = (k, l)</code> be pairs of integers such that <code>0 &lt; i &lt; j −1, j &lt; k, k ≤ l −1</code>, and <code>l ≤ n</code></p>
+<p>learn a function $h_r = f_θ(r)$ that maps the relation statement to a fixed-length vector $h_r ∈ ^Rd$ that represents the relation</p>
+<h2 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h2><p><img src="/images/paper5-1.png" alt="/images/paper5-1.png"></p>
+<ol>
+<li>supervised tasks</li>
+<li>few-shot relation matching: In this task, examples in the test and development sets typically contain relation types not present in the training set. <ul>
+<li>we use the <strong>dot product</strong> between relation representation of the query statement and each of the candidate statements as a <strong>similarity score</strong></li>
+<li>we declare that for any pair of relation statements r and r’, the inner product $f_{\theta}(\mathbf{r})^{\top} f_{\theta}\left(\mathbf{r}^{\prime}\right)$ should be high if the two relation statements, express semantically similar relations</li>
+<li>we do not use relation labels at training time, Instead, we observe that there is a high degree of redundancy in web text, and each relation between an arbitrary pair of entities is likely to be stated multiple times. 假设网页文本有大量重复的实体关系提及</li>
+</ul>
+</li>
+</ol>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p><img src="/images/paper5-2.png" alt="/images/paper5-2.png"></p>
+<h3 id="Entity-span-identification"><a href="#Entity-span-identification" class="headerlink" title="Entity span identification"></a>Entity span identification</h3><ol>
+<li>Standard input: model that does not have access to any explicit identification of the entity spans <code>s1</code> and <code>s2</code></li>
+<li>Positional embeddings: two segmentation embeddings, one that is added to all tokens in the span <code>s1</code>, while the other is added to all tokens in the span <code>s2</code></li>
+<li>Entity marker tokens: <code>[E1start]</code>, <code>[E1end]</code> <code>[E2start]</code> and <code>[E2end]</code> and modify <code>x</code> to give <code>x˜ =[x0 . . . [E1start] xi . . . xj−1 [E1end] . . . [E2start] xk . . . xl−1 [E2end] . . . xn]</code>.</li>
+</ol>
+<h3 id="Fixed-length-relation-representation"><a href="#Fixed-length-relation-representation" class="headerlink" title="Fixed length relation representation"></a>Fixed length relation representation</h3><ol>
+<li><code>[CLS]</code> token </li>
+<li>Entity mention pooling: concatenate $h_{e1}= MAXPOOL([h_i…h_{j−1}])$ and $he_{e_2} =MAXPOOL([h_k…h_{l−1}])$</li>
+<li>Entity start state: concatenation of the final hidden states corresponding their respective start tokens</li>
+</ol>
+<h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>Takes in pairs of blank-containing relation statements, and has an objective that encourages relation representations to be similar if they range over the same pairs of entities.</p>
+<p>define <strong>binary classifier</strong>, learn a relation statement encoder fθ that we can use to determine whether or not two relation statements encode the same relation. minimizes the loss</p>
+<p><img src="/images/paper5-3.png" alt="/images/paper5-3.png"></p>
+<h2 id="4-2-Introducing-Blanks"><a href="#4-2-Introducing-Blanks" class="headerlink" title="4.2 Introducing Blanks"></a>4.2 Introducing Blanks</h2><p>To avoid simply relearning the entity linking system, 用<code>[BLANK]</code> symbol 以概率<code>α</code>替换掉 entity in relation statement. </p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>outperform previous work on exemplar based relation extraction (FewRel) even with- out using any of that task’s training data. We also show that models initialized with our task agnostic representations, and then tuned on supervised relation extraction datasets, significantly outperform the previous methods on SemEval 2010 Task 8, KBP37, and TACRED<br><img src="/images/paper5-4.png" alt="/images/paper5-4.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>2019</tag>
+        <tag>ACL</tag>
+        <tag>Extraction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CorefQA - Coreference resolution as query-based span prediction</title>
+    <url>/paper-CorefQA-Coreference-resolution-as-query-based-span-prediction/</url>
+    <content><![CDATA[<p>2020, ACL</p>
+<p>data: CoNLL-2012, GAP</p>
+<p>task: Coreference Resolution</p>
+<a id="more"></a>
+
+<p>通过QA方式处理coreference问题，A query is generated for each candidate mention using its surrounding con- text, and a span prediction module is em- ployed to extract the text spans of the corefer- ences within the document using the generated query.</p>
+<p>近期的方法有consider all text spans in a document as potential mentions and learn to find an antecedent for each possible mention. There。这种仅依靠mention的做对比的方法的缺点：</p>
+<ol>
+<li>At the task formalization level： 因为当前数据集有很多遗漏的mention， mentions left out at the mention proposal stage can never be recov- ered since the downstream module only operates on the proposed mentions.</li>
+<li>At the algorithm level：Semantic matching operations be- tween two mentions (and their contexts) are per- formed only at the output layer and are relatively superficial</li>
+</ol>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>Speaker information： directly concatenates the speaker’s name with the corresponding utterance.</p>
+<p><img src="/images/paper6.png" alt="/images/paper6.png"></p>
+<p><img src="/images/paper6-1.png" alt="/images/paper6-1.png"></p>
+<h2 id="3-3-Mention-Proposal"><a href="#3-3-Mention-Proposal" class="headerlink" title="3.3 Mention Proposal"></a>3.3 Mention Proposal</h2><p>considers all spans up to a maximum length L as potential mentions.</p>
+<h2 id="3-4-Mention-Linking-as-Span-Prediction"><a href="#3-4-Mention-Linking-as-Span-Prediction" class="headerlink" title="3.4 Mention Linking as Span Prediction"></a>3.4 Mention Linking as Span Prediction</h2><p>Given a mention ei proposed by the mention pro- posal network </p>
+<p><code>&#123;context (X), query (q), answers (a)&#125;</code>.</p>
+<p>The query q(ei) is constructed as follows: given ei, we use the sentence that ei resides in as the query, with the minor modification that we encapsulates ei with special tokens <code>&lt; mention &gt; &lt; /mention &gt;</code></p>
+<p>generate a BIO tag for each token of a coreferent mention</p>
+<p><img src="/images/paper6-2.png" alt="/images/paper6-2.png"></p>
+<p>to optimize the bi-directional re- lation between ei and ej.</p>
+<p><img src="/images/paper6-3.png" alt="/images/paper6-3.png"></p>
+<p><img src="/images/paper6-4.png" alt="/images/paper6-4.png"></p>
+<h2 id="3-5-Antecedent-Pruning"><a href="#3-5-Antecedent-Pruning" class="headerlink" title="3.5 Antecedent Pruning"></a>3.5 Antecedent Pruning</h2><h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>The mention proposal module and the mention linking module are jointly trained in an end-to-end fashion using training signals from Eq.6, with the SpanBERT parameters shared.</p>
+<h2 id="3-8-Data-Augmentation-using-Question-Answering-Datasets"><a href="#3-8-Data-Augmentation-using-Question-Answering-Datasets" class="headerlink" title="3.8 Data Augmentation using Question Answering Datasets"></a>3.8 Data Augmentation using Question Answering Datasets</h2><p>pre- train the mention linking network on the Quoref dataset (Dasigi et al., 2019b), and the SQuAD dataset (Rajpurkar et al., 2016b)</p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="/images/paper6-5.png" alt="/images/paper6-5.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>ACL</tag>
+        <tag>2020</tag>
+        <tag>Coreference Resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DeepPath - A Reinforcement Learning Method for Knowledge Graph Reasoning</title>
+    <url>/paper-DeepPath-A-Reinforcement-Learning-Method-for-Knowledge-Graph-Reasoning/</url>
+    <content><![CDATA[<p>2017, EMNLP</p>
+<p>data: FB15K-237, FB15K </p>
+<p>task: Knowledge Graph Reasoning</p>
+<a id="more"></a>
+
+<p>Use a policy-based agent with continuous states based on knowledge graph embeddings, which <strong>reasons in a KG vector space</strong> by sampling the most promising relation to extend its path.</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>RL 系统包含两部分，</p>
+<ul>
+<li>第一部分是外部环境，指定了 智能体 和知识图谱之间的动态交互。环境被建模为马尔可夫决策过程。</li>
+<li>系统的第二部分，RL 智能体，表示为策略网络，将状态向量映射到随机策略中。神经网络参数通过随机梯度下降更新。相比于 DQN，基于策略的 RL 方法更适合该知识图谱场景。一个原因是知识图谱的路径查找过程，行为空间因为关系图的复杂性可能非常大。这可能导致 DQN 的收敛性变差。另外，策略网络能学习梯度策略，防止 智能体 陷入某种中间状态，而避免基于值的方法如 DQN 在学习策略梯度中遇到的问题。</li>
+</ul>
+<p><img src="/images/paper7.png" alt="/images/paper7.png"></p>
+<h2 id="关系推理的强化学习"><a href="#关系推理的强化学习" class="headerlink" title="关系推理的强化学习"></a>关系推理的强化学习</h2><p><strong>行为</strong> 给定一些实体对和一个关系，我们想让 智能体 找到最有信息量的路径来连接这些实体对。从源实体开始，智能体 使用策略网络找到最有希望的关系并每步扩展它的路径直到到达目标实体。为了保持策略网络的输出维度一致，动作空间被定义为知识图谱中的所有关系。</p>
+<p><strong>状态</strong> 知识图谱中的实体和关系是自然的离散原子符号。现有的实际应用的知识图谱例如 Freebase 和 NELL 通常有大量三元组，不可能直接将所有原子符号建模为状态。为了捕捉这些符号的语义信息，我们使用基于平移的嵌入方法，例如 TransE 和 TransH 来表示实体和关系。这些嵌入将所有符号映射到低维向量空间。在该框架中，每个状态捕捉 智能体 在知识图谱中的位置。在执行一个行为后，智能体 会从一个实体移动到另一个实体。两个状态通过刚执行的行为（关系）由 智能体 连接。第 t 步的状态向量：</p>
+<p><img src="/images/paper7-1.png" alt="/images/paper7-1.png"></p>
+<p>其中 e.t 表示当前实体结点的嵌入，e.target 表示目标实体的嵌入。在最初状态，e.t 即 e.source。我们没有在状态中加入推理关系，因为在寻路过程中推理关系的嵌入保持不变，不利于训练。然而，我们发现通过使用一组特定关系的正样本训练 RL 代理，该 智能体 可以成功地发现关系语义。</p>
+<p><strong>奖励</strong> 对于我们的环境设置，智能体 可以执行的操作数量可能非常大。换句话说，错误的顺序决策比正确的顺序决策多得多。这些错误的决策序列的数量会随着路径的长度呈指数增长。</p>
+<ul>
+<li>Global accuracy：</li>
+</ul>
+<p><img src="/images/paper7-2.png" alt="/images/paper7-2.png"></p>
+<ul>
+<li>Path efficiency</li>
+</ul>
+<p><img src="/images/paper7-3.png" alt="/images/paper7-3.png"></p>
+<ul>
+<li>Path diversity:</li>
+</ul>
+<p><img src="/images/paper7-4.png" alt="/images/paper7-4.png"></p>
+<p><strong>策略网络</strong> 我们使用全连接神经网络来参数化策略函数，它讲状态向量映射到所有可能行为的概率分布上。神经网络包含两个隐藏层，每一层后接 ReLU。输出层通过 softmax 函数归一化。</p>
+<h2 id="3-2-训练"><a href="#3-2-训练" class="headerlink" title="3.2 训练"></a>3.2 训练</h2><p>对于一个典型的KG, RL 智能体 常常面临上千种可能的操作。换句话说，策略网络的输出层具有较大的维数。由于关系图的复杂性和较大的动作空间，如果直接采用 RL 算法中典型的试错推理来训练RL模型，将会导致 RL 模型收敛性很差。经过长时间的训练，智能体都可能无法找到任何有价值的路径。</p>
+<p>为了解决这个问题，我们从一个监督策略开始我们的训练，这个策略的灵感来自 AlphaGo 使用的模仿学习流水线。在围棋游戏中，玩家每走一步都要面对近 250 种可能的合法走法。直接训练智能体从原始动作空间中挑选动作可能是一项困难的任务。AlphaGo 首先使用专家训练一个有监督的策略网络。在该例子中，使用随机的广度优先搜索(BFS)训练监督策略。</p>
+<h3 id="监督策略学习"><a href="#监督策略学习" class="headerlink" title="监督策略学习"></a>监督策略学习</h3><p>对于每个关系，我们首先使用所有正样本（实体对）的子集来学习有监督的策略。对于每个正样本<code>(esource, etarget)</code>，一个两端 BFS 被用于找到实体之间的正确路径。对于路径 p，使用蒙塔卡洛策略梯度（REINFORCE 方法）来最大化期望的累积奖励。</p>
+<p><img src="/images/paper7-5.png" alt="/images/paper7-5.png"></p>
+<p>原生 BFS 是有偏的搜索算法，它倾向于使用短路径。当插入这些有偏向的路径时，agent 很难找到可能有用的较长路径。我们希望路径仅由定义的奖励函数控制。为了防止偏向搜索，我们采用了一种简单的技巧为 BFS 添加一些随机机制。我们不是直接搜索 esource 和 etarget 之间的路径，而是随机选择一个中间节点einter，然后在（esource，einter）和（einter，etarget）之间进行两个 BFS。连接的路径用于训练智能体。监督学习可以节省智能体从失败行为中学习的大量精力。借助所学的经验，我们然后训练智能体寻找理想的路径。</p>
+<h3 id="Retraining-with-Rewards"><a href="#Retraining-with-Rewards" class="headerlink" title="Retraining with Rewards"></a>Retraining with Rewards</h3><p>为了找到受奖励函数控制的推理路径，我们使用奖励函数来限制监督策略网络。对于每个关系，一个实体对的推理被视为一个事件(episode)。从源结点开始，智能体根据随机策略选择关系，它是所有关系上的概率分布，以扩展推理路径。关系链接可能引向一个新实体，或者失败。这些失败的步骤可能导致智能体获得负奖励。智能体在失败步骤后保持状态。由于智能体遵循随机策略，所以智能体不会因为重复错误的步骤而陷入困境。为了提高训练效率，我们将训练集长度设定一个上限。上限达到时，如智能体仍未找到目标实体则事件结束。每个事件结束后，策略网络通过以下梯度进行更新：</p>
+<p><img src="/images/paper7-6.png" alt="/images/paper7-6.png"></p>
+<h2 id="3-3-Bi-directional-Path-constrained-Search"><a href="#3-3-Bi-directional-Path-constrained-Search" class="headerlink" title="3.3 Bi-directional Path-constrained Search"></a>3.3 Bi-directional Path-constrained Search</h2><p>In a typical KG, one entity node can be linked to a large number of neighbors with the same relation link. If we verify the formula from the inverse direction. The number of intermediate nodes can be tremendously decreased.</p>
+<h1 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4 Experiments"></a>4 Experiments</h1><p>we explore two standard KG reason- ing tasks: <strong>link prediction (predicting target en- tities)</strong> and <strong>fact prediction (predicting whether an unknown fact holds or not)</strong>. </p>
+<h2 id="4-1-Dataset-and-Settings"><a href="#4-1-Dataset-and-Settings" class="headerlink" title="4.1 Dataset and Settings"></a>4.1 Dataset and Settings</h2><p><img src="/images/paper7-7.png" alt="/images/paper7-7.png"></p>
+<p>The triples in FB15K-237 (Toutanova et al., 2015) are sampled from FB15K (Bordes et al., 2013) with redun- dant relations removed.</p>
+<h2 id="4-3-Results"><a href="#4-3-Results" class="headerlink" title="4.3 Results"></a>4.3 Results</h2><p><img src="/images/paper7-8.png" alt="/images/paper7-8.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>EMNLP</tag>
+        <tag>2017</tag>
+        <tag>Knowledge Graph Reasoning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep Q Networks</title>
+    <url>/Reinforcement-Learning-Deep-Q-Networks/</url>
+    <content><![CDATA[<p>Combining reinforcement learning and deep neural networks at scale. The algorithm was developed by enhancing a classic RL algorithm called Q-Learning with deep neural networks and a technique called <strong>experience replay</strong>.</p>
+<a id="more"></a>
+
+<h2 id="Q-Learning"><a href="#Q-Learning" class="headerlink" title="Q-Learning"></a>Q-Learning</h2><p>Q-Learning is based on the notion of a Q-function. The Q-function (a.k.a the state-action value function) of a policy $\pi$，$Q^{\pi}(s, a)$ ，measures the expected return or discounted sum of rewards obtained from state $s$ by taking action $a$ first and following policy $\pi$ thereafter.</p>
+<p>The optimal Q-function $Q^{*}(s, a)$ obeys the following <strong>Bellman optimality equation</strong>:</p>
+<p><img src="/images/Bellman_optimality_equation.png"></p>
+<p>This means that the maximum return from state s and action a is the sum of the <strong>immediate reward $r$</strong> and the return (discounted by $\gamma$) obtained by following the optimal policy thereafter until the end of the <strong>episode</strong>(i.e., the maximum reward from the next state $s^{\prime}$). The <strong>expectation</strong> is computed both over the distribution of immediate rewards $r$ and possible next states $s^{\prime}$.</p>
+<p>Each sequence from the initial state and action to the end is called an episode.</p>
+<p>通过期望值来预估未来状态</p>
+<p>假设没有$\gamma$ ，那么未来长期reward没有折损，会得到 sparse reward：因为没有折损，所有状态最后得到的值是一样的，模型无法获得差异信号</p>
+<ul>
+<li>It is important to tune this hyperparameter to get optimum results.</li>
+<li>Successful values range from 0.9 to 0.99.</li>
+<li>A lower value encourages short-term thinking</li>
+<li>A higher value emphasizes long-term rewards</li>
+</ul>
+<p>The Bellman Equation was introduced by Dr. Richard Bellman (who’s known as the Father of dynamic programming) in 1954 in the paper: <a href="https://www.rand.org/content/dam/rand/pubs/papers/2008/P550.pdf">The Theory of Dynamic Programming</a>.</p>
+<p>Use the Bellman optimality equation as an iterative update</p>
+<p>$$Q_{i + 1}(s, a) \leftarrow E\left[r+\gamma \max_{a^{\prime}} Q_{i}(s^{\prime}, a^{\prime})\right]$$</p>
+<p>this converges to the optimal Q-function, i.e $Q_{i} \rightarrow Q^{*} \text { as } i \rightarrow \infty$</p>
+<p>在深度学习之前，<strong>Bellman optimality equation</strong> 使用递归求解，在每层递归中，需要知道能使预期长期回报最大化的最佳操作是什么。也就是会遍历庞大的递归搜索树。</p>
+<p>在Non-deterministic情况下，BO函数变成</p>
+<p>$$Q(s, a) = R(s, a) + \gamma \sum_{s’}P(s, a, s’) max_{a’}Q(s’, a’))$$</p>
+<h2 id="Temporal-Difference"><a href="#Temporal-Difference" class="headerlink" title="Temporal Difference"></a>Temporal Difference</h2><p>Non-deterministic search can be very difficult to actually calculate the value of each state. </p>
+<p>用Temporal difference 来迭代更新每一个事件的Q-value. $\alpha$是学习率</p>
+<p>$$Q_t(s, a) = Q_{t-1}(s, a) + \alpha TD_t(a, s)$$</p>
+<p>假设t时间步选择了$(s’, a’)$，则Temporal difference是</p>
+<p>$$TD(a, s) = R(s, a) + \gamma max_{a’}Q(s’, a’) - Q_{t-1}(s, a)$$</p>
+<p>由于Non-deterministic环境中存在的随机性，TD值一般不会为0，就可以随着每一时间步的推进更新Q-value</p>
+<h2 id="Deep-Q-Learning"><a href="#Deep-Q-Learning" class="headerlink" title="Deep Q-Learning"></a>Deep Q-Learning</h2><p>For most problems, it is impractical to represent the Q-function as a table containing values for each combination of s and a. Instead, we train a function approximator, such as a neural network with parameters $\theta$, to estimate the Q-values, i.e. $Q(s, a ; \theta) \approx Q^{*}(s, a)$, by minimizing the following loss at each step i:</p>
+<p><img src="/images/dqn_loss.png"></p>
+<p>其中 $y_i$是TD Target, $y_i - Q$ is the TD error.  $s, a, r, s^{\prime}$是可能的状态转移</p>
+<p>Note that the parameters from the previous iteration $\theta_{i-1}$ are fixed and not updated. In practice we use a snapshot of the network parameters from a few iterations ago instead of the last iteration. This copy is called the <strong>target network</strong>.</p>
+<p><img src="/images/q_learning&dqn.png"></p>
+<p><a href="https://www.analyticsvidhya.com/blog/2019/04/introduction-deep-q-learning-python/">https://www.analyticsvidhya.com/blog/2019/04/introduction-deep-q-learning-python/</a></p>
+<p><img src="/images/dqn.png"></p>
+<p>初始化一个网络，用于计算Q值，假设当前状态St，</p>
+<ol>
+<li>把St输入到Q，计算该状态下，各个动作的Q值 $Q(s)$</li>
+<li>选择能得到最大Q值的动作A, 需要更新当前状态St下的动作A的Q值：$Q(S,A)$,</li>
+<li>执行A，输入到环境，往前一步，到达St+1; </li>
+<li>把St+1输入Q网络，计算St+1下所有动作的Q值； </li>
+<li>获得最大的Q值，用gamma 折损，加上奖励R作为更新目标； </li>
+<li>计算损失 <ul>
+<li><code>Q(S,A)</code> 相当于有监督学习中的<code>logits</code></li>
+<li><code>gamma * maxQ(St+1) + R</code> 相当于有监督学习中的lables</li>
+<li>用mse函数，得出两者的loss</li>
+</ul>
+</li>
+<li>用loss更新Q网络，缩小<code>Q(S,A)</code> 和目标。</li>
+</ol>
+<p>不断循环以上步骤</p>
+<h2 id="Experience-Replay"><a href="#Experience-Replay" class="headerlink" title="Experience Replay"></a>Experience Replay</h2><p><a href="https://arxiv.org/abs/1511.05952">Prioritized Experience Replay</a></p>
+<p>经验池的技巧，就是如何存储样本及采样问题。由于玩Atari采集的样本是一个时间序列，样本之间具有连续性，如果每次得到样本就更新Q值，受样本分布影响，效果会不好。因此，一个很直接的想法就是把样本先存起来，然后随机采样如何？这就是Experience Replay的意思。按照脑科学的观点，人的大脑也具有这样的机制，就是在回忆中学习。</p>
+<p>反复试验，然后存储数据。数据存到一定程度，就每次随机采用数据，进行梯度下降！在DQN中增强学习Q-Learning算法和深度学习的SGD训练是同步进行的，通过Q-Learning获取无限量的训练样本，然后对神经网络进行训练。</p>
+<p><img src="/images/dqn_with_exp_replay.png"></p>
+<h2 id="Action-Selection-Policies"><a href="#Action-Selection-Policies" class="headerlink" title="Action Selection Policies"></a>Action Selection Policies</h2><p>once we have the Q-values, how do decide which one to use?</p>
+<p>Recall that in simple Q-learning we just choose the action with the highest Q-value. With deep Q-learning we pass the Q-values through a <code>softmax</code> function. The reason that we don’t just use the highest Q-value comes down to an important concept in reinforcement learning: the exploration vs. exploitation dilemma.</p>
+<p>there are others that could be used, and a few of the most common include:</p>
+<ul>
+<li>ϵ greedy: selects the greedy action with probability 1- ϵ, and a random action with probability ϵ to ensure good coverage of the state-action space.</li>
+<li>ϵ soft</li>
+<li>Softmax</li>
+</ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a href="https://www.mlq.ai/deep-reinforcement-learning-q-learning/#2-the-bellman-equation">Deep Reinforcement Learning: Guide to Deep Q-Learning</a></li>
+<li><a href="https://www.tensorflow.org/agents/tutorials/0_intro_rl">https://www.tensorflow.org/agents/tutorials/0_intro_rl</a></li>
+<li><a href="https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf">https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf</a></li>
+<li><a href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf">https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>RL</category>
+      </categories>
+      <tags>
+        <tag>RL</tag>
+        <tag>DQN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reinforcement Learning</title>
+    <url>/Reinforcement-Learning-intro/</url>
+    <content><![CDATA[<p><a href="https://www.mlq.ai/what-is-reinforcement-learning/">What is Reinforcement Learning? A Complete Guide for Beginners</a></p>
+<a id="more"></a>
+
+
+
+<p>Agent 观察环境，基于policy $\pi\left(a_{t} \mid s_{t}\right)$ 做出响应动作，其中 $s_{t}$是当前环境的观察值(Observation 是环境State对Agent可见的部分)。</p>
+<p>Action会获得新的 Reward $r_{t+1}$, 以及新的环境反馈 $s_{t+1}$.</p>
+<p>目标: 通过优化 policy 来最大化总的Rewards.</p>
+<p>Note: It is important to distinguish between the <strong>state</strong> of the environment and the <strong>observation</strong>, which is the part of the environment state that the agent can see, e.g. in a poker game, the environment state consists of the cards belonging to all the players and the community cards, but the agent can observe only its own cards and a few community cards. In most literature, these terms are used interchangeably and observation is also denoted as .</p>
+<p>这是一个非常通用的框架，可以建模各种<strong>时序决策</strong>问题，例如游戏，机器人等。</p>
+<h1 id="The-Cartpole-Environment"><a href="#The-Cartpole-Environment" class="headerlink" title="The Cartpole Environment"></a>The Cartpole Environment</h1><p>The Cartpole Environment 是 RL中的Hello World. The environment simulates balancing a pole on a cart. The agent can nudge the cart left or right; these are the actions. It represents the state with a position on the x-axis, the velocity of the cart, the velocity of the tip of the pole and the angle of the pole (0° is straight up). The agent receives a reward of 1 for every step taken. The episode ends when the pole angle is more than ±12°, the cart position is more than ±2.4 (the edge of the display) or the episode length is greater than 200 steps. To solve the environment you need an average reward greater than or equal to 195 over 100 consecutive trials.</p>
+<p><img src="/images/Cartpole.png" alt="/images/Cartpole.png"></p>
+<p>Observation $s_{t}$: 4D vector [position, velocity, angle, angular velocity]</p>
+<p>Actions $a_{t}$: push the cart right (+1) or left (-1).</p>
+<p>Reward $r_{t+1}$: </p>
+<ul>
+<li>1 for every timestep that the pole remains upright.</li>
+<li>The episode ends when one of the following is true:<ul>
+<li>the pole tips over some angle limit</li>
+<li>the cart moves outside of the world edges</li>
+<li>200 time steps pass.</li>
+</ul>
+</li>
+</ul>
+<p>Goal:  Learn policy $\pi\left(a_{t} \mid s_{t}\right)$ to maximize the sum of rewards in an episode $\sum_{t=0}^{T} \gamma^{t} r_{t}$. </p>
+<p>$\gamma$ is a discount factor in [0, 1] that discounts future rewards relative to immediate rewards. This parameter helps us focus the policy, making it care more about obtaining rewards quickly.</p>
+<h1 id="Markov-Decision-Processes"><a href="#Markov-Decision-Processes" class="headerlink" title="Markov Decision Processes"></a>Markov Decision Processes</h1><p>MDP框架用于表达agent的学习过程，包含actions-rewards</p>
+<p>A Markov Decision Process is defined by 5 components:</p>
+<ul>
+<li>A set of possible states</li>
+<li>An initial state</li>
+<li>A set of actions</li>
+<li>A transition model<ul>
+<li>probability of transition $P(s’|s, a)$</li>
+</ul>
+</li>
+<li>A reward function: $R(s’|s, a)$</li>
+<li>Discount $\gamma$: In this regard, the discount factor for a Markov Decision Process plays a similar role to a discount factor in Finance as it reflects the time value of rewards. This means that it is preferable to get a larger reward now and a smaller reward later, than it is to get a small reward now and a larger reward later due to the value of time.</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Markov_property">Markov process</a> from Wikipedia:</p>
+<blockquote>
+<p>A stochastic process has the Markov property if the conditional probability distribution of future states of the process (conditional on both past and present states) <strong>depends only upon the present state, not on the sequence of events that preceded it</strong>. A process with this property is called a Markov process.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Markov_decision_process">Markov decision process</a>:</p>
+<blockquote>
+<p>A Markov decision process provides a mathematical framework for modeling decision making in situations <strong>where outcomes are partly random and partly under the control of a decision maker</strong>.</p>
+</blockquote>
+<p>there are two possible types of environments:</p>
+<ol>
+<li>The first is an environment that is <strong>completely observable</strong>, in which case its dynamics can be modeled as a Markov Process. Markov processes are characterized by a short-term memory, meaning the future depends not on the environments whole history, but instead only on the current state.</li>
+<li>The second type is a <strong>partially observed</strong> environment where some variables are not observable. These situations can be modeled using dynamic latent variable models, for example, using <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Hidden Markov models</a>.</li>
+</ol>
+<h1 id="Decision-Policies"><a href="#Decision-Policies" class="headerlink" title="Decision Policies"></a>Decision Policies</h1><p>Since the problem needs to be solved now*,* but the actions will be performed in the future, we need to define a decision policy**.**</p>
+<p>The decision policy is a function that takes the current state S and translates it into an action A.</p>
+<p><strong>Deterministic policies:</strong></p>
+<ul>
+<li>Always gives the same answer for a given state</li>
+<li>In general, it can depend on previous states and actions</li>
+<li>For a MDP, deterministic policies depend only on the current state, because state transitions also depend only on the current state</li>
+</ul>
+<p><strong>Stochastic (randomized) policies:</strong></p>
+<ul>
+<li>Generalize deterministic policies</li>
+<li>For a MDP with known transition probabilities, we only need to consider deterministic policies</li>
+<li>If the transition probability is not known, randomization of actions allow exploration for a better estimation of the model</li>
+<li>Stochastic policies may work better than deterministic policies for a Partially Observed MDP (POMDP)</li>
+</ul>
+<h1 id="Exploration-Exploitation-Dilemma"><a href="#Exploration-Exploitation-Dilemma" class="headerlink" title="Exploration-Exploitation Dilemma"></a>Exploration-Exploitation Dilemma</h1><p>This concept is specific to reinforcement learning and does not arise in supervised or unsupervised Learning.</p>
+<ul>
+<li>Exploration means the agent is exploring potential hypotheses for how to choose actions, which inevitably will lead to some negative reward from the environment.</li>
+<li>Exploitation means how the agent exploits the limited knowledge about what it has already learned</li>
+</ul>
+<p>This is referred to as a <em>dilemma</em> because at each time-step, the agent must decide whether it should <em>explore</em> or <em>exploit</em> in this state - but it can’t do both at once.</p>
+<p>Reinforcement learning should ideally combine both exploration and exploitation, for example by switching between each one at different time steps.</p>
+<h1 id="Q和V定义"><a href="#Q和V定义" class="headerlink" title="Q和V定义"></a>Q和V定义</h1><p>MDP说明在做决策的时候需要考虑未来的回报，把未来的价值折算到当前，才能做出选择。</p>
+<p>总的来说：</p>
+<ul>
+<li>$V_i$ 用于评估状态的价值，代表agent在当前状态$S_i$下，经过各种探索，一直到最终状态的奖励总和的期望 $v_{\pi}(s)=E{\left[G_t|S_t=s\right]}$。可以用于比较两个状态的价值</li>
+<li>$Q_i$用于评估动作的价值，代表agent在选择了action $A_i$后，经过各种探索，一直到最终状态的奖励总和的期望 $q_{\pi}(s,a)=E{\left[G_t|S_t=s, A_t=a\right]}$</li>
+</ul>
+<p>其中$G_t=\sum_{k=0}^{\infty}\gamma^kR_{t+k+1}$</p>
+<p>$V$跟策略有很大关系，计算过程是：</p>
+<ol>
+<li>从$S_i$出发，多次采样;</li>
+<li>每个采样按照当前的 <strong>策略</strong> 选择行为$A_{i+1}$;</li>
+<li>每个采样一直走到最终状态，并计算一路上获得的所有<strong>奖励总和</strong>;</li>
+<li>计算每个采样获得的<strong>平均值</strong>, 这个平均值就是要求的$V$值。</li>
+</ol>
+<p>$Q$的计算过程和$V$差不多，但是跟策略没有直接关系，而是与环境的状态转移概率相关，而环境的状态转移概率是不变的。</p>
+<p>可以把采样过程形象化为有Markov过程生成的树，每个状态和动作都是一个树节点，而树的叶子节点就是结束状态。状态节点和动作节点是分层相隔的，<strong>所以Q和V可以相互换算</strong>，即每一层的Q可以由下一层的V计算出来，反之亦然。</p>
+<p><a href="https://datascience.stackexchange.com/questions/9832/what-is-the-q-function-and-what-is-the-v-function-in-reinforcement-learning">What is the Q function and what is the V function in reinforcement learning?</a></p>
+<p>$$\begin{align}<br>     v_{\pi}(s)&amp;=E{\left[G_t|S_t=s\right]}  \\<br>     &amp;=\sum_{g_t} p(g_t|S_t=s)g_t \\<br>     &amp;= \sum_{g_t}\sum_{a}p(g_t, a|S_t=s)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)\sum_{g_t}p(g_t|S_t=s, A_t=a)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)E{\left[G_t|S_t=s, A_t=a\right]} \\<br>     &amp;= \sum_{a}p(a|S_t=s)q_{\pi}(s,a)<br>\end{align}$$</p>
+<p>一个状态的V值，就是这个状态下的所有动作的Q值$q_{\pi}(s,a)$ 在策略$p(a|S_t=s)$下的期望。</p>
+<p>if we have a deterministic policy， then $v_{\pi}(s)=q_{\pi}(s,\pi(s))$</p>
+<p>$$⁍$$</p>
+<p><img src="/images/rl_qv_1.png"></p>
+<p>实际应用中，我们更多会从V到V。把Q代入得到</p>
+<p><img src="/images/rl_qv_2.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>RL</category>
+      </categories>
+      <tags>
+        <tag>RL</tag>
       </tags>
   </entry>
 </search>
