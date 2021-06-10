@@ -9254,4 +9254,59 @@ table th:nth-of-type(3) {
         <category>CS</category>
       </categories>
   </entry>
+  <entry>
+    <title>Open-Domain Targeted Sentiment Analysis via Span-Based Extraction and Classification</title>
+    <url>/paper-Open-Domain-Targeted-Sentiment-Analysis-via-Span-Based-Extraction-and-Classification/</url>
+    <content><![CDATA[<p>2019, ACL</p>
+<p>data: SemEval 2014, SemEval 2014 ABSA, SemEval 2015, SemEval 2016</p>
+<p>task: ABSA</p>
+<a id="more"></a>
+
+<p>propose a <strong>span-based extract-then-classify framework</strong>, where multiple opinion targets are directly extracted from the sentence under the supervision of target span boundaries, and corresponding polarities are then classified using their span representations.</p>
+<p>优点：</p>
+<ol>
+<li>用指针网络选取target，避免了序列标注的搜索空间过大问题</li>
+<li>用span边界+极性的标注方式，解决多极性的target问题</li>
+</ol>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>Input:</p>
+<p>sentence <code>x =(x1,..., xn)</code> with length <code>n</code>, </p>
+<p>Target list <code>T = &#123;t1,..., tm&#125;</code>： each target ti is annotated with its start, end position, and its sentiment polarity</p>
+<p><img src="/images/paper0.png" alt="/images/paper0.png"></p>
+<h2 id="Multi-Target-Extractor"><a href="#Multi-Target-Extractor" class="headerlink" title="Multi-Target Extractor"></a>Multi-Target Extractor</h2><p><img src="/images/paper001.png" alt="/images/paper001.png"></p>
+<p><img src="/images/paper002.png" alt="/images/paper002.png"></p>
+<p>propose an heuristic multi-span decoding algorithm</p>
+<p><img src="/images/paper003.png" alt="/images/paper003.png"></p>
+<h2 id="3-3-Polarity-Classifier"><a href="#3-3-Polarity-Classifier" class="headerlink" title="3.3 Polarity Classifier"></a>3.3 Polarity Classifier</h2><p>given a target span r, we calculate a summarized vector v using the attention mechanism (Bahdanau et al., 2014) over tokens in its corresponding bound <code>(si, ej)</code></p>
+<p><img src="/images/paper004.png" alt="/images/paper004.png"></p>
+<h2 id="3-4-Model-Variants"><a href="#3-4-Model-Variants" class="headerlink" title="3.4 Model Variants"></a>3.4 Model Variants</h2><p>Pipeline model: </p>
+<ul>
+<li>build a multi-target extractor where <strong>a BERT encoder</strong> is exclusively used.</li>
+<li>Then, <strong>a second backbone network</strong> is used to provide contextual sentence vectors for the polarity classifier.</li>
+<li>Two models are separately trained and combined as a pipeline during inference.</li>
+</ul>
+<p>Joint model:</p>
+<ul>
+<li>Each sentence is fed into <strong>a shared BERT backbone</strong> network</li>
+<li>that finally branches into two sibling output layers: one for proposing multiple candidate targets and another for predicting the sentiment polarity over each extracted target.</li>
+</ul>
+<p>Collapsed model: combine target span boundaries and sentiment polarities into one label space.</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><p>SemEval 2014 ABSA</p>
+<p>LAPTOP contains product reviews from the laptop domain in SemEval 2014 ABSA challenges</p>
+<p>REST is the union set of the restaurant domain from SemEval 2014, 2015 and 2016</p>
+<p><img src="/images/paper005.png" alt="/images/paper005.png"></p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>Metrices We adopt the precision (P), recall (R), and F1 score</p>
+<p><img src="/images/paper006.png" alt="/images/paper006.png"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>NLP</category>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>2019</tag>
+        <tag>ACL</tag>
+        <tag>ABSA</tag>
+      </tags>
+  </entry>
 </search>
