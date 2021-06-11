@@ -25,7 +25,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="Boyer-Moore算法在从头到尾对齐txt的字符时, 每一次对齐, BM算法反方向从尾到头检查patternP&#x3D;BAABBAA和txt字符是否匹配。匹配过程中如果发现txt[i] !&#x3D; P[j], 也就说二者子串不相等, 如...XAA !&#x3D; ...BAA, 且字符txt[i] &#x3D; X在P中不存在时，可以把P开头对齐到txt[i+7], 一次就跳过了7个位置.">
 <meta property="og:type" content="article">
@@ -460,13 +460,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/bits-operations-07/" rel="prev" title="位操作 - 快速幂">
-                  <i class="fa fa-chevron-left"></i> 位操作 - 快速幂
+                <a href="/String-substring-search-KMP/" rel="prev" title="字符搜索匹配算法 01 - Knuth–Morris–Pratt(KMP)">
+                  <i class="fa fa-chevron-left"></i> 字符搜索匹配算法 01 - Knuth–Morris–Pratt(KMP)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/String-substring-search-KMP/" rel="next" title="字符搜索匹配算法 01 - Knuth–Morris–Pratt(KMP)">
-                  字符搜索匹配算法 01 - Knuth–Morris–Pratt(KMP) <i class="fa fa-chevron-right"></i>
+                <a href="/String-substring-search-Rabin-Karp-fingerprint/" rel="next" title="字符搜索匹配算法 03 Rabin-Karp Fingerprint & 字符串哈希">
+                  字符搜索匹配算法 03 Rabin-Karp Fingerprint & 字符串哈希 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -532,6 +532,7 @@
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 

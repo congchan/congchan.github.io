@@ -25,7 +25,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="2020, NAACL  data: ACE 04, ACE 05, SciERC links: https:&#x2F;&#x2F;github.com&#x2F;princeton-nlp&#x2F;PURE task: Entity and Relation Extraction">
 <meta property="og:type" content="article">
@@ -34,22 +34,22 @@
 <meta property="og:site_name" content="Fly Me to the Moon">
 <meta property="og:description" content="2020, NAACL  data: ACE 04, ACE 05, SciERC links: https:&#x2F;&#x2F;github.com&#x2F;princeton-nlp&#x2F;PURE task: Entity and Relation Extraction">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://congchan.github.io/images/paper4.png">
-<meta property="og:image" content="https://congchan.github.io/images/paper4-1.png">
-<meta property="og:image" content="https://congchan.github.io/images/paper4-2.png">
-<meta property="og:image" content="https://congchan.github.io/images/paper4-3.png">
-<meta property="og:image" content="https://congchan.github.io/images/paper4-4.png">
-<meta property="og:image" content="https://congchan.github.io/images/paper4-5.png">
-<meta property="og:image" content="https://congchan.github.io/images/paper4-6.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper4.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper4-1.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper4-2.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper4-3.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper4-4.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper4-5.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper4-6.png">
 <meta property="article:published_time" content="2021-04-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-04-19T16:00:00.000Z">
 <meta property="article:author" content="Cong">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="2020">
-<meta property="article:tag" content="Extraction">
 <meta property="article:tag" content="NAACL">
+<meta property="article:tag" content="Extraction">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://congchan.github.io/images/paper4.png">
+<meta name="twitter:image" content="https://congchan.github.io/images/papers/paper4.png">
 
 
 <link rel="canonical" href="https://congchan.github.io/paper-A-Frustratingly-Easy-Approach-for-Joint-Entity-and-Relation-Extraction/">
@@ -308,11 +308,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/NLP/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
+          <a href="/categories/AI/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
         </span>
     </span>
 
@@ -355,26 +351,26 @@
 </ul>
 <p>从效果上看, 似乎是因为cross sentence的context加成更大</p>
 <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>Input: a sentence X consisting of n tokens <code>x1, . . . , xn</code>. Let <code>S = &#123;s1, . . . , sm&#125;</code> be all the possible spans in <code>X</code> of up to length <code>L</code> and <code>START(i)</code> and <code>END(i)</code> denote start and end indices of <code>si</code>.</p>
-<p><img src="/images/paper4.png" alt="/images/paper4.png"></p>
+<p><img src="/images/papers/paper4.png" alt="/images/papers/paper4.png"></p>
 <h2 id="Named-entity-recognition"><a href="#Named-entity-recognition" class="headerlink" title="Named entity recognition"></a>Named entity recognition</h2><p>a standard span-based model following prior work (Lee et al., 2017; Luan et al., 2018, 2019; Wadden et al., 2019), 加入span-width embedding</p>
-<p><img src="/images/paper4-1.png" alt="/images/paper4-1.png"></p>
+<p><img src="/images/papers/paper4-1.png" alt="/images/papers/paper4-1.png"></p>
 <h2 id="Relation-model"><a href="#Relation-model" class="headerlink" title="Relation model"></a>Relation model</h2><ol>
 <li>observe that span he(si), he(sj) representations only capture contextual information around each individual entity and might fail to capture the dependencies between a specific pair of spans. </li>
 <li>We also hypothesize that sharing the contextual representations for different pairs of spans may be suboptimal.</li>
 <li>instead processes each pair of spans independently and inserts typed markers at the input layer to highlight the subject and object and their types.</li>
 </ol>
-<p><img src="/images/paper4-2.png" alt="/images/paper4-2.png"></p>
-<p><img src="/images/paper4-3.png" alt="/images/paper4-3.png"></p>
+<p><img src="/images/papers/paper4-2.png" alt="/images/papers/paper4-2.png"></p>
+<p><img src="/images/papers/paper4-3.png" alt="/images/papers/paper4-3.png"></p>
 <h3 id="Cross-sentence-context"><a href="#Cross-sentence-context" class="headerlink" title="Cross-sentence context"></a>Cross-sentence context</h3><p>extending the sentence to a fixed window size <code>W</code> for both the entity and relation model. augment the input with <code>(W − n)/2</code> words from the left context and right context respectively (<code>W = 100</code> in our default model).</p>
-<h2 id="Training-amp-inference"><a href="#Training-amp-inference" class="headerlink" title="Training &amp; inference"></a>Training &amp; inference</h2><p><img src="/images/paper4-4.png" alt="/images/paper4-4.png"></p>
-<p><img src="/images/paper4-5.png" alt="/images/paper4-5.png"></p>
+<h2 id="Training-amp-inference"><a href="#Training-amp-inference" class="headerlink" title="Training &amp; inference"></a>Training &amp; inference</h2><p><img src="/images/papers/paper4-4.png" alt="/images/papers/paper4-4.png"></p>
+<p><img src="/images/papers/paper4-5.png" alt="/images/papers/paper4-5.png"></p>
 <h2 id="3-3-Efficient-Batch-Computations"><a href="#3-3-Efficient-Batch-Computations" class="headerlink" title="3.3 Efficient Batch Computations"></a>3.3 Efficient Batch Computations</h2><p>目标是避免多次encode一个句子</p>
 <ol>
 <li>把所有实体的 marker tokens 放在序列尾部, </li>
 <li>The position embeddings of the markers: 直接复用实体span的 start and end tokens</li>
 <li>We enforce the text tokens to only attend to text tokens and not attend to the marker tokens while an entity marker token can attend to all the text tokens and all the 4 marker tokens associated with the same span pair.</li>
 </ol>
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="/images/paper4-6.png" alt="/images/paper4-6.png"></p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="/images/papers/paper4-6.png" alt="/images/papers/paper4-6.png"></p>
 
     </div>
 
@@ -386,16 +382,16 @@
           <div class="post-tags">
               <a href="/tags/NLP/" rel="tag"># NLP</a>
               <a href="/tags/2020/" rel="tag"># 2020</a>
-              <a href="/tags/Extraction/" rel="tag"># Extraction</a>
               <a href="/tags/NAACL/" rel="tag"># NAACL</a>
+              <a href="/tags/Extraction/" rel="tag"># Extraction</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/paper-Two-are-Better-than-One-Joint-Entity-and-Relation-Extraction-with-Table-Sequence-Encoders/" rel="prev" title="Two are Better than One Joint Entity and Relation Extraction with Table-Sequence Encoders">
-                  <i class="fa fa-chevron-left"></i> Two are Better than One Joint Entity and Relation Extraction with Table-Sequence Encoders
+                <a href="/paper-Two-are-Better-than-One-Joint-Entity-and-Relation-Extraction-with-Table-Sequence-Encoders/" rel="prev" title="Two are Better than One - Joint Entity and Relation Extraction with Table-Sequence Encoders">
+                  <i class="fa fa-chevron-left"></i> Two are Better than One - Joint Entity and Relation Extraction with Table-Sequence Encoders
                 </a>
             </div>
             <div class="post-nav-item">
@@ -466,6 +462,7 @@
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 

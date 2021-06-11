@@ -25,7 +25,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.">
 <meta property="og:type" content="article">
@@ -34,11 +34,11 @@
 <meta property="og:site_name" content="Fly Me to the Moon">
 <meta property="og:description" content="深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://congchan.github.io/images/papers/paper8.png">
-<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-1.png">
-<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-2.png">
-<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-3.png">
-<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-4.png">
+<meta property="og:image" content="https://congchan.github.io/images/DQN_overestimation_bias.png">
+<meta property="og:image" content="https://congchan.github.io/images/DQN_overestimation_bias-1.png">
+<meta property="og:image" content="https://congchan.github.io/images/algo-double-q-learning.png">
+<meta property="og:image" content="https://congchan.github.io/images/D3QN_network.png">
+<meta property="og:image" content="https://congchan.github.io/images/D3QN_1.png">
 <meta property="article:published_time" content="2021-03-08T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-03-08T16:00:00.000Z">
 <meta property="article:author" content="Cong">
@@ -47,7 +47,7 @@
 <meta property="article:tag" content="DDQN">
 <meta property="article:tag" content="DDDQN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://congchan.github.io/images/papers/paper8.png">
+<meta name="twitter:image" content="https://congchan.github.io/images/DQN_overestimation_bias.png">
 
 
 <link rel="canonical" href="https://congchan.github.io/Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/">
@@ -351,13 +351,12 @@
 <p>把N个Q值先通过取max操作之后，然后求平均(期望)，会比我们先算出N个Q值取了期望之后再max要大。这就是overestimate的原因。</p>
 <p>一般用于加速Q-learning算法的方法有：Delayed Q-learning, Phased Q-learning, Fitted Q-iteration等</p>
 <p>overestimation bias in experiments across different Atari game environments:</p>
-<p><img src="/images/papers/paper8.png" alt="/images/papers/paper8.png"></p>
-<p>Source: “Deep Reinforcement Learning with Double Q-learning” (Hasselt et al., 2015),</p>
+<p><img src="/images/DQN_overestimation_bias.png" alt="Source: “Deep Reinforcement Learning with Double Q-learning” (Hasselt et al., 2015),"></p>
 <p>traditional DQN tends to significantly overestimate action-values, leading to unstable training and low quality policy</p>
-<p><img src="/images/papers/paper8-1.png" alt="/images/papers/paper8-1.png"></p>
+<p><img src="/images/DQN_overestimation_bias-1.png" alt="Source: “Deep Reinforcement Learning with Double Q-learning” (Hasselt et al., 2015)"></p>
 <h1 id="Double-DQN-算法-DDQN"><a href="#Double-DQN-算法-DDQN" class="headerlink" title="Double DQN 算法 (DDQN)"></a>Double DQN 算法 (DDQN)</h1><p>Q-learning学习其实使用单估计器(single estimate)去估计下一个状态：$\max_{a} Q_{t}\left(s_{t+1}, a\right)$ 是 $E \{ \max_{a} Q_{t}\left(s_{t+1}, a\right) \}$的一个估计。根据原理部分，Double Q-learning将使用两个estimators函数 $Q^A$和$Q^B$, 每个estimator 都会使用另一个 estimator函数的值更新下一个状态。两个函数都必须从不同的经验子集中学习，但是选择执行的动作可以同时使用两个值函数。 该算法的数据效率不低于Q学习。 在实验中作者为每个动作计算了两个Q值的平均值，然后对所得的平均Q值进行了贪婪探索。</p>
 <p>2个estimator会导致underestimate而不会overestimate。具体证明见原文。</p>
-<p><img src="/images/papers/paper8-2.png" alt="/images/papers/paper8-2.png"></p>
+<p><img src="/images/algo-double-q-learning.png"></p>
 <h2 id="Double-DQN学习的方式"><a href="#Double-DQN学习的方式" class="headerlink" title="Double DQN学习的方式"></a>Double DQN学习的方式</h2><p>The standard Q-learning update for the parameters after taking action At in state St and observing the immediate reward Rt+1 and resulting state St+1 is then</p>
 <p>$$\theta_{t+1} = \theta_t + \alpha (Y^Q_t - Q(S_t, A_t; \theta_t)) \nabla_{\theta_t} Q(S_t, A_t; \theta_t).$$</p>
 <p>where α is a scalar step size, $Y^Q_t$是一个termporal difference的值, 每次更新, one set of weights is used to determine the greedy policy and the other to determine its value.</p>
@@ -371,11 +370,10 @@
 <p>$$Y_t^{DoubleDQN} \equiv R_{t+1} + \gamma  Q(S_{t+1}, argmax_aQ(S_{t+1},a; \theta_t), \theta^-_t). $$</p>
 <p>The idea of Double Q-learning is to reduce overestimations by decomposing the max operation in the target into action selection and action evaluation.</p>
 <p>the target network in the DQN architecture provides a natural candidate for the second value function, without having to introduce additional networks.</p>
-<h1 id="Dueling-DQN（D3QN）"><a href="#Dueling-DQN（D3QN）" class="headerlink" title="Dueling DQN（D3QN）"></a>Dueling DQN（D3QN）</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.06581">Dueling Network Architectures for Deep Reinforcement Learning</a></p>
-<p>Intuitively, the dueling architecture can learn which states are (or are not) valuable, without having to learn the effect of each action for each state. This is particularly useful in states where its actions do not affect the environment in any relevant way.</p>
+<h1 id="Dueling-DQN（D3QN）"><a href="#Dueling-DQN（D3QN）" class="headerlink" title="Dueling DQN（D3QN）"></a>Dueling DQN（D3QN）</h1><p>Intuitively, the dueling architecture can learn which states are (or are not) valuable, without having to learn the effect of each action for each state. This is particularly useful in states where its actions do not affect the environment in any relevant way.</p>
 <p>在某些状态场景中，动作对环境几乎没有影响，比如游戏中的等待时间，无论玩家做什么操作，对结果也没影响。而dueling架构的的目的就是解耦动作和状态。这是开车的游戏, 左边是 state value, 发红的部分证明了 state value 和前面的路线有关, 右边是 advantage, 发红的部分说明了 advantage 很在乎旁边要靠近的车子, 这时的动作会受更多 advantage 的影响. 发红的地方左右了自己车子的移动原则.</p>
-<p><img src="/images/papers/paper8-3.png" alt="/images/papers/paper8-3.png"></p>
-<p><img src="/images/papers/paper8-4.png" alt="/images/papers/paper8-4.png"></p>
+<p><img src="/images/D3QN_network.png" alt="Source: “Deep Reinforcement Learning with Double Q-learning” (Hasselt et al., 2015)"></p>
+<p><img src="/images/D3QN_1.png" alt="Source: “Deep Reinforcement Learning with Double Q-learning” (Hasselt et al., 2015)"></p>
 <p>Dueling DQN将 state values 和 action advantages 分开，</p>
 <ul>
 <li>state values仅仅与状态$S$有关，与具体要采用的动作$A$无关，这部分我们叫做价值函数部分，记做$V(S,w,\alpha)$, $V^{\pi}(s)=\mathbb{E}_{a \sim \pi(s)}\left[Q^{\pi}(s, a)\right]$</li>
@@ -498,6 +496,7 @@
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
