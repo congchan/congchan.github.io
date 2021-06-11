@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="googlee4f5b3d387f2fae7">
+  <meta name="msvalidate.01" content="B49368B5E1218EA9380A07C97E0E97B4">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DQN, Double DQN, Dueling DoubleQN, Rainbow DQN">
+<meta property="og:url" content="https://congchan.github.io/Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/index.html">
+<meta property="og:site_name" content="Fly Me to the Moon">
+<meta property="og:description" content="深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper8.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-1.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-2.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-3.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper8-4.png">
+<meta property="article:published_time" content="2021-03-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-08T16:00:00.000Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="RL">
+<meta property="article:tag" content="DQN">
+<meta property="article:tag" content="DDQN">
+<meta property="article:tag" content="DDDQN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://congchan.github.io/images/papers/paper8.png">
+
+
+<link rel="canonical" href="https://congchan.github.io/Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>DQN, Double DQN, Dueling DoubleQN, Rainbow DQN | Fly Me to the Moon</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Fly Me to the Moon</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DQN%E7%9A%84Overestimate"><span class="nav-number">1.</span> <span class="nav-text">DQN的Overestimate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Double-DQN-%E7%AE%97%E6%B3%95-DDQN"><span class="nav-number">2.</span> <span class="nav-text">Double DQN 算法 (DDQN)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Double-DQN%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">Double DQN学习的方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dueling-DQN%EF%BC%88D3QN%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">Dueling DQN（D3QN）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rainbow-DQN"><span class="nav-number">4.</span> <span class="nav-text">Rainbow DQN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-step-learning"><span class="nav-number">4.1.</span> <span class="nav-text">Multi-step learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distributional-perspective-RL"><span class="nav-number">4.2.</span> <span class="nav-text">Distributional perspective RL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noisy-Net"><span class="nav-number">4.3.</span> <span class="nav-text">Noisy Net</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DQN, Double DQN, Dueling DoubleQN, Rainbow DQN
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-09 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-09T00:00:00+08:00">2021-03-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/RL/" itemprop="url" rel="index"><span itemprop="name">RL</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.</p>
+<a id="more"></a>
+
+
+
+<h1 id="DQN的Overestimate"><a href="#DQN的Overestimate" class="headerlink" title="DQN的Overestimate"></a>DQN的Overestimate</h1><p>DQN 基于 Q-learning, Q-Learning 中有 Qmax, Qmax 会导致 Q现实 当中的过估计 (overestimate). 而 Double DQN 就是用来解决过估计的. 在实际问题中, 如果你输出你的 DQN 的 Q 值, 可能就会发现, Q 值都超级大. 这就是出现了 overestimate.</p>
+<p>DQN 的神经网络部分可以看成一个 最新的神经网络 + 老神经网络, 他们有相同的结构, 但内部的参数更新却有时差. Q现实 部分是这样的: </p>
+<p>$$Y_t^\text{DQN} \equiv R_{t+1} + \gamma \max_a Q(S_{t+1}, a; \theta_t^-)$$</p>
+<p><strong>过估计</strong> (overestimate) 是指对一系列数先求最大值再求平均，通常比先求平均再求最大值要大（或相等，数学表达为：</p>
+<p>$$E(\max(X_1, X_2, …)) \ge \max(E(X_1), E(X_2), …)$$</p>
+<p>一般来说Q-learning方法导致overestimation的原因归结于其更新过程，其表达为：</p>
+<p>$$Q_{t+1} (s_t, a_t) = Q_t (s_t, a_t) + a_t(s_t, a_t)(r_t + \gamma \max a Q_t(s_{t+1}, a) - Q_t(s_t, a_t))$$</p>
+<p>而更新最优化过程如下</p>
+<p>$$\forall s, a: Q(s, a)=\sum_{s^{\prime}} P_{s a}^{s^{\prime}}\left(R_{s a}^{s^{\prime}}+\gamma \max _{a} Q\left(s^{\prime}, a\right)\right)$$</p>
+<p>把N个Q值先通过取max操作之后，然后求平均(期望)，会比我们先算出N个Q值取了期望之后再max要大。这就是overestimate的原因。</p>
+<p>一般用于加速Q-learning算法的方法有：Delayed Q-learning, Phased Q-learning, Fitted Q-iteration等</p>
+<p>overestimation bias in experiments across different Atari game environments:</p>
+<p><img src="/images/papers/paper8.png" alt="/images/papers/paper8.png"></p>
+<p>Source: “Deep Reinforcement Learning with Double Q-learning” (Hasselt et al., 2015),</p>
+<p>traditional DQN tends to significantly overestimate action-values, leading to unstable training and low quality policy</p>
+<p><img src="/images/papers/paper8-1.png" alt="/images/papers/paper8-1.png"></p>
+<h1 id="Double-DQN-算法-DDQN"><a href="#Double-DQN-算法-DDQN" class="headerlink" title="Double DQN 算法 (DDQN)"></a>Double DQN 算法 (DDQN)</h1><p>Q-learning学习其实使用单估计器(single estimate)去估计下一个状态：$\max_{a} Q_{t}\left(s_{t+1}, a\right)$ 是 $E \{ \max_{a} Q_{t}\left(s_{t+1}, a\right) \}$的一个估计。根据原理部分，Double Q-learning将使用两个estimators函数 $Q^A$和$Q^B$, 每个estimator 都会使用另一个 estimator函数的值更新下一个状态。两个函数都必须从不同的经验子集中学习，但是选择执行的动作可以同时使用两个值函数。 该算法的数据效率不低于Q学习。 在实验中作者为每个动作计算了两个Q值的平均值，然后对所得的平均Q值进行了贪婪探索。</p>
+<p>2个estimator会导致underestimate而不会overestimate。具体证明见原文。</p>
+<p><img src="/images/papers/paper8-2.png" alt="/images/papers/paper8-2.png"></p>
+<h2 id="Double-DQN学习的方式"><a href="#Double-DQN学习的方式" class="headerlink" title="Double DQN学习的方式"></a>Double DQN学习的方式</h2><p>The standard Q-learning update for the parameters after taking action At in state St and observing the immediate reward Rt+1 and resulting state St+1 is then</p>
+<p>$$\theta_{t+1} = \theta_t + \alpha (Y^Q_t - Q(S_t, A_t; \theta_t)) \nabla_{\theta_t} Q(S_t, A_t; \theta_t).$$</p>
+<p>where α is a scalar step size, $Y^Q_t$是一个termporal difference的值, 每次更新, one set of weights is used to determine the greedy policy and the other to determine its value.</p>
+<p>$$Y_t^Q = R_{t+1} + \gamma Q(S_{t+1}, argmax_a Q(S_{t+1}, a; \theta_t); \theta_t).$$</p>
+<p>使用DQN, $\theta^-$为The target network的参数, 每τ steps更新 $\theta_t^- = \theta_t$</p>
+<p>$$Y_t^{DQN} \equiv R_{t+1} + \gamma \max_a Q(S_{t+1}, a; \theta^-_t). $$</p>
+<p>它greedy预估下一个action时使用参数 $\theta_t$ ，同时evaluation时也采用同一套参数，让Q-learning更加容易overestimate。</p>
+<p>因此，double Q-learning使用两个network，online network和target network，两套参数 $\theta_t, \theta_t’$ 分别进行selection和evaluation, </p>
+<p>$$Y_t^{DoubleQ} \equiv R_{t+1} + \gamma  Q(S_{t+1}, argmax_aQ(S_{t+1},a; \theta_t); \theta’_t). $$</p>
+<p>Double DQN则是把$\theta_t’$替换为target network 的 $\theta_t^-$, 用于评估当前的greedy policy 的值, 其余和DQN基本一致. 这是DQN使用Double q-learning代价最小的方式。</p>
+<p>$$Y_t^{DoubleDQN} \equiv R_{t+1} + \gamma  Q(S_{t+1}, argmax_aQ(S_{t+1},a; \theta_t), \theta^-_t). $$</p>
+<p>The idea of Double Q-learning is to reduce overestimations by decomposing the max operation in the target into action selection and action evaluation.</p>
+<p>the target network in the DQN architecture provides a natural candidate for the second value function, without having to introduce additional networks.</p>
+<h1 id="Dueling-DQN（D3QN）"><a href="#Dueling-DQN（D3QN）" class="headerlink" title="Dueling DQN（D3QN）"></a>Dueling DQN（D3QN）</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.06581">Dueling Network Architectures for Deep Reinforcement Learning</a></p>
+<p>Intuitively, the dueling architecture can learn which states are (or are not) valuable, without having to learn the effect of each action for each state. This is particularly useful in states where its actions do not affect the environment in any relevant way.</p>
+<p>在某些状态场景中，动作对环境几乎没有影响，比如游戏中的等待时间，无论玩家做什么操作，对结果也没影响。而dueling架构的的目的就是解耦动作和状态。这是开车的游戏, 左边是 state value, 发红的部分证明了 state value 和前面的路线有关, 右边是 advantage, 发红的部分说明了 advantage 很在乎旁边要靠近的车子, 这时的动作会受更多 advantage 的影响. 发红的地方左右了自己车子的移动原则.</p>
+<p><img src="/images/papers/paper8-3.png" alt="/images/papers/paper8-3.png"></p>
+<p><img src="/images/papers/paper8-4.png" alt="/images/papers/paper8-4.png"></p>
+<p>Dueling DQN将 state values 和 action advantages 分开，</p>
+<ul>
+<li>state values仅仅与状态$S$有关，与具体要采用的动作$A$无关，这部分我们叫做价值函数部分，记做$V(S,w,\alpha)$, $V^{\pi}(s)=\mathbb{E}_{a \sim \pi(s)}\left[Q^{\pi}(s, a)\right]$</li>
+<li>action advantages <strong>优势函数(Advantage Function),</strong> 用于衡量 action 的相对优势,  通过让Q值减去V值得到, 记为$A(S,A,w,\beta)$, $A^\pi(s, a) = Q^\pi(s, a) - V^\pi(s)$,</li>
+</ul>
+<p>价值函数 V 衡量它处于特定状态 s 的好坏程度。而Q 函数测量在此状态下选择特定操作的价值。优势函数从 Q 函数中减去状态V值，以获得每个动作重要性的相对度量。通过动作让Q和V毕竟, 最终优势函数的期望为0，即$\mathbb{E}_{a \sim \pi(s)}\left[A^{\pi}(s, a)\right] = 0$</p>
+<p>不像DQN那样直接学出所有的Q值，Dueling DQN的思想就是独立的学出Value和Advantage，将它们以某种方式组合起来，组成Q价值函数，最直接的做法是求和：</p>
+<p>$$Q(s, a; \theta, \alpha, \beta) = V(s; \theta,\beta) + A(s, a; \theta,\alpha)$$</p>
+<p>其中，$w$是网络参数，而$α$是价值函数独有部分的网络参数，而$β$是优势函数独有部分的网络参数。</p>
+<p>但是这个式子是unidentifiable, 也就是只给定Q, 我们无法还原V和A. 为了解决这个可以实现可辨识性(identifiability), 可以通过强迫优势函数的estimator在所选动作下预估其优势值为0：</p>
+<p>$$ Q(s, a; \theta, \alpha, \beta) = V(s; \theta, \beta) + \left( A(s, a; \theta, \alpha) - \frac{1}{|A|} \sum_{a’}A(s, a’; \theta, \alpha) \right)  $$</p>
+<p>一方面这个组合方式会导致V和A丧失原先的含义, 因为它们偏离了一个常数值; 但另一方面这样可以提高优化的稳定性. 因为A的变化速度只需要和mean一样快就行, 而不是和最优的action A同步.</p>
+<p>组合函数写进神经网络中作为输出.</p>
+<h1 id="Rainbow-DQN"><a href="#Rainbow-DQN" class="headerlink" title="Rainbow DQN"></a>Rainbow DQN</h1><p>Rainbow的命名是指混合, 利用许多RL中前沿知识并进行了组合, 组合了DDQN, prioritized Replay Buffer, Dueling DQN, Multi-step learning.</p>
+<h2 id="Multi-step-learning"><a href="#Multi-step-learning" class="headerlink" title="Multi-step learning"></a>Multi-step learning</h2><p>原始的DQN使用的是当前的即时奖励r和下一时刻的价值估计作为目标价值，这种方法在前期策略差即网络参数偏差较大的情况下，得到的目标价值偏差也较大。因此可以通过Multi-Step Learning来解决这个问题，通过多步的reward来进行估计。</p>
+<h2 id="Distributional-perspective-RL"><a href="#Distributional-perspective-RL" class="headerlink" title="Distributional perspective RL"></a>Distributional perspective RL</h2><p>传统DQN中估计期望，但是期望并不能完全反映信息，毕竟还有方差，期望相同我们当然希望取方差更小的来减小波动和风险。所以从理论上来说，从分布视角（distributional perspective）来建模我们的深度强化学习模型，可以获得更多有用的信息，从而得到更好、更稳定的结果。</p>
+<h2 id="Noisy-Net"><a href="#Noisy-Net" class="headerlink" title="Noisy Net"></a>Noisy Net</h2><p>Noisy DQN是为了增强DQN探索能力而设计的方法，是model-free，off-policy，value-based，discrete的方法。</p>
+<p>Noisy DQN这个方法被发表在Noisy Networks for Exploration这篇文章中，但是它并不只是在DQN中被使用，实际上在A3C这样的模型中也可以增加噪声来刺激探索。</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li>DQN: <a target="_blank" rel="noopener" href="https://www.aminer.cn/pub/53e9a682b7602d9702fb756d/playing-atari-with-deep-reinforcement-learning">https://www.aminer.cn/pub/53e9a682b7602d9702fb756d/playing-atari-with-deep-reinforcement-learning</a>)</li>
+<li>DDQN: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1509.06461">Deep Reinforcement Learning with Double Q-learning</a></li>
+<li>Double Q-learning: <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/2010/hash/091d584fced301b442654dd8c23b3fc9-Abstract.html">Double Q-learning</a></li>
+<li>Double DQN: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1509.06461v3">Deep Reinforcement Learning with Double Q-learning</a></li>
+<li>Dueling DQN: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.06581">Dueling Network Architectures for Deep Reinforcement Learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.02298">Rainbow: Combining Improvements in Deep Reinforcement Learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.06887v1">A Distributional Perspective on Reinforcement Learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.10295">Noisy Networks for Exploration</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/337553995">深度强化学习必看经典论文：DQN，DDQN，Prioritized，Dueling，Rainbow</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138504673">【DRL-9】Noisy Networks</a></li>
+<li><a target="_blank" rel="noopener" href="https://yulizi123.github.io/tutorials/machine-learning/reinforcement-learning/4-5-double_DQN/">Double DQN (Tensorflow) - 强化学习 Reinforcement Learning | 莫烦Python</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/RL/" rel="tag"># RL</a>
+              <a href="/tags/DQN/" rel="tag"># DQN</a>
+              <a href="/tags/DDQN/" rel="tag"># DDQN</a>
+              <a href="/tags/DDDQN/" rel="tag"># DDDQN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/paper-DeepPath-A-Reinforcement-Learning-Method-for-Knowledge-Graph-Reasoning/" rel="prev" title="DeepPath - A Reinforcement Learning Method for Knowledge Graph Reasoning">
+                  <i class="fa fa-chevron-left"></i> DeepPath - A Reinforcement Learning Method for Knowledge Graph Reasoning
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/paper-Cross-media-Structured-Common-Space-for-Multimedia-Event-Extraction/" rel="next" title="Cross-media Structured Common Space for Multimedia Event Extraction">
+                  Cross-media Structured Common Space for Multimedia Event Extraction <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/";
+    this.page.identifier = "Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/";
+    this.page.title = "DQN, Double DQN, Dueling DoubleQN, Rainbow DQN";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -9815,18 +9815,24 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>Reinforcement Learning</title>
-    <url>/Reinforcement-Learning-intro/</url>
-    <content><![CDATA[<p><a href="https://www.mlq.ai/what-is-reinforcement-learning/">What is Reinforcement Learning? A Complete Guide for Beginners</a></p>
+    <title>Value-based Reinforcement Learning</title>
+    <url>/Reinforcement-Learning-value-based-RL/</url>
+    <content><![CDATA[<h1 id="时序决策"><a href="#时序决策" class="headerlink" title="时序决策"></a><strong>时序决策</strong></h1><p>以经典的Atari游戏为例，agent在t时刻观测一段包含M个帧的视频$s_t = (x_{t-M+1}, …, x_t) \in S$, 然后agent做决策, 决策是选择做出一个动作 $a_t \in A  = { 1, …, |A| }$(A为可选的离散动作空间 ), 这个动作会让agent获得一个奖励$r_t$.</p>
+<p>这就是<strong>时序决策过程,</strong> 是一个通用的决策框架，可以建模各种<strong>时序决策</strong>问题，例如游戏，机器人等. Agent 观察环境，基于policy $\pi\left(a_{t} \mid s_{t}\right)$ 做出响应动作，其中 $s_{t}$是当前环境的观察值(Observation 是环境State对Agent可见的部分)。Action会获得新的 Reward $r_{t+1}$, 以及新的环境反馈 $s_{t+1}$.</p>
 <a id="more"></a>
 
-
-
-<p>Agent 观察环境，基于policy $\pi\left(a_{t} \mid s_{t}\right)$ 做出响应动作，其中 $s_{t}$是当前环境的观察值(Observation 是环境State对Agent可见的部分)。</p>
-<p>Action会获得新的 Reward $r_{t+1}$, 以及新的环境反馈 $s_{t+1}$.</p>
-<p>目标: 通过优化 policy 来最大化总的Rewards.</p>
+<blockquote>
 <p>Note: It is important to distinguish between the <strong>state</strong> of the environment and the <strong>observation</strong>, which is the part of the environment state that the agent can see, e.g. in a poker game, the environment state consists of the cards belonging to all the players and the community cards, but the agent can observe only its own cards and a few community cards. In most literature, these terms are used interchangeably and observation is also denoted as .</p>
-<p>这是一个非常通用的框架，可以建模各种<strong>时序决策</strong>问题，例如游戏，机器人等。</p>
+</blockquote>
+<p>Agent的目标是通过优化 policy来最大化期望奖励(未来的奖励相对于当前时间需要打折, 也就是贴现, 跟未来现金流贴现一个道理), 称之为 discounted return $R_t = \sum_{\tau=t}^{\infty} \gamma^{\tau-t} r_{\tau}$, $\gamma \in [0, 1]$就是贴现率.</p>
+<ul>
+<li>定义一个值 $Q^\pi(s, a)$, 用于表示一个 state-action pair $(s, a)$ 的价值， $Q^{\pi}(s,a)=E{[R_t|s_t=s, a_t=a, \pi]}$</li>
+<li>定义$V^\pi(s)$用于表示状态$s$的价值 $V^{\pi}(s)=E_{a \sim \pi(s)}[Q^{\pi}(s, a)]$</li>
+</ul>
+<p>为了计算Q值， 需要利用动态规划递归求解</p>
+<p>$$Q^{\pi}(s, a)=E_{s^{\prime}}[r+\gamma E_{a^{\prime} \sim \pi\left(s^{\prime}\right)}[Q^{\pi}\left(s^{\prime}, a^{\prime}\right)] \mid s, a, \pi]$$</p>
+<p>最优的Q值就是 $Q^∗(s, a) = \max_{\pi} Q^\pi(s, a)$, 假设每次都选择能让当前Q最大的动作(这种方式是deterministic policy, 其他的还有Stochastic policies), $a = argmax_{a’ \in A} Q^∗(s, a’)$, 那么$V^∗(s) = \max_a Q^∗(s, a)$, 由此引出最优 $Q^{*}(s, a)$ 满足<strong>Bellman optimality equation</strong></p>
+<p>$$Q^*(s, a)=E_{s’}[r+\gamma \max _{a^{\prime}} Q^{*}\left(s^{\prime}, a^{\prime}\right)]$$</p>
 <h1 id="The-Cartpole-Environment"><a href="#The-Cartpole-Environment" class="headerlink" title="The Cartpole Environment"></a>The Cartpole Environment</h1><p>The Cartpole Environment 是 RL中的Hello World. The environment simulates balancing a pole on a cart. The agent can nudge the cart left or right; these are the actions. It represents the state with a position on the x-axis, the velocity of the cart, the velocity of the tip of the pole and the angle of the pole (0° is straight up). The agent receives a reward of 1 for every step taken. The episode ends when the pole angle is more than ±12°, the cart position is more than ±2.4 (the edge of the display) or the episode length is greater than 200 steps. To solve the environment you need an average reward greater than or equal to 195 over 100 consecutive trials.</p>
 <p><img src="/images/Cartpole.png" alt="/images/Cartpole.png"></p>
 <p>Observation $s_{t}$: 4D vector [position, velocity, angle, angular velocity]</p>
@@ -9869,7 +9875,7 @@ table th:nth-of-type(3) {
 <li>The first is an environment that is <strong>completely observable</strong>, in which case its dynamics can be modeled as a Markov Process. Markov processes are characterized by a short-term memory, meaning the future depends not on the environments whole history, but instead only on the current state.</li>
 <li>The second type is a <strong>partially observed</strong> environment where some variables are not observable. These situations can be modeled using dynamic latent variable models, for example, using <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Hidden Markov models</a>.</li>
 </ol>
-<h1 id="Decision-Policies"><a href="#Decision-Policies" class="headerlink" title="Decision Policies"></a>Decision Policies</h1><p>Since the problem needs to be solved now*,* but the actions will be performed in the future, we need to define a decision policy**.**</p>
+<h1 id="Decision-Policies"><a href="#Decision-Policies" class="headerlink" title="Decision Policies"></a>Decision Policies</h1><p>Since the problem needs to be solved now, but the actions will be performed in the future, we need to define a decision policy.</p>
 <p>The decision policy is a function that takes the current state S and translates it into an action A.</p>
 <p><strong>Deterministic policies:</strong></p>
 <ul>
@@ -9891,14 +9897,7 @@ table th:nth-of-type(3) {
 </ul>
 <p>This is referred to as a <em>dilemma</em> because at each time-step, the agent must decide whether it should <em>explore</em> or <em>exploit</em> in this state - but it can’t do both at once.</p>
 <p>Reinforcement learning should ideally combine both exploration and exploitation, for example by switching between each one at different time steps.</p>
-<h1 id="Q和V定义"><a href="#Q和V定义" class="headerlink" title="Q和V定义"></a>Q和V定义</h1><p>MDP说明在做决策的时候需要考虑未来的回报，把未来的价值折算到当前，才能做出选择。</p>
-<p>总的来说：</p>
-<ul>
-<li>$V_i$ 用于评估状态的价值，代表agent在当前状态$S_i$下，经过各种探索，一直到最终状态的奖励总和的期望 $v_{\pi}(s)=E{\left[G_t|S_t=s\right]}$。可以用于比较两个状态的价值</li>
-<li>$Q_i$用于评估动作的价值，代表agent在选择了action $A_i$后，经过各种探索，一直到最终状态的奖励总和的期望 $q_{\pi}(s,a)=E{\left[G_t|S_t=s, A_t=a\right]}$</li>
-</ul>
-<p>其中$G_t=\sum_{k=0}^{\infty}\gamma^kR_{t+k+1}$</p>
-<p>$V$跟策略有很大关系，计算过程是：</p>
+<h1 id="Q和V转换"><a href="#Q和V转换" class="headerlink" title="Q和V转换"></a>Q和V转换</h1><p>$V$跟策略有很大关系，计算过程是：</p>
 <ol>
 <li>从$S_i$出发，多次采样;</li>
 <li>每个采样按照当前的 <strong>策略</strong> 选择行为$A_{i+1}$;</li>
@@ -9908,13 +9907,17 @@ table th:nth-of-type(3) {
 <p>$Q$的计算过程和$V$差不多，但是跟策略没有直接关系，而是与环境的状态转移概率相关，而环境的状态转移概率是不变的。</p>
 <p>可以把采样过程形象化为有Markov过程生成的树，每个状态和动作都是一个树节点，而树的叶子节点就是结束状态。状态节点和动作节点是分层相隔的，<strong>所以Q和V可以相互换算</strong>，即每一层的Q可以由下一层的V计算出来，反之亦然。</p>
 <p><a href="https://datascience.stackexchange.com/questions/9832/what-is-the-q-function-and-what-is-the-v-function-in-reinforcement-learning">What is the Q function and what is the V function in reinforcement learning?</a></p>
-<p>$$\begin{align}<br>     v_{\pi}(s)&amp;=E{\left[G_t|S_t=s\right]}  \\<br>     &amp;=\sum_{g_t} p(g_t|S_t=s)g_t \\<br>     &amp;= \sum_{g_t}\sum_{a}p(g_t, a|S_t=s)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)\sum_{g_t}p(g_t|S_t=s, A_t=a)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)E{\left[G_t|S_t=s, A_t=a\right]} \\<br>     &amp;= \sum_{a}p(a|S_t=s)q_{\pi}(s,a)<br>\end{align}$$</p>
+<p>$$\begin{align}<br>     v_{\pi}(s)&amp;=E{[G_t|S_t=s]}  \\<br>     &amp;=\sum_{g_t} p(g_t|S_t=s)g_t \\<br>     &amp;= \sum_{g_t}\sum_{a}p(g_t, a|S_t=s)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)\sum_{g_t}p(g_t|S_t=s, A_t=a)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)E{[G_t|S_t=s, A_t=a]} \\<br>     &amp;= \sum_{a}p(a|S_t=s)q_{\pi}(s,a)<br>\end{align}$$</p>
 <p>一个状态的V值，就是这个状态下的所有动作的Q值$q_{\pi}(s,a)$ 在策略$p(a|S_t=s)$下的期望。</p>
 <p>if we have a deterministic policy， then $v_{\pi}(s)=q_{\pi}(s,\pi(s))$</p>
 <p>$$⁍$$</p>
 <p><img src="/images/rl_qv_1.png"></p>
 <p>实际应用中，我们更多会从V到V。把Q代入得到</p>
 <p><img src="/images/rl_qv_2.png"></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://www.mlq.ai/what-is-reinforcement-learning/">What is Reinforcement Learning? A Complete Guide for Beginners</a></li>
+<li><a href="https://datascience.stackexchange.com/questions/9832/what-is-the-q-function-and-what-is-the-v-function-in-reinforcement-learning">https://datascience.stackexchange.com/questions/9832/what-is-the-q-function-and-what-is-the-v-function-in-reinforcement-learning</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>AI</category>
@@ -9922,6 +9925,94 @@ table th:nth-of-type(3) {
       </categories>
       <tags>
         <tag>RL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DQN, Double DQN, Dueling DoubleQN, Rainbow DQN</title>
+    <url>/Reinforcement-Learning-DQN-Double-DQN-Dueling-DoubleQN-Rainbow-DQN/</url>
+    <content><![CDATA[<p>深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.</p>
+<a id="more"></a>
+
+
+
+<h1 id="DQN的Overestimate"><a href="#DQN的Overestimate" class="headerlink" title="DQN的Overestimate"></a>DQN的Overestimate</h1><p>DQN 基于 Q-learning, Q-Learning 中有 Qmax, Qmax 会导致 Q现实 当中的过估计 (overestimate). 而 Double DQN 就是用来解决过估计的. 在实际问题中, 如果你输出你的 DQN 的 Q 值, 可能就会发现, Q 值都超级大. 这就是出现了 overestimate.</p>
+<p>DQN 的神经网络部分可以看成一个 最新的神经网络 + 老神经网络, 他们有相同的结构, 但内部的参数更新却有时差. Q现实 部分是这样的: </p>
+<p>$$Y_t^\text{DQN} \equiv R_{t+1} + \gamma \max_a Q(S_{t+1}, a; \theta_t^-)$$</p>
+<p><strong>过估计</strong> (overestimate) 是指对一系列数先求最大值再求平均，通常比先求平均再求最大值要大（或相等，数学表达为：</p>
+<p>$$E(\max(X_1, X_2, …)) \ge \max(E(X_1), E(X_2), …)$$</p>
+<p>一般来说Q-learning方法导致overestimation的原因归结于其更新过程，其表达为：</p>
+<p>$$Q_{t+1} (s_t, a_t) = Q_t (s_t, a_t) + a_t(s_t, a_t)(r_t + \gamma \max a Q_t(s_{t+1}, a) - Q_t(s_t, a_t))$$</p>
+<p>而更新最优化过程如下</p>
+<p>$$\forall s, a: Q(s, a)=\sum_{s^{\prime}} P_{s a}^{s^{\prime}}\left(R_{s a}^{s^{\prime}}+\gamma \max _{a} Q\left(s^{\prime}, a\right)\right)$$</p>
+<p>把N个Q值先通过取max操作之后，然后求平均(期望)，会比我们先算出N个Q值取了期望之后再max要大。这就是overestimate的原因。</p>
+<p>一般用于加速Q-learning算法的方法有：Delayed Q-learning, Phased Q-learning, Fitted Q-iteration等</p>
+<p>overestimation bias in experiments across different Atari game environments:</p>
+<p><img src="/images/papers/paper8.png" alt="/images/papers/paper8.png"></p>
+<p>Source: “Deep Reinforcement Learning with Double Q-learning” (Hasselt et al., 2015),</p>
+<p>traditional DQN tends to significantly overestimate action-values, leading to unstable training and low quality policy</p>
+<p><img src="/images/papers/paper8-1.png" alt="/images/papers/paper8-1.png"></p>
+<h1 id="Double-DQN-算法-DDQN"><a href="#Double-DQN-算法-DDQN" class="headerlink" title="Double DQN 算法 (DDQN)"></a>Double DQN 算法 (DDQN)</h1><p>Q-learning学习其实使用单估计器(single estimate)去估计下一个状态：$\max_{a} Q_{t}\left(s_{t+1}, a\right)$ 是 $E \{ \max_{a} Q_{t}\left(s_{t+1}, a\right) \}$的一个估计。根据原理部分，Double Q-learning将使用两个estimators函数 $Q^A$和$Q^B$, 每个estimator 都会使用另一个 estimator函数的值更新下一个状态。两个函数都必须从不同的经验子集中学习，但是选择执行的动作可以同时使用两个值函数。 该算法的数据效率不低于Q学习。 在实验中作者为每个动作计算了两个Q值的平均值，然后对所得的平均Q值进行了贪婪探索。</p>
+<p>2个estimator会导致underestimate而不会overestimate。具体证明见原文。</p>
+<p><img src="/images/papers/paper8-2.png" alt="/images/papers/paper8-2.png"></p>
+<h2 id="Double-DQN学习的方式"><a href="#Double-DQN学习的方式" class="headerlink" title="Double DQN学习的方式"></a>Double DQN学习的方式</h2><p>The standard Q-learning update for the parameters after taking action At in state St and observing the immediate reward Rt+1 and resulting state St+1 is then</p>
+<p>$$\theta_{t+1} = \theta_t + \alpha (Y^Q_t - Q(S_t, A_t; \theta_t)) \nabla_{\theta_t} Q(S_t, A_t; \theta_t).$$</p>
+<p>where α is a scalar step size, $Y^Q_t$是一个termporal difference的值, 每次更新, one set of weights is used to determine the greedy policy and the other to determine its value.</p>
+<p>$$Y_t^Q = R_{t+1} + \gamma Q(S_{t+1}, argmax_a Q(S_{t+1}, a; \theta_t); \theta_t).$$</p>
+<p>使用DQN, $\theta^-$为The target network的参数, 每τ steps更新 $\theta_t^- = \theta_t$</p>
+<p>$$Y_t^{DQN} \equiv R_{t+1} + \gamma \max_a Q(S_{t+1}, a; \theta^-_t). $$</p>
+<p>它greedy预估下一个action时使用参数 $\theta_t$ ，同时evaluation时也采用同一套参数，让Q-learning更加容易overestimate。</p>
+<p>因此，double Q-learning使用两个network，online network和target network，两套参数 $\theta_t, \theta_t’$ 分别进行selection和evaluation, </p>
+<p>$$Y_t^{DoubleQ} \equiv R_{t+1} + \gamma  Q(S_{t+1}, argmax_aQ(S_{t+1},a; \theta_t); \theta’_t). $$</p>
+<p>Double DQN则是把$\theta_t’$替换为target network 的 $\theta_t^-$, 用于评估当前的greedy policy 的值, 其余和DQN基本一致. 这是DQN使用Double q-learning代价最小的方式。</p>
+<p>$$Y_t^{DoubleDQN} \equiv R_{t+1} + \gamma  Q(S_{t+1}, argmax_aQ(S_{t+1},a; \theta_t), \theta^-_t). $$</p>
+<p>The idea of Double Q-learning is to reduce overestimations by decomposing the max operation in the target into action selection and action evaluation.</p>
+<p>the target network in the DQN architecture provides a natural candidate for the second value function, without having to introduce additional networks.</p>
+<h1 id="Dueling-DQN（D3QN）"><a href="#Dueling-DQN（D3QN）" class="headerlink" title="Dueling DQN（D3QN）"></a>Dueling DQN（D3QN）</h1><p><a href="https://arxiv.org/abs/1511.06581">Dueling Network Architectures for Deep Reinforcement Learning</a></p>
+<p>Intuitively, the dueling architecture can learn which states are (or are not) valuable, without having to learn the effect of each action for each state. This is particularly useful in states where its actions do not affect the environment in any relevant way.</p>
+<p>在某些状态场景中，动作对环境几乎没有影响，比如游戏中的等待时间，无论玩家做什么操作，对结果也没影响。而dueling架构的的目的就是解耦动作和状态。这是开车的游戏, 左边是 state value, 发红的部分证明了 state value 和前面的路线有关, 右边是 advantage, 发红的部分说明了 advantage 很在乎旁边要靠近的车子, 这时的动作会受更多 advantage 的影响. 发红的地方左右了自己车子的移动原则.</p>
+<p><img src="/images/papers/paper8-3.png" alt="/images/papers/paper8-3.png"></p>
+<p><img src="/images/papers/paper8-4.png" alt="/images/papers/paper8-4.png"></p>
+<p>Dueling DQN将 state values 和 action advantages 分开，</p>
+<ul>
+<li>state values仅仅与状态$S$有关，与具体要采用的动作$A$无关，这部分我们叫做价值函数部分，记做$V(S,w,\alpha)$, $V^{\pi}(s)=\mathbb{E}_{a \sim \pi(s)}\left[Q^{\pi}(s, a)\right]$</li>
+<li>action advantages <strong>优势函数(Advantage Function),</strong> 用于衡量 action 的相对优势,  通过让Q值减去V值得到, 记为$A(S,A,w,\beta)$, $A^\pi(s, a) = Q^\pi(s, a) - V^\pi(s)$,</li>
+</ul>
+<p>价值函数 V 衡量它处于特定状态 s 的好坏程度。而Q 函数测量在此状态下选择特定操作的价值。优势函数从 Q 函数中减去状态V值，以获得每个动作重要性的相对度量。通过动作让Q和V毕竟, 最终优势函数的期望为0，即$\mathbb{E}_{a \sim \pi(s)}\left[A^{\pi}(s, a)\right] = 0$</p>
+<p>不像DQN那样直接学出所有的Q值，Dueling DQN的思想就是独立的学出Value和Advantage，将它们以某种方式组合起来，组成Q价值函数，最直接的做法是求和：</p>
+<p>$$Q(s, a; \theta, \alpha, \beta) = V(s; \theta,\beta) + A(s, a; \theta,\alpha)$$</p>
+<p>其中，$w$是网络参数，而$α$是价值函数独有部分的网络参数，而$β$是优势函数独有部分的网络参数。</p>
+<p>但是这个式子是unidentifiable, 也就是只给定Q, 我们无法还原V和A. 为了解决这个可以实现可辨识性(identifiability), 可以通过强迫优势函数的estimator在所选动作下预估其优势值为0：</p>
+<p>$$ Q(s, a; \theta, \alpha, \beta) = V(s; \theta, \beta) + \left( A(s, a; \theta, \alpha) - \frac{1}{|A|} \sum_{a’}A(s, a’; \theta, \alpha) \right)  $$</p>
+<p>一方面这个组合方式会导致V和A丧失原先的含义, 因为它们偏离了一个常数值; 但另一方面这样可以提高优化的稳定性. 因为A的变化速度只需要和mean一样快就行, 而不是和最优的action A同步.</p>
+<p>组合函数写进神经网络中作为输出.</p>
+<h1 id="Rainbow-DQN"><a href="#Rainbow-DQN" class="headerlink" title="Rainbow DQN"></a>Rainbow DQN</h1><p>Rainbow的命名是指混合, 利用许多RL中前沿知识并进行了组合, 组合了DDQN, prioritized Replay Buffer, Dueling DQN, Multi-step learning.</p>
+<h2 id="Multi-step-learning"><a href="#Multi-step-learning" class="headerlink" title="Multi-step learning"></a>Multi-step learning</h2><p>原始的DQN使用的是当前的即时奖励r和下一时刻的价值估计作为目标价值，这种方法在前期策略差即网络参数偏差较大的情况下，得到的目标价值偏差也较大。因此可以通过Multi-Step Learning来解决这个问题，通过多步的reward来进行估计。</p>
+<h2 id="Distributional-perspective-RL"><a href="#Distributional-perspective-RL" class="headerlink" title="Distributional perspective RL"></a>Distributional perspective RL</h2><p>传统DQN中估计期望，但是期望并不能完全反映信息，毕竟还有方差，期望相同我们当然希望取方差更小的来减小波动和风险。所以从理论上来说，从分布视角（distributional perspective）来建模我们的深度强化学习模型，可以获得更多有用的信息，从而得到更好、更稳定的结果。</p>
+<h2 id="Noisy-Net"><a href="#Noisy-Net" class="headerlink" title="Noisy Net"></a>Noisy Net</h2><p>Noisy DQN是为了增强DQN探索能力而设计的方法，是model-free，off-policy，value-based，discrete的方法。</p>
+<p>Noisy DQN这个方法被发表在Noisy Networks for Exploration这篇文章中，但是它并不只是在DQN中被使用，实际上在A3C这样的模型中也可以增加噪声来刺激探索。</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li>DQN: <a href="https://www.aminer.cn/pub/53e9a682b7602d9702fb756d/playing-atari-with-deep-reinforcement-learning">https://www.aminer.cn/pub/53e9a682b7602d9702fb756d/playing-atari-with-deep-reinforcement-learning</a>)</li>
+<li>DDQN: <a href="https://arxiv.org/abs/1509.06461">Deep Reinforcement Learning with Double Q-learning</a></li>
+<li>Double Q-learning: <a href="https://papers.nips.cc/paper/2010/hash/091d584fced301b442654dd8c23b3fc9-Abstract.html">Double Q-learning</a></li>
+<li>Double DQN: <a href="https://arxiv.org/abs/1509.06461v3">Deep Reinforcement Learning with Double Q-learning</a></li>
+<li>Dueling DQN: <a href="https://arxiv.org/abs/1511.06581">Dueling Network Architectures for Deep Reinforcement Learning</a></li>
+<li><a href="https://arxiv.org/abs/1710.02298">Rainbow: Combining Improvements in Deep Reinforcement Learning</a></li>
+<li><a href="https://arxiv.org/abs/1707.06887v1">A Distributional Perspective on Reinforcement Learning</a></li>
+<li><a href="https://arxiv.org/abs/1706.10295">Noisy Networks for Exploration</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/337553995">深度强化学习必看经典论文：DQN，DDQN，Prioritized，Dueling，Rainbow</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/138504673">【DRL-9】Noisy Networks</a></li>
+<li><a href="https://yulizi123.github.io/tutorials/machine-learning/reinforcement-learning/4-5-double_DQN/">Double DQN (Tensorflow) - 强化学习 Reinforcement Learning | 莫烦Python</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+        <category>RL</category>
+      </categories>
+      <tags>
+        <tag>RL</tag>
+        <tag>DQN</tag>
+        <tag>DDQN</tag>
+        <tag>DDDQN</tag>
       </tags>
   </entry>
 </search>

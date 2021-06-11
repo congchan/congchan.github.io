@@ -27,12 +27,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="What is Reinforcement Learning? A Complete Guide for Beginners">
+<meta name="description" content="时序决策以经典的Atari游戏为例，agent在t时刻观测一段包含M个帧的视频$s_t &#x3D; (x_{t-M+1}, …, x_t) \in S$, 然后agent做决策, 决策是选择做出一个动作 $a_t \in A  &#x3D; { 1, …, |A| }$(A为可选的离散动作空间 ), 这个动作会让agent获得一个奖励$r_t$. 这就是时序决策过程, 是一个通用的决策框架，可以建模各种时序决策问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Reinforcement Learning">
-<meta property="og:url" content="https://congchan.github.io/Reinforcement-Learning-intro/index.html">
+<meta property="og:title" content="Value-based Reinforcement Learning">
+<meta property="og:url" content="https://congchan.github.io/Reinforcement-Learning-value-based-RL/index.html">
 <meta property="og:site_name" content="Fly Me to the Moon">
-<meta property="og:description" content="What is Reinforcement Learning? A Complete Guide for Beginners">
+<meta property="og:description" content="时序决策以经典的Atari游戏为例，agent在t时刻观测一段包含M个帧的视频$s_t &#x3D; (x_{t-M+1}, …, x_t) \in S$, 然后agent做决策, 决策是选择做出一个动作 $a_t \in A  &#x3D; { 1, …, |A| }$(A为可选的离散动作空间 ), 这个动作会让agent获得一个奖励$r_t$. 这就是时序决策过程, 是一个通用的决策框架，可以建模各种时序决策问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://congchan.github.io/images/Cartpole.png">
 <meta property="og:image" content="https://congchan.github.io/images/rl_qv_1.png">
@@ -45,7 +45,7 @@
 <meta name="twitter:image" content="https://congchan.github.io/images/Cartpole.png">
 
 
-<link rel="canonical" href="https://congchan.github.io/Reinforcement-Learning-intro/">
+<link rel="canonical" href="https://congchan.github.io/Reinforcement-Learning-value-based-RL/">
 
 
 <script class="page-configurations">
@@ -57,7 +57,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>Reinforcement Learning | Fly Me to the Moon</title>
+<title>Value-based Reinforcement Learning | Fly Me to the Moon</title>
   
 
 
@@ -192,7 +192,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Cartpole-Environment"><span class="nav-number">1.</span> <span class="nav-text">The Cartpole Environment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markov-Decision-Processes"><span class="nav-number">2.</span> <span class="nav-text">Markov Decision Processes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decision-Policies"><span class="nav-number">3.</span> <span class="nav-text">Decision Policies</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exploration-Exploitation-Dilemma"><span class="nav-number">4.</span> <span class="nav-text">Exploration-Exploitation Dilemma</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q%E5%92%8CV%E5%AE%9A%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">Q和V定义</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E5%86%B3%E7%AD%96"><span class="nav-number">1.</span> <span class="nav-text">时序决策</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Cartpole-Environment"><span class="nav-number">2.</span> <span class="nav-text">The Cartpole Environment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markov-Decision-Processes"><span class="nav-number">3.</span> <span class="nav-text">Markov Decision Processes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decision-Policies"><span class="nav-number">4.</span> <span class="nav-text">Decision Policies</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exploration-Exploitation-Dilemma"><span class="nav-number">5.</span> <span class="nav-text">Exploration-Exploitation Dilemma</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q%E5%92%8CV%E8%BD%AC%E6%8D%A2"><span class="nav-number">6.</span> <span class="nav-text">Q和V转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -206,7 +206,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,7 +217,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -265,7 +265,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/Reinforcement-Learning-intro/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/Reinforcement-Learning-value-based-RL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -278,7 +278,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Reinforcement Learning
+          Value-based Reinforcement Learning
         </h1>
 
         <div class="post-meta-container">
@@ -314,8 +314,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/Reinforcement-Learning-intro/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Reinforcement-Learning-intro/" itemprop="commentCount"></span>
+    <a title="disqus" href="/Reinforcement-Learning-value-based-RL/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Reinforcement-Learning-value-based-RL/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -329,16 +329,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><a target="_blank" rel="noopener" href="https://www.mlq.ai/what-is-reinforcement-learning/">What is Reinforcement Learning? A Complete Guide for Beginners</a></p>
+        <h1 id="时序决策"><a href="#时序决策" class="headerlink" title="时序决策"></a><strong>时序决策</strong></h1><p>以经典的Atari游戏为例，agent在t时刻观测一段包含M个帧的视频$s_t = (x_{t-M+1}, …, x_t) \in S$, 然后agent做决策, 决策是选择做出一个动作 $a_t \in A  = { 1, …, |A| }$(A为可选的离散动作空间 ), 这个动作会让agent获得一个奖励$r_t$.</p>
+<p>这就是<strong>时序决策过程,</strong> 是一个通用的决策框架，可以建模各种<strong>时序决策</strong>问题，例如游戏，机器人等. Agent 观察环境，基于policy $\pi\left(a_{t} \mid s_{t}\right)$ 做出响应动作，其中 $s_{t}$是当前环境的观察值(Observation 是环境State对Agent可见的部分)。Action会获得新的 Reward $r_{t+1}$, 以及新的环境反馈 $s_{t+1}$.</p>
 <a id="more"></a>
 
-
-
-<p>Agent 观察环境，基于policy $\pi\left(a_{t} \mid s_{t}\right)$ 做出响应动作，其中 $s_{t}$是当前环境的观察值(Observation 是环境State对Agent可见的部分)。</p>
-<p>Action会获得新的 Reward $r_{t+1}$, 以及新的环境反馈 $s_{t+1}$.</p>
-<p>目标: 通过优化 policy 来最大化总的Rewards.</p>
+<blockquote>
 <p>Note: It is important to distinguish between the <strong>state</strong> of the environment and the <strong>observation</strong>, which is the part of the environment state that the agent can see, e.g. in a poker game, the environment state consists of the cards belonging to all the players and the community cards, but the agent can observe only its own cards and a few community cards. In most literature, these terms are used interchangeably and observation is also denoted as .</p>
-<p>这是一个非常通用的框架，可以建模各种<strong>时序决策</strong>问题，例如游戏，机器人等。</p>
+</blockquote>
+<p>Agent的目标是通过优化 policy来最大化期望奖励(未来的奖励相对于当前时间需要打折, 也就是贴现, 跟未来现金流贴现一个道理), 称之为 discounted return $R_t = \sum_{\tau=t}^{\infty} \gamma^{\tau-t} r_{\tau}$, $\gamma \in [0, 1]$就是贴现率.</p>
+<ul>
+<li>定义一个值 $Q^\pi(s, a)$, 用于表示一个 state-action pair $(s, a)$ 的价值， $Q^{\pi}(s,a)=E{[R_t|s_t=s, a_t=a, \pi]}$</li>
+<li>定义$V^\pi(s)$用于表示状态$s$的价值 $V^{\pi}(s)=E_{a \sim \pi(s)}[Q^{\pi}(s, a)]$</li>
+</ul>
+<p>为了计算Q值， 需要利用动态规划递归求解</p>
+<p>$$Q^{\pi}(s, a)=E_{s^{\prime}}[r+\gamma E_{a^{\prime} \sim \pi\left(s^{\prime}\right)}[Q^{\pi}\left(s^{\prime}, a^{\prime}\right)] \mid s, a, \pi]$$</p>
+<p>最优的Q值就是 $Q^∗(s, a) = \max_{\pi} Q^\pi(s, a)$, 假设每次都选择能让当前Q最大的动作(这种方式是deterministic policy, 其他的还有Stochastic policies), $a = argmax_{a’ \in A} Q^∗(s, a’)$, 那么$V^∗(s) = \max_a Q^∗(s, a)$, 由此引出最优 $Q^{*}(s, a)$ 满足<strong>Bellman optimality equation</strong></p>
+<p>$$Q^*(s, a)=E_{s’}[r+\gamma \max _{a^{\prime}} Q^{*}\left(s^{\prime}, a^{\prime}\right)]$$</p>
 <h1 id="The-Cartpole-Environment"><a href="#The-Cartpole-Environment" class="headerlink" title="The Cartpole Environment"></a>The Cartpole Environment</h1><p>The Cartpole Environment 是 RL中的Hello World. The environment simulates balancing a pole on a cart. The agent can nudge the cart left or right; these are the actions. It represents the state with a position on the x-axis, the velocity of the cart, the velocity of the tip of the pole and the angle of the pole (0° is straight up). The agent receives a reward of 1 for every step taken. The episode ends when the pole angle is more than ±12°, the cart position is more than ±2.4 (the edge of the display) or the episode length is greater than 200 steps. To solve the environment you need an average reward greater than or equal to 195 over 100 consecutive trials.</p>
 <p><img src="/images/Cartpole.png" alt="/images/Cartpole.png"></p>
 <p>Observation $s_{t}$: 4D vector [position, velocity, angle, angular velocity]</p>
@@ -381,7 +387,7 @@
 <li>The first is an environment that is <strong>completely observable</strong>, in which case its dynamics can be modeled as a Markov Process. Markov processes are characterized by a short-term memory, meaning the future depends not on the environments whole history, but instead only on the current state.</li>
 <li>The second type is a <strong>partially observed</strong> environment where some variables are not observable. These situations can be modeled using dynamic latent variable models, for example, using <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Hidden Markov models</a>.</li>
 </ol>
-<h1 id="Decision-Policies"><a href="#Decision-Policies" class="headerlink" title="Decision Policies"></a>Decision Policies</h1><p>Since the problem needs to be solved now*,* but the actions will be performed in the future, we need to define a decision policy**.**</p>
+<h1 id="Decision-Policies"><a href="#Decision-Policies" class="headerlink" title="Decision Policies"></a>Decision Policies</h1><p>Since the problem needs to be solved now, but the actions will be performed in the future, we need to define a decision policy.</p>
 <p>The decision policy is a function that takes the current state S and translates it into an action A.</p>
 <p><strong>Deterministic policies:</strong></p>
 <ul>
@@ -403,14 +409,7 @@
 </ul>
 <p>This is referred to as a <em>dilemma</em> because at each time-step, the agent must decide whether it should <em>explore</em> or <em>exploit</em> in this state - but it can’t do both at once.</p>
 <p>Reinforcement learning should ideally combine both exploration and exploitation, for example by switching between each one at different time steps.</p>
-<h1 id="Q和V定义"><a href="#Q和V定义" class="headerlink" title="Q和V定义"></a>Q和V定义</h1><p>MDP说明在做决策的时候需要考虑未来的回报，把未来的价值折算到当前，才能做出选择。</p>
-<p>总的来说：</p>
-<ul>
-<li>$V_i$ 用于评估状态的价值，代表agent在当前状态$S_i$下，经过各种探索，一直到最终状态的奖励总和的期望 $v_{\pi}(s)=E{\left[G_t|S_t=s\right]}$。可以用于比较两个状态的价值</li>
-<li>$Q_i$用于评估动作的价值，代表agent在选择了action $A_i$后，经过各种探索，一直到最终状态的奖励总和的期望 $q_{\pi}(s,a)=E{\left[G_t|S_t=s, A_t=a\right]}$</li>
-</ul>
-<p>其中$G_t=\sum_{k=0}^{\infty}\gamma^kR_{t+k+1}$</p>
-<p>$V$跟策略有很大关系，计算过程是：</p>
+<h1 id="Q和V转换"><a href="#Q和V转换" class="headerlink" title="Q和V转换"></a>Q和V转换</h1><p>$V$跟策略有很大关系，计算过程是：</p>
 <ol>
 <li>从$S_i$出发，多次采样;</li>
 <li>每个采样按照当前的 <strong>策略</strong> 选择行为$A_{i+1}$;</li>
@@ -420,13 +419,17 @@
 <p>$Q$的计算过程和$V$差不多，但是跟策略没有直接关系，而是与环境的状态转移概率相关，而环境的状态转移概率是不变的。</p>
 <p>可以把采样过程形象化为有Markov过程生成的树，每个状态和动作都是一个树节点，而树的叶子节点就是结束状态。状态节点和动作节点是分层相隔的，<strong>所以Q和V可以相互换算</strong>，即每一层的Q可以由下一层的V计算出来，反之亦然。</p>
 <p><a target="_blank" rel="noopener" href="https://datascience.stackexchange.com/questions/9832/what-is-the-q-function-and-what-is-the-v-function-in-reinforcement-learning">What is the Q function and what is the V function in reinforcement learning?</a></p>
-<p>$$\begin{align}<br>     v_{\pi}(s)&amp;=E{\left[G_t|S_t=s\right]}  \\<br>     &amp;=\sum_{g_t} p(g_t|S_t=s)g_t \\<br>     &amp;= \sum_{g_t}\sum_{a}p(g_t, a|S_t=s)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)\sum_{g_t}p(g_t|S_t=s, A_t=a)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)E{\left[G_t|S_t=s, A_t=a\right]} \\<br>     &amp;= \sum_{a}p(a|S_t=s)q_{\pi}(s,a)<br>\end{align}$$</p>
+<p>$$\begin{align}<br>     v_{\pi}(s)&amp;=E{[G_t|S_t=s]}  \\<br>     &amp;=\sum_{g_t} p(g_t|S_t=s)g_t \\<br>     &amp;= \sum_{g_t}\sum_{a}p(g_t, a|S_t=s)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)\sum_{g_t}p(g_t|S_t=s, A_t=a)g_t \\<br>     &amp;= \sum_{a}p(a|S_t=s)E{[G_t|S_t=s, A_t=a]} \\<br>     &amp;= \sum_{a}p(a|S_t=s)q_{\pi}(s,a)<br>\end{align}$$</p>
 <p>一个状态的V值，就是这个状态下的所有动作的Q值$q_{\pi}(s,a)$ 在策略$p(a|S_t=s)$下的期望。</p>
 <p>if we have a deterministic policy， then $v_{\pi}(s)=q_{\pi}(s,\pi(s))$</p>
 <p>$$⁍$$</p>
 <p><img src="/images/rl_qv_1.png"></p>
 <p>实际应用中，我们更多会从V到V。把Q代入得到</p>
 <p><img src="/images/rl_qv_2.png"></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.mlq.ai/what-is-reinforcement-learning/">What is Reinforcement Learning? A Complete Guide for Beginners</a></li>
+<li><a target="_blank" rel="noopener" href="https://datascience.stackexchange.com/questions/9832/what-is-the-q-function-and-what-is-the-v-function-in-reinforcement-learning">https://datascience.stackexchange.com/questions/9832/what-is-the-q-function-and-what-is-the-v-function-in-reinforcement-learning</a></li>
+</ul>
 
     </div>
 
@@ -577,9 +580,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://congchan.github.io/Reinforcement-Learning-intro/";
-    this.page.identifier = "Reinforcement-Learning-intro/";
-    this.page.title = "Reinforcement Learning";
+    this.page.url = "https://congchan.github.io/Reinforcement-Learning-value-based-RL/";
+    this.page.identifier = "Reinforcement-Learning-value-based-RL/";
+    this.page.title = "Value-based Reinforcement Learning";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
     if (window.DISQUS) {
