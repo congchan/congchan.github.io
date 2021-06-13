@@ -196,7 +196,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -207,7 +207,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">70</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -245,6 +245,396 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-HMM-CRF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/NLP-HMM-CRF/" class="post-title-link" itemprop="url">概率图模型 - 朴素贝叶斯 - 隐马尔科夫 - 条件随机场 - 逻辑回归</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-16T00:00:00+08:00">2018-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/NLP-HMM-CRF/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="NLP-HMM-CRF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="序列标注（Sequence-Labeling）"><a href="#序列标注（Sequence-Labeling）" class="headerlink" title="序列标注（Sequence Labeling）"></a>序列标注（Sequence Labeling）</h2><p>序列标注任务是指根据观察得到的序列（如一个句子）, 推断出序列每个元素（单词）对应的标注。</p>
+<p>具体的任务包括分词(Segmentation), 词性标注（Part-of-Speach tagging, POS）, 实体识别(Named Entity Recognition, NER), 等等. 所谓POS, 就是对于一个句子, 如<code>Bob drank coffee at Starbucks</code>, 标注可能为<code>Bob (NOUN) drank (VERB) coffee (NOUN) at (PREPOSITION) Starbucks (NOUN)</code>.</p>
+<p>除此之外, 还有其他涉及到需要根据观察序列推断隐含状态的问题, 这种问题的特点是每一个位置的标签都不是独立的, 而是和上下文相关依存的, 可以用序列标注的思路来处理. </p>
+<p>单个分类器仅能预测单个类变量，但是序列标注基于概率图模型, 图模型(Graphical Models)的真正功能在于它们能够对许多有相互依赖的变量进行建模。最简单的依赖关系可以描述为一种线性链(Linear Chain), 也就是后续介绍到的隐马尔可夫模型(Hidden Markov Model, HMM)用到的假设.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/NLP-HMM-CRF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/algorithms-applications-03-pattern-recognition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/algorithms-applications-03-pattern-recognition/" class="post-title-link" itemprop="url">Find All Collinear Points - A Pattern Recognition Problem</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-04 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-04T00:00:00+08:00">2018-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/algorithms-applications-03-pattern-recognition/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="algorithms-applications-03-pattern-recognition/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="The-Line-Patterns-Recognition"><a href="#The-Line-Patterns-Recognition" class="headerlink" title="The Line Patterns Recognition"></a>The Line Patterns Recognition</h2><p>A basic but important application of pattern recognition is to recognize line patterns in a given set of points. <a target="_blank" rel="noopener" href="http://coursera.cs.princeton.edu/algs4/assignments/collinear.html">http://coursera.cs.princeton.edu/algs4/assignments/collinear.html</a>. This blog will give a breif introduction to this problem and provide an enfficient solution. Codes available in <a target="_blank" rel="noopener" href="https://github.com/congchan/algs4">algs4/collinear/src/</a></p>
+<p>The problem could be described as: Given a set of n distinct points in the plane, find every (maximal) line segment that connects a subset of 4 or more of the points.<img src="https://coursera.cs.princeton.edu/algs4/assignments/collinear/lines2.png" title="image from: http://coursera.cs.princeton.edu/algs4/">.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/algorithms-applications-03-pattern-recognition/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/algorithms-applications-02-randomized-queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/algorithms-applications-02-randomized-queue/" class="post-title-link" itemprop="url">Randomized Queue with Reservoir Sampling</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-21T00:00:00+08:00">2018-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/algorithms-applications-02-randomized-queue/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="algorithms-applications-02-randomized-queue/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>This blog explains an apllication of randomized queue algorithms.</p>
+<h2 id="Permutation-client-memory-challenge"><a href="#Permutation-client-memory-challenge" class="headerlink" title="Permutation client memory challenge"></a>Permutation client memory challenge</h2><p>A client program <code>Permutation.java</code> that takes an integer k as a command-line argument; reads in a sequence of strings from standard input using <code>StdIn.readString()</code>; and prints exactly k of them, uniformly at random. Print each item from the sequence at most once.</p>
+<p>More detail could be found at programming assignment <a target="_blank" rel="noopener" href="http://coursera.cs.princeton.edu/algs4/assignments/queues.html">specification</a> and <a target="_blank" rel="noopener" href="http://coursera.cs.princeton.edu/algs4/checklists/queues.html">checklist</a>, codes available in <a target="_blank" rel="noopener" href="https://github.com/congchan/algs4/tree/master/queues/src">algs4/queues/src/</a>.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/algorithms-applications-02-randomized-queue/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-attention-02-lstm-reading-comprehension/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/NLP-attention-02-lstm-reading-comprehension/" class="post-title-link" itemprop="url">机器阅读理解 - LSTM与注意力机制 - 斯坦福问答数据集 (SQuAD)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-20T00:00:00+08:00">2018-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/NLP-attention-02-lstm-reading-comprehension/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="NLP-attention-02-lstm-reading-comprehension/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文介绍注意力机制如何应用于阅读理解类任务, 并介绍了由此任务催生的一些注意力变种.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/NLP-attention-02-lstm-reading-comprehension/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -821,414 +1211,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/csapp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fly Me to the Moon">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/csapp/" class="post-title-link" itemprop="url">Computer Systems - A Programmer's Perspective (CSAPP) - CMU 15213</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-01-29 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-29T00:00:00+08:00">2018-01-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/csapp/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="csapp/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>CSAPP 非常巧妙的把程序设计及优化、数字电路基础、指令集体系、汇编语言、存储器体系结构、链接与装载、进程、虚存等来自不同学科的核心知识点和在一起，并以程序员的视角呈现; 告诉我们作为一个程序员，究竟需要对计算机的硬件了解到什么程度？</p>
-</blockquote>
-<p>本笔记是 CMU CSAPP 的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://csapp.cs.cmu.edu/">Computer Systems: A Programmer’s Perspective (csapp)</a>, 豆瓣-<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26912767/">深入理解计算机系统</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~213/">卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS)</a></li>
-<li><a target="_blank" rel="noopener" href="https://courses.cs.washington.edu/courses/cse351/">华盛顿大学 UW CSE351: The Hardware/Software Interface</a>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/csapp/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-text-classification/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fly Me to the Moon">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/NLP-text-classification/" class="post-title-link" itemprop="url">神经网络用于文本分类</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-01-15 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-15T00:00:00+08:00">2018-01-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/NLP-text-classification/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="NLP-text-classification/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="文本分类"><a href="#文本分类" class="headerlink" title="文本分类"></a>文本分类</h2><p>文本分类是很多业务问题中广泛使用到的NLP/监督机器学习（ML）。文本分类的目标是自动将文本/文档分类为一个或多个预定义类别。目前的成熟思路是用词向量解码文本，然后使用传统机器学习模型或者深度神经网络模型来做分类。</p>
-<p>文本分类是学术界和工业界非常活跃的研究领域。本文主要介绍用于文本分类的几种神经网络模型方法，并比较它们的性能，代码实现主要基于Keras。文中代码都在这个<a target="_blank" rel="noopener" href="https://github.com/congchan/DeepText">DeepText</a>GitHub项目中.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/NLP-text-classification/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/NLP-information-extraction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fly Me to the Moon">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/NLP-information-extraction/" class="post-title-link" itemprop="url">信息抽取</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-01-11 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-11T00:00:00+08:00">2018-01-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/NLP-information-extraction/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="NLP-information-extraction/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="信息抽取"><a href="#信息抽取" class="headerlink" title="信息抽取"></a>信息抽取</h2><p>1997年MUC会议（MUC-7） 召开时，评测任务已经增加到5个：<br>① 场景模板（scenario template, ST）填充：定义了描述场景的模板及槽填充规范；<br>② 命名实体（named entity, NE）识别：识别出文本中出现的专有名称和有意义的数量短语， 并加以归类；<br>③ 共指（coreference, CR）关系确定：识别出给定文本中的参照表达（ referring expressions），并确定这些表达之间的共指关系；<br>④ 模板元素（template element, TE）填充：类似于人名和组织机构名识别，但是要求系统必须识别出实体的描述和名字，如果一个实体在文本中被提到了多次，使用了几种可能的描述和不同的名字形式，要求系统都要把它们识别出来，一个文本中的每个实体只有一个模板元素［Grishman and Sundheim, 1996］；<br>⑤ 模板关系（template relation, TR）：确定实体之间与特定领域无关的关系。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/NLP-information-extraction/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/Launch-editor-in-Gitbash/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fly Me to the Moon">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Launch-editor-in-Gitbash/" class="post-title-link" itemprop="url">Bash 直接启动 sublime 或 atom 等编辑器以打开或新建文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-01T00:00:00+08:00">2018-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Productivity/" itemprop="url" rel="index"><span itemprop="name">Productivity</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/Launch-editor-in-Gitbash/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Launch-editor-in-Gitbash/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>程序员或者其他需要码字多的人，经常要使用编辑器如sublime、atom 和 Typora等。如果每次都要用鼠标点击才能用sublime打开文件，或者在编辑器中新建文件，那么就会有点麻烦！但你可以用一句命令解决！</p>
-<p>配置在Git Bash中用各种文本编辑器打开文件或者直接新建文件。这里以atom为例。</p>
-<h2 id="常规步骤"><a href="#常规步骤" class="headerlink" title="常规步骤"></a>常规步骤</h2><ol>
-<li>打开Git Bash并<code>cd</code>到你的目标文件夹, 或者直接在目标文件中右键打开Git Bash.</li>
-<li><code>atom xxx.md</code> 就会在弹出的atom窗口中打开名为<code>xxx.md</code>的markdown文件, 如果没有这个文件, 会自动创建一个.</li>
-<li>适用于其他类型文件, 如<code>.java</code>等.</li>
-<li>如果想用sublime, 可以用<code>subl xxx.java</code>, 同理notepad++ 可以用 <code>notepad++ xxx.java</code>等。 (若出现错误,看下面)</li>
-</ol>
-<h2 id="若系统无法识别命令"><a href="#若系统无法识别命令" class="headerlink" title="若系统无法识别命令"></a>若系统无法识别命令</h2><p>一般使用sublime或者notepad++的用户, 可能会出现<code>error: 系统无法识别命令...</code>之类的, 可以这么解决:</p>
-<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>新建一个文件命名为<code>subl</code>（注意不能有后缀名），内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">&quot;D:\Sublime Text 3\sublime_text.exe&quot; $1 &amp;</span><br></pre></td></tr></table></figure>
-<p>第一行指明这是个 shell 脚本.<br>第二行的字符串是sublime的安装目录, 示例只是我电脑的目录, 注意这里要改为你自己的目录,<br>第二行的$1 是取的命令之后输入的参数<br>第二行的&amp;是此命令在后台打开，这样sublime打开之后，就不会阻塞你的git bash</p>
-<p>文件保存到 <code>C:\Program Files (x86)\Git\mingW32\bin</code> 目录下(你的git目录可能与我的不一样，注意改成你自己的)</p>
-<p>同理适用于其他编辑器，比如用<code>chrome</code>打开<code>.html</code>文件等。如果不想每次都新建一个文件，可以用下面的方法2。</p>
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><ol>
-<li>找到 <code>C:\Users\你的计算机名</code>目录，如果你的计算机名是Administrator，那么你就要去<code>C:\Users\Administrator</code>目录下, 这里一般存放着windows系统的<code>我的文档, 桌面</code>等文件夹.</li>
-<li>在该目录下用Git Bash输入<code>notepad .bashrc</code>, 这会用windows记事本新建并打开一个文件<code>.bashrc</code>，这个文件没有名称只有后缀名。<code>.bashrc</code>里面可以给Git Bash设置命令的别名, 设置路径等。</li>
-<li>在.bashrc文件加入下面一行文本<code>alias notepad++=&quot;/D/Notepad++/notepad++.exe&quot;</code>, 这里你需要修改为你电脑的安装路径。<code>alias</code>就是别名的意思，当我们执行<code>notepad++</code>的时候，实际执行的是<code>=</code>后面的语句.</li>
-<li>重新打开Git Bash, 设置才能生效，如果不想关掉在打开的话，可以直接在bash下输入<code>source ~/.bashrc</code>就可以立刻加载修改后的设置，设置立即生效。<br>现在在bash下输入<code>notepad++ test.py</code>, 就直接打开了notepad++并创建了这个叫test的Python文件。这里的别名不一定非要取<code>notepad++</code>，随你想叫什么都行。</li>
-</ol>
-<p>同理也可以扩展到别的文本编辑器，<code>alias atom=&quot;atom的路径&quot;</code>, <code>alias sublime=&quot;sublime的路径&quot;</code>等. 最后还要注意一点，上面所说的路径最好不要有空格，括号等，否则会造成命令无效.</p>
-<p><code>.bashrc</code>还有很多有用的配置,可以根据需要进行扩展. 比如很多程序猿会选择修改删除命令<code>rm</code>(此命令不加任何参数的话，会直接删除文件, 可能会造成误删的后果)。这个时候可以给rm加个参数-i，意为在删除的时候给出提示。在文件<code>.bashrc</code>里添加这行代码<code>alias rm=&quot;rm -i&quot;</code>。但这里不建议这么做，因为<code>rm=&quot;rm -i&quot;</code>是一个定时炸弹，在使用它之后，习惯了之后, 你会本能地期望<code>rm</code>在删除文件之前会提示你。但是，总有一天你可能会用一个没有rm alias 别名的系统, 这时若你也直接随手一甩<code>rm</code>, 本以为会有提示, 结果发现数据真的被删除了。</p>
-<p>在任何情况下，预防文件丢失或损坏的好方法就是进行备份。</p>
-<p>所以如果你想个性化删除命令, 最好不要动<code>rm</code>，而是创建属于你的命令，比如<code>trash, myrm, delete</code>等, 用<code>alias trash=&#39;/bin/rm -irv&#39;</code>会创建一条把文件放入垃圾回收站的命令.</p>
-
       
     </div>
 

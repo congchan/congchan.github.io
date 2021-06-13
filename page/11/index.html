@@ -196,7 +196,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -207,7 +207,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">70</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -245,6 +245,413 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/cs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/cs/" class="post-title-link" itemprop="url">Computer Science Step by Step</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-12-31 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-31T00:00:00+08:00">2016-12-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/cs/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="cs/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我学习CS历程，也包含基础知识的总结以及编程实现的整理。</p>
+<p>每一阶段里面, 都有很多个性化选项, 仅供参考</p>
+<p><strong>入门</strong></p>
+<ul>
+<li><a href="#CS%E5%85%A5%E9%97%A8">CS入门</a></li>
+<li><a href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80">学习编写(至少)一种面向对象编程语言(C ++，Java®，Python®)</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81">测试你的代码</a></li>
+</ul>
+<p><strong>夯实基础</strong><br>你可以跳过这些而直接进入下面的进阶实践环节，并根据自己需要查漏补缺。<br>但是这些都是非常重要的基础，任何时候，只要有时间，就可以去学习了解。</p>
+<ul>
+<li><a href="#%E9%80%BB%E8%BE%91%E6%8E%A8%E7%90%86%E5%92%8C%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6">逻辑推理和离散数学</a></li>
+<li><a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">熟悉计算机操作系统</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">学习计算机网络</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93">掌握数据库</a></li>
+<li><a href="#%E7%BC%96%E8%AF%91%E5%99%A8">了解编译器和优化</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA">了解计算理论</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80">学习其他编程语言</a></li>
+</ul>
+<p><strong>进阶与实践</strong></p>
+<ul>
+<li><a href="#%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">深入了解算法和数据结构</a></li>
+<li><a href="#%E5%88%86%E5%B8%83%E5%BC%8F%EF%BC%8C%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%A4%A7%E6%95%B0%E6%8D%AE">分布式，并行和大数据</a></li>
+<li><a href="#%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91">安卓开发</a></li>
+<li><a href="#iOS%E5%BC%80%E5%8F%91">iOS开发</a></li>
+<li><a href="#%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91">网页开发</a></li>
+<li><a href="#%E5%8A%A0%E5%AF%86%E4%B8%8E%E5%8C%BA%E5%9D%97%E9%93%BE">加密与区块链</a></li>
+<li><a href="#%E5%8F%82%E4%B8%8E%E9%A1%B9%E7%9B%AE">参与项目</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/ShootingSpace/Guide-to-Computer-Science/blob/master/readme.md">English template 英文模板</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/cs/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-07-data-structures-array-based-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/java-07-data-structures-array-based-list/" class="post-title-link" itemprop="url">Java 07 | 数据结构 - 用数组构建数据列表 list</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-12-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-29T00:00:00+08:00">2016-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/java-07-data-structures-array-based-list/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-07-data-structures-array-based-list/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>List<br>前面说到Java的数组无法更改长度，那么也就无法实现插入或者删除数组成员。Java提供了功能更丰富的数据结构 - 列表（<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">list</a>）。所谓列表，即有序的集合（序列），用户可以精确地控制每个元素插入到列表中的哪个位置。用户可以通过整数索引（列表中的位置）来访问元素，并搜索列表中的元素（详细可进一步参考<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">oracle官网</a>）。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/java-07-data-structures-array-based-list/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-06-data-structures-array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/java-06-data-structures-array/" class="post-title-link" itemprop="url">Java 06 | 数据结构 - array 数组</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-12-27 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-27T00:00:00+08:00">2016-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/java-06-data-structures-array/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-06-data-structures-array/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="数组（Array）"><a href="#数组（Array）" class="headerlink" title="数组（Array）"></a>数组（Array）</h2><p>数组是一种特殊的对象，有一个固定的数组长度参数N，由一连串（N个）连续的带编号的内存块组成，每个都是相同的类型(不像Python可以包含不同类型)，索引从0到N-1编号。A[i]获得数组A的第i个元素。这与普通的类实例不同，类实例有具体变量名命名的内存块。</p>
+<h3 id="数组实例化，包含对象的数组"><a href="#数组实例化，包含对象的数组" class="headerlink" title="数组实例化，包含对象的数组"></a>数组实例化，包含对象的数组</h3><p>Array Instantiation, Arrays of Objects</p>
+<p>要创建最简单的整数数组, 有三种方式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">3</span>]; <span class="comment">//创建一个指定长度的数组，并用默认值（0）填充每个内存块。</span></span><br><span class="line">y = <span class="keyword">new</span> <span class="keyword">int</span> [] &#123;<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;; <span class="comment">//创建一个合适大小的数组，以容纳指定的初始值</span></span><br><span class="line"><span class="keyword">int</span> [] z = &#123;<span class="number">9</span>，<span class="number">10</span>，<span class="number">11</span>，<span class="number">12</span>，<span class="number">13</span>&#125;; <span class="comment">//省略了new，只能结合变量声明使用。</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/java-06-data-structures-array/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-05-variable-types/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/java-05-variable-types/" class="post-title-link" itemprop="url">Java 05 | 数据类型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-12-26 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-26T00:00:00+08:00">2016-12-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/java-05-variable-types/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-05-variable-types/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><a target="_blank" rel="noopener" href="https://zh.wikibooks.org/zh-hans/Java/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>是程序设计语言描述事物、对象的方法。Java数据类型分为基本类型（内置类型）和引用类型(扩展类型）两大类。基本类型就是Java语言本身提供的基本数据类型，比如，整型数，浮点数，字符，布尔值等等。而引用类型则是Java语言根据基本类型扩展出的其他类型，Java要求所有的引用扩展类型都必须包括在类定义里面，这就是Java为什么是面向对象编程语言的原因…</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/java-05-variable-types/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

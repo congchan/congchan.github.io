@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="googlee4f5b3d387f2fae7">
+  <meta name="msvalidate.01" content="B49368B5E1218EA9380A07C97E0E97B4">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="data: WN18, WN11, FB15K, FB13, FB40K task: Knowledge Graph Embedding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Knowledge-Graph-Embedding的Translate族（TransE，TransH，TransR，TransD）">
+<meta property="og:url" content="https://congchan.github.io/paper-kg-embedding%E7%9A%84Translate%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB-TransE-TransH-TransR-TransD/index.html">
+<meta property="og:site_name" content="Fly Me to the Moon">
+<meta property="og:description" content="data: WN18, WN11, FB15K, FB13, FB40K task: Knowledge Graph Embedding">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-1.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-2.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-3.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-4.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-5.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-6.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-7.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-8.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-9.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-10.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-11.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-12.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper9-13.png">
+<meta property="article:published_time" content="2020-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-04T16:00:00.000Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="ACL">
+<meta property="article:tag" content="2013">
+<meta property="article:tag" content="2014">
+<meta property="article:tag" content="2015">
+<meta property="article:tag" content="NIPS">
+<meta property="article:tag" content="AAAI">
+<meta property="article:tag" content="Knowledge Graph Embedding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://congchan.github.io/images/papers/paper9.png">
+
+
+<link rel="canonical" href="https://congchan.github.io/paper-kg-embedding%E7%9A%84Translate%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB-TransE-TransH-TransR-TransD/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Knowledge-Graph-Embedding的Translate族（TransE，TransH，TransR，TransD） | Fly Me to the Moon</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Fly Me to the Moon</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TransE"><span class="nav-number">1.</span> <span class="nav-text">TransE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TransH"><span class="nav-number">2.</span> <span class="nav-text">TransH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TransR"><span class="nav-number">3.</span> <span class="nav-text">TransR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cluster-based-TransR-CTransR"><span class="nav-number">3.1.</span> <span class="nav-text">Cluster-based TransR (CTransR)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TransD"><span class="nav-number">4.</span> <span class="nav-text">TransD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">70</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/paper-kg-embedding%E7%9A%84Translate%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB-TransE-TransH-TransR-TransD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Knowledge-Graph-Embedding的Translate族（TransE，TransH，TransR，TransD）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-05T00:00:00+08:00">2020-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/paper-kg-embedding%E7%9A%84Translate%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB-TransE-TransH-TransR-TransD/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="paper-kg-embedding的Translate模型汇总-TransE-TransH-TransR-TransD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>data: WN18, WN11, FB15K, FB13, FB40K</p>
+<p>task: Knowledge Graph Embedding</p>
+<a id="more"></a>
+
+
+<p><img src="/images/papers/paper9.png"></p>
+<h1 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h1><p><strong>Trans</strong>lating <strong>E</strong>mbeddings for Modeling Multi-relational Data（2013）</p>
+<p><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2013/file/1cecc7a77928ca8133fa24680a88d2f9-Paper.pdf">https://proceedings.neurips.cc/paper/2013/file/1cecc7a77928ca8133fa24680a88d2f9-Paper.pdf</a></p>
+<p>这是转换模型系列的第一部作品。该模型的基本思想是使head向量和relation向量的和尽可能靠近tail向量。这里我们用L1或L2范数来衡量它们的靠近程度。</p>
+<p><img src="/images/papers/paper9-1.png" alt="/images/papers/paper9-1.png"></p>
+<p><img src="/images/papers/paper9-2.png" alt="/images/papers/paper9-2.png"></p>
+<p>损失函数 $\mathrm{L}(h, r, t)=\max \left(0, d_{\text {pos }}-d_{\text {neg }}+\text { margin }\right)$使损失函数值最小化，当这两个分数之间的差距大于margin的时候就可以了(我们会设置这个值，通常是1)</p>
+<p><img src="/images/papers/paper9-3.png" alt="/images/papers/paper9-3.png"></p>
+<p><strong>但是这个模型只能处理一对一的关系，不适合一对多/多对一关系</strong>，例如，有两个知识，(skytree, location, tokyo)和(gundam, location, tokyo)。经过训练，“sky tree”实体向量将非常接近“gundam”实体向量。但实际上它们没有这样的相似性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">&quot;embedding&quot;</span>):</span><br><span class="line">    self.ent_embeddings = tf.get_variable(name = <span class="string">&quot;ent_embedding&quot;</span>, shape = [entity_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    self.rel_embeddings = tf.get_variable(name = <span class="string">&quot;rel_embedding&quot;</span>, shape = [relation_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    pos_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_h)</span><br><span class="line">    pos_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_t)</span><br><span class="line">    pos_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.pos_r)</span><br><span class="line">    neg_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.neg_h)</span><br><span class="line">    neg_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.neg_t)</span><br><span class="line">    neg_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.neg_r)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> config.L1_flag:</span><br><span class="line">        pos = tf.reduce_sum(abs(pos_h_e + pos_r_e - pos_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum(abs(neg_h_e + neg_r_e - neg_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        pos = tf.reduce_sum((pos_h_e + pos_r_e - pos_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum((neg_h_e + neg_r_e - neg_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&quot;output&quot;</span>):</span><br><span class="line">        self.loss = tf.reduce_sum(tf.maximum(pos - neg + margin, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="TransH"><a href="#TransH" class="headerlink" title="TransH"></a>TransH</h1><p>Knowledge Graph Embedding by Translating on Hyperplanes（2014）</p>
+<p>TransH的目标是处理一对多/多对一/多对多关系，并且不增加模式的复杂性和训练难度。</p>
+<p>其基本思想是将<strong>关系</strong>解释为超平面上的转换操作。对每个关系r，分配一个超平面的Wr(范数向量)， 以及一个在超平面上的translation vector dr, 每个head向量(h)和tail向量(t)投影到超平面上，得到新的向量(h⊥和t⊥)。We expect h⊥ and t⊥ can be connected by a translation vector $d_r$ on the hyperplane <strong>with low error if (h, r, t) is a golden triplet</strong> ，这样就可以给每个实体只分配一个embedding，同时可以在不同关系上获取不同的投影分量，进行不同的关系表达。可以像TransE模型一样训练它</p>
+<p><img src="/images/papers/paper9-4.png" alt="/images/papers/paper9-4.png"></p>
+<p>损失函数 $\left||h{\perp}+d_r - t{\perp}\right||_2^2$, 限制$||w_r||_2 = 1$</p>
+<p><img src="/images/papers/paper9-5.png" alt="/images/papers/paper9-5.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://github.com/thunlp/TensorFlow-TransX/blob/42a3c1df34d4c79b88718bdc126552ae59896ca8/transH.py#L31</span></span><br><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">&quot;embedding&quot;</span>):</span><br><span class="line">    self.ent_embeddings = tf.get_variable(name = <span class="string">&quot;ent_embedding&quot;</span>, shape = [entity_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    <span class="comment"># rel_embeddings: dr</span></span><br><span class="line">    self.rel_embeddings = tf.get_variable(name = <span class="string">&quot;rel_embedding&quot;</span>, shape = [relation_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    <span class="comment"># normal_vector: wr </span></span><br><span class="line">    self.normal_vector = tf.get_variable(name = <span class="string">&quot;normal_vector&quot;</span>, shape = [relation_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    </span><br><span class="line">    pos_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_h)</span><br><span class="line">    pos_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_t)</span><br><span class="line">    pos_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.pos_r)</span><br><span class="line">    </span><br><span class="line">    neg_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.neg_h)</span><br><span class="line">    neg_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.neg_t)</span><br><span class="line">    neg_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.neg_r)</span><br><span class="line">    </span><br><span class="line">    pos_norm = tf.nn.embedding_lookup(self.normal_vector, self.pos_r)</span><br><span class="line">    neg_norm = tf.nn.embedding_lookup(self.normal_vector, self.neg_r)</span><br><span class="line"></span><br><span class="line">    pos_h_e = self.calc(pos_h_e, pos_norm)</span><br><span class="line">    pos_t_e = self.calc(pos_t_e, pos_norm)</span><br><span class="line">    neg_h_e = self.calc(neg_h_e, neg_norm)</span><br><span class="line">    neg_t_e = self.calc(neg_t_e, neg_norm)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> config.L1_flag:</span><br><span class="line">        pos = tf.reduce_sum(abs(pos_h_e + pos_r_e - pos_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum(abs(neg_h_e + neg_r_e - neg_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        pos = tf.reduce_sum((pos_h_e + pos_r_e - pos_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum((neg_h_e + neg_r_e - neg_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&quot;output&quot;</span>):</span><br><span class="line">        self.loss = tf.reduce_sum(tf.maximum(pos - neg + margin, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc</span>(<span class="params">self, e, n</span>):</span></span><br><span class="line">    <span class="comment"># cal projections</span></span><br><span class="line">        norm = tf.nn.l2_normalize(n, <span class="number">1</span>)  <span class="comment"># ||wr||2 = 1</span></span><br><span class="line">        <span class="keyword">return</span> e - tf.reduce_sum(e * norm, <span class="number">1</span>, keep_dims = <span class="literal">True</span>) * norm</span><br></pre></td></tr></table></figure>
+
+<h1 id="TransR"><a href="#TransR" class="headerlink" title="TransR"></a>TransR</h1><p>Learning Entity and Relation Embeddings for Knowledge Graph Completion（2015）</p>
+<p>TransE和TransH模型都假设实体和关系是语义空间中的向量，因此相似的实体在同一实体空间中会非常接近。</p>
+<p>然而，每个实体可以有许多方面，不同的关系关注实体的不同方面。例如，<code>(location, contains, location)</code>的关系是’contains’，<code>(person, born, date)</code>的关系是’born’。这两种关系非常不同。</p>
+<p>Models entities and relations in distinct spaces, i.e., <strong>entity space</strong> and <strong>multiple relation spaces (i.e., relation-specific entity spaces)</strong>, and performs translation in the corresponding relation space, 即<strong>实体空间</strong>和<strong>多个关系空间</strong>(关系特定的实体空间)中建模实体和关系，并在对应的关系空间中进行转换。</p>
+<p><img src="/images/papers/paper9-6.png" alt="/images/papers/paper9-6.png"></p>
+<p><img src="/images/papers/paper9-7.png" alt="/images/papers/paper9-7.png"></p>
+<p>对于每个三元组(h, r, t)，将实体空间中的实体通过矩阵Mr投影到r关系空间中，分别为hr和tr，然后有hr + r ≈ tr，损失函数和训练方法与TransE相同。h和t为实体嵌入，r为关系嵌入</p>
+<p><img src="/images/papers/paper9-8.png" alt="/images/papers/paper9-8.png"></p>
+<h2 id="Cluster-based-TransR-CTransR"><a href="#Cluster-based-TransR-CTransR" class="headerlink" title="Cluster-based TransR (CTransR)"></a>Cluster-based TransR (CTransR)</h2><p>TransR的变体模型称为CTransR, C表示聚类。head和tail实体通常呈现不同的模式。仅仅构建一个关系向量来执行从head到tail实体的所有转换是不够的。例如，三元组(location, contains, location)具有许多模式，如country-city、country-university、contin- country等等。为了解决这个问题，CTransR将不同的head和tail实体对进行聚类，并对每一组学习不同的关系向量。</p>
+<p>构造CtransR的过程是，</p>
+<ul>
+<li>对于一个特定的关系r，将训练数据中所有的实体对(h, t)聚类到多个组中，期望每组中的实体对呈现相似的r关系。</li>
+<li>使用向量偏移量$(h-t)$表示实体对(h, t)。</li>
+<li>从TransE得到h和t。</li>
+<li>为每个聚类学习对应的关系向量$r_c$，为每个关系学习对应的矩阵Mr。</li>
+</ul>
+<p><img src="/images/papers/paper9-9.png" alt="/images/papers/paper9-9.png"></p>
+<p>创建负样本时，只替换了head或tail，而不是relation。得到两个变换矩阵分别用于正样本和负样本。除了先用矩阵变换对实体向量进行转换然后计算L2范数外，其余代码基本上与TransE相同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;lookup_embeddings&#x27;</span>):</span><br><span class="line">    pos_h_e = tf.reshape(tf.nn.embedding_lookup(self.ent_embeddings, self.pos_h), [<span class="number">-1</span>, sizeE, <span class="number">1</span>])</span><br><span class="line">    pos_t_e = tf.reshape(tf.nn.embedding_lookup(self.ent_embeddings, self.pos_t), [<span class="number">-1</span>, sizeE, <span class="number">1</span>])</span><br><span class="line">    pos_r_e = tf.reshape(tf.nn.embedding_lookup(self.rel_embeddings, self.pos_r), [<span class="number">-1</span>, sizeR])</span><br><span class="line">    neg_h_e = tf.reshape(tf.nn.embedding_lookup(self.ent_embeddings, self.neg_h), [<span class="number">-1</span>, sizeE, <span class="number">1</span>])</span><br><span class="line">    neg_t_e = tf.reshape(tf.nn.embedding_lookup(self.ent_embeddings, self.neg_t), [<span class="number">-1</span>, sizeE, <span class="number">1</span>])</span><br><span class="line">    neg_r_e = tf.reshape(tf.nn.embedding_lookup(self.rel_embeddings, self.neg_r), [<span class="number">-1</span>, sizeR])            </span><br><span class="line">    pos_matrix = tf.reshape(tf.nn.embedding_lookup(self.rel_matrix, self.pos_r), [<span class="number">-1</span>, sizeR, sizeE])</span><br><span class="line">    neg_matrix = tf.reshape(tf.nn.embedding_lookup(self.rel_matrix, self.neg_r), [<span class="number">-1</span>, sizeR, sizeE])</span><br><span class="line"></span><br><span class="line">    pos_h_e = tf.nn.l2_normalize(tf.reshape(tf.matmul(pos_matrix, pos_h_e), [<span class="number">-1</span>, sizeR]), <span class="number">1</span>)</span><br><span class="line">    pos_t_e = tf.nn.l2_normalize(tf.reshape(tf.matmul(pos_matrix, pos_t_e), [<span class="number">-1</span>, sizeR]), <span class="number">1</span>)</span><br><span class="line">    neg_h_e = tf.nn.l2_normalize(tf.reshape(tf.matmul(neg_matrix, neg_h_e), [<span class="number">-1</span>, sizeR]), <span class="number">1</span>)</span><br><span class="line">    neg_t_e = tf.nn.l2_normalize(tf.reshape(tf.matmul(neg_matrix, neg_t_e), [<span class="number">-1</span>, sizeR]), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> config.L1_flag:</span><br><span class="line">        pos = tf.reduce_sum(abs(pos_h_e + pos_r_e - pos_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum(abs(neg_h_e + neg_r_e - neg_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        pos = tf.reduce_sum((pos_h_e + pos_r_e - pos_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum((neg_h_e + neg_r_e - neg_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&quot;output&quot;</span>):</span><br><span class="line">        self.loss = tf.reduce_sum(tf.maximum(pos - neg + margin, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="TransD"><a href="#TransD" class="headerlink" title="TransD"></a>TransD</h1><p>Knowledge Graph Embedding via Dynamic Mapping Matrix（2015）</p>
+<p>TransR也有其不足之处。</p>
+<ul>
+<li>首先，head和tail使用相同的转换矩阵将自己投射到超平面上，但是head和tail通常是一个不同的实体，例如，<code>(Bill Gates, founder, Microsoft)</code>。’Bill Gate’是一个人，’Microsoft’是一个公司，这是两个不同的类别。所以他们应该以不同的方式进行转换。</li>
+<li>第二，这个投影与实体和关系有关，但投影矩阵仅由关系决定。</li>
+<li>最后，TransR的参数数大于TransE和TransH。由于其复杂性，TransR/CTransR难以应用于大规模知识图谱。</li>
+</ul>
+<p>TransD使用两个向量来表示每个实体和关系。第一个向量表示实体或关系的意义，另一个向量(称为投影向量)将用于构造映射矩阵。given a triplet (h, r, t), its vectors are h, hp, r, rp, t, tp, where subscript p marks the projection vectors, h, hp, t, tp ∈ Rn</p>
+<p><img src="/images/papers/paper9-10.png" alt="/images/papers/paper9-10.png"></p>
+<p>$\begin{aligned}<br>\mathbf{M}{r h} &amp;=\mathbf{r}{p} \mathbf{h}{p}^{\top}+\mathbf{I}^{m \times n} \\<br>\mathbf{M}{r t} &amp;=\mathbf{r}{p} \mathbf{t}{p}^{\top}+\mathbf{I}^{m \times n}<br>\end{aligned}$</p>
+<p>其中映射矩阵由实体和关系定义，I为单位矩阵。这个等式意味着我们使用生成的矩阵(由r和h向量)来修改单位矩阵。投射和训练与TransR相同。TransE是向量维数满足m=n且所有投影向量都设为零时变换的一种特殊情况。</p>
+<p><img src="/images/papers/paper9-11.png" alt="/images/papers/paper9-11.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.name_scope(<span class="string">&quot;embedding&quot;</span>):</span><br><span class="line">    self.ent_embeddings = tf.get_variable(name = <span class="string">&quot;ent_embedding&quot;</span>, shape = [entity_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    self.rel_embeddings = tf.get_variable(name = <span class="string">&quot;rel_embedding&quot;</span>, shape = [relation_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    self.ent_transfer = tf.get_variable(name = <span class="string">&quot;ent_transfer&quot;</span>, shape = [entity_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line">    self.rel_transfer = tf.get_variable(name = <span class="string">&quot;rel_transfer&quot;</span>, shape = [relation_total, size], initializer = tf.contrib.layers.xavier_initializer(uniform = <span class="literal">False</span>))</span><br><span class="line"></span><br><span class="line">    pos_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_h)</span><br><span class="line">    pos_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.pos_t)</span><br><span class="line">    pos_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.pos_r)</span><br><span class="line">    pos_h_t = tf.nn.embedding_lookup(self.ent_transfer, self.pos_h)</span><br><span class="line">    pos_t_t = tf.nn.embedding_lookup(self.ent_transfer, self.pos_t)</span><br><span class="line">    pos_r_t = tf.nn.embedding_lookup(self.rel_transfer, self.pos_r)</span><br><span class="line"></span><br><span class="line">    neg_h_e = tf.nn.embedding_lookup(self.ent_embeddings, self.neg_h)</span><br><span class="line">    neg_t_e = tf.nn.embedding_lookup(self.ent_embeddings, self.neg_t)</span><br><span class="line">    neg_r_e = tf.nn.embedding_lookup(self.rel_embeddings, self.neg_r)</span><br><span class="line">    neg_h_t = tf.nn.embedding_lookup(self.ent_transfer, self.neg_h)</span><br><span class="line">    neg_t_t = tf.nn.embedding_lookup(self.ent_transfer, self.neg_t)</span><br><span class="line">    neg_r_t = tf.nn.embedding_lookup(self.rel_transfer, self.neg_r)</span><br><span class="line"></span><br><span class="line">    pos_h_e = self.calc(pos_h_e, pos_h_t, pos_r_t)</span><br><span class="line">    pos_t_e = self.calc(pos_t_e, pos_t_t, pos_r_t)</span><br><span class="line">    neg_h_e = self.calc(neg_h_e, neg_h_t, neg_r_t)</span><br><span class="line">    neg_t_e = self.calc(neg_t_e, neg_t_t, neg_r_t)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> config.L1_flag:</span><br><span class="line">        pos = tf.reduce_sum(abs(pos_h_e + pos_r_e - pos_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum(abs(neg_h_e + neg_r_e - neg_t_e), <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        pos = tf.reduce_sum((pos_h_e + pos_r_e - pos_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        neg = tf.reduce_sum((neg_h_e + neg_r_e - neg_t_e) ** <span class="number">2</span>, <span class="number">1</span>, keep_dims = <span class="literal">True</span>)</span><br><span class="line">        self.predict = pos</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">&quot;output&quot;</span>):</span><br><span class="line">        self.loss = tf.reduce_sum(tf.maximum(pos - neg + margin, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc</span>(<span class="params">self, e, t, r</span>):</span></span><br><span class="line">        <span class="keyword">return</span> tf.nn.l2_normalize(e + tf.reduce_sum(e * t, <span class="number">1</span>, keep_dims = <span class="literal">True</span>) * r, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p><img src="/images/papers/paper9-12.png" alt="/images/papers/paper9-12.png"></p>
+<p><img src="/images/papers/paper9-13.png" alt="/images/papers/paper9-13.png"></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2013/file/1cecc7a77928ca8133fa24680a88d2f9-Paper.pdf">Translating embeddings for modeling multi-relational data</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/publication/knowledge-graph-embedding-by-translating-on-hyperplanes/">https://www.microsoft.com/en-us/research/publication/knowledge-graph-embedding-by-translating-on-hyperplanes/</a></li>
+<li><a target="_blank" rel="noopener" href="http://nlp.csai.tsinghua.edu.cn/~lzy/publications/aaai2015_transr.pdf">Learning Entity and Relation Embeddings for Knowledge Graph Completion</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/P15-1067.pdf">Knowledge Graph Embedding via Dynamic Mapping Matrix</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/thunlp/TensorFlow-TransX">thunlp/TensorFlow-TransX</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/thunlp/KB2E">thunlp/KB2E</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/summary-of-translate-model-for-knowledge-graph-embedding-29042be64273">Summary of Translate Model for Knowledge Graph Embedding</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/147542008">知识图谱嵌入的Translate模型汇总（TransE，TransH，TransR，TransD）</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
+              <a href="/tags/ACL/" rel="tag"># ACL</a>
+              <a href="/tags/2013/" rel="tag"># 2013</a>
+              <a href="/tags/2014/" rel="tag"># 2014</a>
+              <a href="/tags/2015/" rel="tag"># 2015</a>
+              <a href="/tags/NIPS/" rel="tag"># NIPS</a>
+              <a href="/tags/AAAI/" rel="tag"># AAAI</a>
+              <a href="/tags/Knowledge-Graph-Embedding/" rel="tag"># Knowledge Graph Embedding</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/paper-A-Survey-on-Knowledge-Graphs-Representation-Acquisition-and-Applications/" rel="prev" title="综述 A Survey on Knowledge Graphs - Representation, Acquisition and Applications">
+                  <i class="fa fa-chevron-left"></i> 综述 A Survey on Knowledge Graphs - Representation, Acquisition and Applications
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/paper-DeepPath-A-Reinforcement-Learning-Method-for-Knowledge-Graph-Reasoning/" rel="next" title="DeepPath - A Reinforcement Learning Method for Knowledge Graph Reasoning">
+                  DeepPath - A Reinforcement Learning Method for Knowledge Graph Reasoning <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/paper-kg-embedding%E7%9A%84Translate%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB-TransE-TransH-TransR-TransD/";
+    this.page.identifier = "paper-kg-embedding的Translate模型汇总-TransE-TransH-TransR-TransD/";
+    this.page.title = "Knowledge-Graph-Embedding的Translate族（TransE，TransH，TransR，TransD）";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
