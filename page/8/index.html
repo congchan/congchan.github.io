@@ -1010,7 +1010,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-encapsulation-packages-jar-access/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-adt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1023,7 +1023,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/java-encapsulation-packages-jar-access/" class="post-title-link" itemprop="url">Java 封装, 包, JAR, 权限控制</a>
+          <a href="/java-adt/" class="post-title-link" itemprop="url">Java 抽象数据类型</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1055,8 +1055,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/java-encapsulation-packages-jar-access/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-encapsulation-packages-jar-access/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-adt/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-adt/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1070,10 +1070,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h2><p>封装是面向对象编程的基本原则之一，也是程序员处理复杂性一个方法。管理复杂性是编写大型程序时必须面对的主要挑战之一。</p>
+          <h2 id="Abstract-Data-Types-ADTS"><a href="#Abstract-Data-Types-ADTS" class="headerlink" title="Abstract Data Types (ADTS)"></a>Abstract Data Types (ADTS)</h2><p>ADTS 是由其行为属性定义的抽象类型, 跟如何实现无关.</p>
+<p>堆栈 Stacks 和队列 Queues 是两种类似的线性集合。堆栈是后进先出的ADT：元素总是从数据结构的一端添加或删除。队列是先进先出的ADT. 二者都支持以下操作:<br><code>push()</code>: 加入<br><code>peek()</code>: 返回下一个<br><code>poll()</code>: 返回下一个并删除</p>
+<p>Java的<code>Deque</code>(double ended queue, “deck”) 接口融合了堆栈和队列, 支持两端的元素插入和移除. <code>ArrayDeque</code>和<code>LinkedListDeque</code>都是实现<code>deque</code>这个接口，<code>deque</code>只是罗列了一些 methods，也即是一种合约，保证会实现的行为。而这些方法的具体实现则是由<code>ArrayDeque</code>和<code>LinkedListDeque</code>完成。从概念上讲，<code>deque</code>就是一种抽象的数据类型，只说会有什么行为，但不体现这些行为的具体实现方式，所以是抽象的。</p>
+<p>优先级队列 priority queue 的每个元素都有一个与之关联的优先级，以决定从队列中元素操作的顺序。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/java-encapsulation-packages-jar-access/#more" rel="contents">
+              <a class="btn" href="/java-adt/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1198,7 +1201,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-exception/">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/java-encapsulation-packages-jar-access/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1211,7 +1214,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/java-exception/" class="post-title-link" itemprop="url">Java Exceptions</a>
+          <a href="/java-encapsulation-packages-jar-access/" class="post-title-link" itemprop="url">Java 封装, 包, JAR, 权限控制</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1243,8 +1246,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/java-exception/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-exception/" itemprop="commentCount"></span>
+    <a title="disqus" href="/java-encapsulation-packages-jar-access/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="java-encapsulation-packages-jar-access/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1258,11 +1261,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Exception-handling"><a href="#Exception-handling" class="headerlink" title="Exception-handling"></a>Exception-handling</h2><p>假如调用了一个不是自己写的方法, 该方法执行某些有风险的任务(当然,自己写的也可能会有风险),可能会在运行期间出状况,那么就必须认识到该方法是有风险的, 要写出可以在发生状况时做出应对的代码.</p>
-<p>当程序出现错误时，假如继续运行下去已经没有意义（或者根本不可能继续），那么我们就想要中断正常的控制流程 - throws an exception。</p>
+          <h2 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h2><p>封装是面向对象编程的基本原则之一，也是程序员处理复杂性一个方法。管理复杂性是编写大型程序时必须面对的主要挑战之一。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/java-exception/#more" rel="contents">
+              <a class="btn" href="/java-encapsulation-packages-jar-access/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
