@@ -10498,7 +10498,7 @@ table th:nth-of-type(3) {
 </li>
 </ul>
 <p><img src="/images/circle_loss.png" alt="/images/Untitled%202.png"></p>
-<p>对于分类问题, 不考虑$\gamma$和m,  对于k不固定的多标签分类来说，我们就需要一个阈值来确定输出哪些类。为此，我们同样引入一个额外的0类，希望目标类的分数都大于$s_0$，非目标类的分数都小于$s_0$，希望$s_i &lt; s_j$就往$log$里边加入$e^{s_i − s_j}$，所以现在<a href="">上面的多个目标类的多标签分类场景公式</a>变成：</p>
+<p>对于分类问题, 不考虑$\gamma$和m,  对于k不固定的多标签分类来说，我们就需要一个阈值来确定输出哪些类。为此，我们同样引入一个额外的0类，希望目标类的分数都大于$s_0$，非目标类的分数都小于$s_0$，希望$s_i &lt; s_j$就往$log$里边加入$e^{s_i − s_j}$，所以现在上面的多个目标类的多标签分类场景公式变成：</p>
 <p>$\begin{aligned}<br>&amp; \log \left(1+\sum_{i \in \Omega_{n e g}, j \in \Omega_{p o s}} e^{s i-s j}+\sum_{i \in \Omega_{n e g}} e^{s i-s 0}+\sum_{j \in \Omega_{p o s}} e^{s_{0}-s j}\right) \\<br>=&amp; \log \left(e^{s_{0}}+\sum_{i \in \Omega_{n e g}} e^{s_{i}}\right)+\log \left(e^{-s_{0}}+\sum_{j \in \Omega_{p o s}} e^{-s_{j}}\right)<br>\end{aligned}$</p>
 <p>如果指定阈值为0，那么就简化为</p>
 <p>$\log \left(1+\sum_{i \in \Omega_{n e g}} e^{s i}\right)+\log \left(1+\sum_{j \in \Omega_{p o s}} e^{-s j}\right)$</p>
@@ -10555,6 +10555,7 @@ table th:nth-of-type(3) {
 <li><a href="https://kexue.fm/archives/7359">将”softmax+交叉熵”推广到多标签分类问题</a></li>
 <li><a href="https://www.zhihu.com/question/63581984">如何评价Kaiming的Focal Loss for Dense Object Detection？</a></li>
 <li><a href="https://kexue.fm/archives/7359#%E7%BB%9F%E4%B8%80%E7%9A%84loss%E5%BD%A2%E5%BC%8F">将”softmax+交叉熵”推广到多标签分类问题</a></li>
+<li><a href="https://www.zhihu.com/question/382802283/answer/1114719159">如何理解与看待在cvpr2020中提出的circle loss</a></li>
 </ul>
 ]]></content>
       <categories>
