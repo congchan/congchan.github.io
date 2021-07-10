@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="googlee4f5b3d387f2fae7">
+  <meta name="msvalidate.01" content="B49368B5E1218EA9380A07C97E0E97B4">
+  <meta name="yandex-verification" content="0da69d506cf33dfe">
+  <meta name="baidu-site-verification" content="Elnplp8Jq5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"congchan.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="Links: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2101.03961 “SWITCH TRANSFORMERS: SCALING TO TRILLION PARAMETER MODELS WITH SIMPLE AND EFFICIENT SPARSITY”，提出了一种可以扩展到万亿参数的网络，有两个比较大的创新，基于Transformer MoE网络结构，简化了MoE的routing机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Switch Transformers - Scaling to Trillion Parameter Models with Simple and Efficient Sparsity">
+<meta property="og:url" content="https://congchan.github.io/paper-Switch-Transformers-Scaling-to-Trillion-Parameter-Models-with-Simple-and-Efficient-Sparsity/index.html">
+<meta property="og:site_name" content="Fly Me to the Moon">
+<meta property="og:description" content="Links: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2101.03961 “SWITCH TRANSFORMERS: SCALING TO TRILLION PARAMETER MODELS WITH SIMPLE AND EFFICIENT SPARSITY”，提出了一种可以扩展到万亿参数的网络，有两个比较大的创新，基于Transformer MoE网络结构，简化了MoE的routing机">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper12.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper12-1.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper12-2.png">
+<meta property="og:image" content="https://congchan.github.io/images/papers/paper12-3.png">
+<meta property="article:published_time" content="2021-07-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-09T16:00:00.000Z">
+<meta property="article:author" content="Cong">
+<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="MOE">
+<meta property="article:tag" content="2021">
+<meta property="article:tag" content="Transformers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://congchan.github.io/images/papers/paper12.png">
+
+
+<link rel="canonical" href="https://congchan.github.io/paper-Switch-Transformers-Scaling-to-Trillion-Parameter-Models-with-Simple-and-Efficient-Sparsity/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Switch Transformers - Scaling to Trillion Parameter Models with Simple and Efficient Sparsity | Fly Me to the Moon</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Fly Me to the Moon</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Simplifying-Sparse-Routing"><span class="nav-number">1.1.</span> <span class="nav-text">Simplifying Sparse Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EFFICIENT-SPARSE-ROUTING"><span class="nav-number">1.2.</span> <span class="nav-text">EFFICIENT SPARSE ROUTING</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8CSwitch%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">并行Switch实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E5%BE%AE%E5%88%86%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">可微分负载均衡损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E6%8F%90%E5%8D%87%E8%AE%AD%E7%BB%83%E6%95%88%E6%9E%9C%E5%92%8Cfine-tuning%E7%9A%84%E6%8A%80%E5%B7%A7"><span class="nav-number">1.3.</span> <span class="nav-text">2.4 提升训练效果和fine-tuning的技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%B8%8B%E6%B8%B8fine-tuning%E6%95%88%E6%9E%9C%E5%BE%97%E5%88%B0%E6%8F%90%E5%8D%87"><span class="nav-number">2.</span> <span class="nav-text">4 下游fine-tuning效果得到提升</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-DESIGNING-MODELS-WITH-DATA-MODEL-AND-EXPERT-PARALLELISM-Arbitrarily"><span class="nav-number">3.</span> <span class="nav-text">5 DESIGNING MODELS WITH DATA, MODEL, AND EXPERT-PARALLELISM Arbitrarily</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Cong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/congchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;congchan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/congchan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/paper-Switch-Transformers-Scaling-to-Trillion-Parameter-Models-with-Simple-and-Efficient-Sparsity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Switch Transformers - Scaling to Trillion Parameter Models with Simple and Efficient Sparsity
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-10T00:00:00+08:00">2021-07-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/paper-Switch-Transformers-Scaling-to-Trillion-Parameter-Models-with-Simple-and-Efficient-Sparsity/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="paper-Switch-Transformers-Scaling-to-Trillion-Parameter-Models-with-Simple-and-Efficient-Sparsity/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Links: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.03961">https://arxiv.org/abs/2101.03961</a></p>
+<p>“SWITCH TRANSFORMERS: SCALING TO TRILLION PARAMETER MODELS WITH SIMPLE AND EFFICIENT SPARSITY”，提出了一种可以扩展到万亿参数的网络，有两个比较大的创新，基于Transformer MoE网络结构，简化了MoE的routing机制，降低了计算量；进一步通过数据并行+模型并行+expert并行的方式降低了训练通信量，提升训练性能。</p>
+<a id="more"></a>
+
+
+<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p><img src="/images/papers/paper12.png"></p>
+<h2 id="Simplifying-Sparse-Routing"><a href="#Simplifying-Sparse-Routing" class="headerlink" title="Simplifying Sparse Routing"></a>Simplifying Sparse Routing</h2><ul>
+<li><strong>Mixture of Expert Routing</strong> which takes as an input a token representation x and then routes this to the best deter- mined top-k experts</li>
+<li><strong>Switch Routing</strong>: route to only a single expert, this simplification preserves model quality, reduces routing computation and performs better.</li>
+</ul>
+<p><img src="/images/papers/paper12-1.png"></p>
+<p>Sparse routing通过参数Wr计算出一个在N个experts上的softmax分布，对每个token输入筛选概率最高的 top k 个 experts，对应的是MOE中的门控机制。这样对算力的需求并没有随着参数量的增加而大幅增长，使得这个模型更加容易训练。</p>
+<h2 id="EFFICIENT-SPARSE-ROUTING"><a href="#EFFICIENT-SPARSE-ROUTING" class="headerlink" title="EFFICIENT SPARSE ROUTING"></a>EFFICIENT SPARSE ROUTING</h2><h3 id="并行Switch实现"><a href="#并行Switch实现" class="headerlink" title="并行Switch实现"></a>并行Switch实现</h3><ul>
+<li>tensor shapes are <strong>statically</strong> determined at compilation time</li>
+<li>computation is <strong>dynamic</strong> due to the routing decisions at training and inference.</li>
+</ul>
+<p>One important technical consideration is how to set <strong>the expert capacity - the number of tokens each expert computes:</strong> is set by evenly dividing the number of tokens in the batch across the number of experts, and then further expanding by a capacity factor,</p>
+<p>$$\text { expert capacity }=\left(\frac{\text { tokens per batch }}{\text { number of experts }}\right) \times \text { capacity factor }$$</p>
+<ul>
+<li>capacity factor &gt; 1.0 create additional buffer to accommodate for when tokens are not perfectly balanced across experts.</li>
+<li>dropped tokens: If too many tokens are routed to an expert, computation is skipped and the token representation is passed directly to the next layer through the residual connection.</li>
+</ul>
+<h3 id="可微分负载均衡损失函数"><a href="#可微分负载均衡损失函数" class="headerlink" title="可微分负载均衡损失函数"></a>可微分负载均衡损失函数</h3><p>为了均衡各个专家间的负载，需要一个辅助loss (Shazeer et al., 2017; 2018; Lepikhin et al., 2020)</p>
+<p>For each Switch layer, this auxiliary loss is added to the total model loss during training</p>
+<p>具体的，给定 N 个 experts （indexed by i = 1 to N），以及一个 batch $B$ with $T$ tokens, 设定一个辅助损失函数以 encourages <strong>uniform routing</strong> since it is minimized under <strong>a uniform distribution</strong>. the auxiliary loss is computed as the scaled dot-product between vectors f and P：</p>
+<p>$$\operatorname{loss}=\alpha N \cdot \sum_{i=1}^{N} f_{i} \cdot P_{i}$$</p>
+<p>其中 $f_i$ is the fraction of tokens dispatched to expert i, </p>
+<p>$$f_{i}=\frac{1}{T} \sum_{x \in \mathcal{B}} \mathbb{1}{\operatorname{argmax} p(x), i}$$</p>
+<p>大写的 $P_i$是可微分的， is the probability fraction to expert i across all tokens in the batch $B$</p>
+<p>$$P_{i}=\frac{1}{T} \sum_{x \in \mathcal{B}} p_{i}(x)$$</p>
+<p>小写的$p_i(x)$ is the probability of routing token x to expert i.</p>
+<p>$N$用于 keep the loss constant as the number of experts varies since under uniform routing </p>
+<p>$\sum^N_1 (f_i ·P_i) = \sum^N_1( \frac{1}{N} · \frac{1}{N}) = \frac{1}{N}$.</p>
+<p> $α = 10^{−2}$ to ensure load balancing while small enough to not to overwhelm the primary cross-entropy objective.</p>
+<h2 id="2-4-提升训练效果和fine-tuning的技巧"><a href="#2-4-提升训练效果和fine-tuning的技巧" class="headerlink" title="2.4 提升训练效果和fine-tuning的技巧"></a>2.4 提升训练效果和fine-tuning的技巧</h2><ul>
+<li>提升训练稳定性  - Selective precision with large sparse models<ul>
+<li>文章说明不需要全局使用float32，而是局部使用float32也可能保证稳定性</li>
+<li>cast the router input to float32 precision，<strong>the float32 precision is only used within the body of the router function</strong>，计算完再cast to bfloat16，然后才分发出去，避免了通信负担</li>
+</ul>
+</li>
+<li>Smaller parameter initialization for stability， Reduced initialization scale improves stability. 在truncated normal distribution初始化基础上，reducing the default Transformer initialization scale s = 1.0 by a factor of 10.</li>
+<li>Regularizing large sparse models：increase the dropout inside the experts, which we name as <strong>expert dropout</strong>.</li>
+</ul>
+<h1 id="4-下游fine-tuning效果得到提升"><a href="#4-下游fine-tuning效果得到提升" class="headerlink" title="4 下游fine-tuning效果得到提升"></a>4 下游fine-tuning效果得到提升</h1><p><img src="/images/papers/paper12-2.png"></p>
+<h1 id="5-DESIGNING-MODELS-WITH-DATA-MODEL-AND-EXPERT-PARALLELISM-Arbitrarily"><a href="#5-DESIGNING-MODELS-WITH-DATA-MODEL-AND-EXPERT-PARALLELISM-Arbitrarily" class="headerlink" title="5 DESIGNING MODELS WITH DATA, MODEL, AND EXPERT-PARALLELISM Arbitrarily"></a>5 DESIGNING MODELS WITH DATA, MODEL, AND EXPERT-PARALLELISM Arbitrarily</h1><p>Switch Transformer用了多种并行策略，数据并行+模型并行+expert并行。</p>
+<p>Expert并行实际上就是一种算子间的并行，experts在计算图上是个多并行子图分支，每个分支是一个FFNN结构。</p>
+<p>在FFN内部，还可以进一步进行算子级的模型并行。每个FFN内部，the intermediate is $h = xW_{in}$ and then the output of the layer is $y = ReLU(h)W_{out}$. $W_{in}$  and $W_{out}$  are applied independently to each token and have sizes $[d_{model}, d_{ff}]$ and $[d_{ff}, d_{model}]$.</p>
+<p>所以Switch Transformer的并行方式是数据并行+算子级模型并行+算子间模型并行，这种并行模型相较于数据并行+算子级模型并行的方式，在MoE网络结构上能够获得更低的通信开销，提高并行的效率。参照文章中的定义：</p>
+<p>B - Number of tokens in the batch. </p>
+<p>N - Number of total cores. </p>
+<p>n - Number of ways for data-parallelism sharding.<br>m - Number of ways for model-parallelism sharding. </p>
+<p>E - Number of experts in Switch layers. </p>
+<p>C - Expert capacity, the batch size of each expert.</p>
+<p><img src="/images/papers/paper12-3.png"></p>
+<p>数据并行：n = N,m = 1，数据分割到各个cores，模型完整地复制到各个cores，图9第一列， no communication is needed until the entire forward and backward pass is finished and the gradients need to be then aggregated across all cores</p>
+<p>模型并行：n = 1,m = N，For each forward and backward pass, a communication cost is now incurred</p>
+<p>数据和模型并行：N = n ×m cores，In the forward and backward pass each core communicates a tensor of size $[B/n, d_{model}]$ in an all-reduce operation.</p>
+<p>Expert和数据并行：让E = n = N，对每个core分到的每个token，local router决定如何分配给不同的experts，输出是一个binary matrix $[n, B/n, E, C]$，Because each core has its own expert, we do an all-to-all communication of size $[E, C, d_{model}]$ to now shard the E dimension instead of the n-dimension. </p>
+<p>Expert、模型和数据并行：在N cores资源固定的前提下，因为 $N = n \times m$, 只能在模型并行和数据并行，也就是batch-size和$d_{ff}$ size之间做trade-off. 文章在section5.6详细讨论这部分。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
+              <a href="/tags/MOE/" rel="tag"># MOE</a>
+              <a href="/tags/2021/" rel="tag"># 2021</a>
+              <a href="/tags/Transformers/" rel="tag"># Transformers</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Mixture-of-Experts-(MOE)-Sparsely-Gated-Mixture-of-Experts-layer/" rel="prev" title="Mixture of Experts (MOE)">
+                  <i class="fa fa-chevron-left"></i> Mixture of Experts (MOE)
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cong Chan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b35f789bd238372" async="async"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://shootingspace.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://congchan.github.io/paper-Switch-Transformers-Scaling-to-Trillion-Parameter-Models-with-Simple-and-Efficient-Sparsity/";
+    this.page.identifier = "paper-Switch-Transformers-Scaling-to-Trillion-Parameter-Models-with-Simple-and-Efficient-Sparsity/";
+    this.page.title = "Switch Transformers - Scaling to Trillion Parameter Models with Simple and Efficient Sparsity";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://shootingspace.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

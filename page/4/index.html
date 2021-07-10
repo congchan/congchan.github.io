@@ -196,7 +196,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">112</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -207,7 +207,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -245,6 +245,208 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/algorithms-applications-01-percolation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/algorithms-applications-01-percolation/" class="post-title-link" itemprop="url">Percolations problem</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">2018-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/algorithms-applications-01-percolation/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="algorithms-applications-01-percolation/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Union-find-applications-Percolation"><a href="#Union-find-applications-Percolation" class="headerlink" title="Union-find applications: Percolation"></a>Union-find applications: Percolation</h3><p><a target="_blank" rel="noopener" href="http://coursera.cs.princeton.edu/algs4/assignments/percolation.html">Problem discriptions</a></p>
+<p>Percolation data type. To model a percolation system, create a data type Percolation with the following API:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Percolation</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Percolation</span><span class="params">(<span class="keyword">int</span> n)</span></span>;                <span class="comment">// create n-by-n grid, with all sites blocked</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>    <span class="keyword">void</span> <span class="title">open</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>;    <span class="comment">// open site (row, col) if it is not open already</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOpen</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>;  <span class="comment">// is site (row, col) open?</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>;  <span class="comment">// is site (row, col) full?</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>     <span class="keyword">int</span> <span class="title">numberOfOpenSites</span><span class="params">()</span></span>;       <span class="comment">// number of open sites</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">percolates</span><span class="params">()</span></span>;              <span class="comment">// does the system percolate?</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Monte Carlo simulation. To estimate the percolation threshold, consider the following computational experiment:</p>
+<ul>
+<li>Initialize all sites to be blocked.</li>
+<li>Repeat the following until the system percolates:<ul>
+<li>Choose a site uniformly at random among all blocked sites.</li>
+<li>Open the site.</li>
+</ul>
+</li>
+<li>The fraction of sites that are opened when the system percolates provides an estimate of the percolation threshold.</li>
+</ul>
+<p>Codes available at <a target="_blank" rel="noopener" href="https://github.com/congchan/algs4">algs4/Percolation/src/</a></p>
+<h4 id="The-back-wash-issue"><a href="#The-back-wash-issue" class="headerlink" title="The back wash issue"></a><a target="_blank" rel="noopener" href="http://coursera.cs.princeton.edu/algs4/checklists/percolation.html">The back wash issue</a></h4><p><img src="http://coursera.cs.princeton.edu/algs4/checklists/percolation-backwash.png" title="image from: http://coursera.cs.princeton.edu"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/algorithms-applications-01-percolation/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/word2vec/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Cong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fly Me to the Moon">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/word2vec/" class="post-title-link" itemprop="url">深入理解word2vec</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2018-06-22T00:00:00+08:00">2018-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CS/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/word2vec/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="word2vec/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Word2vec <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">Mikolov et al.</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/word2vec/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1024,200 +1226,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/machine-learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fly Me to the Moon">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/machine-learning/" class="post-title-link" itemprop="url">Machine Learning Note - cs229 - Stanford</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-05T00:00:00+08:00">2017-12-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/machine-learning/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="machine-learning/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>参考<br><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/notes">CS229: Machine Learning, Stanford</a></p>
-<p>什么是机器学习？目前有两个定义。</p>
-<p>亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。</p>
-<p>汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：<br>E：经验，即历史的数据集。<br>T：某类任务。<br>P：任务的绩效衡量。<br>若该计算机程序通过利用经验E在任务T上获得了性能P的改善，则称该程序对E进行了学习<br>“如果计算机程序能够利用经验E，提升实现任务T的成绩P，则可以认为这个计算机程序能够从经验E中学习任务T”。<br>例如：玩跳棋。E =玩许多棋子游戏的经验，T = 玩跳棋的任务。P = 程序将赢得下一场比赛的概率。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/machine-learning/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://congchan.github.io/machine-learning-with-sklearn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Cong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fly Me to the Moon">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/machine-learning-with-sklearn/" class="post-title-link" itemprop="url">Machine Learning with Scikit-learn (Sklearn) 机器学习实践</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">2017-12-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/machine-learning-with-sklearn/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="machine-learning-with-sklearn/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Scikit-learn 提供一套实用的工具，用于解决机器学习中的实际问题，并配合适当的方法来制定解决方案。</p>
-<p>涉及数据和模型简介，决策树，误差的作用，最小化误差，回归拟合，逻辑回归，神经网络，感知器，支持向量机，朴素贝叶斯，降维，K均值，简单高斯混合模型，分层聚类，模型评估。</p>
-<p>实验和代码在<a target="_blank" rel="noopener" href="https://github.com/JamesOwers/iaml2017">GitHub</a>;<br>练习作业答案可以参考<a target="_blank" rel="noopener" href="https://github.com/ShootingSpace/Machine-learning-practical-with-scikit-learn">GitHub</a></p>
-
       
     </div>
 
