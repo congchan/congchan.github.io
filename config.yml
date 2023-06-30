@@ -5,7 +5,7 @@ theme: PaperMod
 defaultContentLanguage: en-us
 
 permalinks:
-    posts: /:slug/
+    posts: /posts/:slug/
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
