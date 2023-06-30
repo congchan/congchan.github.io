@@ -1,6 +1,6 @@
 ---
 title: A Better Practice to Define Reward Model with HuggingFace's transformers
-date: 2023-04-30
+date: 2023-03-25
 weight: 2
 mathjax: true
 author: "Cong Chan"
