@@ -1,5 +1,5 @@
 ---
-title: Paper Reading - The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions
+title: Paper Reading - The Instruction Hierarchy - Training LLMs to Prioritize Privileged Instructions
 date: 2024-04-20
 mathjax: true
 tags: ['Readings', '2024', 'LLM', Alignment']
