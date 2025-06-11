@@ -142,3 +142,7 @@ markup:
     goldmark:
         renderer:
             unsafe: true
+
+caches:
+  images:
+    dir: :cacheDir/images
