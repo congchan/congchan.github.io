@@ -1,7 +1,6 @@
 ---
 title: Boosting Large Language Models Alignment - A Data-Driven Bootstrap Flywheel
-date: 2023-03-30
-weight: 2
+date: 2023-08-21
 author: "Cong Chan"
 tags: ["LLM", "RLHF"]
 ---

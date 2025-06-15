@@ -1,7 +1,6 @@
 ---
 title: A Better Practice to Define Reward Model with HuggingFace's transformers
-date: 2023-03-25
-weight: 2
+date: 2023-09-25
 mathjax: true
 author: "Cong Chan"
 tags: ['LLM', 'Reward Modeling', 'RLHF']
