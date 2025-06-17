@@ -1,5 +1,5 @@
 baseURL: "https://congchan.github.io/"
-title: Fly me to the Moon
+title: Cong's Log
 paginate: 10
 theme: PaperMod
 defaultContentLanguage: en-us
@@ -142,3 +142,7 @@ markup:
     goldmark:
         renderer:
             unsafe: true
+
+caches:
+  images:
+    dir: :cacheDir/images
