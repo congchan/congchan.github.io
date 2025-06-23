@@ -2,7 +2,7 @@
 title: Paper Reading - Let’s Verify Step by Step
 date: 2023-06-18
 mathjax: true
-tags: ['Readings', '2023', 'LLM', 'Reward Modeling']
+tags: ['Readings', '2023', 'Large Language Model', 'Reward Modeling']
 ---
 
 # TLDR
