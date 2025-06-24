@@ -33,11 +33,11 @@ The reward model aims to:
   - Uses a 6B parameter model for computational efficiency, as 175B models showed training instability .  
 
 - **Training Methodology**:  
-  - **Loss Function**: Cross-entropy loss to predict human-preferred outputs, formulated as:  
+  - **Loss Function**: Cross-entropy loss to predict human-preferred outputs, formulated as:
     $$
     \text{loss}(\theta) = -\frac{1}{\binom{K}{2}} \mathbb{E}_{\left(x, y_w, y_l\right) \sim D} \left[ \log \left( \sigma(r_\theta(x, y_w) - r_\theta(x, y_l)) \right) \right]
     $$
-    where $y_w$\)$ and $y_l$ are the preferred and less preferred outputs, respectively, and $K$ is the number of outputs per prompt .  
+    where $y_w$ and $y_l$ are the preferred and less preferred outputs, respectively, and $K$ is the number of outputs per prompt .  
   - **Batch Processing**: Treats all $\binom{K}{2}$ comparisons from a prompt as a single batch element to prevent overfitting and improve computational efficiency .  
   - **Normalization**: Adjusts rewards so that labeler demonstrations have a mean score of 0 before RL training .  
 
