@@ -1,7 +1,7 @@
 baseURL: "https://congchan.github.io/"
 title: Cong's Log
 paginate: 10
-theme: PaperMod
+theme: ["PaperMod"]
 defaultContentLanguage: en-us
 
 permalinks:
@@ -43,6 +43,7 @@ params:
     ShowToc: true
     tocopen: false  # 让TOC显示但自动收起
     comments: true
+    pygmentsUseClasses: true
     mainSections:
         - posts
 

@@ -14,9 +14,9 @@ This is the alignment problem: how do we transform raw language models into trus
 3. **Reward hacking** vulnerabilities where models "game" the system  
 
 Enter the new generation of alignment techniques. There are three trends of directions:  
-- Eliminating reward modeling stages. Or use Rule-based rewards to incentivize LLM intelligence.
-- Using AI-generated preferences.
-- Enabling single-step optimization  
+1. Eliminating reward modeling stages. Or use Rule-based rewards to incentivize LLM intelligence.
+2. Using AI-generated preferences.
+3. Enabling single-step optimization  
 
 I am currently following the most cutting-edge LLM alignment methods, and this blog will be updated periodically.
 
@@ -266,7 +266,7 @@ REINFORCE++ is a critic-free RLHF algorithm that uses the **global batch mean re
 The overall algorithm flow of REINFORCE++: Sample one response per prompt, compute rewards, normalize advantages, and update the policy using a clipped objective (similar to PPO but without the critic).  
 - Advantages Normalization: Normalizes advantages across the entire batch to stabilize training and enhance out-of-distribution (OOD) generalization. REINFORCE++ replaces prompt-specific baselines with the mean reward of a global batch, reducing overfitting to individual prompts. The Advantage is calculated as:
     $$
-    A_{q, o_t} = r(o_{1:t}, q) - \beta \cdot \sum_{i=t}^T KL(i), \quad \text{with } KL(t) = \log\left(\frac{\pi_{\theta_{\text{old}}}^{RL}(o_t | q, o_{<t})}{\pi^{\text{SFT}}(o_t | q, o_{<t})}\right)
+    A_{q, o_t} = r(o_{1:t}, q) - \beta \cdot \sum_{i=t}^T KL(i), \quad \text{with } KL(t) = \log\left(\frac{\pi_{\theta_{\text{old}}}^{RL}(o_t | q, o_{\lt t})}{\pi^{\text{SFT}}(o_t | q, o_{\lt t})}\right)
     $$
     The token-level KL penalty avoids the need for a critic network while achieving comparable stability. The gradient of the token-level KL penalty has been theoretically proven to be unbiased concerning the $k_3$ loss of GRPO in RLHF. 
 
@@ -546,13 +546,17 @@ Identity-PO (IPO) is an approach setting Ψ to the identity function, bypassing 
 
 **Paper**: [A General Theoretical Paradigm to Understand Learning from Human Preferences](https://arxiv.org/abs/2310.12036).  
 
-#### IPO Loss function
+IPO Loss function:
+
 $$
 \mathbb{E}_{(y_w, y_l) \sim D} \left[ \left( h_\pi(y_w, y_l) - \frac{\tau^{-1}}{2} \right)^2 \right]
 $$
-- IPO learns from preferences dataset simply by regressing the gap between log-likelihood ratios $\log(\pi(y_w)/\pi(y_l))$ and $\log(\pi_{\text{ref}}(y_w)/\pi_{\text{ref}}(y_l))$ to $\frac{\tau^{-1}}{2}$. 
-- So the weaker the regularisation becomes, the higher would be the log-likelihood ratio of $y_w$ to $y_l$. 
-- In other words IPO, unlike DPO, always regularizes its solution towards $\pi_{\text{ref}}$ by controlling the gap between the log-likelihood ratios $\log(\pi(y_w)/\pi(y_l))$ and $\log(\pi_{\text{ref}}(y_w)/\pi_{\text{ref}}(y_l))$, thus avoiding the over-fitting to the preference dataset.
+
+IPO learns from preferences dataset simply by regressing the gap between log-likelihood ratios $\log(\pi(y_w)/\pi(y_l))$ and $\log(\pi_{\text{ref}}(y_w)/\pi_{\text{ref}}(y_l))$ to $\frac{\tau^{-1}}{2}$. 
+
+So the weaker the regularisation becomes, the higher would be the log-likelihood ratio of $y_w$ to $y_l$. 
+
+In other words IPO, unlike DPO, always regularizes its solution towards $\pi_{\text{ref}}$ by controlling the gap between the log-likelihood ratios $\log(\pi(y_w)/\pi(y_l))$ and $\log(\pi_{\text{ref}}(y_w)/\pi_{\text{ref}}(y_l))$, thus avoiding the over-fitting to the preference dataset.
 
 
 ```python
@@ -573,21 +577,6 @@ Extends DPO to multi-turn dialogue by optimizing preferences across conversation
 
 ### WPO - Enhancing RLHF with Weighted Preference Optimization
 
-### Wrap up
-**Key Idea**: Bypasses explicit reward modeling by directly optimizing policies on preference data.  
-
-Cite: Some descriptions are refenced from https://huggingface.co/docs/trl/dpo_trainer
-
-| **Method**       | **Description**                                    | **Advantages**                                  | **Link**                                      |  
-|------------------|--------------------------------------------------|------------------------------------------------|-----------------------------------------------|  
-| **DPO**          | Maps reward to policy via Bradley-Terry model. Given the preference data, fit a binary classifier according to the Bradley-Terry model and in fact the DPO authors propose the sigmoid loss on the normalized likelihood via the logsigmoid to fit a logistic regression. | Simpler than RLHF; no reward model needed      | https://arxiv.org/abs/2305.18290 |  
-| **IPO**          | Adds regularization to prevent overfitting       | Improves DPO stability                         | *Azar et al. (2023). "Identity Preference Optimization"*  |  
-| **SimPO**        | Length-normalized reward; no reference model     | Higher performance (e.g., 44.7% on AlpacaEval 2) | *Meng et al. (2024). "SimPO: Simple Preference Optimization"*  |  
-| **ORPO**         | Integrates SFT and preference tuning jointly     | Avoids alignment tax                           | *Hong et al. (2024). "Odds Ratio Preference Optimization"* |  
-| **Step-DPO**     | Step-wise rewards for long reasoning chains      | Improves math/code task performance            | *Zhang et al. (2024). "Step-wise Preference Optimization"* |  
-| RSO | Rejection Sampling Optimization, source preference data from the target optimal policy using rejection sampling | enabling a more accurate estimation of the optimal policy | https://arxiv.org/abs/2309.06657 |
-
-
 ## **IV. Reference-Free Optimization** 
 ### **SimPO: Simple Preference Optimization with a Reference-Free Reward**
 SimPO aligns the reward function with the generation metric, eliminates the need for a reference model, and introduces a target reward margin to enhance performance.
@@ -603,11 +592,11 @@ In DPO, for any triple $(x, y_w, y_l)$, satisfying the reward ranking $r(x, y_w)
 **Length-Normalized Reward formulation**:
 Replacing the reward formulation in DPO with $p_\theta$ in the average log likelihood
 $$
-p_\theta(y \mid x) = \frac{1}{|y|} \log \pi_\theta(y \mid x) = \frac{1}{|y|} \sum_{i=1}^{|y|} \log \pi_\theta(y_i \mid x, y_{<i}).
+p_\theta(y \mid x) = \frac{1}{|y|} \log \pi_\theta(y \mid x) = \frac{1}{|y|} \sum_{i=1}^{|y|} \log \pi_\theta(y_i \mid x, y_{\lt i}).
 $$
 so that it aligns with the likelihood metric that guides generation, results in a length-normalized reward:
 $$
-r_{\text{SimPO}}(x, y) = \frac{\beta}{|y|} \log \pi_\theta(y \mid x) = \frac{\beta}{|y|} \sum_{i=1}^{|y|} \log \pi_\theta(y_i \mid x, y_{<i})
+r_{\text{SimPO}}(x, y) = \frac{\beta}{|y|} \log \pi_\theta(y \mid x) = \frac{\beta}{|y|} \sum_{i=1}^{|y|} \log \pi_\theta(y_i \mid x, y_{\lt i})
 $$
 
 where $\beta$ is a constant that controls the scaling of the reward difference.
