@@ -5,8 +5,6 @@ mathjax: true
 tags: ['2025', 'Large Language Model', 'Reward Modeling']
 ---
 
-## **An Overview: The Critical Role of Reward Modeling in LLM Alignment**  
-
 Reward modeling (RM) has emerged as a cornerstone of large language model (LLM) alignment, guiding models to align with human values and perform complex tasks. Early approaches relied heavily on Reinforcement Learning from Human Feedback (RLHF), but recent research has shifted toward more scalable, efficient, and generalizable RM frameworks. This blog explores the developmental arc of RM, connecting four seminal papers that have shaped the field: from Constitutional AI and self-evaluation mechanisms to inference-time scaling for generalist RM.  
 
 ### 1. Scoreing preference by parameters
