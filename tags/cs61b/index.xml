@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cs61b on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/cs61b/</link>
+    <description>Recent content in Cs61b on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/cs61b/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithms 03 - Memory 内存</title>
+      <link>https://congchan.github.io/posts/algorithms-03-memory-%E5%86%85%E5%AD%98/</link>
+      <pubDate>Wed, 28 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/algorithms-03-memory-%E5%86%85%E5%AD%98/</guid>
+      <description>&lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
+&lt;p&gt;Bit. 0 or 1.
+Byte. 8 bits.
+Megabyte (MB). 1 million or $2^{20}$ bytes.
+Gigabyte (GB). 1 billion or $2^{30}$ bytes.
+64-bit machine. We assume a 64-bit machine with 8 byte pointers (References).
+・Can address more memory.
+・Pointers use more space (some JVMs &amp;ldquo;compress&amp;rdquo; ordinary object pointers to 4 bytes to avoid this cost).&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;typical-memory-usage-for-primitive-types-and-arrays&#34;&gt;Typical memory usage for primitive types and arrays&lt;/h3&gt;
+&lt;p&gt;primitive types (bytes):
+&lt;code&gt;boolean&lt;/code&gt; 1
+&lt;code&gt;byte&lt;/code&gt; 1
+&lt;code&gt;char&lt;/code&gt; 2
+&lt;code&gt;int&lt;/code&gt; 4
+&lt;code&gt;float&lt;/code&gt; 4
+&lt;code&gt;long&lt;/code&gt; 8
+&lt;code&gt;double&lt;/code&gt; 8&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Algorithms 02 - Amortized Analysis 平摊分析</title>
+      <link>https://congchan.github.io/posts/algorithms-02-amortized-analysis-%E5%B9%B3%E6%91%8A%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 27 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/algorithms-02-amortized-analysis-%E5%B9%B3%E6%91%8A%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;假如有两种交税方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每天付 3 金币&lt;/li&gt;
+&lt;li&gt;每次付的金币呈指数级增长，但通知付款频率呈指数级下降
+&lt;ul&gt;
+&lt;li&gt;第1天：付 1&lt;/li&gt;
+&lt;li&gt;第2天：付 2 (累计 3)&lt;/li&gt;
+&lt;li&gt;第4天：付 4 (累积 7)&lt;/li&gt;
+&lt;li&gt;第8天：付 8 (累积 15)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;哪种付的钱比较少？
+第二种比较划算，本质上等同于每天付 2，就是&lt;strong&gt;amortized constant&lt;/strong&gt;。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;A more rigorous examination of amortized analysis is done here, in three steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pick a cost model (like in regular runtime analysis)&lt;/li&gt;
+&lt;li&gt;Compute the average cost of the i&amp;rsquo;th operation&lt;/li&gt;
+&lt;li&gt;Show that this average (amortized) cost is bounded by a constant.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;类似的应用在&lt;a href=&#34;https://congchan.github.io/NOTE-CS61B-data-structures-07-java-array-based-list#%E6%95%B0%E7%BB%84%E6%89%A9%E5%AE%B9&#34;&gt;Array list 扩容&lt;/a&gt;中提到的 geometric resizing 方法(实际也是Python list 使用的方法)有体现, 所以使用一个因数来扩容数组, 可以让 ArrayList 的 &lt;code&gt;add&lt;/code&gt;操作变为 amortized constant time.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Algorithms 01 - Asymptotic Analysis 渐进分析</title>
+      <link>https://congchan.github.io/posts/algorithms-01-asymptotic-analysis-%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/algorithms-01-asymptotic-analysis-%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;Resource and Reference:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CS61B Berkeley - Josh Hug&lt;/li&gt;
+&lt;li&gt;Algorithms Princeton - ROBERT SEDGEWICK, KEVIN WAYNE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;效率来源两个方面:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;编程成本: 开发程序需要多长时间？代码是否容易阅读，修改和维护（大部分成本来自维护和可扩展性）？&lt;/li&gt;
+&lt;li&gt;运行成本: 程序需要多长时间运行 (Time complexity)？ 需要多少内存 (Space complexity)？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;asymptotic-analysis&#34;&gt;Asymptotic Analysis&lt;/h2&gt;
+&lt;p&gt;Care about what happens for very large &lt;code&gt;N&lt;/code&gt; (asymptotic behavior). We want to consider what types of algorithms would best handle scalability - Algorithms that scale well have better asymptotic runtime behavior.&lt;/p&gt;
+&lt;p&gt;Simplification Summary&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Only consider the worst case.&lt;/li&gt;
+&lt;li&gt;Pick a representative operation (aka: cost model)&lt;/li&gt;
+&lt;li&gt;Ignore lower order terms&lt;/li&gt;
+&lt;li&gt;Ignore multiplicative constants.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Simplified Analysis Process&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java 01 | 安装</title>
+      <link>https://congchan.github.io/posts/java-01-%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 18 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/java-01-%E5%AE%89%E8%A3%85/</guid>
+      <description>&lt;h2 id=&#34;hello-world&#34;&gt;Hello World&lt;/h2&gt;
+&lt;p&gt;参考了伯克利 Josh Hug 的 &lt;a href=&#34;datastructur.es/sp17/&#34;&gt;cs61b spring 2017&lt;/a&gt; 和 &lt;a href=&#34;http://sp18.datastructur.es&#34;&gt;cs61b spring 2018&lt;/a&gt;. Lab, homework 和 project 代码实现参考 &lt;a href=&#34;https://github.com/ShootingSpace/cs61b-data-structures&#34;&gt;https://github.com/ShootingSpace/cs61b-data-structures&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;java安装与配置&#34;&gt;Java安装与配置&lt;/h2&gt;
+&lt;p&gt;安装Java，前往&lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;Oracle&lt;/a&gt;下载java sdk，我用的是Java SE 8u151/ 8u152 版本。安装sdk时会同时安装sdr。&lt;/p&gt;
+&lt;p&gt;Windows系统配置:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推荐安装&lt;a href=&#34;http://git-scm.com/download/&#34;&gt;git bash&lt;/a&gt;, 一切按照默认安装就好.&lt;/li&gt;
+&lt;li&gt;更新系统环境变量: 直接在&lt;code&gt;运行&lt;/code&gt;中搜索&lt;code&gt;Environment Variables&lt;/code&gt;, 选择&lt;code&gt;编辑系统环境变量&lt;/code&gt;, 在弹出的框中选择&lt;code&gt;高级-&amp;gt;环境变量&lt;/code&gt;, 在弹出的框中&lt;code&gt;系统变量&lt;/code&gt;里面
+&lt;ul&gt;
+&lt;li&gt;新建变量: 变量名 = &lt;code&gt;JAVA_HOME&lt;/code&gt;, 变量值 = 你的jdk路径,如&lt;code&gt;C:\Program Files\Java\jdk1.8.0_151&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;编辑Path: 在前面加入&lt;code&gt;%JAVA_HOME%\bin;%PYTHON_HOME%;&lt;/code&gt;(请注意，不能有空格.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;OS X系统配置:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装Homebrew，一个非常好用的包管理工具。要安装，请在terminal终端输入&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;&lt;/code&gt;(注意：在此过程中，可能会提示输入密码。当输入密码时，终端上不会显示任何内容，但计算机还是会记录你的密码的。这是一个安全措施, 让其他人在屏幕上看不到你的密码。只需输入您的密码，然后按回车。)&lt;/li&gt;
+&lt;li&gt;然后，通过输入以下命令来检查brew系统是否正常工作&lt;code&gt;brew doctor&lt;/code&gt;. 如果遇到警告，要求下载命令行工具，则需要执行此操作。请参考这个&lt;a href=&#34;http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-%20%20command-line-tools&#34;&gt;StackOverflow&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;安装git：输入&lt;code&gt;brew install git&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装并配置好java后，测试是否成功:
+随便在你喜欢的文件夹里新建一个java文件&lt;code&gt;HelloWorld.java&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;HelloWorld&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello world!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;你可以选择用sublime来快速新建文件, 直接在你选择的文件里右键 git bash, 在git bash 里面键入&lt;code&gt;subl HelloWorld.java&lt;/code&gt;, 还自动启动sublime并新建一个空白的&lt;code&gt;HelloWorld.java&lt;/code&gt;文件, 把上面的代码复制进去并保存即可. (若出现类似提示: 找不到subl command, 解决办法请参考博文&lt;a href=&#34;https://congchan.github.io/Launch-editor-in-Gitbash&#34;&gt;在Gitbash中直接启动sublime或atom等编辑器以打开或新建文件&lt;/a&gt; )
+开始真正的测试。直接在之前打开的git bash中输入:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

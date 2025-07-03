@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>2021 on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/2021/</link>
+    <description>Recent content in 2021 on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switch Transformers - Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</title>
+      <link>https://congchan.github.io/posts/switch-transformers-scaling-to-trillion-parameter-models-with-simple-and-efficient-sparsity/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/switch-transformers-scaling-to-trillion-parameter-models-with-simple-and-efficient-sparsity/</guid>
+      <description>&lt;p&gt;Links: &lt;a href=&#34;https://arxiv.org/abs/2101.03961&#34;&gt;https://arxiv.org/abs/2101.03961&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;“SWITCH TRANSFORMERS: SCALING TO TRILLION PARAMETER MODELS WITH SIMPLE AND EFFICIENT SPARSITY”，提出了一种可以扩展到万亿参数的网络，有两个比较大的创新，基于Transformer MoE网络结构，简化了MoE的routing机制，降低了计算量；进一步通过数据并行+模型并行+expert并行的方式降低了训练通信量，提升训练性能。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;模型&#34;&gt;模型&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper12.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simplifying-sparse-routing&#34;&gt;Simplifying Sparse Routing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mixture of Expert Routing&lt;/strong&gt; which takes as an input a token representation x and then routes this to the best deter- mined top-k experts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Switch Routing&lt;/strong&gt;: route to only a single expert, this simplification preserves model quality, reduces routing computation and performs better.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper12-1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Sparse routing通过参数Wr计算出一个在N个experts上的softmax分布，对每个token输入筛选概率最高的 top k 个 experts，对应的是MOE中的门控机制。这样对算力的需求并没有随着参数量的增加而大幅增长，使得这个模型更加容易训练。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Survey - Pre-Trained Models - Past, Present and Future</title>
+      <link>https://congchan.github.io/posts/survey-pre-trained-models-past-present-and-future/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/survey-pre-trained-models-past-present-and-future/</guid>
+      <description>&lt;p&gt;Links: &lt;a href=&#34;https://arxiv.org/abs/2106.07139&#34;&gt;https://arxiv.org/abs/2106.07139&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最新出炉的 Pre-Trained Models 综述速览。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;先确定综述中的一些名词的定义&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Transfer learning：迁移学习，一种用于应对机器学习中的data hungry问题的方法，是有监督的&lt;/li&gt;
+&lt;li&gt;Self-Supervised Learning：自监督学习，也用于应对机器学习中的data hungry问题，特别是针对完全没有标注的数据，可以通过某种方式以数据自身为标签进行学习（比如language modeling）。所以和无监督学习有异曲同工之处。
+&lt;ul&gt;
+&lt;li&gt;一般我们说无监督主要集中于clustering, community discovery, and anomaly detection等模式识别问题&lt;/li&gt;
+&lt;li&gt;而self-supervised learning还是在监督学习的范畴，集中于classification and generation等问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pre-trained models (PTMs) ：预训练模型，Pre-training是一种具体的训练方案，可以采用transfer learning或者Self-Supervised Learning方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;2-background-脉络图谱&#34;&gt;2 Background 脉络图谱&lt;/h1&gt;
+&lt;p&gt;Pre-training 可分为两大类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2.1 &lt;strong&gt;Transfer Learning&lt;/strong&gt; and &lt;strong&gt;Supervised&lt;/strong&gt; Pre-Training
+&lt;ul&gt;
+&lt;li&gt;此类可进一步细分为 feature transfer 和 parameter transfer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;2.2 &lt;strong&gt;Self-Supervised Learning&lt;/strong&gt; and Self-Supervised Pre-Training&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper11.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Transfer learning 可细分为四个子类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inductive transfer learning (Lawrence and Platt, 2004; Mihalkova et al., 2007; Evgeniou and Pontil, 2007),&lt;/li&gt;
+&lt;li&gt;transductive transfer learning (Shimodaira, 2000; Zadrozny,2004; Daume III and Marcu, 2006),&lt;/li&gt;
+&lt;li&gt;self-taught learning (Raina et al., 2007; Dai et al., 2008)&lt;/li&gt;
+&lt;li&gt;unsupervised transfer learning (Wang et al., 2008).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;inductive transfer learning 和 transductive transfer learning 的研究进展主要集中以imageNet为labeled source data资源的图像领域&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>综述 A Survey on Knowledge Graphs - Representation, Acquisition and Applications</title>
+      <link>https://congchan.github.io/posts/%E7%BB%BC%E8%BF%B0-a-survey-on-knowledge-graphs-representation-acquisition-and-applications/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E7%BB%BC%E8%BF%B0-a-survey-on-knowledge-graphs-representation-acquisition-and-applications/</guid>
+      <description>&lt;p&gt;Survey: &lt;a href=&#34;https://arxiv.org/abs/2002.00388v4&#34;&gt;https://arxiv.org/abs/2002.00388v4&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;A knowledge graph is a structured representation of facts, consisting of entities, relationships and semantic descriptions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Entities&lt;/strong&gt; can be real-world objects and abstract concepts,&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relationships&lt;/strong&gt; represent the relation between entities,&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic descriptions&lt;/strong&gt; of entities and their relationships contain types and properties with a well-defined meaning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;G: A knowledge graph
+F: A set of facts
+(h, r, t): A triple of head, relation and tail
+$(\mathbf{h}, \mathbf{r}, \mathbf{t})$: Embedding of head, relation and tail&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

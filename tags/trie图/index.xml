@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Trie图 on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/trie%E5%9B%BE/</link>
+    <description>Recent content in Trie图 on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/trie%E5%9B%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“和谐” - 多模式匹配算法 - AC自动机</title>
+      <link>https://congchan.github.io/posts/%E5%92%8C%E8%B0%90-%E5%A4%9A%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E5%92%8C%E8%B0%90-%E5%A4%9A%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</guid>
+      <description>&lt;p&gt;虽然KMP可以用于&lt;a href=&#34;https://congchan.github.io/NLP-01-string-searching-algorithm-01-kmp&#34;&gt;单模式匹配问题&lt;/a&gt;，但如果是多模式问题, KMP的性能就得不到保证。比如根据墙内法律要求, 墙内的搜索引擎需要过滤敏感词后才能合法运营。敏感词的数量不少, 如果要求包含敏感词的网页不能被搜索到, 那么搜索引擎在爬取网页信息时, 就要标记网页的文本中是否包含任意个敏感词.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;这就是典型的多模匹配问题. 这种情况下如果使用Trie，那么需要遍历网页的每一个字符位置，对每一个位置进行Trie前缀匹配。如果词典的词语数量为N，每个词语长度为L，文章的长度为M，那么需要进行的计算次数是在&lt;code&gt;N*M*L&lt;/code&gt;这个级别的. 即使把词语的长度L简化为常数级别的, 整个算法的复杂度也至少是$O(n^2)$.&lt;/p&gt;
+&lt;h2 id=&#34;ac自动机&#34;&gt;AC自动机&lt;/h2&gt;
+&lt;p&gt;可以看到，KMP算法可以避免back up（在检查字符的过程中不需要回头），而Trie可以存储多个模式的信息。如果把二者结合在一起，也许能从性能上解决多模式（任意位置）匹配问题。这就是Aho–Corasick算法（AC自动机）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aho–Corasick算法是由Alfred V. Aho和Margaret J.Corasick 发明的字符串搜索算法，用于在输入的一串字符串中匹配有限组字典中的子串。它与普通字符串匹配的不同点在于同时与所有字典串进行匹配。算法均摊情况下具有近似于线性的时间复杂度，约为字符串的长度加所有匹配的数量。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;所以算法的关键就是通过Trie把多个模式构建为一个DFA（Deterministic finite state automaton），然后让模式串末尾对应的状态作为一个DFA的终止节点。这样，对于一个要检查的长字符串（如一段网页内容），让这个字符串在DFA上跑一趟，每一个字符表示一种跳转方式，如果这段字符能够跳到任何一个终结节点, 那么就表明这段字符串匹配了至少一个模式, 如果整段字符跑完都没到达终结节点, 那么这个网页就是&amp;quot;和谐的&amp;quot;.&lt;/p&gt;
+&lt;p&gt;在单模式匹配中, 用KMP构建的DFA是比较简单的, 从左到右, 开头的状态就是开始状态, 结尾的状态就是结束状态:
+&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/build_dfa.png&#34; title=&#34;image from: https://www.coursera.org/learn/algorithms-part2/&#34;&gt;
+而多模式匹配中, 在Trie的结构基础上构建出来的DFA更像一个DFA的样子:
+&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/ushers_dfa.png&#34; title=&#34;经典的ushers自动机，模式串是he/ she/ his /hers, 忽略了部分到根节点的转移边. image from: https://baike.baidu.com/pic&#34;&gt;
+Trie中的节点, 就类似于DFA中的状态. 如果让字符串&lt;code&gt;shis&lt;/code&gt;在上面跑, 假如仅仅是靠Trie(也即是没有虚线标识的转移), 那么第一次从字符串的第一个字符&lt;code&gt;s&lt;/code&gt;开始转移, 经过转移路径&lt;code&gt;0 - 85 - 90&lt;/code&gt;之后就转不动了, 因为Trie记录的模式中没有&lt;code&gt;shi&lt;/code&gt;, 这个时候得back up, 从第二个位置&lt;code&gt;h&lt;/code&gt;开始再匹配一遍. 这个过程中就产生重复匹配, 而参考KMP的思路, 在匹配&lt;code&gt;shi&lt;/code&gt;的过程中, 其实已经挖掘出了&lt;code&gt;hi&lt;/code&gt;这个子串了, 而这个子串是跟模式&lt;code&gt;his&lt;/code&gt;对应的, 如果有办法不回头继续匹配下去就能提高性能了.&lt;/p&gt;
+&lt;p&gt;而DFA中虚线的失败转移就是用来解决这个问题的: 当走到状态&lt;code&gt;90&lt;/code&gt;时, 前面有了小部分子串&lt;code&gt;h&lt;/code&gt;刚好对应状态&lt;code&gt;74&lt;/code&gt;, 这个时候用虚线作为失败转移, 转移到&lt;code&gt;74&lt;/code&gt;, 在状态&lt;code&gt;74&lt;/code&gt;中寻找下一个转移&lt;code&gt;i&lt;/code&gt;, 这样就实现了不回头继续匹配了.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

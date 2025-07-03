@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ML on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/ml/</link>
+    <description>Recent content in ML on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在loss层面针对样本不平衡问题的优化</title>
+      <link>https://congchan.github.io/posts/%E5%9C%A8loss%E5%B1%82%E9%9D%A2%E9%92%88%E5%AF%B9%E6%A0%B7%E6%9C%AC%E4%B8%8D%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98%E7%9A%84%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E5%9C%A8loss%E5%B1%82%E9%9D%A2%E9%92%88%E5%AF%B9%E6%A0%B7%E6%9C%AC%E4%B8%8D%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
+      <description>针对样本不平衡问题，除了上下采样，调整样本权重等统计方法，还有可以通过对loss函数进行设计。</description>
+    </item>
+  </channel>
+</rss>

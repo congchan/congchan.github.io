@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LLM on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/llm/</link>
+    <description>Recent content in LLM on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 20 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Reading - The Instruction Hierarchy - Training LLMs to Prioritize Privileged Instructions</title>
+      <link>https://congchan.github.io/posts/paper-reading-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions/</guid>
+      <description>&lt;h3 id=&#34;summary-of-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions&#34;&gt;Summary of &amp;ldquo;The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions&amp;rdquo;&lt;/h3&gt;
+&lt;p&gt;Wallace, Eric, et al. The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions. arXiv:2404.13208, arXiv, 19 Apr. 2024. arXiv.org, &lt;a href=&#34;http://arxiv.org/abs/2404.13208&#34;&gt;http://arxiv.org/abs/2404.13208&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;1-problem-statement&#34;&gt;1. &lt;strong&gt;Problem Statement&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Modern large language models (LLMs) are vulnerable to attacks like prompt injections and jailbreaks because they treat system prompts, user messages, and third-party inputs (e.g., tool outputs) as equal in priority. This allows adversaries to override intended instructions, leading to risks such as data exfiltration or unauthorized actions .&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Better Practice to Define Reward Model with HuggingFace&#39;s transformers</title>
+      <link>https://congchan.github.io/posts/a-better-practice-to-define-reward-model-with-huggingfaces-transformers/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/a-better-practice-to-define-reward-model-with-huggingfaces-transformers/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://congchan.github.io/&#34;&gt;Cong Chen&lt;/a&gt;&lt;br&gt;
+University of Edinburgh&lt;/p&gt;
+&lt;p&gt;There are various implementation of reward modeling in RLHF(reinforcement learning with human feedback), each has different pros and cons. Inspired by some open-sourced works about reward modeling, I would like to share one of the best practice for reward modeling. For those who are not familiar with reward modeling and RLHF, I recommend take a look at the Huggingface rlhf blog&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; or OpenAI rlhf paper&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Boosting Large Language Models Alignment - A Data-Driven Bootstrap Flywheel</title>
+      <link>https://congchan.github.io/posts/boosting-large-language-models-alignment-a-data-driven-bootstrap-flywheel/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/boosting-large-language-models-alignment-a-data-driven-bootstrap-flywheel/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://congchan.github.io/&#34;&gt;Cong Chen&lt;/a&gt;&lt;br&gt;
+University of Edinburgh&lt;/p&gt;
+&lt;p&gt;InstructGPT&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, ChatGPT&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, and GPT-4&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; are cutting-edge Large Language Models (LLMs) that have astounded the world. With their ability to follow human instructions and align with human preferences, they can act as chatbots or helpful assistants. Despite impressing people for a while, their development lifecycles have not yet been thoroughly elaborated.&lt;/p&gt;
+&lt;p&gt;In this blog, I will provide my observations and thoughts based on my recent experience with large language model training and alignment. Instead of introducing these LLMs and highlighting their impressive performance, I will focus on the bootstrap flywheel that continuously improving these models. The bootstrap flywheel is showed in below graph with further illustration in this post.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Reading - Constitutional AI</title>
+      <link>https://congchan.github.io/posts/paper-reading-constitutional-ai/</link>
+      <pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-constitutional-ai/</guid>
+      <description>&lt;p&gt;Bai, Yuntao, et al. Constitutional AI: Harmlessness from AI Feedback. arXiv:2212.08073, arXiv, 15 Dec. 2022. arXiv.org, &lt;a href=&#34;http://arxiv.org/abs/2212.08073&#34;&gt;http://arxiv.org/abs/2212.08073&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The paper introduces Constitutional AI (CAI), a method to train helpful and harmless AI assistants without human labels for harmful outputs, relying instead on a set of guiding principles. Here&amp;rsquo;s a structured summary:&lt;/p&gt;
+&lt;h3 id=&#34;1-objective&#34;&gt;&lt;strong&gt;1. Objective&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Train AI systems to be helpful, honest, and harmless using AI feedback for supervision, reducing reliance on human labels. The approach aims to address the tension between helpfulness and harmlessness (where prior models often became evasive) and improve transparency through explicit principles.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>John Schulman和Yoav Goldberg关于Behavior Cloning(BC)、RL and Truthfulness的观点</title>
+      <link>https://congchan.github.io/posts/john-schulman%E5%92%8Cyoav-goldberg%E5%85%B3%E4%BA%8Ebehavior-cloningbcrl-and-truthfulness%E7%9A%84%E8%A7%82%E7%82%B9/</link>
+      <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/john-schulman%E5%92%8Cyoav-goldberg%E5%85%B3%E4%BA%8Ebehavior-cloningbcrl-and-truthfulness%E7%9A%84%E8%A7%82%E7%82%B9/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://congchan.github.io/&#34;&gt;Cong Chen&lt;/a&gt;&lt;br&gt;
+University of Edinburgh&lt;/p&gt;
+&lt;p&gt;John Schulman最近在Berkeley分享了关于BC、RLHF and Truthfulness的观点&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，Yoav Goldberg也针对John Schulman的观点进行了总结和扩展&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，同时南大的俞扬教授也对BC和RL的对比进行了观点分享&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;归纳的核心观点有三个：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Behavior Cloning（BC, learning from demonstrations, or SFT）是最Effective的方法。RLHF过程中重度使用了BC，包括冷启动和奖励模型训练都用了BC。虽然BC更有效，相比RL也更容易work，但BC因为自身局限性，有一些固有的问题无法解决：
+&lt;ul&gt;
+&lt;li&gt;核心问题是，BC训练越泛化意味着LLM越会Hallucination和撒谎；而我们想鼓励LLM根据它的内部知识来回答，问题是我们不知道其内部知识包含什么，所以要利用RLHF让LLM知道什么问题是超过自己的知识范围的（让模型知道自己不知道）。&lt;/li&gt;
+&lt;li&gt;除此之外，RL还允许负反馈，而 negative feedback is much more powerful&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;基于 Ranking 的 Reward学习虽然不够好，但是实践起来更容易&lt;/li&gt;
+&lt;li&gt;未来优化方向：当LLM知道自己不知道时，目前更多的是诚实地表达“I dont know”来拒识，OpenAI的方向是让LLM尝试去搜索外部知识，生成更可信、带citing source的回答，也就是从Honest进化到Truthfulness。参考下面的 ChatGPT Browsing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;详细分享---by-john-schulman&#34;&gt;详细分享 - by John Schulman&lt;/h2&gt;
+&lt;h3 id=&#34;why-there-is-hallucination&#34;&gt;Why there is Hallucination&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;language-model-hallucination&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/John-Schulman/John-Schulman-0-language-model-hallucination.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Hallucination-and-Behavior-Cloning&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/John-Schulman/John-Schulman-1-Hallucination-and-Behavior-Cloning.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;is-if-a-model-know-something-a-meaningful-question&#34;&gt;Is “if a model know something” a meaningful question?&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;Does-Model-Know-About-Its-Uncertainty&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/John-Schulman/John-Schulman-2-Does-Model-Know-About-Its-Uncertainty.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rl-is-the-correct-ways&#34;&gt;RL is the correct ways&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;John-Schulman-3&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/John-Schulman/John-Schulman-3.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;John-Schulman-4&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/John-Schulman/John-Schulman-4.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Long form QA (LFQA)  is much difficult that short QA&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

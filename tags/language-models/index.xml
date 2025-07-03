@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Language Models on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/language-models/</link>
+    <description>Recent content in Language Models on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/language-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Curious Case of Neural Text Degeneration</title>
+      <link>https://congchan.github.io/posts/the-curious-case-of-neural-text-degeneration/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/the-curious-case-of-neural-text-degeneration/</guid>
+      <description>&lt;p&gt;Holtzman, Ari, et al. The Curious Case of Neural Text Degeneration. arXiv:1904.09751, arXiv, 14 Feb. 2020. arXiv.org, &lt;a href=&#34;http://arxiv.org/abs/1904.09751&#34;&gt;http://arxiv.org/abs/1904.09751&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;从语言模型生成文本（例如生成故事）的最佳解码策略是什么仍然是一个悬而未决的问题。违反直觉的经验观察是，即使使用似然作为训练目标可以为广泛的语言理解任务生成高质量的模型，但基于maximization-based decoding的解码方法（例如beam search）会导致退化（degeneration）——输出文本平淡无奇，不连贯，或陷入重复循环。&lt;/p&gt;
+&lt;p&gt;文本生成中的decoding strategy主要可以分为两大类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Argmax Decoding: 主要包括beam search, class-factored softmax等&lt;/li&gt;
+&lt;li&gt;Stochastic Decoding: 主要包括temperature sampling, top-k sampling等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了解决这个问题，提出了 &lt;strong&gt;Nucleus Sampling（Top-p Sampling）&lt;/strong&gt;，这是一种简单但有效的方法，可以从神经语言模型中提取比以前的解码策略质量更高的文本。The key idea is to use the shape of the probability distribution to determine the set of tokens to be sampled from.&lt;/p&gt;
+&lt;h1 id=&#34;method&#34;&gt;Method&lt;/h1&gt;
+&lt;p&gt;通过截断概率分布的不可靠尾部分布、从包含绝大多数概率质量的标记的dynamic nucleus中采样来避免文本退化。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper19.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper19-1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper19-2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper19-3.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper19-4.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;效果analysisfindings&#34;&gt;效果/Analysis/Findings&lt;/h1&gt;
+&lt;p&gt;为了正确检查当前基于最大化和随机的解码方法，我们将这些方法中的每一种的生成与人类文本从几个方向（如可能性、多样性和重复）的分布进行了比较。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

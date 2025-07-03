@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Trie on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/trie/</link>
+    <description>Recent content in Trie on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/trie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>不同树结构的字符串符号表</title>
+      <link>https://congchan.github.io/posts/%E4%B8%8D%E5%90%8C%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AC%A6%E5%8F%B7%E8%A1%A8/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E4%B8%8D%E5%90%8C%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AC%A6%E5%8F%B7%E8%A1%A8/</guid>
+      <description>&lt;h2 id=&#34;各种树的变种&#34;&gt;各种树的变种&lt;/h2&gt;
+&lt;p&gt;为了适应不同的应用场景, 人们使用不同的树结构来实现符号表.&lt;/p&gt;
+&lt;h3 id=&#34;九宫格输入法&#34;&gt;九宫格输入法&lt;/h3&gt;
+&lt;p&gt;对于手机的九宫格输入法, 简单的实现方式是多次敲击: 通过反复按键输入一个字母，直到出现所需的字母。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;但 &lt;a href=&#34;http://www.t9.com/&#34;&gt;http://www.t9.com/&lt;/a&gt; 的 T9 texting 支持更高效的输入方法:
+・Find all words that correspond to given sequence of numbers.
+・Press 0 to see all completion options.
+&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/t9.png&#34;&gt;
+Ex. hello
+・多次敲击: 4 4 3 3 5 5 5 5 5 5 6 6 6
+・T9: 4 3 5 5 6&lt;/p&gt;
+&lt;p&gt;可以使用 8-way trie 来实现.&lt;/p&gt;
+&lt;h3 id=&#34;三元搜索trie&#34;&gt;三元搜索Trie&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt;较大的R-way trie的空间效率不高，读取比较大的文件往往导致内存不足。但弊端是开辟出的数组内存利用率其实不高。现在很多系统都使用Unicode，分支可高达&lt;code&gt;65,536&lt;/code&gt;. 所以需要更高效的方法。&lt;/p&gt;
+&lt;p&gt;Ternary search tries:
+・Store characters and values in nodes (not keys).
+・Each node has 3 children: smaller (left), equal (middle), larger (right).
+&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/tst.png&#34; title=&#34;image from: https://www.coursera.org/learn/algorithms-part2/&#34;&gt;
+Search in a TST: Follow links corresponding to each character in the key.
+・If less, take left link; if greater, take right link.
+・If equal, take the middle link and move to the next key character.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>字符串符号表和三元搜索Trie</title>
+      <link>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AC%A6%E5%8F%B7%E8%A1%A8%E5%92%8C%E4%B8%89%E5%85%83%E6%90%9C%E7%B4%A2trie/</link>
+      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AC%A6%E5%8F%B7%E8%A1%A8%E5%92%8C%E4%B8%89%E5%85%83%E6%90%9C%E7%B4%A2trie/</guid>
+      <description>&lt;h2 id=&#34;符号表&#34;&gt;符号表&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在计算机科学中，符号表是一种用于语言翻译器（例如编译器和解释器）中的数据结构。在符号表中，程序源代码中的每个标识符都和它的声明或使用信息绑定在一起，比如其数据类型、作用域以及内存地址。
+常用哈希表来实现.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;符号表的应用非常广泛, 可用于实现Set, Dictionary, 文件索引, 稀疏向量/矩阵等数据结构和相关的运算操作, 还有其他如过滤查询(Exception filter), 一致性查询(concordance queries)等操作.&lt;/p&gt;
+&lt;p&gt;字符符号表就是专门针对字符操作的符号表, API:
+Prefix match - Keys with prefix &lt;code&gt;sh&lt;/code&gt;: &lt;code&gt;she&lt;/code&gt;, &lt;code&gt;shells&lt;/code&gt;, and &lt;code&gt;shore&lt;/code&gt;.
+Wildcard match - Keys that match &lt;code&gt;.he&lt;/code&gt;: &lt;code&gt;she&lt;/code&gt; and &lt;code&gt;the&lt;/code&gt;.
+Longest prefix - Key that is the longest prefix of &lt;code&gt;shellsort&lt;/code&gt;: &lt;code&gt;shells&lt;/code&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;StringST&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;StringST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;create&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;symbol&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;keys&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pair&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;into&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;the&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;symbol&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;paired&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;delete&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;delete&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;and&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;corresponding&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Iterable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;keys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;all&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;keys&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Iterable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;keysWithPrefix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;keys&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;having&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prefix&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Iterable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;keysThatMatch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;keys&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;that&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;match&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;is&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wildcard&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;longestPrefixOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;longest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;that&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;is&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prefix&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;以trie为基础的字符符号表&#34;&gt;以Trie为基础的字符符号表&lt;/h3&gt;
+&lt;p&gt;algs4中提供了用 R-way trie 来实现符号表(symbol table)例子:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>单模式匹配与拼写检查 - Trie</title>
+      <link>https://congchan.github.io/posts/%E5%8D%95%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E4%B8%8E%E6%8B%BC%E5%86%99%E6%A3%80%E6%9F%A5-trie/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E5%8D%95%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E4%B8%8E%E6%8B%BC%E5%86%99%E6%A3%80%E6%9F%A5-trie/</guid>
+      <description>&lt;p&gt;Trie 也称字典树，名称来源于Re&lt;font color=&#34;red&#34;&gt;trie&lt;/font&gt;val，支持$O(n)$插入和查询操作，以空间换取时间的数据结构. 用于词频统计和输入统计领域, 可以高效地存储大规模的字典数据, 也可以用于模糊匹配, 搜索最长前缀词等.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A &lt;strong&gt;trie&lt;/strong&gt;, also called &lt;strong&gt;digital tre&lt;/strong&gt;e, &lt;strong&gt;radix tree&lt;/strong&gt; or &lt;strong&gt;prefix tree&lt;/strong&gt; is a kind of search tree - an ordered tree data structure used to store a dynamic set or associative array where the keys are usually strings. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty string. Keys tend to be associated with leaves, though some inner nodes may correspond to keys of interest. Hence, keys are not necessarily associated with every node.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>字符搜索匹配算法 01 - Knuth–Morris–Pratt(KMP)</title>
+      <link>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-01-knuthmorrisprattkmp/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-01-knuthmorrisprattkmp/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also called patterns) are found within a larger string or text.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;字符串搜索/匹配算法在大规模文本应用中有非常重要的作用，比如文章敏感词搜索，多关键词过滤搜索等。如果使用暴力搜索，则时间复杂度很高（若 m 为关键字的长度， n 为要待搜索的字符串长度， k为关键字数量，则复杂度为$O(n \times m \times k)$。而好的算法可以让这些问题的时间复杂度大大降低。&lt;/p&gt;
+&lt;p&gt;常用的算法有Knuth–Morris–Pratt(KMP), Boyer-Moore(BM), Rabin-Karp(RK), Trie, Trie图, AC自动机等.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;一个实例&#34;&gt;一个实例&lt;/h2&gt;
+&lt;p&gt;匹配时，想象我们拿着模式字符串&lt;code&gt;pat=ABABAC&lt;/code&gt;, 像尺子一样从左到右对齐依次匹配如图的&lt;code&gt;txt&lt;/code&gt;。&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/kmp.png&#34; title=&#34;image from: https://algs4.cs.princeton.edu/&#34;&gt;&lt;/p&gt;
+&lt;p&gt;从&lt;code&gt;txt[i=0]&lt;/code&gt;开始, 把&lt;code&gt;pat&lt;/code&gt;的开头&lt;code&gt;pat[j=0]&lt;/code&gt;对齐&lt;code&gt;txt[0]&lt;/code&gt;, 开始比较&lt;code&gt;pat[0]&lt;/code&gt;和&lt;code&gt;txt[0]&lt;/code&gt;,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;发现不匹配, 暴力的算法是从txt下一个字符重新开始&lt;code&gt;i=1&lt;/code&gt;, 同时把尺子也右移一位对齐新的txt起始点.&lt;/li&gt;
+&lt;li&gt;从&lt;code&gt;i=3&lt;/code&gt;开始, 发现一开始可以匹配上(&lt;code&gt;pat[j=0] == txt[3]&lt;/code&gt;), 那么保持尺子不动, 开始比较&lt;code&gt;pat[j+1]&lt;/code&gt;和&lt;code&gt;txt[i+1]&lt;/code&gt;, 结果不匹配.&lt;/li&gt;
+&lt;li&gt;从&lt;code&gt;i=4&lt;/code&gt;开始, 情况也类似, 而且发现连续匹配上了&lt;code&gt;pat[++j]&lt;/code&gt;和&lt;code&gt;txt[++i]&lt;/code&gt;, 假如运气好, 我们能匹配完整个尺子, 那么达到目的. 可惜在&lt;code&gt;i=7&lt;/code&gt;时失败了.&lt;/li&gt;
+&lt;li&gt;问题的关键就是&lt;code&gt;i=3&lt;/code&gt;和&lt;code&gt;i=7&lt;/code&gt;这里, 特别是&lt;code&gt;i=7&lt;/code&gt;, 假如还是用暴力解法&lt;code&gt;1&lt;/code&gt;操作, 那么需要重新比对&lt;code&gt;txt[i=5,6,7...]&lt;/code&gt;. 但前面已经匹配了一半的尺子了, 那么其实我们已经知道了txt的&lt;strong&gt;后缀&lt;/strong&gt;&lt;code&gt;txt[4,5,6]&lt;/code&gt;和尺子的&lt;strong&gt;前缀&lt;/strong&gt;&lt;code&gt;pat[0,1,2]&lt;/code&gt;重合, 我们能否利用这个信息来优化算法?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;按照前面的分析, 每一个已匹配的前缀等于txt中已匹配的后缀, 那么txt后缀后面可能接的字符有&lt;code&gt;R&lt;/code&gt;种, 我们可以提前计算每一个&lt;strong&gt;已匹配txt后缀&lt;/strong&gt;后接每一种字符时, 应该怎么做.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

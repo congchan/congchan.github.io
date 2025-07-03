@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Csapp on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/csapp/</link>
+    <description>Recent content in Csapp on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/csapp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computer Systems - A Programmer&#39;s Perspective (CSAPP) - CMU 15213</title>
+      <link>https://congchan.github.io/posts/computer-systems-a-programmers-perspective-csapp-cmu-15213/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/computer-systems-a-programmers-perspective-csapp-cmu-15213/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;CSAPP 非常巧妙的把程序设计及优化、数字电路基础、指令集体系、汇编语言、存储器体系结构、链接与装载、进程、虚存等来自不同学科的核心知识点和在一起，并以程序员的视角呈现; 告诉我们作为一个程序员，究竟需要对计算机的硬件了解到什么程度？&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;本笔记是 CMU CSAPP 的学习笔记, 使用 CMU 15-213, UW CSE351 的课程视频, lab, 作业, project 辅助练习.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://csapp.cs.cmu.edu/&#34;&gt;Computer Systems: A Programmer&amp;rsquo;s Perspective (csapp)&lt;/a&gt;, 豆瓣-&lt;a href=&#34;https://book.douban.com/subject/26912767/&#34;&gt;深入理解计算机系统&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cs.cmu.edu/~213/&#34;&gt;卡内基梅隆大学 CMU 15-213 Introduction to Computer Systems (ICS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://courses.cs.washington.edu/courses/cse351/&#34;&gt;华盛顿大学 UW CSE351: The Hardware/Software Interface&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;信息的表达与操作&#34;&gt;信息的表达与操作&lt;/h2&gt;
+&lt;p&gt;Information is Bits + Context. Study systems by tracing the lifetime of the hello program, from the time it is created by a programmer, until it runs on a system, prints its simple message, and terminates.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

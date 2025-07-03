@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Programming Language on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/programming-language/</link>
+    <description>Recent content in Programming Language on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 22 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/programming-language/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深入理解word2vec</title>
+      <link>https://congchan.github.io/posts/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3word2vec/</link>
+      <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3word2vec/</guid>
+      <description>&lt;p&gt;Word2vec &lt;a href=&#34;https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf&#34;&gt;Mikolov et al.&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;how-to-represent-meanings&#34;&gt;How to represent meanings?&lt;/h2&gt;
+&lt;p&gt;如何在数学上表达词义？&lt;/p&gt;
+&lt;p&gt;Vector space models (VSMs) 表示把单词映射到(嵌入)连续的矢量空间, 而且理论上&lt;strong&gt;语义相似&lt;/strong&gt;的单词会映射到空间中临近的位置。VSMs是一个历史悠久的NLP理论，但所有实现方法都不同程度依赖于&lt;a href=&#34;https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_Hypothesis&#34;&gt;Distributional Hypothesis&lt;/a&gt;, 即出现在相同（相似）的上下文中的单词具有相同（相似）的语义意义。利用此原则的方法大致可以分为两类: Count-based methods (例如, &lt;a href=&#34;https://en.wikipedia.org/wiki/Latent_semantic_analysis&#34;&gt;Latent Semantic Analysis&lt;/a&gt;))和Predictive models(例如 &lt;a href=&#34;http://www.scholarpedia.org/article/Neural_net_language_models&#34;&gt;neural net language models (NNLM)&lt;/a&gt;)。&lt;/p&gt;
+&lt;p&gt;具体的区别详见&lt;a href=&#34;http://clic.cimec.unitn.it/marco/publications/acl2014/baroni-etal-countpredict-acl2014.pdf&#34;&gt;Baroni et al.&lt;/a&gt;. 但总的来说，Count-based methods 统计词汇间的共现频率，然后把co-occurs matrix 映射到向量空间中；而Predictive models直接通过上下文预测单词的方式来学习向量空间（也就是模型参数空间）。&lt;/p&gt;
+&lt;p&gt;Word2vec 是一种计算特别高效的predictive model, 用于从文本中学习word embeddings。它有两种方案, Continuous Bag-of-Words model (CBOW) 和 Skip-Gram model (Section 3.1 and 3.2 in &lt;a href=&#34;https://arxiv.org/pdf/1301.3781.pdf&#34;&gt;Mikolov et al.&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;从算法上讲, 两种方案是相似的, 只不过 CBOW 会从source context-words (&lt;code&gt;&#39;the cat sits on the&#39;&lt;/code&gt;)预测目标单词(例如&lt;code&gt;&amp;quot;mat&amp;quot;&lt;/code&gt;); 而skip-gram则相反, 预测目标单词的source context-words。Skip-gram这种做法可能看起来有点随意. 但从统计上看, CBOW 会平滑大量分布信息(通过将整个上下文视为一个观测值), 在大多数情况下, 这对较小的数据集是很有用的。但是, Skip-gram将每个context-target pair视为新的观测值, 当数据集较大时, 这往往带来更好的效果。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python Digest</title>
+      <link>https://congchan.github.io/posts/python-digest/</link>
+      <pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/python-digest/</guid>
+      <description>&lt;p&gt;What you will get from this Python digest:
+1, Learn advanced python programming.
+2, Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice to an expert programmer.
+3, Practice going from a problem description to a solution, using a series of assignments.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;operator&#34;&gt;&lt;a href=&#34;https://docs.python.org/2/library/operator.html&#34;&gt;Operator&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;emulating-numeric-types&#34;&gt;Emulating numeric types&lt;/h3&gt;
+&lt;p&gt;In-place operation: One modifies the data-structure itself&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;object.__iadd__(self, other)
+object.__isub__(self, other)
+object.__imul__(self, other)
+object.__imatmul__(self, other)
+object.__itruediv__(self, other)
+object.__ifloordiv__(self, other)
+object.__imod__(self, other)
+object.__ipow__(self, other[, modulo])
+object.__ilshift__(self, other)
+object.__irshift__(self, other)
+object.__iand__(self, other)
+object.__ixor__(self, other)¶
+object.__ior__(self, other)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;These methods are called to implement the augmented arithmetic assignments. These methods should attempt to do the operation in-place (modifying self) and return the result (which could be, but does not have to be, self).
+If x is an instance of a class with an &lt;code&gt;__iadd__()&lt;/code&gt; method, &lt;code&gt;x += y&lt;/code&gt; is equivalent to &lt;code&gt;x = operator.iadd(x, y)&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python之奇技淫巧</title>
+      <link>https://congchan.github.io/posts/python%E4%B9%8B%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</link>
+      <pubDate>Wed, 22 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/python%E4%B9%8B%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</guid>
+      <description>&lt;p&gt;FBI WARNING 这不是python入门&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;函数&#34;&gt;函数&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Fundamentally, the qualities of good functions all reinforce the idea that functions are &lt;strong&gt;abstractions&lt;/strong&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;函数作为一种机制, 提供了用于抽象数值运算的模式, 使其独立于所涉及的特定值。&lt;/p&gt;
+&lt;h3 id=&#34;文档&#34;&gt;文档&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;code is written only once, but often read many times.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;docstring&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;pressure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Compute the pressure in pascals of an ideal gas.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;  Applies the ideal gas law: http://en.wikipedia.org/wiki/Ideal_gas_law
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;  v -- volume of gas, in cubic meters
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;  t -- absolute temperature in degrees kelvin
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;  n -- particles of gas
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;  &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; help(pressure)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;http://www.python.org/dev/peps/pep-0257/&#34;&gt;Python docstring guidelines&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

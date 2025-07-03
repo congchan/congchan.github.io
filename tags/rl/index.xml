@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>RL on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/rl/</link>
+    <description>Recent content in RL on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/rl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepSeek-R1</title>
+      <link>https://congchan.github.io/posts/deepseek-r1/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/deepseek-r1/</guid>
+      <description>&lt;p&gt;DeepSeek-AI, et al. DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning. arXiv:2501.12948, arXiv, 22 Jan. 2025. arXiv.org, &lt;a href=&#34;https://doi.org/10.48550/arXiv.2501.12948&#34;&gt;https://doi.org/10.48550/arXiv.2501.12948&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;incentivizing-reasoning-capability-in-llms-via-reinforcement-learning&#34;&gt;Incentivizing Reasoning Capability in LLMs via Reinforcement Learning&lt;/h3&gt;
+&lt;p&gt;Large language models (LLMs) have made remarkable strides in mimicking human-like cognition, but their ability to reason through complex problems—from math proofs to coding challenges—remains a frontier. In a recent breakthrough, DeepSeek-AI introduces &lt;strong&gt;DeepSeek-R1&lt;/strong&gt;, a family of reasoning-focused models that leverages reinforcement learning (RL) to unlock advanced reasoning capabilities, without relying on traditional supervised fine-tuning (SFT) as a crutch. The paper &lt;em&gt;&amp;ldquo;DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning&amp;rdquo;&lt;/em&gt; unveils a paradigm shift in how we train LLMs to think critically, with implications for both research and real-world applications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Early Rumour Detection</title>
+      <link>https://congchan.github.io/posts/early-rumour-detection/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/early-rumour-detection/</guid>
+      <description>&lt;p&gt;2019, ACL&lt;/p&gt;
+&lt;p&gt;data: TWITTER, WEIBO&lt;/p&gt;
+&lt;p&gt;links: &lt;a href=&#34;https://www.aclweb.org/anthology/N19-1163&#34;&gt;https://www.aclweb.org/anthology/N19-1163&lt;/a&gt;, &lt;a href=&#34;https://github.com/DeepBrainAI/ERD&#34;&gt;https://github.com/DeepBrainAI/ERD&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;task: Rumour Detection&lt;/p&gt;
+&lt;p&gt;这篇文章采用GRU编码社交媒体posts stream，作为环境的状态表示；训练一个分类器以GRU的状态输出为输入，对文本做二分类判断是否是rumor。用DQN训练agent，根据状态做出是否启动rumor分类器进行判断，并根据分类结果对错给予奖惩。目标就是尽可能准尽可能早地预测出社交媒体posts是否是rumor。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Focuses on the task of rumour detection; particularly, we are in- terested in understanding &lt;strong&gt;how early&lt;/strong&gt; we can detect them.&lt;/p&gt;
+&lt;p&gt;Our model treats social media posts (e.g. tweets) as a data stream and integrates reinforcement learning to learn the number minimum num- ber of posts required before we classify an event as a rumour.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper8.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Let $E$ denote an event, and it consists of a series of relevant posts $x_i$, where $x_0$ denotes the source message and $x_T$ the last relevant message. The objective of early rumor detection is to &lt;strong&gt;make a classification decision&lt;/strong&gt; &lt;strong&gt;whether E is a rumour as early as possible&lt;/strong&gt; while keeping an acceptable detection accuracy.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DQN, Double DQN, Dueling DoubleQN, Rainbow DQN</title>
+      <link>https://congchan.github.io/posts/dqn-double-dqn-dueling-doubleqn-rainbow-dqn/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/dqn-double-dqn-dueling-doubleqn-rainbow-dqn/</guid>
+      <description>&lt;p&gt;深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;dqn的overestimate&#34;&gt;DQN的Overestimate&lt;/h1&gt;
+&lt;p&gt;DQN 基于 Q-learning, Q-Learning 中有 Qmax, Qmax 会导致 Q现实 当中的过估计 (overestimate). 而 Double DQN 就是用来解决过估计的. 在实际问题中, 如果你输出你的 DQN 的 Q 值, 可能就会发现, Q 值都超级大. 这就是出现了 overestimate.&lt;/p&gt;
+&lt;p&gt;DQN 的神经网络部分可以看成一个 最新的神经网络 + 老神经网络, 他们有相同的结构, 但内部的参数更新却有时差. Q现实 部分是这样的:&lt;/p&gt;
+$$Y_t^\text{DQN} \equiv R_{t+1} + \gamma \max_a Q(S_{t+1}, a; \theta_t^-)$$&lt;p&gt;&lt;strong&gt;过估计&lt;/strong&gt; (overestimate) 是指对一系列数先求最大值再求平均，通常比先求平均再求最大值要大（或相等，数学表达为：&lt;/p&gt;
+$$E(\max(X_1, X_2, ...)) \ge \max(E(X_1), E(X_2), ...)$$&lt;p&gt;一般来说Q-learning方法导致overestimation的原因归结于其更新过程，其表达为：&lt;/p&gt;
+$$Q_{t+1} (s_t, a_t) = Q_t (s_t, a_t) + a_t(s_t, a_t)(r_t + \gamma \max a Q_t(s_{t+1}, a) - Q_t(s_t, a_t))$$&lt;p&gt;而更新最优化过程如下&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DeepPath - A Reinforcement Learning Method for Knowledge Graph Reasoning</title>
+      <link>https://congchan.github.io/posts/deeppath-a-reinforcement-learning-method-for-knowledge-graph-reasoning/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/deeppath-a-reinforcement-learning-method-for-knowledge-graph-reasoning/</guid>
+      <description>&lt;p&gt;2017, EMNLP&lt;/p&gt;
+&lt;p&gt;data: FB15K-237, FB15K&lt;/p&gt;
+&lt;p&gt;task: Knowledge Graph Reasoning&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Use a policy-based agent with continuous states based on knowledge graph embeddings, which &lt;strong&gt;reasons in a KG vector space&lt;/strong&gt; by sampling the most promising relation to extend its path.&lt;/p&gt;
+&lt;h1 id=&#34;方法&#34;&gt;方法&lt;/h1&gt;
+&lt;p&gt;RL 系统包含两部分，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一部分是外部环境，指定了 智能体 和知识图谱之间的动态交互。环境被建模为马尔可夫决策过程。&lt;/li&gt;
+&lt;li&gt;系统的第二部分，RL 智能体，表示为策略网络，将状态向量映射到随机策略中。神经网络参数通过随机梯度下降更新。相比于 DQN，基于策略的 RL 方法更适合该知识图谱场景。一个原因是知识图谱的路径查找过程，行为空间因为关系图的复杂性可能非常大。这可能导致 DQN 的收敛性变差。另外，策略网络能学习梯度策略，防止 智能体 陷入某种中间状态，而避免基于值的方法如 DQN 在学习策略梯度中遇到的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt=&#34;/images/papers/paper7.png&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper7.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关系推理的强化学习&#34;&gt;关系推理的强化学习&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;行为&lt;/strong&gt; 给定一些实体对和一个关系，我们想让 智能体 找到最有信息量的路径来连接这些实体对。从源实体开始，智能体 使用策略网络找到最有希望的关系并每步扩展它的路径直到到达目标实体。为了保持策略网络的输出维度一致，动作空间被定义为知识图谱中的所有关系。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;状态&lt;/strong&gt; 知识图谱中的实体和关系是自然的离散原子符号。现有的实际应用的知识图谱例如 Freebase 和 NELL 通常有大量三元组，不可能直接将所有原子符号建模为状态。为了捕捉这些符号的语义信息，我们使用基于平移的嵌入方法，例如 TransE 和 TransH 来表示实体和关系。这些嵌入将所有符号映射到低维向量空间。在该框架中，每个状态捕捉 智能体 在知识图谱中的位置。在执行一个行为后，智能体 会从一个实体移动到另一个实体。两个状态通过刚执行的行为（关系）由 智能体 连接。第 t 步的状态向量：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Q Networks</title>
+      <link>https://congchan.github.io/posts/deep-q-networks/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/deep-q-networks/</guid>
+      <description>&lt;p&gt;Combining reinforcement learning and deep neural networks at scale. The algorithm was developed by enhancing a classic RL algorithm called Q-Learning with deep neural networks and a technique called &lt;strong&gt;experience replay&lt;/strong&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;q-learning&#34;&gt;Q-Learning&lt;/h2&gt;
+&lt;p&gt;Q-Learning is based on the notion of a Q-function. The Q-function (a.k.a the state-action value function) of a policy $\pi$，$Q^{\pi}(s, a)$ ，measures the expected return or discounted sum of rewards obtained from state $s$ by taking action $a$ first and following policy $\pi$ thereafter.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Value-based Reinforcement Learning</title>
+      <link>https://congchan.github.io/posts/value-based-reinforcement-learning/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/value-based-reinforcement-learning/</guid>
+      <description>&lt;h1 id=&#34;时序决策&#34;&gt;&lt;strong&gt;时序决策&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;以经典的Atari游戏为例，agent在t时刻观测一段包含M个帧的视频$s_t = (x_{t-M+1}, ..., x_t) \in S$, 然后agent做决策, 决策是选择做出一个动作 $a_t \in A  = \{ 1, ..., |A| \}$(A为可选的离散动作空间 ), 这个动作会让agent获得一个奖励$r_t$.&lt;/p&gt;
+&lt;p&gt;这就是&lt;strong&gt;时序决策过程,&lt;/strong&gt; 是一个通用的决策框架，可以建模各种&lt;strong&gt;时序决策&lt;/strong&gt;问题，例如游戏，机器人等. Agent 观察环境，基于policy $\pi\left(a_{t} \mid s_{t}\right)$ 做出响应动作，其中 $s_{t}$是当前环境的观察值(Observation 是环境State对Agent可见的部分)。Action会获得新的 Reward $r_{t+1}$, 以及新的环境反馈 $s_{t+1}$.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: It is important to distinguish between the &lt;strong&gt;state&lt;/strong&gt; of the environment and the &lt;strong&gt;observation&lt;/strong&gt;, which is the part of the environment state that the agent can see, e.g. in a poker game, the environment state consists of the cards belonging to all the players and the community cards, but the agent can observe only its own cards and a few community cards. In most literature, these terms are used interchangeably and observation is also denoted as .&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

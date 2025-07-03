@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>DQN on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/dqn/</link>
+    <description>Recent content in DQN on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/dqn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Early Rumour Detection</title>
+      <link>https://congchan.github.io/posts/early-rumour-detection/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/early-rumour-detection/</guid>
+      <description>&lt;p&gt;2019, ACL&lt;/p&gt;
+&lt;p&gt;data: TWITTER, WEIBO&lt;/p&gt;
+&lt;p&gt;links: &lt;a href=&#34;https://www.aclweb.org/anthology/N19-1163&#34;&gt;https://www.aclweb.org/anthology/N19-1163&lt;/a&gt;, &lt;a href=&#34;https://github.com/DeepBrainAI/ERD&#34;&gt;https://github.com/DeepBrainAI/ERD&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;task: Rumour Detection&lt;/p&gt;
+&lt;p&gt;这篇文章采用GRU编码社交媒体posts stream，作为环境的状态表示；训练一个分类器以GRU的状态输出为输入，对文本做二分类判断是否是rumor。用DQN训练agent，根据状态做出是否启动rumor分类器进行判断，并根据分类结果对错给予奖惩。目标就是尽可能准尽可能早地预测出社交媒体posts是否是rumor。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Focuses on the task of rumour detection; particularly, we are in- terested in understanding &lt;strong&gt;how early&lt;/strong&gt; we can detect them.&lt;/p&gt;
+&lt;p&gt;Our model treats social media posts (e.g. tweets) as a data stream and integrates reinforcement learning to learn the number minimum num- ber of posts required before we classify an event as a rumour.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper8.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Let $E$ denote an event, and it consists of a series of relevant posts $x_i$, where $x_0$ denotes the source message and $x_T$ the last relevant message. The objective of early rumor detection is to &lt;strong&gt;make a classification decision&lt;/strong&gt; &lt;strong&gt;whether E is a rumour as early as possible&lt;/strong&gt; while keeping an acceptable detection accuracy.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DQN, Double DQN, Dueling DoubleQN, Rainbow DQN</title>
+      <link>https://congchan.github.io/posts/dqn-double-dqn-dueling-doubleqn-rainbow-dqn/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/dqn-double-dqn-dueling-doubleqn-rainbow-dqn/</guid>
+      <description>&lt;p&gt;深度强化学习DQN和Natural DQN, Double DQN, Dueling DoubleQN, Rainbow DQN 的演变和必看论文.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;dqn的overestimate&#34;&gt;DQN的Overestimate&lt;/h1&gt;
+&lt;p&gt;DQN 基于 Q-learning, Q-Learning 中有 Qmax, Qmax 会导致 Q现实 当中的过估计 (overestimate). 而 Double DQN 就是用来解决过估计的. 在实际问题中, 如果你输出你的 DQN 的 Q 值, 可能就会发现, Q 值都超级大. 这就是出现了 overestimate.&lt;/p&gt;
+&lt;p&gt;DQN 的神经网络部分可以看成一个 最新的神经网络 + 老神经网络, 他们有相同的结构, 但内部的参数更新却有时差. Q现实 部分是这样的:&lt;/p&gt;
+$$Y_t^\text{DQN} \equiv R_{t+1} + \gamma \max_a Q(S_{t+1}, a; \theta_t^-)$$&lt;p&gt;&lt;strong&gt;过估计&lt;/strong&gt; (overestimate) 是指对一系列数先求最大值再求平均，通常比先求平均再求最大值要大（或相等，数学表达为：&lt;/p&gt;
+$$E(\max(X_1, X_2, ...)) \ge \max(E(X_1), E(X_2), ...)$$&lt;p&gt;一般来说Q-learning方法导致overestimation的原因归结于其更新过程，其表达为：&lt;/p&gt;
+$$Q_{t+1} (s_t, a_t) = Q_t (s_t, a_t) + a_t(s_t, a_t)(r_t + \gamma \max a Q_t(s_{t+1}, a) - Q_t(s_t, a_t))$$&lt;p&gt;而更新最优化过程如下&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Q Networks</title>
+      <link>https://congchan.github.io/posts/deep-q-networks/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/deep-q-networks/</guid>
+      <description>&lt;p&gt;Combining reinforcement learning and deep neural networks at scale. The algorithm was developed by enhancing a classic RL algorithm called Q-Learning with deep neural networks and a technique called &lt;strong&gt;experience replay&lt;/strong&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;q-learning&#34;&gt;Q-Learning&lt;/h2&gt;
+&lt;p&gt;Q-Learning is based on the notion of a Q-function. The Q-function (a.k.a the state-action value function) of a policy $\pi$，$Q^{\pi}(s, a)$ ，measures the expected return or discounted sum of rewards obtained from state $s$ by taking action $a$ first and following policy $\pi$ thereafter.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

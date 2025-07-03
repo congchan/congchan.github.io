@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Rumour Detection on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/rumour-detection/</link>
+    <description>Recent content in Rumour Detection on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/rumour-detection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Early Rumour Detection</title>
+      <link>https://congchan.github.io/posts/early-rumour-detection/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/early-rumour-detection/</guid>
+      <description>&lt;p&gt;2019, ACL&lt;/p&gt;
+&lt;p&gt;data: TWITTER, WEIBO&lt;/p&gt;
+&lt;p&gt;links: &lt;a href=&#34;https://www.aclweb.org/anthology/N19-1163&#34;&gt;https://www.aclweb.org/anthology/N19-1163&lt;/a&gt;, &lt;a href=&#34;https://github.com/DeepBrainAI/ERD&#34;&gt;https://github.com/DeepBrainAI/ERD&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;task: Rumour Detection&lt;/p&gt;
+&lt;p&gt;这篇文章采用GRU编码社交媒体posts stream，作为环境的状态表示；训练一个分类器以GRU的状态输出为输入，对文本做二分类判断是否是rumor。用DQN训练agent，根据状态做出是否启动rumor分类器进行判断，并根据分类结果对错给予奖惩。目标就是尽可能准尽可能早地预测出社交媒体posts是否是rumor。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Focuses on the task of rumour detection; particularly, we are in- terested in understanding &lt;strong&gt;how early&lt;/strong&gt; we can detect them.&lt;/p&gt;
+&lt;p&gt;Our model treats social media posts (e.g. tweets) as a data stream and integrates reinforcement learning to learn the number minimum num- ber of posts required before we classify an event as a rumour.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper8.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Let $E$ denote an event, and it consists of a series of relevant posts $x_i$, where $x_0$ denotes the source message and $x_T$ the last relevant message. The objective of early rumor detection is to &lt;strong&gt;make a classification decision&lt;/strong&gt; &lt;strong&gt;whether E is a rumour as early as possible&lt;/strong&gt; while keeping an acceptable detection accuracy.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

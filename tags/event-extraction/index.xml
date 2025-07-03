@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Event Extraction on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/event-extraction/</link>
+    <description>Recent content in Event Extraction on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/event-extraction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cross-media Structured Common Space for Multimedia Event Extraction</title>
+      <link>https://congchan.github.io/posts/cross-media-structured-common-space-for-multimedia-event-extraction/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/cross-media-structured-common-space-for-multimedia-event-extraction/</guid>
+      <description>&lt;p&gt;2020, ACL
+Task: MultiMedia Event Extraction&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Introduce a new task, MultiMedia Event Extraction (M2E2), which aims to extract events and their arguments from multimedia documents. Construct the first benchmark and evaluation dataset for this task, which consists of 245 fully annotated news articles&lt;/p&gt;
+&lt;p&gt;Propose a novel method, Weakly Aligned Structured Embedding (WASE), that encodes structured representations of semantic information from textual and visual data into a common embedding space. which takes advantage of annotated unimodal corpora to separately learn visual and textual event extraction, and uses an image-caption dataset to align the modalities&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Readings on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/readings/</link>
+    <description>Recent content in Readings on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 05 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/readings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Reading - Inference-Time Scaling for Generalist Reward Modeling</title>
+      <link>https://congchan.github.io/posts/paper-reading-inference-time-scaling-for-generalist-reward-modeling/</link>
+      <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-inference-time-scaling-for-generalist-reward-modeling/</guid>
+      <description>&lt;p&gt;Liu, Zijun, et al. Inference-Time Scaling for Generalist Reward Modeling. arXiv:2504.02495, arXiv, 5 Apr. 2025. arXiv.org, &lt;a href=&#34;https://doi.org/10.48550/arXiv.2504.02495&#34;&gt;https://doi.org/10.48550/arXiv.2504.02495&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;problem-statement&#34;&gt;Problem Statement&lt;/h4&gt;
+&lt;p&gt;Reinforcement Learning (RL) has become pivotal in post-training large language models (LLMs), but generating accurate reward signals for diverse domains remains challenging. Existing reward models (RMs) often rely on human-designed rules or verifiable tasks, struggling with generalizability and inference-time scalability. This paper addresses how to improve RM effectiveness through increased inference compute and adaptive learning methods for general queries.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Reading - The Instruction Hierarchy - Training LLMs to Prioritize Privileged Instructions</title>
+      <link>https://congchan.github.io/posts/paper-reading-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions/</guid>
+      <description>&lt;h3 id=&#34;summary-of-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions&#34;&gt;Summary of &amp;ldquo;The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions&amp;rdquo;&lt;/h3&gt;
+&lt;p&gt;Wallace, Eric, et al. The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions. arXiv:2404.13208, arXiv, 19 Apr. 2024. arXiv.org, &lt;a href=&#34;http://arxiv.org/abs/2404.13208&#34;&gt;http://arxiv.org/abs/2404.13208&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;1-problem-statement&#34;&gt;1. &lt;strong&gt;Problem Statement&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Modern large language models (LLMs) are vulnerable to attacks like prompt injections and jailbreaks because they treat system prompts, user messages, and third-party inputs (e.g., tool outputs) as equal in priority. This allows adversaries to override intended instructions, leading to risks such as data exfiltration or unauthorized actions .&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Reading - Weak-to-Strong Generalization - Eliciting Strong Capabilities With Weak Supervision</title>
+      <link>https://congchan.github.io/posts/paper-reading-weak-to-strong-generalization-eliciting-strong-capabilities-with-weak-supervision/</link>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-weak-to-strong-generalization-eliciting-strong-capabilities-with-weak-supervision/</guid>
+      <description>&lt;p&gt;Collin Burns, Pavel Izmailov, Jan Hendrik Kirchner, Bowen Baker, Leo Gao, Leopold Aschenbrenner, Yining Chen, Adrien Ecoffet, Manas Joglekar, Jan Leike, Ilya Sutskever, and Jeff Wu. WEAK-TO-STRONG GENERALIZATION: ELICITING STRONG CAPABILITIES WITH WEAK SUPERVISION. &lt;a href=&#34;https://arxiv.org/abs/2312.09390&#34;&gt;https://arxiv.org/abs/2312.09390&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;research-context-and-objectives&#34;&gt;Research Context and Objectives&lt;/h4&gt;
+&lt;p&gt;The paper addresses a critical challenge in aligning superhuman AI models: when human supervision becomes insufficient due to the models&amp;rsquo; complex behaviors, can weak supervision (e.g., from weaker models) effectively elicit the full capabilities of stronger models? The authors from OpenAI explore this through empirical experiments, aiming to bridge the gap between current alignment techniques (like RLHF) and the needs for superhuman model alignment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Reading - Constitutional AI</title>
+      <link>https://congchan.github.io/posts/paper-reading-constitutional-ai/</link>
+      <pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-constitutional-ai/</guid>
+      <description>&lt;p&gt;Bai, Yuntao, et al. Constitutional AI: Harmlessness from AI Feedback. arXiv:2212.08073, arXiv, 15 Dec. 2022. arXiv.org, &lt;a href=&#34;http://arxiv.org/abs/2212.08073&#34;&gt;http://arxiv.org/abs/2212.08073&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The paper introduces Constitutional AI (CAI), a method to train helpful and harmless AI assistants without human labels for harmful outputs, relying instead on a set of guiding principles. Here&amp;rsquo;s a structured summary:&lt;/p&gt;
+&lt;h3 id=&#34;1-objective&#34;&gt;&lt;strong&gt;1. Objective&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Train AI systems to be helpful, honest, and harmless using AI feedback for supervision, reducing reliance on human labels. The approach aims to address the tension between helpfulness and harmlessness (where prior models often became evasive) and improve transparency through explicit principles.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Reading - Let’s Verify Step by Step</title>
+      <link>https://congchan.github.io/posts/paper-reading-lets-verify-step-by-step/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-lets-verify-step-by-step/</guid>
+      <description>&lt;h1 id=&#34;tldr&#34;&gt;TLDR&lt;/h1&gt;
+&lt;p&gt;In order to train more dependable models, there are two known options: outcome supervision, which gives feedback on the final result, and process supervision, which provides feedback on each intermediate reasoning step.&lt;/p&gt;
+&lt;p&gt;This papers provides two finding:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The use of process supervision yields significantly better results than outcome supervision when training models to solve problems from the challenging MATH dataset.&lt;/li&gt;
+&lt;li&gt;The efficacy of process supervision is significantly improved by active learning.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The exclusive focus of this paper is to provide insights on training the most reliable reward model.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

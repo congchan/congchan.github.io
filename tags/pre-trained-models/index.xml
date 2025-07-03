@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pre-Trained Models on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/pre-trained-models/</link>
+    <description>Recent content in Pre-Trained Models on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/pre-trained-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Codex - Evaluating Large Language Models Trained on Code</title>
+      <link>https://congchan.github.io/posts/codex-evaluating-large-language-models-trained-on-code/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/codex-evaluating-large-language-models-trained-on-code/</guid>
+      <description>&lt;p&gt;Codex：M. Chen et al., ‘Evaluating Large Language Models Trained on Code’. arXiv, Jul. 14, 2021. Available: &lt;a href=&#34;http://arxiv.org/abs/2107.03374&#34;&gt;http://arxiv.org/abs/2107.03374&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
+&lt;p&gt;Codex, a GPT language model finetuned on publicly available code from GitHub&lt;/p&gt;
+&lt;p&gt;Task: docstring-conditional code generation&lt;/p&gt;
+&lt;h1 id=&#34;method&#34;&gt;Method&lt;/h1&gt;
+&lt;p&gt;Codex: fine-tune GPT3 models containing up to 12B parameters on code to produce Codex.&lt;/p&gt;
+&lt;p&gt;Codex-S: fine-tune Codex on standalone, correctly implemented functions.&lt;/p&gt;
+&lt;p&gt;Inference: assemble each HumanEval problem into a prompt consisting of a header, a signature, and a docstring. We use nucleus sampling (Holtzman et al., 2020) with top p = 0.95 for all sampling evaluation in this work&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scaling Laws for Neural Language Models</title>
+      <link>https://congchan.github.io/posts/scaling-laws-for-neural-language-models/</link>
+      <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/scaling-laws-for-neural-language-models/</guid>
+      <description>&lt;p&gt;Kaplan, Jared, et al. ‘Scaling Laws for Neural Language Models’. &lt;em&gt;arXiv:2001.08361 [Cs, Stat]&lt;/em&gt;, Jan. 2020. &lt;em&gt;arXiv.org&lt;/em&gt;, &lt;a href=&#34;http://arxiv.org/abs/2001.08361&#34;&gt;http://arxiv.org/abs/2001.08361&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;tldr&#34;&gt;TL:DR&lt;/h1&gt;
+&lt;p&gt;key findings for Transformer language models are are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Performance depends strongly on scale, weakly on model shape&lt;/strong&gt;: Model performance depends most strongly on scale, which consists of three factors: the number of model parameters N (excluding embeddings), the size of the dataset D, and the amount of compute C used for training. Within reasonable limits, performance depends very weakly on other architectural hyperparameters such as depth vs. width. (Section 3)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smooth power laws&lt;/strong&gt;: Performance has a power-law relationship with each of the three scale factors N, D, C when not bottlenecked by the other two, with trends spanning more than six orders of magnitude (see Figure 1). We observe no signs of deviation from these trends on the upper end, though performance must flatten out eventually before reaching zero loss. (Section 3)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper14.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Survey - Pre-Trained Models - Past, Present and Future</title>
+      <link>https://congchan.github.io/posts/survey-pre-trained-models-past-present-and-future/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/survey-pre-trained-models-past-present-and-future/</guid>
+      <description>&lt;p&gt;Links: &lt;a href=&#34;https://arxiv.org/abs/2106.07139&#34;&gt;https://arxiv.org/abs/2106.07139&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最新出炉的 Pre-Trained Models 综述速览。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;先确定综述中的一些名词的定义&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Transfer learning：迁移学习，一种用于应对机器学习中的data hungry问题的方法，是有监督的&lt;/li&gt;
+&lt;li&gt;Self-Supervised Learning：自监督学习，也用于应对机器学习中的data hungry问题，特别是针对完全没有标注的数据，可以通过某种方式以数据自身为标签进行学习（比如language modeling）。所以和无监督学习有异曲同工之处。
+&lt;ul&gt;
+&lt;li&gt;一般我们说无监督主要集中于clustering, community discovery, and anomaly detection等模式识别问题&lt;/li&gt;
+&lt;li&gt;而self-supervised learning还是在监督学习的范畴，集中于classification and generation等问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pre-trained models (PTMs) ：预训练模型，Pre-training是一种具体的训练方案，可以采用transfer learning或者Self-Supervised Learning方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;2-background-脉络图谱&#34;&gt;2 Background 脉络图谱&lt;/h1&gt;
+&lt;p&gt;Pre-training 可分为两大类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2.1 &lt;strong&gt;Transfer Learning&lt;/strong&gt; and &lt;strong&gt;Supervised&lt;/strong&gt; Pre-Training
+&lt;ul&gt;
+&lt;li&gt;此类可进一步细分为 feature transfer 和 parameter transfer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;2.2 &lt;strong&gt;Self-Supervised Learning&lt;/strong&gt; and Self-Supervised Pre-Training&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper11.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Transfer learning 可细分为四个子类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inductive transfer learning (Lawrence and Platt, 2004; Mihalkova et al., 2007; Evgeniou and Pontil, 2007),&lt;/li&gt;
+&lt;li&gt;transductive transfer learning (Shimodaira, 2000; Zadrozny,2004; Daume III and Marcu, 2006),&lt;/li&gt;
+&lt;li&gt;self-taught learning (Raina et al., 2007; Dai et al., 2008)&lt;/li&gt;
+&lt;li&gt;unsupervised transfer learning (Wang et al., 2008).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;inductive transfer learning 和 transductive transfer learning 的研究进展主要集中以imageNet为labeled source data资源的图像领域&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>KMP on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/kmp/</link>
+    <description>Recent content in KMP on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/kmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字符搜索匹配算法 01 - Knuth–Morris–Pratt(KMP)</title>
+      <link>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-01-knuthmorrisprattkmp/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-01-knuthmorrisprattkmp/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also called patterns) are found within a larger string or text.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;字符串搜索/匹配算法在大规模文本应用中有非常重要的作用，比如文章敏感词搜索，多关键词过滤搜索等。如果使用暴力搜索，则时间复杂度很高（若 m 为关键字的长度， n 为要待搜索的字符串长度， k为关键字数量，则复杂度为$O(n \times m \times k)$。而好的算法可以让这些问题的时间复杂度大大降低。&lt;/p&gt;
+&lt;p&gt;常用的算法有Knuth–Morris–Pratt(KMP), Boyer-Moore(BM), Rabin-Karp(RK), Trie, Trie图, AC自动机等.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;一个实例&#34;&gt;一个实例&lt;/h2&gt;
+&lt;p&gt;匹配时，想象我们拿着模式字符串&lt;code&gt;pat=ABABAC&lt;/code&gt;, 像尺子一样从左到右对齐依次匹配如图的&lt;code&gt;txt&lt;/code&gt;。&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/kmp.png&#34; title=&#34;image from: https://algs4.cs.princeton.edu/&#34;&gt;&lt;/p&gt;
+&lt;p&gt;从&lt;code&gt;txt[i=0]&lt;/code&gt;开始, 把&lt;code&gt;pat&lt;/code&gt;的开头&lt;code&gt;pat[j=0]&lt;/code&gt;对齐&lt;code&gt;txt[0]&lt;/code&gt;, 开始比较&lt;code&gt;pat[0]&lt;/code&gt;和&lt;code&gt;txt[0]&lt;/code&gt;,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;发现不匹配, 暴力的算法是从txt下一个字符重新开始&lt;code&gt;i=1&lt;/code&gt;, 同时把尺子也右移一位对齐新的txt起始点.&lt;/li&gt;
+&lt;li&gt;从&lt;code&gt;i=3&lt;/code&gt;开始, 发现一开始可以匹配上(&lt;code&gt;pat[j=0] == txt[3]&lt;/code&gt;), 那么保持尺子不动, 开始比较&lt;code&gt;pat[j+1]&lt;/code&gt;和&lt;code&gt;txt[i+1]&lt;/code&gt;, 结果不匹配.&lt;/li&gt;
+&lt;li&gt;从&lt;code&gt;i=4&lt;/code&gt;开始, 情况也类似, 而且发现连续匹配上了&lt;code&gt;pat[++j]&lt;/code&gt;和&lt;code&gt;txt[++i]&lt;/code&gt;, 假如运气好, 我们能匹配完整个尺子, 那么达到目的. 可惜在&lt;code&gt;i=7&lt;/code&gt;时失败了.&lt;/li&gt;
+&lt;li&gt;问题的关键就是&lt;code&gt;i=3&lt;/code&gt;和&lt;code&gt;i=7&lt;/code&gt;这里, 特别是&lt;code&gt;i=7&lt;/code&gt;, 假如还是用暴力解法&lt;code&gt;1&lt;/code&gt;操作, 那么需要重新比对&lt;code&gt;txt[i=5,6,7...]&lt;/code&gt;. 但前面已经匹配了一半的尺子了, 那么其实我们已经知道了txt的&lt;strong&gt;后缀&lt;/strong&gt;&lt;code&gt;txt[4,5,6]&lt;/code&gt;和尺子的&lt;strong&gt;前缀&lt;/strong&gt;&lt;code&gt;pat[0,1,2]&lt;/code&gt;重合, 我们能否利用这个信息来优化算法?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;按照前面的分析, 每一个已匹配的前缀等于txt中已匹配的后缀, 那么txt后缀后面可能接的字符有&lt;code&gt;R&lt;/code&gt;种, 我们可以提前计算每一个&lt;strong&gt;已匹配txt后缀&lt;/strong&gt;后接每一种字符时, 应该怎么做.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

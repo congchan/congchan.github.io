@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Inf Course Note on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/inf-course-note/</link>
+    <description>Recent content in Inf Course Note on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 30 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/inf-course-note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inf Course Note - Accelerated Natural Language Processing</title>
+      <link>https://congchan.github.io/posts/inf-course-note-accelerated-natural-language-processing/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/inf-course-note-accelerated-natural-language-processing/</guid>
+      <description>&lt;p&gt;爱丁堡大学信息学院课程笔记 Accelerated Natural Language Processing, Informatics, University of Edinburgh&lt;/p&gt;
+&lt;p&gt;References:
+&lt;a href=&#34;http://www.inf.ed.ac.uk/teaching/courses/anlp/&#34;&gt;Accelerated natural language processing&lt;/a&gt;
+&lt;a href=&#34;https://www.inf.ed.ac.uk/teaching/courses/anlp/review/review_ay17.html&#34;&gt;ANLP revision guide&lt;/a&gt;
+&lt;a href=&#34;https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html&#34;&gt;Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;概率模型-probability-model&#34;&gt;概率模型 Probability Model&lt;/h2&gt;
+&lt;p&gt;概率模型是随机现象的数学表示，由样本空间，样本空间内的事件以及与每个事件相关的概率定义。目标是模拟给一个事件发生的概率&lt;/p&gt;
+&lt;p&gt;估算概率（Probability Estimation）一般使用最大似然估计（MLE，相关频率）：&lt;/p&gt;
+$$p(x_i) = \frac{Count(x_i)}{\sum_{i=0}^nCount(x_i)}$$&lt;h3 id=&#34;平滑smoothing&#34;&gt;平滑Smoothing&lt;/h3&gt;
+&lt;p&gt;一般用于处理0概率的问题，比如在训练集中看不到, 但出现在测试集中的词。&lt;/p&gt;
+&lt;h2 id=&#34;language-modeling&#34;&gt;Language modeling&lt;/h2&gt;
+&lt;p&gt;To compute the probability of sentence /sequence of words $P(w_1, w_2, w_3...)$, or to predict upcomming words $P(w|w_1, w_2, w_3...)$&amp;hellip; a language model is also a probability model.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Inf Course Note - Natural Language Understanding</title>
+      <link>https://congchan.github.io/posts/inf-course-note-natural-language-understanding/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/inf-course-note-natural-language-understanding/</guid>
+      <description>&lt;p&gt;爱丁堡大学信息学院课程笔记 Natural Language Understanding, Informatics, University of Edinburgh&lt;/p&gt;
+&lt;p&gt;References:
+&lt;a href=&#34;http://www.inf.ed.ac.uk/teaching/courses/nlu/&#34;&gt;Natural language understanding&lt;/a&gt;
+&lt;a href=&#34;http://web.stanford.edu/class/cs224n/syllabus.html&#34;&gt;CS224n: Natural Language Processing with Deep Learning&lt;/a&gt;
+&lt;a href=&#34;https://web.stanford.edu/~jurafsky/NLPCourseraSlides.html&#34;&gt;Lecture Slides from the Stanford Coursera course Natural Language Processing, by Dan Jurafsky and Christopher Manning&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;meaning-representations&#34;&gt;Meaning representations&lt;/h2&gt;
+&lt;p&gt;意思的表达有很多方法。一种有效的表示单词的含义的方法是 distributional semantic.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Semantics (from Ancient Greek: σημαντικός sēmantikos, &amp;ldquo;significant&amp;rdquo;) is the linguistic and philosophical study of meaning, in language, programming languages, formal logics, and semiotics.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;语义学 Semantics 在语言学中的研究目的在于找出语义表达的规律性、内在解释、不同语言在语义表达方面的个性以及共性；与计算机科学相关的语义学研究在于机器对自然语言的理解。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Tradition solution of usable meaning in a computer: Use e.g. WordNet, a resource containing lists of synonym sets and hypernyms.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Inf Course Note - Parallel Programming Language and Systems</title>
+      <link>https://congchan.github.io/posts/inf-course-note-parallel-programming-language-and-systems/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/inf-course-note-parallel-programming-language-and-systems/</guid>
+      <description>&lt;p&gt;爱丁堡大学信息学院课程笔记 Parallel Programming Language and Systems, Informatics, University of Edinburgh&lt;/p&gt;
+&lt;p&gt;Reference:
+&lt;a href=&#34;http://www.inf.ed.ac.uk/teaching/courses/ppls/&#34;&gt;http://www.inf.ed.ac.uk/teaching/courses/ppls/&lt;/a&gt;
+&lt;a href=&#34;http://www.cs.cmu.edu/~213/&#34;&gt;CMU 15213: Introduction to Computer Systems (ICS)&lt;/a&gt;
+&lt;a href=&#34;http://csapp.cs.cmu.edu/&#34;&gt;Computer Systems: A Programmer&amp;rsquo;s Perspective&lt;/a&gt;
+&lt;a href=&#34;http://mpitutorial.com/&#34;&gt;A Comprehensive MPI Tutorial Resource&lt;/a&gt;
+&lt;a href=&#34;http://www.mcs.anl.gov/~itf/dbpp/text/node94.html#SECTION03500000000000000000&#34;&gt;A chapter on MPI from Ian Foster&amp;rsquo;s online Book Designing and Building Parallel Programs&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;introduction-to-parallel-computer-architecture&#34;&gt;Introduction to parallel computer architecture&lt;/h2&gt;
+&lt;p&gt;Covering some of the nasty issues presented by the shared memory model, including weak consistency models and false sharing in the cache, and some architectural issues for the multicomputer model.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Inf Course Note - Software Architecture, Process, and Management</title>
+      <link>https://congchan.github.io/posts/inf-course-note-software-architecture-process-and-management/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/inf-course-note-software-architecture-process-and-management/</guid>
+      <description>&lt;p&gt;爱丁堡大学信息学院课程笔记 Software Architecture, Process, and Management, Informatics, University of Edinburgh&lt;/p&gt;
+&lt;p&gt;Reference:
+&lt;a href=&#34;https://msdn.microsoft.com/en-us/library/ff650706.aspx&#34;&gt;microsoft&lt;/a&gt;
+&lt;a href=&#34;https://www.ibm.com/developerworks/rational/library/feb06/eeles/&#34;&gt;IBM&lt;/a&gt;
+Software Architecture in Practice (3rd edition), Bass, Clements, and Kazman&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;what-is-software-architecture&#34;&gt;What is Software Architecture?&lt;/h2&gt;
+&lt;p&gt;Software architecture is often described as the organization or structure of a system, where the system represents a collection of components that accomplish a specific function or set of functions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;grouping components into areas of &lt;strong&gt;concern (layers)&lt;/strong&gt;: For example, the UI, business processing, and data access.&lt;/li&gt;
+&lt;li&gt;focus on interaction between the components and how different components work together.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在书中的定义：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Inf Course Note - Software Testing</title>
+      <link>https://congchan.github.io/posts/inf-course-note-software-testing/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/inf-course-note-software-testing/</guid>
+      <description>&lt;p&gt;爱丁堡大学信息学院课程笔记 Software Testing, Informatics, University of Edinburgh&lt;/p&gt;
+&lt;p&gt;Reference:
+&lt;a href=&#34;http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html&#34;&gt;http://www.inf.ed.ac.uk/teaching/courses/st/2017-18/index.html&lt;/a&gt;
+Pezze and Young, Software Testing and Analysis: Process, Principles and Techniques, Wiley, 2007.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;why-software-testing&#34;&gt;Why Software Testing?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1, 软件的漏洞, 错误和失效 Software Faults, Errors &amp;amp; Failures&lt;/strong&gt;
+The problem start with Faults,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Fault(BUG): latent error, mistakes in programming.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;e.g &lt;code&gt;add(x, y) = x * y&lt;/code&gt;.
+With the Faults in programs, &lt;strong&gt;if and only if&lt;/strong&gt; executing &lt;code&gt;add(x, y) = x * y&lt;/code&gt;, the fault being activated, and generate an Errors.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

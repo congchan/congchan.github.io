@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ICLR on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/iclr/</link>
+    <description>Recent content in ICLR on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/iclr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Reading -  Complexity-Based Prompting for Multi-Step Reasoning</title>
+      <link>https://congchan.github.io/posts/paper-reading-complexity-based-prompting-for-multi-step-reasoning/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-complexity-based-prompting-for-multi-step-reasoning/</guid>
+      <description>&lt;p&gt;Tags: 2023, ICLR
+Links: &lt;a href=&#34;https://github.com/FranxYao/chain-of-thought-hub&#34;&gt;https://github.com/FranxYao/chain-of-thought-hub&lt;/a&gt;
+Paper: Fu, Yao, et al. Complexity-Based Prompting for Multi-Step Reasoning. arXiv:2210.00720, arXiv, 30 Jan. 2023. arXiv.org, &lt;a href=&#34;http://arxiv.org/abs/2210.00720&#34;&gt;http://arxiv.org/abs/2210.00720&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;Example selection is a central problem in the prompting literature.&lt;/p&gt;
+&lt;p&gt;For CoT prompting, example selection is further related to annotation efficiency, as CoT requires manually-annotated reasoning chains. Which reasoning examples make the most effective prompts.&lt;/p&gt;
+&lt;p&gt;Propose complexity-based prompting, a simple and effective example selection scheme for multi-step reasoning. We show that prompts with higher reasoning complexity, i.e., chains with more reasoning steps, achieve substantially better performance on multistep reasoning tasks over strong baselines.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

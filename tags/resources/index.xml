@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Resources on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/resources/</link>
+    <description>Recent content in Resources on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 31 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/resources/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learn AI Step by Step</title>
+      <link>https://congchan.github.io/posts/learn-ai-step-by-step/</link>
+      <pubDate>Sat, 31 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/learn-ai-step-by-step/</guid>
+      <description>&lt;p&gt;记录学习AI的学习笔记，内容包含基础知识的总结以及编程实现的整理。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ShootingSpace/Guide-to-Computer-Science/blob/master/readme.md&#34;&gt;English template 英文模板&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;机器学习&#34;&gt;机器学习&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;Coursera Machine Learning， 吴恩达的简化版机器学习&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://see.stanford.edu/Course/CS229&#34;&gt;Machine Learning, 吴恩达的机器学习课程&lt;/a&gt; 这个比较深入&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/specializations/deep-learning&#34;&gt;Deep Learning, 吴恩达的深度学习课程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/learn/neural-networks&#34;&gt;Neural Networks for Machine Learning, Hinton的神经网络课程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;深度学习&#34;&gt;深度学习&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/specializations/deep-learning&#34;&gt;Deep learning, Coursera&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/CSTR-Edinburgh/mlpractical/tree/mlp2017-8/master&#34;&gt;Machine Learning Practical: DNN, CNN, RNN&lt;/a&gt; 每个lab的答案在下一个lab 分支，即lab1的答案可以在lab2 branch里面看到。这个代码全部用Python class，比coursera的难度高点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;自然语言处理&#34;&gt;自然语言处理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/playlist?list=PL6397E4B26D00A269&#34;&gt;自然语言处理, 斯坦福&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ShootingSpace/Self-to-Computer-Science-and-Artificial-Intelligence/blob/master/Note%20-%20AI125%20Accelerated%20Natural%20Language%20Processing%20UoE.md&#34;&gt;加速自然语言处理, 爱丁堡大学&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cs224d.stanford.edu/&#34;&gt;深度学习处理自然语言，斯坦福&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;计算机视觉&#34;&gt;计算机视觉&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=6niqTuYFZLQ&amp;amp;list=PLe7764SJVnV10-Nr7e0sBlC9J0LRf4sQo&#34;&gt;图像识别：卷积神经网络，李飞飞，斯坦福&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;机器人&#34;&gt;机器人&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://see.stanford.edu/Course/CS223A&#34;&gt;机器人入门，斯坦福&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

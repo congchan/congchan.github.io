@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Rabin-Karp on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/rabin-karp/</link>
+    <description>Recent content in Rabin-Karp on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 27 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/rabin-karp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字符搜索匹配算法 03 Rabin-Karp Fingerprint &amp; 字符串哈希</title>
+      <link>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-03-rabin-karp-fingerprint-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C/</link>
+      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E5%AD%97%E7%AC%A6%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-03-rabin-karp-fingerprint-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C/</guid>
+      <description>&lt;h2 id=&#34;rabin-karp-fingerprint&#34;&gt;Rabin-Karp Fingerprint&lt;/h2&gt;
+&lt;p&gt;Rabin-Karp fingerprint(RK) 基于 modular hashing：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compute a hash of pattern characters &lt;code&gt;0&lt;/code&gt; to &lt;code&gt;M - 1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;For each &lt;code&gt;i&lt;/code&gt;, compute a hash of text characters &lt;code&gt;i&lt;/code&gt; to &lt;code&gt;M + i - 1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If pattern hash = text substring hash, check for a match.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果在一一比较中对text的每个子串都重新计算hash，那么速度比暴力算法还慢。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;所以算法的关键在于如何高效地计算哈希值：Horner&amp;rsquo;s method - M阶多项式hash的线性时间方法&lt;/p&gt;
+$$a^b \pmod c = (a \pmod c)^b$$&lt;p&gt;
+引理：
+&lt;/p&gt;
+$$(a \times b) \pmod c = [( a \pmod c ) \times (b \pmod c) ] \pmod c$$&lt;p&gt;即积的取余等于取余的积的取余.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

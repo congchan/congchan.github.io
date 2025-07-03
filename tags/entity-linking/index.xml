@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Entity Linking on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/entity-linking/</link>
+    <description>Recent content in Entity Linking on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 02 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/entity-linking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Entity Linking</title>
+      <link>https://congchan.github.io/posts/entity-linking/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/entity-linking/</guid>
+      <description>&lt;p&gt;Entity Linking&lt;/p&gt;
+&lt;!-- more --&gt; 
+&lt;ul&gt;
+&lt;li&gt;Knowledge Graph (知识图谱)：一种语义网络，旨在描述客观世界的概念实体及其之间的关系，有时也称为Knowledge Base (知识库)。
+&lt;ul&gt;
+&lt;li&gt;图谱由三元组构成：&lt;code&gt;&amp;lt;实体1，关系，实体2&amp;gt;&lt;/code&gt; 或者 &lt;code&gt;&amp;lt;实体，属性，属性值&amp;gt;&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;例如：&lt;code&gt;&amp;lt;姚明，plays-in，NBA&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;姚明，身高，2.29m&amp;gt;&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;常见的KB有：Wikidata、DBpedia、YAGO。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Entity 实体：实体是知识图谱的基本单元，也是文本中承载信息的重要语言单位。&lt;/li&gt;
+&lt;li&gt;Mention 提及：自然文本中表达实体的语言片段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;应用方向&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Question Answering&lt;/strong&gt;：EL是KBQA的刚需，linking到实体之后才能查询图数据库；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Content Analysis&lt;/strong&gt;：舆情分析、内容推荐、阅读增强；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Information Retrieval&lt;/strong&gt;：基于语义实体的搜索引擎，google搜索一些实体，右侧会出现wikipedia页面；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Knowledge Base population&lt;/strong&gt;：扩充知识库，更新实体和关系。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;候选实体和消歧&lt;/p&gt;
+&lt;p&gt;Entity linking system consists of two components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;candidate entity generation：从mention出发，找到KB中所有可能的实体，组成候选实体集 (candidate entities)；&lt;/li&gt;
+&lt;li&gt;Entity Disambiguation：从candidate entities中，选择最可能的实体作为预测实体。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;entity-disambiguation-ed&#34;&gt;Entity Disambiguation (ED)&lt;/h1&gt;
+&lt;p&gt;是最重要的部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Features
+&lt;ul&gt;
+&lt;li&gt;Context-Independent Features：
+&lt;ul&gt;
+&lt;li&gt;LinkCount：#(m-&amp;gt;e)，知识库中某个提及m指向实体e的次数；&lt;/li&gt;
+&lt;li&gt;Entity Attributes：Popularity、Type；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Context-Dependent Features：
+&lt;ul&gt;
+&lt;li&gt;Textual Context：BOW, Concept Vector&lt;/li&gt;
+&lt;li&gt;Coherence Between Entities：WLM、PMI、Jaccard Distance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;context-independent-features&#34;&gt;Context-Independent Features&lt;/h2&gt;
+&lt;p&gt;mention到实体的LinkCount、实体自身的一些属性（比如热度、类型等等）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LinkCount作为一个先验知识，在消歧时，往往很有用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;context-dependent-features&#34;&gt;Context-Dependent Features&lt;/h2&gt;
+&lt;p&gt;全局地进行entities的消歧实际上是一个NP-hard的问题，因此核心问题是如何更加快速有效地利用一致性特征&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

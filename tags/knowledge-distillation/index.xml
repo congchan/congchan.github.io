@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Knowledge Distillation on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/knowledge-distillation/</link>
+    <description>Recent content in Knowledge Distillation on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/knowledge-distillation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Improving Event Detection via Open-domain Trigger Knowledge</title>
+      <link>https://congchan.github.io/posts/improving-event-detection-via-open-domain-trigger-knowledge/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/improving-event-detection-via-open-domain-trigger-knowledge/</guid>
+      <description>&lt;p&gt;2020, ACL&lt;/p&gt;
+&lt;p&gt;data: ACE 05&lt;/p&gt;
+&lt;p&gt;task: Event Detection&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Propose a novel Enrichment Knowledge Distillation (EKD) model to efficiently distill external open-domain trigger knowledge to reduce the in-built biases to frequent trigger words in annotations.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;leverage the wealth of the open-domain trigger knowledge to improve ED&lt;/li&gt;
+&lt;li&gt;propose a novel teacher-student model (EKD) that can learn from both labeled and unlabeled data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt=&#34;/images/papers/paper2.png&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper2.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;缺点&#34;&gt;缺点&lt;/h1&gt;
+&lt;p&gt;只能对付普遍情况, 即一般性的触发词; 但触发词不是在任何语境下都是触发词.&lt;/p&gt;
+&lt;h1 id=&#34;方法&#34;&gt;方法&lt;/h1&gt;
+&lt;p&gt;empower the model with external knowledge called Open-Domain Trigger Knowledge, defined as a prior that specifies which words can trigger events without subject to pre-defined event types and the domain of texts.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

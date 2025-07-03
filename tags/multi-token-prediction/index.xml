@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Multi-Token Prediction on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/multi-token-prediction/</link>
+    <description>Recent content in Multi-Token Prediction on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 29 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/multi-token-prediction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multi-token Prediction</title>
+      <link>https://congchan.github.io/posts/multi-token-prediction/</link>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/multi-token-prediction/</guid>
+      <description>&lt;h2 id=&#34;multi-token-prediction-vs-next-token-prediction&#34;&gt;Multi-token prediction vs Next-token prediction&lt;/h2&gt;
+&lt;p&gt;Next-token prediction is the standard training objective for most large language models (LLMs), where the model learns to predict the subsequent token in a sequence given all preceding tokens. The model is trained to maximize the probability of the next token \( x_{t+1} \) given the context \( x_{1:t} \) (all tokens up to position \( t \)).&lt;/p&gt;
+&lt;p&gt;The cross-entropy loss for next-token prediction is defined as:&lt;br&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

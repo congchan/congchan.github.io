@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Reward Modeling on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/reward-modeling/</link>
+    <description>Recent content in Reward Modeling on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/reward-modeling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Evolution of Reward Modeling - From Human Feedback to Generative Inference-Time Scaling</title>
+      <link>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</guid>
+      <description>&lt;p&gt;Reward modeling (RM) has emerged as a cornerstone of large language model (LLM) alignment, guiding models to align with human values and perform complex tasks. Early approaches relied heavily on Reinforcement Learning from Human Feedback (RLHF), but recent research has shifted toward more scalable, efficient, and generalizable RM frameworks. This blog explores the developmental arc of RM, connecting four seminal papers that have shaped the field: from Constitutional AI and self-evaluation mechanisms to inference-time scaling for generalist RM.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Reading - Inference-Time Scaling for Generalist Reward Modeling</title>
+      <link>https://congchan.github.io/posts/paper-reading-inference-time-scaling-for-generalist-reward-modeling/</link>
+      <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-inference-time-scaling-for-generalist-reward-modeling/</guid>
+      <description>&lt;p&gt;Liu, Zijun, et al. Inference-Time Scaling for Generalist Reward Modeling. arXiv:2504.02495, arXiv, 5 Apr. 2025. arXiv.org, &lt;a href=&#34;https://doi.org/10.48550/arXiv.2504.02495&#34;&gt;https://doi.org/10.48550/arXiv.2504.02495&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;problem-statement&#34;&gt;Problem Statement&lt;/h4&gt;
+&lt;p&gt;Reinforcement Learning (RL) has become pivotal in post-training large language models (LLMs), but generating accurate reward signals for diverse domains remains challenging. Existing reward models (RMs) often rely on human-designed rules or verifiable tasks, struggling with generalizability and inference-time scalability. This paper addresses how to improve RM effectiveness through increased inference compute and adaptive learning methods for general queries.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Better Practice to Define Reward Model with HuggingFace&#39;s transformers</title>
+      <link>https://congchan.github.io/posts/a-better-practice-to-define-reward-model-with-huggingfaces-transformers/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/a-better-practice-to-define-reward-model-with-huggingfaces-transformers/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://congchan.github.io/&#34;&gt;Cong Chen&lt;/a&gt;&lt;br&gt;
+University of Edinburgh&lt;/p&gt;
+&lt;p&gt;There are various implementation of reward modeling in RLHF(reinforcement learning with human feedback), each has different pros and cons. Inspired by some open-sourced works about reward modeling, I would like to share one of the best practice for reward modeling. For those who are not familiar with reward modeling and RLHF, I recommend take a look at the Huggingface rlhf blog&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; or OpenAI rlhf paper&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Reading - Let’s Verify Step by Step</title>
+      <link>https://congchan.github.io/posts/paper-reading-lets-verify-step-by-step/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/paper-reading-lets-verify-step-by-step/</guid>
+      <description>&lt;h1 id=&#34;tldr&#34;&gt;TLDR&lt;/h1&gt;
+&lt;p&gt;In order to train more dependable models, there are two known options: outcome supervision, which gives feedback on the final result, and process supervision, which provides feedback on each intermediate reasoning step.&lt;/p&gt;
+&lt;p&gt;This papers provides two finding:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The use of process supervision yields significantly better results than outcome supervision when training models to solve problems from the challenging MATH dataset.&lt;/li&gt;
+&lt;li&gt;The efficacy of process supervision is significantly improved by active learning.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The exclusive focus of this paper is to provide insights on training the most reliable reward model.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Reservoir Sampling on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/reservoir-sampling/</link>
+    <description>Recent content in Reservoir Sampling on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/reservoir-sampling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Randomized Queue with Reservoir Sampling</title>
+      <link>https://congchan.github.io/posts/randomized-queue-with-reservoir-sampling/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/randomized-queue-with-reservoir-sampling/</guid>
+      <description>&lt;p&gt;This blog explains an apllication of randomized queue algorithms.&lt;/p&gt;
+&lt;h2 id=&#34;permutation-client-memory-challenge&#34;&gt;Permutation client memory challenge&lt;/h2&gt;
+&lt;p&gt;A client program &lt;code&gt;Permutation.java&lt;/code&gt; that takes an integer k as a command-line argument; reads in a sequence of strings from standard input using &lt;code&gt;StdIn.readString()&lt;/code&gt;; and prints exactly k of them, uniformly at random. Print each item from the sequence at most once.&lt;/p&gt;
+&lt;p&gt;More detail could be found at programming assignment &lt;a href=&#34;http://coursera.cs.princeton.edu/algs4/assignments/queues.html&#34;&gt;specification&lt;/a&gt; and &lt;a href=&#34;http://coursera.cs.princeton.edu/algs4/checklists/queues.html&#34;&gt;checklist&lt;/a&gt;, codes available in &lt;a href=&#34;https://github.com/congchan/algs4/tree/master/queues/src&#34;&gt;algs4/queues/src/&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;randomized-queue&#34;&gt;Randomized queue&lt;/h3&gt;
+&lt;p&gt;For a randomized queue, the item removed is chosen &lt;strong&gt;uniformly&lt;/strong&gt; at random from items in the data structure.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

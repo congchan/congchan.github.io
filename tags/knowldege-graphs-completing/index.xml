@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Knowldege Graphs Completing on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/knowldege-graphs-completing/</link>
+    <description>Recent content in Knowldege Graphs Completing on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/knowldege-graphs-completing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>知识图谱补全</title>
+      <link>https://congchan.github.io/posts/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E8%A1%A5%E5%85%A8/</guid>
+      <description>&lt;p&gt;知识图谱补全&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;基于知识表示的方法&#34;&gt;基于知识表示的方法&lt;/h1&gt;
+&lt;p&gt;知识表示学习：对知识图谱中的实体和关系学习其低维度的嵌入式表示。&lt;/p&gt;
+&lt;p&gt;常见的知识表示学习方法：主要是以 TransE 法及其变种为核心，针对空间映射等场景做的改进&lt;/p&gt;
+&lt;p&gt;基于实体和关系的表示对缺失三元组进行预测；&lt;/p&gt;
+&lt;p&gt;利用实体描述信息，可以解决开放域实体补全的问题；&lt;/p&gt;
+&lt;h1 id=&#34;基于路径查找的方法&#34;&gt;基于路径查找的方法&lt;/h1&gt;
+&lt;p&gt;可使用基于路径查找的方法来处理这类多步推理问题。&lt;/p&gt;
+&lt;p&gt;传统的路径查找方法主要是 PRA 方法（Path Ranking Algorithm）；但是这种方法对于包含较大规模的知识图谱来说，会由于路径数量爆炸式增长，导致特征空间急剧膨胀&lt;/p&gt;
+&lt;p&gt;可以尝试用 embedding 的方式表示关系，对关系进行泛化，并基于此对知识的补全进行建模，以缓解路径数量过多导致的特征空间膨胀问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;给定实体对集合，利用 PRA 查找一定数量的路径；&lt;/li&gt;
+&lt;li&gt;路径计算过程中加入实体类型信息（减少长尾实体影响）；&lt;/li&gt;
+&lt;li&gt;使用 RNN 沿着路径进行向量化建模；RNN 模型参数在不同关系之间共享；&lt;/li&gt;
+&lt;li&gt;通过比较路径向量与待预测关系向量间的关联度来进行关系补全。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;基于强化学习的方法&#34;&gt;基于强化学习的方法&lt;/h1&gt;
+&lt;p&gt;前面提到的两种方法，仍然存在若干的问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要基于 random walk 来查找路径；&lt;/li&gt;
+&lt;li&gt;而 random walk 算法在离散空间中运行，难以评价知识图谱中相似的实体和关系；&lt;/li&gt;
+&lt;li&gt;超级结点可能影响 random walk 算法运行速度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;强化学习方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在连续空间中进行路径搜索；&lt;/li&gt;
+&lt;li&gt;通过引入多种奖励函数，使得路径查找更加灵活、可控。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deeppath&#34;&gt;DeepPath&lt;/h2&gt;
+&lt;p&gt;DeepPath: A Reinforcement Learning Method for Knowledge Graph Reasoning&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/xwhan/DeepPath&#34;&gt;xwhan/DeepPath&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;/images/papers/paper7.png&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper7.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;任务：查找 Band of Brothers 和 English 之间的关系。&lt;/li&gt;
+&lt;li&gt;路径起点：Band of Brothers&lt;/li&gt;
+&lt;li&gt;状态：实体中的 embedding&lt;/li&gt;
+&lt;li&gt;动作：图谱中的关系；&lt;/li&gt;
+&lt;li&gt;奖励
+&lt;ul&gt;
+&lt;li&gt;Binary，是否到达终点&lt;/li&gt;
+&lt;li&gt;路径长度&lt;/li&gt;
+&lt;li&gt;路径多样性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;策略网络：使用全连接网络。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DeepPath 方法仍然存在一些缺陷：知识图谱本身的不完善很可能对路径查找造成影响。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

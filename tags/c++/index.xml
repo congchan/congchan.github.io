@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C&#43;&#43; on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stanford CS106A/B Programming Intro 斯坦福大学编程入门课</title>
+      <link>https://congchan.github.io/posts/stanford-cs106a/b-programming-intro-%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E8%AF%BE/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/stanford-cs106a/b-programming-intro-%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E8%AF%BE/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://see.stanford.edu/Course/CS106B&#34;&gt;Stanford CS106B Programming Abstractions&lt;/a&gt; 和 &lt;a href=&#34;https://see.stanford.edu/Course/CS106A&#34;&gt;CS106A&lt;/a&gt; 的学习笔记. 课程作业(cs106b spring 2017)实现代码见 &lt;a href=&#34;https://github.com/ShootingSpace/cs106b-programming-abstraction&#34;&gt;https://github.com/ShootingSpace/cs106b-programming-abstraction&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;topics&#34;&gt;Topics:&lt;/h2&gt;
+&lt;p&gt;A: Intro (by Java)
+B: Recursion, algorithms analysis (sort/search/hash), dynamic data structures (lists, trees, heaps), data abstraction (stacks, queues, maps), implementation strategies/tradeoffs&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;purposes&#34;&gt;Purposes&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;become acquainted with the C++ programming language&lt;/li&gt;
+&lt;li&gt;learn more advanced programming techniques&lt;/li&gt;
+&lt;li&gt;explore classic data structures and algorithms&lt;/li&gt;
+&lt;li&gt;and apply these tools to solving complex problems&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Text Book: &lt;a href=&#34;https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html&#34;&gt;Data Structures &amp;amp; Algorithm Analysis in C++, 4th ed, by Mark A. Weiss&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Text Book: &lt;a href=&#34;https://www.pearson.com/us/higher-education/program/Roberts-Programming-Abstractions-in-C/PGM80147.html&#34;&gt;Programming Abstractions in C++ 1st Edition by Eric Roberts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Text Book: &lt;a href=&#34;http://algs4.cs.princeton.edu/home/&#34;&gt;Algorithms, 4th Edition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Blog: &lt;a href=&#34;http://www.redblobgames.com/pathfinding/a-star/introduction.html&#34;&gt;Red Blob Games&lt;/a&gt;, &lt;a href=&#34;http://theory.stanford.edu/~amitp/GameProgramming/&#34;&gt;Amit’s A* Pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;coding-style&#34;&gt;Coding style&lt;/h2&gt;
+&lt;p&gt;Why writing clean, well-structured code&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

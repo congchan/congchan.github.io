@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CS on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/cs/</link>
+    <description>Recent content in CS on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 31 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computer Science Step by Step</title>
+      <link>https://congchan.github.io/posts/computer-science-step-by-step/</link>
+      <pubDate>Sat, 31 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/computer-science-step-by-step/</guid>
+      <description>&lt;p&gt;我学习CS历程，也包含基础知识的总结以及编程实现的整理。&lt;/p&gt;
+&lt;p&gt;每一阶段里面, 都有很多个性化选项, 仅供参考&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;入门&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#CS%e5%85%a5%e9%97%a8&#34;&gt;CS入门&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80&#34;&gt;学习编写(至少)一种面向对象编程语言(C ++，Java®，Python®)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e6%b5%8b%e8%af%95%e4%bd%a0%e7%9a%84%e4%bb%a3%e7%a0%81&#34;&gt;测试你的代码&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;夯实基础&lt;/strong&gt;
+你可以跳过这些而直接进入下面的进阶实践环节，并根据自己需要查漏补缺。
+但是这些都是非常重要的基础，任何时候，只要有时间，就可以去学习了解。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e9%80%bb%e8%be%91%e6%8e%a8%e7%90%86%e5%92%8c%e7%a6%bb%e6%95%a3%e6%95%b0%e5%ad%a6&#34;&gt;逻辑推理和离散数学&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f&#34;&gt;熟悉计算机操作系统&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c&#34;&gt;学习计算机网络&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e6%95%b0%e6%8d%ae%e5%ba%93&#34;&gt;掌握数据库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e7%bc%96%e8%af%91%e5%99%a8&#34;&gt;了解编译器和优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e8%ae%a1%e7%ae%97%e7%90%86%e8%ae%ba&#34;&gt;了解计算理论&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e5%85%b6%e4%bb%96%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80&#34;&gt;学习其他编程语言&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;进阶与实践&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e7%ae%97%e6%b3%95%e5%92%8c%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84&#34;&gt;深入了解算法和数据结构&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e5%88%86%e5%b8%83%e5%bc%8f%ef%bc%8c%e5%b9%b6%e8%a1%8c%e5%92%8c%e5%a4%a7%e6%95%b0%e6%8d%ae&#34;&gt;分布式，并行和大数据&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e5%ae%89%e5%8d%93%e5%bc%80%e5%8f%91&#34;&gt;安卓开发&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#iOS%e5%bc%80%e5%8f%91&#34;&gt;iOS开发&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e7%bd%91%e9%a1%b5%e5%bc%80%e5%8f%91&#34;&gt;网页开发&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e5%8a%a0%e5%af%86%e4%b8%8e%e5%8c%ba%e5%9d%97%e9%93%be&#34;&gt;加密与区块链&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://congchan.github.io/posts/computer-science-step-by-step/#%e5%8f%82%e4%b8%8e%e9%a1%b9%e7%9b%ae&#34;&gt;参与项目&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ShootingSpace/Guide-to-Computer-Science/blob/master/readme.md&#34;&gt;English template 英文模板&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;cs入门&#34;&gt;CS入门&lt;/h3&gt;
+&lt;p&gt;现在的入门课基本都是用Python语言。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.udacity.com/course/cs101&#34;&gt;计算机科学导论，优达学城&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cs50.harvard.edu/&#34;&gt;CS50x 哈佛，语言包括C，Python，SQL和JavaScript加CSS和HTML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cs.cmu.edu/~213/&#34;&gt;CMU 15213: Introduction to Computer Systems (ICS)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;面向对象编程语言&#34;&gt;面向对象编程语言&lt;/h3&gt;
+&lt;p&gt;一般而言，建议先学Java 或 Python，再学C++。 这三种语言都基本掌握后，再根据自身的职业需求，选择其中一个语言（或者其他语言）进一步深入练习。&lt;/p&gt;
+&lt;p&gt;面向初学者程序员的在线资源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://see.stanford.edu/Course/CS106A&#34;&gt;编程方法学，斯坦福CS106A，Java&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www-inst.eecs.berkeley.edu/~cs61a/sp14/&#34;&gt;伯克利大学CS 61A计算机程序的结构与解读，Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-introduction-to-programming-in-java-january-iap-2010/index.htm&#34;&gt;Java编程简介，MIT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/edu/python/&#34;&gt;Google Python Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;面向有经验的程序员的在线资源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://datastructur.es/sp16/&#34;&gt;数据结构，伯克利大学 CS 61B，Java&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.udacity.com/course/design-of-computer-programs--cs212&#34;&gt;计算机程序设计，Udacity，Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://see.stanford.edu/Course/CS106B&#34;&gt;抽象编程，斯坦福 CS106B，C ++&lt;/a&gt;, 最新作业 &lt;a href=&#34;http://web.stanford.edu/class/cs106b/&#34;&gt;http://web.stanford.edu/class/cs106b/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://book.douban.com/subject/1909336/&#34;&gt;《数据结构与算法分析:C++描述》, Mark A. Weiss&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;测试你的代码&#34;&gt;测试你的代码&lt;/h3&gt;
+&lt;p&gt;了解如何捕获错误，创建测试和破解软件.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

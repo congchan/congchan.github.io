@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Machine Learning on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 03 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BERT的Adam Weight Decay</title>
+      <link>https://congchan.github.io/posts/bert%E7%9A%84adam-weight-decay/</link>
+      <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/bert%E7%9A%84adam-weight-decay/</guid>
+      <description>&lt;h1 id=&#34;adam-weight-decay-in-bert&#34;&gt;Adam Weight Decay in BERT&lt;/h1&gt;
+&lt;p&gt;在看BERT(&lt;a href=&#34;https://congchan.github.io/posts/bert%E7%9A%84adam-weight-decay/#refer&#34;&gt;Devlin et al., 2019&lt;/a&gt;)的源码中优化器部分的实现时，发现有这么一段话&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Just adding the square of the weights to the loss function is *not*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# the correct way of using L2 regularization/weight decay with Adam,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# since that will interact with the m and v parameters in strange ways.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Instead we want ot decay the weights in a manner that doesn&amp;#39;t interact&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# with the m/v parameters. This is equivalent to adding the square&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# of the weights to the loss with plain (non-momentum) SGD.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- more --&gt;
+&lt;p&gt;其针对性地指出一些传统的Adam weight decay实现是错误的.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Machine Learning Note - cs229 - Stanford</title>
+      <link>https://congchan.github.io/posts/machine-learning-note-cs229-stanford/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/machine-learning-note-cs229-stanford/</guid>
+      <description>&lt;p&gt;参考
+&lt;a href=&#34;http://cs229.stanford.edu/notes&#34;&gt;CS229: Machine Learning, Stanford&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;什么是机器学习？目前有两个定义。&lt;/p&gt;
+&lt;p&gt;亚瑟·塞缪尔（Arthur Samuel）将其描述为：“不需要通过具体的编程，使计算机能够学习”。这是一个较老的，非正式的定义。&lt;/p&gt;
+&lt;p&gt;汤姆·米切尔（Tom Mitchell）提供了一个更现代的定义：
+E：经验，即历史的数据集。
+T：某类任务。
+P：任务的绩效衡量。
+若该计算机程序通过利用经验E在任务T上获得了性能P的改善，则称该程序对E进行了学习
+“如果计算机程序能够利用经验E，提升实现任务T的成绩P，则可以认为这个计算机程序能够从经验E中学习任务T”。
+例如：玩跳棋。E =玩许多棋子游戏的经验，T = 玩跳棋的任务。P = 程序将赢得下一场比赛的概率。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;supervised-learning&#34;&gt;&lt;a href=&#34;http://cs229.stanford.edu/notes/cs229-notes1.pdf&#34;&gt;Supervised Learning&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;linear-regression&#34;&gt;Linear Regression&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Weights(parameters) θ: parameterizing the space of linear functions mapping from X to Y&lt;/li&gt;
+&lt;li&gt;Intercept term: to simplify notation, introduce the convention of letting x&lt;sub&gt;0&lt;/sub&gt; = 1&lt;/li&gt;
+&lt;li&gt;Cost function J(θ): &lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/ShootingSpace/Computer-Science-and-Artificial-Intelligence/master/image/linearR_cost.png&#34;&gt;  a function that measures, for each value of the θ’s, how close the h(x&lt;sup&gt;(i)&lt;/sup&gt;)’s are to the corresponding y&lt;sup&gt;(i)&lt;/sup&gt;’s&lt;/li&gt;
+&lt;li&gt;Purpose: to choose θ so as to minimize J(θ).&lt;/li&gt;
+&lt;li&gt;Implementation: By using a search algorithm that starts with some “initial guess” for θ, and that repeatedly changes θ to make J(θ) smaller, until hopefully we converge to a value of θ that minimizes J(θ).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;lmsleast-mean-squares-algorithm&#34;&gt;LMS(least mean squares) algorithm:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;gradient descent&lt;/li&gt;
+&lt;li&gt;learning rate&lt;/li&gt;
+&lt;li&gt;error term&lt;/li&gt;
+&lt;li&gt;batch gradient descent：looks at every example in the entire training set on every step&lt;/li&gt;
+&lt;li&gt;stochastic gradient descent(incremental gradient descent)：repeatedly run through the training set, and each time we encounter a training example, we update the parameters according to
+the gradient of the error with respect to that single training example only.&lt;/li&gt;
+&lt;li&gt;particularly when the training set is large, stochastic gradient descent is often preferred over batch gradient descent.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;the-normal-equations&#34;&gt;The normal equations&lt;/h4&gt;
+&lt;p&gt;performing the minimization explicitly and without resorting to an iterative algorithm. In this method, we will minimize J by explicitly taking its derivatives with respect to the θ&lt;sub&gt;j&lt;/sub&gt;’s, and setting them to zero.
+To enable us to do this without having to write reams of algebra and pages full of matrices of derivatives, let’s introduce some notation for doing calculus with matrices&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Machine Learning with Scikit-learn (Sklearn) 机器学习实践</title>
+      <link>https://congchan.github.io/posts/machine-learning-with-scikit-learn-sklearn-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/machine-learning-with-scikit-learn-sklearn-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;p&gt;Scikit-learn 提供一套实用的工具，用于解决机器学习中的实际问题，并配合适当的方法来制定解决方案。&lt;/p&gt;
+&lt;p&gt;涉及数据和模型简介，决策树，误差的作用，最小化误差，回归拟合，逻辑回归，神经网络，感知器，支持向量机，朴素贝叶斯，降维，K均值，简单高斯混合模型，分层聚类，模型评估。&lt;/p&gt;
+&lt;p&gt;实验和代码在&lt;a href=&#34;https://github.com/JamesOwers/iaml2017&#34;&gt;GitHub&lt;/a&gt;;
+练习作业答案可以参考&lt;a href=&#34;https://github.com/ShootingSpace/Machine-learning-practical-with-scikit-learn&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

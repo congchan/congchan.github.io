@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MOE on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/moe/</link>
+    <description>Recent content in MOE on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/moe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switch Transformers - Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</title>
+      <link>https://congchan.github.io/posts/switch-transformers-scaling-to-trillion-parameter-models-with-simple-and-efficient-sparsity/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/switch-transformers-scaling-to-trillion-parameter-models-with-simple-and-efficient-sparsity/</guid>
+      <description>&lt;p&gt;Links: &lt;a href=&#34;https://arxiv.org/abs/2101.03961&#34;&gt;https://arxiv.org/abs/2101.03961&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;“SWITCH TRANSFORMERS: SCALING TO TRILLION PARAMETER MODELS WITH SIMPLE AND EFFICIENT SPARSITY”，提出了一种可以扩展到万亿参数的网络，有两个比较大的创新，基于Transformer MoE网络结构，简化了MoE的routing机制，降低了计算量；进一步通过数据并行+模型并行+expert并行的方式降低了训练通信量，提升训练性能。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;模型&#34;&gt;模型&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper12.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;simplifying-sparse-routing&#34;&gt;Simplifying Sparse Routing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mixture of Expert Routing&lt;/strong&gt; which takes as an input a token representation x and then routes this to the best deter- mined top-k experts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Switch Routing&lt;/strong&gt;: route to only a single expert, this simplification preserves model quality, reduces routing computation and performs better.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/papers/paper12-1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Sparse routing通过参数Wr计算出一个在N个experts上的softmax分布，对每个token输入筛选概率最高的 top k 个 experts，对应的是MOE中的门控机制。这样对算力的需求并没有随着参数量的增加而大幅增长，使得这个模型更加容易训练。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mixture of Experts (MOE)</title>
+      <link>https://congchan.github.io/posts/mixture-of-experts-moe/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/mixture-of-experts-moe/</guid>
+      <description>&lt;h1 id=&#34;mixture-of-experts-moe&#34;&gt;Mixture of Experts (MOE)&lt;/h1&gt;
+&lt;p&gt;MOE属于Ensemble Method中的一个方法, 采用分治思想：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将复杂的建模任务分解为多个相对简单的子任务，为每个子任务训练专门的模型：涉及子任务分解，或者Clustering&lt;/li&gt;
+&lt;li&gt;需要一个门控模型，基于数据输入选择如何组合多个专家模型的结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- more --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mixture of experts aims at increasing the accuracy of a function approximation by replacing a single global model by a weighted sum of local models (experts). It is based on a partition of the problem domain into several subdomains via clustering algorithms followed by a local expert training on each subdomain.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt=&#34;Page 94, Ensemble Methods, 2012.&#34; loading=&#34;lazy&#34; src=&#34;https://congchan.github.io/images/moe.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;local-models--global-models&#34;&gt;Local Models &amp;amp; Global Models&lt;/h2&gt;
+&lt;p&gt;Hinton的课件介绍了模型拟合分布的两个极端方式:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

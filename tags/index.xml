@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/</link>
+    <description>Recent content in Tags on Cong&#39;s Log</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 29 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2025</title>
+      <link>https://congchan.github.io/tags/2025/</link>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2025/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Large Language Model</title>
+      <link>https://congchan.github.io/tags/large-language-model/</link>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/large-language-model/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Token Prediction</title>
+      <link>https://congchan.github.io/tags/multi-token-prediction/</link>
+      <pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/multi-token-prediction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Post-Training</title>
+      <link>https://congchan.github.io/tags/post-training/</link>
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/post-training/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reward Modeling</title>
+      <link>https://congchan.github.io/tags/reward-modeling/</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/reward-modeling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Readings</title>
+      <link>https://congchan.github.io/tags/readings/</link>
+      <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/readings/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DeepSeek</title>
+      <link>https://congchan.github.io/tags/deepseek/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/deepseek/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Large Language Models</title>
+      <link>https://congchan.github.io/tags/large-language-models/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/large-language-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RL</title>
+      <link>https://congchan.github.io/tags/rl/</link>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/rl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2024</title>
+      <link>https://congchan.github.io/tags/2024/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2024/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alignment&#39;</title>
+      <link>https://congchan.github.io/tags/alignment/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/alignment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLM</title>
+      <link>https://congchan.github.io/tags/llm/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2023</title>
+      <link>https://congchan.github.io/tags/2023/</link>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alignment</title>
+      <link>https://congchan.github.io/tags/alignment/</link>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/alignment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RLHF</title>
+      <link>https://congchan.github.io/tags/rlhf/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/rlhf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Behavior Cloning(BC)</title>
+      <link>https://congchan.github.io/tags/behavior-cloningbc/</link>
+      <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/behavior-cloningbc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Truthfulness</title>
+      <link>https://congchan.github.io/tags/truthfulness/</link>
+      <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/truthfulness/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ICLR</title>
+      <link>https://congchan.github.io/tags/iclr/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/iclr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2022</title>
+      <link>https://congchan.github.io/tags/2022/</link>
+      <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2022/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2020</title>
+      <link>https://congchan.github.io/tags/2020/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2020/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Language Models</title>
+      <link>https://congchan.github.io/tags/language-models/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/language-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text Generation</title>
+      <link>https://congchan.github.io/tags/text-generation/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/text-generation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pre-Trained Models</title>
+      <link>https://congchan.github.io/tags/pre-trained-models/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/pre-trained-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2021</title>
+      <link>https://congchan.github.io/tags/2021/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2021/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MOE</title>
+      <link>https://congchan.github.io/tags/moe/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/moe/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NLP</title>
+      <link>https://congchan.github.io/tags/nlp/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformers</title>
+      <link>https://congchan.github.io/tags/transformers/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/transformers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Survey</title>
+      <link>https://congchan.github.io/tags/survey/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/survey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ACL</title>
+      <link>https://congchan.github.io/tags/acl/</link>
+      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/acl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coreference Resolution</title>
+      <link>https://congchan.github.io/tags/coreference-resolution/</link>
+      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/coreference-resolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://congchan.github.io/tags/ai/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ML</title>
+      <link>https://congchan.github.io/tags/ml/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/ml/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2019</title>
+      <link>https://congchan.github.io/tags/2019/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2019/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DQN</title>
+      <link>https://congchan.github.io/tags/dqn/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/dqn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GRU</title>
+      <link>https://congchan.github.io/tags/gru/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/gru/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rumour Detection</title>
+      <link>https://congchan.github.io/tags/rumour-detection/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/rumour-detection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Extraction</title>
+      <link>https://congchan.github.io/tags/extraction/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/extraction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NAACL</title>
+      <link>https://congchan.github.io/tags/naacl/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/naacl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EMNLP</title>
+      <link>https://congchan.github.io/tags/emnlp/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/emnlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Event Detection</title>
+      <link>https://congchan.github.io/tags/event-detection/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/event-detection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge Distillation</title>
+      <link>https://congchan.github.io/tags/knowledge-distillation/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/knowledge-distillation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Event Extraction</title>
+      <link>https://congchan.github.io/tags/event-extraction/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/event-extraction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multimodal</title>
+      <link>https://congchan.github.io/tags/multimodal/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/multimodal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DDDQN</title>
+      <link>https://congchan.github.io/tags/dddqn/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/dddqn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DDQN</title>
+      <link>https://congchan.github.io/tags/ddqn/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/ddqn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2017</title>
+      <link>https://congchan.github.io/tags/2017/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2017/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge Graph Reasoning</title>
+      <link>https://congchan.github.io/tags/knowledge-graph-reasoning/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/knowledge-graph-reasoning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2013</title>
+      <link>https://congchan.github.io/tags/2013/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2013/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2014</title>
+      <link>https://congchan.github.io/tags/2014/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2014/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2015</title>
+      <link>https://congchan.github.io/tags/2015/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/2015/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AAAI</title>
+      <link>https://congchan.github.io/tags/aaai/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/aaai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge Graph Embedding</title>
+      <link>https://congchan.github.io/tags/knowledge-graph-embedding/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/knowledge-graph-embedding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NIPS</title>
+      <link>https://congchan.github.io/tags/nips/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/nips/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IEEE</title>
+      <link>https://congchan.github.io/tags/ieee/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/ieee/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge Graphs</title>
+      <link>https://congchan.github.io/tags/knowledge-graphs/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/knowledge-graphs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ABSA</title>
+      <link>https://congchan.github.io/tags/absa/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/absa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Entity Linking</title>
+      <link>https://congchan.github.io/tags/entity-linking/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/entity-linking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowldege Graphs Completing</title>
+      <link>https://congchan.github.io/tags/knowldege-graphs-completing/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/knowldege-graphs-completing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://congchan.github.io/tags/machine-learning/</link>
+      <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Attention</title>
+      <link>https://congchan.github.io/tags/attention/</link>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/attention/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithms</title>
+      <link>https://congchan.github.io/tags/algorithms/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://congchan.github.io/tags/java/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software Engineer</title>
+      <link>https://congchan.github.io/tags/software-engineer/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/software-engineer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sorting</title>
+      <link>https://congchan.github.io/tags/sorting/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/sorting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fisher–Yates Shuffle</title>
+      <link>https://congchan.github.io/tags/fisheryates-shuffle/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/fisheryates-shuffle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reservoir Sampling</title>
+      <link>https://congchan.github.io/tags/reservoir-sampling/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/reservoir-sampling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TensorFlow</title>
+      <link>https://congchan.github.io/tags/tensorflow/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bitwise Operation</title>
+      <link>https://congchan.github.io/tags/bitwise-operation/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/bitwise-operation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C</title>
+      <link>https://congchan.github.io/tags/c/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Course-Note</title>
+      <link>https://congchan.github.io/tags/course-note/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/course-note/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Inf Course Note</title>
+      <link>https://congchan.github.io/tags/inf-course-note/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/inf-course-note/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NLU</title>
+      <link>https://congchan.github.io/tags/nlu/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/nlu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parallelism &amp; Concurrency</title>
+      <link>https://congchan.github.io/tags/parallelism--concurrency/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/parallelism--concurrency/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming Language</title>
+      <link>https://congchan.github.io/tags/programming-language/</link>
+      <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/programming-language/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://congchan.github.io/tags/python/</link>
+      <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Csapp</title>
+      <link>https://congchan.github.io/tags/csapp/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/csapp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Information Retrieval</title>
+      <link>https://congchan.github.io/tags/information-retrieval/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/information-retrieval/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algs4</title>
+      <link>https://congchan.github.io/tags/algs4/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/algs4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sklearn</title>
+      <link>https://congchan.github.io/tags/sklearn/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/sklearn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Compression</title>
+      <link>https://congchan.github.io/tags/data-compression/</link>
+      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/data-compression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Huffman Compression</title>
+      <link>https://congchan.github.io/tags/huffman-compression/</link>
+      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/huffman-compression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dynamic Programming</title>
+      <link>https://congchan.github.io/tags/dynamic-programming/</link>
+      <pubDate>Tue, 03 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/dynamic-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>String</title>
+      <link>https://congchan.github.io/tags/string/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/string/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Symbol Table</title>
+      <link>https://congchan.github.io/tags/symbol-table/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/symbol-table/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trie</title>
+      <link>https://congchan.github.io/tags/trie/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/trie/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AC自动机</title>
+      <link>https://congchan.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trie图</title>
+      <link>https://congchan.github.io/tags/trie%E5%9B%BE/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/trie%E5%9B%BE/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rabin-Karp</title>
+      <link>https://congchan.github.io/tags/rabin-karp/</link>
+      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/rabin-karp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aho–Corasick Algorithm</title>
+      <link>https://congchan.github.io/tags/ahocorasick-algorithm/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/ahocorasick-algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Boyer-Moore</title>
+      <link>https://congchan.github.io/tags/boyer-moore/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/boyer-moore/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Horspool</title>
+      <link>https://congchan.github.io/tags/horspool/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/horspool/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>KMP</title>
+      <link>https://congchan.github.io/tags/kmp/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/kmp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sunday</title>
+      <link>https://congchan.github.io/tags/sunday/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/sunday/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Computer Science</title>
+      <link>https://congchan.github.io/tags/computer-science/</link>
+      <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/computer-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cs61b</title>
+      <link>https://congchan.github.io/tags/cs61b/</link>
+      <pubDate>Wed, 28 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/cs61b/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://congchan.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>编程</title>
+      <link>https://congchan.github.io/tags/%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CS</title>
+      <link>https://congchan.github.io/tags/cs/</link>
+      <pubDate>Sat, 31 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/cs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resources</title>
+      <link>https://congchan.github.io/tags/resources/</link>
+      <pubDate>Sat, 31 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/tags/resources/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
