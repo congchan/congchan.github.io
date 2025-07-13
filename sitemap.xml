@@ -5,10 +5,25 @@
     <loc>https://congchan.github.io/posts/awesome-large-language-model-llm-post-training-2025-update/</loc>
     <lastmod>2025-05-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://congchan.github.io/tags/2025/</loc>
-    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://congchan.github.io/</loc>
+    <lastmod>2025-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/posts/connection-between-imitation-learning-and-rlhf/</loc>
+    <lastmod>2025-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/llm/</loc>
+    <lastmod>2025-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/posts/</loc>
+    <lastmod>2025-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/rlhf/</loc>
+    <lastmod>2025-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/</loc>
+    <lastmod>2025-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/2025/</loc>
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/tags/large-language-model/</loc>
@@ -18,12 +33,6 @@
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/tags/multi-token-prediction/</loc>
-    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://congchan.github.io/posts/</loc>
-    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://congchan.github.io/tags/</loc>
     <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/tags/post-training/</loc>
@@ -59,9 +68,6 @@
     <loc>https://congchan.github.io/tags/alignment/</loc>
     <lastmod>2024-04-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://congchan.github.io/tags/llm/</loc>
-    <lastmod>2024-04-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://congchan.github.io/posts/paper-reading-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions/</loc>
     <lastmod>2024-04-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -75,9 +81,6 @@
     <lastmod>2023-12-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/posts/a-better-practice-to-define-reward-model-with-huggingfaces-transformers/</loc>
-    <lastmod>2023-09-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://congchan.github.io/tags/rlhf/</loc>
     <lastmod>2023-09-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/posts/boosting-large-language-models-alignment-a-data-driven-bootstrap-flywheel/</loc>

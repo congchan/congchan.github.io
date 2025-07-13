@@ -6,7 +6,7 @@
     <description>Recent content on Cong&#39;s Log</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 29 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://congchan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Awesome Large Language Model (LLM) Post-training - [2025 Update]</title>
@@ -15,6 +15,14 @@
       <guid>https://congchan.github.io/posts/awesome-large-language-model-llm-post-training-2025-update/</guid>
       <description>&lt;p&gt;In the race to build truly helpful AI assistants, we&amp;rsquo;ve discovered a fundamental truth: raw intelligence isn&amp;rsquo;t enough. A model that masters calculus but can&amp;rsquo;t refuse harmful requests is like a library with no librarian - overflowing with knowledge but dangerously uncurated.&lt;/p&gt;
 &lt;p&gt;This is the alignment problem: how do we transform raw language models into trustworthy collaborators? For years, &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; reigned supreme. Its PPO-based approach taught ChatGPT to decline malicious requests and helped Claude write harmless poetry. But beneath the surface, RLHF&amp;rsquo;s complexity was showing:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Connection Between Imitation Learning and RLHF</title>
+      <link>https://congchan.github.io/posts/connection-between-imitation-learning-and-rlhf/</link>
+      <pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/connection-between-imitation-learning-and-rlhf/</guid>
+      <description>&lt;p&gt;There have been many questions about whether DPO is a form of imitation learning or (offline) reinforcement learning. The more I observe the distributions of DPO&amp;rsquo;s chosen and rejection losses, the stronger the feeling becomes that DPO is more like a form of imitation learning.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;The paper, Xiao, Teng, et al. On a Connection Between Imitation Learning and RLHF. arXiv:2503.05079&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/cite&gt; also expresses that DPO is a form of imitation learning.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Multi-token Prediction</title>
