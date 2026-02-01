@@ -24,10 +24,10 @@
       <description>&lt;p&gt;Reward modeling (RM) has emerged as a cornerstone of large language model (LLM) alignment, guiding models to align with human values and perform complex tasks. Early approaches relied heavily on Reinforcement Learning from Human Feedback (RLHF), but recent research has shifted toward more scalable, efficient, and generalizable RM frameworks. This blog explores the developmental arc of RM, connecting four seminal papers that have shaped the field: from human labeled preference to AI feedback, from Generative Reward Models(GRM) to inference-time scaling for GRM.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Matrix Stability in Deep Learning</title>
-      <link>https://congchan.github.io/posts/matrix-stability-in-deep-learning/</link>
+      <title>Matrix Stability - Manifold-Constrained Hyper-Connections &amp; Muon Optimizerg</title>
+      <link>https://congchan.github.io/posts/matrix-stability-manifold-constrained-hyper-connections-muon-optimizerg/</link>
       <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://congchan.github.io/posts/matrix-stability-in-deep-learning/</guid>
+      <guid>https://congchan.github.io/posts/matrix-stability-manifold-constrained-hyper-connections-muon-optimizerg/</guid>
       <description>&lt;h2 id=&#34;1-the-dichotomy-of-matrices&#34;&gt;1. The Dichotomy of Matrices&lt;/h2&gt;
 &lt;p&gt;In modern architectures like Transformers, stability is not a monolithic property. The properties of these matrices – their sizes, entries, and eigenvalues – crucially affect how information (and gradients) flow. For example, if a weight matrix has very large or very small singular values, it can amplify or attenuate signals and gradients. Orthonormal matrices (whose rows and columns are orthogonal unit vectors) preserve vector norms and avoid distortion, serving as a gold standard for stable signal propagation. In general, keeping matrix products well-conditioned (e.g. with moderate spectral norms) is key to avoiding exploding or vanishing signals in deep nets.&lt;/p&gt;</description>
     </item>
