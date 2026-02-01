@@ -17,6 +17,13 @@
 &lt;p&gt;This is the alignment problem: how do we transform raw language models into trustworthy collaborators? For years, &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; reigned supreme. Its PPO-based approach taught ChatGPT to decline malicious requests and helped Claude write harmless poetry. But beneath the surface, RLHF&amp;rsquo;s complexity was showing:&lt;/p&gt;</description>
     </item>
     <item>
+      <title>The Evolution of Reward Modeling - From Human Feedback to Generative Inference-Time Scaling</title>
+      <link>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</guid>
+      <description>&lt;p&gt;Reward modeling (RM) has emerged as a cornerstone of large language model (LLM) alignment, guiding models to align with human values and perform complex tasks. Early approaches relied heavily on Reinforcement Learning from Human Feedback (RLHF), but recent research has shifted toward more scalable, efficient, and generalizable RM frameworks. This blog explores the developmental arc of RM, connecting four seminal papers that have shaped the field: from human labeled preference to AI feedback, from Generative Reward Models(GRM) to inference-time scaling for GRM.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Multi-token Prediction</title>
       <link>https://congchan.github.io/posts/multi-token-prediction/</link>
       <pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate>
@@ -25,13 +32,6 @@
 &lt;p&gt;Next-token prediction is the standard training objective for most large language models (LLMs), where the model learns to predict the subsequent token in a sequence given all preceding tokens. The model is trained to maximize the probability of the next token \( x_{t+1} \) given the context \( x_{1:t} \) (all tokens up to position \( t \)).&lt;/p&gt;
 &lt;p&gt;The cross-entropy loss for next-token prediction is defined as:&lt;br&gt;
 &lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>The Evolution of Reward Modeling - From Human Feedback to Generative Inference-Time Scaling</title>
-      <link>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</link>
-      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</guid>
-      <description>&lt;p&gt;Reward modeling (RM) has emerged as a cornerstone of large language model (LLM) alignment, guiding models to align with human values and perform complex tasks. Early approaches relied heavily on Reinforcement Learning from Human Feedback (RLHF), but recent research has shifted toward more scalable, efficient, and generalizable RM frameworks. This blog explores the developmental arc of RM, connecting four seminal papers that have shaped the field: from Constitutional AI and self-evaluation mechanisms to inference-time scaling for generalist RM.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Paper Reading - Inference-Time Scaling for Generalist Reward Modeling</title>

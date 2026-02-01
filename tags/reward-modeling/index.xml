@@ -13,7 +13,7 @@
       <link>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</link>
       <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
       <guid>https://congchan.github.io/posts/the-evolution-of-reward-modeling-from-human-feedback-to-generative-inference-time-scaling/</guid>
-      <description>&lt;p&gt;Reward modeling (RM) has emerged as a cornerstone of large language model (LLM) alignment, guiding models to align with human values and perform complex tasks. Early approaches relied heavily on Reinforcement Learning from Human Feedback (RLHF), but recent research has shifted toward more scalable, efficient, and generalizable RM frameworks. This blog explores the developmental arc of RM, connecting four seminal papers that have shaped the field: from Constitutional AI and self-evaluation mechanisms to inference-time scaling for generalist RM.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Reward modeling (RM) has emerged as a cornerstone of large language model (LLM) alignment, guiding models to align with human values and perform complex tasks. Early approaches relied heavily on Reinforcement Learning from Human Feedback (RLHF), but recent research has shifted toward more scalable, efficient, and generalizable RM frameworks. This blog explores the developmental arc of RM, connecting four seminal papers that have shaped the field: from human labeled preference to AI feedback, from Generative Reward Models(GRM) to inference-time scaling for GRM.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Paper Reading - Inference-Time Scaling for Generalist Reward Modeling</title>
