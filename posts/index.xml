@@ -11,7 +11,7 @@
     <item>
       <title>Awesome Large Language Model (LLM) Post-training - [2025 Update]</title>
       <link>https://congchan.github.io/posts/awesome-large-language-model-llm-post-training-2025-update/</link>
-      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://congchan.github.io/posts/awesome-large-language-model-llm-post-training-2025-update/</guid>
       <description>&lt;p&gt;In the race to build truly helpful AI assistants, we&amp;rsquo;ve discovered a fundamental truth: raw intelligence isn&amp;rsquo;t enough. A model that masters calculus but can&amp;rsquo;t refuse harmful requests is like a library with no librarian - overflowing with knowledge but dangerously uncurated.&lt;/p&gt;
 &lt;p&gt;This is the alignment problem: how do we transform raw language models into trustworthy collaborators? For years, &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; reigned supreme. Its PPO-based approach taught ChatGPT to decline malicious requests and helped Claude write harmless poetry. But beneath the surface, RLHF&amp;rsquo;s complexity was showing:&lt;/p&gt;</description>
