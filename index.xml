@@ -4,18 +4,10 @@
     <title>Cong&#39;s Log</title>
     <link>https://congchan.github.io/</link>
     <description>Recent content on Cong&#39;s Log</description>
-    <generator>Hugo -- 0.147.9</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://congchan.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agentic Search &amp; Deep Research</title>
-      <link>https://congchan.github.io/posts/agentic-search-deep-research/</link>
-      <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://congchan.github.io/posts/agentic-search-deep-research/</guid>
-      <description>&lt;h1 id=&#34;overview-of-agentic-search-and-deep-research&#34;&gt;Overview of Agentic Search and Deep Research&lt;/h1&gt;
-&lt;p&gt;Agentic Search and Deep Research serve two very different masteries: one is about finding, and the other is about synthesizing. But in practice, they are often intertwined. Agentic Search is the &amp;ldquo;engine&amp;rdquo; that powers Deep Research, while Deep Research is the &amp;ldquo;full-service agency&amp;rdquo; (the complete project from plan to final report). Internally, it uses Large Language Models (LLMs) to interleve reasoning and tool use action, allowing it to &amp;ldquo;think&amp;rdquo; about what it needs to find, then &amp;ldquo;act&amp;rdquo; by calling tools, and &amp;ldquo;reflect&amp;rdquo; on the results to refine its next actions.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Matrix Stability - Manifold-Constrained Hyper-Connections &amp; Muon Optimizer</title>
       <link>https://congchan.github.io/posts/matrix-stability-manifold-constrained-hyper-connections-muon-optimizer/</link>
@@ -31,6 +23,20 @@
       <guid>https://congchan.github.io/posts/awesome-large-language-model-llm-post-training-2025-update/</guid>
       <description>&lt;p&gt;In the race to build truly helpful AI assistants, we&amp;rsquo;ve discovered a fundamental truth: raw intelligence isn&amp;rsquo;t enough. A model that masters calculus but can&amp;rsquo;t refuse harmful requests is like a library with no librarian - overflowing with knowledge but dangerously uncurated.&lt;/p&gt;
 &lt;p&gt;This is the alignment problem: how do we transform raw language models into trustworthy collaborators? For years, &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; reigned supreme. Its PPO-based approach taught ChatGPT to decline malicious requests and helped Claude write harmless poetry. But beneath the surface, RLHF&amp;rsquo;s complexity was showing:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Awesome Agentic Search &amp; Deep Research Papers</title>
+      <link>https://congchan.github.io/posts/awesome-agentic-search-deep-research-papers/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/awesome-agentic-search-deep-research-papers/</guid>
+      <description>&lt;p&gt;Modern AI company provide &amp;ldquo;Deep Search&amp;rdquo; and &amp;ldquo;Deep Research&amp;rdquo; as a service. For example, ChatGPT offers Thinking and Deep Research. Google&amp;rsquo;s Gemini has thinking mode and Deep Research tool(by default make use of &amp;ldquo;Flash Thinking&amp;rdquo; model). Grok support Expert mode(think hard) and Heavy mode(team of experts). DeepSeek provides DeepThink mode. Kimi offer &amp;ldquo;Agent&amp;rdquo; option, which provides various agentic capabilities such as office-pilot, web search, agent swarm and Deep Research etc..&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agentic Search &amp; Deep Research</title>
+      <link>https://congchan.github.io/posts/agentic-search-deep-research/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/agentic-search-deep-research/</guid>
+      <description>&lt;p&gt;Agentic Search and Deep Research serve two very different masteries: one is about finding, and the other is about synthesizing. But in practice, they are often intertwined. Agentic Search is the &amp;ldquo;engine&amp;rdquo; that powers Deep Research, while Deep Research is the &amp;ldquo;full-service agency&amp;rdquo; (the complete project from plan to final report). Internally, it uses Large Language Models (LLMs) to interleve reasoning and tool use action, allowing it to &amp;ldquo;think&amp;rdquo; about what it needs to find, then &amp;ldquo;act&amp;rdquo; by calling tools, and &amp;ldquo;reflect&amp;rdquo; on the results to refine its next actions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Connection Between Imitation Learning and RLHF</title>

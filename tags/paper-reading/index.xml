@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Paper Reading on Cong&#39;s Log</title>
+    <link>https://congchan.github.io/tags/paper-reading/</link>
+    <description>Recent content in Paper Reading on Cong&#39;s Log</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://congchan.github.io/tags/paper-reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Awesome Agentic Search &amp; Deep Research Papers</title>
+      <link>https://congchan.github.io/posts/awesome-agentic-search-deep-research-papers/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://congchan.github.io/posts/awesome-agentic-search-deep-research-papers/</guid>
+      <description>&lt;p&gt;Modern AI company provide &amp;ldquo;Deep Search&amp;rdquo; and &amp;ldquo;Deep Research&amp;rdquo; as a service. For example, ChatGPT offers Thinking and Deep Research. Google&amp;rsquo;s Gemini has thinking mode and Deep Research tool(by default make use of &amp;ldquo;Flash Thinking&amp;rdquo; model). Grok support Expert mode(think hard) and Heavy mode(team of experts). DeepSeek provides DeepThink mode. Kimi offer &amp;ldquo;Agent&amp;rdquo; option, which provides various agentic capabilities such as office-pilot, web search, agent swarm and Deep Research etc..&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

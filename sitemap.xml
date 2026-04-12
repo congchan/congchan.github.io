@@ -2,28 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://congchan.github.io/posts/agentic-search-deep-research/</loc>
-    <lastmod>2026-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://congchan.github.io/tags/ai-research/</loc>
-    <lastmod>2026-01-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://congchan.github.io/</loc>
-    <lastmod>2026-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://congchan.github.io/tags/llm/</loc>
-    <lastmod>2026-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://congchan.github.io/posts/</loc>
-    <lastmod>2026-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://congchan.github.io/tags/</loc>
-    <lastmod>2026-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/tags/machine-learning/</loc>
     <lastmod>2026-01-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/posts/matrix-stability-manifold-constrained-hyper-connections-muon-optimizer/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/posts/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/</loc>
     <lastmod>2026-01-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/tags/2025/</loc>
@@ -37,6 +28,24 @@
   </url><url>
     <loc>https://congchan.github.io/tags/post-training/</loc>
     <lastmod>2025-11-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/ai-research/</loc>
+    <lastmod>2025-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/posts/awesome-agentic-search-deep-research-papers/</loc>
+    <lastmod>2025-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/llm/</loc>
+    <lastmod>2025-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/paper-reading/</loc>
+    <lastmod>2025-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/tags/research-tools/</loc>
+    <lastmod>2025-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://congchan.github.io/posts/agentic-search-deep-research/</loc>
+    <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://congchan.github.io/posts/connection-between-imitation-learning-and-rlhf/</loc>
     <lastmod>2025-07-10T00:00:00+00:00</lastmod>
